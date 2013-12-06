@@ -50,13 +50,14 @@ for a in ${REVS}; do
 		make
 	else
 		for b in ${TESTS}; do
-			R2_SOURCED=1 ./$b
-			if [ $? = 0 ]; then
+			R2_SOURCED=1 ./$b | tee .output
+			if [ -z "`grep [XX] .output`" ]; then
 				echo "* Worked on revision $a"
 				exit 0
 			else
 				echo "* Error on revision $a"
 			fi
+			rm -f .output
 		done
 	fi
 	cd radare2

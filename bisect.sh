@@ -50,8 +50,12 @@ for a in ${REVS}; do
 		make
 	else
 		for b in ${TESTS}; do
-			R2_SOURCED=1 ./$b | tee .output
-			if [ -z "`grep [XX] .output`" ]; then
+			( R2_SOURCED=1 ./$b ;
+			  echo $? > .return ) | tee .output
+			RET=
+			[ "`cat .return`" != 0 ] && RET=1
+			[ -n "`grep '\[XX\]' .output`" ] && RET=1
+			if [ -z "${RET}" ]; then
 				echo "* Worked on revision $a"
 				exit 0
 			else

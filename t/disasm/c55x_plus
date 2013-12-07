@@ -4,7 +4,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 # -------------------------------
 # ADD instruction
 
-BROKEN=1
+BROKEN=
 NAME="C55x+: ADD"
 FILE=malloc://128
 CMDS='
@@ -20,7 +20,7 @@ run_test
 # -------------------------------
 # ADD instruction
 
-BROKEN=1
+BROKEN=
 NAME="C55x+: ADD (complex)"
 FILE=malloc://128
 CMDS='
@@ -68,7 +68,7 @@ run_test
 # -------------------------------
 # ASUB instruction
 
-BROKEN=1
+BROKEN=
 NAME="C55x+: ASUB"
 FILE=malloc://32
 CMDS='
@@ -116,7 +116,7 @@ run_test
 # -------------------------------
 # MACM instruction
 
-BROKEN=1
+BROKEN=
 NAME="C55x+: MACM"
 FILE=malloc://32
 CMDS='
@@ -132,7 +132,7 @@ run_test
 # -------------------------------
 # MOV instruction (with complex operand)
 
-BROKEN=1
+BROKEN=
 NAME="C55x+: MOV (with complex operand)"
 FILE=malloc://32
 CMDS='
@@ -148,7 +148,7 @@ run_test
 # -------------------------------
 # MOV instruction (combined)
 
-BROKEN=1
+BROKEN=
 NAME="C55x+: MOV (combined with another instruction)"
 FILE=malloc://128
 CMDS='
@@ -157,14 +157,14 @@ e io.va=true
 wx 395102a0b411014033
 pi 1
 '
-EXPECT='mov *(ar1+t0b) << t3, ac2 || mov ac1.l, *ar4
+EXPECT='mov ac0.l, *ar2 || mov *(ar1+t0b) << t3, ac1
 '
 run_test
 
 # -------------------------------
 # MOV instruction
 
-BROKEN=1
+BROKEN=
 NAME="C55x+: MOV"
 FILE=malloc://128
 CMDS='
@@ -180,7 +180,7 @@ run_test
 # -------------------------------
 # MPYM instruction
 
-BROKEN=1
+BROKEN=
 NAME="C55x+: MPYM"
 FILE=malloc://128
 CMDS='
@@ -196,7 +196,7 @@ run_test
 # -------------------------------
 # SUB instruction
 
-BROKEN=1
+BROKEN=
 NAME="C55x+: SUB"
 FILE=malloc://128
 CMDS='
@@ -261,6 +261,7 @@ EXPECT='b #0x00ffa1
 # -------------------------------
 # B instruction (jump check)
 
+BROKEN=
 NAME="C55x+: B - jump check"
 FILE=malloc://512280
 CMDS='
@@ -373,7 +374,7 @@ run_test
 # -------------------------------
 # SFTS instruction
 
-BROKEN=1
+BROKEN=
 NAME="C55x+: SFTS"
 FILE=malloc://128
 CMDS='

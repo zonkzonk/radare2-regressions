@@ -258,6 +258,8 @@ pi 1
 '
 EXPECT='b #0x00ffa1
 '
+run_test
+
 # -------------------------------
 # B instruction (jump check)
 

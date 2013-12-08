@@ -18,6 +18,7 @@ EXPECT='            0x00000000    b801000000   mov eax, 0x1 ; 0x00000001
 '
 run_test
 
+
 NAME='pD -10 @ 0'
 BROKEN=
 FILE=malloc://512
@@ -26,18 +27,11 @@ CMDS='e anal.hasnext=0
 e asm.arch=x86
 e asm.bits=64
 wx b8010000004839ca7f00
-pD -10
+pD -10 @ 10
 '
-EXPECT='            0xfffffffffffffff6    ff           invalid
-            0xfffffffffffffff7    ff           invalid
-            0xfffffffffffffff8    ff           invalid
-            0xfffffffffffffff9    ff           invalid
-            0xfffffffffffffffa    ff           invalid
-            0xfffffffffffffffb    ff           invalid
-            0xfffffffffffffffc    ff           invalid
-            0xfffffffffffffffd    ff           invalid
-            0xfffffffffffffffe    ff           invalid
-            0xffffffffffffffff    ff           invalid
+EXPECT='            0x00000000    b801000000   mov eax, 0x1 ; 0x00000001 
+            0x00000005    4839ca       cmp rdx, rcx
+            0x00000008    7f00         jg 0xa
 '
 run_test
 
@@ -79,15 +73,12 @@ FILE=malloc://512
 ARGS=
 CMDS='e anal.hasnext=0
 e asm.arch=x86
-e asm.bits=64
+e asm.bits=32
 wx b8010000004839ca7f
-pd -4 @ 1
+pd -2 @ 10
 '
-EXPECT='            0x00000000    b801000000   mov eax, 0x1 ; 0x00000001 
-            0xfffffffffffffffc    ff           invalid
-            0xfffffffffffffffd    ff           invalid
-            0xfffffffffffffffe    ff           invalid
-            0xffffffffffffffff    00           invalid
+EXPECT='            0x00000006    39ca         cmp edx, ecx
+            0x00000008    7f00         jg 0xa
 '
 run_test
 
@@ -102,20 +93,12 @@ e asm.bits=64
 wx 20c09fe5b8010000004839ca7f
 pd -5 @ 6
 '
-EXPECT='            0x00000000    20c0         and al, al
-            0x00000002    9f           lahf
-            0x00000003    e5b8         in eax, 0xb8
-            0x00000005    0100         add [rax], eax
-            0xfffffffffffffffc    ff           invalid
-            0xfffffffffffffffd    ff           invalid
-            0xfffffffffffffffe    ff           invalid
-            0xffffffffffffffff    00           invalid
-'
+EXPECT=''
 run_test
 
 
 NAME='pd -2 @ 5'
-BROKEN='Yes'
+BROKEN=
 FILE=malloc://512
 ARGS=
 CMDS='
@@ -123,12 +106,10 @@ e anal.hasnext=0
 e asm.arch=x86
 e asm.bits=64
 wx 20c09fe5b8010000004839ca7f
-pd -2 @ 5
+pd -2 @ 0xc 
 '
-EXPECT='
-            0x00000000    20c0         and al, al
-            0x00000002    9f           lahf
-            0x00000003    e5b8         in eax, 0xb8
+EXPECT='            0x00000007    0000         add [rax], al
+            0x00000009    4839ca       cmp rdx, rcx
 '
 run_test
 
@@ -140,31 +121,11 @@ CMDS='
 e anal.hasnext=0
 e asm.arch=x86
 e asm.bits=64
-wx 20c09fe5b8010000004839ca7f
-pd -3 @ 6
+wx 554889e54883c7684883c6685de950350000
+pd -3 @ 8
 '
-EXPECT='            0x00000002    9f           lahf
-            0x00000003    e5b8         in eax, 0xb8
-            0x00000005    0100         add [rax], eax
-'
-run_test
-
-NAME='pd -5 @ 5'
-BROKEN=
-FILE=malloc://512
-ARGS=
-CMDS='
-e asm.arch=x86
-e asm.bits=64
-wx 20c09fe5b8010000004839ca7f
-pd -5 @ 5
-'
-EXPECT='            0x00000000    20c0         and al, al
-            0x00000002    9f           lahf
-            0x00000003    e5b8         in eax, 0xb8
-            0xfffffffffffffffc    ff           invalid
-            0xfffffffffffffffd    ff           invalid
-            0xfffffffffffffffe    ff           invalid
-            0xffffffffffffffff    00           invalid
+EXPECT='            0x00000000    55           push rbp
+            0x00000001    4889e5       mov rbp, rsp
+            0x00000004    4883c768     add rdi, 0x68
 '
 run_test

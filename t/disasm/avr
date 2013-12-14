@@ -147,15 +147,29 @@ EXPECT='ldi r25, 0x07
 run_test
 
 # -------------------------------
-# LDS instruction
-NAME="AVR: [LDS]"
+# LDD instruction
+NAME="AVR: [LDD]"
 FILE=malloc://32
 CMDS='
 e asm.arch=avr
-wx 91800102
+wx 9180
 pi 1
 '
-EXPECT='lds r24,
+EXPECT='ldd r9, Z+1
+'
+run_test
+
+# -------------------------------
+# LDS instruction
+NAME="AVR: [LDS]"
+BROKEN=1
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 80910201
+pi 1
+'
+EXPECT='lds r24, 0x12300
 '
 run_test
 
@@ -195,6 +209,32 @@ wx df93
 pi 1
 '
 EXPECT='push r29
+'
+run_test
+
+# -------------------------------
+# POP instruction
+NAME="AVR: [POP]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx cf91
+pi 1
+'
+EXPECT='pop r28
+'
+run_test
+
+# -------------------------------
+# SBIW instruction
+NAME="AVR: [SBIW]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 0197
+pi 1
+'
+EXPECT='sbiw r24, 0x01
 '
 run_test
 
@@ -247,6 +287,33 @@ wx 1182
 pi 1
 '
 EXPECT='std Z+1, r1
+'
+run_test
+
+# -------------------------------
+# STS instruction
+NAME="AVR: [STS]"
+BROKEN=1
+FILE=malloc://4096
+CMDS='
+e asm.arch=avr
+wx 9093c007 @ 0x2d1
+s 0x2d1
+pi 1
+'
+EXPECT='sts 0x12720, r25
+'
+run_test
+
+NAME="AVR: [STS] - jump check"
+BROKEN=1
+FILE=malloc://4096
+CMDS='
+e asm.arch=avr
+wx 9093c007 @ 0x2d1
+ao 1~jump
+'
+EXPECT='jump: 0x00012720
 '
 run_test
 

@@ -1,0 +1,253 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+# -------------------------------
+# BLD instruction
+NAME="AVR: [BLD]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx e1f8
+pi 1
+'
+EXPECT='bld r14, 1
+'
+run_test
+
+# -------------------------------
+# CLR instruction
+NAME="AVR: [CLR]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx ff24
+pi 1
+'
+EXPECT='clr r15
+'
+run_test
+
+# -------------------------------
+# CALL instruction
+NAME="AVR: [CALL]"
+BROKEN=1
+FILE=malloc://4096
+CMDS='
+e asm.arch=avr
+wx 0e940b10 @ 0x2d1
+s 0x2d1
+pi 1
+'
+EXPECT='call 0x1281c
+'
+run_test
+
+NAME="AVR: [CALL] - jump check"
+BROKEN=1
+FILE=malloc://4096
+CMDS='
+e asm.arch=avr
+wx 0e940b10 @ 0x2d1
+ao 1~jump
+'
+EXPECT='jump: 0x0001281c
+'
+run_test
+
+# -------------------------------
+# CPI instruction
+NAME="AVR: [CPI]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 853f
+pi 1
+'
+EXPECT='cpi r24, 0xf5
+'
+run_test
+
+# -------------------------------
+# CPC instruction
+NAME="AVR: [CPC]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 9207
+pi 1
+'
+EXPECT='cpc r25, r18
+'
+run_test
+
+# -------------------------------
+# EOR instruction
+NAME="AVR: [EOR]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 8927
+pi 1
+'
+EXPECT='eor r24, r25
+'
+run_test
+
+# -------------------------------
+# ELPM instruction
+NAME="AVR: [ELPM]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 0790
+pi 1
+'
+EXPECT='elpm r0, Z+
+'
+run_test
+
+# -------------------------------
+# IN instruction
+NAME="AVR: [IN]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx cdb7
+pi 1
+'
+# TODO: should be in r28, spl
+EXPECT='in r28, 0x3d
+'
+run_test
+
+# -------------------------------
+# INC instruction
+NAME="AVR: [INC]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx e394
+pi 1
+'
+EXPECT='inc r14
+'
+run_test
+
+# -------------------------------
+# LDI instruction
+NAME="AVR: [LDI]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 97e0
+pi 1
+'
+EXPECT='ldi r25, 0x07
+'
+run_test
+
+# -------------------------------
+# LDS instruction
+NAME="AVR: [LDS]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 91800102
+pi 1
+'
+EXPECT='lds r24,
+'
+run_test
+
+# -------------------------------
+# MOV instruction
+NAME="AVR: [MOV]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 0f2e
+pi 1
+'
+EXPECT='mov r0, r31
+'
+run_test
+
+# -------------------------------
+# MOVW instruction
+NAME="AVR: [MOVW]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx b901
+pi 1
+'
+EXPECT='movw r22, r18
+'
+run_test
+
+# -------------------------------
+# PUSH instruction
+NAME="AVR: [PUSH]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx df93
+pi 1
+'
+EXPECT='push r29
+'
+run_test
+
+# -------------------------------
+# SER instruction
+NAME="AVR: [SER]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 8fef
+pi 1
+'
+EXPECT='ser r24
+'
+run_test
+
+# -------------------------------
+# SET instruction
+NAME="AVR: [SET]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 6894
+pi 1
+'
+EXPECT='set 
+'
+run_test
+
+# -------------------------------
+# ST instruction
+NAME="AVR: [ST]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 1082
+pi 1
+'
+EXPECT='st Z, r1
+'
+run_test
+
+# -------------------------------
+# STD instruction
+NAME="AVR: [STD]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 1182
+pi 1
+'
+EXPECT='std Z+1, r1
+'
+run_test
+
+

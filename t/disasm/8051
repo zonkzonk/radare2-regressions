@@ -116,7 +116,7 @@ e asm.arch=8051
 wx f4
 pi 1
 '
-EXPECT='cpl a
+EXPECT='cpl a 0x0
 '
 run_test
 
@@ -130,7 +130,7 @@ e asm.arch=8051
 wx 14
 pi 1
 '
-EXPECT='dec a
+EXPECT='dec a 0x0
 '
 run_test
 

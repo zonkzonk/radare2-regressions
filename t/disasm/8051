@@ -109,7 +109,7 @@ run_test
 # -------------------------------
 # CPL instruction
 NAME="8051: [CPL]"
-BROKEN=1
+BROKEN=
 FILE=malloc://32
 CMDS='
 e asm.arch=8051
@@ -123,7 +123,7 @@ run_test
 # -------------------------------
 # DEC instruction
 NAME="8051: [DEC]"
-BROKEN=1
+BROKEN=
 FILE=malloc://32
 CMDS='
 e asm.arch=8051

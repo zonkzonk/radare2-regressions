@@ -9,7 +9,7 @@ run_test
 
 NAME="stdin quit"
 # fails in jenkins only?
-BROKEN=1
+BROKEN=
 SHELLCMD='echo q | rarun2 timeout=1 program="/usr/bin/r2" arg1=-nq arg2=-'
 EXIT_CODE=0
 run_test

@@ -1,0 +1,53 @@
+#!/bin/sh
+
+# GPL 3+ - Copyright (C) 2013  pancake
+
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+NAME='avr entrypoint'
+BROKEN=1
+FILE=../../b/files/bugurtos-avr.elf
+ARGS=
+CMDS='ie~addr
+'
+EXPECT='addr=0x00000000 off=0x00000074 baddr=0x00000000
+'
+run_test
+
+NAME='avr disasm negative baddr'
+BROKEN=1
+FILE=../../b/files/bugurtos-avr.elf
+ARGS=
+CMDS='s 0x100000506
+pd 2~:1
+s+2
+pd 1
+'
+EXPECT='call 0x18CE
+call 0x18CE
+'
+run_test
+
+
+NAME="avr empty disasm"
+BROKEN=1
+FILE=-
+ARGS=
+CMDS='e asm.arch=avr
+e asm.bits=8
+pad 0e94
+'
+EXPECT='invalid
+'
+run_test
+
+NAME="avr opcode size"
+FILE=-
+ARGS=
+CMDS='e asm.arch=avr
+wx 0e94
+ao~size[1]
+'
+EXPECT='2
+'
+run_test

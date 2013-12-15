@@ -2,6 +2,58 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 # -------------------------------
+# ADD instruction
+NAME="AVR: [ADD]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 480f
+pi 1
+'
+EXPECT='add r20, r24
+'
+run_test
+
+# -------------------------------
+# ADC instruction
+NAME="AVR: [ADC]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 591f
+pi 1
+'
+EXPECT='adc r21, r25
+'
+run_test
+
+# -------------------------------
+# ADIW instruction
+NAME="AVR: [ADIW]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 0196
+pi 1
+'
+EXPECT='adiw r24, 0x01
+'
+run_test
+
+# -------------------------------
+# ANDI instruction
+NAME="AVR: [ANDI]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 8f7e
+pi 1
+'
+EXPECT='andi r24, 0xef
+'
+run_test
+
+# -------------------------------
 # BLD instruction
 NAME="AVR: [BLD]"
 FILE=malloc://32
@@ -11,6 +63,19 @@ wx e1f8
 pi 1
 '
 EXPECT='bld r14, 1
+'
+run_test
+
+# -------------------------------
+# CLI instruction
+NAME="AVR: [CLI]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx f894
+pi 1
+'
+EXPECT='cli 
 '
 run_test
 
@@ -55,6 +120,32 @@ EXPECT='jump: 0x0001281c
 run_test
 
 # -------------------------------
+# COM instruction
+NAME="AVR: [COM]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 8095
+pi 1
+'
+EXPECT='com r24
+'
+run_test
+
+# -------------------------------
+# CP instruction
+NAME="AVR: [CP]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 2817
+pi 1
+'
+EXPECT='cp r18, r24
+'
+run_test
+
+# -------------------------------
 # CPI instruction
 NAME="AVR: [CPI]"
 FILE=malloc://32
@@ -77,6 +168,19 @@ wx 9207
 pi 1
 '
 EXPECT='cpc r25, r18
+'
+run_test
+
+# -------------------------------
+# DEC instruction
+NAME="AVR: [DEC]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 0a94
+pi 1
+'
+EXPECT='dec r0
 '
 run_test
 
@@ -134,6 +238,19 @@ EXPECT='inc r14
 run_test
 
 # -------------------------------
+# LD instruction
+NAME="AVR: [LD]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 8081
+pi 1
+'
+EXPECT='ld r24, Z
+'
+run_test
+
+# -------------------------------
 # LDI instruction
 NAME="AVR: [LDI]"
 FILE=malloc://32
@@ -174,6 +291,19 @@ EXPECT='lds r24, 0x12300
 run_test
 
 # -------------------------------
+# LSL instruction
+NAME="AVR: [LSL]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 880f
+pi 1
+'
+EXPECT='lsl r24
+'
+run_test
+
+# -------------------------------
 # MOV instruction
 NAME="AVR: [MOV]"
 FILE=malloc://32
@@ -196,6 +326,33 @@ wx b901
 pi 1
 '
 EXPECT='movw r22, r18
+'
+run_test
+
+# -------------------------------
+# ORI instruction
+NAME="AVR: [ORI]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 8160
+pi 1
+'
+EXPECT='ori r24, 0x01
+'
+run_test
+
+# -------------------------------
+# OUT instruction
+NAME="AVR: [OUT]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 9ebf
+pi 1
+'
+# TODO: should be out sph, r25
+EXPECT='out 0x3e, r25
 '
 run_test
 
@@ -226,6 +383,71 @@ EXPECT='pop r28
 run_test
 
 # -------------------------------
+# RET instruction
+NAME="AVR: [RET]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 0895
+pi 1
+'
+EXPECT='ret 
+'
+run_test
+
+# -------------------------------
+# RETI instruction
+NAME="AVR: [RETI]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 1895
+pi 1
+'
+EXPECT='reti 
+'
+run_test
+
+# -------------------------------
+# ROL instruction
+NAME="AVR: [ROL]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 991f
+pi 1
+'
+EXPECT='rol r25
+'
+run_test
+
+# -------------------------------
+# PUSH instruction
+NAME="AVR: [SBC]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 390b
+pi 1
+'
+EXPECT='sbc r19, r25
+'
+run_test
+
+# -------------------------------
+# SBCI instruction
+NAME="AVR: [SBCI]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 3f4f
+pi 1
+'
+EXPECT='sbci r19, 0xff
+'
+run_test
+
+# -------------------------------
 # SBIW instruction
 NAME="AVR: [SBIW]"
 FILE=malloc://32
@@ -235,6 +457,19 @@ wx 0197
 pi 1
 '
 EXPECT='sbiw r24, 0x01
+'
+run_test
+
+# -------------------------------
+# SEI instruction
+NAME="AVR: [SEI]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 7894
+pi 1
+'
+EXPECT='sei 
 '
 run_test
 
@@ -314,6 +549,45 @@ wx 9093c007 @ 0x2d1
 ao 1~jump
 '
 EXPECT='jump: 0x00012720
+'
+run_test
+
+# -------------------------------
+# SUB instruction
+NAME="AVR: [SUB]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 281b
+pi 1
+'
+EXPECT='sub r18, r24
+'
+run_test
+
+# -------------------------------
+# SUBI instruction
+NAME="AVR: [SUBI]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 2f5f
+pi 1
+'
+EXPECT='subi r18, 0xff
+'
+run_test
+
+# -------------------------------
+# TST instruction
+NAME="AVR: [TST]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 8823
+pi 1
+'
+EXPECT='tst r24
 '
 run_test
 

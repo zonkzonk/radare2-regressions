@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# GPL 3+ - Copyright (C) 2013  pancake
+
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+NAME='mach0 entrypoint'
+BROKEN=
+FILE=../../b/files/hello-osx-i386
+ARGS=
+CMDS='ie~addr
+'
+EXPECT='addr=0x00001f14 off=0x00000f14 baddr=0x00000000
+'
+run_test
+
+NAME='osx mach0 entrypoint'
+BROKEN=
+FILE=../../b/files/ls-osx-x86_64
+ARGS=
+CMDS='ie~addr
+'
+EXPECT='addr=0x1000010f8 off=0x000010f8 baddr=0x00000000
+'
+run_test

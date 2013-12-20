@@ -23,3 +23,14 @@ CMDS='ie~addr
 EXPECT='addr=0x1000010f8 off=0x000010f8 baddr=0x00000000
 '
 run_test
+
+NAME='osx mach0 ik'
+BROKEN=
+FILE=../../b/files/ls-osx-x86_64
+ARGS=
+IGNORE_ERR=1
+CMDS='ik
+'
+EXPECT='mach0.entry=4344
+'
+run_test

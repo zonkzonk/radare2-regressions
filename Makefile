@@ -1,4 +1,5 @@
-PULLADDR=https://github.com/radare/r2-regressions.git
+# XXX
+PULLADDR=https://github.com/radare/radare2-regressions.git
 
 all:
 	-git pull ${PULLADDR}

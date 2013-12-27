@@ -176,6 +176,10 @@ else
 fi
 printf "      TOTAL\r"
 print_label "[${TESTS_TOTAL}]"
+
+BN=`echo "100 ${TESTS_BROKEN} * ${TESTS_TOTAL} / n" | dc`
+printf "      BROKENNESS\r"
+print_label "[${BN}%]"
 echo
 
 # Save statistics

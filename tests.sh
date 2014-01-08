@@ -39,6 +39,9 @@ run_test() {
     # TODO: remove which dependency
     [ -z "${R2}" ] && R2=$(which radare2)
     PD="/tmp/r2-regressions/" # XXX
+    if [ -n "${R2RWD}" ]; then
+      PD="${R2RWD}"
+    fi
     if [ -z "${R2}" ]; then
       echo "ERROR: Cannot find radare2 program in PATH"
       exit 1
@@ -96,6 +99,10 @@ run_test() {
 
     mkdir -p ${PD}
     TMP_RAD=`mktemp "${PD}/${TEST_NAME}-rad.XXXXXX"`
+    if [ $? != 0 ]; then
+        echo "Please set R2RWD path to something different than /tmp/r2-regressions"
+        exit 1
+    fi
     TMP_OUT=`mktemp "${PD}/${TEST_NAME}-out.XXXXXX"`
     TMP_ERR=`mktemp "${PD}/${TEST_NAME}-err.XXXXXX"`
     TMP_EXR=`mktemp "${PD}/${TEST_NAME}-exr.XXXXXX"` # expected error

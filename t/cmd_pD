@@ -12,9 +12,9 @@ e asm.bits=64
 wx b8010000004839ca7f00
 pD -10 @ 0xa
 '
-EXPECT='            0x00000000    b801000000   mov eax, 0x1 ;  0x00000001 
-            0x00000005    4839ca       cmp rdx, rcx
-            0x00000008    7f00         jg 0xa
+EXPECT='           0x00000000    b801000000   mov eax, 0x1 ;  0x00000001 
+           0x00000005    4839ca       cmp rdx, rcx
+           0x00000008    7f00         jg 0xa
 '
 run_test
 
@@ -29,9 +29,9 @@ e asm.bits=64
 wx b8010000004839ca7f00
 pD -10 @ 10
 '
-EXPECT='            0x00000000    b801000000   mov eax, 0x1 ;  0x00000001 
-            0x00000005    4839ca       cmp rdx, rcx
-            0x00000008    7f00         jg 0xa
+EXPECT='           0x00000000    b801000000   mov eax, 0x1 ;  0x00000001 
+           0x00000005    4839ca       cmp rdx, rcx
+           0x00000008    7f00         jg 0xa
 '
 run_test
 
@@ -45,7 +45,7 @@ e asm.bits=64
 wx b8010000004839ca7f00
 pD 5
 '
-EXPECT='            0x00000000    b801000000   mov eax, 0x1 ;  0x00000001 
+EXPECT='           0x00000000    b801000000   mov eax, 0x1 ;  0x00000001 
 '
 run_test
 
@@ -59,11 +59,11 @@ e asm.bits=64
 wx b8010000004839ca7f
 pd 5
 '
-EXPECT='            0x00000000    b801000000   mov eax, 0x1 ;  0x00000001 
-            0x00000005    4839ca       cmp rdx, rcx
-        ,=< 0x00000008    7f00         jg 0xa
-        `-> 0x0000000a    0000         add [rax], al
-            0x0000000c    0000         add [rax], al
+EXPECT='           0x00000000    b801000000   mov eax, 0x1 ;  0x00000001 
+           0x00000005    4839ca       cmp rdx, rcx
+       ,=< 0x00000008    7f00         jg 0xa
+       `-> 0x0000000a    0000         add [rax], al
+           0x0000000c    0000         add [rax], al
 '
 run_test
 
@@ -77,8 +77,8 @@ e asm.bits=32
 wx b8010000004839ca7f
 pd -2 @ 10
 '
-EXPECT='            0x00000006    39ca         cmp edx, ecx
-            0x00000008    7f00         jg 0xa
+EXPECT='           0x00000006    39ca         cmp edx, ecx
+           0x00000008    7f00         jg 0xa
 '
 run_test
 
@@ -108,8 +108,8 @@ e asm.bits=64
 wx 20c09fe5b8010000004839ca7f
 pd -2 @ 0xc 
 '
-EXPECT='            0x00000007    0000         add [rax], al
-            0x00000009    4839ca       cmp rdx, rcx
+EXPECT='           0x00000007    0000         add [rax], al
+           0x00000009    4839ca       cmp rdx, rcx
 '
 run_test
 
@@ -124,8 +124,8 @@ e asm.bits=64
 wx 554889e54883c7684883c6685de950350000
 pd -3 @ 8
 '
-EXPECT='            0x00000000    55           push rbp
-            0x00000001    4889e5       mov rbp, rsp
-            0x00000004    4883c768     add rdi, 0x68
+EXPECT='           0x00000000    55           push rbp
+           0x00000001    4889e5       mov rbp, rsp
+           0x00000004    4883c768     add rdi, 0x68
 '
 run_test

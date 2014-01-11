@@ -1297,3 +1297,259 @@ pi 1
 EXPECT='dec dword [eax]
 '
 run_test
+
+# -------------------------------
+# SLDT [EAX] instruction
+NAME="x86: [SLDT [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f0000
+pi 1
+'
+EXPECT='sldt word [eax]
+'
+run_test
+
+
+
+# -------------------------------
+# STR  [EAX] instruction
+NAME="x86: [STR  [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f0008
+pi 1
+'
+EXPECT='str word [eax]
+'
+run_test
+
+
+
+# -------------------------------
+# LLDT [EAX] instruction
+NAME="x86: [LLDT [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f0010
+pi 1
+'
+EXPECT='lldt word [eax]
+'
+run_test
+
+
+# -------------------------------
+# LLDT AX instruction
+NAME="x86: [LLDT AX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f00d0
+pi 1
+'
+EXPECT='lldt ax
+'
+run_test
+
+
+# -------------------------------
+# LTR  [EAX] instruction
+NAME="x86: [LTR  [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f0018
+pi 1
+'
+EXPECT='ltr word [eax]
+'
+run_test
+
+
+# -------------------------------
+# LTR  AX instruction
+NAME="x86: [LTR  AX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f00d8
+pi 1
+'
+EXPECT='ltr ax
+'
+run_test
+
+
+# -------------------------------
+# VERR [EAX] instruction
+NAME="x86: [VERR [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f0020
+pi 1
+'
+EXPECT='verr word [eax]
+'
+run_test
+
+
+# -------------------------------
+# VERR AX instruction
+NAME="x86: [VERR AX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f00e0
+pi 1
+'
+EXPECT='verr ax
+'
+run_test
+
+
+# -------------------------------
+# VERW [EAX] instruction
+NAME="x86: [VERW [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f0028
+pi 1
+'
+EXPECT='verw word [eax]
+'
+run_test
+
+
+# -------------------------------
+# VERW AX instruction
+NAME="x86: [VERW AX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f00e8
+pi 1
+'
+EXPECT='verw ax
+'
+run_test
+
+
+# -------------------------------
+# SGDT [EAX] instruction
+NAME="x86: [SGDT [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f0100
+pi 1
+'
+EXPECT='sgdt [eax]
+'
+run_test
+
+
+# -------------------------------
+# SIDT [EAX] instruction
+NAME="x86: [SIDT [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f0108
+pi 1
+'
+EXPECT='sidt [eax]
+'
+run_test
+
+
+# -------------------------------
+# LGDT [EAX] instruction
+NAME="x86: [LGDT [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f0110
+pi 1
+'
+EXPECT='lgdt [eax]
+'
+run_test
+
+
+# -------------------------------
+# LIDT [EAX] instruction
+NAME="x86: [LIDT [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f0118
+pi 1
+'
+EXPECT='lidt [eax]
+'
+run_test
+
+
+# -------------------------------
+# SMSW [EAX] instruction
+NAME="x86: [SMSW [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f0120
+pi 1
+'
+EXPECT='smsw word [eax]
+'
+run_test
+
+
+# -------------------------------
+# LMSW [EAX] instruction
+NAME="x86: [LMSW [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f0130
+pi 1
+'
+EXPECT='lmsw word [eax]
+'
+run_test
+
+
+# -------------------------------
+# INVLPG [EAX] instruction
+NAME="x86: [INVLPG [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f0138
+pi 1
+'
+EXPECT='invlpg [eax]
+'
+run_test

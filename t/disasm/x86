@@ -548,3 +548,752 @@ pi 1
 EXPECT='aas
 '
 run_test
+
+# -------------------------------
+# PUSH EAX instruction
+NAME="x86: [PUSH EAX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 50
+pi 1
+'
+EXPECT='push eax
+'
+run_test
+
+
+# -------------------------------
+# PUSH ECX instruction
+NAME="x86: [PUSH ECX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 51
+pi 1
+'
+EXPECT='push ecx
+'
+run_test
+
+
+# -------------------------------
+# PUSH EDX instruction
+NAME="x86: [PUSH EDX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 52
+pi 1
+'
+EXPECT='push edx
+'
+run_test
+
+
+# -------------------------------
+# PUSH EBX instruction
+NAME="x86: [PUSH EBX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 53
+pi 1
+'
+EXPECT='push ebx
+'
+run_test
+
+
+# -------------------------------
+# PUSH ESP instruction
+NAME="x86: [PUSH ESP]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 54
+pi 1
+'
+EXPECT='push esp
+'
+run_test
+
+
+# -------------------------------
+# PUSH EBP instruction
+NAME="x86: [PUSH EBP]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 55
+pi 1
+'
+EXPECT='push ebp
+'
+run_test
+
+
+# -------------------------------
+# PUSH ESI instruction
+NAME="x86: [PUSH ESI]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 56
+pi 1
+'
+EXPECT='push esi
+'
+run_test
+
+
+# -------------------------------
+# PUSH EDI instruction
+NAME="x86: [PUSH EDI]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 57
+pi 1
+'
+EXPECT='push edi
+'
+run_test
+
+
+# -------------------------------
+# POP EAX instruction
+NAME="x86: [POP EAX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 58
+pi 1
+'
+EXPECT='pop eax
+'
+run_test
+
+
+# -------------------------------
+# POP ECX instruction
+NAME="x86: [POP ECX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 59
+pi 1
+'
+EXPECT='pop ecx
+'
+run_test
+
+
+# -------------------------------
+# POP EDX instruction
+NAME="x86: [POP EDX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 5A
+pi 1
+'
+EXPECT='pop edx
+'
+run_test
+
+
+# -------------------------------
+# POP EBX instruction
+NAME="x86: [POP EBX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 5B
+pi 1
+'
+EXPECT='pop ebx
+'
+run_test
+
+
+# -------------------------------
+# POP ESP instruction
+NAME="x86: [POP ESP]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 5C
+pi 1
+'
+EXPECT='pop esp
+'
+run_test
+
+
+# -------------------------------
+# POP EBP instruction
+NAME="x86: [POP EBP]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 5D
+pi 1
+'
+EXPECT='pop ebp
+'
+run_test
+
+
+# -------------------------------
+# POP ESI instruction
+NAME="x86: [POP ESI]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 5E
+pi 1
+'
+EXPECT='pop esi
+'
+run_test
+
+
+# -------------------------------
+# POP EDI instruction
+NAME="x86: [POP EDI]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 5F
+pi 1
+'
+EXPECT='pop edi
+'
+run_test
+
+
+# -------------------------------
+# PUSH DWORD [EAX] instruction
+NAME="x86: [PUSH DWORD [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx ff30
+pi 1
+'
+EXPECT='push dword [eax]
+'
+run_test
+
+
+# -------------------------------
+# POP DWORD [EAX] instruction
+NAME="x86: [POP DWORD [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 8f00
+pi 1
+'
+EXPECT='pop dword [eax]
+'
+run_test
+
+
+# -------------------------------
+# PUSH ES instruction
+NAME="x86: [PUSH ES]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 06
+pi 1
+'
+EXPECT='push es
+'
+run_test
+
+
+# -------------------------------
+# PUSH CS instruction
+NAME="x86: [PUSH CS]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0E
+pi 1
+'
+EXPECT='push cs
+'
+run_test
+
+
+# -------------------------------
+# PUSH SS instruction
+NAME="x86: [PUSH SS]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 16
+pi 1
+'
+EXPECT='push ss
+'
+run_test
+
+
+# -------------------------------
+# PUSH DS instruction
+NAME="x86: [PUSH DS]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 1E
+pi 1
+'
+EXPECT='push ds
+'
+run_test
+
+
+# -------------------------------
+# POP ES instruction
+NAME="x86: [POP ES]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 07
+pi 1
+'
+EXPECT='pop es
+'
+run_test
+
+
+# -------------------------------
+# POP SS instruction
+NAME="x86: [POP SS]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 17
+pi 1
+'
+EXPECT='pop ss
+'
+run_test
+
+
+# -------------------------------
+# POP DS instruction
+NAME="x86: [POP DS]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 1F
+pi 1
+'
+EXPECT='pop ds
+'
+run_test
+
+
+# -------------------------------
+# PUSH 0 instruction
+NAME="x86: [PUSH 0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 6a00
+pi 1
+'
+EXPECT='push 0x0
+'
+run_test
+
+
+# -------------------------------
+# PUSH FS instruction
+NAME="x86: [PUSH FS]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fa0
+pi 1
+'
+EXPECT='push fs
+'
+run_test
+
+
+# -------------------------------
+# POP FS instruction
+NAME="x86: [POP FS]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fa1
+pi 1
+'
+EXPECT='pop fs
+'
+run_test
+
+
+# -------------------------------
+# PUSH GS instruction
+NAME="x86: [PUSH GS]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fa8
+pi 1
+'
+EXPECT='push gs
+'
+run_test
+
+
+# -------------------------------
+# POP GS instruction
+NAME="x86: [POP GS]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fa9
+pi 1
+'
+EXPECT='pop gs
+'
+run_test
+
+
+# -------------------------------
+# INC EAX instruction
+NAME="x86: [INC EAX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 40
+pi 1
+'
+EXPECT='inc eax
+'
+run_test
+
+
+# -------------------------------
+# INC ECX instruction
+NAME="x86: [INC ECX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 41
+pi 1
+'
+EXPECT='inc ecx
+'
+run_test
+
+
+# -------------------------------
+# INC EDX instruction
+NAME="x86: [INC EDX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 42
+pi 1
+'
+EXPECT='inc edx
+'
+run_test
+
+
+# -------------------------------
+# INC EBX instruction
+NAME="x86: [INC EBX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 43
+pi 1
+'
+EXPECT='inc ebx
+'
+run_test
+
+
+# -------------------------------
+# INC ESP instruction
+NAME="x86: [INC ESP]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 44
+pi 1
+'
+EXPECT='inc esp
+'
+run_test
+
+
+# -------------------------------
+# INC EBP instruction
+NAME="x86: [INC EBP]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 45
+pi 1
+'
+EXPECT='inc ebp
+'
+run_test
+
+
+# -------------------------------
+# INC ESI instruction
+NAME="x86: [INC ESI]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 46
+pi 1
+'
+EXPECT='inc esi
+'
+run_test
+
+
+# -------------------------------
+# INC EDI instruction
+NAME="x86: [INC EDI]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 47
+pi 1
+'
+EXPECT='inc edi
+'
+run_test
+
+
+# -------------------------------
+# DEC EAX instruction
+NAME="x86: [DEC EAX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 48
+pi 1
+'
+EXPECT='dec eax
+'
+run_test
+
+
+# -------------------------------
+# DEC ECX instruction
+NAME="x86: [DEC ECX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 49
+pi 1
+'
+EXPECT='dec ecx
+'
+run_test
+
+
+# -------------------------------
+# DEC EDX instruction
+NAME="x86: [DEC EDX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 4a
+pi 1
+'
+EXPECT='dec edx
+'
+run_test
+
+
+# -------------------------------
+# DEC EBX instruction
+NAME="x86: [DEC EBX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 4b
+pi 1
+'
+EXPECT='dec ebx
+'
+run_test
+
+
+# -------------------------------
+# DEC ESP instruction
+NAME="x86: [DEC ESP]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 4c
+pi 1
+'
+EXPECT='dec esp
+'
+run_test
+
+
+# -------------------------------
+# DEC EBP instruction
+NAME="x86: [DEC EBP]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 4d
+pi 1
+'
+EXPECT='dec ebp
+'
+run_test
+
+
+# -------------------------------
+# DEC ESI instruction
+NAME="x86: [DEC ESI]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 4e
+pi 1
+'
+EXPECT='dec esi
+'
+run_test
+
+
+# -------------------------------
+# DEC EDI instruction
+NAME="x86: [DEC EDI]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 4f
+pi 1
+'
+EXPECT='dec edi
+'
+run_test
+
+
+# -------------------------------
+# INC BYTE [EAX] instruction
+NAME="x86: [INC BYTE [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx fe00
+pi 1
+'
+EXPECT='inc byte [eax]
+'
+run_test
+
+
+# -------------------------------
+# INC DWORD [EAX] instruction
+NAME="x86: [INC DWORD [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx ff00
+pi 1
+'
+EXPECT='inc dword [eax]
+'
+run_test
+
+
+# -------------------------------
+# DEC BYTE [EAX] instruction
+NAME="x86: [DEC BYTE [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx fe08
+pi 1
+'
+EXPECT='dec byte [eax]
+'
+run_test
+
+
+# -------------------------------
+# DEC DWORD [EAX] instruction
+NAME="x86: [DEC DWORD [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx ff08
+pi 1
+'
+EXPECT='dec dword [eax]
+'
+run_test

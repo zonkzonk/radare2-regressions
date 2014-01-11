@@ -1,0 +1,550 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+# -------------------------------
+# CWDE instruction
+NAME="x86: [CWDE]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 98
+pi 1
+'
+EXPECT='cwde
+'
+run_test
+
+
+# -------------------------------
+# CBW instruction
+NAME="x86: [CBW]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 6698
+pi 1
+'
+EXPECT='cbw
+'
+run_test
+
+
+# -------------------------------
+# CDQ instruction
+NAME="x86: [CDQ]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 99
+pi 1
+'
+EXPECT='cdq
+'
+run_test
+
+
+# -------------------------------
+# CWD instruction
+NAME="x86: [CWD]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 6699
+pi 1
+'
+EXPECT='cwd
+'
+run_test
+
+
+# -------------------------------
+# CMC instruction
+NAME="x86: [CMC]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx F5
+pi 1
+'
+EXPECT='cmc
+'
+run_test
+
+
+# -------------------------------
+# STC instruction
+NAME="x86: [STC]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx F9
+pi 1
+'
+EXPECT='stc
+'
+run_test
+
+
+# -------------------------------
+# CLC instruction
+NAME="x86: [CLC]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx F8
+pi 1
+'
+EXPECT='clc
+'
+run_test
+
+
+# -------------------------------
+# CLI instruction
+NAME="x86: [CLI]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx FA
+pi 1
+'
+EXPECT='cli
+'
+run_test
+
+
+# -------------------------------
+# STI instruction
+NAME="x86: [STI]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx FB
+pi 1
+'
+EXPECT='sti
+'
+run_test
+
+
+# -------------------------------
+# CLD instruction
+NAME="x86: [CLD]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx FC
+pi 1
+'
+EXPECT='cld
+'
+run_test
+
+
+# -------------------------------
+# STD instruction
+NAME="x86: [STD]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx FD
+pi 1
+'
+EXPECT='std
+'
+run_test
+
+
+
+
+
+# -------------------------------
+# SALC instruction
+NAME="x86: [SALC]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx D6
+pi 1
+'
+EXPECT='salc
+'
+run_test
+
+
+
+
+# -------------------------------
+# XLATB instruction
+NAME="x86: [XLATB]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx D7
+pi 1
+'
+EXPECT='xlatb
+'
+run_test
+
+
+# -------------------------------
+# LEAVE instruction
+NAME="x86: [LEAVE]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx C9
+pi 1
+'
+EXPECT='leave
+'
+run_test
+
+
+# -------------------------------
+# INT1 instruction
+NAME="x86: [INT1]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx F1
+pi 1
+'
+EXPECT='int1
+'
+run_test
+
+
+# -------------------------------
+# INT 1 instruction
+NAME="x86: [INT 1]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx CD01
+pi 1
+'
+EXPECT='int 0x1
+'
+run_test
+
+
+# -------------------------------
+# INT3 instruction
+NAME="x86: [INT3]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx CC
+pi 1
+'
+EXPECT='int3
+'
+run_test
+
+
+# -------------------------------
+# INT 3 instruction
+NAME="x86: [INT 3]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx CD03
+pi 1
+'
+EXPECT='int 0x3
+'
+run_test
+
+
+# -------------------------------
+# INTO instruction
+NAME="x86: [INTO]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx CE
+pi 1
+'
+EXPECT='into
+'
+run_test
+
+
+# -------------------------------
+# IRETD instruction
+NAME="x86: [IRETD]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx CF
+pi 1
+'
+EXPECT='iretd
+'
+run_test
+
+
+# -------------------------------
+# IRETW instruction
+NAME="x86: [IRETW]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 66CF
+pi 1
+'
+EXPECT='iretw
+'
+run_test
+
+
+
+
+# -------------------------------
+# RET instruction
+NAME="x86: [RET]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx C3
+pi 1
+'
+EXPECT='ret
+'
+run_test
+
+
+# -------------------------------
+# RETF 01234H instruction
+NAME="x86: [RETF 01234H]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx CA
+pi 1
+'
+EXPECT='retf 0x0
+'
+run_test
+
+
+# -------------------------------
+# RETF instruction
+NAME="x86: [RETF]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx cb
+pi 1
+'
+EXPECT='retf
+'
+run_test
+
+
+# -------------------------------
+# HLT instruction
+NAME="x86: [HLT]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx F4
+pi 1
+'
+EXPECT='hlt
+'
+run_test
+
+
+# -------------------------------
+# LAHF instruction
+NAME="x86: [LAHF]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 9F
+pi 1
+'
+EXPECT='lahf
+'
+run_test
+
+
+# -------------------------------
+# SAHF instruction
+NAME="x86: [SAHF]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 9E
+pi 1
+'
+EXPECT='sahf
+'
+run_test
+
+
+# -------------------------------
+# PUSHFD instruction
+NAME="x86: [PUSHFD]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 9C
+pi 1
+'
+EXPECT='pushfd
+'
+run_test
+
+
+# -------------------------------
+# POPFD instruction
+NAME="x86: [POPFD]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 9D
+pi 1
+'
+EXPECT='popfd
+'
+run_test
+
+
+
+# -------------------------------
+# PUSHAD instruction
+NAME="x86: [PUSHAD]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 60
+pi 1
+'
+EXPECT='pushad
+'
+run_test
+
+
+# -------------------------------
+# POPAD instruction
+NAME="x86: [POPAD]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 61
+pi 1
+'
+EXPECT='popad
+'
+run_test
+
+
+
+# -------------------------------
+# POPA instruction
+NAME="x86: [POPA]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 6661
+pi 1
+'
+EXPECT='popa
+'
+run_test
+
+
+# -------------------------------
+# DAA instruction
+NAME="x86: [DAA]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 27
+pi 1
+'
+EXPECT='daa
+'
+run_test
+
+
+# -------------------------------
+# AAA instruction
+NAME="x86: [AAA]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 37
+pi 1
+'
+EXPECT='aaa
+'
+run_test
+
+
+# -------------------------------
+# DAS instruction
+NAME="x86: [DAS]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 2F
+pi 1
+'
+EXPECT='das
+'
+run_test
+
+
+# -------------------------------
+# AAS instruction
+NAME="x86: [AAS]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 3F
+pi 1
+'
+EXPECT='aas
+'
+run_test

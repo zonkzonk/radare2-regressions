@@ -339,13 +339,13 @@ run_test
 
 
 # -------------------------------
-# RETF 01234H instruction
-NAME="x86: [RETF 01234H]"
+# RETF 0x0 instruction
+NAME="x86: [RETF 0x0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
 e asm.bits=32
-wx CA
+wx CA00
 pi 1
 '
 EXPECT='retf 0x0
@@ -1551,5 +1551,754 @@ wx 0f0138
 pi 1
 '
 EXPECT='invlpg [eax]
+'
+run_test
+
+# -------------------------------
+# MOV AL,0 instruction
+NAME="x86: [MOV AL,0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx B000
+pi 1
+'
+EXPECT='mov al, 0x0
+'
+run_test
+
+
+# -------------------------------
+# MOV CL,0 instruction
+NAME="x86: [MOV CL,0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx B100
+pi 1
+'
+EXPECT='mov cl, 0x0
+'
+run_test
+
+
+# -------------------------------
+# MOV DL,0 instruction
+NAME="x86: [MOV DL,0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx B200
+pi 1
+'
+EXPECT='mov dl, 0x0
+'
+run_test
+
+
+# -------------------------------
+# MOV BL,0 instruction
+NAME="x86: [MOV BL,0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx B300
+pi 1
+'
+EXPECT='mov bl, 0x0
+'
+run_test
+
+
+# -------------------------------
+# MOV AH,0 instruction
+NAME="x86: [MOV AH,0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx B400
+pi 1
+'
+EXPECT='mov ah, 0x0
+'
+run_test
+
+
+# -------------------------------
+# MOV CH,0 instruction
+NAME="x86: [MOV CH,0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx B500
+pi 1
+'
+EXPECT='mov ch, 0x0
+'
+run_test
+
+
+# -------------------------------
+# MOV DH,0 instruction
+NAME="x86: [MOV DH,0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx B600
+pi 1
+'
+EXPECT='mov dh, 0x0
+'
+run_test
+
+
+# -------------------------------
+# MOV BH,0 instruction
+NAME="x86: [MOV BH,0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx B700
+pi 1
+'
+EXPECT='mov bh, 0x0
+'
+run_test
+
+
+# -------------------------------
+# TEST AL,0 instruction
+NAME="x86: [TEST AL,0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx A8
+pi 1
+'
+EXPECT='test al, 0x0
+'
+run_test
+
+
+# -------------------------------
+# IN AL,0 instruction
+NAME="x86: [IN AL,0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx E4
+pi 1
+'
+EXPECT='in al, 0x0
+'
+run_test
+
+
+# -------------------------------
+# IN EAX,0 instruction
+NAME="x86: [IN EAX,0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx E5
+pi 1
+'
+EXPECT='in eax, 0x0
+'
+run_test
+
+
+# -------------------------------
+# IN AL,DX instruction
+NAME="x86: [IN AL,DX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx ec
+pi 1
+'
+EXPECT='in al, dx
+'
+run_test
+
+
+# -------------------------------
+# IN EAX,DX instruction
+NAME="x86: [IN EAX,DX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx ed
+pi 1
+'
+EXPECT='in eax, dx
+'
+run_test
+
+# -------------------------------
+# OUT 0X0, AL instruction
+NAME="x86: [OUT 0X0, AL]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx E600
+pi 1
+'
+EXPECT='out 0x0, al
+'
+run_test
+
+
+# -------------------------------
+# OUT 0X0, EAX instruction
+NAME="x86: [OUT 0X0, EAX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx E700
+pi 1
+'
+EXPECT='out 0x0, eax
+'
+run_test
+
+
+# -------------------------------
+# OUT DX, AL instruction
+NAME="x86: [OUT DX, AL]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx ee
+pi 1
+'
+EXPECT='out dx, al
+'
+run_test
+
+
+# -------------------------------
+# OUT DX, EAX instruction
+NAME="x86: [OUT DX, EAX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx ef
+pi 1
+'
+EXPECT='out dx, eax
+'
+run_test
+
+# -------------------------------
+# CPUID instruction
+NAME="x86: [CPUID]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fa2
+pi 1
+'
+EXPECT='cpuid
+'
+run_test
+
+
+# -------------------------------
+# PUSHFS instruction
+NAME="x86: [PUSHFS]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fa0
+pi 1
+'
+EXPECT='push fs
+'
+run_test
+
+
+# -------------------------------
+# POP FS instruction
+NAME="x86: [POP FS]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fa1
+pi 1
+'
+EXPECT='pop fs
+'
+run_test
+
+
+# -------------------------------
+# PUSHGS instruction
+NAME="x86: [PUSHGS]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fa8
+pi 1
+'
+EXPECT='push gs
+'
+run_test
+
+
+# -------------------------------
+# POP GS instruction
+NAME="x86: [POP GS]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fa9
+pi 1
+'
+EXPECT='pop gs
+'
+run_test
+
+
+# -------------------------------
+# INVD instruction
+NAME="x86: [INVD]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f08
+pi 1
+'
+EXPECT='invd
+'
+run_test
+
+
+# -------------------------------
+# WBINVD instruction
+NAME="x86: [WBINVD]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f09
+pi 1
+'
+EXPECT='wbinvd
+'
+run_test
+
+
+# -------------------------------
+# VMCALL instruction
+BROKEN=1
+NAME="x86: [VMCALL]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f01c1
+pi 1
+'
+EXPECT='vmcall
+'
+run_test
+
+
+# -------------------------------
+# VMLAUNCH instruction
+BROKEN=1
+NAME="x86: [VMLAUNCH]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f01c2
+pi 1
+'
+EXPECT='vmlaunch
+'
+run_test
+
+
+# -------------------------------
+# VMRESUME instruction
+BROKEN=1
+NAME="x86: [VMRESUME]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f01c3
+pi 1
+'
+EXPECT='vmresume
+'
+run_test
+
+
+# -------------------------------
+# VMXOFF instruction
+BROKEN=1
+NAME="x86: [VMXOFF]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f01c4
+pi 1
+'
+EXPECT='vmxoff
+'
+run_test
+
+
+# -------------------------------
+# MONITOR instruction
+NAME="x86: [MONITOR]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f01c8
+pi 1
+'
+EXPECT='monitor
+'
+run_test
+
+
+# -------------------------------
+# MWAIT instruction
+NAME="x86: [MWAIT]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f01c9
+pi 1
+'
+EXPECT='mwait
+'
+run_test
+
+
+# -------------------------------
+# XGETBV instruction
+NAME="x86: [XGETBV]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f01d0
+pi 1
+'
+EXPECT='xgetbv
+'
+run_test
+
+
+# -------------------------------
+# XSETBV instruction
+NAME="x86: [XSETBV]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f01d1
+pi 1
+'
+EXPECT='xsetbv
+'
+run_test
+
+
+# -------------------------------
+# VMRUN instruction
+NAME="x86: [VMRUN]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f01d8
+pi 1
+'
+EXPECT='vmrun
+'
+run_test
+
+
+# -------------------------------
+# VMMCALL instruction
+NAME="x86: [VMMCALL]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f01d9
+pi 1
+'
+EXPECT='vmmcall
+'
+run_test
+
+
+# -------------------------------
+# VMLOAD instruction
+NAME="x86: [VMLOAD]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f01da
+pi 1
+'
+EXPECT='vmload
+'
+run_test
+
+
+# -------------------------------
+# VMSAVE instruction
+NAME="x86: [VMSAVE]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f01db
+pi 1
+'
+EXPECT='vmsave
+'
+run_test
+
+
+# -------------------------------
+# STGI instruction
+NAME="x86: [STGI]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f01dc
+pi 1
+'
+EXPECT='stgi
+'
+run_test
+
+
+# -------------------------------
+# CLGI instruction
+NAME="x86: [CLGI]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f01dd
+pi 1
+'
+EXPECT='clgi
+'
+run_test
+
+
+# -------------------------------
+# SKINIT instruction
+NAME="x86: [SKINIT]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f01de
+pi 1
+'
+EXPECT='skinit
+'
+run_test
+
+
+# -------------------------------
+# INVLPGA instruction
+NAME="x86: [INVLPGA]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f01df
+pi 1
+'
+EXPECT='invlpga
+'
+run_test
+
+
+# -------------------------------
+# PAUSE instruction
+NAME="x86: [PAUSE]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx f390
+pi 1
+'
+EXPECT='pause
+'
+run_test
+
+
+# -------------------------------
+# RDTSCP instruction
+NAME="x86: [RDTSCP]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f01f9
+pi 1
+'
+EXPECT='rdtscp
+'
+run_test
+
+
+# -------------------------------
+# LAR EAX, [EAX] instruction
+NAME="x86: [LAR EAX, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f02
+pi 1
+'
+EXPECT='lar eax, word [eax]
+'
+run_test
+
+
+# -------------------------------
+# LSL EAX, [EAX] instruction
+NAME="x86: [LSL EAX, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f03
+pi 1
+'
+EXPECT='lsl eax, word [eax]
+'
+run_test
+
+# -------------------------------
+# CLTS instruction
+NAME="x86: [CLTS]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f06
+pi 1
+'
+EXPECT='clts
+'
+run_test
+
+
+# -------------------------------
+# SYSRET instruction
+NAME="x86: [SYSRET]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f07
+pi 1
+'
+EXPECT='sysret
+'
+run_test
+
+# -------------------------------
+# EMMS instruction
+NAME="x86: [EMMS]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f77
+pi 1
+'
+EXPECT='emms
+'
+run_test
+
+
+# -------------------------------
+# FEMMS instruction
+NAME="x86: [FEMMS]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0f0e
+pi 1
+'
+EXPECT='femms
+'
+run_test
+
+
+# -------------------------------
+# CPUID instruction
+NAME="x86: [CPUID]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fa2
+pi 1
+'
+EXPECT='cpuid
+'
+run_test
+
+
+# -------------------------------
+# RSM instruction
+NAME="x86: [RSM]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0faa
+pi 1
+'
+EXPECT='rsm
 '
 run_test

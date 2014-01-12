@@ -16,7 +16,7 @@ wx cafebabe00000032003a070002010014546573745661726961626c65537769746368557007000
 ib
 af;pdf;ik;
 '
-EXPECT='/ (fcn) sym.TestMultipleVariable 37
+EXPECT='/ (fcn) sym.TestVariableSwitchUp.TestMultipleVariable 37
 | 0x000002fd    1064         bipush 100
 | 0x000002ff    b8000f       invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 |    0x00000000(0x0)

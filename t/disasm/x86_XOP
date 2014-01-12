@@ -1,0 +1,209 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+# -------------------------------
+# VFRCZPD XMM0, XMM0 instruction
+BROKEN=1
+NAME="x86 XOP [VFRCZPD XMM0, XMM0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 8fe97881c0
+pi 1
+'
+EXPECT='vfrczpd xmm0, xmm0
+'
+run_test
+
+
+# -------------------------------
+# VFRCZPS XMM0, XMM0 instruction
+BROKEN=1
+NAME="x86 XOP [VFRCZPS XMM0, XMM0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 8fe97880c0
+pi 1
+'
+EXPECT='vfrczps xmm0, xmm0
+'
+run_test
+
+
+# -------------------------------
+# VFRCZSD XMM0, XMM0 instruction
+BROKEN=1
+NAME="x86 XOP [VFRCZSD XMM0, XMM0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 8fe97883c0
+pi 1
+'
+EXPECT='vfrczsd xmm0, xmm0
+'
+run_test
+
+
+# -------------------------------
+# VFRCZSS XMM0, XMM0 instruction
+BROKEN=1
+NAME="x86 XOP [VFRCZSS XMM0, XMM0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 8fe97882c0
+pi 1
+'
+EXPECT='vfrczss xmm0, xmm0
+'
+run_test
+
+
+# -------------------------------
+# VPHADDBDXMM0, XMM0 instruction
+BROKEN=1
+NAME="x86 XOP [VPHADDBDXMM0, XMM0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 8fe978c2c0
+pi 1
+'
+EXPECT='vphaddbdxmm0, xmm0
+'
+run_test
+
+
+# -------------------------------
+# VPHADDBQXMM0, XMM0 instruction
+BROKEN=1
+NAME="x86 XOP [VPHADDBQXMM0, XMM0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 8fe978c3c0
+pi 1
+'
+EXPECT='vphaddbqxmm0, xmm0
+'
+run_test
+
+
+# -------------------------------
+# VPHADDBWXMM0, XMM0 instruction
+BROKEN=1
+NAME="x86 XOP [VPHADDBWXMM0, XMM0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 8fe978c1c0
+pi 1
+'
+EXPECT='vphaddbwxmm0, xmm0
+'
+run_test
+
+
+# -------------------------------
+# VPHADDDQXMM0, XMM0 instruction
+BROKEN=1
+NAME="x86 XOP [VPHADDDQXMM0, XMM0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 8fe978cbc0
+pi 1
+'
+EXPECT='vphadddqxmm0, xmm0
+'
+run_test
+
+
+# -------------------------------
+# VPHADDWDXMM0, XMM0 instruction
+BROKEN=1
+NAME="x86 XOP [VPHADDWDXMM0, XMM0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 8fe978c6c0
+pi 1
+'
+EXPECT='vphaddwdxmm0, xmm0
+'
+run_test
+
+
+# -------------------------------
+# VPHADDWQXMM0, XMM0 instruction
+BROKEN=1
+NAME="x86 XOP [VPHADDWQXMM0, XMM0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 8fe978c7c0
+pi 1
+'
+EXPECT='vphaddwqxmm0, xmm0
+'
+run_test
+
+
+# -------------------------------
+# VPHSUBBWXMM0, XMM0 instruction
+BROKEN=1
+NAME="x86 XOP [VPHSUBBWXMM0, XMM0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 8fe978e1c0
+pi 1
+'
+EXPECT='vphsubbwxmm0, xmm0
+'
+run_test
+
+
+# -------------------------------
+# VPHSUBDQXMM0, XMM0 instruction
+BROKEN=1
+NAME="x86 XOP [VPHSUBDQXMM0, XMM0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 8fe978e3c0
+pi 1
+'
+EXPECT='vphsubdqxmm0, xmm0
+'
+run_test
+
+
+# -------------------------------
+# VPHSUBWDXMM0, XMM0 instruction
+BROKEN=1
+NAME="x86 XOP [VPHSUBWDXMM0, XMM0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 8fe978e2c0
+pi 1
+'
+EXPECT='vphsubwdxmm0, xmm0
+'
+run_test

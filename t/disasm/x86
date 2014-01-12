@@ -4851,4 +4851,1648 @@ EXPECT='vmptrst [eax]
 '
 run_test
 
+# -------------------------------
+# ADC [EAX], AL instruction
+NAME="x86: [ADC [EAX], AL]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 1000
+pi 1
+'
+EXPECT='adc [eax], al
+'
+run_test
+
+
+# -------------------------------
+# ADC [EAX], EAX instruction
+NAME="x86: [ADC [EAX], EAX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 1100
+pi 1
+'
+EXPECT='adc [eax], eax
+'
+run_test
+
+
+# -------------------------------
+# ADC AL, [EAX] instruction
+NAME="x86: [ADC AL, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 1200
+pi 1
+'
+EXPECT='adc al, [eax]
+'
+run_test
+
+
+# -------------------------------
+# ADC EAX, [EAX] instruction
+NAME="x86: [ADC EAX, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 1300
+pi 1
+'
+EXPECT='adc eax, [eax]
+'
+run_test
+
+
+# -------------------------------
+# ADC AL, 0 instruction
+NAME="x86: [ADC AL, 0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 1400
+pi 1
+'
+EXPECT='adc al, 0x0
+'
+run_test
+
+
+# -------------------------------
+# ADD [EAX], AL instruction
+NAME="x86: [ADD [EAX], AL]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0000
+pi 1
+'
+EXPECT='add [eax], al
+'
+run_test
+
+
+# -------------------------------
+# ADD [EAX], EAX instruction
+NAME="x86: [ADD [EAX], EAX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0100
+pi 1
+'
+EXPECT='add [eax], eax
+'
+run_test
+
+
+# -------------------------------
+# ADD AL, [EAX] instruction
+NAME="x86: [ADD AL, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0200
+pi 1
+'
+EXPECT='add al, [eax]
+'
+run_test
+
+
+# -------------------------------
+# ADD EAX, [EAX] instruction
+NAME="x86: [ADD EAX, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0300
+pi 1
+'
+EXPECT='add eax, [eax]
+'
+run_test
+
+
+# -------------------------------
+# ADD AL, 0 instruction
+NAME="x86: [ADD AL, 0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0400
+pi 1
+'
+EXPECT='add al, 0x0
+'
+run_test
+
+
+# -------------------------------
+# ADD BYTE [EAX], 0X0 instruction
+NAME="x86: [ADD BYTE [EAX], 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 800000
+pi 1
+'
+EXPECT='add byte [eax], 0x0
+'
+run_test
+
+
+# -------------------------------
+# ADD DWORD [EAX], 0X0 instruction
+NAME="x86: [ADD DWORD [EAX], 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 810000000000
+pi 1
+'
+EXPECT='add dword [eax], 0x0
+'
+run_test
+
+
+# -------------------------------
+# ADD BYTE [EAX], 0X0 instruction
+NAME="x86: [ADD BYTE [EAX], 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 8200 00
+pi 1
+'
+EXPECT='add byte [eax], 0x0
+'
+run_test
+
+
+# -------------------------------
+# ADD DWORD [EAX], 0X0 instruction
+NAME="x86: [ADD DWORD [EAX], 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 8300 00
+pi 1
+'
+EXPECT='add dword [eax], 0x0
+'
+run_test
+
+
+# -------------------------------
+# AND [EAX], AL instruction
+NAME="x86: [AND [EAX], AL]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 2000
+pi 1
+'
+EXPECT='and [eax], al
+'
+run_test
+
+
+# -------------------------------
+# AND [EAX], EAX instruction
+NAME="x86: [AND [EAX], EAX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 2100
+pi 1
+'
+EXPECT='and [eax], eax
+'
+run_test
+
+
+# -------------------------------
+# AND AL, [EAX] instruction
+NAME="x86: [AND AL, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 2200
+pi 1
+'
+EXPECT='and al, [eax]
+'
+run_test
+
+
+# -------------------------------
+# AND EAX, [EAX] instruction
+NAME="x86: [AND EAX, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 2300
+pi 1
+'
+EXPECT='and eax, [eax]
+'
+run_test
+
+
+# -------------------------------
+# AND AL, 0 instruction
+NAME="x86: [AND AL, 0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 2400
+pi 1
+'
+EXPECT='and al, 0x0
+'
+run_test
+
+
+# -------------------------------
+# CMP [EAX], AL instruction
+NAME="x86: [CMP [EAX], AL]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 3800
+pi 1
+'
+EXPECT='cmp [eax], al
+'
+run_test
+
+
+# -------------------------------
+# CMP [EAX], EAX instruction
+NAME="x86: [CMP [EAX], EAX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 3900
+pi 1
+'
+EXPECT='cmp [eax], eax
+'
+run_test
+
+
+# -------------------------------
+# CMP AL, [EAX] instruction
+NAME="x86: [CMP AL, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 3a00
+pi 1
+'
+EXPECT='cmp al, [eax]
+'
+run_test
+
+
+# -------------------------------
+# CMP EAX, [EAX] instruction
+NAME="x86: [CMP EAX, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 3b00
+pi 1
+'
+EXPECT='cmp eax, [eax]
+'
+run_test
+
+
+# -------------------------------
+# CMP AL, 0 instruction
+NAME="x86: [CMP AL, 0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 3c00
+pi 1
+'
+EXPECT='cmp al, 0x0
+'
+run_test
+
+# -------------------------------
+# MOV [EAX], AL instruction
+NAME="x86: [MOV [EAX], AL]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 8800
+pi 1
+'
+EXPECT='mov [eax], al
+'
+run_test
+
+
+# -------------------------------
+# MOV [EAX], EAX instruction
+NAME="x86: [MOV [EAX], EAX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 8900
+pi 1
+'
+EXPECT='mov [eax], eax
+'
+run_test
+
+
+# -------------------------------
+# MOV AL, [EAX] instruction
+NAME="x86: [MOV AL, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 8a00
+pi 1
+'
+EXPECT='mov al, [eax]
+'
+run_test
+
+
+# -------------------------------
+# MOV AL, [0X0] instruction
+NAME="x86: [MOV AL, [0X0]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx a0 00000000
+pi 1
+'
+EXPECT='mov al, [0x0]
+'
+run_test
+
+
+# -------------------------------
+# MOV EAX, [0X0] instruction
+NAME="x86: [MOV EAX, [0X0]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx a1 00000000
+pi 1
+'
+EXPECT='mov eax, [0x0]
+'
+run_test
+
+
+# -------------------------------
+# MOV [0X0], AL instruction
+NAME="x86: [MOV [0X0], AL]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx a2 00000000
+pi 1
+'
+EXPECT='mov [0x0], al
+'
+run_test
+
+
+# -------------------------------
+# MOV [0X0], EAX instruction
+NAME="x86: [MOV [0X0], EAX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx a3 00000000
+pi 1
+'
+EXPECT='mov [0x0], eax
+'
+run_test
+
+# -------------------------------
+# MOV AL, 0X0 instruction
+NAME="x86: [MOV AL, 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx b000
+pi 1
+'
+EXPECT='mov al, 0x0
+'
+run_test
+
+
+# -------------------------------
+# MOV CL, 0X0 instruction
+NAME="x86: [MOV CL, 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx b100
+pi 1
+'
+EXPECT='mov cl, 0x0
+'
+run_test
+
+
+# -------------------------------
+# MOV DL, 0X0 instruction
+NAME="x86: [MOV DL, 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx b200
+pi 1
+'
+EXPECT='mov dl, 0x0
+'
+run_test
+
+
+# -------------------------------
+# MOV BL, 0X0 instruction
+NAME="x86: [MOV BL, 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx b300
+pi 1
+'
+EXPECT='mov bl, 0x0
+'
+run_test
+
+
+# -------------------------------
+# MOV AH, 0X0 instruction
+NAME="x86: [MOV AH, 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx b400
+pi 1
+'
+EXPECT='mov ah, 0x0
+'
+run_test
+
+
+# -------------------------------
+# MOV CH, 0X0 instruction
+NAME="x86: [MOV CH, 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx b500
+pi 1
+'
+EXPECT='mov ch, 0x0
+'
+run_test
+
+
+# -------------------------------
+# MOV DH, 0X0 instruction
+NAME="x86: [MOV DH, 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx b600
+pi 1
+'
+EXPECT='mov dh, 0x0
+'
+run_test
+
+
+# -------------------------------
+# MOV BH, 0X0 instruction
+NAME="x86: [MOV BH, 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx b700
+pi 1
+'
+EXPECT='mov bh, 0x0
+'
+run_test
+
+
+# -------------------------------
+# MOV EAX, 0X0 instruction
+NAME="x86: [MOV EAX, 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx b800000000
+pi 1
+'
+EXPECT='mov eax, 0x0
+'
+run_test
+
+
+# -------------------------------
+# MOV ECX, 0X0 instruction
+NAME="x86: [MOV ECX, 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx b900000000
+pi 1
+'
+EXPECT='mov ecx, 0x0
+'
+run_test
+
+
+# -------------------------------
+# MOV EDX, 0X0 instruction
+NAME="x86: [MOV EDX, 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx ba00000000
+pi 1
+'
+EXPECT='mov edx, 0x0
+'
+run_test
+
+
+# -------------------------------
+# MOV EBX, 0X0 instruction
+NAME="x86: [MOV EBX, 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx bb00000000
+pi 1
+'
+EXPECT='mov ebx, 0x0
+'
+run_test
+
+
+# -------------------------------
+# MOV ESP, 0X0 instruction
+NAME="x86: [MOV ESP, 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx bc00000000
+pi 1
+'
+EXPECT='mov esp, 0x0
+'
+run_test
+
+
+# -------------------------------
+# MOV EBP, 0X0 instruction
+NAME="x86: [MOV EBP, 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx bd00000000
+pi 1
+'
+EXPECT='mov ebp, 0x0
+'
+run_test
+
+
+# -------------------------------
+# MOV ESI, 0X0 instruction
+NAME="x86: [MOV ESI, 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx be00000000
+pi 1
+'
+EXPECT='mov esi, 0x0
+'
+run_test
+
+
+# -------------------------------
+# MOV EDI, 0X0 instruction
+NAME="x86: [MOV EDI, 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx bf00000000
+pi 1
+'
+EXPECT='mov edi, 0x0
+'
+run_test
+
+# -------------------------------
+# OR [EAX], AL instruction
+NAME="x86: [OR [EAX], AL]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0800
+pi 1
+'
+EXPECT='or [eax], al
+'
+run_test
+
+
+# -------------------------------
+# OR [EAX], EAX instruction
+NAME="x86: [OR [EAX], EAX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0900
+pi 1
+'
+EXPECT='or [eax], eax
+'
+run_test
+
+
+# -------------------------------
+# OR EAX, [EAX] instruction
+NAME="x86: [OR EAX, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0b00
+pi 1
+'
+EXPECT='or eax, [eax]
+'
+run_test
+
+
+# -------------------------------
+# OR AL, 0X0 instruction
+NAME="x86: [OR AL, 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0c00
+pi 1
+'
+EXPECT='or al, 0x0
+'
+run_test
+
+# -------------------------------
+# SBB [EAX], AL instruction
+NAME="x86: [SBB [EAX], AL]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 1800
+pi 1
+'
+EXPECT='sbb [eax], al
+'
+run_test
+
+
+# -------------------------------
+# SBB [EAX], EAX instruction
+NAME="x86: [SBB [EAX], EAX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 1900
+pi 1
+'
+EXPECT='sbb [eax], eax
+'
+run_test
+
+
+# -------------------------------
+# SBB AL, [EAX] instruction
+NAME="x86: [SBB AL, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 1a00
+pi 1
+'
+EXPECT='sbb al, [eax]
+'
+run_test
+
+
+# -------------------------------
+# SBB EAX, [EAX] instruction
+NAME="x86: [SBB EAX, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 1b00
+pi 1
+'
+EXPECT='sbb eax, [eax]
+'
+run_test
+
+
+# -------------------------------
+# SBB AL, 0X0 instruction
+NAME="x86: [SBB AL, 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 1c00
+pi 1
+'
+EXPECT='sbb al, 0x0
+'
+run_test
+
+
+# -------------------------------
+# SUB [EAX], AL instruction
+NAME="x86: [SUB [EAX], AL]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 2800
+pi 1
+'
+EXPECT='sub [eax], al
+'
+run_test
+
+
+# -------------------------------
+# SUB [EAX], EAX instruction
+NAME="x86: [SUB [EAX], EAX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 2900
+pi 1
+'
+EXPECT='sub [eax], eax
+'
+run_test
+
+
+# -------------------------------
+# SUB AL, [EAX] instruction
+NAME="x86: [SUB AL, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 2a00
+pi 1
+'
+EXPECT='sub al, [eax]
+'
+run_test
+
+
+# -------------------------------
+# SUB EAX, [EAX] instruction
+NAME="x86: [SUB EAX, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 2b00
+pi 1
+'
+EXPECT='sub eax, [eax]
+'
+run_test
+
+
+# -------------------------------
+# SUB AL, 0X0 instruction
+NAME="x86: [SUB AL, 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 2c00
+pi 1
+'
+EXPECT='sub al, 0x0
+'
+run_test
+
+
+# -------------------------------
+# TEST [EAX], AL instruction
+NAME="x86: [TEST [EAX], AL]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 8400
+pi 1
+'
+EXPECT='test [eax], al
+'
+run_test
+
+
+# -------------------------------
+# TEST [EAX], EAX instruction
+NAME="x86: [TEST [EAX], EAX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 8500
+pi 1
+'
+EXPECT='test [eax], eax
+'
+run_test
+
+
+# -------------------------------
+# TEST AL, 0X0 instruction
+NAME="x86: [TEST AL, 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx a800
+pi 1
+'
+EXPECT='test al, 0x0
+'
+run_test
+
+
+# -------------------------------
+# TEST EAX, 0X0 instruction
+NAME="x86: [TEST EAX, 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx a900000000
+pi 1
+'
+EXPECT='test eax, 0x0
+'
+run_test
+
+
+# -------------------------------
+# TEST BYTE [EAX], 0X0 instruction
+NAME="x86: [TEST BYTE [EAX], 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx f60000
+pi 1
+'
+EXPECT='test byte [eax], 0x0
+'
+run_test
+
+
+# -------------------------------
+# TEST DWORD [EAX], 0X0 instruction
+NAME="x86: [TEST DWORD [EAX], 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx f70000000000
+pi 1
+'
+EXPECT='test dword [eax], 0x0
+'
+run_test
+
+
+# -------------------------------
+# XCHG [EAX], AL instruction
+NAME="x86: [XCHG [EAX], AL]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 8600
+pi 1
+'
+EXPECT='xchg [eax], al
+'
+run_test
+
+
+# -------------------------------
+# XCHG [EAX], EAX instruction
+NAME="x86: [XCHG [EAX], EAX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 8700
+pi 1
+'
+EXPECT='xchg [eax], eax
+'
+run_test
+
+
+# -------------------------------
+# XOR [EAX], AL instruction
+NAME="x86: [XOR [EAX], AL]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 3000
+pi 1
+'
+EXPECT='xor [eax], al
+'
+run_test
+
+
+# -------------------------------
+# XOR [EAX], EAX instruction
+NAME="x86: [XOR [EAX], EAX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 3100
+pi 1
+'
+EXPECT='xor [eax], eax
+'
+run_test
+
+
+# -------------------------------
+# XOR AL, [EAX] instruction
+NAME="x86: [XOR AL, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 3200
+pi 1
+'
+EXPECT='xor al, [eax]
+'
+run_test
+
+
+# -------------------------------
+# XOR EAX, [EAX] instruction
+NAME="x86: [XOR EAX, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 3300
+pi 1
+'
+EXPECT='xor eax, [eax]
+'
+run_test
+
+
+# -------------------------------
+# XOR AL, 0 instruction
+NAME="x86: [XOR AL, 0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 3400
+pi 1
+'
+EXPECT='xor al, 0x0
+'
+run_test
+
+
+# -------------------------------
+# BTC [EAX], EAX instruction
+NAME="x86: [BTC [EAX], EAX]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fbb00
+pi 1
+'
+EXPECT='btc [eax], eax
+'
+run_test
+
+
+# -------------------------------
+# BSF EAX, [EAX] instruction
+NAME="x86: [BSF EAX, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fbc00
+pi 1
+'
+EXPECT='bsf eax, [eax]
+'
+run_test
+
+
+# -------------------------------
+# BSR EAX, [EAX] instruction
+NAME="x86: [BSR EAX, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fbd00
+pi 1
+'
+EXPECT='bsr eax, [eax]
+'
+run_test
+
+
+# -------------------------------
+# ROL BYTE [EAX], 0X0 instruction
+NAME="x86: [ROL BYTE [EAX], 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx c000 00
+pi 1
+'
+EXPECT='rol byte [eax], 0x0
+'
+run_test
+
+
+# -------------------------------
+# ROL DWORD [EAX], 0X0 instruction
+NAME="x86: [ROL DWORD [EAX], 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx c100 00
+pi 1
+'
+EXPECT='rol dword [eax], 0x0
+'
+run_test
+
+
+# -------------------------------
+# LES EAX, [EAX] instruction
+NAME="x86: [LES EAX, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx c400
+pi 1
+'
+EXPECT='les eax, [eax]
+'
+run_test
+
+
+# -------------------------------
+# LDS EAX, [EAX] instruction
+NAME="x86: [LDS EAX, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx c500
+pi 1
+'
+EXPECT='lds eax, [eax]
+'
+run_test
+
+
+# -------------------------------
+# MOV BYTE [EAX], 0X0 instruction
+NAME="x86: [MOV BYTE [EAX], 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx c600 00
+pi 1
+'
+EXPECT='mov byte [eax], 0x0
+'
+run_test
+
+
+# -------------------------------
+# MOV DWORD [EAX], 0X0 instruction
+NAME="x86: [MOV DWORD [EAX], 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx c700 00000000
+pi 1
+'
+EXPECT='mov dword [eax], 0x0
+'
+run_test
+
+
+# -------------------------------
+# ROL BYTE [EAX], CL instruction
+NAME="x86: [ROL BYTE [EAX], CL]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx d200
+pi 1
+'
+EXPECT='rol byte [eax], cl
+'
+run_test
+
+
+# -------------------------------
+# ROL DWORD [EAX], CL instruction
+NAME="x86: [ROL DWORD [EAX], CL]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx d300
+pi 1
+'
+EXPECT='rol dword [eax], cl
+'
+run_test
+
+
+# -------------------------------
+# SHUFPS XMM0, [EAX], 0X0 instruction
+NAME="x86: [SHUFPS XMM0, [EAX], 0X0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fc600 00
+pi 1
+'
+EXPECT='shufps xmm0, [eax], 0x0
+'
+run_test
+
+
+# -------------------------------
+# PSUBUSB MM0, [EAX] instruction
+NAME="x86: [PSUBUSB MM0, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fd800
+pi 1
+'
+EXPECT='psubusb mm0, [eax]
+'
+run_test
+
+
+# -------------------------------
+# PSUBUSW MM0, [EAX] instruction
+NAME="x86: [PSUBUSW MM0, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fd900
+pi 1
+'
+EXPECT='psubusw mm0, [eax]
+'
+run_test
+
+
+# -------------------------------
+# PAND MM0, [EAX] instruction
+NAME="x86: [PAND MM0, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fdb00
+pi 1
+'
+EXPECT='pand mm0, [eax]
+'
+run_test
+
+
+# -------------------------------
+# PANDN MM0, [EAX] instruction
+NAME="x86: [PANDN MM0, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fdf00
+pi 1
+'
+EXPECT='pandn mm0, [eax]
+'
+run_test
+
+
+# -------------------------------
+# POR MM0, [EAX] instruction
+NAME="x86: [POR MM0, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0feb00
+pi 1
+'
+EXPECT='por mm0, [eax]
+'
+run_test
+
+
+# -------------------------------
+# PXOR MM0, [EAX] instruction
+NAME="x86: [PXOR MM0, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fef00
+pi 1
+'
+EXPECT='pxor mm0, [eax]
+'
+run_test
+
+
+# -------------------------------
+# PADDUSB MM0, [EAX] instruction
+NAME="x86: [PADDUSB MM0, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fdc00
+pi 1
+'
+EXPECT='paddusb mm0, [eax]
+'
+run_test
+
+
+# -------------------------------
+# PADDUSW MM0, [EAX] instruction
+NAME="x86: [PADDUSW MM0, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fdd00
+pi 1
+'
+EXPECT='paddusw mm0, [eax]
+'
+run_test
+
+
+# -------------------------------
+# PMAXUB MM0, [EAX] instruction
+NAME="x86: [PMAXUB MM0, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fde00
+pi 1
+'
+EXPECT='pmaxub mm0, [eax]
+'
+run_test
+
+
+# -------------------------------
+# PMINUB MM0, [EAX] instruction
+NAME="x86: [PMINUB MM0, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fda00
+pi 1
+'
+EXPECT='pminub mm0, [eax]
+'
+run_test
+
+
+# -------------------------------
+# PAVGB MM0, [EAX] instruction
+NAME="x86: [PAVGB MM0, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fe000
+pi 1
+'
+EXPECT='pavgb mm0, [eax]
+'
+run_test
+
+
+# -------------------------------
+# PAVGW MM0, [EAX] instruction
+NAME="x86: [PAVGW MM0, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fe300
+pi 1
+'
+EXPECT='pavgw mm0, [eax]
+'
+run_test
+
+
+# -------------------------------
+# MOVNTQ [EAX], MM0 instruction
+NAME="x86: [MOVNTQ [EAX], MM0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fe700
+pi 1
+'
+EXPECT='movntq [eax], mm0
+'
+run_test
+
+
+# -------------------------------
+# MOVNTDQ [EAX], XMM0 instruction
+NAME="x86: [MOVNTDQ [EAX], XMM0]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 660fe700
+pi 1
+'
+EXPECT='movntdq [eax], xmm0
+'
+run_test
+
+
+# -------------------------------
+# PSUBSB MM0, [EAX] instruction
+NAME="x86: [PSUBSB MM0, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fe800
+pi 1
+'
+EXPECT='psubsb mm0, [eax]
+'
+run_test
+
+
+# -------------------------------
+# PSUBSW MM0, [EAX] instruction
+NAME="x86: [PSUBSW MM0, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fe900
+pi 1
+'
+EXPECT='psubsw mm0, [eax]
+'
+run_test
+
+
+# -------------------------------
+# PMINSW MM0, [EAX] instruction
+NAME="x86: [PMINSW MM0, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fea00
+pi 1
+'
+EXPECT='pminsw mm0, [eax]
+'
+run_test
+
+
+# -------------------------------
+# PMAXSW MM0, [EAX] instruction
+NAME="x86: [PMAXSW MM0, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fee00
+pi 1
+'
+EXPECT='pmaxsw mm0, [eax]
+'
+run_test
+
+
+# -------------------------------
+# PADDSB MM0, [EAX] instruction
+NAME="x86: [PADDSB MM0, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fec00
+pi 1
+'
+EXPECT='paddsb mm0, [eax]
+'
+run_test
+
+
+# -------------------------------
+# PADDSW MM0, [EAX] instruction
+NAME="x86: [PADDSW MM0, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fed00
+pi 1
+'
+EXPECT='paddsw mm0, [eax]
+'
+run_test
+
+
+# -------------------------------
+# PSRAW MM0, [EAX] instruction
+NAME="x86: [PSRAW MM0, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fe100
+pi 1
+'
+EXPECT='psraw mm0, [eax]
+'
+run_test
+
+
+# -------------------------------
+# PSRAD MM0, [EAX] instruction
+NAME="x86: [PSRAD MM0, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 0fe200
+pi 1
+'
+EXPECT='psrad mm0, [eax]
+'
+run_test
+
+
+# -------------------------------
+# PSRAW XMM0, [EAX] instruction
+NAME="x86: [PSRAW XMM0, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 660fe100
+pi 1
+'
+EXPECT='psraw xmm0, [eax]
+'
+run_test
+
+
+# -------------------------------
+# PSRAD XMM0, [EAX] instruction
+NAME="x86: [PSRAD XMM0, [EAX]]"
+FILE=malloc://32
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 660fe200
+pi 1
+'
+EXPECT='psrad xmm0, [eax]
+'
+run_test
 

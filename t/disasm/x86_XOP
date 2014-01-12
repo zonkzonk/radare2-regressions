@@ -4,7 +4,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 # -------------------------------
 # VPMADCSSWD  XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPMADCSSWD  XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPMADCSSWD  XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -34,7 +34,7 @@ run_test
 # -------------------------------
 # VCVTPH2PS   XMM0, XMM0, 0 instruction
 BROKEN=1
-NAME="x86: [VCVTPH2PS   XMM0, XMM0, 0]"
+NAME="x86 XOP: [VCVTPH2PS   XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -50,7 +50,7 @@ run_test
 # -------------------------------
 # VCVTPS2PH   XMM0, XMM0, 0 instruction
 BROKEN=1
-NAME="x86: [VCVTPS2PH   XMM0, XMM0, 0]"
+NAME="x86 XOP: [VCVTPS2PH   XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -258,7 +258,7 @@ run_test
 # -------------------------------
 # VFMADDPD XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VFMADDPD XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VFMADDPD XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -274,7 +274,7 @@ run_test
 # -------------------------------
 # VFMADDPS XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VFMADDPS XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VFMADDPS XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -290,7 +290,7 @@ run_test
 # -------------------------------
 # VFMADDSD XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VFMADDSD XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VFMADDSD XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -306,7 +306,7 @@ run_test
 # -------------------------------
 # VFMADDSS XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VFMADDSS XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VFMADDSS XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -322,7 +322,7 @@ run_test
 # -------------------------------
 # VFMADDPD YMM0, YMM0, YMM0, YMM0 instruction
 BROKEN=1
-NAME="x86: [VFMADDPD YMM0, YMM0, YMM0, YMM0]"
+NAME="x86 XOP: [VFMADDPD YMM0, YMM0, YMM0, YMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -338,7 +338,7 @@ run_test
 # -------------------------------
 # VFMADDPS YMM0, YMM0, YMM0, YMM0 instruction
 BROKEN=1
-NAME="x86: [VFMADDPS YMM0, YMM0, YMM0, YMM0]"
+NAME="x86 XOP: [VFMADDPS YMM0, YMM0, YMM0, YMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -354,7 +354,7 @@ run_test
 # -------------------------------
 # VFMSUBPD YMM0, YMM0, YMM0, YMM0 instruction
 BROKEN=1
-NAME="x86: [VFMSUBPD YMM0, YMM0, YMM0, YMM0]"
+NAME="x86 XOP: [VFMSUBPD YMM0, YMM0, YMM0, YMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -370,7 +370,7 @@ run_test
 # -------------------------------
 # VFMSUBPS YMM0, YMM0, YMM0, YMM0 instruction
 BROKEN=1
-NAME="x86: [VFMSUBPS YMM0, YMM0, YMM0, YMM0]"
+NAME="x86 XOP: [VFMSUBPS YMM0, YMM0, YMM0, YMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -386,7 +386,7 @@ run_test
 # -------------------------------
 # VFMADDSUBPD XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VFMADDSUBPD XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VFMADDSUBPD XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -402,7 +402,7 @@ run_test
 # -------------------------------
 # VFMADDSUBPS XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VFMADDSUBPS XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VFMADDSUBPS XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -418,7 +418,7 @@ run_test
 # -------------------------------
 # VFMSUBADDPD XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VFMSUBADDPD XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VFMSUBADDPD XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -434,7 +434,7 @@ run_test
 # -------------------------------
 # VFMSUBADDPS XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VFMSUBADDPS XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VFMSUBADDPS XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -450,7 +450,7 @@ run_test
 # -------------------------------
 # VFMADDSUBPD YMM0, YMM0, YMM0, YMM0 instruction
 BROKEN=1
-NAME="x86: [VFMADDSUBPD YMM0, YMM0, YMM0, YMM0]"
+NAME="x86 XOP: [VFMADDSUBPD YMM0, YMM0, YMM0, YMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -466,7 +466,7 @@ run_test
 # -------------------------------
 # VFMADDSUBPS YMM0, YMM0, YMM0, YMM0 instruction
 BROKEN=1
-NAME="x86: [VFMADDSUBPS YMM0, YMM0, YMM0, YMM0]"
+NAME="x86 XOP: [VFMADDSUBPS YMM0, YMM0, YMM0, YMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -482,7 +482,7 @@ run_test
 # -------------------------------
 # VFMSUBADDPS YMM0, YMM0, YMM0, YMM0 instruction
 BROKEN=1
-NAME="x86: [VFMSUBADDPS YMM0, YMM0, YMM0, YMM0]"
+NAME="x86 XOP: [VFMSUBADDPS YMM0, YMM0, YMM0, YMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -498,7 +498,7 @@ run_test
 # -------------------------------
 # VFMSUBADDPD YMM0, YMM0, YMM0, YMM0 instruction
 BROKEN=1
-NAME="x86: [VFMSUBADDPD YMM0, YMM0, YMM0, YMM0]"
+NAME="x86 XOP: [VFMSUBADDPD YMM0, YMM0, YMM0, YMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -513,7 +513,7 @@ run_test
 # -------------------------------
 # VPCMOV  XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPCMOV  XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPCMOV  XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -529,7 +529,7 @@ run_test
 # -------------------------------
 # VPCOMB  XMM0, XMM0, XMM0, 0 instruction
 BROKEN=1
-NAME="x86: [VPCOMB  XMM0, XMM0, XMM0, 0]"
+NAME="x86 XOP: [VPCOMB  XMM0, XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -545,7 +545,7 @@ run_test
 # -------------------------------
 # VPCOMD  XMM0, XMM0, XMM0, 0 instruction
 BROKEN=1
-NAME="x86: [VPCOMD  XMM0, XMM0, XMM0, 0]"
+NAME="x86 XOP: [VPCOMD  XMM0, XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -561,7 +561,7 @@ run_test
 # -------------------------------
 # VPCOMQ  XMM0, XMM0, XMM0, 0 instruction
 BROKEN=1
-NAME="x86: [VPCOMQ  XMM0, XMM0, XMM0, 0]"
+NAME="x86 XOP: [VPCOMQ  XMM0, XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -577,7 +577,7 @@ run_test
 # -------------------------------
 # VPCOMUB XMM0, XMM0, XMM0, 0 instruction
 BROKEN=1
-NAME="x86: [VPCOMUB XMM0, XMM0, XMM0, 0]"
+NAME="x86 XOP: [VPCOMUB XMM0, XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -593,7 +593,7 @@ run_test
 # -------------------------------
 # VPCOMUD XMM0, XMM0, XMM0, 0 instruction
 BROKEN=1
-NAME="x86: [VPCOMUD XMM0, XMM0, XMM0, 0]"
+NAME="x86 XOP: [VPCOMUD XMM0, XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -609,7 +609,7 @@ run_test
 # -------------------------------
 # VPCOMUQ XMM0, XMM0, XMM0, 0 instruction
 BROKEN=1
-NAME="x86: [VPCOMUQ XMM0, XMM0, XMM0, 0]"
+NAME="x86 XOP: [VPCOMUQ XMM0, XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -625,7 +625,7 @@ run_test
 # -------------------------------
 # VPCOMUW XMM0, XMM0, XMM0, 0 instruction
 BROKEN=1
-NAME="x86: [VPCOMUW XMM0, XMM0, XMM0, 0]"
+NAME="x86 XOP: [VPCOMUW XMM0, XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -641,7 +641,7 @@ run_test
 # -------------------------------
 # VPCOMW  XMM0, XMM0, XMM0, 0 instruction
 BROKEN=1
-NAME="x86: [VPCOMW  XMM0, XMM0, XMM0, 0]"
+NAME="x86 XOP: [VPCOMW  XMM0, XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -657,7 +657,7 @@ run_test
 # -------------------------------
 # VPMACSDDXMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPMACSDDXMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPMACSDDXMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -673,7 +673,7 @@ run_test
 # -------------------------------
 # VPMACSDQH   XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPMACSDQH   XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPMACSDQH   XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -689,7 +689,7 @@ run_test
 # -------------------------------
 # VPMACSDQL   XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPMACSDQL   XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPMACSDQL   XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -705,7 +705,7 @@ run_test
 # -------------------------------
 # VPMACSSDD   XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPMACSSDD   XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPMACSSDD   XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -721,7 +721,7 @@ run_test
 # -------------------------------
 # VPMACSSDQH  XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPMACSSDQH  XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPMACSSDQH  XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -737,7 +737,7 @@ run_test
 # -------------------------------
 # VPMACSSDQL  XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPMACSSDQL  XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPMACSSDQL  XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -753,7 +753,7 @@ run_test
 # -------------------------------
 # VPMACSSWD   XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPMACSSWD   XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPMACSSWD   XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -769,7 +769,7 @@ run_test
 # -------------------------------
 # VPMACSSWW   XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPMACSSWW   XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPMACSSWW   XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -785,7 +785,7 @@ run_test
 # -------------------------------
 # VPMACSWDXMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPMACSWDXMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPMACSWDXMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -801,7 +801,7 @@ run_test
 # -------------------------------
 # VPMACSWWXMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPMACSWWXMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPMACSWWXMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -820,7 +820,7 @@ run_test
 # -------------------------------
 # VPMADCSWD   XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPMADCSWD   XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPMADCSWD   XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -836,7 +836,7 @@ run_test
 # -------------------------------
 # VPPERM  XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPPERM  XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPPERM  XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -852,7 +852,7 @@ run_test
 # -------------------------------
 # VPROTB  XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPROTB  XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPROTB  XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -868,7 +868,7 @@ run_test
 # -------------------------------
 # VPROTD  XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPROTD  XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPROTD  XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -884,7 +884,7 @@ run_test
 # -------------------------------
 # VPROTQ  XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPROTQ  XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPROTQ  XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -900,7 +900,7 @@ run_test
 # -------------------------------
 # VPROTW  XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPROTW  XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPROTW  XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -916,7 +916,7 @@ run_test
 # -------------------------------
 # VPSHAB  XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPSHAB  XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPSHAB  XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -932,7 +932,7 @@ run_test
 # -------------------------------
 # VPSHAD  XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPSHAD  XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPSHAD  XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -948,7 +948,7 @@ run_test
 # -------------------------------
 # VPSHAQ  XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPSHAQ  XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPSHAQ  XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -964,7 +964,7 @@ run_test
 # -------------------------------
 # VPSHAW  XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPSHAW  XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPSHAW  XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -980,7 +980,7 @@ run_test
 # -------------------------------
 # VPSHLB  XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPSHLB  XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPSHLB  XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -996,7 +996,7 @@ run_test
 # -------------------------------
 # VPSHLD  XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPSHLD  XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPSHLD  XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1012,7 +1012,7 @@ run_test
 # -------------------------------
 # VPSHLQ  XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPSHLQ  XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPSHLQ  XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1028,7 +1028,7 @@ run_test
 # -------------------------------
 # VPSHLW  XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPSHLW  XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPSHLW  XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1043,7 +1043,7 @@ run_test
 # -------------------------------
 # VPHADDUBD   XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPHADDUBD   XMM0, XMM0]"
+NAME="x86 XOP: [VPHADDUBD   XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1059,7 +1059,7 @@ run_test
 # -------------------------------
 # VPHADDUBQ   XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPHADDUBQ   XMM0, XMM0]"
+NAME="x86 XOP: [VPHADDUBQ   XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1075,7 +1075,7 @@ run_test
 # -------------------------------
 # VPHADDUBW   XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPHADDUBW   XMM0, XMM0]"
+NAME="x86 XOP: [VPHADDUBW   XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1091,7 +1091,7 @@ run_test
 # -------------------------------
 # VPHADDUDQ   XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPHADDUDQ   XMM0, XMM0]"
+NAME="x86 XOP: [VPHADDUDQ   XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1107,7 +1107,7 @@ run_test
 # -------------------------------
 # VPHADDUWD   XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPHADDUWD   XMM0, XMM0]"
+NAME="x86 XOP: [VPHADDUWD   XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1123,7 +1123,7 @@ run_test
 # -------------------------------
 # VPHADDUWQ   XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPHADDUWQ   XMM0, XMM0]"
+NAME="x86 XOP: [VPHADDUWQ   XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1139,7 +1139,7 @@ run_test
 # -------------------------------
 # VPMADCSSWD  XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86: [VPMADCSSWD  XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPMADCSSWD  XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86

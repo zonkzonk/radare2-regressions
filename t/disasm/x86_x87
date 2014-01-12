@@ -3,7 +3,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 # -------------------------------
 # F2XM1 instruction
-NAME="x86_x87 [F2XM1]"
+NAME="x86_x87: [F2XM1]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -18,7 +18,7 @@ run_test
 
 # -------------------------------
 # FABS instruction
-NAME="x86_x87 [FABS]"
+NAME="x86_x87: [FABS]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -33,7 +33,7 @@ run_test
 
 # -------------------------------
 # FADD DWORD [EAX] instruction
-NAME="x86_x87 [FADD DWORD [EAX]]"
+NAME="x86_x87: [FADD DWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -48,7 +48,7 @@ run_test
 
 # -------------------------------
 # FADD QWORD [EAX] instruction
-NAME="x86_x87 [FADD QWORD [EAX]]"
+NAME="x86_x87: [FADD QWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -63,7 +63,7 @@ run_test
 
 # -------------------------------
 # FADD ST0, ST0 instruction
-NAME="x86_x87 [FADD ST0, ST0]"
+NAME="x86_x87: [FADD ST0, ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -78,7 +78,7 @@ run_test
 
 # -------------------------------
 # FADDP ST0, ST0 instruction
-NAME="x86_x87 [FADDP ST0, ST0]"
+NAME="x86_x87: [FADDP ST0, ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -93,7 +93,7 @@ run_test
 
 # -------------------------------
 # FBLD TWORD [EAX] instruction
-NAME="x86_x87 [FBLD TWORD [EAX]]"
+NAME="x86_x87: [FBLD TWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -108,7 +108,7 @@ run_test
 
 # -------------------------------
 # FBSTP TWORD [EAX] instruction
-NAME="x86_x87 [FBSTP TWORD [EAX]]"
+NAME="x86_x87: [FBSTP TWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -123,7 +123,7 @@ run_test
 
 # -------------------------------
 # FCHS instruction
-NAME="x86_x87 [FCHS]"
+NAME="x86_x87: [FCHS]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -139,7 +139,7 @@ run_test
 # -------------------------------
 # FCLEX instruction
 BROKEN=1
-NAME="x86_x87 [FCLEX]"
+NAME="x86_x87: [FCLEX]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -154,7 +154,7 @@ run_test
 
 # -------------------------------
 # FCMOVB ST0, ST0 instruction
-NAME="x86_x87 [FCMOVB ST0, ST0]"
+NAME="x86_x87: [FCMOVB ST0, ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -169,7 +169,7 @@ run_test
 
 # -------------------------------
 # FCMOVBE ST0, ST0 instruction
-NAME="x86_x87 [FCMOVBE ST0, ST0]"
+NAME="x86_x87: [FCMOVBE ST0, ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -184,7 +184,7 @@ run_test
 
 # -------------------------------
 # FCMOVE ST0, ST0 instruction
-NAME="x86_x87 [FCMOVE ST0, ST0]"
+NAME="x86_x87: [FCMOVE ST0, ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -199,7 +199,7 @@ run_test
 
 # -------------------------------
 # FCMOVNB ST0, ST0 instruction
-NAME="x86_x87 [FCMOVNB ST0, ST0]"
+NAME="x86_x87: [FCMOVNB ST0, ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -214,7 +214,7 @@ run_test
 
 # -------------------------------
 # FCMOVNBE ST0, ST0 instruction
-NAME="x86_x87 [FCMOVNBE ST0, ST0]"
+NAME="x86_x87: [FCMOVNBE ST0, ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -229,7 +229,7 @@ run_test
 
 # -------------------------------
 # FCMOVNE ST0, ST0 instruction
-NAME="x86_x87 [FCMOVNE ST0, ST0]"
+NAME="x86_x87: [FCMOVNE ST0, ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -244,7 +244,7 @@ run_test
 
 # -------------------------------
 # FCMOVNU ST0, ST0 instruction
-NAME="x86_x87 [FCMOVNU ST0, ST0]"
+NAME="x86_x87: [FCMOVNU ST0, ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -259,7 +259,7 @@ run_test
 
 # -------------------------------
 # FCMOVU ST0, ST0 instruction
-NAME="x86_x87 [FCMOVU ST0, ST0]"
+NAME="x86_x87: [FCMOVU ST0, ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -274,7 +274,7 @@ run_test
 
 # -------------------------------
 # FCOM DWORD [EAX] instruction
-NAME="x86_x87 [FCOM DWORD [EAX]]"
+NAME="x86_x87: [FCOM DWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -289,7 +289,7 @@ run_test
 
 # -------------------------------
 # FCOM QWORD [EAX] instruction
-NAME="x86_x87 [FCOM QWORD [EAX]]"
+NAME="x86_x87: [FCOM QWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -304,7 +304,7 @@ run_test
 
 # -------------------------------
 # FCOM ST0 instruction
-NAME="x86_x87 [FCOM ST0]"
+NAME="x86_x87: [FCOM ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -319,7 +319,7 @@ run_test
 
 # -------------------------------
 # FCOMI ST0, ST0 instruction
-NAME="x86_x87 [FCOMI ST0, ST0]"
+NAME="x86_x87: [FCOMI ST0, ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -334,7 +334,7 @@ run_test
 
 # -------------------------------
 # FCOMIP ST0,  ST0 instruction
-NAME="x86_x87 [FCOMIP ST0,  ST0]"
+NAME="x86_x87: [FCOMIP ST0,  ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -349,7 +349,7 @@ run_test
 
 # -------------------------------
 # FCOMP DWORD [EAX] instruction
-NAME="x86_x87 [FCOMP DWORD [EAX]]"
+NAME="x86_x87: [FCOMP DWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -364,7 +364,7 @@ run_test
 
 # -------------------------------
 # FCOMP QWORD [EAX] instruction
-NAME="x86_x87 [FCOMP QWORD [EAX]]"
+NAME="x86_x87: [FCOMP QWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -379,7 +379,7 @@ run_test
 
 # -------------------------------
 # FCOMP ST0 instruction
-NAME="x86_x87 [FCOMP ST0]"
+NAME="x86_x87: [FCOMP ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -394,7 +394,7 @@ run_test
 
 # -------------------------------
 # FCOMPP instruction
-NAME="x86_x87 [FCOMPP]"
+NAME="x86_x87: [FCOMPP]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -409,7 +409,7 @@ run_test
 
 # -------------------------------
 # FCOS instruction
-NAME="x86_x87 [FCOS]"
+NAME="x86_x87: [FCOS]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -424,7 +424,7 @@ run_test
 
 # -------------------------------
 # FDECSTP instruction
-NAME="x86_x87 [FDECSTP]"
+NAME="x86_x87: [FDECSTP]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -439,7 +439,7 @@ run_test
 
 # -------------------------------
 # FDIV DWORD [EAX] instruction
-NAME="x86_x87 [FDIV DWORD [EAX]]"
+NAME="x86_x87: [FDIV DWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -454,7 +454,7 @@ run_test
 
 # -------------------------------
 # FDIV QWORD [EAX] instruction
-NAME="x86_x87 [FDIV QWORD [EAX]]"
+NAME="x86_x87: [FDIV QWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -469,7 +469,7 @@ run_test
 
 # -------------------------------
 # FDIV ST0, ST0 instruction
-NAME="x86_x87 [FDIV ST0, ST0]"
+NAME="x86_x87: [FDIV ST0, ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -484,7 +484,7 @@ run_test
 
 # -------------------------------
 # FDIV ST0, ST0 instruction
-NAME="x86_x87 [FDIV ST0, ST0]"
+NAME="x86_x87: [FDIV ST0, ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -499,7 +499,7 @@ run_test
 
 # -------------------------------
 # FDIVP ST0, ST0 instruction
-NAME="x86_x87 [FDIVP ST0, ST0]"
+NAME="x86_x87: [FDIVP ST0, ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -514,7 +514,7 @@ run_test
 
 # -------------------------------
 # FDIVR DWORD [EAX] instruction
-NAME="x86_x87 [FDIVR DWORD [EAX]]"
+NAME="x86_x87: [FDIVR DWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -529,7 +529,7 @@ run_test
 
 # -------------------------------
 # FDIVR QWORD [EAX] instruction
-NAME="x86_x87 [FDIVR QWORD [EAX]]"
+NAME="x86_x87: [FDIVR QWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -544,7 +544,7 @@ run_test
 
 # -------------------------------
 # FDIVR ST0, ST0 instruction
-NAME="x86_x87 [FDIVR ST0, ST0]"
+NAME="x86_x87: [FDIVR ST0, ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -559,7 +559,7 @@ run_test
 
 # -------------------------------
 # FDIVR ST0, ST0 instruction
-NAME="x86_x87 [FDIVR ST0, ST0]"
+NAME="x86_x87: [FDIVR ST0, ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -574,7 +574,7 @@ run_test
 
 # -------------------------------
 # FDIVRP ST0, ST0 instruction
-NAME="x86_x87 [FDIVRP ST0, ST0]"
+NAME="x86_x87: [FDIVRP ST0, ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -590,7 +590,7 @@ run_test
 # -------------------------------
 # FNENI instruction
 BROKEN=1
-NAME="x86_x87 [FNENI]"
+NAME="x86_x87: [FNENI]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -605,7 +605,7 @@ run_test
 
 # -------------------------------
 # FFREE ST0 instruction
-NAME="x86_x87 [FFREE ST0]"
+NAME="x86_x87: [FFREE ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -618,7 +618,7 @@ EXPECT='ffree st0
 run_test
 # -------------------------------
 # FFREEP ST0 instruction
-NAME="x86_x87 [FFREEP ST0]"
+NAME="x86_x87: [FFREEP ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -633,7 +633,7 @@ run_test
 
 # -------------------------------
 # FIADD DWORD [EAX] instruction
-NAME="x86_x87 [FIADD DWORD [EAX]]"
+NAME="x86_x87: [FIADD DWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -648,7 +648,7 @@ run_test
 
 # -------------------------------
 # FIADD WORD [EAX] instruction
-NAME="x86_x87 [FIADD WORD [EAX]]"
+NAME="x86_x87: [FIADD WORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -663,7 +663,7 @@ run_test
 
 # -------------------------------
 # FICOM DWORD [EAX] instruction
-NAME="x86_x87 [FICOM DWORD [EAX]]"
+NAME="x86_x87: [FICOM DWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -678,7 +678,7 @@ run_test
 
 # -------------------------------
 # FICOM WORD [EAX] instruction
-NAME="x86_x87 [FICOM WORD [EAX]]"
+NAME="x86_x87: [FICOM WORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -693,7 +693,7 @@ run_test
 
 # -------------------------------
 # FICOMP DWORD [EAX] instruction
-NAME="x86_x87 [FICOMP DWORD [EAX]]"
+NAME="x86_x87: [FICOMP DWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -708,7 +708,7 @@ run_test
 
 # -------------------------------
 # FICOMP WORD [EAX] instruction
-NAME="x86_x87 [FICOMP WORD [EAX]]"
+NAME="x86_x87: [FICOMP WORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -723,7 +723,7 @@ run_test
 
 # -------------------------------
 # FIDIV DWORD [EAX] instruction
-NAME="x86_x87 [FIDIV DWORD [EAX]]"
+NAME="x86_x87: [FIDIV DWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -738,7 +738,7 @@ run_test
 
 # -------------------------------
 # FIDIV WORD [EAX] instruction
-NAME="x86_x87 [FIDIV WORD [EAX]]"
+NAME="x86_x87: [FIDIV WORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -753,7 +753,7 @@ run_test
 
 # -------------------------------
 # FIDIVR DWORD [EAX] instruction
-NAME="x86_x87 [FIDIVR DWORD [EAX]]"
+NAME="x86_x87: [FIDIVR DWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -768,7 +768,7 @@ run_test
 
 # -------------------------------
 # FIDIVR WORD [EAX] instruction
-NAME="x86_x87 [FIDIVR WORD [EAX]]"
+NAME="x86_x87: [FIDIVR WORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -783,7 +783,7 @@ run_test
 
 # -------------------------------
 # FILD DWORD [EAX] instruction
-NAME="x86_x87 [FILD DWORD [EAX]]"
+NAME="x86_x87: [FILD DWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -798,7 +798,7 @@ run_test
 
 # -------------------------------
 # FILD QWORD [EAX] instruction
-NAME="x86_x87 [FILD QWORD [EAX]]"
+NAME="x86_x87: [FILD QWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -813,7 +813,7 @@ run_test
 
 # -------------------------------
 # FILD WORD [EAX] instruction
-NAME="x86_x87 [FILD WORD [EAX]]"
+NAME="x86_x87: [FILD WORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -828,7 +828,7 @@ run_test
 
 # -------------------------------
 # FIMUL DWORD [EAX] instruction
-NAME="x86_x87 [FIMUL DWORD [EAX]]"
+NAME="x86_x87: [FIMUL DWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -843,7 +843,7 @@ run_test
 
 # -------------------------------
 # FIMUL WORD [EAX] instruction
-NAME="x86_x87 [FIMUL WORD [EAX]]"
+NAME="x86_x87: [FIMUL WORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -858,7 +858,7 @@ run_test
 
 # -------------------------------
 # FINCSTP instruction
-NAME="x86_x87 [FINCSTP]"
+NAME="x86_x87: [FINCSTP]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -873,7 +873,7 @@ run_test
 
 # -------------------------------
 # FINIT instruction
-NAME="x86_x87 [FINIT]"
+NAME="x86_x87: [FINIT]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -888,7 +888,7 @@ run_test
 
 # -------------------------------
 # FIST DWORD [EAX] instruction
-NAME="x86_x87 [FIST DWORD [EAX]]"
+NAME="x86_x87: [FIST DWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -903,7 +903,7 @@ run_test
 
 # -------------------------------
 # FIST WORD [EAX] instruction
-NAME="x86_x87 [FIST WORD [EAX]]"
+NAME="x86_x87: [FIST WORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -918,7 +918,7 @@ run_test
 
 # -------------------------------
 # FISTP DWORD [EAX] instruction
-NAME="x86_x87 [FISTP DWORD [EAX]]"
+NAME="x86_x87: [FISTP DWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -933,7 +933,7 @@ run_test
 
 # -------------------------------
 # FISTP QWORD [EAX] instruction
-NAME="x86_x87 [FISTP QWORD [EAX]]"
+NAME="x86_x87: [FISTP QWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -948,7 +948,7 @@ run_test
 
 # -------------------------------
 # FISTP WORD [EAX] instruction
-NAME="x86_x87 [FISTP WORD [EAX]]"
+NAME="x86_x87: [FISTP WORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -963,7 +963,7 @@ run_test
 
 # -------------------------------
 # FISTTP WORD [EAX] instruction
-NAME="x86_x87 [FISTTP WORD [EAX]]"
+NAME="x86_x87: [FISTTP WORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -978,7 +978,7 @@ run_test
 
 # -------------------------------
 # FISUB DWORD [EAX] instruction
-NAME="x86_x87 [FISUB DWORD [EAX]]"
+NAME="x86_x87: [FISUB DWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -993,7 +993,7 @@ run_test
 
 # -------------------------------
 # FISUB WORD [EAX] instruction
-NAME="x86_x87 [FISUB WORD [EAX]]"
+NAME="x86_x87: [FISUB WORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1008,7 +1008,7 @@ run_test
 
 # -------------------------------
 # FISUBR DWORD [EAX] instruction
-NAME="x86_x87 [FISUBR DWORD [EAX]]"
+NAME="x86_x87: [FISUBR DWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1023,7 +1023,7 @@ run_test
 
 # -------------------------------
 # FISUBR WORD [EAX] instruction
-NAME="x86_x87 [FISUBR WORD [EAX]]"
+NAME="x86_x87: [FISUBR WORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1038,7 +1038,7 @@ run_test
 
 # -------------------------------
 # FLD DWORD [EAX] instruction
-NAME="x86_x87 [FLD DWORD [EAX]]"
+NAME="x86_x87: [FLD DWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1053,7 +1053,7 @@ run_test
 
 # -------------------------------
 # FLD QWORD [EAX] instruction
-NAME="x86_x87 [FLD QWORD [EAX]]"
+NAME="x86_x87: [FLD QWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1068,7 +1068,7 @@ run_test
 
 # -------------------------------
 # FLD ST0 instruction
-NAME="x86_x87 [FLD ST0]"
+NAME="x86_x87: [FLD ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1083,7 +1083,7 @@ run_test
 
 # -------------------------------
 # FLD TWORD [EAX] instruction
-NAME="x86_x87 [FLD TWORD [EAX]]"
+NAME="x86_x87: [FLD TWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1098,7 +1098,7 @@ run_test
 
 # -------------------------------
 # FLD1 instruction
-NAME="x86_x87 [FLD1]"
+NAME="x86_x87: [FLD1]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1113,7 +1113,7 @@ run_test
 
 # -------------------------------
 # FLDCW WORD [EAX] instruction
-NAME="x86_x87 [FLDCW WORD [EAX]]"
+NAME="x86_x87: [FLDCW WORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1128,7 +1128,7 @@ run_test
 
 # -------------------------------
 # FLDENV [EAX] instruction
-NAME="x86_x87 [FLDENV [EAX]]"
+NAME="x86_x87: [FLDENV [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1143,7 +1143,7 @@ run_test
 
 # -------------------------------
 # FLDL2E instruction
-NAME="x86_x87 [FLDL2E]"
+NAME="x86_x87: [FLDL2E]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1158,7 +1158,7 @@ run_test
 
 # -------------------------------
 # FLDL2T instruction
-NAME="x86_x87 [FLDL2T]"
+NAME="x86_x87: [FLDL2T]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1173,7 +1173,7 @@ run_test
 
 # -------------------------------
 # FLDLG2 instruction
-NAME="x86_x87 [FLDLG2]"
+NAME="x86_x87: [FLDLG2]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1188,7 +1188,7 @@ run_test
 
 # -------------------------------
 # FLDLN2 instruction
-NAME="x86_x87 [FLDLN2]"
+NAME="x86_x87: [FLDLN2]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1203,7 +1203,7 @@ run_test
 
 # -------------------------------
 # FLDPI instruction
-NAME="x86_x87 [FLDPI]"
+NAME="x86_x87: [FLDPI]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1218,7 +1218,7 @@ run_test
 
 # -------------------------------
 # FLDZ instruction
-NAME="x86_x87 [FLDZ]"
+NAME="x86_x87: [FLDZ]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1232,7 +1232,7 @@ run_test
 
 # -------------------------------
 # FMUL DWORD [EAX] instruction
-NAME="x86_x87 [FMUL DWORD [EAX]]"
+NAME="x86_x87: [FMUL DWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1247,7 +1247,7 @@ run_test
 
 # -------------------------------
 # FMUL QWORD [EAX] instruction
-NAME="x86_x87 [FMUL QWORD [EAX]]"
+NAME="x86_x87: [FMUL QWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1262,7 +1262,7 @@ run_test
 
 # -------------------------------
 # FMUL ST0, st0 instruction
-NAME="x86_x87 [FMUL ST0, st0]"
+NAME="x86_x87: [FMUL ST0, st0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1277,7 +1277,7 @@ run_test
 
 # -------------------------------
 # FMUL ST0, st0 instruction
-NAME="x86_x87 [FMUL ST0, st0]"
+NAME="x86_x87: [FMUL ST0, st0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1292,7 +1292,7 @@ run_test
 
 # -------------------------------
 # FMULP ST0, st0 instruction
-NAME="x86_x87 [FMULP ST0, st0]"
+NAME="x86_x87: [FMULP ST0, st0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1308,7 +1308,7 @@ run_test
 # -------------------------------
 # FCLEX instruction
 BROKEN=1
-NAME="x86_x87 [FCLEX]"
+NAME="x86_x87: [FCLEX]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1323,7 +1323,7 @@ run_test
 
 # -------------------------------
 # FCLEX instruction
-NAME="x86_x87 [FCLEX]"
+NAME="x86_x87: [FCLEX]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1339,7 +1339,7 @@ run_test
 # -------------------------------
 # FNDISI instruction
 BROKEN=1
-NAME="x86_x87 [FNDISI]"
+NAME="x86_x87: [FNDISI]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1355,7 +1355,7 @@ run_test
 # -------------------------------
 # FNINIT instruction
 BROKEN=1
-NAME="x86_x87 [FNINIT]"
+NAME="x86_x87: [FNINIT]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1370,7 +1370,7 @@ run_test
 
 # -------------------------------
 # FNOP instruction
-NAME="x86_x87 [FNOP]"
+NAME="x86_x87: [FNOP]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1385,7 +1385,7 @@ run_test
 
 # -------------------------------
 # FNSAVE [EAX] instruction
-NAME="x86_x87 [FNSAVE [EAX]]"
+NAME="x86_x87: [FNSAVE [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1401,7 +1401,7 @@ run_test
 
 # -------------------------------
 # FNSTCW WORD [EAX] instruction
-NAME="x86_x87 [FNSTCW WORD [EAX]]"
+NAME="x86_x87: [FNSTCW WORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1417,7 +1417,7 @@ run_test
 
 # -------------------------------
 # FNSTENV [EAX] instruction
-NAME="x86_x87 [FNSTENV [EAX]]"
+NAME="x86_x87: [FNSTENV [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1433,7 +1433,7 @@ run_test
 
 # -------------------------------
 # FNSTSW WORD [EAX] instruction
-NAME="x86_x87 [FNSTSW WORD [EAX]]"
+NAME="x86_x87: [FNSTSW WORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1449,7 +1449,7 @@ run_test
 	
 # -------------------------------
 # FPATAN instruction
-NAME="x86_x87 [FPATAN]"
+NAME="x86_x87: [FPATAN]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1464,7 +1464,7 @@ run_test
 
 # -------------------------------
 # FPREM instruction
-NAME="x86_x87 [FPREM]"
+NAME="x86_x87: [FPREM]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1479,7 +1479,7 @@ run_test
 
 # -------------------------------
 # FPREM1 instruction
-NAME="x86_x87 [FPREM1]"
+NAME="x86_x87: [FPREM1]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1494,7 +1494,7 @@ run_test
 
 # -------------------------------
 # FPTAN instruction
-NAME="x86_x87 [FPTAN]"
+NAME="x86_x87: [FPTAN]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1509,7 +1509,7 @@ run_test
 
 # -------------------------------
 # FRNDINT instruction
-NAME="x86_x87 [FRNDINT]"
+NAME="x86_x87: [FRNDINT]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1524,7 +1524,7 @@ run_test
 
 # -------------------------------
 # FRSTOR [EAX] instruction
-NAME="x86_x87 [FRSTOR [EAX]]"
+NAME="x86_x87: [FRSTOR [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1539,7 +1539,7 @@ run_test
 
 # -------------------------------
 # FSAVE [EAX] instruction
-NAME="x86_x87 [FSAVE [EAX]]"
+NAME="x86_x87: [FSAVE [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1554,7 +1554,7 @@ run_test
 
 # -------------------------------
 # FSCALE instruction
-NAME="x86_x87 [FSCALE]"
+NAME="x86_x87: [FSCALE]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1570,7 +1570,7 @@ run_test
 # -------------------------------
 # FSETPM instruction
 BROKEN=1
-NAME="x86_x87 [FSETPM]"
+NAME="x86_x87: [FSETPM]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1587,7 +1587,7 @@ run_test
 # -------------------------------
 # FNSETPM instruction
 BROKEN=1
-NAME="x86_x87 [FNSETPM]"
+NAME="x86_x87: [FNSETPM]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1602,7 +1602,7 @@ run_test
 
 # -------------------------------
 # FSIN instruction
-NAME="x86_x87 [FSIN]"
+NAME="x86_x87: [FSIN]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1617,7 +1617,7 @@ run_test
 
 # -------------------------------
 # FSINCOS instruction
-NAME="x86_x87 [FSINCOS]"
+NAME="x86_x87: [FSINCOS]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1632,7 +1632,7 @@ run_test
 
 # -------------------------------
 # FSQRT instruction
-NAME="x86_x87 [FSQRT]"
+NAME="x86_x87: [FSQRT]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1647,7 +1647,7 @@ run_test
 
 # -------------------------------
 # FST DWORD [EAX] instruction
-NAME="x86_x87 [FST DWORD [EAX]]"
+NAME="x86_x87: [FST DWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1662,7 +1662,7 @@ run_test
 
 # -------------------------------
 # FST QWORD [EAX] instruction
-NAME="x86_x87 [FST QWORD [EAX]]"
+NAME="x86_x87: [FST QWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1677,7 +1677,7 @@ run_test
 
 # -------------------------------
 # FST ST0 instruction
-NAME="x86_x87 [FST ST0]"
+NAME="x86_x87: [FST ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1692,7 +1692,7 @@ run_test
 
 # -------------------------------
 # FSTCW WORD [EAX] instruction
-NAME="x86_x87 [FSTCW WORD [EAX]]"
+NAME="x86_x87: [FSTCW WORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1707,7 +1707,7 @@ run_test
 
 # -------------------------------
 # FSTENV [EAX] instruction
-NAME="x86_x87 [FSTENV [EAX]]"
+NAME="x86_x87: [FSTENV [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1722,7 +1722,7 @@ run_test
 
 # -------------------------------
 # FSTP DWORD [EAX] instruction
-NAME="x86_x87 [FSTP DWORD [EAX]]"
+NAME="x86_x87: [FSTP DWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1737,7 +1737,7 @@ run_test
 
 # -------------------------------
 # FSTP QWORD [EAX] instruction
-NAME="x86_x87 [FSTP QWORD [EAX]]"
+NAME="x86_x87: [FSTP QWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1752,7 +1752,7 @@ run_test
 
 # -------------------------------
 # FSTP ST0 instruction
-NAME="x86_x87 [FSTP ST0]"
+NAME="x86_x87: [FSTP ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1767,7 +1767,7 @@ run_test
 
 # -------------------------------
 # FSTP TWORD [EAX] instruction
-NAME="x86_x87 [FSTP TWORD [EAX]]"
+NAME="x86_x87: [FSTP TWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1782,7 +1782,7 @@ run_test
 
 # -------------------------------
 # FSTSW WORD [EAX] instruction
-NAME="x86_x87 [FSTSW WORD [EAX]]"
+NAME="x86_x87: [FSTSW WORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1798,7 +1798,7 @@ run_test
 
 # -------------------------------
 # FSUB DWORD [EAX] instruction
-NAME="x86_x87 [FSUB DWORD [EAX]]"
+NAME="x86_x87: [FSUB DWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1813,7 +1813,7 @@ run_test
 
 # -------------------------------
 # FSUB QWORD [EAX] instruction
-NAME="x86_x87 [FSUB QWORD [EAX]]"
+NAME="x86_x87: [FSUB QWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1828,7 +1828,7 @@ run_test
 
 # -------------------------------
 # FSUB ST0, st0 instruction
-NAME="x86_x87 [FSUB ST0, st0]"
+NAME="x86_x87: [FSUB ST0, st0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1843,7 +1843,7 @@ run_test
 
 # -------------------------------
 # FSUBP ST0, st0 instruction
-NAME="x86_x87 [FSUBP ST0, st0]"
+NAME="x86_x87: [FSUBP ST0, st0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1858,7 +1858,7 @@ run_test
 
 # -------------------------------
 # FSUBR DWORD [EAX] instruction
-NAME="x86_x87 [FSUBR DWORD [EAX]]"
+NAME="x86_x87: [FSUBR DWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1873,7 +1873,7 @@ run_test
 
 # -------------------------------
 # FSUBR QWORD [EAX] instruction
-NAME="x86_x87 [FSUBR QWORD [EAX]]"
+NAME="x86_x87: [FSUBR QWORD [EAX]]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1888,7 +1888,7 @@ run_test
 
 # -------------------------------
 # FSUBR ST0, st0 instruction
-NAME="x86_x87 [FSUBR ST0, st0]"
+NAME="x86_x87: [FSUBR ST0, st0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1903,7 +1903,7 @@ run_test
 
 # -------------------------------
 # FSUBRP ST0, st0 instruction
-NAME="x86_x87 [FSUBRP ST0, st0]"
+NAME="x86_x87: [FSUBRP ST0, st0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1918,7 +1918,7 @@ run_test
 
 # -------------------------------
 # FTST instruction
-NAME="x86_x87 [FTST]"
+NAME="x86_x87: [FTST]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1933,7 +1933,7 @@ run_test
 
 # -------------------------------
 # FUCOM ST0 instruction
-NAME="x86_x87 [FUCOM ST0]"
+NAME="x86_x87: [FUCOM ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1948,7 +1948,7 @@ run_test
 
 # -------------------------------
 # FUCOMI ST0, st0 instruction
-NAME="x86_x87 [FUCOMI ST0, st0]"
+NAME="x86_x87: [FUCOMI ST0, st0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1963,7 +1963,7 @@ run_test
 
 # -------------------------------
 # FUCOMIP ST0 instruction
-NAME="x86_x87 [FUCOMIP ST0]"
+NAME="x86_x87: [FUCOMIP ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1978,7 +1978,7 @@ run_test
 
 # -------------------------------
 # FUCOMP ST0 instruction
-NAME="x86_x87 [FUCOMP ST0]"
+NAME="x86_x87: [FUCOMP ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -1993,7 +1993,7 @@ run_test
 
 # -------------------------------
 # FUCOMPP instruction
-NAME="x86_x87 [FUCOMPP]"
+NAME="x86_x87: [FUCOMPP]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -2008,7 +2008,7 @@ run_test
 
 # -------------------------------
 # FXAM instruction
-NAME="x86_x87 [FXAM]"
+NAME="x86_x87: [FXAM]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -2023,7 +2023,7 @@ run_test
 
 # -------------------------------
 # FXCH ST0 instruction
-NAME="x86_x87 [FXCH ST0]"
+NAME="x86_x87: [FXCH ST0]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -2038,7 +2038,7 @@ run_test
 
 # -------------------------------
 # FXTRACT instruction
-NAME="x86_x87 [FXTRACT]"
+NAME="x86_x87: [FXTRACT]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -2053,7 +2053,7 @@ run_test
 
 # -------------------------------
 # FYL2X instruction
-NAME="x86_x87 [FYL2X]"
+NAME="x86_x87: [FYL2X]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -2068,7 +2068,7 @@ run_test
 
 # -------------------------------
 # FYL2XP1 instruction
-NAME="x86_x87 [FYL2XP1]"
+NAME="x86_x87: [FYL2XP1]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86
@@ -2084,7 +2084,7 @@ run_test
 
 # -------------------------------
 # WAIT instruction
-NAME="x86_x87 [WAIT]"
+NAME="x86_x87: [WAIT]"
 FILE=malloc://32
 CMDS='
 e asm.arch=x86

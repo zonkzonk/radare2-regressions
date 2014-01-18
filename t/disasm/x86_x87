@@ -349,8 +349,8 @@ run_test
 
 
 # -------------------------------
-# FCOMIP ST0,  ST0 instruction
-NAME="x86_x87: [FCOMIP ST0,  ST0]"
+# FCOMIP ST0, ST0 instruction
+NAME="x86_x87: [FCOMIP ST0, ST0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}

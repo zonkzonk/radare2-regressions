@@ -4,9 +4,9 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 ARCH=x86
 
 # -------------------------------
-# VPMADCSSWD  XMM0, XMM0, XMM0, XMM0 instruction
+# VPMADCSSWD XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPMADCSSWD  XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPMADCSSWD XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -14,7 +14,7 @@ e asm.bits=32
 wx 8fe878a6c000
 pi 1
 "
-EXPECT="vpmadcsswd  xmm0, xmm0, xmm0, xmm0
+EXPECT="vpmadcsswd xmm0, xmm0, xmm0, xmm0
 "
 run_test
 
@@ -34,9 +34,9 @@ EXPECT="vfrczpd xmm0, xmm0
 run_test
 
 # -------------------------------
-# VCVTPH2PS   XMM0, XMM0, 0 instruction
+# VCVTPH2PS XMM0, XMM0, 0 instruction
 BROKEN=1
-NAME="x86 XOP: [VCVTPH2PS   XMM0, XMM0, 0]"
+NAME="x86 XOP: [VCVTPH2PS XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -44,15 +44,15 @@ e asm.bits=32
 wx 8fe878a0c000
 pi 1
 "
-EXPECT="vcvtph2ps   xmm0, xmm0, 0
+EXPECT="vcvtph2ps xmm0, xmm0, 0
 "
 run_test
 
 
 # -------------------------------
-# VCVTPS2PH   XMM0, XMM0, 0 instruction
+# VCVTPS2PH XMM0, XMM0, 0 instruction
 BROKEN=1
-NAME="x86 XOP: [VCVTPS2PH   XMM0, XMM0, 0]"
+NAME="x86 XOP: [VCVTPS2PH XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -60,7 +60,7 @@ e asm.bits=32
 wx 8fe878a1c000
 pi 1
 "
-EXPECT="vcvtps2ph   xmm0, xmm0, 0
+EXPECT="vcvtps2ph xmm0, xmm0, 0
 "
 run_test
 
@@ -513,9 +513,9 @@ EXPECT="vfmsubaddpd ymm0, ymm0, ymm0, ymm0
 run_test
 
 # -------------------------------
-# VPCMOV  XMM0, XMM0, XMM0, XMM0 instruction
+# VPCMOV XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPCMOV  XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPCMOV XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -523,15 +523,15 @@ e asm.bits=32
 wx 8fe878a2c000
 pi 1
 "
-EXPECT="vpcmov  xmm0, xmm0, xmm0, xmm0
+EXPECT="vpcmov xmm0, xmm0, xmm0, xmm0
 "
 run_test
 
 
 # -------------------------------
-# VPCOMB  XMM0, XMM0, XMM0, 0 instruction
+# VPCOMB XMM0, XMM0, XMM0, 0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPCOMB  XMM0, XMM0, XMM0, 0]"
+NAME="x86 XOP: [VPCOMB XMM0, XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -539,15 +539,15 @@ e asm.bits=32
 wx 8fe878ccc000
 pi 1
 "
-EXPECT="vpcomb  xmm0, xmm0, xmm0, 0
+EXPECT="vpcomb xmm0, xmm0, xmm0, 0
 "
 run_test
 
 
 # -------------------------------
-# VPCOMD  XMM0, XMM0, XMM0, 0 instruction
+# VPCOMD XMM0, XMM0, XMM0, 0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPCOMD  XMM0, XMM0, XMM0, 0]"
+NAME="x86 XOP: [VPCOMD XMM0, XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -555,15 +555,15 @@ e asm.bits=32
 wx 8fe878cec000
 pi 1
 "
-EXPECT="vpcomd  xmm0, xmm0, xmm0, 0
+EXPECT="vpcomd xmm0, xmm0, xmm0, 0
 "
 run_test
 
 
 # -------------------------------
-# VPCOMQ  XMM0, XMM0, XMM0, 0 instruction
+# VPCOMQ XMM0, XMM0, XMM0, 0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPCOMQ  XMM0, XMM0, XMM0, 0]"
+NAME="x86 XOP: [VPCOMQ XMM0, XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -571,7 +571,7 @@ e asm.bits=32
 wx 8fe878cfc000
 pi 1
 "
-EXPECT="vpcomq  xmm0, xmm0, xmm0, 0
+EXPECT="vpcomq xmm0, xmm0, xmm0, 0
 "
 run_test
 
@@ -641,9 +641,9 @@ run_test
 
 
 # -------------------------------
-# VPCOMW  XMM0, XMM0, XMM0, 0 instruction
+# VPCOMW XMM0, XMM0, XMM0, 0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPCOMW  XMM0, XMM0, XMM0, 0]"
+NAME="x86 XOP: [VPCOMW XMM0, XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -651,7 +651,7 @@ e asm.bits=32
 wx 8fe878cdc000
 pi 1
 "
-EXPECT="vpcomw  xmm0, xmm0, xmm0, 0
+EXPECT="vpcomw xmm0, xmm0, xmm0, 0
 "
 run_test
 
@@ -673,9 +673,9 @@ run_test
 
 
 # -------------------------------
-# VPMACSDQH   XMM0, XMM0, XMM0, XMM0 instruction
+# VPMACSDQH XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPMACSDQH   XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPMACSDQH XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -683,15 +683,15 @@ e asm.bits=32
 wx 8fe8789fc000
 pi 1
 "
-EXPECT="vpmacsdqh   xmm0, xmm0, xmm0, xmm0
+EXPECT="vpmacsdqh xmm0, xmm0, xmm0, xmm0
 "
 run_test
 
 
 # -------------------------------
-# VPMACSDQL   XMM0, XMM0, XMM0, XMM0 instruction
+# VPMACSDQL XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPMACSDQL   XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPMACSDQL XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -699,15 +699,15 @@ e asm.bits=32
 wx 8fe87897c000
 pi 1
 "
-EXPECT="vpmacsdql   xmm0, xmm0, xmm0, xmm0
+EXPECT="vpmacsdql xmm0, xmm0, xmm0, xmm0
 "
 run_test
 
 
 # -------------------------------
-# VPMACSSDD   XMM0, XMM0, XMM0, XMM0 instruction
+# VPMACSSDD XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPMACSSDD   XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPMACSSDD XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -715,15 +715,15 @@ e asm.bits=32
 wx 8fe8788ec000
 pi 1
 "
-EXPECT="vpmacssdd   xmm0, xmm0, xmm0, xmm0
+EXPECT="vpmacssdd xmm0, xmm0, xmm0, xmm0
 "
 run_test
 
 
 # -------------------------------
-# VPMACSSDQH  XMM0, XMM0, XMM0, XMM0 instruction
+# VPMACSSDQH XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPMACSSDQH  XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPMACSSDQH XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -731,15 +731,15 @@ e asm.bits=32
 wx 8fe8788fc000
 pi 1
 "
-EXPECT="vpmacssdqh  xmm0, xmm0, xmm0, xmm0
+EXPECT="vpmacssdqh xmm0, xmm0, xmm0, xmm0
 "
 run_test
 
 
 # -------------------------------
-# VPMACSSDQL  XMM0, XMM0, XMM0, XMM0 instruction
+# VPMACSSDQL XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPMACSSDQL  XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPMACSSDQL XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -747,15 +747,15 @@ e asm.bits=32
 wx 8fe87887c000
 pi 1
 "
-EXPECT="vpmacssdql  xmm0, xmm0, xmm0, xmm0
+EXPECT="vpmacssdql xmm0, xmm0, xmm0, xmm0
 "
 run_test
 
 
 # -------------------------------
-# VPMACSSWD   XMM0, XMM0, XMM0, XMM0 instruction
+# VPMACSSWD XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPMACSSWD   XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPMACSSWD XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -763,15 +763,15 @@ e asm.bits=32
 wx 8fe87886c000
 pi 1
 "
-EXPECT="vpmacsswd   xmm0, xmm0, xmm0, xmm0
+EXPECT="vpmacsswd xmm0, xmm0, xmm0, xmm0
 "
 run_test
 
 
 # -------------------------------
-# VPMACSSWW   XMM0, XMM0, XMM0, XMM0 instruction
+# VPMACSSWW XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPMACSSWW   XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPMACSSWW XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -779,7 +779,7 @@ e asm.bits=32
 wx 8fe87885c000
 pi 1
 "
-EXPECT="vpmacssww   xmm0, xmm0, xmm0, xmm0
+EXPECT="vpmacssww xmm0, xmm0, xmm0, xmm0
 "
 run_test
 
@@ -820,9 +820,9 @@ run_test
 
 
 # -------------------------------
-# VPMADCSWD   XMM0, XMM0, XMM0, XMM0 instruction
+# VPMADCSWD XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPMADCSWD   XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPMADCSWD XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -830,15 +830,15 @@ e asm.bits=32
 wx 8fe878b6c000
 pi 1
 "
-EXPECT="vpmadcswd   xmm0, xmm0, xmm0, xmm0
+EXPECT="vpmadcswd xmm0, xmm0, xmm0, xmm0
 "
 run_test
 
 
 # -------------------------------
-# VPPERM  XMM0, XMM0, XMM0, XMM0 instruction
+# VPPERM XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPPERM  XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPPERM XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -846,15 +846,15 @@ e asm.bits=32
 wx 8fe878a3c000
 pi 1
 "
-EXPECT="vpperm  xmm0, xmm0, xmm0, xmm0
+EXPECT="vpperm xmm0, xmm0, xmm0, xmm0
 "
 run_test
 
 
 # -------------------------------
-# VPROTB  XMM0, XMM0, XMM0 instruction
+# VPROTB XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPROTB  XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPROTB XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -862,15 +862,15 @@ e asm.bits=32
 wx 8fe97890c0
 pi 1
 "
-EXPECT="vprotb  xmm0, xmm0, xmm0
+EXPECT="vprotb xmm0, xmm0, xmm0
 "
 run_test
 
 
 # -------------------------------
-# VPROTD  XMM0, XMM0, XMM0 instruction
+# VPROTD XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPROTD  XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPROTD XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -878,15 +878,15 @@ e asm.bits=32
 wx 8fe97892c0
 pi 1
 "
-EXPECT="vprotd  xmm0, xmm0, xmm0
+EXPECT="vprotd xmm0, xmm0, xmm0
 "
 run_test
 
 
 # -------------------------------
-# VPROTQ  XMM0, XMM0, XMM0 instruction
+# VPROTQ XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPROTQ  XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPROTQ XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -894,15 +894,15 @@ e asm.bits=32
 wx 8fe97893c0
 pi 1
 "
-EXPECT="vprotq  xmm0, xmm0, xmm0
+EXPECT="vprotq xmm0, xmm0, xmm0
 "
 run_test
 
 
 # -------------------------------
-# VPROTW  XMM0, XMM0, XMM0 instruction
+# VPROTW XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPROTW  XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPROTW XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -910,15 +910,15 @@ e asm.bits=32
 wx 8fe97891c0
 pi 1
 "
-EXPECT="vprotw  xmm0, xmm0, xmm0
+EXPECT="vprotw xmm0, xmm0, xmm0
 "
 run_test
 
 
 # -------------------------------
-# VPSHAB  XMM0, XMM0, XMM0 instruction
+# VPSHAB XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPSHAB  XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPSHAB XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -926,15 +926,15 @@ e asm.bits=32
 wx 8fe97898c0
 pi 1
 "
-EXPECT="vpshab  xmm0, xmm0, xmm0
+EXPECT="vpshab xmm0, xmm0, xmm0
 "
 run_test
 
 
 # -------------------------------
-# VPSHAD  XMM0, XMM0, XMM0 instruction
+# VPSHAD XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPSHAD  XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPSHAD XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -942,15 +942,15 @@ e asm.bits=32
 wx 8fe9789ac0
 pi 1
 "
-EXPECT="vpshad  xmm0, xmm0, xmm0
+EXPECT="vpshad xmm0, xmm0, xmm0
 "
 run_test
 
 
 # -------------------------------
-# VPSHAQ  XMM0, XMM0, XMM0 instruction
+# VPSHAQ XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPSHAQ  XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPSHAQ XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -958,15 +958,15 @@ e asm.bits=32
 wx 8fe9789bc0
 pi 1
 "
-EXPECT="vpshaq  xmm0, xmm0, xmm0
+EXPECT="vpshaq xmm0, xmm0, xmm0
 "
 run_test
 
 
 # -------------------------------
-# VPSHAW  XMM0, XMM0, XMM0 instruction
+# VPSHAW XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPSHAW  XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPSHAW XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -974,15 +974,15 @@ e asm.bits=32
 wx 8fe97899c0
 pi 1
 "
-EXPECT="vpshaw  xmm0, xmm0, xmm0
+EXPECT="vpshaw xmm0, xmm0, xmm0
 "
 run_test
 
 
 # -------------------------------
-# VPSHLB  XMM0, XMM0, XMM0 instruction
+# VPSHLB XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPSHLB  XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPSHLB XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -990,15 +990,15 @@ e asm.bits=32
 wx 8fe97894c0
 pi 1
 "
-EXPECT="vpshlb  xmm0, xmm0, xmm0
+EXPECT="vpshlb xmm0, xmm0, xmm0
 "
 run_test
 
 
 # -------------------------------
-# VPSHLD  XMM0, XMM0, XMM0 instruction
+# VPSHLD XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPSHLD  XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPSHLD XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1006,15 +1006,15 @@ e asm.bits=32
 wx 8fe97896c0
 pi 1
 "
-EXPECT="vpshld  xmm0, xmm0, xmm0
+EXPECT="vpshld xmm0, xmm0, xmm0
 "
 run_test
 
 
 # -------------------------------
-# VPSHLQ  XMM0, XMM0, XMM0 instruction
+# VPSHLQ XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPSHLQ  XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPSHLQ XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1022,15 +1022,15 @@ e asm.bits=32
 wx 8fe97897c0
 pi 1
 "
-EXPECT="vpshlq  xmm0, xmm0, xmm0
+EXPECT="vpshlq xmm0, xmm0, xmm0
 "
 run_test
 
 
 # -------------------------------
-# VPSHLW  XMM0, XMM0, XMM0 instruction
+# VPSHLW XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPSHLW  XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPSHLW XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1038,14 +1038,14 @@ e asm.bits=32
 wx 8fe97895c0
 pi 1
 "
-EXPECT="vpshlw  xmm0, xmm0, xmm0
+EXPECT="vpshlw xmm0, xmm0, xmm0
 "
 run_test
 
 # -------------------------------
-# VPHADDUBD   XMM0, XMM0 instruction
+# VPHADDUBD XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPHADDUBD   XMM0, XMM0]"
+NAME="x86 XOP: [VPHADDUBD XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1053,15 +1053,15 @@ e asm.bits=32
 wx 8fe978d2c0
 pi 1
 "
-EXPECT="vphaddubd   xmm0, xmm0
+EXPECT="vphaddubd xmm0, xmm0
 "
 run_test
 
 
 # -------------------------------
-# VPHADDUBQ   XMM0, XMM0 instruction
+# VPHADDUBQ XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPHADDUBQ   XMM0, XMM0]"
+NAME="x86 XOP: [VPHADDUBQ XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1069,15 +1069,15 @@ e asm.bits=32
 wx 8fe978d3c0
 pi 1
 "
-EXPECT="vphaddubq   xmm0, xmm0
+EXPECT="vphaddubq xmm0, xmm0
 "
 run_test
 
 
 # -------------------------------
-# VPHADDUBW   XMM0, XMM0 instruction
+# VPHADDUBW XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPHADDUBW   XMM0, XMM0]"
+NAME="x86 XOP: [VPHADDUBW XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1085,15 +1085,15 @@ e asm.bits=32
 wx 8fe978d1c0
 pi 1
 "
-EXPECT="vphaddubw   xmm0, xmm0
+EXPECT="vphaddubw xmm0, xmm0
 "
 run_test
 
 
 # -------------------------------
-# VPHADDUDQ   XMM0, XMM0 instruction
+# VPHADDUDQ XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPHADDUDQ   XMM0, XMM0]"
+NAME="x86 XOP: [VPHADDUDQ XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1101,15 +1101,15 @@ e asm.bits=32
 wx 8fe978dbc0
 pi 1
 "
-EXPECT="vphaddudq   xmm0, xmm0
+EXPECT="vphaddudq xmm0, xmm0
 "
 run_test
 
 
 # -------------------------------
-# VPHADDUWD   XMM0, XMM0 instruction
+# VPHADDUWD XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPHADDUWD   XMM0, XMM0]"
+NAME="x86 XOP: [VPHADDUWD XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1117,15 +1117,15 @@ e asm.bits=32
 wx 8fe978d6c0
 pi 1
 "
-EXPECT="vphadduwd   xmm0, xmm0
+EXPECT="vphadduwd xmm0, xmm0
 "
 run_test
 
 
 # -------------------------------
-# VPHADDUWQ   XMM0, XMM0 instruction
+# VPHADDUWQ XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPHADDUWQ   XMM0, XMM0]"
+NAME="x86 XOP: [VPHADDUWQ XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1133,15 +1133,15 @@ e asm.bits=32
 wx 8fe978d7c0
 pi 1
 "
-EXPECT="vphadduwq   xmm0, xmm0
+EXPECT="vphadduwq xmm0, xmm0
 "
 run_test
 
 
 # -------------------------------
-# VPMADCSSWD  XMM0, XMM0, XMM0, XMM0 instruction
+# VPMADCSSWD XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 XOP: [VPMADCSSWD  XMM0, XMM0, XMM0, XMM0]"
+NAME="x86 XOP: [VPMADCSSWD XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1149,7 +1149,7 @@ e asm.bits=32
 wx 8fe878a6c000
 pi 1
 "
-EXPECT="vpmadcsswd  xmm0, xmm0, xmm0, xmm0
+EXPECT="vpmadcsswd xmm0, xmm0, xmm0, xmm0
 "
 run_test
 

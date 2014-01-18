@@ -1317,8 +1317,8 @@ run_test
 
 
 # -------------------------------
-# STR  [EAX] instruction
-NAME="x86: [STR  [EAX]]"
+# STR [EAX] instruction
+NAME="x86: [STR [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1363,8 +1363,8 @@ run_test
 
 
 # -------------------------------
-# LTR  [EAX] instruction
-NAME="x86: [LTR  [EAX]]"
+# LTR [EAX] instruction
+NAME="x86: [LTR [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1378,8 +1378,8 @@ run_test
 
 
 # -------------------------------
-# LTR  AX instruction
-NAME="x86: [LTR  AX]"
+# LTR AX instruction
+NAME="x86: [LTR AX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2434,8 +2434,8 @@ run_test
 
 
 # -------------------------------
-# JB  0x2 instruction
-NAME="x86: [JB  0x2]"
+# JB 0x2 instruction
+NAME="x86: [JB 0x2]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2464,8 +2464,8 @@ run_test
 
 
 # -------------------------------
-# JZ  0x2 instruction
-NAME="x86: [JZ  0x2]"
+# JZ 0x2 instruction
+NAME="x86: [JZ 0x2]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2509,8 +2509,8 @@ run_test
 
 
 # -------------------------------
-# JA  0x2 instruction
-NAME="x86: [JA  0x2]"
+# JA 0x2 instruction
+NAME="x86: [JA 0x2]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2524,8 +2524,8 @@ run_test
 
 
 # -------------------------------
-# JS  0x2 instruction
-NAME="x86: [JS  0x2]"
+# JS 0x2 instruction
+NAME="x86: [JS 0x2]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2554,8 +2554,8 @@ run_test
 
 
 # -------------------------------
-# JP  0x2 instruction
-NAME="x86: [JP  0x2]"
+# JP 0x2 instruction
+NAME="x86: [JP 0x2]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2584,8 +2584,8 @@ run_test
 
 
 # -------------------------------
-# JL  0x2 instruction
-NAME="x86: [JL  0x2]"
+# JL 0x2 instruction
+NAME="x86: [JL 0x2]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2629,8 +2629,8 @@ run_test
 
 
 # -------------------------------
-# JG  0x2 instruction
-NAME="x86: [JG  0x2]"
+# JG 0x2 instruction
+NAME="x86: [JG 0x2]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2644,8 +2644,8 @@ run_test
 
 
 # -------------------------------
-# JO  0x6 instruction
-NAME="x86: [JO  0x6]"
+# JO 0x6 instruction
+NAME="x86: [JO 0x6]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2674,8 +2674,8 @@ run_test
 
 
 # -------------------------------
-# JB  0x6 instruction
-NAME="x86: [JB  0x6]"
+# JB 0x6 instruction
+NAME="x86: [JB 0x6]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2704,8 +2704,8 @@ run_test
 
 
 # -------------------------------
-# JZ  0x6 instruction
-NAME="x86: [JZ  0x6]"
+# JZ 0x6 instruction
+NAME="x86: [JZ 0x6]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2749,8 +2749,8 @@ run_test
 
 
 # -------------------------------
-# JA  0x6 instruction
-NAME="x86: [JA  0x6]"
+# JA 0x6 instruction
+NAME="x86: [JA 0x6]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2764,8 +2764,8 @@ run_test
 
 
 # -------------------------------
-# JS  0x6 instruction
-NAME="x86: [JS  0x6]"
+# JS 0x6 instruction
+NAME="x86: [JS 0x6]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2794,8 +2794,8 @@ run_test
 
 
 # -------------------------------
-# JP  0x6 instruction
-NAME="x86: [JP  0x6]"
+# JP 0x6 instruction
+NAME="x86: [JP 0x6]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2824,8 +2824,8 @@ run_test
 
 
 # -------------------------------
-# JL  0x6 instruction
-NAME="x86: [JL  0x6]"
+# JL 0x6 instruction
+NAME="x86: [JL 0x6]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2869,8 +2869,8 @@ run_test
 
 
 # -------------------------------
-# JG  0x6 instruction
-NAME="x86: [JG  0x6]"
+# JG 0x6 instruction
+NAME="x86: [JG 0x6]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}

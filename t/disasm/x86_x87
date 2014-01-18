@@ -1,18 +1,20 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
+ARCH=x86
+
 # -------------------------------
 # F2XM1 instruction
 NAME="x86_x87: [F2XM1]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9f0
 pi 1
-'
-EXPECT='f2xm1
-'
+"
+EXPECT="f2xm1
+"
 run_test
 
 
@@ -20,14 +22,14 @@ run_test
 # FABS instruction
 NAME="x86_x87: [FABS]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9e1
 pi 1
-'
-EXPECT='fabs
-'
+"
+EXPECT="fabs
+"
 run_test
 
 
@@ -35,14 +37,14 @@ run_test
 # FADD DWORD [EAX] instruction
 NAME="x86_x87: [FADD DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d800
 pi 1
-'
-EXPECT='fadd dword [eax]
-'
+"
+EXPECT="fadd dword [eax]
+"
 run_test
 
 
@@ -50,14 +52,14 @@ run_test
 # FADD QWORD [EAX] instruction
 NAME="x86_x87: [FADD QWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dc00
 pi 1
-'
-EXPECT='fadd qword [eax]
-'
+"
+EXPECT="fadd qword [eax]
+"
 run_test
 
 
@@ -65,14 +67,14 @@ run_test
 # FADD ST0, ST0 instruction
 NAME="x86_x87: [FADD ST0, ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d8c0
 pi 1
-'
-EXPECT='fadd st0, st0
-'
+"
+EXPECT="fadd st0, st0
+"
 run_test
 
 
@@ -80,14 +82,14 @@ run_test
 # FADDP ST0, ST0 instruction
 NAME="x86_x87: [FADDP ST0, ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dec0
 pi 1
-'
-EXPECT='faddp st0, st0
-'
+"
+EXPECT="faddp st0, st0
+"
 run_test
 
 
@@ -95,14 +97,14 @@ run_test
 # FBLD TWORD [EAX] instruction
 NAME="x86_x87: [FBLD TWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx df20
 pi 1
-'
-EXPECT='fbld tword [eax]
-'
+"
+EXPECT="fbld tword [eax]
+"
 run_test
 
 
@@ -110,14 +112,14 @@ run_test
 # FBSTP TWORD [EAX] instruction
 NAME="x86_x87: [FBSTP TWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx df30
 pi 1
-'
-EXPECT='fbstp tword [eax]
-'
+"
+EXPECT="fbstp tword [eax]
+"
 run_test
 
 
@@ -125,30 +127,44 @@ run_test
 # FCHS instruction
 NAME="x86_x87: [FCHS]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9e0
 pi 1
-'
-EXPECT='fchs
-'
+"
+EXPECT="fchs
+"
 run_test
 
 
+# see http://www.rz.uni-karlsruhe.de/rz/docs/VTune/reference/vc87.htm
 # -------------------------------
 # FCLEX instruction
 BROKEN=1
 NAME="x86_x87: [FCLEX]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
-wx 9b dbe2
+wx 9bdbe2
 pi 1
-'
-EXPECT='fclex
-'
+"
+EXPECT="fclex
+"
+run_test
+
+BROKEN=1
+NAME="x86_x87: [FNCLEX]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx dbe2
+pi 1
+"
+EXPECT="fnclex
+"
 run_test
 
 
@@ -156,14 +172,14 @@ run_test
 # FCMOVB ST0, ST0 instruction
 NAME="x86_x87: [FCMOVB ST0, ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dac0
 pi 1
-'
-EXPECT='fcmovb st0, st0
-'
+"
+EXPECT="fcmovb st0, st0
+"
 run_test
 
 
@@ -171,14 +187,14 @@ run_test
 # FCMOVBE ST0, ST0 instruction
 NAME="x86_x87: [FCMOVBE ST0, ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dad0
 pi 1
-'
-EXPECT='fcmovbe st0, st0
-'
+"
+EXPECT="fcmovbe st0, st0
+"
 run_test
 
 
@@ -186,14 +202,14 @@ run_test
 # FCMOVE ST0, ST0 instruction
 NAME="x86_x87: [FCMOVE ST0, ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dac8
 pi 1
-'
-EXPECT='fcmove st0, st0
-'
+"
+EXPECT="fcmove st0, st0
+"
 run_test
 
 
@@ -201,14 +217,14 @@ run_test
 # FCMOVNB ST0, ST0 instruction
 NAME="x86_x87: [FCMOVNB ST0, ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dbc0
 pi 1
-'
-EXPECT='fcmovnb st0, st0
-'
+"
+EXPECT="fcmovnb st0, st0
+"
 run_test
 
 
@@ -216,14 +232,14 @@ run_test
 # FCMOVNBE ST0, ST0 instruction
 NAME="x86_x87: [FCMOVNBE ST0, ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dbd0
 pi 1
-'
-EXPECT='fcmovnbe st0, st0
-'
+"
+EXPECT="fcmovnbe st0, st0
+"
 run_test
 
 
@@ -231,14 +247,14 @@ run_test
 # FCMOVNE ST0, ST0 instruction
 NAME="x86_x87: [FCMOVNE ST0, ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dbc8
 pi 1
-'
-EXPECT='fcmovne st0, st0
-'
+"
+EXPECT="fcmovne st0, st0
+"
 run_test
 
 
@@ -246,14 +262,14 @@ run_test
 # FCMOVNU ST0, ST0 instruction
 NAME="x86_x87: [FCMOVNU ST0, ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dbd8
 pi 1
-'
-EXPECT='fcmovnu st0, st0
-'
+"
+EXPECT="fcmovnu st0, st0
+"
 run_test
 
 
@@ -261,14 +277,14 @@ run_test
 # FCMOVU ST0, ST0 instruction
 NAME="x86_x87: [FCMOVU ST0, ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dad8
 pi 1
-'
-EXPECT='fcmovu st0, st0
-'
+"
+EXPECT="fcmovu st0, st0
+"
 run_test
 
 
@@ -276,14 +292,14 @@ run_test
 # FCOM DWORD [EAX] instruction
 NAME="x86_x87: [FCOM DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d810
 pi 1
-'
-EXPECT='fcom dword [eax]
-'
+"
+EXPECT="fcom dword [eax]
+"
 run_test
 
 
@@ -291,14 +307,14 @@ run_test
 # FCOM QWORD [EAX] instruction
 NAME="x86_x87: [FCOM QWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dc10
 pi 1
-'
-EXPECT='fcom qword [eax]
-'
+"
+EXPECT="fcom qword [eax]
+"
 run_test
 
 
@@ -306,14 +322,14 @@ run_test
 # FCOM ST0 instruction
 NAME="x86_x87: [FCOM ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d8d0
 pi 1
-'
-EXPECT='fcom st0, st0
-'
+"
+EXPECT="fcom st0, st0
+"
 run_test
 
 
@@ -321,14 +337,14 @@ run_test
 # FCOMI ST0, ST0 instruction
 NAME="x86_x87: [FCOMI ST0, ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dbf0
 pi 1
-'
-EXPECT='fcomi st0, st0
-'
+"
+EXPECT="fcomi st0, st0
+"
 run_test
 
 
@@ -336,14 +352,14 @@ run_test
 # FCOMIP ST0,  ST0 instruction
 NAME="x86_x87: [FCOMIP ST0,  ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dff0
 pi 1
-'
-EXPECT='fcomip st0, st0
-'
+"
+EXPECT="fcomip st0, st0
+"
 run_test
 
 
@@ -351,14 +367,14 @@ run_test
 # FCOMP DWORD [EAX] instruction
 NAME="x86_x87: [FCOMP DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d818
 pi 1
-'
-EXPECT='fcomp dword [eax]
-'
+"
+EXPECT="fcomp dword [eax]
+"
 run_test
 
 
@@ -366,14 +382,14 @@ run_test
 # FCOMP QWORD [EAX] instruction
 NAME="x86_x87: [FCOMP QWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dc18
 pi 1
-'
-EXPECT='fcomp qword [eax]
-'
+"
+EXPECT="fcomp qword [eax]
+"
 run_test
 
 
@@ -381,14 +397,14 @@ run_test
 # FCOMP ST0 instruction
 NAME="x86_x87: [FCOMP ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d8d8
 pi 1
-'
-EXPECT='fcomp st0, st0
-'
+"
+EXPECT="fcomp st0, st0
+"
 run_test
 
 
@@ -396,14 +412,14 @@ run_test
 # FCOMPP instruction
 NAME="x86_x87: [FCOMPP]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx ded9
 pi 1
-'
-EXPECT='fcompp
-'
+"
+EXPECT="fcompp
+"
 run_test
 
 
@@ -411,14 +427,14 @@ run_test
 # FCOS instruction
 NAME="x86_x87: [FCOS]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9ff
 pi 1
-'
-EXPECT='fcos
-'
+"
+EXPECT="fcos
+"
 run_test
 
 
@@ -426,14 +442,14 @@ run_test
 # FDECSTP instruction
 NAME="x86_x87: [FDECSTP]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9f6
 pi 1
-'
-EXPECT='fdecstp
-'
+"
+EXPECT="fdecstp
+"
 run_test
 
 
@@ -441,14 +457,14 @@ run_test
 # FDIV DWORD [EAX] instruction
 NAME="x86_x87: [FDIV DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d830
 pi 1
-'
-EXPECT='fdiv dword [eax]
-'
+"
+EXPECT="fdiv dword [eax]
+"
 run_test
 
 
@@ -456,14 +472,14 @@ run_test
 # FDIV QWORD [EAX] instruction
 NAME="x86_x87: [FDIV QWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dc30
 pi 1
-'
-EXPECT='fdiv qword [eax]
-'
+"
+EXPECT="fdiv qword [eax]
+"
 run_test
 
 
@@ -471,14 +487,14 @@ run_test
 # FDIV ST0, ST0 instruction
 NAME="x86_x87: [FDIV ST0, ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d8f0
 pi 1
-'
-EXPECT='fdiv st0, st0
-'
+"
+EXPECT="fdiv st0, st0
+"
 run_test
 
 
@@ -486,14 +502,14 @@ run_test
 # FDIV ST0, ST0 instruction
 NAME="x86_x87: [FDIV ST0, ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dcf8
 pi 1
-'
-EXPECT='fdiv st0, st0
-'
+"
+EXPECT="fdiv st0, st0
+"
 run_test
 
 
@@ -501,14 +517,14 @@ run_test
 # FDIVP ST0, ST0 instruction
 NAME="x86_x87: [FDIVP ST0, ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx def8
 pi 1
-'
-EXPECT='fdivp st0, st0
-'
+"
+EXPECT="fdivp st0, st0
+"
 run_test
 
 
@@ -516,14 +532,14 @@ run_test
 # FDIVR DWORD [EAX] instruction
 NAME="x86_x87: [FDIVR DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d838
 pi 1
-'
-EXPECT='fdivr dword [eax]
-'
+"
+EXPECT="fdivr dword [eax]
+"
 run_test
 
 
@@ -531,14 +547,14 @@ run_test
 # FDIVR QWORD [EAX] instruction
 NAME="x86_x87: [FDIVR QWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dc38
 pi 1
-'
-EXPECT='fdivr qword [eax]
-'
+"
+EXPECT="fdivr qword [eax]
+"
 run_test
 
 
@@ -546,14 +562,14 @@ run_test
 # FDIVR ST0, ST0 instruction
 NAME="x86_x87: [FDIVR ST0, ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d8f8
 pi 1
-'
-EXPECT='fdivr st0, st0
-'
+"
+EXPECT="fdivr st0, st0
+"
 run_test
 
 
@@ -561,14 +577,14 @@ run_test
 # FDIVR ST0, ST0 instruction
 NAME="x86_x87: [FDIVR ST0, ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dcf0
 pi 1
-'
-EXPECT='fdivr st0, st0
-'
+"
+EXPECT="fdivr st0, st0
+"
 run_test
 
 
@@ -576,14 +592,14 @@ run_test
 # FDIVRP ST0, ST0 instruction
 NAME="x86_x87: [FDIVRP ST0, ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx def0
 pi 1
-'
-EXPECT='fdivrp st0, st0
-'
+"
+EXPECT="fdivrp st0, st0
+"
 run_test
 
 
@@ -592,14 +608,14 @@ run_test
 BROKEN=1
 NAME="x86_x87: [FNENI]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dbe0
 pi 1
-'
-EXPECT='fneni
-'
+"
+EXPECT="fneni
+"
 run_test
 
 
@@ -607,27 +623,27 @@ run_test
 # FFREE ST0 instruction
 NAME="x86_x87: [FFREE ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx ddc0
 pi 1
-'
-EXPECT='ffree st0
-'
+"
+EXPECT="ffree st0
+"
 run_test
 # -------------------------------
 # FFREEP ST0 instruction
 NAME="x86_x87: [FFREEP ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dfc0
 pi 1
-'
-EXPECT='ffreep st0
-'
+"
+EXPECT="ffreep st0
+"
 run_test
 
 
@@ -635,14 +651,14 @@ run_test
 # FIADD DWORD [EAX] instruction
 NAME="x86_x87: [FIADD DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx da00
 pi 1
-'
-EXPECT='fiadd dword [eax]
-'
+"
+EXPECT="fiadd dword [eax]
+"
 run_test
 
 
@@ -650,14 +666,14 @@ run_test
 # FIADD WORD [EAX] instruction
 NAME="x86_x87: [FIADD WORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx de00
 pi 1
-'
-EXPECT='fiadd word [eax]
-'
+"
+EXPECT="fiadd word [eax]
+"
 run_test
 
 
@@ -665,14 +681,14 @@ run_test
 # FICOM DWORD [EAX] instruction
 NAME="x86_x87: [FICOM DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx da10
 pi 1
-'
-EXPECT='ficom dword [eax]
-'
+"
+EXPECT="ficom dword [eax]
+"
 run_test
 
 
@@ -680,14 +696,14 @@ run_test
 # FICOM WORD [EAX] instruction
 NAME="x86_x87: [FICOM WORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx de10
 pi 1
-'
-EXPECT='ficom word [eax]
-'
+"
+EXPECT="ficom word [eax]
+"
 run_test
 
 
@@ -695,14 +711,14 @@ run_test
 # FICOMP DWORD [EAX] instruction
 NAME="x86_x87: [FICOMP DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx da18
 pi 1
-'
-EXPECT='ficomp dword [eax]
-'
+"
+EXPECT="ficomp dword [eax]
+"
 run_test
 
 
@@ -710,14 +726,14 @@ run_test
 # FICOMP WORD [EAX] instruction
 NAME="x86_x87: [FICOMP WORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx de18
 pi 1
-'
-EXPECT='ficomp word [eax]
-'
+"
+EXPECT="ficomp word [eax]
+"
 run_test
 
 
@@ -725,14 +741,14 @@ run_test
 # FIDIV DWORD [EAX] instruction
 NAME="x86_x87: [FIDIV DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx da30
 pi 1
-'
-EXPECT='fidiv dword [eax]
-'
+"
+EXPECT="fidiv dword [eax]
+"
 run_test
 
 
@@ -740,14 +756,14 @@ run_test
 # FIDIV WORD [EAX] instruction
 NAME="x86_x87: [FIDIV WORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx de30
 pi 1
-'
-EXPECT='fidiv word [eax]
-'
+"
+EXPECT="fidiv word [eax]
+"
 run_test
 
 
@@ -755,14 +771,14 @@ run_test
 # FIDIVR DWORD [EAX] instruction
 NAME="x86_x87: [FIDIVR DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx da38
 pi 1
-'
-EXPECT='fidivr dword [eax]
-'
+"
+EXPECT="fidivr dword [eax]
+"
 run_test
 
 
@@ -770,14 +786,14 @@ run_test
 # FIDIVR WORD [EAX] instruction
 NAME="x86_x87: [FIDIVR WORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx de38
 pi 1
-'
-EXPECT='fidivr word [eax]
-'
+"
+EXPECT="fidivr word [eax]
+"
 run_test
 
 
@@ -785,14 +801,14 @@ run_test
 # FILD DWORD [EAX] instruction
 NAME="x86_x87: [FILD DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx db00
 pi 1
-'
-EXPECT='fild dword [eax]
-'
+"
+EXPECT="fild dword [eax]
+"
 run_test
 
 
@@ -800,14 +816,14 @@ run_test
 # FILD QWORD [EAX] instruction
 NAME="x86_x87: [FILD QWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx df28
 pi 1
-'
-EXPECT='fild qword [eax]
-'
+"
+EXPECT="fild qword [eax]
+"
 run_test
 
 
@@ -815,14 +831,14 @@ run_test
 # FILD WORD [EAX] instruction
 NAME="x86_x87: [FILD WORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx df00
 pi 1
-'
-EXPECT='fild word [eax]
-'
+"
+EXPECT="fild word [eax]
+"
 run_test
 
 
@@ -830,14 +846,14 @@ run_test
 # FIMUL DWORD [EAX] instruction
 NAME="x86_x87: [FIMUL DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx da08
 pi 1
-'
-EXPECT='fimul dword [eax]
-'
+"
+EXPECT="fimul dword [eax]
+"
 run_test
 
 
@@ -845,14 +861,14 @@ run_test
 # FIMUL WORD [EAX] instruction
 NAME="x86_x87: [FIMUL WORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx de08
 pi 1
-'
-EXPECT='fimul word [eax]
-'
+"
+EXPECT="fimul word [eax]
+"
 run_test
 
 
@@ -860,14 +876,14 @@ run_test
 # FINCSTP instruction
 NAME="x86_x87: [FINCSTP]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9f7
 pi 1
-'
-EXPECT='fincstp
-'
+"
+EXPECT="fincstp
+"
 run_test
 
 
@@ -875,14 +891,14 @@ run_test
 # FINIT instruction
 NAME="x86_x87: [FINIT]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dbe3
 pi 1
-'
-EXPECT='fninit
-'
+"
+EXPECT="fninit
+"
 run_test
 
 
@@ -890,14 +906,14 @@ run_test
 # FIST DWORD [EAX] instruction
 NAME="x86_x87: [FIST DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx db10
 pi 1
-'
-EXPECT='fist dword [eax]
-'
+"
+EXPECT="fist dword [eax]
+"
 run_test
 
 
@@ -905,14 +921,14 @@ run_test
 # FIST WORD [EAX] instruction
 NAME="x86_x87: [FIST WORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx df10
 pi 1
-'
-EXPECT='fist word [eax]
-'
+"
+EXPECT="fist word [eax]
+"
 run_test
 
 
@@ -920,14 +936,14 @@ run_test
 # FISTP DWORD [EAX] instruction
 NAME="x86_x87: [FISTP DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx db18
 pi 1
-'
-EXPECT='fistp dword [eax]
-'
+"
+EXPECT="fistp dword [eax]
+"
 run_test
 
 
@@ -935,14 +951,14 @@ run_test
 # FISTP QWORD [EAX] instruction
 NAME="x86_x87: [FISTP QWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx df38
 pi 1
-'
-EXPECT='fistp qword [eax]
-'
+"
+EXPECT="fistp qword [eax]
+"
 run_test
 
 
@@ -950,14 +966,14 @@ run_test
 # FISTP WORD [EAX] instruction
 NAME="x86_x87: [FISTP WORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx df18
 pi 1
-'
-EXPECT='fistp word [eax]
-'
+"
+EXPECT="fistp word [eax]
+"
 run_test
 
 
@@ -965,14 +981,14 @@ run_test
 # FISTTP WORD [EAX] instruction
 NAME="x86_x87: [FISTTP WORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx df08
 pi 1
-'
-EXPECT='fisttp word [eax]
-'
+"
+EXPECT="fisttp word [eax]
+"
 run_test
 
 
@@ -980,14 +996,14 @@ run_test
 # FISUB DWORD [EAX] instruction
 NAME="x86_x87: [FISUB DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx da20
 pi 1
-'
-EXPECT='fisub dword [eax]
-'
+"
+EXPECT="fisub dword [eax]
+"
 run_test
 
 
@@ -995,14 +1011,14 @@ run_test
 # FISUB WORD [EAX] instruction
 NAME="x86_x87: [FISUB WORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx de20
 pi 1
-'
-EXPECT='fisub word [eax]
-'
+"
+EXPECT="fisub word [eax]
+"
 run_test
 
 
@@ -1010,14 +1026,14 @@ run_test
 # FISUBR DWORD [EAX] instruction
 NAME="x86_x87: [FISUBR DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx da28
 pi 1
-'
-EXPECT='fisubr dword [eax]
-'
+"
+EXPECT="fisubr dword [eax]
+"
 run_test
 
 
@@ -1025,14 +1041,14 @@ run_test
 # FISUBR WORD [EAX] instruction
 NAME="x86_x87: [FISUBR WORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx de28
 pi 1
-'
-EXPECT='fisubr word [eax]
-'
+"
+EXPECT="fisubr word [eax]
+"
 run_test
 
 
@@ -1040,14 +1056,14 @@ run_test
 # FLD DWORD [EAX] instruction
 NAME="x86_x87: [FLD DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d900
 pi 1
-'
-EXPECT='fld dword [eax]
-'
+"
+EXPECT="fld dword [eax]
+"
 run_test
 
 
@@ -1055,14 +1071,14 @@ run_test
 # FLD QWORD [EAX] instruction
 NAME="x86_x87: [FLD QWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dd00
 pi 1
-'
-EXPECT='fld qword [eax]
-'
+"
+EXPECT="fld qword [eax]
+"
 run_test
 
 
@@ -1070,14 +1086,14 @@ run_test
 # FLD ST0 instruction
 NAME="x86_x87: [FLD ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9c0
 pi 1
-'
-EXPECT='fld st0
-'
+"
+EXPECT="fld st0
+"
 run_test
 
 
@@ -1085,14 +1101,14 @@ run_test
 # FLD TWORD [EAX] instruction
 NAME="x86_x87: [FLD TWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx db28
 pi 1
-'
-EXPECT='fld tword [eax]
-'
+"
+EXPECT="fld tword [eax]
+"
 run_test
 
 
@@ -1100,14 +1116,14 @@ run_test
 # FLD1 instruction
 NAME="x86_x87: [FLD1]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9e8
 pi 1
-'
-EXPECT='fld1
-'
+"
+EXPECT="fld1
+"
 run_test
 
 
@@ -1115,14 +1131,14 @@ run_test
 # FLDCW WORD [EAX] instruction
 NAME="x86_x87: [FLDCW WORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d928
 pi 1
-'
-EXPECT='fldcw word [eax]
-'
+"
+EXPECT="fldcw word [eax]
+"
 run_test
 
 
@@ -1130,14 +1146,14 @@ run_test
 # FLDENV [EAX] instruction
 NAME="x86_x87: [FLDENV [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d920
 pi 1
-'
-EXPECT='fldenv [eax]
-'
+"
+EXPECT="fldenv [eax]
+"
 run_test
 
 
@@ -1145,14 +1161,14 @@ run_test
 # FLDL2E instruction
 NAME="x86_x87: [FLDL2E]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9ea
 pi 1
-'
-EXPECT='fldl2e
-'
+"
+EXPECT="fldl2e
+"
 run_test
 
 
@@ -1160,14 +1176,14 @@ run_test
 # FLDL2T instruction
 NAME="x86_x87: [FLDL2T]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9e9
 pi 1
-'
-EXPECT='fldl2t
-'
+"
+EXPECT="fldl2t
+"
 run_test
 
 
@@ -1175,14 +1191,14 @@ run_test
 # FLDLG2 instruction
 NAME="x86_x87: [FLDLG2]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9ec
 pi 1
-'
-EXPECT='fldlg2
-'
+"
+EXPECT="fldlg2
+"
 run_test
 
 
@@ -1190,14 +1206,14 @@ run_test
 # FLDLN2 instruction
 NAME="x86_x87: [FLDLN2]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9ed
 pi 1
-'
-EXPECT='fldln2
-'
+"
+EXPECT="fldln2
+"
 run_test
 
 
@@ -1205,14 +1221,14 @@ run_test
 # FLDPI instruction
 NAME="x86_x87: [FLDPI]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9eb
 pi 1
-'
-EXPECT='fldpi
-'
+"
+EXPECT="fldpi
+"
 run_test
 
 
@@ -1220,28 +1236,28 @@ run_test
 # FLDZ instruction
 NAME="x86_x87: [FLDZ]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9ee
 pi 1
-'
-EXPECT='fldz
-'
+"
+EXPECT="fldz
+"
 run_test
 
 # -------------------------------
 # FMUL DWORD [EAX] instruction
 NAME="x86_x87: [FMUL DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d808
 pi 1
-'
-EXPECT='fmul dword [eax]
-'
+"
+EXPECT="fmul dword [eax]
+"
 run_test
 
 
@@ -1249,14 +1265,14 @@ run_test
 # FMUL QWORD [EAX] instruction
 NAME="x86_x87: [FMUL QWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dc08
 pi 1
-'
-EXPECT='fmul qword [eax]
-'
+"
+EXPECT="fmul qword [eax]
+"
 run_test
 
 
@@ -1264,14 +1280,14 @@ run_test
 # FMUL ST0, st0 instruction
 NAME="x86_x87: [FMUL ST0, st0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d8c8
 pi 1
-'
-EXPECT='fmul st0, st0
-'
+"
+EXPECT="fmul st0, st0
+"
 run_test
 
 
@@ -1279,14 +1295,14 @@ run_test
 # FMUL ST0, st0 instruction
 NAME="x86_x87: [FMUL ST0, st0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dcc8
 pi 1
-'
-EXPECT='fmul st0, st0
-'
+"
+EXPECT="fmul st0, st0
+"
 run_test
 
 
@@ -1294,14 +1310,14 @@ run_test
 # FMULP ST0, st0 instruction
 NAME="x86_x87: [FMULP ST0, st0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dec8
 pi 1
-'
-EXPECT='fmulp st0, st0
-'
+"
+EXPECT="fmulp st0, st0
+"
 run_test
 
 
@@ -1310,14 +1326,14 @@ run_test
 BROKEN=1
 NAME="x86_x87: [FCLEX]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx 9bdbe2
 pi 1
-'
-EXPECT='fclex
-'
+"
+EXPECT="fclex
+"
 run_test
 
 
@@ -1325,14 +1341,14 @@ run_test
 # FCLEX instruction
 NAME="x86_x87: [FCLEX]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dbe2
 pi 1
-'
-EXPECT='fclex
-'
+"
+EXPECT="fclex
+"
 run_test
 
 
@@ -1341,14 +1357,14 @@ run_test
 BROKEN=1
 NAME="x86_x87: [FNDISI]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dbe1
 pi 1
-'
-EXPECT='fndisi
-'
+"
+EXPECT="fndisi
+"
 run_test
 
 
@@ -1357,14 +1373,14 @@ run_test
 BROKEN=1
 NAME="x86_x87: [FNINIT]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx 9bdbe3
 pi 1
-'
-EXPECT='fninit
-'
+"
+EXPECT="fninit
+"
 run_test
 
 
@@ -1372,14 +1388,14 @@ run_test
 # FNOP instruction
 NAME="x86_x87: [FNOP]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9d0
 pi 1
-'
-EXPECT='fnop
-'
+"
+EXPECT="fnop
+"
 run_test
 
 
@@ -1387,15 +1403,15 @@ run_test
 # FNSAVE [EAX] instruction
 NAME="x86_x87: [FNSAVE [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx 9bdd30
 pi 2
-'
-EXPECT='wait
+"
+EXPECT="wait
 fnsave [eax]
-'
+"
 run_test
 
 
@@ -1403,15 +1419,15 @@ run_test
 # FNSTCW WORD [EAX] instruction
 NAME="x86_x87: [FNSTCW WORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx 9bd938
 pi 2
-'
-EXPECT='wait
+"
+EXPECT="wait
 fnstcw word [eax]
-'
+"
 run_test
 
 
@@ -1419,15 +1435,15 @@ run_test
 # FNSTENV [EAX] instruction
 NAME="x86_x87: [FNSTENV [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx 9bd930
 pi 2
-'
-EXPECT='wait
+"
+EXPECT="wait
 fnstenv [eax]
-'
+"
 run_test
 
 
@@ -1435,15 +1451,15 @@ run_test
 # FNSTSW WORD [EAX] instruction
 NAME="x86_x87: [FNSTSW WORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx 9bdd38
 pi 2
-'
-EXPECT='wait
+"
+EXPECT="wait
 fnstsw word [eax]
-'
+"
 run_test
 
 	
@@ -1451,14 +1467,14 @@ run_test
 # FPATAN instruction
 NAME="x86_x87: [FPATAN]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9f3
 pi 1
-'
-EXPECT='fpatan
-'
+"
+EXPECT="fpatan
+"
 run_test
 
 
@@ -1466,14 +1482,14 @@ run_test
 # FPREM instruction
 NAME="x86_x87: [FPREM]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9f8
 pi 1
-'
-EXPECT='fprem
-'
+"
+EXPECT="fprem
+"
 run_test
 
 
@@ -1481,14 +1497,14 @@ run_test
 # FPREM1 instruction
 NAME="x86_x87: [FPREM1]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9f5
 pi 1
-'
-EXPECT='fprem1
-'
+"
+EXPECT="fprem1
+"
 run_test
 
 
@@ -1496,14 +1512,14 @@ run_test
 # FPTAN instruction
 NAME="x86_x87: [FPTAN]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9f2
 pi 1
-'
-EXPECT='fptan
-'
+"
+EXPECT="fptan
+"
 run_test
 
 
@@ -1511,14 +1527,14 @@ run_test
 # FRNDINT instruction
 NAME="x86_x87: [FRNDINT]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9fc
 pi 1
-'
-EXPECT='frndint
-'
+"
+EXPECT="frndint
+"
 run_test
 
 
@@ -1526,14 +1542,14 @@ run_test
 # FRSTOR [EAX] instruction
 NAME="x86_x87: [FRSTOR [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dd20
 pi 1
-'
-EXPECT='frstor [eax]
-'
+"
+EXPECT="frstor [eax]
+"
 run_test
 
 
@@ -1541,14 +1557,14 @@ run_test
 # FSAVE [EAX] instruction
 NAME="x86_x87: [FSAVE [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dd30
 pi 1
-'
-EXPECT='fnsave [eax]
-'
+"
+EXPECT="fnsave [eax]
+"
 run_test
 
 
@@ -1556,14 +1572,14 @@ run_test
 # FSCALE instruction
 NAME="x86_x87: [FSCALE]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9fd
 pi 1
-'
-EXPECT='fscale
-'
+"
+EXPECT="fscale
+"
 run_test
 
 
@@ -1572,14 +1588,14 @@ run_test
 BROKEN=1
 NAME="x86_x87: [FSETPM]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dbe4
 pi 1
-'
-EXPECT='fsetpm
-'
+"
+EXPECT="fsetpm
+"
 run_test
 
 
@@ -1589,14 +1605,14 @@ run_test
 BROKEN=1
 NAME="x86_x87: [FNSETPM]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dbe4
 pi 1
-'
-EXPECT='fnsetpm
-'
+"
+EXPECT="fnsetpm
+"
 run_test
 
 
@@ -1604,14 +1620,14 @@ run_test
 # FSIN instruction
 NAME="x86_x87: [FSIN]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9fe
 pi 1
-'
-EXPECT='fsin
-'
+"
+EXPECT="fsin
+"
 run_test
 
 
@@ -1619,14 +1635,14 @@ run_test
 # FSINCOS instruction
 NAME="x86_x87: [FSINCOS]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9fb
 pi 1
-'
-EXPECT='fsincos
-'
+"
+EXPECT="fsincos
+"
 run_test
 
 
@@ -1634,14 +1650,14 @@ run_test
 # FSQRT instruction
 NAME="x86_x87: [FSQRT]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9fa
 pi 1
-'
-EXPECT='fsqrt
-'
+"
+EXPECT="fsqrt
+"
 run_test
 
 
@@ -1649,14 +1665,14 @@ run_test
 # FST DWORD [EAX] instruction
 NAME="x86_x87: [FST DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d910
 pi 1
-'
-EXPECT='fst dword [eax]
-'
+"
+EXPECT="fst dword [eax]
+"
 run_test
 
 
@@ -1664,14 +1680,14 @@ run_test
 # FST QWORD [EAX] instruction
 NAME="x86_x87: [FST QWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dd10
 pi 1
-'
-EXPECT='fst qword [eax]
-'
+"
+EXPECT="fst qword [eax]
+"
 run_test
 
 
@@ -1679,14 +1695,14 @@ run_test
 # FST ST0 instruction
 NAME="x86_x87: [FST ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx ddd0
 pi 1
-'
-EXPECT='fst st0
-'
+"
+EXPECT="fst st0
+"
 run_test
 
 
@@ -1694,14 +1710,14 @@ run_test
 # FSTCW WORD [EAX] instruction
 NAME="x86_x87: [FSTCW WORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d938
 pi 1
-'
-EXPECT='fnstcw word [eax]
-'
+"
+EXPECT="fnstcw word [eax]
+"
 run_test
 
 
@@ -1709,14 +1725,14 @@ run_test
 # FSTENV [EAX] instruction
 NAME="x86_x87: [FSTENV [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d930
 pi 1
-'
-EXPECT='fnstenv [eax]
-'
+"
+EXPECT="fnstenv [eax]
+"
 run_test
 
 
@@ -1724,14 +1740,14 @@ run_test
 # FSTP DWORD [EAX] instruction
 NAME="x86_x87: [FSTP DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d918
 pi 1
-'
-EXPECT='fstp dword [eax]
-'
+"
+EXPECT="fstp dword [eax]
+"
 run_test
 
 
@@ -1739,14 +1755,14 @@ run_test
 # FSTP QWORD [EAX] instruction
 NAME="x86_x87: [FSTP QWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dd18
 pi 1
-'
-EXPECT='fstp qword [eax]
-'
+"
+EXPECT="fstp qword [eax]
+"
 run_test
 
 
@@ -1754,14 +1770,14 @@ run_test
 # FSTP ST0 instruction
 NAME="x86_x87: [FSTP ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx ddd8
 pi 1
-'
-EXPECT='fstp st0
-'
+"
+EXPECT="fstp st0
+"
 run_test
 
 
@@ -1769,14 +1785,14 @@ run_test
 # FSTP TWORD [EAX] instruction
 NAME="x86_x87: [FSTP TWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx db38
 pi 1
-'
-EXPECT='fstp tword [eax]
-'
+"
+EXPECT="fstp tword [eax]
+"
 run_test
 
 
@@ -1784,15 +1800,15 @@ run_test
 # FSTSW WORD [EAX] instruction
 NAME="x86_x87: [FSTSW WORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dd38
 pi 2
-'
-EXPECT='fnstsw word [eax]
+"
+EXPECT="fnstsw word [eax]
 add [eax], al
-'
+"
 run_test
 
 
@@ -1800,14 +1816,14 @@ run_test
 # FSUB DWORD [EAX] instruction
 NAME="x86_x87: [FSUB DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d820
 pi 1
-'
-EXPECT='fsub dword [eax]
-'
+"
+EXPECT="fsub dword [eax]
+"
 run_test
 
 
@@ -1815,14 +1831,14 @@ run_test
 # FSUB QWORD [EAX] instruction
 NAME="x86_x87: [FSUB QWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dc20
 pi 1
-'
-EXPECT='fsub qword [eax]
-'
+"
+EXPECT="fsub qword [eax]
+"
 run_test
 
 
@@ -1830,14 +1846,14 @@ run_test
 # FSUB ST0, st0 instruction
 NAME="x86_x87: [FSUB ST0, st0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d8e0
 pi 1
-'
-EXPECT='fsub st0, st0
-'
+"
+EXPECT="fsub st0, st0
+"
 run_test
 
 
@@ -1845,14 +1861,14 @@ run_test
 # FSUBP ST0, st0 instruction
 NAME="x86_x87: [FSUBP ST0, st0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dee8
 pi 1
-'
-EXPECT='fsubp st0, st0
-'
+"
+EXPECT="fsubp st0, st0
+"
 run_test
 
 
@@ -1860,14 +1876,14 @@ run_test
 # FSUBR DWORD [EAX] instruction
 NAME="x86_x87: [FSUBR DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d828
 pi 1
-'
-EXPECT='fsubr dword [eax]
-'
+"
+EXPECT="fsubr dword [eax]
+"
 run_test
 
 
@@ -1875,14 +1891,14 @@ run_test
 # FSUBR QWORD [EAX] instruction
 NAME="x86_x87: [FSUBR QWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dc28
 pi 1
-'
-EXPECT='fsubr qword [eax]
-'
+"
+EXPECT="fsubr qword [eax]
+"
 run_test
 
 
@@ -1890,14 +1906,14 @@ run_test
 # FSUBR ST0, st0 instruction
 NAME="x86_x87: [FSUBR ST0, st0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d8e8
 pi 1
-'
-EXPECT='fsubr st0, st0
-'
+"
+EXPECT="fsubr st0, st0
+"
 run_test
 
 
@@ -1905,14 +1921,14 @@ run_test
 # FSUBRP ST0, st0 instruction
 NAME="x86_x87: [FSUBRP ST0, st0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dee0
 pi 1
-'
-EXPECT='fsubrp st0, st0
-'
+"
+EXPECT="fsubrp st0, st0
+"
 run_test
 
 
@@ -1920,14 +1936,14 @@ run_test
 # FTST instruction
 NAME="x86_x87: [FTST]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9e4
 pi 1
-'
-EXPECT='ftst
-'
+"
+EXPECT="ftst
+"
 run_test
 
 
@@ -1935,14 +1951,14 @@ run_test
 # FUCOM ST0 instruction
 NAME="x86_x87: [FUCOM ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dde0
 pi 1
-'
-EXPECT='fucom st0
-'
+"
+EXPECT="fucom st0
+"
 run_test
 
 
@@ -1950,14 +1966,14 @@ run_test
 # FUCOMI ST0, st0 instruction
 NAME="x86_x87: [FUCOMI ST0, st0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dbe8
 pi 1
-'
-EXPECT='fucomi st0, st0
-'
+"
+EXPECT="fucomi st0, st0
+"
 run_test
 
 
@@ -1965,14 +1981,14 @@ run_test
 # FUCOMIP ST0 instruction
 NAME="x86_x87: [FUCOMIP ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dfe8
 pi 1
-'
-EXPECT='fucomip st0, st0
-'
+"
+EXPECT="fucomip st0, st0
+"
 run_test
 
 
@@ -1980,14 +1996,14 @@ run_test
 # FUCOMP ST0 instruction
 NAME="x86_x87: [FUCOMP ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dde8
 pi 1
-'
-EXPECT='fucomp st0
-'
+"
+EXPECT="fucomp st0
+"
 run_test
 
 
@@ -1995,14 +2011,14 @@ run_test
 # FUCOMPP instruction
 NAME="x86_x87: [FUCOMPP]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dae9
 pi 1
-'
-EXPECT='fucompp
-'
+"
+EXPECT="fucompp
+"
 run_test
 
 
@@ -2010,14 +2026,14 @@ run_test
 # FXAM instruction
 NAME="x86_x87: [FXAM]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9e5
 pi 1
-'
-EXPECT='fxam
-'
+"
+EXPECT="fxam
+"
 run_test
 
 
@@ -2025,14 +2041,14 @@ run_test
 # FXCH ST0 instruction
 NAME="x86_x87: [FXCH ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9c8
 pi 1
-'
-EXPECT='fxch st0, st0
-'
+"
+EXPECT="fxch st0, st0
+"
 run_test
 
 
@@ -2040,14 +2056,14 @@ run_test
 # FXTRACT instruction
 NAME="x86_x87: [FXTRACT]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9f4
 pi 1
-'
-EXPECT='fxtract
-'
+"
+EXPECT="fxtract
+"
 run_test
 
 
@@ -2055,14 +2071,14 @@ run_test
 # FYL2X instruction
 NAME="x86_x87: [FYL2X]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9f1
 pi 1
-'
-EXPECT='fyl2x
-'
+"
+EXPECT="fyl2x
+"
 run_test
 
 
@@ -2070,14 +2086,14 @@ run_test
 # FYL2XP1 instruction
 NAME="x86_x87: [FYL2XP1]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9f9
 pi 1
-'
-EXPECT='fyl2xp1
-'
+"
+EXPECT="fyl2xp1
+"
 run_test
 
 
@@ -2086,28 +2102,28 @@ run_test
 # WAIT instruction
 NAME="x86_x87: [WAIT]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx 9b
 pi 1
-'
-EXPECT='wait
-'
+"
+EXPECT="wait
+"
 run_test
 
 # -------------------------------
 # FSTP1 ST0 instruction
 NAME="x86: [FSTP1 ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx d9d8
 pi 1
-'
-EXPECT='fstp1 st0
-'
+"
+EXPECT="fstp1 st0
+"
 run_test
 
 
@@ -2115,14 +2131,14 @@ run_test
 # FCOM2 instruction
 NAME="x86: [FCOM2]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dcd0
 pi 1
-'
-EXPECT='fcom2 st0
-'
+"
+EXPECT="fcom2 st0
+"
 run_test
 
 
@@ -2130,14 +2146,14 @@ run_test
 # FCOMP3 instruction
 NAME="x86: [FCOMP3]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dcd8
 pi 1
-'
-EXPECT='fcomp3 st0
-'
+"
+EXPECT="fcomp3 st0
+"
 run_test
 
 
@@ -2145,14 +2161,14 @@ run_test
 # FXCH4 ST0 instruction
 NAME="x86: [FXCH4 ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx ddc8
 pi 1
-'
-EXPECT='fxch4 st0
-'
+"
+EXPECT="fxch4 st0
+"
 run_test
 
 
@@ -2160,14 +2176,14 @@ run_test
 # FCOMP5 ST0 instruction
 NAME="x86: [FCOMP5 ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx ded0
 pi 1
-'
-EXPECT='fcomp5 st0
-'
+"
+EXPECT="fcomp5 st0
+"
 run_test
 
 
@@ -2175,14 +2191,14 @@ run_test
 # FXCH7 ST0 instruction
 NAME="x86: [FXCH7 ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dfc8
 pi 1
-'
-EXPECT='fxch7 st0
-'
+"
+EXPECT="fxch7 st0
+"
 run_test
 
 
@@ -2190,14 +2206,14 @@ run_test
 # FSTP8 ST0 instruction
 NAME="x86: [FSTP8 ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dfd0
 pi 1
-'
-EXPECT='fstp8 st0
-'
+"
+EXPECT="fstp8 st0
+"
 run_test
 
 
@@ -2205,14 +2221,14 @@ run_test
 # FSTP9 ST0 instruction
 NAME="x86: [FSTP9 ST0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx dfd8
 pi 1
-'
-EXPECT='fstp9 st0
-'
+"
+EXPECT="fstp9 st0
+"
 run_test
 
 
@@ -2220,14 +2236,14 @@ run_test
 # NOT DWORD [EAX] instruction
 NAME="x86: [NOT DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx f710
 pi 1
-'
-EXPECT='not dword [eax]
-'
+"
+EXPECT="not dword [eax]
+"
 run_test
 
 
@@ -2235,14 +2251,14 @@ run_test
 # NEG DWORD [EAX] instruction
 NAME="x86: [NEG DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx f718
 pi 1
-'
-EXPECT='neg dword [eax]
-'
+"
+EXPECT="neg dword [eax]
+"
 run_test
 
 
@@ -2250,14 +2266,14 @@ run_test
 # MUL DWORD [EAX] instruction
 NAME="x86: [MUL DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx f720
 pi 1
-'
-EXPECT='mul dword [eax]
-'
+"
+EXPECT="mul dword [eax]
+"
 run_test
 
 
@@ -2265,14 +2281,14 @@ run_test
 # IMUL DWORD [EAX] instruction
 NAME="x86: [IMUL DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx f728
 pi 1
-'
-EXPECT='imul dword [eax]
-'
+"
+EXPECT="imul dword [eax]
+"
 run_test
 
 
@@ -2280,14 +2296,14 @@ run_test
 # DIV DWORD [EAX] instruction
 NAME="x86: [DIV DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx f730
 pi 1
-'
-EXPECT='div dword [eax]
-'
+"
+EXPECT="div dword [eax]
+"
 run_test
 
 
@@ -2295,14 +2311,14 @@ run_test
 # IDIV DWORD [EAX] instruction
 NAME="x86: [IDIV DWORD [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx f738
 pi 1
-'
-EXPECT='idiv dword [eax]
-'
+"
+EXPECT="idiv dword [eax]
+"
 run_test
 
 
@@ -2310,14 +2326,14 @@ run_test
 # ROL BYTE [EAX], 0X0 instruction
 NAME="x86: [ROL BYTE [EAX], 0X0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx c00000
 pi 1
-'
-EXPECT='rol byte [eax], 0x0
-'
+"
+EXPECT="rol byte [eax], 0x0
+"
 run_test
 
 
@@ -2325,14 +2341,14 @@ run_test
 # ROR BYTE [EAX], 0X0 instruction
 NAME="x86: [ROR BYTE [EAX], 0X0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx c00800
 pi 1
-'
-EXPECT='ror byte [eax], 0x0
-'
+"
+EXPECT="ror byte [eax], 0x0
+"
 run_test
 
 
@@ -2340,14 +2356,14 @@ run_test
 # RCL BYTE [EAX], 0X0 instruction
 NAME="x86: [RCL BYTE [EAX], 0X0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx c01000
 pi 1
-'
-EXPECT='rcl byte [eax], 0x0
-'
+"
+EXPECT="rcl byte [eax], 0x0
+"
 run_test
 
 
@@ -2355,14 +2371,14 @@ run_test
 # RCR BYTE [EAX], 0X0 instruction
 NAME="x86: [RCR BYTE [EAX], 0X0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx c01800
 pi 1
-'
-EXPECT='rcr byte [eax], 0x0
-'
+"
+EXPECT="rcr byte [eax], 0x0
+"
 run_test
 
 
@@ -2370,14 +2386,14 @@ run_test
 # SHL BYTE [EAX], 0X0 instruction
 NAME="x86: [SHL BYTE [EAX], 0X0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx c02000
 pi 1
-'
-EXPECT='shl byte [eax], 0x0
-'
+"
+EXPECT="shl byte [eax], 0x0
+"
 run_test
 
 
@@ -2385,14 +2401,14 @@ run_test
 # SHR BYTE [EAX], 0X0 instruction
 NAME="x86: [SHR BYTE [EAX], 0X0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx c02800
 pi 1
-'
-EXPECT='shr byte [eax], 0x0
-'
+"
+EXPECT="shr byte [eax], 0x0
+"
 run_test
 
 
@@ -2400,14 +2416,14 @@ run_test
 # SHL instruction
 NAME="x86: [SHL]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx c03000
 pi 1
-'
-EXPECT='shl byte [eax], 0x0
-'
+"
+EXPECT="shl byte [eax], 0x0
+"
 run_test
 
 
@@ -2415,14 +2431,14 @@ run_test
 # SAR BYTE [EAX], 0X0 instruction
 NAME="x86: [SAR BYTE [EAX], 0X0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx c03800
 pi 1
-'
-EXPECT='sar byte [eax], 0x0
-'
+"
+EXPECT="sar byte [eax], 0x0
+"
 run_test
 
 
@@ -2430,14 +2446,14 @@ run_test
 # ROL DWORD [EAX], 0X0 instruction
 NAME="x86: [ROL DWORD [EAX], 0X0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx c10000
 pi 1
-'
-EXPECT='rol dword [eax], 0x0
-'
+"
+EXPECT="rol dword [eax], 0x0
+"
 run_test
 
 
@@ -2445,14 +2461,14 @@ run_test
 # ROR DWORD [EAX], 0X0 instruction
 NAME="x86: [ROR DWORD [EAX], 0X0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx c10800
 pi 1
-'
-EXPECT='ror dword [eax], 0x0
-'
+"
+EXPECT="ror dword [eax], 0x0
+"
 run_test
 
 
@@ -2460,14 +2476,14 @@ run_test
 # RCL DWORD [EAX], 0X0 instruction
 NAME="x86: [RCL DWORD [EAX], 0X0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx c11000
 pi 1
-'
-EXPECT='rcl dword [eax], 0x0
-'
+"
+EXPECT="rcl dword [eax], 0x0
+"
 run_test
 
 
@@ -2475,14 +2491,14 @@ run_test
 # RCR DWORD [EAX], 0X0 instruction
 NAME="x86: [RCR DWORD [EAX], 0X0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx c11800
 pi 1
-'
-EXPECT='rcr dword [eax], 0x0
-'
+"
+EXPECT="rcr dword [eax], 0x0
+"
 run_test
 
 
@@ -2490,14 +2506,14 @@ run_test
 # SHL DWORD [EAX], 0X0 instruction
 NAME="x86: [SHL DWORD [EAX], 0X0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx c12000
 pi 1
-'
-EXPECT='shl dword [eax], 0x0
-'
+"
+EXPECT="shl dword [eax], 0x0
+"
 run_test
 
 
@@ -2505,14 +2521,14 @@ run_test
 # SHR DWORD [EAX], 0X0 instruction
 NAME="x86: [SHR DWORD [EAX], 0X0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx c12800
 pi 1
-'
-EXPECT='shr dword [eax], 0x0
-'
+"
+EXPECT="shr dword [eax], 0x0
+"
 run_test
 
 
@@ -2520,14 +2536,14 @@ run_test
 # SAL = SHL instruction
 NAME="x86: [SAL = SHL]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx c13000
 pi 1
-'
-EXPECT='shl dword [eax], 0x0
-'
+"
+EXPECT="shl dword [eax], 0x0
+"
 run_test
 
 
@@ -2535,14 +2551,14 @@ run_test
 # SAR DWORD [EAX], 0X0 instruction
 NAME="x86: [SAR DWORD [EAX], 0X0]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx c13800
 pi 1
-'
-EXPECT='sar dword [eax], 0x0
-'
+"
+EXPECT="sar dword [eax], 0x0
+"
 run_test
 
 
@@ -2550,14 +2566,14 @@ run_test
 # NOP [EAX] instruction
 NAME="x86: [NOP [EAX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx 0f1f00
 pi 1
-'
-EXPECT='nop [eax]
-'
+"
+EXPECT="nop [eax]
+"
 run_test
 
 
@@ -2565,12 +2581,12 @@ run_test
 # NOP [ECX] instruction
 NAME="x86: [NOP [ECX]]"
 FILE=malloc://32
-CMDS='
-e asm.arch=x86
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx 0f1f01
 pi 1
-'
-EXPECT='nop [ecx]
-'
+"
+EXPECT="nop [ecx]
+"
 run_test

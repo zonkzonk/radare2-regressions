@@ -4,6 +4,17 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 FILE=malloc://1024
 NAME="add comment"
 CMDS='
+CCa 0x123 hello
+C*~?
+C*~[3]
+'
+EXPECT='1
+0x00000123
+'
+run_test
+FILE=malloc://1024
+NAME="add comment"
+CMDS='
 CC hello
 C*~?
 '

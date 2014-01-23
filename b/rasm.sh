@@ -1,21 +1,21 @@
 #!/bin/sh
 
 SRC="
-main:
-        push rbp
-        mov rbp, rsp
-        sub rsp, 0x20
-        cmp eax, 0
-        jnz fine
-fine:
-        mov eax, 0
-        jmp end
-fail:
-        mov eax, 1
-end:
-        add rsp, 0x20
-        pop rbp
-        ret
+\nmain:
+\n        push rbp
+\n        mov rbp, rsp
+\n        sub rsp, 0x20
+\n        cmp eax, 0
+\n        jnz fine
+\nfine:
+\n        mov eax, 0
+\n        jmp end
+\nfail:
+\n        mov eax, 1
+\nend:
+\n        add rsp, 0x20
+\n        pop rbp
+\n        ret
 "
 BIN=5589e583ec2083f8000f850c000000b800000000eb05b80100000083c4205dc3
 
@@ -35,5 +35,7 @@ runtest() {
 	fi
 }
 
+echo $SRC > test.rasm
 runtest test.rasm rasm $BIN
+rm -f test.rasm
 exit $?

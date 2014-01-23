@@ -43,7 +43,6 @@ run_test
 
 FILE=malloc://128
 NAME="Cs : string count bug"
-BROKEN=1
 CMDS='
 w hello
 Cs 6

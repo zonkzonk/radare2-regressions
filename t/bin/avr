@@ -18,8 +18,8 @@ NAME='avr disasm negative baddr'
 BROKEN=1
 FILE=../../b/files/bugurtos-avr.elf
 ARGS=
-CMDS='s 0x100000506
-pd 2~:1
+CMDS='s 0x506
+pd 2~!1
 s+2
 pd 1
 '
@@ -45,9 +45,9 @@ NAME="avr opcode size"
 FILE=-
 ARGS=
 CMDS='e asm.arch=avr
-wx 0e94
+wx 0e941122
 ao~size[1]
 '
-EXPECT='2
+EXPECT='4
 '
 run_test

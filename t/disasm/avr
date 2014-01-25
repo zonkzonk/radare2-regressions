@@ -103,7 +103,7 @@ wx 0e940b10 @ 0x2d1
 s 0x2d1
 pi 1
 '
-EXPECT='call 0x1281c
+EXPECT='call 0x2016
 '
 run_test
 
@@ -112,10 +112,11 @@ BROKEN=1
 FILE=malloc://4096
 CMDS='
 e asm.arch=avr
-wx 0e940b10 @ 0x2d1
+s 0x2d1
+wx 0e940b10
 ao 1~jump
 '
-EXPECT='jump: 0x0001281c
+EXPECT='jump: 0x00002016
 '
 run_test
 
@@ -286,7 +287,7 @@ e asm.arch=avr
 wx 80910201
 pi 1
 '
-EXPECT='lds r24, 0x12300
+EXPECT='lds r24, 0x102
 '
 run_test
 
@@ -532,11 +533,11 @@ BROKEN=1
 FILE=malloc://4096
 CMDS='
 e asm.arch=avr
-wx 9093c007 @ 0x2d1
 s 0x2d1
+wx 9093c007
 pi 1
 '
-EXPECT='sts 0x12720, r25
+EXPECT='sts 0x7c0, r25
 '
 run_test
 
@@ -545,10 +546,11 @@ BROKEN=1
 FILE=malloc://4096
 CMDS='
 e asm.arch=avr
-wx 9093c007 @ 0x2d1
+s 0x2d1
+wx 9093c007
 ao 1~jump
 '
-EXPECT='jump: 0x00012720
+EXPECT='jump: 0x00000000
 '
 run_test
 

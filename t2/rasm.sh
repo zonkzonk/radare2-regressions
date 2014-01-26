@@ -6,7 +6,7 @@ SRC="
 \n        mov rbp, rsp
 \n        sub rsp, 0x20
 \n        cmp eax, 0
-\n        jnz fine
+\n        jnz fail
 \nfine:
 \n        mov eax, 0
 \n        jmp end

@@ -9,6 +9,8 @@ FILE=-
 BROKEN=
 ARGS=
 CMDS='
+e file.suppress_warnings=true
+e file.loadmethod=append
 10o -
 o|sort -u |wc -l|sed -e s,\ ,,g
 '
@@ -22,6 +24,8 @@ FILE=-
 BROKEN=
 ARGS=
 CMDS='
+e file.loadmethod=append
+e file.suppress_warnings=true
 1000o -
 o|sort -u |wc -l|sed -e s,\ ,,g
 '

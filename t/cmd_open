@@ -14,9 +14,20 @@ run_test
 NAME='o -'
 FILE=malloc://1024
 ARGS=
-CMDS='o -;o~?'
+CMDS='e file.suppress_warnings=true
+e file.loadmethod=append
+o -;o~?'
 EXPECT='2
 '
+run_test
+
+NAME='o -'
+FILE=malloc://1024
+ARGS=
+CMDS='e file.suppress_warnings=true
+o -;o~?'
+EXPECT="1
+"
 run_test
 
 NAME='om'

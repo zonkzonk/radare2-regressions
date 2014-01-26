@@ -45,13 +45,33 @@ ffffffffffffffffffffffffffffffffffffffff
 run_test
 [ $? != 0 ] && RET=$?
 
-NAME='om 0x100;x@0xff'
-FILE=-
-CMDS='om `o~[1]` 0x100
+NAME='malloc://128;om 0x100;x@0xff'
+FILE=malloc://128
+CMDS='
+e file.suppress_warnings=true
+e file.loadmethod=append
+om `o~[1]` 0x100
 w pop @ 1
 p8 4 @ 0x100
 '
 EXPECT='00706f70
+'
+run_test
+[ $? != 0 ] && RET=$?
+RET=4
+
+NAME='om 0x100;x@0xff'
+FILE=-
+CMDS='
+e file.suppress_warnings=true
+e file.loadmethod=append
+om `o~[1]` 0x100
+w pop @ 1
+p8 4 @ 0x100
+'
+# will fail because this is attempting to map
+# malloc://512 back onto itself at 0x100
+EXPECT='00000000
 '
 run_test
 [ $? != 0 ] && RET=$?

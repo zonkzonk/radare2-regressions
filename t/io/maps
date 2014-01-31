@@ -48,7 +48,7 @@ run_test
 NAME='malloc://128;om 0x100;x@0xff'
 FILE=malloc://128
 CMDS='
-e file.suppress_warnings=true
+e file.nowarn=true
 e file.loadmethod=append
 om `o~[1]` 0x100
 w pop @ 1
@@ -63,7 +63,7 @@ RET=4
 NAME='om 0x100;x@0xff'
 FILE=-
 CMDS='
-e file.suppress_warnings=true
+e file.nowarn=true
 e file.loadmethod=append
 om `o~[1]` 0x100
 w pop @ 1

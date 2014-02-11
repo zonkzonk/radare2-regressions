@@ -28,7 +28,7 @@ CMDS='
 # Other stuff is also ignored: `..` ~ ..
 
 # But inside a command line only the commands after the # are ignored.
-?v $$ # this must beignored ; ?v $$
+?v $$ # this must beignored ; ?v $$ | ls
 '
 EXPECT='0x0
 '

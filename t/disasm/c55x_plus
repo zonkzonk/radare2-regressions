@@ -8,7 +8,9 @@ BROKEN=
 NAME="C55x+: ADD"
 FILE=malloc://128
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx 740131
 pi 1
@@ -24,7 +26,9 @@ BROKEN=
 NAME="C55x+: ADD (complex)"
 FILE=malloc://128
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx c261410001
 pi 1
@@ -40,7 +44,9 @@ BROKEN=
 NAME="C55x+: AMAR - 3 operands"
 FILE=malloc://128
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx ea928014c03f
 pi 1
@@ -56,7 +62,9 @@ BROKEN=
 NAME="C55x+: AMAR - 1 operand"
 FILE=malloc://128
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx 621200
 pi 1
@@ -72,7 +80,9 @@ BROKEN=
 NAME="C55x+: ASUB"
 FILE=malloc://32
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx ae21000b
 pi 1
@@ -88,7 +98,9 @@ BROKEN=
 NAME="C55x+: BCLR"
 FILE=malloc://128
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx 0a0a
 pi 1
@@ -104,7 +116,9 @@ BROKEN=
 NAME="C55x+: CMP"
 FILE=malloc://32
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx a4323300
 pi 1
@@ -120,7 +134,9 @@ BROKEN=
 NAME="C55x+: MACM"
 FILE=malloc://32
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx c832803400
 pi 1
@@ -136,7 +152,9 @@ BROKEN=
 NAME="C55x+: MOV (with complex operand)"
 FILE=malloc://32
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx b410004032
 pi 1
@@ -152,7 +170,9 @@ BROKEN=
 NAME="C55x+: MOV (combined with another instruction)"
 FILE=malloc://128
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx 395102a0b411014033
 pi 1
@@ -168,7 +188,9 @@ BROKEN=
 NAME="C55x+: MOV"
 FILE=malloc://128
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx 770030
 pi 1
@@ -184,7 +206,9 @@ BROKEN=
 NAME="C55x+: MPYM"
 FILE=malloc://128
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx c832003400
 pi 1
@@ -200,7 +224,9 @@ BROKEN=
 NAME="C55x+: SUB"
 FILE=malloc://128
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx 740081
 pi 1
@@ -216,7 +242,9 @@ BROKEN=
 NAME="C55x+: BCC"
 FILE=malloc://512280
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx 6a23f0 @ 0x53307
 s 0x53307
@@ -233,7 +261,9 @@ BROKEN=
 NAME="C55x+: BCC - jump check"
 FILE=malloc://512280
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx 6a23f0 @ 0x53307
 s 0x53307
@@ -250,7 +280,9 @@ BROKEN=
 NAME="C55x+: B"
 FILE=malloc://512280
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx 68ffa1 @ 0x5332a
 s 0x5332a
@@ -267,7 +299,9 @@ BROKEN=
 NAME="C55x+: B - jump check"
 FILE=malloc://512280
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx 68ffa1 @ 0x5332a
 s 0x5332a
@@ -284,7 +318,9 @@ BROKEN=
 NAME="C55x+: POP"
 FILE=malloc://128
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx 713233
 pi 1
@@ -300,7 +336,9 @@ BROKEN=
 NAME="C55x+: POP MMAP"
 FILE=malloc://128
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx 2461e508
 pi 1
@@ -316,7 +354,9 @@ BROKEN=
 NAME="C55x+: PUSH MMAP"
 FILE=malloc://128
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx 2461e400
 pi 1
@@ -332,7 +372,9 @@ BROKEN=
 NAME="C55x+: PUSH BOTH"
 FILE=malloc://128
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx 0d25
 pi 1
@@ -348,7 +390,9 @@ BROKEN=
 NAME="C55x+: RET"
 FILE=malloc://128
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx 21
 pi 1
@@ -364,7 +408,9 @@ BROKEN=
 NAME="C55x+: RPTBLOCAL"
 FILE=malloc://128
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx 376e00117b00a0
 pi 1
@@ -380,7 +426,9 @@ BROKEN=
 NAME="C55x+: SFTS"
 FILE=malloc://128
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx a6818133
 pi 1
@@ -396,7 +444,9 @@ BROKEN=
 NAME="C55x+: SFTL"
 FILE=malloc://128
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx a7810131
 pi 1
@@ -412,7 +462,9 @@ BROKEN=
 NAME="C55x+: XCCPART"
 FILE=malloc://128
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx 07e4
 pi 1
@@ -428,7 +480,9 @@ BROKEN=
 NAME="C55x+: XCCPART (combined with another instruction)"
 FILE=malloc://128
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx 3605a07bb000
 pi 1
@@ -444,7 +498,9 @@ BROKEN=
 NAME="C55x+: XOR"
 FILE=malloc://128
 CMDS='
-e asm.arch=c55+
+e asm.arch=tms320
+e asm.cpu=c55x+
+e anal.cpu=c55x+
 e io.va=true
 wx c5a3230001
 pi 1
@@ -452,5 +508,4 @@ pi 1
 EXPECT='xor #0x1, ar3, ar3
 '
 run_test
-
 

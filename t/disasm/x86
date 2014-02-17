@@ -2464,8 +2464,8 @@ run_test
 
 
 # -------------------------------
-# JZ 0x2 instruction
-NAME="x86: [JZ 0x2]"
+# JE 0x2 instruction
+NAME="x86: [JE 0x2]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2473,14 +2473,14 @@ e asm.bits=32
 wx 74 00
 pi 1
 "
-EXPECT="jz 0x2
+EXPECT="je 0x2
 "
 run_test
 
 
 # -------------------------------
 # JNZ 0x2 instruction
-NAME="x86: [JNZ 0x2]"
+NAME="x86: [JNE 0x2]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2488,7 +2488,7 @@ e asm.bits=32
 wx 75 00
 pi 1
 "
-EXPECT="jnz 0x2
+EXPECT="jne 0x2
 "
 run_test
 
@@ -2704,8 +2704,8 @@ run_test
 
 
 # -------------------------------
-# JZ 0x6 instruction
-NAME="x86: [JZ 0x6]"
+# JE 0x6 instruction
+NAME="x86: [JE 0x6]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2713,14 +2713,14 @@ e asm.bits=32
 wx 0f84 00000000
 pi 1
 "
-EXPECT="jz 0x6
+EXPECT="je 0x6
 "
 run_test
 
 
 # -------------------------------
-# JNZ 0x6 instruction
-NAME="x86: [JNZ 0x6]"
+# JNE 0x6 instruction
+NAME="x86: [JNE 0x6]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2728,7 +2728,7 @@ e asm.bits=32
 wx 0f85 00000000
 pi 1
 "
-EXPECT="jnz 0x6
+EXPECT="jne 0x6
 "
 run_test
 
@@ -2943,8 +2943,8 @@ run_test
 
 
 # -------------------------------
-# SETZ [EAX] instruction
-NAME="x86: [SETZ [EAX]]"
+# SETE [EAX] instruction
+NAME="x86: [SETE [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2952,14 +2952,14 @@ e asm.bits=32
 wx 660f9400
 pi 1
 "
-EXPECT="o16 setz byte [eax]
+EXPECT="o16 sete byte [eax]
 "
 run_test
 
 
 # -------------------------------
-# SETNZ [EAX] instruction
-NAME="x86: [SETNZ [EAX]]"
+# SETNE [EAX] instruction
+NAME="x86: [SETNE [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2967,7 +2967,7 @@ e asm.bits=32
 wx 660f9500
 pi 1
 "
-EXPECT="o16 setnz byte [eax]
+EXPECT="o16 setne byte [eax]
 "
 run_test
 
@@ -3183,8 +3183,8 @@ run_test
 
 
 # -------------------------------
-# CMOVZ EAX, [EAX] instruction
-NAME="x86: [CMOVZ EAX, [EAX]]"
+# CMOVE EAX, [EAX] instruction
+NAME="x86: [CMOVE EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3192,14 +3192,14 @@ e asm.bits=32
 wx 0f4400
 pi 1
 "
-EXPECT="cmovz eax, [eax]
+EXPECT="cmove eax, [eax]
 "
 run_test
 
 
 # -------------------------------
-# CMOVNZ EAX, [EAX] instruction
-NAME="x86: [CMOVNZ EAX, [EAX]]"
+# CMOVNE EAX, [EAX] instruction
+NAME="x86: [CMOVNE EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3207,7 +3207,7 @@ e asm.bits=32
 wx 0f4500
 pi 1
 "
-EXPECT="cmovnz eax, [eax]
+EXPECT="cmovne eax, [eax]
 "
 run_test
 

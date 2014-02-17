@@ -605,7 +605,7 @@ run_test
 
 # -------------------------------
 # FNENI instruction
-BROKEN=1
+BROKEN=
 NAME="x86_x87: [FNENI]"
 FILE=malloc://32
 CMDS="
@@ -1354,7 +1354,7 @@ run_test
 
 # -------------------------------
 # FNDISI instruction
-BROKEN=1
+BROKEN=
 NAME="x86_x87: [FNDISI]"
 FILE=malloc://32
 CMDS="
@@ -1462,7 +1462,7 @@ fnstsw word [eax]
 "
 run_test
 
-	
+
 # -------------------------------
 # FPATAN instruction
 NAME="x86_x87: [FPATAN]"
@@ -1602,7 +1602,7 @@ run_test
 
 # -------------------------------
 # FNSETPM instruction
-BROKEN=1
+BROKEN=
 NAME="x86_x87: [FNSETPM]"
 FILE=malloc://32
 CMDS="

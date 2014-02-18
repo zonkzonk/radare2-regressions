@@ -73,7 +73,7 @@ dec eax
 add ecx, 0x8
 dec eax
 cmp dword [ecx], 0x0
-jnz 0x21
+jne 0x21
 dec eax
 add ecx, 0x8
 call 0xf8c

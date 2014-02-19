@@ -1,0 +1,15 @@
+#!/bin/sh
+
+[ -e tests.sh ] && . ./tests.sh || . ../tests.sh
+
+NAME='sandbox disable'
+IGNORE_ERR=0
+FILE=-
+ARGS=
+CMDS='e cfg.sandbox=true
+e cfg.sandbox=false
+e cfg.sandbox
+'
+EXPECT='true
+'
+run_test

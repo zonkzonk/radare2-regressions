@@ -1,0 +1,64 @@
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+NAME="[anal] reflines offset"
+BROKEN=1
+FILE=malloc://1023
+CMDS='
+e asm.bits=32
+e asm.cpu=x86
+e anal.cpu=x86
+e scr.utf8=true
+e scr.color=false
+wx 31c039d6724aeb72908db426000000008d7e0131d289e8f7f131d28944241c89f8f7f13944241c76678b93080200008b028b50143b5018736dc6020983c20189501489f031d201cef7f129d639f5762a8b8b8c05000085c975b683c6018b93080200008b028b50143b50187327c6022083c20139f589501477d68b44242c65330514000000753783c43c5b5e5f5dc39089feebc9c744240420000000890424e87cc9ffffeba6c744240409000000890424e86ac9ffff8b8b8c050000eb84e87d1001008db6000000008dbc270000000055575653e8f7f0ffff81c32b9d010083ec3c658b0d14000000894c242c31c98b6a0c8b720889e929f1c1e90285c9894c241c0f848100000039f50f84930000008b7a1801fdf7d721fd8b7a1089e9896a0c2b4a0489fd2b6a0439e97f718b7a0c31ed
+aa
+pd 38
+EXPECT='
+╒ (fcn) fcn.00000000 419
+│           0x00000000    31c0         xor eax, eax
+│           0x00000002    39d6         cmp esi, edx
+│       ┌─< 0x00000004    724a         jb 0x50
+│      ┌──< 0x00000006    eb72         jmp loc.0000007a
+│      ││   0x00000008    90           nop
+│      ││   ; DATA XREF from 0x000000a6 (fcn.00000000)
+│      ││   ; DATA XREF from 0x00000039 (fcn.00000000)
+│      ││   0x00000009    8db42600000. lea esi, [esi]
+│  ┌──────> 0x00000010    8d7e01       lea edi, [esi+0x1]
+├ fcn.0000005d 400
+│  │   ││   0x00000013    31d2         xor edx, edx
+│  │   ││   0x00000015    89e8         mov eax, ebp
+│  │   ││   0x00000017    f7f1         div ecx
+│  │   ││   0x00000019    31d2         xor edx, edx
+│  │   ││   0x0000001b    8944241c     mov [esp+0x1c], eax
+│  │   ││   0x0000001f    89f8         mov eax, edi
+│  │   ││   0x00000021    f7f1         div ecx
+│  │   ││   0x00000023    3944241c     cmp [esp+0x1c], eax
+│  │  ┌───< 0x00000027    7667         jbe 0x90
+│  │  │││   0x00000029    8b9308020000 mov edx, [ebx+0x208]
+│  │  │││   0x0000002f    8b02         mov eax, [edx]
+│  │  │││   0x00000031    8b5014       mov edx, [eax+0x14]
+│  │  │││   0x00000034    3b5018       cmp edx, [eax+0x18]
+│  │ ┌────< 0x00000037    736d         jae 0xa6
+│  │ ││││   0x00000039    c60209       mov byte [edx], 0x9 ;  0x00000009 
+│  │ ││││   0x0000003c    83c201       add edx, 0x1
+│  │ ││││   0x0000003f    895014       mov [eax+0x14], edx
+│  │ ││││   ; CODE (CALL) XREF from 0x000000bc (fcn.00000000)
+│  │ ││││   0x00000042    89f0         mov eax, esi
+│  │ ││││   0x00000044    31d2         xor edx, edx
+│  │ ││││   0x00000046    01ce         add esi, ecx
+│  │ ││││   0x00000048    f7f1         div ecx
+│  │ ││││   0x0000004a    29d6         sub esi, edx
+│  │ ││││   ; CODE (CALL) XREF from 0x000000a4 (fcn.00000000)
+│  │ ││││   0x0000004c    39f5         cmp ebp, esi
+│  │┌─────< 0x0000004e    762a         jbe loc.0000007a
+│  │││││└─> 0x00000050    8b8b8c050000 mov ecx, [ebx+0x58c]
+│  │││││    0x00000056    85c9         test ecx, ecx
+│  └──────< 0x00000058    75b6         jne 0x10
+│   ││││    0x0000005a    83c601       add esi, 0x1
+│   ││││    ; CODE (CALL) XREF from 0x00000092 (fcn.00000000)
+│   ││││    0x0000005d    8b9308020000 mov edx, [ebx+0x208]
+│   ││││    0x00000063    8b02         mov eax, [edx]
+│   ││││    0x00000065    8b5014       mov edx, [eax+0x14]
+'
+
+run_test
+

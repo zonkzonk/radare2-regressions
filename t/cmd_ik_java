@@ -98,13 +98,13 @@ TestVariableSwitchUp.cp.53=53.0x0258.Utf8.1.6b
 TestVariableSwitchUp.cp.54=54.0x025c.Utf8.18.4c6a6176612f6c616e672f537472696e673b
 TestVariableSwitchUp.cp.55=55.0x0271.Utf8.1.6a
 TestVariableSwitchUp.cp.56=56.0x0275.Utf8.10.536f7572636546696c65
-()TestVariableSwitchUp.methods=0x02aa,0x02e7
+TestVariableSwitchUp.methods=0x02aa,0x02e7
 TestVariableSwitchUp.0x02c0=TestVariableSwitchUp.0x02aa.method
-()TestVariableSwitchUp.0x02aa.method.code=0x02c0,0x0005
-()TestVariableSwitchUp.0x02aa.method.info=public,java/lang/Object,<init>,()V
+TestVariableSwitchUp.0x02aa.method.code=0x02c0,0x0005
+TestVariableSwitchUp.0x02aa.method.info=public,java/lang/Object,<init>,()V
 TestVariableSwitchUp.0x02fd=TestVariableSwitchUp.0x02e7.method
-()TestVariableSwitchUp.0x02e7.method.code=0x02fd,0x0025
-()TestVariableSwitchUp.0x02e7.method.info=static,TestVariableSwitchUp,TestMultipleVariable,()V
+TestVariableSwitchUp.0x02e7.method.code=0x02fd,0x0025
+TestVariableSwitchUp.0x02e7.method.info=static,TestVariableSwitchUp,TestMultipleVariable,()V
 '
 FILTER='sed "s/^db = 0x[0-9a-f]*$/db = 42/"'
 run_test

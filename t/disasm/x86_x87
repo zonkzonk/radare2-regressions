@@ -1332,7 +1332,8 @@ e asm.bits=32
 wx 9bdbe2
 pi 1
 "
-EXPECT="fclex
+EXPECT="wait
+fclex
 "
 run_test
 
@@ -1379,7 +1380,8 @@ e asm.bits=32
 wx 9bdbe3
 pi 1
 "
-EXPECT="fninit
+EXPECT="wait
+fninit
 "
 run_test
 
@@ -1581,23 +1583,6 @@ pi 1
 EXPECT="fscale
 "
 run_test
-
-
-# -------------------------------
-# FSETPM instruction
-BROKEN=1
-NAME="x86_x87: [FSETPM]"
-FILE=malloc://32
-CMDS="
-e asm.arch=${ARCH}
-e asm.bits=32
-wx dbe4
-pi 1
-"
-EXPECT="fsetpm
-"
-run_test
-
 
 
 # -------------------------------

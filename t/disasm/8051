@@ -385,7 +385,6 @@ run_test
 # -------------------------------
 # MOVX instruction
 NAME="8051: [MOVX]"
-BROKEN=1
 FILE=malloc://32
 CMDS='
 e asm.arch=8051

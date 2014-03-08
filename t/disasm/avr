@@ -95,7 +95,6 @@ run_test
 # -------------------------------
 # CALL instruction
 NAME="AVR: [CALL]"
-BROKEN=1
 FILE=malloc://4096
 CMDS='
 e asm.arch=avr
@@ -108,7 +107,6 @@ EXPECT='call 0x2016
 run_test
 
 NAME="AVR: [CALL] - jump check"
-BROKEN=1
 FILE=malloc://4096
 CMDS='
 e asm.arch=avr
@@ -280,7 +278,6 @@ run_test
 # -------------------------------
 # LDS instruction
 NAME="AVR: [LDS]"
-BROKEN=1
 FILE=malloc://32
 CMDS='
 e asm.arch=avr
@@ -529,7 +526,6 @@ run_test
 # -------------------------------
 # STS instruction
 NAME="AVR: [STS]"
-BROKEN=1
 FILE=malloc://4096
 CMDS='
 e asm.arch=avr
@@ -542,7 +538,6 @@ EXPECT='sts 0x7c0, r25
 run_test
 
 NAME="AVR: [STS] - jump check"
-BROKEN=1
 FILE=malloc://4096
 CMDS='
 e asm.arch=avr

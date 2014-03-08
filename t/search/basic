@@ -2,6 +2,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 FILE=malloc://1024
+IGNORE_ERR=1
 CMDS='
 w test
 w test@333
@@ -15,9 +16,6 @@ EXPECT='
 0x00000000 hit0_0 "test"
 0x0000014d hit0_1 "test"
 0x0000029a hit0_2 "test"
-'
-EXPECT_ERR='Searching 4 bytes from 0x00000000 to 0x00000400: 74 65 73 74 
-hits: 3
 '
 
 run_test

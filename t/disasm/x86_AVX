@@ -1,353 +1,91 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+set_test_params() {
+NAME="${1}: [${2}]"
+FILE=malloc://32
+BROKEN=${5}
+CMDS='
+e asm.arch='${1}'
+e asm.bits=32
+wx '${3}'
+pi 1
+'
+EXPECT="${4}
+"
+}
+
+
 for ARCH in x86 x86.olly x86.cs; do
 
 
-# -------------------------------
-# VADDPD YMM0, YMM0, YMM0 instruction
-NAME="${ARCH} AVX: [VADDPD YMM0, YMM0, YMM0]"
-FILE=malloc://32
-CMDS="
-e asm.arch=${ARCH}
-e asm.bits=32
-wx c5fd58c0
-pi 1
-"
-EXPECT="vaddpd ymm0, ymm0, ymm0
-"
+set_test_params "${ARCH}" "VADDPD YMM0, YMM0, YMM0" c5fd58c0 "vaddpd ymm0, ymm0, ymm0"
 run_test
 
-
-# -------------------------------
-# AESDEC XMM0, XMM0 instruction
-NAME="${ARCH} AVX: [AESDEC XMM0, XMM0]"
-FILE=malloc://32
-CMDS="
-e asm.arch=${ARCH}
-e asm.bits=32
-wx 660f38dec0
-pi 1
-"
-EXPECT="aesdec xmm0, xmm0
-"
+set_test_params "${ARCH}" "AESDEC XMM0, XMM0" 660f38dec0 "aesdec xmm0, xmm0"
 run_test
 
-
-# -------------------------------
-# AESDECLAST XMM0, XMM0 instruction
-NAME="${ARCH} AVX: [AESDECLAST XMM0, XMM0]"
-FILE=malloc://32
-CMDS="
-e asm.arch=${ARCH}
-e asm.bits=32
-wx 660f38dfc0
-pi 1
-"
-EXPECT="aesdeclast xmm0, xmm0
-"
+set_test_params "${ARCH}" "AESDECLAST XMM0, XMM0" 660f38dfc0 "aesdeclast xmm0, xmm0"
 run_test
 
-
-# -------------------------------
-# AESENC XMM0, XMM0 instruction
-NAME="${ARCH} AVX: [AESENC XMM0, XMM0]"
-FILE=malloc://32
-CMDS="
-e asm.arch=${ARCH}
-e asm.bits=32
-wx 660f38dcc0
-pi 1
-"
-EXPECT="aesenc xmm0, xmm0
-"
+set_test_params "${ARCH}" "AESENC XMM0, XMM0" 660f38dcc0 "aesenc xmm0, xmm0"
 run_test
 
-
-# -------------------------------
-# AESENCLAST XMM0, XMM0 instruction
-NAME="${ARCH} AVX: [AESENCLAST XMM0, XMM0]"
-FILE=malloc://32
-CMDS="
-e asm.arch=${ARCH}
-e asm.bits=32
-wx 660f38ddc0
-pi 1
-"
-EXPECT="aesenclast xmm0, xmm0
-"
+set_test_params "${ARCH}" "AESENCLAST XMM0, XMM0" 660f38ddc0 "aesenclast xmm0, xmm0"
 run_test
 
-
-# -------------------------------
-# AESIMC XMM0, XMM0 instruction
-NAME="${ARCH} AVX: [AESIMC XMM0, XMM0]"
-FILE=malloc://32
-CMDS="
-e asm.arch=${ARCH}
-e asm.bits=32
-wx 660f38dbc0
-pi 1
-"
-EXPECT="aesimc xmm0, xmm0
-"
+set_test_params "${ARCH}" "AESIMC XMM0, XMM0" 660f38dbc0 "aesimc xmm0, xmm0"
 run_test
 
-
-# -------------------------------
-# AESKEYGENASSIST XMM0, XMM0, 0X0 instruction
-NAME="${ARCH} AVX: [AESKEYGENASSIST XMM0, XMM0, 0X0]"
-FILE=malloc://32
-CMDS="
-e asm.arch=${ARCH}
-e asm.bits=32
-wx 660f3adfc000
-pi 1
-"
-EXPECT="aeskeygenassist xmm0, xmm0, 0x0
-"
+set_test_params "${ARCH}" "AESKEYGENASSIST XMM0, XMM0, 0X0" 660f3adfc000 "aeskeygenassist xmm0, xmm0, 0x0"
 run_test
 
-
-# -------------------------------
-# VAESDEC XMM0, XMM0, XMM0 instruction
-NAME="${ARCH} AVX: [VAESDEC XMM0, XMM0, XMM0]"
-FILE=malloc://32
-CMDS="
-e asm.arch=${ARCH}
-e asm.bits=32
-wx c4e279dec0
-pi 1
-"
-EXPECT="vaesdec xmm0, xmm0, xmm0
-"
+set_test_params "${ARCH}" "VAESDEC XMM0, XMM0, XMM0" c4e279dec0 "vaesdec xmm0, xmm0, xmm0"
 run_test
 
-
-# -------------------------------
-# VAESDECLAST XMM0, XMM0 instruction
-NAME="${ARCH} AVX: [VAESDECLAST XMM0, XMM0]"
-FILE=malloc://32
-CMDS="
-e asm.arch=${ARCH}
-e asm.bits=32
-wx c4e279dfc0
-pi 1
-"
-EXPECT="vaesdeclast xmm0, xmm0
-"
+set_test_params "${ARCH}" "VAESDECLAST XMM0, XMM0" c4e279dfc0 "vaesdeclast xmm0, xmm0"
 run_test
 
-
-# -------------------------------
-# VAESENC XMM0, XMM0 instruction
-NAME="${ARCH} AVX: [VAESENC XMM0, XMM0]"
-FILE=malloc://32
-CMDS="
-e asm.arch=${ARCH}
-e asm.bits=32
-wx c4e279dcc0
-pi 1
-"
-EXPECT="vaesenc xmm0, xmm0
-"
+set_test_params "${ARCH}" "VAESENC XMM0, XMM0" c4e279dcc0 "vaesenc xmm0, xmm0"
 run_test
 
-
-# -------------------------------
-# VAESENCLAST XMM0, XMM0, XMM0 instruction
-NAME="${ARCH} AVX: [VAESENCLAST XMM0, XMM0, XMM0]"
-FILE=malloc://32
-CMDS="
-e asm.arch=${ARCH}
-e asm.bits=32
-wx c4e279ddc0
-pi 1
-"
-EXPECT="vaesenclast xmm0, xmm0, xmm0
-"
+set_test_params "${ARCH}" "VAESENCLAST XMM0, XMM0, XMM0" c4e279ddc0 "vaesenclast xmm0, xmm0, xmm0"
 run_test
 
-
-# -------------------------------
-# VAESIMC XMM0, XMM0 instruction
-NAME="${ARCH} AVX: [VAESIMC XMM0, XMM0]"
-FILE=malloc://32
-CMDS="
-e asm.arch=${ARCH}
-e asm.bits=32
-wx c4e279dbc0
-pi 1
-"
-EXPECT="vaesimc xmm0, xmm0
-"
+set_test_params "${ARCH}" "VAESIMC XMM0, XMM0" c4e279dbc0 "vaesimc xmm0, xmm0"
 run_test
 
-# -------------------------------
-# VAESKEYGENASSIST XMM0, XMM0, 0X0 instruction
-NAME="${ARCH} AVX: [VAESKEYGENASSIST XMM0, XMM0, 0X0]"
-FILE=malloc://32
-CMDS="
-e asm.arch=${ARCH}
-e asm.bits=32
-wx c4e379dfc000
-pi 1
-"
-EXPECT="vaeskeygenassist xmm0, xmm0, 0x0
-"
+set_test_params "${ARCH}" "VAESKEYGENASSIST XMM0, XMM0, 0X0" c4e379dfc000 "vaeskeygenassist xmm0, xmm0, 0x0"
 run_test
 
-
-# -------------------------------
-# VEXTRACTF128 XMM0, YMM0, 0X0 instruction
-NAME="${ARCH} AVX: [VEXTRACTF128 XMM0, YMM0, 0X0]"
-FILE=malloc://32
-CMDS="
-e asm.arch=${ARCH}
-e asm.bits=32
-wx c4e37d19c000
-pi 1
-"
-EXPECT="vextractf128 xmm0, ymm0, 0x0
-"
+set_test_params "${ARCH}" "VEXTRACTF128 XMM0, YMM0, 0X0" c4e37d19c000 "vextractf128 xmm0, ymm0, 0x0"
 run_test
 
-
-# -------------------------------
-# VBROADCASTF128 YMM0, [0X0] instruction
-BROKEN=1
-NAME="${ARCH} AVX: [VBROADCASTF128 YMM0, [0X0]]"
-FILE=malloc://32
-CMDS="
-e asm.arch=${ARCH}
-e asm.bits=32
-wx c4e27d1a0500000000
-pi 1
-"
-EXPECT="vbroadcastf128 ymm0, [0x0]
-"
+set_test_params "${ARCH}" "VBROADCASTF128 YMM0, [0X0]" c4e27d1a0500000000 "vbroadcastf128 ymm0, [0x0]" 1
 run_test
 
-
-# -------------------------------
-# VBROADCASTSD YMM0, qword [0X0] instruction
-NAME="${ARCH} AVX: [VBROADCASTSD YMM0, qword [0X0]]"
-FILE=malloc://32
-CMDS="
-e asm.arch=${ARCH}
-e asm.bits=32
-wx c4e27d190500000000
-pi 1
-"
-EXPECT="vbroadcastsd ymm0, qword [0x0]
-"
+set_test_params "${ARCH}" "VBROADCASTSD YMM0, qword [0X0]" c4e27d190500000000 "vbroadcastsd ymm0, qword [0x0]"
 run_test
 
-
-# -------------------------------
-# VINSERTF128 YMM0, YMM0, XMM0, 0X0 instruction
-NAME="${ARCH} AVX: [VINSERTF128 YMM0, YMM0, XMM0, 0X0]"
-FILE=malloc://32
-CMDS="
-e asm.arch=${ARCH}
-e asm.bits=32
-wx c4e37d18c000
-pi 1
-"
-EXPECT="vinsertf128 ymm0, ymm0, xmm0, 0x0
-"
+set_test_params "${ARCH}" "VINSERTF128 YMM0, YMM0, XMM0, 0X0" c4e37d18c000 "vinsertf128 ymm0, ymm0, xmm0, 0x0"
 run_test
 
-
-# -------------------------------
-# VPERM2F128 YMM0, YMM0, YMM0, 0X0 instruction
-NAME="${ARCH} AVX: [VPERM2F128 YMM0, YMM0, YMM0, 0X0]"
-FILE=malloc://32
-CMDS="
-e asm.arch=${ARCH}
-e asm.bits=32
-wx c4e37d06c000
-pi 1
-"
-EXPECT="vperm2f128 ymm0, ymm0, ymm0, 0x0
-"
+set_test_params "${ARCH}" "VPERM2F128 YMM0, YMM0, YMM0, 0X0" c4e37d06c000 "vperm2f128 ymm0, ymm0, ymm0, 0x0"
 run_test
 
-
-# -------------------------------
-# VPERMILPD YMM0, YMM0, [0X0] instruction
-NAME="${ARCH} AVX: [VPERMILPD YMM0, YMM0, [0X0]]"
-FILE=malloc://32
-CMDS="
-e asm.arch=${ARCH}
-e asm.bits=32
-wx c4e27d0d0500000000
-pi 1
-"
-EXPECT="vpermilpd ymm0, ymm0, [0x0]
-"
+set_test_params "${ARCH}" "VPERMILPD YMM0, YMM0, [0X0]" c4e27d0d0500000000 "vpermilpd ymm0, ymm0, [0x0]"
 run_test
 
-
-# -------------------------------
-# VPERMILPS YMM0, YMM0, [0X0] instruction
-NAME="${ARCH} AVX: [VPERMILPS YMM0, YMM0, [0X0]]"
-FILE=malloc://32
-CMDS="
-e asm.arch=${ARCH}
-e asm.bits=32
-wx c4e27d0c0500000000
-pi 1
-"
-EXPECT="vpermilps ymm0, ymm0, [0x0]
-"
+set_test_params "${ARCH}" "VPERMILPS YMM0, YMM0, [0X0]" c4e27d0c0500000000 "vpermilps ymm0, ymm0, [0x0]"
 run_test
 
-
-# -------------------------------
-# VFMADD132PD XMM0, XMM0, XMM0 instruction
-BROKEN=1
-NAME="${ARCH} AVX: [VFMADD132PD XMM0, XMM0, XMM0]"
-FILE=malloc://32
-CMDS="
-e asm.arch=${ARCH}
-e asm.bits=32
-wx c4e2f998c0
-pi 1
-"
-EXPECT="vfmadd132pd xmm0, xmm0, xmm0
-"
+set_test_params "${ARCH}" "VFMADD132PD XMM0, XMM0, XMM0" c4e2f998c0 "vfmadd132pd xmm0, xmm0, xmm0" 1
 run_test
 
-
-# -------------------------------
-# VFMADD213PD XMM0, XMM0, XMM0 instruction
-BROKEN=1
-NAME="${ARCH} AVX: [VFMADD213PD XMM0, XMM0, XMM0]"
-FILE=malloc://32
-CMDS="
-e asm.arch=${ARCH}
-e asm.bits=32
-wx c4e2f9a8c0
-pi 1
-"
-EXPECT="vfmadd213pd xmm0, xmm0, xmm0
-"
+set_test_params "${ARCH}" "VFMADD213PD XMM0, XMM0, XMM0" c4e2f9a8c0 "vfmadd213pd xmm0, xmm0, xmm0" 1
 run_test
 
-
-# -------------------------------
-# VFMADD231PD XMM0, XMM0, XMM0 instruction
-BROKEN=1
-NAME="${ARCH} AVX: [VFMADD231PD XMM0, XMM0, XMM0]"
-FILE=malloc://32
-CMDS="
-e asm.arch=${ARCH}
-e asm.bits=32
-wx c4e2f9b8c0
-pi 1
-"
-EXPECT="vfmadd231pd xmm0, xmm0, xmm0
-"
+set_test_params "${ARCH}" "VFMADD231PD XMM0, XMM0, XMM0" c4e2f9b8c0 "vfmadd231pd xmm0, xmm0, xmm0" 1
 run_test
+
 done
-

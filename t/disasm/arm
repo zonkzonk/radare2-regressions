@@ -1,0 +1,1145 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+for ARCH in arm arm.cs arm.winedbg; do
+
+
+# -------------------------------
+# ADDEQ r1, r1, r0 instruction
+NAME="${ARCH}: [ADDEQ r1, r1, r0]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 00108100
+pi 1
+"
+EXPECT="addeq r1, r1, r0
+"
+run_test
+
+
+# -------------------------------
+# ADDEQ r1, r1, r2, lsl 2 instruction
+NAME="${ARCH}: [ADDEQ r1, r1, r2, lsl 2 ]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 02118100
+pi 1
+"
+EXPECT="addeq r1, r1, r2, lsl 2
+"
+run_test
+
+
+# -------------------------------
+# ADDNE r1, r1, ip instruction
+NAME="${ARCH}: [ADDNE r1, r1, ip]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 0c108110
+pi 1
+"
+EXPECT="addne r1, r1, ip
+"
+run_test
+
+
+# -------------------------------
+# ADDNE r1, r1, r0, lsl 2 instruction
+NAME="${ARCH}: [ADDNE r1, r1, r0, LSL 2]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 00118110
+pi 1
+"
+EXPECT="addne r1, r1, r0, lsl 2
+"
+run_test
+
+
+# -------------------------------
+# ANDEQ r0, r0, 1 instruction
+NAME="${ARCH}: [ANDEQ r0, r0, 1]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 01000002
+pi 1
+"
+EXPECT="andeq r0, r0, 1
+"
+run_test
+
+
+# -------------------------------
+# ANDEQ r3, r5 -2147483648 instruction
+NAME="${ARCH}: [ANDEQ r3, r5, -2147483648]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 02310502
+pi 1
+"
+EXPECT="andeq r3, r5, -2147483648
+"
+run_test
+
+
+# -------------------------------
+# ANDNE r3, r3, r2 instruction
+NAME="${ARCH}: [ANDNE r3, r3, r2]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 02300310
+pi 1
+"
+EXPECT="andne r3, r3, r2
+"
+run_test
+
+
+# -------------------------------
+# ANDNE ip, ip, r7 instruction
+NAME="${ARCH}: [ANDNE ip, ip, r7]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 07c00c10
+pi 1
+"
+EXPECT="andne ip, ip, r7
+"
+run_test
+
+
+# -------------------------------
+# ASREQ r0, ip, 31 instruction
+NAME="${ARCH}: [ASREQ r0, ip, 31]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx cc0fa001
+pi 1
+"
+EXPECT="asreq r0, ip, 31
+"
+run_test
+
+
+# -------------------------------
+# ASRNE r0, r4, 31 instruction
+NAME="${ARCH}: [ASRNE r0, r4, 31]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx c40fa011
+pi 1
+"
+EXPECT="asrne r0, r4, 31
+"
+run_test
+
+
+# -------------------------------
+# BEQ 8 instruction
+NAME="${ARCH}: [BEQ 8]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 0000000a
+pi 1
+"
+EXPECT="beq 0x00000008
+"
+run_test
+
+
+# -------------------------------
+# BICEQ r3, r3, 7 instruction
+NAME="${ARCH}: [BICEQ r3, r3, 7]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 0730c303
+pi 1
+"
+EXPECT="biceq r3, r3, 7
+"
+run_test
+
+
+# -------------------------------
+# BXEQ lr instruction
+NAME="${ARCH}: [BXEQ lr]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 1eff2f01
+pi 1
+"
+EXPECT="bxeq lr
+"
+run_test
+
+
+# -------------------------------
+# BXNE lr instruction
+NAME="${ARCH}: [BXNE lr]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 1eff2f11
+pi 1
+"
+EXPECT="bxne lr
+"
+run_test
+
+
+# -------------------------------
+# CLZNE r5, sl instruction
+NAME="${ARCH}: [CLZNE r5, sl]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 1a5f6f11
+pi 1
+"
+EXPECT="clzne r5, sl
+"
+run_test
+
+
+# -------------------------------
+# CMPEQ sl, r4 instruction
+NAME="${ARCH}: [CMPEQ sl, r4]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 40005a01
+pi 1
+"
+EXPECT="cmpeq sl, r4
+"
+run_test
+
+
+# -------------------------------
+# CMPNE r7, r6 instruction
+NAME="${ARCH}: [CMPNE r7, r6]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 06005711
+pi 1
+"
+EXPECT="cmpne r7, r6
+"
+run_test
+
+
+# -------------------------------
+# EOREQ r2, r2, 1 instruction
+NAME="${ARCH}: [EOREQ r2, r2, 1]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 01202202
+pi 1
+"
+EXPECT="eoreq r2, r2, 1
+"
+run_test
+
+
+# -------------------------------
+# EORNE r0, r0, r3 instruction
+NAME="${ARCH}: [EORNE r0, r0, r3]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 03002010
+pi 1
+"
+EXPECT="eorne r0, r0, r3
+"
+run_test
+
+
+# -------------------------------
+# EORNE r0, r0, r3, lsr 24 instruction
+NAME="${ARCH}: [EORNE r0, r0, r3, lsr 24]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 230c2010
+pi 1
+"
+EXPECT="eorne r0, r0, r3, lsr 24
+"
+run_test
+
+
+# -------------------------------
+# LDMDBEQ r2, {r0, r1} instruction
+NAME="${ARCH}: [LDMDBEQ r2, {r0, r1}]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 03001209
+pi 1
+"
+EXPECT="ldmdbeq r2, {r0, r1}
+"
+run_test
+
+
+# -------------------------------
+# LDMEQ r3, {r0, r1, r2, r3} instruction
+NAME="${ARCH}: [LDMEQ r3, {r0, r1, r2, r3}]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 0f009308
+pi 1
+"
+EXPECT="ldmeq r3, {r0, r1, r2, r3}
+"
+run_test
+
+
+# -------------------------------
+# LDMEQ r5, {r0, r1, r2} instruction
+NAME="${ARCH}: [LDMEQ r5, {r0, r1, r2}]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 07009508
+pi 1
+"
+EXPECT="ldmeq r5, {r0, r1, r2}
+"
+run_test
+
+
+# -------------------------------
+# LDMEQ r6, {r0, r1} instruction
+NAME="${ARCH}: [LDMEQ r6, {r0, r1}]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 03009608
+pi 1
+"
+EXPECT="ldmeq r6, {r0, r1}
+"
+run_test
+
+
+# -------------------------------
+# LDRBEQ r5, [r7, -1] instruction
+NAME="${ARCH}: [LDRBEQ r5, [r7, -1]]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 01505705
+pi 1
+"
+EXPECT="ldrbeq r5, [r7, -1]
+"
+run_test
+
+
+# -------------------------------
+# ldrdne r2, [r3, ip] instruction
+NAME="${ARCH}: [ldrdne r2, [r3, ip]]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx dc208311
+pi 1
+"
+EXPECT="ldrdne r2, [r3, ip]
+"
+run_test
+
+
+# -------------------------------
+# LDREQ r0, [fp, -180] instruction
+NAME="${ARCH}: [LDREQ r0, [fp, -180]]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx b4001b05
+pi 1
+"
+EXPECT="ldreq r0, [fp, -180]
+"
+run_test
+
+
+# -------------------------------
+# LDRHEQ r0, [r3, r0] instruction
+NAME="${ARCH}: [LDRHEQ r0, [r3, r0]]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx b0009301
+pi 1
+"
+EXPECT="ldrheq r0, [r3, r0]
+"
+run_test
+
+
+# -------------------------------
+# LSLNE r1, r1, 2 instruction
+NAME="${ARCH}: [LSLNE r1, r1, 2]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 0111a011
+pi 1
+"
+EXPECT="lslne r1, r1, 2
+"
+run_test
+
+
+# -------------------------------
+# LSREQ r0, r0, 16 instruction
+NAME="${ARCH}: [LSREQ r0, r0, 16]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 2008a001
+pi 1
+"
+EXPECT="lsreq r0, r0, 16
+"
+run_test
+
+
+# -------------------------------
+# LSRNE r0, r0, 9 instruction
+NAME="${ARCH}: [LSRNE r0, r0, 9]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx a004a011
+pi 1
+"
+EXPECT="lsrne r0, r0, 9
+"
+run_test
+
+
+# -------------------------------
+# MLAEQ r7, r5, r7, r0 instruction
+NAME="${ARCH}: [MLAEQ r7, r5, r7, r0]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 95072700
+pi 1
+"
+EXPECT="mlaeq r7, r5, r7, r0
+"
+run_test
+
+
+# -------------------------------
+# MLANE r3, r1, r3, r2 instruction
+NAME="${ARCH}: [MLANE r3, r1, r3, r2]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 91232310
+pi 1
+"
+EXPECT="mlane r3, r1, r3, r2
+"
+run_test
+
+
+# -------------------------------
+# MOVEQ r0, sl instruction
+NAME="${ARCH}: [MOVEQ r0, sl]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 0a00a001
+pi 1
+"
+EXPECT="moveq r0, sl
+"
+run_test
+
+
+# -------------------------------
+# MOVNE r0, r9 instruction
+NAME="${ARCH}: [MOVNE r0, r9]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 0900a011
+pi 1
+"
+EXPECT="movne r0, r9
+"
+run_test
+
+
+# -------------------------------
+# MULNE r3, r3, r0 instruction
+NAME="${ARCH}: [MULNE r3, r3, r0]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 93000310
+pi 1
+"
+EXPECT="mulne r3, r3, r0
+"
+run_test
+
+
+# -------------------------------
+# MVNEQ r0, 21 instruction
+NAME="${ARCH}: [MVNEQ r0, 21]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 1500e003
+pi 1
+"
+EXPECT="mvneq r0, 21
+"
+run_test
+
+
+# -------------------------------
+# MVNEQ r0, -2147483648 instruction
+NAME="${ARCH}: [MVNEQ r0, -2147483648]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 0201e003
+pi 1
+"
+EXPECT="mvneq r0, -2147483648
+"
+run_test
+
+
+# -------------------------------
+# ORREQ r5, r5, r3 instruction
+NAME="${ARCH}: [ORREQ r5, r5, r3]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 03508501
+pi 1
+"
+EXPECT="orreq r5, r5, r3
+"
+run_test
+
+
+# -------------------------------
+# ORREQ r6, r6, r2, lsr 1 instruction
+NAME="${ARCH}: [ORREQ r6, r6, r2, lsr 1]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx a2608601
+pi 1
+"
+EXPECT="orreq r6, r6, r2, lsr 1
+"
+run_test
+
+
+# -------------------------------
+# ORREQ r3, r3, -2147483648 instruction
+NAME="${ARCH}: [ORREQ r3, r3, -2147483648]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 02318303
+pi 1
+"
+EXPECT="orreq r3, r3, -2147483648
+"
+run_test
+
+
+# -------------------------------
+# ORRNE r0, r0, r1, lsl ip instruction
+NAME="${ARCH}: [ORRNE r0, r0, r1, lsl ip]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 110c8011
+pi 1
+"
+EXPECT="orrne r0, r0, r1, lsl ip
+"
+run_test
+
+
+# -------------------------------
+# ORRNE r1, r1, r3 instruction
+NAME="${ARCH}: [ORRNE r1, r1, r3]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 03108111
+pi 1
+"
+EXPECT="orrne r1, r1, r3
+"
+run_test
+
+
+# -------------------------------
+# POPEQ {pc} ; (LDREQQ pc, [sp], 4) instruction
+NAME="${ARCH}: [POPEQ {pc} ; (LDREQQ pc, [sp], 4)]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 04f09d04
+pi 1
+"
+EXPECT="popeq {pc}  ; (ldreq pc, [sp], 4)
+"
+run_test
+
+
+# -------------------------------
+# POPEQ {r4, pc} instruction
+NAME="${ARCH}: [POPEQ {r4, pc}]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 1080bd08
+pi 1
+"
+EXPECT="popeq {r4, pc}
+"
+run_test
+
+
+# -------------------------------
+# POPEQ {r4, r5, pc} instruction
+NAME="${ARCH}: [POPEQ {r4, r5, pc}]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 3080bd08
+pi 1
+"
+EXPECT="popeq {r4, r5, pc}
+"
+run_test
+
+
+# -------------------------------
+# POPEQ {r3, r4, r5, pc} instruction
+NAME="${ARCH}: [POPEQ {r3, r4, r5, pc}]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 3880bd08
+pi 1
+"
+EXPECT="popeq {r3, r4, r5, pc}
+"
+run_test
+
+
+# -------------------------------
+# POPEQ {r4, r5, r6, r7, pc} instruction
+NAME="${ARCH}: [POPEQ {r4, r5, r6, r7, pc}]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx f080bd08
+pi 1
+"
+EXPECT="popeq {r4, r5, r6, r7, pc}
+"
+run_test
+
+
+# -------------------------------
+# POPEQ {r3, r4, r5, r6, r7, pc} instruction
+NAME="${ARCH}: [POPEQ {r3, r4, r5, r6, r7, pc}]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx f880bd08
+pi 1
+"
+EXPECT="popeq {r3, r4, r5, r6, r7, pc}
+"
+run_test
+
+
+# -------------------------------
+# POPEQ {r3, r4, r5, r6, r7, r8, sl, pc} instruction
+NAME="${ARCH}: [POPEQ {r3, r4, r5, r6, r7, r8, sl, pc}]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx f885bd08
+pi 1
+"
+EXPECT="popeq {r3, r4, r5, r6, r7, r8, sl, pc}
+"
+run_test
+
+
+# -------------------------------
+# POPEQ {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc} instruction
+NAME="${ARCH}: [POPEQ {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx f88fbd08
+pi 1
+"
+EXPECT="popeq {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+"
+run_test
+
+
+# -------------------------------
+# REVEQ r3, r3 instruction
+NAME="${ARCH}: [REVEQ r3, r3]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 333fbf06
+pi 1
+"
+EXPECT="reveq r3, r3
+"
+run_test
+
+
+# -------------------------------
+# RSBEQ ip, r1, r7 instruction
+NAME="${ARCH}: [RSBEQ ip, r1, r7]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 07c06100
+pi 1
+"
+EXPECT="rsbeq ip, r1, r7
+"
+run_test
+
+
+# -------------------------------
+# RSBNE r6, r0, r6 instruction
+NAME="${ARCH}: [RSBNE r6, r0, r6]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 06606010
+pi 1
+"
+EXPECT="rsbne r6, r0, r6
+"
+run_test
+
+
+# -------------------------------
+# STMEQ r0, {r2, r3} instruction
+NAME="${ARCH}: [STMEQ r0, {r2, r3}]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 0c008008
+pi 1
+"
+EXPECT="stmeq r0, {r2, r3}
+"
+run_test
+
+
+# -------------------------------
+# STMEQ ip, {r0, r1, r2} instruction
+NAME="${ARCH}: [STMEQ ip, {r0, r1, r2}]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 07008c08
+pi 1
+"
+EXPECT="stmeq ip, {r0, r1, r2}
+"
+run_test
+
+
+# -------------------------------
+# STMEQ ip, {r0, r1, r2, r3} instruction
+NAME="${ARCH}: [STMEQ ip, {r0, r1, r2, r3}]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 0f008c08
+pi 1
+"
+EXPECT="stmeq ip, {r0, r1, r2, r3}
+"
+run_test
+
+
+# -------------------------------
+# STRBEQ ip, [r2, -1] instruction
+NAME="${ARCH}: [STRBEQ ip, [r2, -1]]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 01c04205
+pi 1
+"
+EXPECT="strbeq ip, [r2, -1]
+"
+run_test
+
+
+# -------------------------------
+# STRBEQ r3, [r5] instruction
+NAME="${ARCH}: [STRBEQ r3, [r5]]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 0030c505
+pi 1
+"
+EXPECT="strbeq r3, [r5]
+"
+run_test
+
+
+# -------------------------------
+# STRDEQ r2, [r4] instruction
+NAME="${ARCH}: [STRDEQ r2, [r4]]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx f020c401
+pi 1
+"
+EXPECT="strdeq r2, [r4]
+"
+run_test
+
+
+# -------------------------------
+# STRDEQ r4, [r8, 80] instruction
+NAME="${ARCH}: [STRDEQ r4, [r8, 80]]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx f045c801
+pi 1
+"
+EXPECT="strdeq r4, [r8, 80]
+"
+run_test
+
+
+# -------------------------------
+# STREQ r3, [r5, -4] instruction
+NAME="${ARCH}: [STREQ r3, [r5, -4]]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 04300505
+pi 1
+"
+EXPECT="streq r3, [r5, -4]
+"
+run_test
+
+
+# -------------------------------
+# STREQ r1, [fp, -304] instruction
+NAME="${ARCH}: [STREQ r1, [fp, -304]]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 30110b05
+pi 1
+"
+EXPECT="streq r1, [fp, -304]
+"
+run_test
+
+
+# -------------------------------
+# STRHNE r3, [fp, -50] instruction
+NAME="${ARCH}: [STRHNE r3, [fp, -50]]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx b2334b11
+pi 1
+"
+EXPECT="strhne r3, [fp, -50]
+"
+run_test
+
+
+# -------------------------------
+# STRHEQ r3, [fp, -56] instruction
+NAME="${ARCH}: [STRHEQ r3, [fp, -56]]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx b8334b01
+pi 1
+"
+EXPECT="strheq r3, [fp, -56]
+"
+run_test
+
+
+# -------------------------------
+# STRHEQ r1, [r0] instruction
+NAME="${ARCH}: [STRHEQ r1, [r0]]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx b010c001
+pi 1
+"
+EXPECT="strheq r1, [r0]
+"
+run_test
+
+
+# -------------------------------
+# STRHNE r1, [r2,r3] instruction
+NAME="${ARCH}: [STRHNE r1, [r2,r3]]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx b3108211
+pi 1
+"
+EXPECT="strhne r1, [r2, r3]
+"
+run_test
+
+
+# -------------------------------
+# SUBEQ ip, r0, 32 instruction
+NAME="${ARCH}: [SUBEQ ip, r0, 32]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 20c04002
+pi 1
+"
+EXPECT="subeq ip, r0, 32
+"
+run_test
+
+
+# -------------------------------
+# SUBNE r6, r3, r6, asr 1 instruction
+NAME="${ARCH}: [SUBNE r6, r3, r6, asr 1]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx c6604310
+pi 1
+"
+EXPECT="subne r6, r3, r6, asr 1
+"
+run_test
+
+
+# -------------------------------
+# SUBNE r5, r5, r3 instruction
+NAME="${ARCH}: [SUBNE r5, r5, r3]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 03504510
+pi 1
+"
+EXPECT="subne r5, r5, r3
+"
+run_test
+
+
+# -------------------------------
+# SVCEQ 0x00000000 instruction
+NAME="${ARCH}: [SVCEQ 0x00000000]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 0000000f
+pi 1
+"
+EXPECT="svceq 0x00000000
+"
+run_test
+
+
+# -------------------------------
+# UMLALNE r4, r5, r3, r7 instruction
+NAME="${ARCH}: [UMLALNE r4, r5, r3, r7]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 9347a510
+pi 1
+"
+EXPECT="umlalne r4, r5, r3, r7
+"
+run_test
+
+
+# -------------------------------
+# UMLALNE r4, r5, r3, sl instruction
+NAME="${ARCH}: [UMLALNE r4, r5, r3, sl]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 934aa510
+pi 1
+"
+EXPECT="umlalne r4, r5, r3, sl
+"
+run_test
+
+
+# -------------------------------
+# UXTBEQ r1, r0 instruction
+NAME="${ARCH}: [UXTBEQ r1, r0]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 7010ef06
+pi 1
+"
+EXPECT="uxtbeq r1, r0
+"
+run_test
+
+
+# -------------------------------
+# UXTHEQ r0, r0 instruction
+NAME="${ARCH}: [UXTHEQ r0, r0]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 7000ff06
+pi 1
+"
+EXPECT="uxtheq r0, r0
+"
+run_test
+
+
+# -------------------------------
+# VSTREQ d0, [r0] instruction
+NAME="${ARCH}: [VSTREQ d0, r0]"
+FILE=malloc://32
+CMDS="
+e asm.arch=${ARCH}
+e asm.bits=32
+wx 000b800d
+pi 1
+"
+EXPECT="vstreq d0, [r0]
+"
+run_test
+
+done

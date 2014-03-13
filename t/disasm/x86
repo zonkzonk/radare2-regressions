@@ -1,11 +1,11 @@
 #!/bin/sh
-for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh; done
+for ARCH in x86 x86.olly x86.cs; do
 
-ARCH=x86
 
 # -------------------------------
 # CWDE instruction
-NAME="x86: [CWDE]"
+NAME="${ARCH}: [CWDE]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -20,7 +20,7 @@ run_test
 
 # -------------------------------
 # CBW instruction
-NAME="x86: [CBW]"
+NAME="${ARCH}: [CBW]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -35,7 +35,7 @@ run_test
 
 # -------------------------------
 # CDQ instruction
-NAME="x86: [CDQ]"
+NAME="${ARCH}: [CDQ]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -50,7 +50,7 @@ run_test
 
 # -------------------------------
 # CWD instruction
-NAME="x86: [CWD]"
+NAME="${ARCH}: [CWD]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -65,7 +65,7 @@ run_test
 
 # -------------------------------
 # CMC instruction
-NAME="x86: [CMC]"
+NAME="${ARCH}: [CMC]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -80,7 +80,7 @@ run_test
 
 # -------------------------------
 # STC instruction
-NAME="x86: [STC]"
+NAME="${ARCH}: [STC]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -95,7 +95,7 @@ run_test
 
 # -------------------------------
 # CLC instruction
-NAME="x86: [CLC]"
+NAME="${ARCH}: [CLC]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -110,7 +110,7 @@ run_test
 
 # -------------------------------
 # CLI instruction
-NAME="x86: [CLI]"
+NAME="${ARCH}: [CLI]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -125,7 +125,7 @@ run_test
 
 # -------------------------------
 # STI instruction
-NAME="x86: [STI]"
+NAME="${ARCH}: [STI]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -140,7 +140,7 @@ run_test
 
 # -------------------------------
 # CLD instruction
-NAME="x86: [CLD]"
+NAME="${ARCH}: [CLD]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -155,7 +155,7 @@ run_test
 
 # -------------------------------
 # STD instruction
-NAME="x86: [STD]"
+NAME="${ARCH}: [STD]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -173,7 +173,7 @@ run_test
 
 # -------------------------------
 # SALC instruction
-NAME="x86: [SALC]"
+NAME="${ARCH}: [SALC]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -190,7 +190,7 @@ run_test
 
 # -------------------------------
 # XLATB instruction
-NAME="x86: [XLATB]"
+NAME="${ARCH}: [XLATB]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -205,7 +205,7 @@ run_test
 
 # -------------------------------
 # LEAVE instruction
-NAME="x86: [LEAVE]"
+NAME="${ARCH}: [LEAVE]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -220,7 +220,7 @@ run_test
 
 # -------------------------------
 # INT1 instruction
-NAME="x86: [INT1]"
+NAME="${ARCH}: [INT1]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -235,7 +235,7 @@ run_test
 
 # -------------------------------
 # INT 1 instruction
-NAME="x86: [INT 1]"
+NAME="${ARCH}: [INT 1]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -250,7 +250,7 @@ run_test
 
 # -------------------------------
 # INT3 instruction
-NAME="x86: [INT3]"
+NAME="${ARCH}: [INT3]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -265,7 +265,7 @@ run_test
 
 # -------------------------------
 # INT 3 instruction
-NAME="x86: [INT 3]"
+NAME="${ARCH}: [INT 3]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -280,7 +280,7 @@ run_test
 
 # -------------------------------
 # INTO instruction
-NAME="x86: [INTO]"
+NAME="${ARCH}: [INTO]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -295,7 +295,7 @@ run_test
 
 # -------------------------------
 # IRETD instruction
-NAME="x86: [IRETD]"
+NAME="${ARCH}: [IRETD]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -310,7 +310,7 @@ run_test
 
 # -------------------------------
 # IRETW instruction
-NAME="x86: [IRETW]"
+NAME="${ARCH}: [IRETW]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -327,7 +327,7 @@ run_test
 
 # -------------------------------
 # RET instruction
-NAME="x86: [RET]"
+NAME="${ARCH}: [RET]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -342,7 +342,7 @@ run_test
 
 # -------------------------------
 # RETF 0x0 instruction
-NAME="x86: [RETF 0x0]"
+NAME="${ARCH}: [RETF 0x0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -357,7 +357,7 @@ run_test
 
 # -------------------------------
 # RETF instruction
-NAME="x86: [RETF]"
+NAME="${ARCH}: [RETF]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -372,7 +372,7 @@ run_test
 
 # -------------------------------
 # HLT instruction
-NAME="x86: [HLT]"
+NAME="${ARCH}: [HLT]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -387,7 +387,7 @@ run_test
 
 # -------------------------------
 # LAHF instruction
-NAME="x86: [LAHF]"
+NAME="${ARCH}: [LAHF]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -402,7 +402,7 @@ run_test
 
 # -------------------------------
 # SAHF instruction
-NAME="x86: [SAHF]"
+NAME="${ARCH}: [SAHF]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -417,7 +417,7 @@ run_test
 
 # -------------------------------
 # PUSHFD instruction
-NAME="x86: [PUSHFD]"
+NAME="${ARCH}: [PUSHFD]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -432,7 +432,7 @@ run_test
 
 # -------------------------------
 # POPFD instruction
-NAME="x86: [POPFD]"
+NAME="${ARCH}: [POPFD]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -448,7 +448,7 @@ run_test
 
 # -------------------------------
 # PUSHAD instruction
-NAME="x86: [PUSHAD]"
+NAME="${ARCH}: [PUSHAD]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -463,7 +463,7 @@ run_test
 
 # -------------------------------
 # POPAD instruction
-NAME="x86: [POPAD]"
+NAME="${ARCH}: [POPAD]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -479,7 +479,7 @@ run_test
 
 # -------------------------------
 # POPA instruction
-NAME="x86: [POPA]"
+NAME="${ARCH}: [POPA]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -494,7 +494,7 @@ run_test
 
 # -------------------------------
 # DAA instruction
-NAME="x86: [DAA]"
+NAME="${ARCH}: [DAA]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -509,7 +509,7 @@ run_test
 
 # -------------------------------
 # AAA instruction
-NAME="x86: [AAA]"
+NAME="${ARCH}: [AAA]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -524,7 +524,7 @@ run_test
 
 # -------------------------------
 # DAS instruction
-NAME="x86: [DAS]"
+NAME="${ARCH}: [DAS]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -539,7 +539,7 @@ run_test
 
 # -------------------------------
 # AAS instruction
-NAME="x86: [AAS]"
+NAME="${ARCH}: [AAS]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -553,7 +553,7 @@ run_test
 
 # -------------------------------
 # PUSH EAX instruction
-NAME="x86: [PUSH EAX]"
+NAME="${ARCH}: [PUSH EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -568,7 +568,7 @@ run_test
 
 # -------------------------------
 # PUSH ECX instruction
-NAME="x86: [PUSH ECX]"
+NAME="${ARCH}: [PUSH ECX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -583,7 +583,7 @@ run_test
 
 # -------------------------------
 # PUSH EDX instruction
-NAME="x86: [PUSH EDX]"
+NAME="${ARCH}: [PUSH EDX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -598,7 +598,7 @@ run_test
 
 # -------------------------------
 # PUSH EBX instruction
-NAME="x86: [PUSH EBX]"
+NAME="${ARCH}: [PUSH EBX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -613,7 +613,7 @@ run_test
 
 # -------------------------------
 # PUSH ESP instruction
-NAME="x86: [PUSH ESP]"
+NAME="${ARCH}: [PUSH ESP]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -628,7 +628,7 @@ run_test
 
 # -------------------------------
 # PUSH EBP instruction
-NAME="x86: [PUSH EBP]"
+NAME="${ARCH}: [PUSH EBP]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -643,7 +643,7 @@ run_test
 
 # -------------------------------
 # PUSH ESI instruction
-NAME="x86: [PUSH ESI]"
+NAME="${ARCH}: [PUSH ESI]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -658,7 +658,7 @@ run_test
 
 # -------------------------------
 # PUSH EDI instruction
-NAME="x86: [PUSH EDI]"
+NAME="${ARCH}: [PUSH EDI]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -673,7 +673,7 @@ run_test
 
 # -------------------------------
 # POP EAX instruction
-NAME="x86: [POP EAX]"
+NAME="${ARCH}: [POP EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -688,7 +688,7 @@ run_test
 
 # -------------------------------
 # POP ECX instruction
-NAME="x86: [POP ECX]"
+NAME="${ARCH}: [POP ECX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -703,7 +703,7 @@ run_test
 
 # -------------------------------
 # POP EDX instruction
-NAME="x86: [POP EDX]"
+NAME="${ARCH}: [POP EDX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -718,7 +718,7 @@ run_test
 
 # -------------------------------
 # POP EBX instruction
-NAME="x86: [POP EBX]"
+NAME="${ARCH}: [POP EBX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -733,7 +733,7 @@ run_test
 
 # -------------------------------
 # POP ESP instruction
-NAME="x86: [POP ESP]"
+NAME="${ARCH}: [POP ESP]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -748,7 +748,7 @@ run_test
 
 # -------------------------------
 # POP EBP instruction
-NAME="x86: [POP EBP]"
+NAME="${ARCH}: [POP EBP]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -763,7 +763,7 @@ run_test
 
 # -------------------------------
 # POP ESI instruction
-NAME="x86: [POP ESI]"
+NAME="${ARCH}: [POP ESI]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -778,7 +778,7 @@ run_test
 
 # -------------------------------
 # POP EDI instruction
-NAME="x86: [POP EDI]"
+NAME="${ARCH}: [POP EDI]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -793,7 +793,7 @@ run_test
 
 # -------------------------------
 # PUSH DWORD [EAX] instruction
-NAME="x86: [PUSH DWORD [EAX]]"
+NAME="${ARCH}: [PUSH DWORD [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -808,7 +808,7 @@ run_test
 
 # -------------------------------
 # POP DWORD [EAX] instruction
-NAME="x86: [POP DWORD [EAX]]"
+NAME="${ARCH}: [POP DWORD [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -823,7 +823,7 @@ run_test
 
 # -------------------------------
 # PUSH ES instruction
-NAME="x86: [PUSH ES]"
+NAME="${ARCH}: [PUSH ES]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -838,7 +838,7 @@ run_test
 
 # -------------------------------
 # PUSH CS instruction
-NAME="x86: [PUSH CS]"
+NAME="${ARCH}: [PUSH CS]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -853,7 +853,7 @@ run_test
 
 # -------------------------------
 # PUSH SS instruction
-NAME="x86: [PUSH SS]"
+NAME="${ARCH}: [PUSH SS]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -868,7 +868,7 @@ run_test
 
 # -------------------------------
 # PUSH DS instruction
-NAME="x86: [PUSH DS]"
+NAME="${ARCH}: [PUSH DS]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -883,7 +883,7 @@ run_test
 
 # -------------------------------
 # POP ES instruction
-NAME="x86: [POP ES]"
+NAME="${ARCH}: [POP ES]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -898,7 +898,7 @@ run_test
 
 # -------------------------------
 # POP SS instruction
-NAME="x86: [POP SS]"
+NAME="${ARCH}: [POP SS]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -913,7 +913,7 @@ run_test
 
 # -------------------------------
 # POP DS instruction
-NAME="x86: [POP DS]"
+NAME="${ARCH}: [POP DS]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -928,7 +928,7 @@ run_test
 
 # -------------------------------
 # PUSH 0 instruction
-NAME="x86: [PUSH 0]"
+NAME="${ARCH}: [PUSH 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -943,7 +943,7 @@ run_test
 
 # -------------------------------
 # PUSH FS instruction
-NAME="x86: [PUSH FS]"
+NAME="${ARCH}: [PUSH FS]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -958,7 +958,7 @@ run_test
 
 # -------------------------------
 # POP FS instruction
-NAME="x86: [POP FS]"
+NAME="${ARCH}: [POP FS]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -973,7 +973,7 @@ run_test
 
 # -------------------------------
 # PUSH GS instruction
-NAME="x86: [PUSH GS]"
+NAME="${ARCH}: [PUSH GS]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -988,7 +988,7 @@ run_test
 
 # -------------------------------
 # POP GS instruction
-NAME="x86: [POP GS]"
+NAME="${ARCH}: [POP GS]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1003,7 +1003,7 @@ run_test
 
 # -------------------------------
 # INC EAX instruction
-NAME="x86: [INC EAX]"
+NAME="${ARCH}: [INC EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1018,7 +1018,7 @@ run_test
 
 # -------------------------------
 # INC ECX instruction
-NAME="x86: [INC ECX]"
+NAME="${ARCH}: [INC ECX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1033,7 +1033,7 @@ run_test
 
 # -------------------------------
 # INC EDX instruction
-NAME="x86: [INC EDX]"
+NAME="${ARCH}: [INC EDX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1048,7 +1048,7 @@ run_test
 
 # -------------------------------
 # INC EBX instruction
-NAME="x86: [INC EBX]"
+NAME="${ARCH}: [INC EBX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1063,7 +1063,7 @@ run_test
 
 # -------------------------------
 # INC ESP instruction
-NAME="x86: [INC ESP]"
+NAME="${ARCH}: [INC ESP]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1078,7 +1078,7 @@ run_test
 
 # -------------------------------
 # INC EBP instruction
-NAME="x86: [INC EBP]"
+NAME="${ARCH}: [INC EBP]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1093,7 +1093,7 @@ run_test
 
 # -------------------------------
 # INC ESI instruction
-NAME="x86: [INC ESI]"
+NAME="${ARCH}: [INC ESI]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1108,7 +1108,7 @@ run_test
 
 # -------------------------------
 # INC EDI instruction
-NAME="x86: [INC EDI]"
+NAME="${ARCH}: [INC EDI]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1123,7 +1123,7 @@ run_test
 
 # -------------------------------
 # DEC EAX instruction
-NAME="x86: [DEC EAX]"
+NAME="${ARCH}: [DEC EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1138,7 +1138,7 @@ run_test
 
 # -------------------------------
 # DEC ECX instruction
-NAME="x86: [DEC ECX]"
+NAME="${ARCH}: [DEC ECX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1153,7 +1153,7 @@ run_test
 
 # -------------------------------
 # DEC EDX instruction
-NAME="x86: [DEC EDX]"
+NAME="${ARCH}: [DEC EDX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1168,7 +1168,7 @@ run_test
 
 # -------------------------------
 # DEC EBX instruction
-NAME="x86: [DEC EBX]"
+NAME="${ARCH}: [DEC EBX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1183,7 +1183,7 @@ run_test
 
 # -------------------------------
 # DEC ESP instruction
-NAME="x86: [DEC ESP]"
+NAME="${ARCH}: [DEC ESP]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1198,7 +1198,7 @@ run_test
 
 # -------------------------------
 # DEC EBP instruction
-NAME="x86: [DEC EBP]"
+NAME="${ARCH}: [DEC EBP]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1213,7 +1213,7 @@ run_test
 
 # -------------------------------
 # DEC ESI instruction
-NAME="x86: [DEC ESI]"
+NAME="${ARCH}: [DEC ESI]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1228,7 +1228,7 @@ run_test
 
 # -------------------------------
 # DEC EDI instruction
-NAME="x86: [DEC EDI]"
+NAME="${ARCH}: [DEC EDI]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1243,7 +1243,7 @@ run_test
 
 # -------------------------------
 # INC BYTE [EAX] instruction
-NAME="x86: [INC BYTE [EAX]]"
+NAME="${ARCH}: [INC BYTE [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1258,7 +1258,7 @@ run_test
 
 # -------------------------------
 # INC DWORD [EAX] instruction
-NAME="x86: [INC DWORD [EAX]]"
+NAME="${ARCH}: [INC DWORD [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1273,7 +1273,7 @@ run_test
 
 # -------------------------------
 # DEC BYTE [EAX] instruction
-NAME="x86: [DEC BYTE [EAX]]"
+NAME="${ARCH}: [DEC BYTE [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1288,7 +1288,7 @@ run_test
 
 # -------------------------------
 # DEC DWORD [EAX] instruction
-NAME="x86: [DEC DWORD [EAX]]"
+NAME="${ARCH}: [DEC DWORD [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1302,7 +1302,7 @@ run_test
 
 # -------------------------------
 # SLDT [EAX] instruction
-NAME="x86: [SLDT [EAX]]"
+NAME="${ARCH}: [SLDT [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1318,7 +1318,7 @@ run_test
 
 # -------------------------------
 # STR [EAX] instruction
-NAME="x86: [STR [EAX]]"
+NAME="${ARCH}: [STR [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1334,7 +1334,7 @@ run_test
 
 # -------------------------------
 # LLDT [EAX] instruction
-NAME="x86: [LLDT [EAX]]"
+NAME="${ARCH}: [LLDT [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1349,7 +1349,7 @@ run_test
 
 # -------------------------------
 # LLDT AX instruction
-NAME="x86: [LLDT AX]"
+NAME="${ARCH}: [LLDT AX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1364,7 +1364,7 @@ run_test
 
 # -------------------------------
 # LTR [EAX] instruction
-NAME="x86: [LTR [EAX]]"
+NAME="${ARCH}: [LTR [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1379,7 +1379,7 @@ run_test
 
 # -------------------------------
 # LTR AX instruction
-NAME="x86: [LTR AX]"
+NAME="${ARCH}: [LTR AX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1394,7 +1394,7 @@ run_test
 
 # -------------------------------
 # VERR [EAX] instruction
-NAME="x86: [VERR [EAX]]"
+NAME="${ARCH}: [VERR [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1409,7 +1409,7 @@ run_test
 
 # -------------------------------
 # VERR AX instruction
-NAME="x86: [VERR AX]"
+NAME="${ARCH}: [VERR AX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1424,7 +1424,7 @@ run_test
 
 # -------------------------------
 # VERW [EAX] instruction
-NAME="x86: [VERW [EAX]]"
+NAME="${ARCH}: [VERW [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1439,7 +1439,7 @@ run_test
 
 # -------------------------------
 # VERW AX instruction
-NAME="x86: [VERW AX]"
+NAME="${ARCH}: [VERW AX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1454,7 +1454,7 @@ run_test
 
 # -------------------------------
 # SGDT [EAX] instruction
-NAME="x86: [SGDT [EAX]]"
+NAME="${ARCH}: [SGDT [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1469,7 +1469,7 @@ run_test
 
 # -------------------------------
 # SIDT [EAX] instruction
-NAME="x86: [SIDT [EAX]]"
+NAME="${ARCH}: [SIDT [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1484,7 +1484,7 @@ run_test
 
 # -------------------------------
 # LGDT [EAX] instruction
-NAME="x86: [LGDT [EAX]]"
+NAME="${ARCH}: [LGDT [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1499,7 +1499,7 @@ run_test
 
 # -------------------------------
 # LIDT [EAX] instruction
-NAME="x86: [LIDT [EAX]]"
+NAME="${ARCH}: [LIDT [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1514,7 +1514,7 @@ run_test
 
 # -------------------------------
 # SMSW [EAX] instruction
-NAME="x86: [SMSW [EAX]]"
+NAME="${ARCH}: [SMSW [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1529,7 +1529,7 @@ run_test
 
 # -------------------------------
 # LMSW [EAX] instruction
-NAME="x86: [LMSW [EAX]]"
+NAME="${ARCH}: [LMSW [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1544,7 +1544,7 @@ run_test
 
 # -------------------------------
 # INVLPG [EAX] instruction
-NAME="x86: [INVLPG [EAX]]"
+NAME="${ARCH}: [INVLPG [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1558,7 +1558,7 @@ run_test
 
 # -------------------------------
 # MOV AL,0 instruction
-NAME="x86: [MOV AL,0]"
+NAME="${ARCH}: [MOV AL,0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1573,7 +1573,7 @@ run_test
 
 # -------------------------------
 # MOV CL,0 instruction
-NAME="x86: [MOV CL,0]"
+NAME="${ARCH}: [MOV CL,0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1588,7 +1588,7 @@ run_test
 
 # -------------------------------
 # MOV DL,0 instruction
-NAME="x86: [MOV DL,0]"
+NAME="${ARCH}: [MOV DL,0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1603,7 +1603,7 @@ run_test
 
 # -------------------------------
 # MOV BL,0 instruction
-NAME="x86: [MOV BL,0]"
+NAME="${ARCH}: [MOV BL,0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1618,7 +1618,7 @@ run_test
 
 # -------------------------------
 # MOV AH,0 instruction
-NAME="x86: [MOV AH,0]"
+NAME="${ARCH}: [MOV AH,0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1633,7 +1633,7 @@ run_test
 
 # -------------------------------
 # MOV CH,0 instruction
-NAME="x86: [MOV CH,0]"
+NAME="${ARCH}: [MOV CH,0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1648,7 +1648,7 @@ run_test
 
 # -------------------------------
 # MOV DH,0 instruction
-NAME="x86: [MOV DH,0]"
+NAME="${ARCH}: [MOV DH,0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1663,7 +1663,7 @@ run_test
 
 # -------------------------------
 # MOV BH,0 instruction
-NAME="x86: [MOV BH,0]"
+NAME="${ARCH}: [MOV BH,0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1678,7 +1678,7 @@ run_test
 
 # -------------------------------
 # TEST AL,0 instruction
-NAME="x86: [TEST AL,0]"
+NAME="${ARCH}: [TEST AL,0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1693,7 +1693,7 @@ run_test
 
 # -------------------------------
 # IN AL,0 instruction
-NAME="x86: [IN AL,0]"
+NAME="${ARCH}: [IN AL,0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1708,7 +1708,7 @@ run_test
 
 # -------------------------------
 # IN EAX,0 instruction
-NAME="x86: [IN EAX,0]"
+NAME="${ARCH}: [IN EAX,0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1723,7 +1723,7 @@ run_test
 
 # -------------------------------
 # IN AL,DX instruction
-NAME="x86: [IN AL,DX]"
+NAME="${ARCH}: [IN AL,DX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1738,7 +1738,7 @@ run_test
 
 # -------------------------------
 # IN EAX,DX instruction
-NAME="x86: [IN EAX,DX]"
+NAME="${ARCH}: [IN EAX,DX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1752,7 +1752,7 @@ run_test
 
 # -------------------------------
 # OUT 0X0, AL instruction
-NAME="x86: [OUT 0X0, AL]"
+NAME="${ARCH}: [OUT 0X0, AL]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1767,7 +1767,7 @@ run_test
 
 # -------------------------------
 # OUT 0X0, EAX instruction
-NAME="x86: [OUT 0X0, EAX]"
+NAME="${ARCH}: [OUT 0X0, EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1782,7 +1782,7 @@ run_test
 
 # -------------------------------
 # OUT DX, AL instruction
-NAME="x86: [OUT DX, AL]"
+NAME="${ARCH}: [OUT DX, AL]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1797,7 +1797,7 @@ run_test
 
 # -------------------------------
 # OUT DX, EAX instruction
-NAME="x86: [OUT DX, EAX]"
+NAME="${ARCH}: [OUT DX, EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1811,7 +1811,7 @@ run_test
 
 # -------------------------------
 # CPUID instruction
-NAME="x86: [CPUID]"
+NAME="${ARCH}: [CPUID]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1826,7 +1826,7 @@ run_test
 
 # -------------------------------
 # PUSHFS instruction
-NAME="x86: [PUSHFS]"
+NAME="${ARCH}: [PUSHFS]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1841,7 +1841,7 @@ run_test
 
 # -------------------------------
 # POP FS instruction
-NAME="x86: [POP FS]"
+NAME="${ARCH}: [POP FS]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1856,7 +1856,7 @@ run_test
 
 # -------------------------------
 # PUSHGS instruction
-NAME="x86: [PUSHGS]"
+NAME="${ARCH}: [PUSHGS]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1871,7 +1871,7 @@ run_test
 
 # -------------------------------
 # POP GS instruction
-NAME="x86: [POP GS]"
+NAME="${ARCH}: [POP GS]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1886,7 +1886,7 @@ run_test
 
 # -------------------------------
 # INVD instruction
-NAME="x86: [INVD]"
+NAME="${ARCH}: [INVD]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1901,7 +1901,7 @@ run_test
 
 # -------------------------------
 # WBINVD instruction
-NAME="x86: [WBINVD]"
+NAME="${ARCH}: [WBINVD]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1917,7 +1917,7 @@ run_test
 # -------------------------------
 # VMCALL instruction
 BROKEN=1
-NAME="x86: [VMCALL]"
+NAME="${ARCH}: [VMCALL]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1933,7 +1933,7 @@ run_test
 # -------------------------------
 # VMLAUNCH instruction
 BROKEN=1
-NAME="x86: [VMLAUNCH]"
+NAME="${ARCH}: [VMLAUNCH]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1949,7 +1949,7 @@ run_test
 # -------------------------------
 # VMRESUME instruction
 BROKEN=1
-NAME="x86: [VMRESUME]"
+NAME="${ARCH}: [VMRESUME]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1965,7 +1965,7 @@ run_test
 # -------------------------------
 # VMXOFF instruction
 BROKEN=1
-NAME="x86: [VMXOFF]"
+NAME="${ARCH}: [VMXOFF]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1980,7 +1980,7 @@ run_test
 
 # -------------------------------
 # MONITOR instruction
-NAME="x86: [MONITOR]"
+NAME="${ARCH}: [MONITOR]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1995,7 +1995,7 @@ run_test
 
 # -------------------------------
 # MWAIT instruction
-NAME="x86: [MWAIT]"
+NAME="${ARCH}: [MWAIT]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2010,7 +2010,7 @@ run_test
 
 # -------------------------------
 # XGETBV instruction
-NAME="x86: [XGETBV]"
+NAME="${ARCH}: [XGETBV]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2025,7 +2025,7 @@ run_test
 
 # -------------------------------
 # XSETBV instruction
-NAME="x86: [XSETBV]"
+NAME="${ARCH}: [XSETBV]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2040,7 +2040,7 @@ run_test
 
 # -------------------------------
 # VMRUN instruction
-NAME="x86: [VMRUN]"
+NAME="${ARCH}: [VMRUN]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2055,7 +2055,7 @@ run_test
 
 # -------------------------------
 # VMMCALL instruction
-NAME="x86: [VMMCALL]"
+NAME="${ARCH}: [VMMCALL]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2070,7 +2070,7 @@ run_test
 
 # -------------------------------
 # VMLOAD instruction
-NAME="x86: [VMLOAD]"
+NAME="${ARCH}: [VMLOAD]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2085,7 +2085,7 @@ run_test
 
 # -------------------------------
 # VMSAVE instruction
-NAME="x86: [VMSAVE]"
+NAME="${ARCH}: [VMSAVE]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2100,7 +2100,7 @@ run_test
 
 # -------------------------------
 # STGI instruction
-NAME="x86: [STGI]"
+NAME="${ARCH}: [STGI]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2115,7 +2115,7 @@ run_test
 
 # -------------------------------
 # CLGI instruction
-NAME="x86: [CLGI]"
+NAME="${ARCH}: [CLGI]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2130,7 +2130,7 @@ run_test
 
 # -------------------------------
 # SKINIT instruction
-NAME="x86: [SKINIT]"
+NAME="${ARCH}: [SKINIT]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2145,7 +2145,7 @@ run_test
 
 # -------------------------------
 # INVLPGA instruction
-NAME="x86: [INVLPGA]"
+NAME="${ARCH}: [INVLPGA]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2160,7 +2160,7 @@ run_test
 
 # -------------------------------
 # PAUSE instruction
-NAME="x86: [PAUSE]"
+NAME="${ARCH}: [PAUSE]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2175,7 +2175,7 @@ run_test
 
 # -------------------------------
 # RDTSCP instruction
-NAME="x86: [RDTSCP]"
+NAME="${ARCH}: [RDTSCP]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2190,7 +2190,7 @@ run_test
 
 # -------------------------------
 # LAR EAX, [EAX] instruction
-NAME="x86: [LAR EAX, [EAX]]"
+NAME="${ARCH}: [LAR EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2205,7 +2205,7 @@ run_test
 
 # -------------------------------
 # LSL EAX, [EAX] instruction
-NAME="x86: [LSL EAX, [EAX]]"
+NAME="${ARCH}: [LSL EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2219,7 +2219,7 @@ run_test
 
 # -------------------------------
 # CLTS instruction
-NAME="x86: [CLTS]"
+NAME="${ARCH}: [CLTS]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2234,7 +2234,7 @@ run_test
 
 # -------------------------------
 # SYSRET instruction
-NAME="x86: [SYSRET]"
+NAME="${ARCH}: [SYSRET]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2248,7 +2248,7 @@ run_test
 
 # -------------------------------
 # EMMS instruction
-NAME="x86: [EMMS]"
+NAME="${ARCH}: [EMMS]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2263,7 +2263,7 @@ run_test
 
 # -------------------------------
 # FEMMS instruction
-NAME="x86: [FEMMS]"
+NAME="${ARCH}: [FEMMS]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2278,7 +2278,7 @@ run_test
 
 # -------------------------------
 # CPUID instruction
-NAME="x86: [CPUID]"
+NAME="${ARCH}: [CPUID]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2293,7 +2293,7 @@ run_test
 
 # -------------------------------
 # RSM instruction
-NAME="x86: [RSM]"
+NAME="${ARCH}: [RSM]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2308,7 +2308,7 @@ run_test
 
 # -------------------------------
 # UD2 instruction
-NAME="x86: [UD2]"
+NAME="${ARCH}: [UD2]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2323,7 +2323,7 @@ run_test
 
 # -------------------------------
 # GETSEC instruction
-NAME="x86: [GETSEC]"
+NAME="${ARCH}: [GETSEC]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2340,7 +2340,7 @@ run_test
 # -------------------------------
 # MOV EAX, CR0 instruction
 BROKEN=1
-NAME="x86: [MOV EAX, CR0]"
+NAME="${ARCH}: [MOV EAX, CR0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2356,7 +2356,7 @@ run_test
 # -------------------------------
 # MOV EAX, DR0 instruction
 BROKEN=1
-NAME="x86: [MOV EAX, DR0]"
+NAME="${ARCH}: [MOV EAX, DR0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2372,7 +2372,7 @@ run_test
 # -------------------------------
 # MOV CR0, EAX instruction
 BROKEN=1
-NAME="x86: [MOV CR0, EAX]"
+NAME="${ARCH}: [MOV CR0, EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2388,7 +2388,7 @@ run_test
 # -------------------------------
 # MOV DR0, EAX instruction
 BROKEN=1
-NAME="x86: [MOV DR0, EAX]"
+NAME="${ARCH}: [MOV DR0, EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2405,7 +2405,7 @@ run_test
 
 # -------------------------------
 # JO 0x2 instruction
-NAME="x86: [JO 0x2]"
+NAME="${ARCH}: [JO 0x2]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2420,7 +2420,7 @@ run_test
 
 # -------------------------------
 # JNO 0x2 instruction
-NAME="x86: [JNO 0x2]"
+NAME="${ARCH}: [JNO 0x2]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2435,7 +2435,7 @@ run_test
 
 # -------------------------------
 # JB 0x2 instruction
-NAME="x86: [JB 0x2]"
+NAME="${ARCH}: [JB 0x2]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2450,7 +2450,7 @@ run_test
 
 # -------------------------------
 # JAE 0x2 instruction
-NAME="x86: [JAE 0x2]"
+NAME="${ARCH}: [JAE 0x2]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2465,7 +2465,7 @@ run_test
 
 # -------------------------------
 # JE 0x2 instruction
-NAME="x86: [JE 0x2]"
+NAME="${ARCH}: [JE 0x2]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2480,7 +2480,7 @@ run_test
 
 # -------------------------------
 # JNZ 0x2 instruction
-NAME="x86: [JNE 0x2]"
+NAME="${ARCH}: [JNE 0x2]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2495,7 +2495,7 @@ run_test
 
 # -------------------------------
 # JBE 0x2 instruction
-NAME="x86: [JBE 0x2]"
+NAME="${ARCH}: [JBE 0x2]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2510,7 +2510,7 @@ run_test
 
 # -------------------------------
 # JA 0x2 instruction
-NAME="x86: [JA 0x2]"
+NAME="${ARCH}: [JA 0x2]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2525,7 +2525,7 @@ run_test
 
 # -------------------------------
 # JS 0x2 instruction
-NAME="x86: [JS 0x2]"
+NAME="${ARCH}: [JS 0x2]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2540,7 +2540,7 @@ run_test
 
 # -------------------------------
 # JNS 0x2 instruction
-NAME="x86: [JNS 0x2]"
+NAME="${ARCH}: [JNS 0x2]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2555,7 +2555,7 @@ run_test
 
 # -------------------------------
 # JP 0x2 instruction
-NAME="x86: [JP 0x2]"
+NAME="${ARCH}: [JP 0x2]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2570,7 +2570,7 @@ run_test
 
 # -------------------------------
 # JNP 0x2 instruction
-NAME="x86: [JNP 0x2]"
+NAME="${ARCH}: [JNP 0x2]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2585,7 +2585,7 @@ run_test
 
 # -------------------------------
 # JL 0x2 instruction
-NAME="x86: [JL 0x2]"
+NAME="${ARCH}: [JL 0x2]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2600,7 +2600,7 @@ run_test
 
 # -------------------------------
 # JGE 0x2 instruction
-NAME="x86: [JGE 0x2]"
+NAME="${ARCH}: [JGE 0x2]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2615,7 +2615,7 @@ run_test
 
 # -------------------------------
 # JLE 0x2 instruction
-NAME="x86: [JLE 0x2]"
+NAME="${ARCH}: [JLE 0x2]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2630,7 +2630,7 @@ run_test
 
 # -------------------------------
 # JG 0x2 instruction
-NAME="x86: [JG 0x2]"
+NAME="${ARCH}: [JG 0x2]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2645,7 +2645,7 @@ run_test
 
 # -------------------------------
 # JO 0x6 instruction
-NAME="x86: [JO 0x6]"
+NAME="${ARCH}: [JO 0x6]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2660,7 +2660,7 @@ run_test
 
 # -------------------------------
 # JNO 0x6 instruction
-NAME="x86: [JNO 0x6]"
+NAME="${ARCH}: [JNO 0x6]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2675,7 +2675,7 @@ run_test
 
 # -------------------------------
 # JB 0x6 instruction
-NAME="x86: [JB 0x6]"
+NAME="${ARCH}: [JB 0x6]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2690,7 +2690,7 @@ run_test
 
 # -------------------------------
 # JAE 0x6 instruction
-NAME="x86: [JAE 0x6]"
+NAME="${ARCH}: [JAE 0x6]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2705,7 +2705,7 @@ run_test
 
 # -------------------------------
 # JE 0x6 instruction
-NAME="x86: [JE 0x6]"
+NAME="${ARCH}: [JE 0x6]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2720,7 +2720,7 @@ run_test
 
 # -------------------------------
 # JNE 0x6 instruction
-NAME="x86: [JNE 0x6]"
+NAME="${ARCH}: [JNE 0x6]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2735,7 +2735,7 @@ run_test
 
 # -------------------------------
 # JBE 0x6 instruction
-NAME="x86: [JBE 0x6]"
+NAME="${ARCH}: [JBE 0x6]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2750,7 +2750,7 @@ run_test
 
 # -------------------------------
 # JA 0x6 instruction
-NAME="x86: [JA 0x6]"
+NAME="${ARCH}: [JA 0x6]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2765,7 +2765,7 @@ run_test
 
 # -------------------------------
 # JS 0x6 instruction
-NAME="x86: [JS 0x6]"
+NAME="${ARCH}: [JS 0x6]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2780,7 +2780,7 @@ run_test
 
 # -------------------------------
 # JNS 0x6 instruction
-NAME="x86: [JNS 0x6]"
+NAME="${ARCH}: [JNS 0x6]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2795,7 +2795,7 @@ run_test
 
 # -------------------------------
 # JP 0x6 instruction
-NAME="x86: [JP 0x6]"
+NAME="${ARCH}: [JP 0x6]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2810,7 +2810,7 @@ run_test
 
 # -------------------------------
 # JNP 0x6 instruction
-NAME="x86: [JNP 0x6]"
+NAME="${ARCH}: [JNP 0x6]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2825,7 +2825,7 @@ run_test
 
 # -------------------------------
 # JL 0x6 instruction
-NAME="x86: [JL 0x6]"
+NAME="${ARCH}: [JL 0x6]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2840,7 +2840,7 @@ run_test
 
 # -------------------------------
 # JGE 0x6 instruction
-NAME="x86: [JGE 0x6]"
+NAME="${ARCH}: [JGE 0x6]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2855,7 +2855,7 @@ run_test
 
 # -------------------------------
 # JLE 0x6 instruction
-NAME="x86: [JLE 0x6]"
+NAME="${ARCH}: [JLE 0x6]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2870,7 +2870,7 @@ run_test
 
 # -------------------------------
 # JG 0x6 instruction
-NAME="x86: [JG 0x6]"
+NAME="${ARCH}: [JG 0x6]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2884,7 +2884,7 @@ run_test
 
 # -------------------------------
 # SETO [EAX] instruction
-NAME="x86: [SETO [EAX]]"
+NAME="${ARCH}: [SETO [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2899,7 +2899,7 @@ run_test
 
 # -------------------------------
 # SETNO [EAX] instruction
-NAME="x86: [SETNO [EAX]]"
+NAME="${ARCH}: [SETNO [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2914,7 +2914,7 @@ run_test
 
 # -------------------------------
 # SETB [EAX] instruction
-NAME="x86: [SETB [EAX]]"
+NAME="${ARCH}: [SETB [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2929,7 +2929,7 @@ run_test
 
 # -------------------------------
 # SETAE [EAX] instruction
-NAME="x86: [SETAE [EAX]]"
+NAME="${ARCH}: [SETAE [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2944,7 +2944,7 @@ run_test
 
 # -------------------------------
 # SETE [EAX] instruction
-NAME="x86: [SETE [EAX]]"
+NAME="${ARCH}: [SETE [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2959,7 +2959,7 @@ run_test
 
 # -------------------------------
 # SETNE [EAX] instruction
-NAME="x86: [SETNE [EAX]]"
+NAME="${ARCH}: [SETNE [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2974,7 +2974,7 @@ run_test
 
 # -------------------------------
 # SETBE [EAX] instruction
-NAME="x86: [SETBE [EAX]]"
+NAME="${ARCH}: [SETBE [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2989,7 +2989,7 @@ run_test
 
 # -------------------------------
 # SETA [EAX] instruction
-NAME="x86: [SETA [EAX]]"
+NAME="${ARCH}: [SETA [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3004,7 +3004,7 @@ run_test
 
 # -------------------------------
 # SETS [EAX] instruction
-NAME="x86: [SETS [EAX]]"
+NAME="${ARCH}: [SETS [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3019,7 +3019,7 @@ run_test
 
 # -------------------------------
 # SETNS [EAX] instruction
-NAME="x86: [SETNS [EAX]]"
+NAME="${ARCH}: [SETNS [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3034,7 +3034,7 @@ run_test
 
 # -------------------------------
 # SETP [EAX] instruction
-NAME="x86: [SETP [EAX]]"
+NAME="${ARCH}: [SETP [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3049,7 +3049,7 @@ run_test
 
 # -------------------------------
 # SETNP [EAX] instruction
-NAME="x86: [SETNP [EAX]]"
+NAME="${ARCH}: [SETNP [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3064,7 +3064,7 @@ run_test
 
 # -------------------------------
 # SETL [EAX] instruction
-NAME="x86: [SETL [EAX]]"
+NAME="${ARCH}: [SETL [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3079,7 +3079,7 @@ run_test
 
 # -------------------------------
 # SETGE [EAX] instruction
-NAME="x86: [SETGE [EAX]]"
+NAME="${ARCH}: [SETGE [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3094,7 +3094,7 @@ run_test
 
 # -------------------------------
 # SETLE [EAX] instruction
-NAME="x86: [SETLE [EAX]]"
+NAME="${ARCH}: [SETLE [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3109,7 +3109,7 @@ run_test
 
 # -------------------------------
 # SETG [EAX] instruction
-NAME="x86: [SETG [EAX]]"
+NAME="${ARCH}: [SETG [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3124,7 +3124,7 @@ run_test
 
 # -------------------------------
 # CMOVO EAX, [EAX] instruction
-NAME="x86: [CMOVO EAX, [EAX]]"
+NAME="${ARCH}: [CMOVO EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3139,7 +3139,7 @@ run_test
 
 # -------------------------------
 # CMOVNO EAX, [EAX] instruction
-NAME="x86: [CMOVNO EAX, [EAX]]"
+NAME="${ARCH}: [CMOVNO EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3154,7 +3154,7 @@ run_test
 
 # -------------------------------
 # CMOVB EAX, [EAX] instruction
-NAME="x86: [CMOVB EAX, [EAX]]"
+NAME="${ARCH}: [CMOVB EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3169,7 +3169,7 @@ run_test
 
 # -------------------------------
 # CMOVAE EAX, [EAX] instruction
-NAME="x86: [CMOVAE EAX, [EAX]]"
+NAME="${ARCH}: [CMOVAE EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3184,7 +3184,7 @@ run_test
 
 # -------------------------------
 # CMOVE EAX, [EAX] instruction
-NAME="x86: [CMOVE EAX, [EAX]]"
+NAME="${ARCH}: [CMOVE EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3199,7 +3199,7 @@ run_test
 
 # -------------------------------
 # CMOVNE EAX, [EAX] instruction
-NAME="x86: [CMOVNE EAX, [EAX]]"
+NAME="${ARCH}: [CMOVNE EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3214,7 +3214,7 @@ run_test
 
 # -------------------------------
 # CMOVBE EAX, [EAX] instruction
-NAME="x86: [CMOVBE EAX, [EAX]]"
+NAME="${ARCH}: [CMOVBE EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3229,7 +3229,7 @@ run_test
 
 # -------------------------------
 # CMOVA EAX, [EAX] instruction
-NAME="x86: [CMOVA EAX, [EAX]]"
+NAME="${ARCH}: [CMOVA EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3244,7 +3244,7 @@ run_test
 
 # -------------------------------
 # CMOVS EAX, [EAX] instruction
-NAME="x86: [CMOVS EAX, [EAX]]"
+NAME="${ARCH}: [CMOVS EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3259,7 +3259,7 @@ run_test
 
 # -------------------------------
 # CMOVNS EAX, [EAX] instruction
-NAME="x86: [CMOVNS EAX, [EAX]]"
+NAME="${ARCH}: [CMOVNS EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3274,7 +3274,7 @@ run_test
 
 # -------------------------------
 # CMOVP EAX, [EAX] instruction
-NAME="x86: [CMOVP EAX, [EAX]]"
+NAME="${ARCH}: [CMOVP EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3289,7 +3289,7 @@ run_test
 
 # -------------------------------
 # CMOVNP EAX, [EAX] instruction
-NAME="x86: [CMOVNP EAX, [EAX]]"
+NAME="${ARCH}: [CMOVNP EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3304,7 +3304,7 @@ run_test
 
 # -------------------------------
 # CMOVL EAX, [EAX] instruction
-NAME="x86: [CMOVL EAX, [EAX]]"
+NAME="${ARCH}: [CMOVL EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3319,7 +3319,7 @@ run_test
 
 # -------------------------------
 # CMOVGE EAX, [EAX] instruction
-NAME="x86: [CMOVGE EAX, [EAX]]"
+NAME="${ARCH}: [CMOVGE EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3334,7 +3334,7 @@ run_test
 
 # -------------------------------
 # CMOVLE EAX, [EAX] instruction
-NAME="x86: [CMOVLE EAX, [EAX]]"
+NAME="${ARCH}: [CMOVLE EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3349,7 +3349,7 @@ run_test
 
 # -------------------------------
 # CMOVG EAX, [EAX] instruction
-NAME="x86: [CMOVG EAX, [EAX]]"
+NAME="${ARCH}: [CMOVG EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3363,7 +3363,7 @@ run_test
 
 # -------------------------------
 # MOV AL, [EAX] instruction
-NAME="x86: [MOV AL, [EAX]]"
+NAME="${ARCH}: [MOV AL, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3378,7 +3378,7 @@ run_test
 
 # -------------------------------
 # MOV EAX, [EAX] instruction
-NAME="x86: [MOV EAX, [EAX]]"
+NAME="${ARCH}: [MOV EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3393,7 +3393,7 @@ run_test
 
 # -------------------------------
 # MOV [EAX], ES instruction
-NAME="x86: [MOV [EAX], ES]"
+NAME="${ARCH}: [MOV [EAX], ES]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3408,7 +3408,7 @@ run_test
 
 # -------------------------------
 # MOV ES, [EAX] instruction
-NAME="x86: [MOV ES, [EAX]]"
+NAME="${ARCH}: [MOV ES, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3423,7 +3423,7 @@ run_test
 
 # -------------------------------
 # LEA EAX, [EAX] instruction
-NAME="x86: [LEA EAX, [EAX]]"
+NAME="${ARCH}: [LEA EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3438,7 +3438,7 @@ run_test
 
 # -------------------------------
 # POP DWORD [EAX] instruction
-NAME="x86: [POP DWORD [EAX]]"
+NAME="${ARCH}: [POP DWORD [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3453,7 +3453,7 @@ run_test
 
 # -------------------------------
 # NOP instruction
-NAME="x86: [NOP]"
+NAME="${ARCH}: [NOP]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3468,7 +3468,7 @@ run_test
 
 # -------------------------------
 # XCHG ECX, EAX instruction
-NAME="x86: [XCHG ECX, EAX]"
+NAME="${ARCH}: [XCHG ECX, EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3483,7 +3483,7 @@ run_test
 
 # -------------------------------
 # XCHG EDX, EAX instruction
-NAME="x86: [XCHG EDX, EAX]"
+NAME="${ARCH}: [XCHG EDX, EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3498,7 +3498,7 @@ run_test
 
 # -------------------------------
 # XCHG EBX, EAX instruction
-NAME="x86: [XCHG EBX, EAX]"
+NAME="${ARCH}: [XCHG EBX, EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3513,7 +3513,7 @@ run_test
 
 # -------------------------------
 # XCHG ESP, EAX instruction
-NAME="x86: [XCHG ESP, EAX]"
+NAME="${ARCH}: [XCHG ESP, EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3528,7 +3528,7 @@ run_test
 
 # -------------------------------
 # XCHG EBP, EAX instruction
-NAME="x86: [XCHG EBP, EAX]"
+NAME="${ARCH}: [XCHG EBP, EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3543,7 +3543,7 @@ run_test
 
 # -------------------------------
 # XCHG ESI, EAX instruction
-NAME="x86: [XCHG ESI, EAX]"
+NAME="${ARCH}: [XCHG ESI, EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3558,7 +3558,7 @@ run_test
 
 # -------------------------------
 # XCHG EDI, EAX instruction
-NAME="x86: [XCHG EDI, EAX]"
+NAME="${ARCH}: [XCHG EDI, EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3573,7 +3573,7 @@ run_test
 
 # -------------------------------
 # MOVSB instruction
-NAME="x86: [MOVSB]"
+NAME="${ARCH}: [MOVSB]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3589,7 +3589,7 @@ run_test
 
 # -------------------------------
 # MOVSD instruction
-NAME="x86: [MOVSD]"
+NAME="${ARCH}: [MOVSD]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3604,7 +3604,7 @@ run_test
 
 # -------------------------------
 # CMPSB instruction
-NAME="x86: [CMPSB]"
+NAME="${ARCH}: [CMPSB]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3620,7 +3620,7 @@ run_test
 
 # -------------------------------
 # CMPSD instruction
-NAME="x86: [CMPSD]"
+NAME="${ARCH}: [CMPSD]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3635,7 +3635,7 @@ run_test
 
 # -------------------------------
 # STOSB instruction
-NAME="x86: [STOSB]"
+NAME="${ARCH}: [STOSB]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3650,7 +3650,7 @@ run_test
 
 # -------------------------------
 # STOSD instruction
-NAME="x86: [STOSD]"
+NAME="${ARCH}: [STOSD]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3665,7 +3665,7 @@ run_test
 
 # -------------------------------
 # LODSB instruction
-NAME="x86: [LODSB]"
+NAME="${ARCH}: [LODSB]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3680,7 +3680,7 @@ run_test
 
 # -------------------------------
 # LODSD instruction
-NAME="x86: [LODSD]"
+NAME="${ARCH}: [LODSD]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3695,7 +3695,7 @@ run_test
 
 # -------------------------------
 # SCASB instruction
-NAME="x86: [SCASB]"
+NAME="${ARCH}: [SCASB]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3710,7 +3710,7 @@ run_test
 
 # -------------------------------
 # SCASD instruction
-NAME="x86: [SCASD]"
+NAME="${ARCH}: [SCASD]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3725,7 +3725,7 @@ run_test
 
 # -------------------------------
 # PREFETCH [EAX] instruction
-NAME="x86: [PREFETCH [EAX]]"
+NAME="${ARCH}: [PREFETCH [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3740,7 +3740,7 @@ run_test
 
 # -------------------------------
 # PREFETCHNTA [EAX] instruction
-NAME="x86: [PREFETCHNTA [EAX]]"
+NAME="${ARCH}: [PREFETCHNTA [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3755,7 +3755,7 @@ run_test
 
 # -------------------------------
 # PREFETCHT0 [EAX] instruction
-NAME="x86: [PREFETCHT0 [EAX]]"
+NAME="${ARCH}: [PREFETCHT0 [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3770,7 +3770,7 @@ run_test
 
 # -------------------------------
 # PREFETCHT1 [EAX] instruction
-NAME="x86: [PREFETCHT1 [EAX]]"
+NAME="${ARCH}: [PREFETCHT1 [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3785,7 +3785,7 @@ run_test
 
 # -------------------------------
 # PREFETCHT2 [EAX] instruction
-NAME="x86: [PREFETCHT2 [EAX]]"
+NAME="${ARCH}: [PREFETCHT2 [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3800,7 +3800,7 @@ run_test
 
 # -------------------------------
 # SYSCALL instruction
-NAME="x86: [SYSCALL]"
+NAME="${ARCH}: [SYSCALL]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3814,7 +3814,7 @@ run_test
 
 # -------------------------------
 # WRMSR instruction
-NAME="x86: [WRMSR]"
+NAME="${ARCH}: [WRMSR]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3829,7 +3829,7 @@ run_test
 
 # -------------------------------
 # RDTSC instruction
-NAME="x86: [RDTSC]"
+NAME="${ARCH}: [RDTSC]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3844,7 +3844,7 @@ run_test
 
 # -------------------------------
 # RDMSR instruction
-NAME="x86: [RDMSR]"
+NAME="${ARCH}: [RDMSR]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3859,7 +3859,7 @@ run_test
 
 # -------------------------------
 # RDPMC instruction
-NAME="x86: [RDPMC]"
+NAME="${ARCH}: [RDPMC]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3874,7 +3874,7 @@ run_test
 
 # -------------------------------
 # SYSENTER instruction
-NAME="x86: [SYSENTER]"
+NAME="${ARCH}: [SYSENTER]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3889,7 +3889,7 @@ run_test
 
 # -------------------------------
 # SYSEXIT instruction
-NAME="x86: [SYSEXIT]"
+NAME="${ARCH}: [SYSEXIT]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3904,7 +3904,7 @@ run_test
 
 # -------------------------------
 # CRC32 EAX, BYTE [EAX] instruction
-NAME="x86: [CRC32 EAX, BYTE [EAX]]"
+NAME="${ARCH}: [CRC32 EAX, BYTE [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3919,7 +3919,7 @@ run_test
 
 # -------------------------------
 # CRC32 EAX, [EAX] instruction
-NAME="x86: [CRC32 EAX, [EAX]]"
+NAME="${ARCH}: [CRC32 EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3936,7 +3936,7 @@ run_test
 
 # -------------------------------
 # BT [EAX], EAX instruction
-NAME="x86: [BT [EAX], EAX]"
+NAME="${ARCH}: [BT [EAX], EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3951,7 +3951,7 @@ run_test
 
 # -------------------------------
 # BTS [EAX], EAX instruction
-NAME="x86: [BTS [EAX], EAX]"
+NAME="${ARCH}: [BTS [EAX], EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3966,7 +3966,7 @@ run_test
 
 # -------------------------------
 # BTR [EAX], EAX instruction
-NAME="x86: [BTR [EAX], EAX]"
+NAME="${ARCH}: [BTR [EAX], EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3981,7 +3981,7 @@ run_test
 
 # -------------------------------
 # SHLD [EAX], EAX, 0X0 instruction
-NAME="x86: [SHLD [EAX], EAX, 0X0]"
+NAME="${ARCH}: [SHLD [EAX], EAX, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3996,7 +3996,7 @@ run_test
 
 # -------------------------------
 # SHLD [EAX], EAX, CL instruction
-NAME="x86: [SHLD [EAX], EAX, CL]"
+NAME="${ARCH}: [SHLD [EAX], EAX, CL]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4011,7 +4011,7 @@ run_test
 
 # -------------------------------
 # SHRD [EAX], EAX, 0X0 instruction
-NAME="x86: [SHRD [EAX], EAX, 0X0]"
+NAME="${ARCH}: [SHRD [EAX], EAX, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4026,7 +4026,7 @@ run_test
 
 # -------------------------------
 # SHRD [EAX], EAX, CL instruction
-NAME="x86: [SHRD [EAX], EAX, CL]"
+NAME="${ARCH}: [SHRD [EAX], EAX, CL]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4040,7 +4040,7 @@ run_test
 
 # -------------------------------
 # BSWAP EAX instruction
-NAME="x86: [BSWAP EAX]"
+NAME="${ARCH}: [BSWAP EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4055,7 +4055,7 @@ run_test
 
 # -------------------------------
 # BSWAP ECX instruction
-NAME="x86: [BSWAP ECX]"
+NAME="${ARCH}: [BSWAP ECX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4070,7 +4070,7 @@ run_test
 
 # -------------------------------
 # BSWAP EDX instruction
-NAME="x86: [BSWAP EDX]"
+NAME="${ARCH}: [BSWAP EDX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4085,7 +4085,7 @@ run_test
 
 # -------------------------------
 # BSWAP EBX instruction
-NAME="x86: [BSWAP EBX]"
+NAME="${ARCH}: [BSWAP EBX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4100,7 +4100,7 @@ run_test
 
 # -------------------------------
 # BSWAP ESP instruction
-NAME="x86: [BSWAP ESP]"
+NAME="${ARCH}: [BSWAP ESP]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4115,7 +4115,7 @@ run_test
 
 # -------------------------------
 # BSWAP EBP instruction
-NAME="x86: [BSWAP EBP]"
+NAME="${ARCH}: [BSWAP EBP]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4130,7 +4130,7 @@ run_test
 
 # -------------------------------
 # BSWAP ESI instruction
-NAME="x86: [BSWAP ESI]"
+NAME="${ARCH}: [BSWAP ESI]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4145,7 +4145,7 @@ run_test
 
 # -------------------------------
 # BSWAP EDI instruction
-NAME="x86: [BSWAP EDI]"
+NAME="${ARCH}: [BSWAP EDI]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4160,7 +4160,7 @@ run_test
 
 # -------------------------------
 # INSB instruction
-NAME="x86: [INSB]"
+NAME="${ARCH}: [INSB]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4175,7 +4175,7 @@ run_test
 
 # -------------------------------
 # INSD instruction
-NAME="x86: [INSD]"
+NAME="${ARCH}: [INSD]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4190,7 +4190,7 @@ run_test
 
 # -------------------------------
 # OUTSB instruction
-NAME="x86: [OUTSB]"
+NAME="${ARCH}: [OUTSB]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4205,7 +4205,7 @@ run_test
 
 # -------------------------------
 # OUTSD instruction
-NAME="x86: [OUTSD]"
+NAME="${ARCH}: [OUTSD]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4220,7 +4220,7 @@ run_test
 
 # -------------------------------
 # MFENCE instruction
-NAME="x86: [MFENCE]"
+NAME="${ARCH}: [MFENCE]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4235,7 +4235,7 @@ run_test
 
 # -------------------------------
 # LFENCE instruction
-NAME="x86: [LFENCE]"
+NAME="${ARCH}: [LFENCE]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4250,7 +4250,7 @@ run_test
 
 # -------------------------------
 # SFENCE instruction
-NAME="x86: [SFENCE]"
+NAME="${ARCH}: [SFENCE]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4265,7 +4265,7 @@ run_test
 
 # -------------------------------
 # SMSW AX instruction
-NAME="x86: [SMSW AX]"
+NAME="${ARCH}: [SMSW AX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4280,7 +4280,7 @@ run_test
 
 # -------------------------------
 # SMSW EAX instruction
-NAME="x86: [SMSW EAX]"
+NAME="${ARCH}: [SMSW EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4295,7 +4295,7 @@ run_test
 
 # -------------------------------
 # LMSW AX instruction
-NAME="x86: [LMSW AX]"
+NAME="${ARCH}: [LMSW AX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4310,7 +4310,7 @@ run_test
 
 # -------------------------------
 # FXSAVE [EAX] instruction
-NAME="x86: [FXSAVE [EAX]]"
+NAME="${ARCH}: [FXSAVE [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4325,7 +4325,7 @@ run_test
 
 # -------------------------------
 # FXRSTOR [EAX] instruction
-NAME="x86: [FXRSTOR [EAX]]"
+NAME="${ARCH}: [FXRSTOR [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4340,7 +4340,7 @@ run_test
 
 # -------------------------------
 # LDMXCSR [EAX] instruction
-NAME="x86: [LDMXCSR [EAX]]"
+NAME="${ARCH}: [LDMXCSR [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4355,7 +4355,7 @@ run_test
 
 # -------------------------------
 # STMXCSR [EAX] instruction
-NAME="x86: [STMXCSR [EAX]]"
+NAME="${ARCH}: [STMXCSR [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4370,7 +4370,7 @@ run_test
 
 # -------------------------------
 # XSAVE [EAX] instruction
-NAME="x86: [XSAVE [EAX]]"
+NAME="${ARCH}: [XSAVE [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4385,7 +4385,7 @@ run_test
 
 # -------------------------------
 # XRSTOR [EAX] instruction
-NAME="x86: [XRSTOR [EAX]]"
+NAME="${ARCH}: [XRSTOR [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4400,7 +4400,7 @@ run_test
 
 # -------------------------------
 # CLFLUSH [EAX] instruction
-NAME="x86: [CLFLUSH [EAX]]"
+NAME="${ARCH}: [CLFLUSH [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4415,7 +4415,7 @@ run_test
 
 # -------------------------------
 # TEST BYTE [EAX], 0 instruction
-NAME="x86: [TEST BYTE [EAX], 0]"
+NAME="${ARCH}: [TEST BYTE [EAX], 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4430,7 +4430,7 @@ run_test
 
 # -------------------------------
 # TEST BYTE [EAX], 0 instruction
-NAME="x86: [TEST BYTE [EAX], 0]"
+NAME="${ARCH}: [TEST BYTE [EAX], 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4445,7 +4445,7 @@ run_test
 
 # -------------------------------
 # NOT BYTE [EAX] instruction
-NAME="x86: [NOT BYTE [EAX]]"
+NAME="${ARCH}: [NOT BYTE [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4460,7 +4460,7 @@ run_test
 
 # -------------------------------
 # NEG BYTE [EAX] instruction
-NAME="x86: [NEG BYTE [EAX]]"
+NAME="${ARCH}: [NEG BYTE [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4475,7 +4475,7 @@ run_test
 
 # -------------------------------
 # MUL BYTE [EAX] instruction
-NAME="x86: [MUL BYTE [EAX]]"
+NAME="${ARCH}: [MUL BYTE [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4490,7 +4490,7 @@ run_test
 
 # -------------------------------
 # IMUL BYTE [EAX] instruction
-NAME="x86: [IMUL BYTE [EAX]]"
+NAME="${ARCH}: [IMUL BYTE [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4505,7 +4505,7 @@ run_test
 
 # -------------------------------
 # DIV BYTE [EAX] instruction
-NAME="x86: [DIV BYTE [EAX]]"
+NAME="${ARCH}: [DIV BYTE [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4520,7 +4520,7 @@ run_test
 
 # -------------------------------
 # IDIV BYTE [EAX] instruction
-NAME="x86: [IDIV BYTE [EAX]]"
+NAME="${ARCH}: [IDIV BYTE [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4535,7 +4535,7 @@ run_test
 
 # -------------------------------
 # TEST DWORD [EAX], 0 instruction
-NAME="x86: [TEST DWORD [EAX], 0]"
+NAME="${ARCH}: [TEST DWORD [EAX], 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4550,7 +4550,7 @@ run_test
 
 # -------------------------------
 # TEST DWORD [EAX], 0 instruction
-NAME="x86: [TEST DWORD [EAX], 0]"
+NAME="${ARCH}: [TEST DWORD [EAX], 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4565,7 +4565,7 @@ run_test
 
 # -------------------------------
 # VZEROALL instruction
-NAME="x86: [VZEROALL]"
+NAME="${ARCH}: [VZEROALL]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4580,7 +4580,7 @@ run_test
 
 # -------------------------------
 # VZEROUPPER instruction
-NAME="x86: [VZEROUPPER]"
+NAME="${ARCH}: [VZEROUPPER]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4596,7 +4596,7 @@ run_test
 
 # -------------------------------
 # MOV [ES:EAX], EAX instruction
-NAME="x86: [MOV [ES:EAX], EAX]"
+NAME="${ARCH}: [MOV [ES:EAX], EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4611,7 +4611,7 @@ run_test
 
 # -------------------------------
 # MOV [CS:EAX], EAX instruction
-NAME="x86: [MOV [CS:EAX], EAX]"
+NAME="${ARCH}: [MOV [CS:EAX], EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4626,7 +4626,7 @@ run_test
 
 # -------------------------------
 # MOV [SS:EAX], EAX instruction
-NAME="x86: [MOV [SS:EAX], EAX]"
+NAME="${ARCH}: [MOV [SS:EAX], EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4641,7 +4641,7 @@ run_test
 
 # -------------------------------
 # MOV [DS:EAX], EAX instruction
-NAME="x86: [MOV [DS:EAX], EAX]"
+NAME="${ARCH}: [MOV [DS:EAX], EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4656,7 +4656,7 @@ run_test
 
 # -------------------------------
 # MOV [FS:EAX], EAX instruction
-NAME="x86: [MOV [FS:EAX], EAX]"
+NAME="${ARCH}: [MOV [FS:EAX], EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4671,7 +4671,7 @@ run_test
 
 # -------------------------------
 # MOV [GS:EAX], EAX instruction
-NAME="x86: [MOV [GS:EAX], EAX]"
+NAME="${ARCH}: [MOV [GS:EAX], EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4685,7 +4685,7 @@ run_test
 
 # -------------------------------
 # FXSAVE [EAX] instruction
-NAME="x86: [FXSAVE [EAX]]"
+NAME="${ARCH}: [FXSAVE [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4700,7 +4700,7 @@ run_test
 
 # -------------------------------
 # BOUND EAX, [EAX] instruction
-NAME="x86: [BOUND EAX, [EAX]]"
+NAME="${ARCH}: [BOUND EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4715,7 +4715,7 @@ run_test
 
 # -------------------------------
 # ARPL [EAX], AX instruction
-NAME="x86: [ARPL [EAX], AX]"
+NAME="${ARCH}: [ARPL [EAX], AX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4730,7 +4730,7 @@ run_test
 
 # -------------------------------
 # CMPXCHG [EAX], AL instruction
-NAME="x86: [CMPXCHG [EAX], AL]"
+NAME="${ARCH}: [CMPXCHG [EAX], AL]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4745,7 +4745,7 @@ run_test
 
 # -------------------------------
 # CMPXCHG [EAX], EAX instruction
-NAME="x86: [CMPXCHG [EAX], EAX]"
+NAME="${ARCH}: [CMPXCHG [EAX], EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4761,7 +4761,7 @@ run_test
 # -------------------------------
 # CMPXCHG8B [EAX] instruction
 BROKEN=1
-NAME="x86: [CMPXCHG8B [EAX]]"
+NAME="${ARCH}: [CMPXCHG8B [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4777,7 +4777,7 @@ run_test
 # -------------------------------
 # LOCK CMPXCHG8B [EAX] instruction
 BROKEN=1
-NAME="x86: [LOCK CMPXCHG8B [EAX]]"
+NAME="${ARCH}: [LOCK CMPXCHG8B [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4793,7 +4793,7 @@ run_test
 # -------------------------------
 # VMPTRLD [EAX] instruction
 BROKEN=1
-NAME="x86: [VMPTRLD [EAX]]"
+NAME="${ARCH}: [VMPTRLD [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4809,7 +4809,7 @@ run_test
 # -------------------------------
 # VMCLEAR [EAX] instruction
 BROKEN=1
-NAME="x86: [VMCLEAR [EAX]]"
+NAME="${ARCH}: [VMCLEAR [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4825,7 +4825,7 @@ run_test
 # -------------------------------
 # VMXON [EAX] instruction
 BROKEN=1
-NAME="x86: [VMXON [EAX]]"
+NAME="${ARCH}: [VMXON [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4841,7 +4841,7 @@ run_test
 # -------------------------------
 # VMPTRST [EAX] instruction
 BROKEN=1
-NAME="x86: [VMPTRST [EAX]]"
+NAME="${ARCH}: [VMPTRST [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4855,7 +4855,7 @@ run_test
 
 # -------------------------------
 # ADC [EAX], AL instruction
-NAME="x86: [ADC [EAX], AL]"
+NAME="${ARCH}: [ADC [EAX], AL]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4870,7 +4870,7 @@ run_test
 
 # -------------------------------
 # ADC [EAX], EAX instruction
-NAME="x86: [ADC [EAX], EAX]"
+NAME="${ARCH}: [ADC [EAX], EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4885,7 +4885,7 @@ run_test
 
 # -------------------------------
 # ADC AL, [EAX] instruction
-NAME="x86: [ADC AL, [EAX]]"
+NAME="${ARCH}: [ADC AL, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4900,7 +4900,7 @@ run_test
 
 # -------------------------------
 # ADC EAX, [EAX] instruction
-NAME="x86: [ADC EAX, [EAX]]"
+NAME="${ARCH}: [ADC EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4915,7 +4915,7 @@ run_test
 
 # -------------------------------
 # ADC AL, 0 instruction
-NAME="x86: [ADC AL, 0]"
+NAME="${ARCH}: [ADC AL, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4930,7 +4930,7 @@ run_test
 
 # -------------------------------
 # ADD [EAX], AL instruction
-NAME="x86: [ADD [EAX], AL]"
+NAME="${ARCH}: [ADD [EAX], AL]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4945,7 +4945,7 @@ run_test
 
 # -------------------------------
 # ADD [EAX], EAX instruction
-NAME="x86: [ADD [EAX], EAX]"
+NAME="${ARCH}: [ADD [EAX], EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4960,7 +4960,7 @@ run_test
 
 # -------------------------------
 # ADD AL, [EAX] instruction
-NAME="x86: [ADD AL, [EAX]]"
+NAME="${ARCH}: [ADD AL, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4975,7 +4975,7 @@ run_test
 
 # -------------------------------
 # ADD EAX, [EAX] instruction
-NAME="x86: [ADD EAX, [EAX]]"
+NAME="${ARCH}: [ADD EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4990,7 +4990,7 @@ run_test
 
 # -------------------------------
 # ADD AL, 0 instruction
-NAME="x86: [ADD AL, 0]"
+NAME="${ARCH}: [ADD AL, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5005,7 +5005,7 @@ run_test
 
 # -------------------------------
 # ADD BYTE [EAX], 0X0 instruction
-NAME="x86: [ADD BYTE [EAX], 0X0]"
+NAME="${ARCH}: [ADD BYTE [EAX], 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5020,7 +5020,7 @@ run_test
 
 # -------------------------------
 # ADD DWORD [EAX], 0X0 instruction
-NAME="x86: [ADD DWORD [EAX], 0X0]"
+NAME="${ARCH}: [ADD DWORD [EAX], 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5035,7 +5035,7 @@ run_test
 
 # -------------------------------
 # ADD BYTE [EAX], 0X0 instruction
-NAME="x86: [ADD BYTE [EAX], 0X0]"
+NAME="${ARCH}: [ADD BYTE [EAX], 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5050,7 +5050,7 @@ run_test
 
 # -------------------------------
 # ADD DWORD [EAX], 0X0 instruction
-NAME="x86: [ADD DWORD [EAX], 0X0]"
+NAME="${ARCH}: [ADD DWORD [EAX], 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5065,7 +5065,7 @@ run_test
 
 # -------------------------------
 # AND [EAX], AL instruction
-NAME="x86: [AND [EAX], AL]"
+NAME="${ARCH}: [AND [EAX], AL]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5080,7 +5080,7 @@ run_test
 
 # -------------------------------
 # AND [EAX], EAX instruction
-NAME="x86: [AND [EAX], EAX]"
+NAME="${ARCH}: [AND [EAX], EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5095,7 +5095,7 @@ run_test
 
 # -------------------------------
 # AND AL, [EAX] instruction
-NAME="x86: [AND AL, [EAX]]"
+NAME="${ARCH}: [AND AL, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5110,7 +5110,7 @@ run_test
 
 # -------------------------------
 # AND EAX, [EAX] instruction
-NAME="x86: [AND EAX, [EAX]]"
+NAME="${ARCH}: [AND EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5125,7 +5125,7 @@ run_test
 
 # -------------------------------
 # AND AL, 0 instruction
-NAME="x86: [AND AL, 0]"
+NAME="${ARCH}: [AND AL, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5140,7 +5140,7 @@ run_test
 
 # -------------------------------
 # CMP [EAX], AL instruction
-NAME="x86: [CMP [EAX], AL]"
+NAME="${ARCH}: [CMP [EAX], AL]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5155,7 +5155,7 @@ run_test
 
 # -------------------------------
 # CMP [EAX], EAX instruction
-NAME="x86: [CMP [EAX], EAX]"
+NAME="${ARCH}: [CMP [EAX], EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5170,7 +5170,7 @@ run_test
 
 # -------------------------------
 # CMP AL, [EAX] instruction
-NAME="x86: [CMP AL, [EAX]]"
+NAME="${ARCH}: [CMP AL, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5185,7 +5185,7 @@ run_test
 
 # -------------------------------
 # CMP EAX, [EAX] instruction
-NAME="x86: [CMP EAX, [EAX]]"
+NAME="${ARCH}: [CMP EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5200,7 +5200,7 @@ run_test
 
 # -------------------------------
 # CMP AL, 0 instruction
-NAME="x86: [CMP AL, 0]"
+NAME="${ARCH}: [CMP AL, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5214,7 +5214,7 @@ run_test
 
 # -------------------------------
 # MOV [EAX], AL instruction
-NAME="x86: [MOV [EAX], AL]"
+NAME="${ARCH}: [MOV [EAX], AL]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5229,7 +5229,7 @@ run_test
 
 # -------------------------------
 # MOV [EAX], EAX instruction
-NAME="x86: [MOV [EAX], EAX]"
+NAME="${ARCH}: [MOV [EAX], EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5244,7 +5244,7 @@ run_test
 
 # -------------------------------
 # MOV AL, [EAX] instruction
-NAME="x86: [MOV AL, [EAX]]"
+NAME="${ARCH}: [MOV AL, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5259,7 +5259,7 @@ run_test
 
 # -------------------------------
 # MOV AL, [0X0] instruction
-NAME="x86: [MOV AL, [0X0]]"
+NAME="${ARCH}: [MOV AL, [0X0]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5274,7 +5274,7 @@ run_test
 
 # -------------------------------
 # MOV EAX, [0X0] instruction
-NAME="x86: [MOV EAX, [0X0]]"
+NAME="${ARCH}: [MOV EAX, [0X0]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5289,7 +5289,7 @@ run_test
 
 # -------------------------------
 # MOV [0X0], AL instruction
-NAME="x86: [MOV [0X0], AL]"
+NAME="${ARCH}: [MOV [0X0], AL]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5304,7 +5304,7 @@ run_test
 
 # -------------------------------
 # MOV [0X0], EAX instruction
-NAME="x86: [MOV [0X0], EAX]"
+NAME="${ARCH}: [MOV [0X0], EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5318,7 +5318,7 @@ run_test
 
 # -------------------------------
 # MOV AL, 0X0 instruction
-NAME="x86: [MOV AL, 0X0]"
+NAME="${ARCH}: [MOV AL, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5333,7 +5333,7 @@ run_test
 
 # -------------------------------
 # MOV CL, 0X0 instruction
-NAME="x86: [MOV CL, 0X0]"
+NAME="${ARCH}: [MOV CL, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5348,7 +5348,7 @@ run_test
 
 # -------------------------------
 # MOV DL, 0X0 instruction
-NAME="x86: [MOV DL, 0X0]"
+NAME="${ARCH}: [MOV DL, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5363,7 +5363,7 @@ run_test
 
 # -------------------------------
 # MOV BL, 0X0 instruction
-NAME="x86: [MOV BL, 0X0]"
+NAME="${ARCH}: [MOV BL, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5378,7 +5378,7 @@ run_test
 
 # -------------------------------
 # MOV AH, 0X0 instruction
-NAME="x86: [MOV AH, 0X0]"
+NAME="${ARCH}: [MOV AH, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5393,7 +5393,7 @@ run_test
 
 # -------------------------------
 # MOV CH, 0X0 instruction
-NAME="x86: [MOV CH, 0X0]"
+NAME="${ARCH}: [MOV CH, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5408,7 +5408,7 @@ run_test
 
 # -------------------------------
 # MOV DH, 0X0 instruction
-NAME="x86: [MOV DH, 0X0]"
+NAME="${ARCH}: [MOV DH, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5423,7 +5423,7 @@ run_test
 
 # -------------------------------
 # MOV BH, 0X0 instruction
-NAME="x86: [MOV BH, 0X0]"
+NAME="${ARCH}: [MOV BH, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5438,7 +5438,7 @@ run_test
 
 # -------------------------------
 # MOV EAX, 0X0 instruction
-NAME="x86: [MOV EAX, 0X0]"
+NAME="${ARCH}: [MOV EAX, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5453,7 +5453,7 @@ run_test
 
 # -------------------------------
 # MOV ECX, 0X0 instruction
-NAME="x86: [MOV ECX, 0X0]"
+NAME="${ARCH}: [MOV ECX, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5468,7 +5468,7 @@ run_test
 
 # -------------------------------
 # MOV EDX, 0X0 instruction
-NAME="x86: [MOV EDX, 0X0]"
+NAME="${ARCH}: [MOV EDX, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5483,7 +5483,7 @@ run_test
 
 # -------------------------------
 # MOV EBX, 0X0 instruction
-NAME="x86: [MOV EBX, 0X0]"
+NAME="${ARCH}: [MOV EBX, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5498,7 +5498,7 @@ run_test
 
 # -------------------------------
 # MOV ESP, 0X0 instruction
-NAME="x86: [MOV ESP, 0X0]"
+NAME="${ARCH}: [MOV ESP, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5513,7 +5513,7 @@ run_test
 
 # -------------------------------
 # MOV EBP, 0X0 instruction
-NAME="x86: [MOV EBP, 0X0]"
+NAME="${ARCH}: [MOV EBP, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5528,7 +5528,7 @@ run_test
 
 # -------------------------------
 # MOV ESI, 0X0 instruction
-NAME="x86: [MOV ESI, 0X0]"
+NAME="${ARCH}: [MOV ESI, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5543,7 +5543,7 @@ run_test
 
 # -------------------------------
 # MOV EDI, 0X0 instruction
-NAME="x86: [MOV EDI, 0X0]"
+NAME="${ARCH}: [MOV EDI, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5557,7 +5557,7 @@ run_test
 
 # -------------------------------
 # OR [EAX], AL instruction
-NAME="x86: [OR [EAX], AL]"
+NAME="${ARCH}: [OR [EAX], AL]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5572,7 +5572,7 @@ run_test
 
 # -------------------------------
 # OR [EAX], EAX instruction
-NAME="x86: [OR [EAX], EAX]"
+NAME="${ARCH}: [OR [EAX], EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5587,7 +5587,7 @@ run_test
 
 # -------------------------------
 # OR EAX, [EAX] instruction
-NAME="x86: [OR EAX, [EAX]]"
+NAME="${ARCH}: [OR EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5602,7 +5602,7 @@ run_test
 
 # -------------------------------
 # OR AL, 0X0 instruction
-NAME="x86: [OR AL, 0X0]"
+NAME="${ARCH}: [OR AL, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5616,7 +5616,7 @@ run_test
 
 # -------------------------------
 # SBB [EAX], AL instruction
-NAME="x86: [SBB [EAX], AL]"
+NAME="${ARCH}: [SBB [EAX], AL]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5631,7 +5631,7 @@ run_test
 
 # -------------------------------
 # SBB [EAX], EAX instruction
-NAME="x86: [SBB [EAX], EAX]"
+NAME="${ARCH}: [SBB [EAX], EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5646,7 +5646,7 @@ run_test
 
 # -------------------------------
 # SBB AL, [EAX] instruction
-NAME="x86: [SBB AL, [EAX]]"
+NAME="${ARCH}: [SBB AL, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5661,7 +5661,7 @@ run_test
 
 # -------------------------------
 # SBB EAX, [EAX] instruction
-NAME="x86: [SBB EAX, [EAX]]"
+NAME="${ARCH}: [SBB EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5676,7 +5676,7 @@ run_test
 
 # -------------------------------
 # SBB AL, 0X0 instruction
-NAME="x86: [SBB AL, 0X0]"
+NAME="${ARCH}: [SBB AL, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5691,7 +5691,7 @@ run_test
 
 # -------------------------------
 # SUB [EAX], AL instruction
-NAME="x86: [SUB [EAX], AL]"
+NAME="${ARCH}: [SUB [EAX], AL]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5706,7 +5706,7 @@ run_test
 
 # -------------------------------
 # SUB [EAX], EAX instruction
-NAME="x86: [SUB [EAX], EAX]"
+NAME="${ARCH}: [SUB [EAX], EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5721,7 +5721,7 @@ run_test
 
 # -------------------------------
 # SUB AL, [EAX] instruction
-NAME="x86: [SUB AL, [EAX]]"
+NAME="${ARCH}: [SUB AL, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5736,7 +5736,7 @@ run_test
 
 # -------------------------------
 # SUB EAX, [EAX] instruction
-NAME="x86: [SUB EAX, [EAX]]"
+NAME="${ARCH}: [SUB EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5751,7 +5751,7 @@ run_test
 
 # -------------------------------
 # SUB AL, 0X0 instruction
-NAME="x86: [SUB AL, 0X0]"
+NAME="${ARCH}: [SUB AL, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5766,7 +5766,7 @@ run_test
 
 # -------------------------------
 # TEST [EAX], AL instruction
-NAME="x86: [TEST [EAX], AL]"
+NAME="${ARCH}: [TEST [EAX], AL]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5781,7 +5781,7 @@ run_test
 
 # -------------------------------
 # TEST [EAX], EAX instruction
-NAME="x86: [TEST [EAX], EAX]"
+NAME="${ARCH}: [TEST [EAX], EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5796,7 +5796,7 @@ run_test
 
 # -------------------------------
 # TEST AL, 0X0 instruction
-NAME="x86: [TEST AL, 0X0]"
+NAME="${ARCH}: [TEST AL, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5811,7 +5811,7 @@ run_test
 
 # -------------------------------
 # TEST EAX, 0X0 instruction
-NAME="x86: [TEST EAX, 0X0]"
+NAME="${ARCH}: [TEST EAX, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5826,7 +5826,7 @@ run_test
 
 # -------------------------------
 # TEST BYTE [EAX], 0X0 instruction
-NAME="x86: [TEST BYTE [EAX], 0X0]"
+NAME="${ARCH}: [TEST BYTE [EAX], 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5841,7 +5841,7 @@ run_test
 
 # -------------------------------
 # TEST DWORD [EAX], 0X0 instruction
-NAME="x86: [TEST DWORD [EAX], 0X0]"
+NAME="${ARCH}: [TEST DWORD [EAX], 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5856,7 +5856,7 @@ run_test
 
 # -------------------------------
 # XCHG [EAX], AL instruction
-NAME="x86: [XCHG [EAX], AL]"
+NAME="${ARCH}: [XCHG [EAX], AL]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5871,7 +5871,7 @@ run_test
 
 # -------------------------------
 # XCHG [EAX], EAX instruction
-NAME="x86: [XCHG [EAX], EAX]"
+NAME="${ARCH}: [XCHG [EAX], EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5886,7 +5886,7 @@ run_test
 
 # -------------------------------
 # XOR [EAX], AL instruction
-NAME="x86: [XOR [EAX], AL]"
+NAME="${ARCH}: [XOR [EAX], AL]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5901,7 +5901,7 @@ run_test
 
 # -------------------------------
 # XOR [EAX], EAX instruction
-NAME="x86: [XOR [EAX], EAX]"
+NAME="${ARCH}: [XOR [EAX], EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5916,7 +5916,7 @@ run_test
 
 # -------------------------------
 # XOR AL, [EAX] instruction
-NAME="x86: [XOR AL, [EAX]]"
+NAME="${ARCH}: [XOR AL, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5931,7 +5931,7 @@ run_test
 
 # -------------------------------
 # XOR EAX, [EAX] instruction
-NAME="x86: [XOR EAX, [EAX]]"
+NAME="${ARCH}: [XOR EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5946,7 +5946,7 @@ run_test
 
 # -------------------------------
 # XOR AL, 0 instruction
-NAME="x86: [XOR AL, 0]"
+NAME="${ARCH}: [XOR AL, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5961,7 +5961,7 @@ run_test
 
 # -------------------------------
 # BTC [EAX], EAX instruction
-NAME="x86: [BTC [EAX], EAX]"
+NAME="${ARCH}: [BTC [EAX], EAX]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5976,7 +5976,7 @@ run_test
 
 # -------------------------------
 # BSF EAX, [EAX] instruction
-NAME="x86: [BSF EAX, [EAX]]"
+NAME="${ARCH}: [BSF EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -5991,7 +5991,7 @@ run_test
 
 # -------------------------------
 # BSR EAX, [EAX] instruction
-NAME="x86: [BSR EAX, [EAX]]"
+NAME="${ARCH}: [BSR EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6006,7 +6006,7 @@ run_test
 
 # -------------------------------
 # ROL BYTE [EAX], 0X0 instruction
-NAME="x86: [ROL BYTE [EAX], 0X0]"
+NAME="${ARCH}: [ROL BYTE [EAX], 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6021,7 +6021,7 @@ run_test
 
 # -------------------------------
 # ROL DWORD [EAX], 0X0 instruction
-NAME="x86: [ROL DWORD [EAX], 0X0]"
+NAME="${ARCH}: [ROL DWORD [EAX], 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6036,7 +6036,7 @@ run_test
 
 # -------------------------------
 # LES EAX, [EAX] instruction
-NAME="x86: [LES EAX, [EAX]]"
+NAME="${ARCH}: [LES EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6051,7 +6051,7 @@ run_test
 
 # -------------------------------
 # LDS EAX, [EAX] instruction
-NAME="x86: [LDS EAX, [EAX]]"
+NAME="${ARCH}: [LDS EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6066,7 +6066,7 @@ run_test
 
 # -------------------------------
 # MOV BYTE [EAX], 0X0 instruction
-NAME="x86: [MOV BYTE [EAX], 0X0]"
+NAME="${ARCH}: [MOV BYTE [EAX], 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6081,7 +6081,7 @@ run_test
 
 # -------------------------------
 # MOV DWORD [EAX], 0X0 instruction
-NAME="x86: [MOV DWORD [EAX], 0X0]"
+NAME="${ARCH}: [MOV DWORD [EAX], 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6096,7 +6096,7 @@ run_test
 
 # -------------------------------
 # ROL BYTE [EAX], CL instruction
-NAME="x86: [ROL BYTE [EAX], CL]"
+NAME="${ARCH}: [ROL BYTE [EAX], CL]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6111,7 +6111,7 @@ run_test
 
 # -------------------------------
 # ROL DWORD [EAX], CL instruction
-NAME="x86: [ROL DWORD [EAX], CL]"
+NAME="${ARCH}: [ROL DWORD [EAX], CL]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6126,7 +6126,7 @@ run_test
 
 # -------------------------------
 # SHUFPS XMM0, [EAX], 0X0 instruction
-NAME="x86: [SHUFPS XMM0, [EAX], 0X0]"
+NAME="${ARCH}: [SHUFPS XMM0, [EAX], 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6141,7 +6141,7 @@ run_test
 
 # -------------------------------
 # PSUBUSB MM0, [EAX] instruction
-NAME="x86: [PSUBUSB MM0, [EAX]]"
+NAME="${ARCH}: [PSUBUSB MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6156,7 +6156,7 @@ run_test
 
 # -------------------------------
 # PSUBUSW MM0, [EAX] instruction
-NAME="x86: [PSUBUSW MM0, [EAX]]"
+NAME="${ARCH}: [PSUBUSW MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6171,7 +6171,7 @@ run_test
 
 # -------------------------------
 # PAND MM0, [EAX] instruction
-NAME="x86: [PAND MM0, [EAX]]"
+NAME="${ARCH}: [PAND MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6186,7 +6186,7 @@ run_test
 
 # -------------------------------
 # PANDN MM0, [EAX] instruction
-NAME="x86: [PANDN MM0, [EAX]]"
+NAME="${ARCH}: [PANDN MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6201,7 +6201,7 @@ run_test
 
 # -------------------------------
 # POR MM0, [EAX] instruction
-NAME="x86: [POR MM0, [EAX]]"
+NAME="${ARCH}: [POR MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6216,7 +6216,7 @@ run_test
 
 # -------------------------------
 # PXOR MM0, [EAX] instruction
-NAME="x86: [PXOR MM0, [EAX]]"
+NAME="${ARCH}: [PXOR MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6231,7 +6231,7 @@ run_test
 
 # -------------------------------
 # PADDUSB MM0, [EAX] instruction
-NAME="x86: [PADDUSB MM0, [EAX]]"
+NAME="${ARCH}: [PADDUSB MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6246,7 +6246,7 @@ run_test
 
 # -------------------------------
 # PADDUSW MM0, [EAX] instruction
-NAME="x86: [PADDUSW MM0, [EAX]]"
+NAME="${ARCH}: [PADDUSW MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6261,7 +6261,7 @@ run_test
 
 # -------------------------------
 # PMAXUB MM0, [EAX] instruction
-NAME="x86: [PMAXUB MM0, [EAX]]"
+NAME="${ARCH}: [PMAXUB MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6276,7 +6276,7 @@ run_test
 
 # -------------------------------
 # PMINUB MM0, [EAX] instruction
-NAME="x86: [PMINUB MM0, [EAX]]"
+NAME="${ARCH}: [PMINUB MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6291,7 +6291,7 @@ run_test
 
 # -------------------------------
 # PAVGB MM0, [EAX] instruction
-NAME="x86: [PAVGB MM0, [EAX]]"
+NAME="${ARCH}: [PAVGB MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6306,7 +6306,7 @@ run_test
 
 # -------------------------------
 # PAVGW MM0, [EAX] instruction
-NAME="x86: [PAVGW MM0, [EAX]]"
+NAME="${ARCH}: [PAVGW MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6321,7 +6321,7 @@ run_test
 
 # -------------------------------
 # MOVNTQ [EAX], MM0 instruction
-NAME="x86: [MOVNTQ [EAX], MM0]"
+NAME="${ARCH}: [MOVNTQ [EAX], MM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6336,7 +6336,7 @@ run_test
 
 # -------------------------------
 # MOVNTDQ [EAX], XMM0 instruction
-NAME="x86: [MOVNTDQ [EAX], XMM0]"
+NAME="${ARCH}: [MOVNTDQ [EAX], XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6351,7 +6351,7 @@ run_test
 
 # -------------------------------
 # PSUBSB MM0, [EAX] instruction
-NAME="x86: [PSUBSB MM0, [EAX]]"
+NAME="${ARCH}: [PSUBSB MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6366,7 +6366,7 @@ run_test
 
 # -------------------------------
 # PSUBSW MM0, [EAX] instruction
-NAME="x86: [PSUBSW MM0, [EAX]]"
+NAME="${ARCH}: [PSUBSW MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6381,7 +6381,7 @@ run_test
 
 # -------------------------------
 # PMINSW MM0, [EAX] instruction
-NAME="x86: [PMINSW MM0, [EAX]]"
+NAME="${ARCH}: [PMINSW MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6396,7 +6396,7 @@ run_test
 
 # -------------------------------
 # PMAXSW MM0, [EAX] instruction
-NAME="x86: [PMAXSW MM0, [EAX]]"
+NAME="${ARCH}: [PMAXSW MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6411,7 +6411,7 @@ run_test
 
 # -------------------------------
 # PADDSB MM0, [EAX] instruction
-NAME="x86: [PADDSB MM0, [EAX]]"
+NAME="${ARCH}: [PADDSB MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6426,7 +6426,7 @@ run_test
 
 # -------------------------------
 # PADDSW MM0, [EAX] instruction
-NAME="x86: [PADDSW MM0, [EAX]]"
+NAME="${ARCH}: [PADDSW MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6441,7 +6441,7 @@ run_test
 
 # -------------------------------
 # PSRAW MM0, [EAX] instruction
-NAME="x86: [PSRAW MM0, [EAX]]"
+NAME="${ARCH}: [PSRAW MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6456,7 +6456,7 @@ run_test
 
 # -------------------------------
 # PSRAD MM0, [EAX] instruction
-NAME="x86: [PSRAD MM0, [EAX]]"
+NAME="${ARCH}: [PSRAD MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6471,7 +6471,7 @@ run_test
 
 # -------------------------------
 # PSRAW XMM0, [EAX] instruction
-NAME="x86: [PSRAW XMM0, [EAX]]"
+NAME="${ARCH}: [PSRAW XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6486,7 +6486,7 @@ run_test
 
 # -------------------------------
 # PSRAD XMM0, [EAX] instruction
-NAME="x86: [PSRAD XMM0, [EAX]]"
+NAME="${ARCH}: [PSRAD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -6497,4 +6497,4 @@ pi 1
 EXPECT="psrad xmm0, [eax]
 "
 run_test
-
+done

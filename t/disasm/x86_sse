@@ -1,11 +1,11 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+for ARCH in x86 x86.olly x86.cs; do
 
-ARCH=x86
 
 # -------------------------------
 # MULSD instruction
-NAME="x86 SSE: [MULSD]"
+NAME="${ARCH} SSE: [MULSD]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -19,7 +19,7 @@ run_test
 
 # -------------------------------
 # MULSS instruction
-NAME="x86 SSE: [MULSS]"
+NAME="${ARCH} SSE: [MULSS]"
 BROKEN=1
 FILE=malloc://32
 CMDS="
@@ -34,7 +34,7 @@ run_test
 
 # -------------------------------
 # MULPD instruction
-NAME="x86 SSE: [MULPD]"
+NAME="${ARCH} SSE: [MULPD]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -48,7 +48,7 @@ run_test
 
 # -------------------------------
 # MULSD instruction
-NAME="x86 SSE: [MULSD]"
+NAME="${ARCH} SSE: [MULSD]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -62,7 +62,7 @@ run_test
 
 # -------------------------------
 # MULPS instruction
-NAME="x86 SSE: [MULPS]"
+NAME="${ARCH} SSE: [MULPS]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -76,7 +76,7 @@ run_test
 
 # -------------------------------
 # MPSADBW XMM0, XMM0, 0 instruction
-NAME="x86 SSE: [MPSADBW XMM0, XMM0, 0]"
+NAME="${ARCH} SSE: [MPSADBW XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -90,7 +90,7 @@ run_test
 
 # -------------------------------
 # PCMPESTRM XMM0, XMM0, 0 instruction
-NAME="x86 SSE: [PCMPESTRM XMM0, XMM0, 0]"
+NAME="${ARCH} SSE: [PCMPESTRM XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -105,7 +105,7 @@ run_test
 
 # -------------------------------
 # PCMPESTRI XMM0, XMM0, 0 instruction
-NAME="x86 SSE: [PCMPESTRI XMM0, XMM0, 0]"
+NAME="${ARCH} SSE: [PCMPESTRI XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -120,7 +120,7 @@ run_test
 
 # -------------------------------
 # PCMPISTRM XMM0, XMM0, 0 instruction
-NAME="x86 SSE: [PCMPISTRM XMM0, XMM0, 0]"
+NAME="${ARCH} SSE: [PCMPISTRM XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -135,7 +135,7 @@ run_test
 
 # -------------------------------
 # PCMPISTRI XMM0, XMM0, 0 instruction
-NAME="x86 SSE: [PCMPISTRI XMM0, XMM0, 0]"
+NAME="${ARCH} SSE: [PCMPISTRI XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -150,7 +150,7 @@ run_test
 
 # -------------------------------
 # ROUNDPS XMM0, XMM0, 0 instruction
-NAME="x86 SSE: [ROUNDPS XMM0, XMM0, 0]"
+NAME="${ARCH} SSE: [ROUNDPS XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -165,7 +165,7 @@ run_test
 
 # -------------------------------
 # ROUNDPD XMM0, XMM0, 0 instruction
-NAME="x86 SSE: [ROUNDPD XMM0, XMM0, 0]"
+NAME="${ARCH} SSE: [ROUNDPD XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -180,7 +180,7 @@ run_test
 
 # -------------------------------
 # ROUNDSS XMM0, XMM0, 0 instruction
-NAME="x86 SSE: [ROUNDSS XMM0, XMM0, 0]"
+NAME="${ARCH} SSE: [ROUNDSS XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -195,7 +195,7 @@ run_test
 
 # -------------------------------
 # ROUNDSD XMM0, XMM0, 0 instruction
-NAME="x86 SSE: [ROUNDSD XMM0, XMM0, 0]"
+NAME="${ARCH} SSE: [ROUNDSD XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -210,7 +210,7 @@ run_test
 
 # -------------------------------
 # BLENDPS XMM0, XMM0, 0 instruction
-NAME="x86 SSE: [BLENDPS XMM0, XMM0, 0]"
+NAME="${ARCH} SSE: [BLENDPS XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -225,7 +225,7 @@ run_test
 
 # -------------------------------
 # BLENDPD XMM0, XMM0, 0 instruction
-NAME="x86 SSE: [BLENDPD XMM0, XMM0, 0]"
+NAME="${ARCH} SSE: [BLENDPD XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -240,7 +240,7 @@ run_test
 
 # -------------------------------
 # PBLENDW XMM0, XMM0, 0 instruction
-NAME="x86 SSE: [PBLENDW XMM0, XMM0, 0]"
+NAME="${ARCH} SSE: [PBLENDW XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -255,7 +255,7 @@ run_test
 
 # -------------------------------
 # PALIGNR XMM0, XMM0, 0 instruction
-NAME="x86 SSE: [PALIGNR XMM0, XMM0, 0]"
+NAME="${ARCH} SSE: [PALIGNR XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -270,7 +270,7 @@ run_test
 
 # -------------------------------
 # PALIGNR MM0, MM0, 0 instruction
-NAME="x86 SSE: [PALIGNR MM0, MM0, 0]"
+NAME="${ARCH} SSE: [PALIGNR MM0, MM0, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -284,7 +284,7 @@ run_test
 
 # -------------------------------
 # PSRLW MM0, 0X0 instruction
-NAME="x86 SSE: [PSRLW MM0, 0X0]"
+NAME="${ARCH} SSE: [PSRLW MM0, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -299,7 +299,7 @@ run_test
 
 # -------------------------------
 # PSRLD MM0, 0X0 instruction
-NAME="x86 SSE: [PSRLD MM0, 0X0]"
+NAME="${ARCH} SSE: [PSRLD MM0, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -314,7 +314,7 @@ run_test
 
 # -------------------------------
 # PSRLQ MM0, 0X0 instruction
-NAME="x86 SSE: [PSRLQ MM0, 0X0]"
+NAME="${ARCH} SSE: [PSRLQ MM0, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -329,7 +329,7 @@ run_test
 
 # -------------------------------
 # PSLLW MM0, 0X0 instruction
-NAME="x86 SSE: [PSLLW MM0, 0X0]"
+NAME="${ARCH} SSE: [PSLLW MM0, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -344,7 +344,7 @@ run_test
 
 # -------------------------------
 # PSLLQ MM0, 0X0 instruction
-NAME="x86 SSE: [PSLLQ MM0, 0X0]"
+NAME="${ARCH} SSE: [PSLLQ MM0, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -359,7 +359,7 @@ run_test
 
 # -------------------------------
 # PSRLW XMM0, 0X0 instruction
-NAME="x86 SSE: [PSRLW XMM0, 0X0]"
+NAME="${ARCH} SSE: [PSRLW XMM0, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -374,7 +374,7 @@ run_test
 
 # -------------------------------
 # PSRLD XMM0, 0X0 instruction
-NAME="x86 SSE: [PSRLD XMM0, 0X0]"
+NAME="${ARCH} SSE: [PSRLD XMM0, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -389,7 +389,7 @@ run_test
 
 # -------------------------------
 # PSRLQ XMM0, 0X0 instruction
-NAME="x86 SSE: [PSRLQ XMM0, 0X0]"
+NAME="${ARCH} SSE: [PSRLQ XMM0, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -404,7 +404,7 @@ run_test
 
 # -------------------------------
 # PSLLW XMM0, 0X0 instruction
-NAME="x86 SSE: [PSLLW XMM0, 0X0]"
+NAME="${ARCH} SSE: [PSLLW XMM0, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -419,7 +419,7 @@ run_test
 
 # -------------------------------
 # PSLLD XMM0, 0X0 instruction
-NAME="x86 SSE: [PSLLD XMM0, 0X0]"
+NAME="${ARCH} SSE: [PSLLD XMM0, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -434,7 +434,7 @@ run_test
 
 # -------------------------------
 # PSLLQ XMM0, 0X0 instruction
-NAME="x86 SSE: [PSLLQ XMM0, 0X0]"
+NAME="${ARCH} SSE: [PSLLQ XMM0, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -449,7 +449,7 @@ run_test
 
 # -------------------------------
 # PSRLDQ XMM0, 0X0 instruction
-NAME="x86 SSE: [PSRLDQ XMM0, 0X0]"
+NAME="${ARCH} SSE: [PSRLDQ XMM0, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -464,7 +464,7 @@ run_test
 
 # -------------------------------
 # PSLLDQ XMM0, 0X0 instruction
-NAME="x86 SSE: [PSLLDQ XMM0, 0X0]"
+NAME="${ARCH} SSE: [PSLLDQ XMM0, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -479,7 +479,7 @@ run_test
 
 # -------------------------------
 # SQRTPS XMM0, [EAX] instruction
-NAME="x86 SSE: [SQRTPS XMM0, [EAX]]"
+NAME="${ARCH} SSE: [SQRTPS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -494,7 +494,7 @@ run_test
 
 # -------------------------------
 # SQRTPD XMM0, [EAX] instruction
-NAME="x86 SSE: [SQRTPD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [SQRTPD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -509,7 +509,7 @@ run_test
 
 # -------------------------------
 # SQRTSD XMM0, [EAX] instruction
-NAME="x86 SSE: [SQRTSD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [SQRTSD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -524,7 +524,7 @@ run_test
 
 # -------------------------------
 # SQRTSS XMM0, [EAX] instruction
-NAME="x86 SSE: [SQRTSS XMM0, [EAX]]"
+NAME="${ARCH} SSE: [SQRTSS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -539,7 +539,7 @@ run_test
 
 # -------------------------------
 # RSQRTPS XMM0, [EAX] instruction
-NAME="x86 SSE: [RSQRTPS XMM0, [EAX]]"
+NAME="${ARCH} SSE: [RSQRTPS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -554,7 +554,7 @@ run_test
 
 # -------------------------------
 # RSQRTSS XMM0, [EAX] instruction
-NAME="x86 SSE: [RSQRTSS XMM0, [EAX]]"
+NAME="${ARCH} SSE: [RSQRTSS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -568,7 +568,7 @@ run_test
 
 # -------------------------------
 # RCPPS XMM0, [EAX] instruction
-NAME="x86 SSE: [RCPPS XMM0, [EAX]]"
+NAME="${ARCH} SSE: [RCPPS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -583,7 +583,7 @@ run_test
 
 # -------------------------------
 # RCPSS XMM0, [EAX] instruction
-NAME="x86 SSE: [RCPSS XMM0, [EAX]]"
+NAME="${ARCH} SSE: [RCPSS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -598,7 +598,7 @@ run_test
 
 # -------------------------------
 # ANDPS XMM0, [EAX] instruction
-NAME="x86 SSE: [ANDPS XMM0, [EAX]]"
+NAME="${ARCH} SSE: [ANDPS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -613,7 +613,7 @@ run_test
 
 # -------------------------------
 # ANDNPS XMM0, [EAX] instruction
-NAME="x86 SSE: [ANDNPS XMM0, [EAX]]"
+NAME="${ARCH} SSE: [ANDNPS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -628,7 +628,7 @@ run_test
 
 # -------------------------------
 # ANDPD XMM0, [EAX] instruction
-NAME="x86 SSE: [ANDPD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [ANDPD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -643,7 +643,7 @@ run_test
 
 # -------------------------------
 # ANDNPD XMM0, [EAX] instruction
-NAME="x86 SSE: [ANDNPD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [ANDNPD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -658,7 +658,7 @@ run_test
 
 # -------------------------------
 # ORPS XMM0, [EAX] instruction
-NAME="x86 SSE: [ORPS XMM0, [EAX]]"
+NAME="${ARCH} SSE: [ORPS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -673,7 +673,7 @@ run_test
 
 # -------------------------------
 # XORPS XMM0, [EAX] instruction
-NAME="x86 SSE: [XORPS XMM0, [EAX]]"
+NAME="${ARCH} SSE: [XORPS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -688,7 +688,7 @@ run_test
 
 # -------------------------------
 # ORPD XMM0, [EAX] instruction
-NAME="x86 SSE: [ORPD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [ORPD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -703,7 +703,7 @@ run_test
 
 # -------------------------------
 # XORPD XMM0, [EAX] instruction
-NAME="x86 SSE: [XORPD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [XORPD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -717,7 +717,7 @@ run_test
 
 # -------------------------------
 # ADDPS XMM0, [EAX] instruction
-NAME="x86 SSE: [ADDPS XMM0, [EAX]]"
+NAME="${ARCH} SSE: [ADDPS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -732,7 +732,7 @@ run_test
 
 # -------------------------------
 # SUBPS XMM0, [EAX] instruction
-NAME="x86 SSE: [SUBPS XMM0, [EAX]]"
+NAME="${ARCH} SSE: [SUBPS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -747,7 +747,7 @@ run_test
 
 # -------------------------------
 # MULPS XMM0, [EAX] instruction
-NAME="x86 SSE: [MULPS XMM0, [EAX]]"
+NAME="${ARCH} SSE: [MULPS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -762,7 +762,7 @@ run_test
 
 # -------------------------------
 # DIVPS XMM0, [EAX] instruction
-NAME="x86 SSE: [DIVPS XMM0, [EAX]]"
+NAME="${ARCH} SSE: [DIVPS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -777,7 +777,7 @@ run_test
 
 # -------------------------------
 # ADDPD XMM0, [EAX] instruction
-NAME="x86 SSE: [ADDPD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [ADDPD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -792,7 +792,7 @@ run_test
 
 # -------------------------------
 # SUBPD XMM0, [EAX] instruction
-NAME="x86 SSE: [SUBPD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [SUBPD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -807,7 +807,7 @@ run_test
 
 # -------------------------------
 # MULPD XMM0, [EAX] instruction
-NAME="x86 SSE: [MULPD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [MULPD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -822,7 +822,7 @@ run_test
 
 # -------------------------------
 # DIVPD XMM0, [EAX] instruction
-NAME="x86 SSE: [DIVPD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [DIVPD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -837,7 +837,7 @@ run_test
 
 # -------------------------------
 # MINPS XMM0, [EAX] instruction
-NAME="x86 SSE: [MINPS XMM0, [EAX]]"
+NAME="${ARCH} SSE: [MINPS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -852,7 +852,7 @@ run_test
 
 # -------------------------------
 # MAXPS XMM0, [EAX] instruction
-NAME="x86 SSE: [MAXPS XMM0, [EAX]]"
+NAME="${ARCH} SSE: [MAXPS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -867,7 +867,7 @@ run_test
 
 # -------------------------------
 # MINPD XMM0, [EAX] instruction
-NAME="x86 SSE: [MINPD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [MINPD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -882,7 +882,7 @@ run_test
 
 # -------------------------------
 # MAXPD XMM0, [EAX] instruction
-NAME="x86 SSE: [MAXPD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [MAXPD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -897,7 +897,7 @@ run_test
 
 # -------------------------------
 # MINSD XMM0, QWORD [EAX] instruction
-NAME="x86 SSE: [MINSD XMM0, QWORD [EAX]]"
+NAME="${ARCH} SSE: [MINSD XMM0, QWORD [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -912,7 +912,7 @@ run_test
 
 # -------------------------------
 # MAXSD XMM0, [EAX] instruction
-NAME="x86 SSE: [MAXSD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [MAXSD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -927,7 +927,7 @@ run_test
 
 # -------------------------------
 # MINSS XMM0, DWORD [EAX] instruction
-NAME="x86 SSE: [MINSS XMM0, DWORD [EAX]]"
+NAME="${ARCH} SSE: [MINSS XMM0, DWORD [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -942,7 +942,7 @@ run_test
 
 # -------------------------------
 # MAXSS XMM0, [EAX] instruction
-NAME="x86 SSE: [MAXSS XMM0, [EAX]]"
+NAME="${ARCH} SSE: [MAXSS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -957,7 +957,7 @@ run_test
 
 # -------------------------------
 # PUNPCKLBW MM0, [EAX] instruction
-NAME="x86 SSE: [PUNPCKLBW MM0, [EAX]]"
+NAME="${ARCH} SSE: [PUNPCKLBW MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -972,7 +972,7 @@ run_test
 
 # -------------------------------
 # PUNPCKLWD MM0, [EAX] instruction
-NAME="x86 SSE: [PUNPCKLWD MM0, [EAX]]"
+NAME="${ARCH} SSE: [PUNPCKLWD MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -987,7 +987,7 @@ run_test
 
 # -------------------------------
 # PUNPCKLDQ MM0, [EAX] instruction
-NAME="x86 SSE: [PUNPCKLDQ MM0, [EAX]]"
+NAME="${ARCH} SSE: [PUNPCKLDQ MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1002,7 +1002,7 @@ run_test
 
 # -------------------------------
 # PUNPCKLBW XMM0, [EAX] instruction
-NAME="x86 SSE: [PUNPCKLBW XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PUNPCKLBW XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1017,7 +1017,7 @@ run_test
 
 # -------------------------------
 # PUNPCKLWD XMM0, [EAX] instruction
-NAME="x86 SSE: [PUNPCKLWD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PUNPCKLWD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1032,7 +1032,7 @@ run_test
 
 # -------------------------------
 # PUNPCKLDQ XMM0, [EAX] instruction
-NAME="x86 SSE: [PUNPCKLDQ XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PUNPCKLDQ XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1047,7 +1047,7 @@ run_test
 
 # -------------------------------
 # PACKSSWB MM0, [EAX] instruction
-NAME="x86 SSE: [PACKSSWB MM0, [EAX]]"
+NAME="${ARCH} SSE: [PACKSSWB MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1062,7 +1062,7 @@ run_test
 
 # -------------------------------
 # PACKUSWB MM0, [EAX] instruction
-NAME="x86 SSE: [PACKUSWB MM0, [EAX]]"
+NAME="${ARCH} SSE: [PACKUSWB MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1077,7 +1077,7 @@ run_test
 
 # -------------------------------
 # PACKSSWB XMM0, [EAX] instruction
-NAME="x86 SSE: [PACKSSWB XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PACKSSWB XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1092,7 +1092,7 @@ run_test
 
 # -------------------------------
 # PACKUSWB XMM0, [EAX] instruction
-NAME="x86 SSE: [PACKUSWB XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PACKUSWB XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1107,7 +1107,7 @@ run_test
 
 # -------------------------------
 # PCMPGTB MM0, [EAX] instruction
-NAME="x86 SSE: [PCMPGTB MM0, [EAX]]"
+NAME="${ARCH} SSE: [PCMPGTB MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1122,7 +1122,7 @@ run_test
 
 # -------------------------------
 # PCMPGTW MM0, [EAX] instruction
-NAME="x86 SSE: [PCMPGTW MM0, [EAX]]"
+NAME="${ARCH} SSE: [PCMPGTW MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1137,7 +1137,7 @@ run_test
 
 # -------------------------------
 # PCMPGTD MM0, [EAX] instruction
-NAME="x86 SSE: [PCMPGTD MM0, [EAX]]"
+NAME="${ARCH} SSE: [PCMPGTD MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1152,7 +1152,7 @@ run_test
 
 # -------------------------------
 # PCMPGTB XMM0, [EAX] instruction
-NAME="x86 SSE: [PCMPGTB XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PCMPGTB XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1167,7 +1167,7 @@ run_test
 
 # -------------------------------
 # PCMPGTW XMM0, [EAX] instruction
-NAME="x86 SSE: [PCMPGTW XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PCMPGTW XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1182,7 +1182,7 @@ run_test
 
 # -------------------------------
 # PCMPGTD XMM0, [EAX] instruction
-NAME="x86 SSE: [PCMPGTD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PCMPGTD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1197,7 +1197,7 @@ run_test
 
 # -------------------------------
 # PUNPCKHBW MM0, [EAX] instruction
-NAME="x86 SSE: [PUNPCKHBW MM0, [EAX]]"
+NAME="${ARCH} SSE: [PUNPCKHBW MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1212,7 +1212,7 @@ run_test
 
 # -------------------------------
 # PUNPCKHWD MM0, [EAX] instruction
-NAME="x86 SSE: [PUNPCKHWD MM0, [EAX]]"
+NAME="${ARCH} SSE: [PUNPCKHWD MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1227,7 +1227,7 @@ run_test
 
 # -------------------------------
 # PUNPCKHDQ MM0, [EAX] instruction
-NAME="x86 SSE: [PUNPCKHDQ MM0, [EAX]]"
+NAME="${ARCH} SSE: [PUNPCKHDQ MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1242,7 +1242,7 @@ run_test
 
 # -------------------------------
 # PUNPCKHBW XMM0, [EAX] instruction
-NAME="x86 SSE: [PUNPCKHBW XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PUNPCKHBW XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1257,7 +1257,7 @@ run_test
 
 # -------------------------------
 # PUNPCKHWD XMM0, [EAX] instruction
-NAME="x86 SSE: [PUNPCKHWD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PUNPCKHWD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1272,7 +1272,7 @@ run_test
 
 # -------------------------------
 # PUNPCKHDQ XMM0, [EAX] instruction
-NAME="x86 SSE: [PUNPCKHDQ XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PUNPCKHDQ XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1287,7 +1287,7 @@ run_test
 
 # -------------------------------
 # PACKSSDW MM0, [EAX] instruction
-NAME="x86 SSE: [PACKSSDW MM0, [EAX]]"
+NAME="${ARCH} SSE: [PACKSSDW MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1302,7 +1302,7 @@ run_test
 
 # -------------------------------
 # PACKSSDW XMM0, [EAX] instruction
-NAME="x86 SSE: [PACKSSDW XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PACKSSDW XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1317,7 +1317,7 @@ run_test
 
 # -------------------------------
 # PSHUFB MM0, [EAX] instruction
-NAME="x86 SSE: [PSHUFB MM0, [EAX]]"
+NAME="${ARCH} SSE: [PSHUFB MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1332,7 +1332,7 @@ run_test
 
 # -------------------------------
 # PSHUFW MM0, [EAX], 0X0 instruction
-NAME="x86 SSE: [PSHUFW MM0, [EAX], 0X0]"
+NAME="${ARCH} SSE: [PSHUFW MM0, [EAX], 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1347,7 +1347,7 @@ run_test
 
 # -------------------------------
 # PSHUFB XMM0, [EAX] instruction
-NAME="x86 SSE: [PSHUFB XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PSHUFB XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1362,7 +1362,7 @@ run_test
 
 # -------------------------------
 # PSHUFD XMM0, [EAX], 0X0 instruction
-NAME="x86 SSE: [PSHUFD XMM0, [EAX], 0X0]"
+NAME="${ARCH} SSE: [PSHUFD XMM0, [EAX], 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1377,7 +1377,7 @@ run_test
 
 # -------------------------------
 # PSHUFLW XMM0, [EAX], 0X0 instruction
-NAME="x86 SSE: [PSHUFLW XMM0, [EAX], 0X0]"
+NAME="${ARCH} SSE: [PSHUFLW XMM0, [EAX], 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1392,7 +1392,7 @@ run_test
 
 # -------------------------------
 # PSHUFHW XMM0, [EAX], 0X0 instruction
-NAME="x86 SSE: [PSHUFHW XMM0, [EAX], 0X0]"
+NAME="${ARCH} SSE: [PSHUFHW XMM0, [EAX], 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1407,7 +1407,7 @@ run_test
 
 # -------------------------------
 # PCMPEQB MM0, [EAX] instruction
-NAME="x86 SSE: [PCMPEQB MM0, [EAX]]"
+NAME="${ARCH} SSE: [PCMPEQB MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1422,7 +1422,7 @@ run_test
 
 # -------------------------------
 # PCMPEQW MM0, [EAX] instruction
-NAME="x86 SSE: [PCMPEQW MM0, [EAX]]"
+NAME="${ARCH} SSE: [PCMPEQW MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1437,7 +1437,7 @@ run_test
 
 # -------------------------------
 # PCMPEQD MM0, [EAX] instruction
-NAME="x86 SSE: [PCMPEQD MM0, [EAX]]"
+NAME="${ARCH} SSE: [PCMPEQD MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1452,7 +1452,7 @@ run_test
 
 # -------------------------------
 # PCMPEQB XMM0, [EAX] instruction
-NAME="x86 SSE: [PCMPEQB XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PCMPEQB XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1467,7 +1467,7 @@ run_test
 
 # -------------------------------
 # PCMPEQW XMM0, [EAX] instruction
-NAME="x86 SSE: [PCMPEQW XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PCMPEQW XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1482,7 +1482,7 @@ run_test
 
 # -------------------------------
 # PCMPEQD XMM0, [EAX] instruction
-NAME="x86 SSE: [PCMPEQD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PCMPEQD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1497,7 +1497,7 @@ run_test
 
 # -------------------------------
 # MOVD MM0, DWORD [EAX] instruction
-NAME="x86 SSE: [MOVD MM0, DWORD [EAX]]"
+NAME="${ARCH} SSE: [MOVD MM0, DWORD [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1512,7 +1512,7 @@ run_test
 
 # -------------------------------
 # MOVQ MM0, [EAX] instruction
-NAME="x86 SSE: [MOVQ MM0, [EAX]]"
+NAME="${ARCH} SSE: [MOVQ MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1527,7 +1527,7 @@ run_test
 
 # -------------------------------
 # MOVD DWORD [EAX], MM0 instruction
-NAME="x86 SSE: [MOVD DWORD [EAX], MM0]"
+NAME="${ARCH} SSE: [MOVD DWORD [EAX], MM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1542,7 +1542,7 @@ run_test
 
 # -------------------------------
 # MOVQ [EAX], MM0 instruction
-NAME="x86 SSE: [MOVQ [EAX], MM0]"
+NAME="${ARCH} SSE: [MOVQ [EAX], MM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1557,7 +1557,7 @@ run_test
 
 # -------------------------------
 # MOVD XMM0, DWORD [EAX] instruction
-NAME="x86 SSE: [MOVD XMM0, DWORD [EAX]]"
+NAME="${ARCH} SSE: [MOVD XMM0, DWORD [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1572,7 +1572,7 @@ run_test
 
 # -------------------------------
 # MOVDQA XMM0, [EAX] instruction
-NAME="x86 SSE: [MOVDQA XMM0, [EAX]]"
+NAME="${ARCH} SSE: [MOVDQA XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1587,7 +1587,7 @@ run_test
 
 # -------------------------------
 # MOVD DWORD [EAX], XMM0 instruction
-NAME="x86 SSE: [MOVD DWORD [EAX], XMM0]"
+NAME="${ARCH} SSE: [MOVD DWORD [EAX], XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1602,7 +1602,7 @@ run_test
 
 # -------------------------------
 # MOVDQA [EAX], XMM0 instruction
-NAME="x86 SSE: [MOVDQA [EAX], XMM0]"
+NAME="${ARCH} SSE: [MOVDQA [EAX], XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1617,7 +1617,7 @@ run_test
 
 # -------------------------------
 # MOVDQU XMM0, [EAX] instruction
-NAME="x86 SSE: [MOVDQU XMM0, [EAX]]"
+NAME="${ARCH} SSE: [MOVDQU XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1632,7 +1632,7 @@ run_test
 
 # -------------------------------
 # MOVQ XMM0, [EAX] instruction
-NAME="x86 SSE: [MOVQ XMM0, [EAX]]"
+NAME="${ARCH} SSE: [MOVQ XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1647,7 +1647,7 @@ run_test
 
 # -------------------------------
 # MOVDQU [EAX], XMM0 instruction
-NAME="x86 SSE: [MOVDQU [EAX], XMM0]"
+NAME="${ARCH} SSE: [MOVDQU [EAX], XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1662,7 +1662,7 @@ run_test
 
 # -------------------------------
 # PMOVSXBW XMM0, XMM0 instruction
-NAME="x86 SSE: [PMOVSXBW XMM0, XMM0]"
+NAME="${ARCH} SSE: [PMOVSXBW XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1677,7 +1677,7 @@ run_test
 
 # -------------------------------
 # PMOVSXBD XMM0, XMM0 instruction
-NAME="x86 SSE: [PMOVSXBD XMM0, XMM0]"
+NAME="${ARCH} SSE: [PMOVSXBD XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1692,7 +1692,7 @@ run_test
 
 # -------------------------------
 # PMOVSXBQ XMM0, XMM0 instruction
-NAME="x86 SSE: [PMOVSXBQ XMM0, XMM0]"
+NAME="${ARCH} SSE: [PMOVSXBQ XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1707,7 +1707,7 @@ run_test
 
 # -------------------------------
 # PMOVSXWD XMM0, XMM0 instruction
-NAME="x86 SSE: [PMOVSXWD XMM0, XMM0]"
+NAME="${ARCH} SSE: [PMOVSXWD XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1722,7 +1722,7 @@ run_test
 
 # -------------------------------
 # PMOVSXWQ XMM0, XMM0 instruction
-NAME="x86 SSE: [PMOVSXWQ XMM0, XMM0]"
+NAME="${ARCH} SSE: [PMOVSXWQ XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1737,7 +1737,7 @@ run_test
 
 # -------------------------------
 # PMOVSXDQ XMM0, XMM0 instruction
-NAME="x86 SSE: [PMOVSXDQ XMM0, XMM0]"
+NAME="${ARCH} SSE: [PMOVSXDQ XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1752,7 +1752,7 @@ run_test
 
 # -------------------------------
 # PMOVZXBW XMM0, XMM0 instruction
-NAME="x86 SSE: [PMOVZXBW XMM0, XMM0]"
+NAME="${ARCH} SSE: [PMOVZXBW XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1767,7 +1767,7 @@ run_test
 
 # -------------------------------
 # PMOVZXBD XMM0, XMM0 instruction
-NAME="x86 SSE: [PMOVZXBD XMM0, XMM0]"
+NAME="${ARCH} SSE: [PMOVZXBD XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1782,7 +1782,7 @@ run_test
 
 # -------------------------------
 # PMOVZXBQ XMM0, XMM0 instruction
-NAME="x86 SSE: [PMOVZXBQ XMM0, XMM0]"
+NAME="${ARCH} SSE: [PMOVZXBQ XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1797,7 +1797,7 @@ run_test
 
 # -------------------------------
 # PMOVZXWD XMM0, XMM0 instruction
-NAME="x86 SSE: [PMOVZXWD XMM0, XMM0]"
+NAME="${ARCH} SSE: [PMOVZXWD XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1812,7 +1812,7 @@ run_test
 
 # -------------------------------
 # PMOVZXWQ XMM0, XMM0 instruction
-NAME="x86 SSE: [PMOVZXWQ XMM0, XMM0]"
+NAME="${ARCH} SSE: [PMOVZXWQ XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1827,7 +1827,7 @@ run_test
 
 # -------------------------------
 # PMOVZXDQ XMM0, XMM0 instruction
-NAME="x86 SSE: [PMOVZXDQ XMM0, XMM0]"
+NAME="${ARCH} SSE: [PMOVZXDQ XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1842,7 +1842,7 @@ run_test
 
 # -------------------------------
 # PMINSB XMM0, XMM0 instruction
-NAME="x86 SSE: [PMINSB XMM0, XMM0]"
+NAME="${ARCH} SSE: [PMINSB XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1857,7 +1857,7 @@ run_test
 
 # -------------------------------
 # PMINSD XMM0, XMM0 instruction
-NAME="x86 SSE: [PMINSD XMM0, XMM0]"
+NAME="${ARCH} SSE: [PMINSD XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1872,7 +1872,7 @@ run_test
 
 # -------------------------------
 # PMINUW XMM0, XMM0 instruction
-NAME="x86 SSE: [PMINUW XMM0, XMM0]"
+NAME="${ARCH} SSE: [PMINUW XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1887,7 +1887,7 @@ run_test
 
 # -------------------------------
 # PMINUD XMM0, XMM0 instruction
-NAME="x86 SSE: [PMINUD XMM0, XMM0]"
+NAME="${ARCH} SSE: [PMINUD XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1902,7 +1902,7 @@ run_test
 
 # -------------------------------
 # PMAXSB XMM0, XMM0 instruction
-NAME="x86 SSE: [PMAXSB XMM0, XMM0]"
+NAME="${ARCH} SSE: [PMAXSB XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1917,7 +1917,7 @@ run_test
 
 # -------------------------------
 # PMAXSD XMM0, XMM0 instruction
-NAME="x86 SSE: [PMAXSD XMM0, XMM0]"
+NAME="${ARCH} SSE: [PMAXSD XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1932,7 +1932,7 @@ run_test
 
 # -------------------------------
 # PMAXUW XMM0, XMM0 instruction
-NAME="x86 SSE: [PMAXUW XMM0, XMM0]"
+NAME="${ARCH} SSE: [PMAXUW XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1947,7 +1947,7 @@ run_test
 
 # -------------------------------
 # PMAXUD XMM0, XMM0 instruction
-NAME="x86 SSE: [PMAXUD XMM0, XMM0]"
+NAME="${ARCH} SSE: [PMAXUD XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1962,7 +1962,7 @@ run_test
 
 # -------------------------------
 # PSIGNB XMM0, XMM0 instruction
-NAME="x86 SSE: [PSIGNB XMM0, XMM0]"
+NAME="${ARCH} SSE: [PSIGNB XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1977,7 +1977,7 @@ run_test
 
 # -------------------------------
 # PSIGNW XMM0, XMM0 instruction
-NAME="x86 SSE: [PSIGNW XMM0, XMM0]"
+NAME="${ARCH} SSE: [PSIGNW XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -1992,7 +1992,7 @@ run_test
 
 # -------------------------------
 # PSIGND XMM0, XMM0 instruction
-NAME="x86 SSE: [PSIGND XMM0, XMM0]"
+NAME="${ARCH} SSE: [PSIGND XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2007,7 +2007,7 @@ run_test
 
 # -------------------------------
 # PMULHRSW XMM0, XMM0 instruction
-NAME="x86 SSE: [PMULHRSW XMM0, XMM0]"
+NAME="${ARCH} SSE: [PMULHRSW XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2022,7 +2022,7 @@ run_test
 
 # -------------------------------
 # PABSB XMM0, XMM0 instruction
-NAME="x86 SSE: [PABSB XMM0, XMM0]"
+NAME="${ARCH} SSE: [PABSB XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2037,7 +2037,7 @@ run_test
 
 # -------------------------------
 # PABSW XMM0, XMM0 instruction
-NAME="x86 SSE: [PABSW XMM0, XMM0]"
+NAME="${ARCH} SSE: [PABSW XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2052,7 +2052,7 @@ run_test
 
 # -------------------------------
 # PABSD XMM0, XMM0 instruction
-NAME="x86 SSE: [PABSD XMM0, XMM0]"
+NAME="${ARCH} SSE: [PABSD XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2067,7 +2067,7 @@ run_test
 
 # -------------------------------
 # PMULDQ XMM0, XMM0 instruction
-NAME="x86 SSE: [PMULDQ XMM0, XMM0]"
+NAME="${ARCH} SSE: [PMULDQ XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2082,7 +2082,7 @@ run_test
 
 # -------------------------------
 # PCMPEQQ XMM0, XMM0 instruction
-NAME="x86 SSE: [PCMPEQQ XMM0, XMM0]"
+NAME="${ARCH} SSE: [PCMPEQQ XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2097,7 +2097,7 @@ run_test
 
 # -------------------------------
 # MOVNTDQA XMM0, [EAX] instruction
-NAME="x86 SSE: [MOVNTDQA XMM0, [EAX]]"
+NAME="${ARCH} SSE: [MOVNTDQA XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2112,7 +2112,7 @@ run_test
 
 # -------------------------------
 # PACKUSDW XMM0, XMM0 instruction
-NAME="x86 SSE: [PACKUSDW XMM0, XMM0]"
+NAME="${ARCH} SSE: [PACKUSDW XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2127,7 +2127,7 @@ run_test
 
 # -------------------------------
 # EXTRACTPS EAX, XMM0, 0 instruction
-NAME="x86 SSE: [EXTRACTPS EAX, XMM0, 0]"
+NAME="${ARCH} SSE: [EXTRACTPS EAX, XMM0, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2142,7 +2142,7 @@ run_test
 
 # -------------------------------
 # PINSRB XMM0, EAX, 0 instruction
-NAME="x86 SSE: [PINSRB XMM0, EAX, 0]"
+NAME="${ARCH} SSE: [PINSRB XMM0, EAX, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2158,7 +2158,7 @@ run_test
 # -------------------------------
 # INSERTPS XMM0, XMM0, 0 instruction
 BROKEN=1
-NAME="x86 SSE: [INSERTPS XMM0, XMM0, 0]"
+NAME="${ARCH} SSE: [INSERTPS XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2173,7 +2173,7 @@ run_test
 
 # -------------------------------
 # DPPS XMM0, XMM0, 0 instruction
-NAME="x86 SSE: [DPPS XMM0, XMM0, 0]"
+NAME="${ARCH} SSE: [DPPS XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2188,7 +2188,7 @@ run_test
 
 # -------------------------------
 # DPPD XMM0, XMM0, 0 instruction
-NAME="x86 SSE: [DPPD XMM0, XMM0, 0]"
+NAME="${ARCH} SSE: [DPPD XMM0, XMM0, 0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2204,7 +2204,7 @@ run_test
 
 # -------------------------------
 # PSLLD MM0, 0X0 instruction
-NAME="x86 SSE:[PSLLD MM0, 0X0]"
+NAME="${ARCH} SSE:[PSLLD MM0, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2219,7 +2219,7 @@ run_test
 
 # -------------------------------
 # MOVUPS XMM0, [EAX] instruction
-NAME="x86 SSE:[MOVUPS XMM0, [EAX]]"
+NAME="${ARCH} SSE:[MOVUPS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2234,7 +2234,7 @@ run_test
 
 # -------------------------------
 # MOVUPS [EAX], XMM0 instruction
-NAME="x86 SSE:[MOVUPS [EAX], XMM0]"
+NAME="${ARCH} SSE:[MOVUPS [EAX], XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2249,7 +2249,7 @@ run_test
 
 # -------------------------------
 # UNPCKLPS XMM0, [EAX] instruction
-NAME="x86 SSE:[UNPCKLPS XMM0, [EAX]]"
+NAME="${ARCH} SSE:[UNPCKLPS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2264,7 +2264,7 @@ run_test
 
 # -------------------------------
 # UNPCKHPS XMM0, [EAX] instruction
-NAME="x86 SSE:[UNPCKHPS XMM0, [EAX]]"
+NAME="${ARCH} SSE:[UNPCKHPS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2279,7 +2279,7 @@ run_test
 
 # -------------------------------
 # MOVLPS XMM0, [EAX] instruction
-NAME="x86 SSE:[MOVLPS XMM0, [EAX]]"
+NAME="${ARCH} SSE:[MOVLPS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2294,7 +2294,7 @@ run_test
 
 # -------------------------------
 # MOVLPS [EAX], XMM0 instruction
-NAME="x86 SSE:[MOVLPS [EAX], XMM0]"
+NAME="${ARCH} SSE:[MOVLPS [EAX], XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2310,7 +2310,7 @@ run_test
 # -------------------------------
 # MOVHLPS XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 SSE:[MOVHLPS XMM0, XMM0]"
+NAME="${ARCH} SSE:[MOVHLPS XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2326,7 +2326,7 @@ run_test
 # -------------------------------
 # MOVLHPS XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 SSE:[MOVLHPS XMM0, XMM0]"
+NAME="${ARCH} SSE:[MOVLHPS XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2341,7 +2341,7 @@ run_test
 
 # -------------------------------
 # MOVHPS XMM0, [EAX] instruction
-NAME="x86 SSE:[MOVHPS XMM0, [EAX]]"
+NAME="${ARCH} SSE:[MOVHPS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2356,7 +2356,7 @@ run_test
 
 # -------------------------------
 # MOVHPS [EAX], XMM0 instruction
-NAME="x86 SSE:[MOVHPS [EAX], XMM0]"
+NAME="${ARCH} SSE:[MOVHPS [EAX], XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2371,7 +2371,7 @@ run_test
 
 # -------------------------------
 # MOVMSKPS EAX, XMM0 instruction
-NAME="x86 SSE:[MOVMSKPS EAX, XMM0]"
+NAME="${ARCH} SSE:[MOVMSKPS EAX, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2386,7 +2386,7 @@ run_test
 
 # -------------------------------
 # MOVMSKPD EAX, XMM0 instruction
-NAME="x86 SSE:[MOVMSKPD EAX, XMM0]"
+NAME="${ARCH} SSE:[MOVMSKPD EAX, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2401,7 +2401,7 @@ run_test
 # -------------------------------
 # VFMSUBPD XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 SSE: [VFMSUBPD XMM0, XMM0, XMM0, XMM0]"
+NAME="${ARCH} SSE: [VFMSUBPD XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2417,7 +2417,7 @@ run_test
 # -------------------------------
 # VFMSUBPS XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 SSE: [VFMSUBPS XMM0, XMM0, XMM0, XMM0]"
+NAME="${ARCH} SSE: [VFMSUBPS XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2433,7 +2433,7 @@ run_test
 # -------------------------------
 # VFMSUBSD XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 SSE: [VFMSUBSD XMM0, XMM0, XMM0, XMM0]"
+NAME="${ARCH} SSE: [VFMSUBSD XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2449,7 +2449,7 @@ run_test
 # -------------------------------
 # VFMSUBSS XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 SSE: [VFMSUBSS XMM0, XMM0, XMM0, XMM0]"
+NAME="${ARCH} SSE: [VFMSUBSS XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2465,7 +2465,7 @@ run_test
 # -------------------------------
 # VFNMADDPD XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 SSE: [VFNMADDPD XMM0, XMM0, XMM0, XMM0]"
+NAME="${ARCH} SSE: [VFNMADDPD XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2481,7 +2481,7 @@ run_test
 # -------------------------------
 # VFNMADDPS XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 SSE: [VFNMADDPS XMM0, XMM0, XMM0, XMM0]"
+NAME="${ARCH} SSE: [VFNMADDPS XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2497,7 +2497,7 @@ run_test
 # -------------------------------
 # VFNMADDSD XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 SSE: [VFNMADDSD XMM0, XMM0, XMM0, XMM0]"
+NAME="${ARCH} SSE: [VFNMADDSD XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2513,7 +2513,7 @@ run_test
 # -------------------------------
 # VFNMADDSS XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 SSE: [VFNMADDSS XMM0, XMM0, XMM0, XMM0]"
+NAME="${ARCH} SSE: [VFNMADDSS XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2529,7 +2529,7 @@ run_test
 # -------------------------------
 # VFNMADDPD YMM0, YMM0, YMM0, YMM0 instruction
 BROKEN=1
-NAME="x86 SSE: [VFNMADDPD YMM0, YMM0, YMM0, YMM0]"
+NAME="${ARCH} SSE: [VFNMADDPD YMM0, YMM0, YMM0, YMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2545,7 +2545,7 @@ run_test
 # -------------------------------
 # VFNMADDPS YMM0, YMM0, YMM0, YMM0 instruction
 BROKEN=1
-NAME="x86 SSE: [VFNMADDPS YMM0, YMM0, YMM0, YMM0]"
+NAME="${ARCH} SSE: [VFNMADDPS YMM0, YMM0, YMM0, YMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2561,7 +2561,7 @@ run_test
 # -------------------------------
 # VFNMSUBPD XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 SSE: [VFNMSUBPD XMM0, XMM0, XMM0, XMM0]"
+NAME="${ARCH} SSE: [VFNMSUBPD XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2577,7 +2577,7 @@ run_test
 # -------------------------------
 # VFNMSUBPS XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 SSE: [VFNMSUBPS XMM0, XMM0, XMM0, XMM0]"
+NAME="${ARCH} SSE: [VFNMSUBPS XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2593,7 +2593,7 @@ run_test
 # -------------------------------
 # VFNMSUBSD XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 SSE: [VFNMSUBSD XMM0, XMM0, XMM0, XMM0]"
+NAME="${ARCH} SSE: [VFNMSUBSD XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2609,7 +2609,7 @@ run_test
 # -------------------------------
 # VFNMSUBSS XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 SSE: [VFNMSUBSS XMM0, XMM0, XMM0, XMM0]"
+NAME="${ARCH} SSE: [VFNMSUBSS XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2625,7 +2625,7 @@ run_test
 # -------------------------------
 # VFNMSUBPD YMM0, YMM0, YMM0, YMM0 instruction
 BROKEN=1
-NAME="x86 SSE: [VFNMSUBPD YMM0, YMM0, YMM0, YMM0]"
+NAME="${ARCH} SSE: [VFNMSUBPD YMM0, YMM0, YMM0, YMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2641,7 +2641,7 @@ run_test
 # -------------------------------
 # VFNMSUBPS YMM0, YMM0, YMM0, YMM0 instruction
 BROKEN=1
-NAME="x86 SSE: [VFNMSUBPS YMM0, YMM0, YMM0, YMM0]"
+NAME="${ARCH} SSE: [VFNMSUBPS YMM0, YMM0, YMM0, YMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2657,7 +2657,7 @@ run_test
 # -------------------------------
 # VFNMSUBSS XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 SSE: [VFNMSUBSS XMM0, XMM0, XMM0, XMM0]"
+NAME="${ARCH} SSE: [VFNMSUBSS XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2673,7 +2673,7 @@ run_test
 # -------------------------------
 # VFNMSUBSD XMM0, XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 SSE: [VFNMSUBSD XMM0, XMM0, XMM0, XMM0]"
+NAME="${ARCH} SSE: [VFNMSUBSD XMM0, XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2688,7 +2688,7 @@ run_test
 
 # -------------------------------
 # MOVSD XMM0, [EAX] instruction
-NAME="x86 SSE: [MOVSD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [MOVSD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2703,7 +2703,7 @@ run_test
 
 # -------------------------------
 # MOVSD [EAX], XMM0 instruction
-NAME="x86 SSE: [MOVSD [EAX], XMM0]"
+NAME="${ARCH} SSE: [MOVSD [EAX], XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2718,7 +2718,7 @@ run_test
 
 # -------------------------------
 # MOVDDUP XMM0, [EAX] instruction
-NAME="x86 SSE: [MOVDDUP XMM0, [EAX]]"
+NAME="${ARCH} SSE: [MOVDDUP XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2733,7 +2733,7 @@ run_test
 
 # -------------------------------
 # CVTPS2PD XMM0, [EAX] instruction
-NAME="x86 SSE: [CVTPS2PD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [CVTPS2PD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2748,7 +2748,7 @@ run_test
 
 # -------------------------------
 # CVTPD2PS XMM0, [EAX] instruction
-NAME="x86 SSE: [CVTPD2PS XMM0, [EAX]]"
+NAME="${ARCH} SSE: [CVTPD2PS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2763,7 +2763,7 @@ run_test
 
 # -------------------------------
 # CVTSD2SS XMM0, [EAX] instruction
-NAME="x86 SSE: [CVTSD2SS XMM0, [EAX]]"
+NAME="${ARCH} SSE: [CVTSD2SS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2778,7 +2778,7 @@ run_test
 
 # -------------------------------
 # CVTSS2SD XMM0, [EAX] instruction
-NAME="x86 SSE: [CVTSS2SD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [CVTSS2SD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2793,7 +2793,7 @@ run_test
 
 # -------------------------------
 # CVTDQ2PS XMM0, [EAX] instruction
-NAME="x86 SSE: [CVTDQ2PS XMM0, [EAX]]"
+NAME="${ARCH} SSE: [CVTDQ2PS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2807,7 +2807,7 @@ run_test
 
 # -------------------------------
 # CVTPS2DQ XMM0, [EAX] instruction
-NAME="x86 SSE: [CVTPS2DQ XMM0, [EAX]]"
+NAME="${ARCH} SSE: [CVTPS2DQ XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2822,7 +2822,7 @@ run_test
 
 # -------------------------------
 # CVTTPS2DQ XMM0, [EAX] instruction
-NAME="x86 SSE: [CVTTPS2DQ XMM0, [EAX]]"
+NAME="${ARCH} SSE: [CVTTPS2DQ XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2837,7 +2837,7 @@ run_test
 
 # -------------------------------
 # CVTTPD2DQ XMM0, [EAX] instruction
-NAME="x86 SSE: [CVTTPD2DQ XMM0, [EAX]]"
+NAME="${ARCH} SSE: [CVTTPD2DQ XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2852,7 +2852,7 @@ run_test
 
 # -------------------------------
 # CVTPD2DQ XMM0, [EAX] instruction
-NAME="x86 SSE: [CVTPD2DQ XMM0, [EAX]]"
+NAME="${ARCH} SSE: [CVTPD2DQ XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2867,7 +2867,7 @@ run_test
 
 # -------------------------------
 # CVTDQ2PD XMM0, [EAX] instruction
-NAME="x86 SSE: [CVTDQ2PD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [CVTDQ2PD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2882,7 +2882,7 @@ run_test
 
 # -------------------------------
 # CVTTPS2PI MM0, oword [EAX] instruction
-NAME="x86 SSE: [CVTTPS2PI MM0, [EAX]]"
+NAME="${ARCH} SSE: [CVTTPS2PI MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2896,7 +2896,7 @@ run_test
 
 # -------------------------------
 # CVTTPD2PI MM0, oword [EAX] instruction
-NAME="x86 SSE: [CVTTPD2PI MM0, oword [EAX]]"
+NAME="${ARCH} SSE: [CVTTPD2PI MM0, oword [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2911,7 +2911,7 @@ run_test
 
 # -------------------------------
 # CVTTSD2SI EAX, qword [EAX] instruction
-NAME="x86 SSE: [CVTTSD2SI EAX, qword [EAX]]"
+NAME="${ARCH} SSE: [CVTTSD2SI EAX, qword [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2926,7 +2926,7 @@ run_test
 
 # -------------------------------
 # CVTTSS2SI EAX, [EAX] instruction
-NAME="x86 SSE: [CVTTSS2SI EAX, [EAX]]"
+NAME="${ARCH} SSE: [CVTTSS2SI EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2941,7 +2941,7 @@ run_test
 
 # -------------------------------
 # CVTPI2PS XMM0, qword [EAX] instruction
-NAME="x86 SSE: [CVTPI2PS XMM0, qword [EAX]]"
+NAME="${ARCH} SSE: [CVTPI2PS XMM0, qword [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2956,7 +2956,7 @@ run_test
 
 # -------------------------------
 # CVTPI2PD XMM0, qword [EAX] instruction
-NAME="x86 SSE: [CVTPI2PD XMM0, qword [EAX]]"
+NAME="${ARCH} SSE: [CVTPI2PD XMM0, qword [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2971,7 +2971,7 @@ run_test
 
 # -------------------------------
 # CVTSI2SD XMM0, dword [EAX] instruction
-NAME="x86 SSE: [CVTSI2SD XMM0, dword [EAX]]"
+NAME="${ARCH} SSE: [CVTSI2SD XMM0, dword [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -2986,7 +2986,7 @@ run_test
 
 # -------------------------------
 # CVTSI2SS XMM0, dword [EAX] instruction
-NAME="x86 SSE: [CVTSI2SS XMM0, dword [EAX]]"
+NAME="${ARCH} SSE: [CVTSI2SS XMM0, dword [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3001,7 +3001,7 @@ run_test
 
 # -------------------------------
 # CVTPS2PI MM0, [EAX] instruction
-NAME="x86 SSE: [CVTPS2PI MM0, [EAX]]"
+NAME="${ARCH} SSE: [CVTPS2PI MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3016,7 +3016,7 @@ run_test
 
 # -------------------------------
 # CVTSD2SI EAX, qword [EAX] instruction
-NAME="x86 SSE: [CVTSD2SI EAX, qword [EAX]]"
+NAME="${ARCH} SSE: [CVTSD2SI EAX, qword [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3031,7 +3031,7 @@ run_test
 
 # -------------------------------
 # CVTSS2SI EAX, [EAX] instruction
-NAME="x86 SSE: [CVTSS2SI EAX, [EAX]]"
+NAME="${ARCH} SSE: [CVTSS2SI EAX, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3046,7 +3046,7 @@ run_test
 
 # -------------------------------
 # CVTPD2PI MM0, oword [EAX] instruction
-NAME="x86 SSE: [CVTPD2PI MM0, oword [EAX]]"
+NAME="${ARCH} SSE: [CVTPD2PI MM0, oword [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3061,7 +3061,7 @@ run_test
 
 # -------------------------------
 # MOVAPS XMM0, [EAX] instruction
-NAME="x86 SSE: [MOVAPS XMM0, [EAX]]"
+NAME="${ARCH} SSE: [MOVAPS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3076,7 +3076,7 @@ run_test
 
 # -------------------------------
 # MOVAPS [EAX], XMM0 instruction
-NAME="x86 SSE: [MOVAPS [EAX], XMM0]"
+NAME="${ARCH} SSE: [MOVAPS [EAX], XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3091,7 +3091,7 @@ run_test
 
 # -------------------------------
 # MOVNTPS [EAX], XMM0 instruction
-NAME="x86 SSE: [MOVNTPS [EAX], XMM0]"
+NAME="${ARCH} SSE: [MOVNTPS [EAX], XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3107,7 +3107,7 @@ run_test
 
 # -------------------------------
 # MOVNTPD [EAX], XMM0 instruction
-NAME="x86 SSE: [MOVNTPD [EAX], XMM0]"
+NAME="${ARCH} SSE: [MOVNTPD [EAX], XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3122,7 +3122,7 @@ run_test
 
 # -------------------------------
 # UCOMISS XMM0, [EAX] instruction
-NAME="x86 SSE: [UCOMISS XMM0, [EAX]]"
+NAME="${ARCH} SSE: [UCOMISS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3137,7 +3137,7 @@ run_test
 
 # -------------------------------
 # COMISS XMM0, [EAX] instruction
-NAME="x86 SSE: [COMISS XMM0, [EAX]]"
+NAME="${ARCH} SSE: [COMISS XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3152,7 +3152,7 @@ run_test
 
 # -------------------------------
 # UCOMISD XMM0, [EAX] instruction
-NAME="x86 SSE: [UCOMISD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [UCOMISD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3167,7 +3167,7 @@ run_test
 
 # -------------------------------
 # COMISD XMM0, [EAX] instruction
-NAME="x86 SSE: [COMISD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [COMISD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3181,7 +3181,7 @@ run_test
 
 # -------------------------------
 # PSUBB MM0, [EAX] instruction
-NAME="x86 SSE: [PSUBB MM0, [EAX]]"
+NAME="${ARCH} SSE: [PSUBB MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3196,7 +3196,7 @@ run_test
 
 # -------------------------------
 # PSUBW MM0, [EAX] instruction
-NAME="x86 SSE: [PSUBW MM0, [EAX]]"
+NAME="${ARCH} SSE: [PSUBW MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3211,7 +3211,7 @@ run_test
 
 # -------------------------------
 # PSUBD MM0, [EAX] instruction
-NAME="x86 SSE: [PSUBD MM0, [EAX]]"
+NAME="${ARCH} SSE: [PSUBD MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3226,7 +3226,7 @@ run_test
 
 # -------------------------------
 # PSUBQ MM0, [EAX] instruction
-NAME="x86 SSE: [PSUBQ MM0, [EAX]]"
+NAME="${ARCH} SSE: [PSUBQ MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3241,7 +3241,7 @@ run_test
 
 # -------------------------------
 # PADDB MM0, [EAX] instruction
-NAME="x86 SSE: [PADDB MM0, [EAX]]"
+NAME="${ARCH} SSE: [PADDB MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3256,7 +3256,7 @@ run_test
 
 # -------------------------------
 # PADDW MM0, [EAX] instruction
-NAME="x86 SSE: [PADDW MM0, [EAX]]"
+NAME="${ARCH} SSE: [PADDW MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3271,7 +3271,7 @@ run_test
 
 # -------------------------------
 # PADDD MM0, [EAX] instruction
-NAME="x86 SSE: [PADDD MM0, [EAX]]"
+NAME="${ARCH} SSE: [PADDD MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3285,7 +3285,7 @@ run_test
 
 # -------------------------------
 # PSRLW MM0, [EAX] instruction
-NAME="x86 SSE: [PSRLW MM0, [EAX]]"
+NAME="${ARCH} SSE: [PSRLW MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3300,7 +3300,7 @@ run_test
 
 # -------------------------------
 # PSRLD MM0, [EAX] instruction
-NAME="x86 SSE: [PSRLD MM0, [EAX]]"
+NAME="${ARCH} SSE: [PSRLD MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3315,7 +3315,7 @@ run_test
 
 # -------------------------------
 # PSRLQ MM0, [EAX] instruction
-NAME="x86 SSE: [PSRLQ MM0, [EAX]]"
+NAME="${ARCH} SSE: [PSRLQ MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3330,7 +3330,7 @@ run_test
 
 # -------------------------------
 # PSRLW XMM0, [EAX] instruction
-NAME="x86 SSE: [PSRLW XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PSRLW XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3345,7 +3345,7 @@ run_test
 
 # -------------------------------
 # PSRLD XMM0, [EAX] instruction
-NAME="x86 SSE: [PSRLD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PSRLD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3360,7 +3360,7 @@ run_test
 
 # -------------------------------
 # PSRLQ XMM0, [EAX] instruction
-NAME="x86 SSE: [PSRLQ XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PSRLQ XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3375,7 +3375,7 @@ run_test
 
 # -------------------------------
 # PSLLW MM0, [EAX] instruction
-NAME="x86 SSE: [PSLLW MM0, [EAX]]"
+NAME="${ARCH} SSE: [PSLLW MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3390,7 +3390,7 @@ run_test
 
 # -------------------------------
 # PSLLD MM0, [EAX] instruction
-NAME="x86 SSE: [PSLLD MM0, [EAX]]"
+NAME="${ARCH} SSE: [PSLLD MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3405,7 +3405,7 @@ run_test
 
 # -------------------------------
 # PSLLQ MM0, [EAX] instruction
-NAME="x86 SSE: [PSLLQ MM0, [EAX]]"
+NAME="${ARCH} SSE: [PSLLQ MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3420,7 +3420,7 @@ run_test
 
 # -------------------------------
 # PSLLW XMM0, [EAX] instruction
-NAME="x86 SSE: [PSLLW XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PSLLW XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3435,7 +3435,7 @@ run_test
 
 # -------------------------------
 # PSLLD XMM0, [EAX] instruction
-NAME="x86 SSE: [PSLLD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PSLLD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3450,7 +3450,7 @@ run_test
 
 # -------------------------------
 # PSLLQ XMM0, [EAX] instruction
-NAME="x86 SSE: [PSLLQ XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PSLLQ XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3465,7 +3465,7 @@ run_test
 
 # -------------------------------
 # PMULLW MM0, [EAX] instruction
-NAME="x86 SSE: [PMULLW MM0, [EAX]]"
+NAME="${ARCH} SSE: [PMULLW MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3480,7 +3480,7 @@ run_test
 
 # -------------------------------
 # PMULLW XMM0, [EAX] instruction
-NAME="x86 SSE: [PMULLW XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PMULLW XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3495,7 +3495,7 @@ run_test
 
 # -------------------------------
 # PMULHUW MM0, [EAX] instruction
-NAME="x86 SSE: [PMULHUW MM0, [EAX]]"
+NAME="${ARCH} SSE: [PMULHUW MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3510,7 +3510,7 @@ run_test
 
 # -------------------------------
 # PMULHUW XMM0, [EAX] instruction
-NAME="x86 SSE: [PMULHUW XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PMULHUW XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3525,7 +3525,7 @@ run_test
 
 # -------------------------------
 # PMULHW MM0, [EAX] instruction
-NAME="x86 SSE: [PMULHW MM0, [EAX]]"
+NAME="${ARCH} SSE: [PMULHW MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3540,7 +3540,7 @@ run_test
 
 # -------------------------------
 # PMULHW XMM0, [EAX] instruction
-NAME="x86 SSE: [PMULHW XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PMULHW XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3555,7 +3555,7 @@ run_test
 
 # -------------------------------
 # PMULUDQ MM0, [EAX] instruction
-NAME="x86 SSE: [PMULUDQ MM0, [EAX]]"
+NAME="${ARCH} SSE: [PMULUDQ MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3570,7 +3570,7 @@ run_test
 
 # -------------------------------
 # PMULUDQ XMM0, [EAX] instruction
-NAME="x86 SSE: [PMULUDQ XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PMULUDQ XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3585,7 +3585,7 @@ run_test
 
 # -------------------------------
 # PMADDWD MM0, [EAX] instruction
-NAME="x86 SSE: [PMADDWD MM0, [EAX]]"
+NAME="${ARCH} SSE: [PMADDWD MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3600,7 +3600,7 @@ run_test
 
 # -------------------------------
 # PMADDWD XMM0, [EAX] instruction
-NAME="x86 SSE: [PMADDWD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PMADDWD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3615,7 +3615,7 @@ run_test
 
 # -------------------------------
 # PSADBW MM0, [EAX] instruction
-NAME="x86 SSE: [PSADBW MM0, [EAX]]"
+NAME="${ARCH} SSE: [PSADBW MM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3630,7 +3630,7 @@ run_test
 
 # -------------------------------
 # PSADBW XMM0, [EAX] instruction
-NAME="x86 SSE: [PSADBW XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PSADBW XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3645,7 +3645,7 @@ run_test
 
 # -------------------------------
 # PSUBUSB XMM0, [EAX] instruction
-NAME="x86 SSE: [PSUBUSB XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PSUBUSB XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3660,7 +3660,7 @@ run_test
 
 # -------------------------------
 # PSUBUSW XMM0, [EAX] instruction
-NAME="x86 SSE: [PSUBUSW XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PSUBUSW XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3675,7 +3675,7 @@ run_test
 
 # -------------------------------
 # PMINUB XMM0, [EAX] instruction
-NAME="x86 SSE: [PMINUB XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PMINUB XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3690,7 +3690,7 @@ run_test
 
 # -------------------------------
 # PMAXUB XMM0, [EAX] instruction
-NAME="x86 SSE: [PMAXUB XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PMAXUB XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3705,7 +3705,7 @@ run_test
 
 # -------------------------------
 # PAND XMM0, [EAX] instruction
-NAME="x86 SSE: [PAND XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PAND XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3720,7 +3720,7 @@ run_test
 
 # -------------------------------
 # PANDN XMM0, [EAX] instruction
-NAME="x86 SSE: [PANDN XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PANDN XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3735,7 +3735,7 @@ run_test
 
 # -------------------------------
 # PADDUSB XMM0, [EAX] instruction
-NAME="x86 SSE: [PADDUSB XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PADDUSB XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3750,7 +3750,7 @@ run_test
 
 # -------------------------------
 # PADDUSW XMM0, [EAX] instruction
-NAME="x86 SSE: [PADDUSW XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PADDUSW XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3765,7 +3765,7 @@ run_test
 
 # -------------------------------
 # PAVGB XMM0, [EAX] instruction
-NAME="x86 SSE: [PAVGB XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PAVGB XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3780,7 +3780,7 @@ run_test
 
 # -------------------------------
 # PAVGW XMM0, [EAX] instruction
-NAME="x86 SSE: [PAVGW XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PAVGW XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3795,7 +3795,7 @@ run_test
 
 # -------------------------------
 # PSUBSB XMM0, [EAX] instruction
-NAME="x86 SSE: [PSUBSB XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PSUBSB XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3810,7 +3810,7 @@ run_test
 
 # -------------------------------
 # PSUBSW XMM0, [EAX] instruction
-NAME="x86 SSE: [PSUBSW XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PSUBSW XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3825,7 +3825,7 @@ run_test
 
 # -------------------------------
 # PMINSW XMM0, [EAX] instruction
-NAME="x86 SSE: [PMINSW XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PMINSW XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3840,7 +3840,7 @@ run_test
 
 # -------------------------------
 # PMAXSW XMM0, [EAX] instruction
-NAME="x86 SSE: [PMAXSW XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PMAXSW XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3855,7 +3855,7 @@ run_test
 
 # -------------------------------
 # POR XMM0, [EAX] instruction
-NAME="x86 SSE: [POR XMM0, [EAX]]"
+NAME="${ARCH} SSE: [POR XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3870,7 +3870,7 @@ run_test
 
 # -------------------------------
 # PADDSB XMM0, [EAX] instruction
-NAME="x86 SSE: [PADDSB XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PADDSB XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3885,7 +3885,7 @@ run_test
 
 # -------------------------------
 # PADDSW XMM0, [EAX] instruction
-NAME="x86 SSE: [PADDSW XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PADDSW XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3900,7 +3900,7 @@ run_test
 
 # -------------------------------
 # PXOR XMM0, [EAX] instruction
-NAME="x86 SSE: [PXOR XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PXOR XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3915,7 +3915,7 @@ run_test
 
 # -------------------------------
 # PSUBB XMM0, [EAX] instruction
-NAME="x86 SSE: [PSUBB XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PSUBB XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3930,7 +3930,7 @@ run_test
 
 # -------------------------------
 # PSUBW XMM0, [EAX] instruction
-NAME="x86 SSE: [PSUBW XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PSUBW XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3945,7 +3945,7 @@ run_test
 
 # -------------------------------
 # PSUBD XMM0, [EAX] instruction
-NAME="x86 SSE: [PSUBD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PSUBD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3960,7 +3960,7 @@ run_test
 
 # -------------------------------
 # PSUBQ XMM0, [EAX] instruction
-NAME="x86 SSE: [PSUBQ XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PSUBQ XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3975,7 +3975,7 @@ run_test
 
 # -------------------------------
 # PADDB XMM0, [EAX] instruction
-NAME="x86 SSE: [PADDB XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PADDB XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -3990,7 +3990,7 @@ run_test
 
 # -------------------------------
 # PADDW XMM0, [EAX] instruction
-NAME="x86 SSE: [PADDW XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PADDW XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4005,7 +4005,7 @@ run_test
 
 # -------------------------------
 # PADDD XMM0, [EAX] instruction
-NAME="x86 SSE: [PADDD XMM0, [EAX]]"
+NAME="${ARCH} SSE: [PADDD XMM0, [EAX]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -4016,4 +4016,4 @@ pi 1
 EXPECT="paddd xmm0, [eax]
 "
 run_test
-
+done

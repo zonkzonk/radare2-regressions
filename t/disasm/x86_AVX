@@ -1,10 +1,11 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+for ARCH in x86 x86.olly x86.cs; do
 
-ARCH=x86
+
 # -------------------------------
 # VADDPD YMM0, YMM0, YMM0 instruction
-NAME="x86 AVX: [VADDPD YMM0, YMM0, YMM0]"
+NAME="${ARCH} AVX: [VADDPD YMM0, YMM0, YMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -19,7 +20,7 @@ run_test
 
 # -------------------------------
 # AESDEC XMM0, XMM0 instruction
-NAME="x86 AVX: [AESDEC XMM0, XMM0]"
+NAME="${ARCH} AVX: [AESDEC XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -34,7 +35,7 @@ run_test
 
 # -------------------------------
 # AESDECLAST XMM0, XMM0 instruction
-NAME="x86 AVX: [AESDECLAST XMM0, XMM0]"
+NAME="${ARCH} AVX: [AESDECLAST XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -49,7 +50,7 @@ run_test
 
 # -------------------------------
 # AESENC XMM0, XMM0 instruction
-NAME="x86 AVX: [AESENC XMM0, XMM0]"
+NAME="${ARCH} AVX: [AESENC XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -64,7 +65,7 @@ run_test
 
 # -------------------------------
 # AESENCLAST XMM0, XMM0 instruction
-NAME="x86 AVX: [AESENCLAST XMM0, XMM0]"
+NAME="${ARCH} AVX: [AESENCLAST XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -79,7 +80,7 @@ run_test
 
 # -------------------------------
 # AESIMC XMM0, XMM0 instruction
-NAME="x86 AVX: [AESIMC XMM0, XMM0]"
+NAME="${ARCH} AVX: [AESIMC XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -94,7 +95,7 @@ run_test
 
 # -------------------------------
 # AESKEYGENASSIST XMM0, XMM0, 0X0 instruction
-NAME="x86 AVX: [AESKEYGENASSIST XMM0, XMM0, 0X0]"
+NAME="${ARCH} AVX: [AESKEYGENASSIST XMM0, XMM0, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -109,7 +110,7 @@ run_test
 
 # -------------------------------
 # VAESDEC XMM0, XMM0, XMM0 instruction
-NAME="x86 AVX: [VAESDEC XMM0, XMM0, XMM0]"
+NAME="${ARCH} AVX: [VAESDEC XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -124,7 +125,7 @@ run_test
 
 # -------------------------------
 # VAESDECLAST XMM0, XMM0 instruction
-NAME="x86 AVX: [VAESDECLAST XMM0, XMM0]"
+NAME="${ARCH} AVX: [VAESDECLAST XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -139,7 +140,7 @@ run_test
 
 # -------------------------------
 # VAESENC XMM0, XMM0 instruction
-NAME="x86 AVX: [VAESENC XMM0, XMM0]"
+NAME="${ARCH} AVX: [VAESENC XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -154,7 +155,7 @@ run_test
 
 # -------------------------------
 # VAESENCLAST XMM0, XMM0, XMM0 instruction
-NAME="x86 AVX: [VAESENCLAST XMM0, XMM0, XMM0]"
+NAME="${ARCH} AVX: [VAESENCLAST XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -169,7 +170,7 @@ run_test
 
 # -------------------------------
 # VAESIMC XMM0, XMM0 instruction
-NAME="x86 AVX: [VAESIMC XMM0, XMM0]"
+NAME="${ARCH} AVX: [VAESIMC XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -183,7 +184,7 @@ run_test
 
 # -------------------------------
 # VAESKEYGENASSIST XMM0, XMM0, 0X0 instruction
-NAME="x86 AVX: [VAESKEYGENASSIST XMM0, XMM0, 0X0]"
+NAME="${ARCH} AVX: [VAESKEYGENASSIST XMM0, XMM0, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -198,7 +199,7 @@ run_test
 
 # -------------------------------
 # VEXTRACTF128 XMM0, YMM0, 0X0 instruction
-NAME="x86 AVX: [VEXTRACTF128 XMM0, YMM0, 0X0]"
+NAME="${ARCH} AVX: [VEXTRACTF128 XMM0, YMM0, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -214,7 +215,7 @@ run_test
 # -------------------------------
 # VBROADCASTF128 YMM0, [0X0] instruction
 BROKEN=1
-NAME="x86 AVX: [VBROADCASTF128 YMM0, [0X0]]"
+NAME="${ARCH} AVX: [VBROADCASTF128 YMM0, [0X0]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -229,7 +230,7 @@ run_test
 
 # -------------------------------
 # VBROADCASTSD YMM0, qword [0X0] instruction
-NAME="x86 AVX: [VBROADCASTSD YMM0, qword [0X0]]"
+NAME="${ARCH} AVX: [VBROADCASTSD YMM0, qword [0X0]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -244,7 +245,7 @@ run_test
 
 # -------------------------------
 # VINSERTF128 YMM0, YMM0, XMM0, 0X0 instruction
-NAME="x86 AVX: [VINSERTF128 YMM0, YMM0, XMM0, 0X0]"
+NAME="${ARCH} AVX: [VINSERTF128 YMM0, YMM0, XMM0, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -259,7 +260,7 @@ run_test
 
 # -------------------------------
 # VPERM2F128 YMM0, YMM0, YMM0, 0X0 instruction
-NAME="x86 AVX: [VPERM2F128 YMM0, YMM0, YMM0, 0X0]"
+NAME="${ARCH} AVX: [VPERM2F128 YMM0, YMM0, YMM0, 0X0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -274,7 +275,7 @@ run_test
 
 # -------------------------------
 # VPERMILPD YMM0, YMM0, [0X0] instruction
-NAME="x86 AVX: [VPERMILPD YMM0, YMM0, [0X0]]"
+NAME="${ARCH} AVX: [VPERMILPD YMM0, YMM0, [0X0]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -289,7 +290,7 @@ run_test
 
 # -------------------------------
 # VPERMILPS YMM0, YMM0, [0X0] instruction
-NAME="x86 AVX: [VPERMILPS YMM0, YMM0, [0X0]]"
+NAME="${ARCH} AVX: [VPERMILPS YMM0, YMM0, [0X0]]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -305,7 +306,7 @@ run_test
 # -------------------------------
 # VFMADD132PD XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 AVX: [VFMADD132PD XMM0, XMM0, XMM0]"
+NAME="${ARCH} AVX: [VFMADD132PD XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -321,7 +322,7 @@ run_test
 # -------------------------------
 # VFMADD213PD XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 AVX: [VFMADD213PD XMM0, XMM0, XMM0]"
+NAME="${ARCH} AVX: [VFMADD213PD XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -337,7 +338,7 @@ run_test
 # -------------------------------
 # VFMADD231PD XMM0, XMM0, XMM0 instruction
 BROKEN=1
-NAME="x86 AVX: [VFMADD231PD XMM0, XMM0, XMM0]"
+NAME="${ARCH} AVX: [VFMADD231PD XMM0, XMM0, XMM0]"
 FILE=malloc://32
 CMDS="
 e asm.arch=${ARCH}
@@ -348,4 +349,5 @@ pi 1
 EXPECT="vfmadd231pd xmm0, xmm0, xmm0
 "
 run_test
+done
 

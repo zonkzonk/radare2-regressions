@@ -1,7 +1,7 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+for ARCH in x86 x86.olly x86.cs; do
 
-ARCH=x86
 
 # -------------------------------
 # VPMADCSSWD XMM0, XMM0, XMM0, XMM0 instruction
@@ -1153,7 +1153,4 @@ EXPECT="vpmadcsswd xmm0, xmm0, xmm0, xmm0
 "
 run_test
 
-
-
-
-
+done

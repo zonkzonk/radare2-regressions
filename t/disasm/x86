@@ -1,7 +1,7 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
-ARCH=x86
+ARCH=x86.cs
 
 # -------------------------------
 # CWDE instruction

@@ -31,6 +31,6 @@ ARGS=
 IGNORE_ERR=1
 CMDS='ik
 '
-EXPECT='mach0.entry=4344
+EXPECT='mach0.entry=0x10f8
 '
 run_test

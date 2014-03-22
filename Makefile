@@ -12,6 +12,14 @@ all:
 
 asm:
 	@sh run_tests.sh t.asm
+	@sh run_tests.sh t.asm/udis86
+	@sh run_tests.sh t.asm/capstone
+
+udis86:
+	@sh run_tests.sh t.asm/udis86
+
+capstone:	
+	@sh run_tests.sh t.asm/capstone
 
 broken:
 	@cd t ; grep BROKEN=1 * | cut -d : -f1 |sort -u

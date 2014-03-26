@@ -135,7 +135,7 @@ run_test
 set_test_params "SPR" 2272 'spr psr,r1'
 run_test
 
-set_test_params "BCOND disp9" BA54 'bls 0x015a'
+set_test_params "BCOND disp9" BA54 'bls 0xff5a'
 run_test
 
 set_test_params "BAL 1" 0E34DEED 'bal r0,0xedde'
@@ -144,13 +144,13 @@ run_test
 set_test_params "BAL 2" 0A76DEDE 'bal (r1,r0),0x0005dede'
 run_test
 
-set_test_params "BR 1" CA55 'br 0x014a'
+set_test_params "BR 1" CA55 'br 0xff4a'
 run_test
 
 set_test_params "BR 2" DE15DDEE 'br 0x0001eedd'
 run_test
 
-set_test_params "BR 3" CA75CC15 'br 0x000a15cc'
+set_test_params "BR 3" CA75CC15 'br 0xfffa15cc'
 run_test
 
 set_test_params "EXCP" F47B 'excp 0xa'

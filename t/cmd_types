@@ -29,8 +29,8 @@ CMDS='
 t~?
 '
 EXPECT='v=enum
-v.t=291
-v.p=801
+v.t=0x123
+v.p=0x321
 17
 '
 run_test

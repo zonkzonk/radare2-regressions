@@ -1,6 +1,7 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
+<<<<<<< HEAD:t/disasm/x86_XOP
 test_vector() {
 NAME="${1}: [${2}]"
 FILE=malloc://32

@@ -1,7 +1,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME="af java multiple classes loaded via malloc and ib"
-BROKEN=
+BROKEN=1
 FILE=malloc://1023
 CMDS='
 e asm.comments=false

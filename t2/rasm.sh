@@ -28,8 +28,10 @@ runtest() {
 	O=`eval $2 "$1"`
 	if [ "$O" = "$3" ]; then
 		echo "\r OK"
+		TESTS_SUCCESS=$((${TESTS_SUCCESS}+1))
 		return 0
 	else
+		TESTS_FAILED=$((${TESTS_FAILED}+1))
 		echo "  *** FAIL because '$3' not '$O' ***"
 		return 1
 	fi
@@ -38,4 +40,4 @@ runtest() {
 echo $SRC > test.rasm
 runtest test.rasm rasm $BIN
 rm -f test.rasm
-exit $?
+TESTS_TOTAL=$((${TESTS_TOTAL}+1))

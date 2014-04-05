@@ -4,13 +4,9 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 test_vector() {
 NAME="${1}: [${2}]"
 FILE=malloc://32
-IFS=$','
-for i in ${5}; do
-	if [ "${i}" == "${1}" ]; then
-		BROKEN=1
-	fi
-done
-unset IFS
+if [ "${5}" == "br" ]; then
+	BROKEN=1
+fi
 CMDS='
 e asm.arch='${1}'
 e asm.bits=32
@@ -22,7 +18,7 @@ EXPECT="${4}
 run_test
 }
 
-for PLUGIN in x86 x86.cs; do
+PLUGIN=x86
 
 test_vector "${PLUGIN}" "F2XM1" d9f0 "f2xm1"
 test_vector "${PLUGIN}" "FABS" d9e1 "fabs"
@@ -34,8 +30,7 @@ test_vector "${PLUGIN}" "FBLD TWORD [EAX]" df20 "fbld tword [eax]"
 test_vector "${PLUGIN}" "FBSTP TWORD [EAX]" df30 "fbstp tword [eax]"
 test_vector "${PLUGIN}" "FCHS" d9e0 "fchs"
 # see http://www.rz.uni-karlsruhe.de/rz/docs/VTune/reference/vc87.htm
-br="x86" test_vector "${PLUGIN}" "FCLEX" 9bdbe2 "fclex" $br
-br="x86" test_vector "${PLUGIN}" "FNCLEX" dbe2 "fnclex" $br
+test_vector "${PLUGIN}" "FNCLEX" dbe2 "fnclex" "br"
 test_vector "${PLUGIN}" "FCMOVB ST0, ST0" dac0 "fcmovb st0, st0"
 test_vector "${PLUGIN}" "FCMOVBE ST0, ST0" dad0 "fcmovbe st0, st0"
 test_vector "${PLUGIN}" "FCMOVE ST0, ST0" dac8 "fcmove st0, st0"
@@ -113,11 +108,12 @@ test_vector "${PLUGIN}" "FMUL QWORD [EAX]" dc08 "fmul qword [eax]"
 test_vector "${PLUGIN}" "FMUL ST0, st0" d8c8 "fmul st0, st0"
 test_vector "${PLUGIN}" "FMUL ST0, st0" dcc8 "fmul st0, st0"
 test_vector "${PLUGIN}" "FMULP ST0, st0" dec8 "fmulp st0, st0"
-br="x86" test_vector "${PLUGIN}" "FCLEX" 9bdbe2 "waitfclex" $br
+#XXX: broken test! (needs pi 2)
+#test_vector "${PLUGIN}" "WAIT; FCLEX" 9bdbe2 "wait\nfclex" "br"
 test_vector "${PLUGIN}" "FCLEX" dbe2 "fclex"
 test_vector "${PLUGIN}" "FNDISI" dbe1 "fndisi"
 #XXX: broken test! (needs pi 2)
-#br="x86" test_vector "${PLUGIN}" "FNINIT" 9bdbe3 "`echo -e 'wait\nfninit'`" $br
+#test_vector "${PLUGIN}" "FNINIT" 9bdbe3 "`echo -e 'wait\nfninit'`" "br"
 test_vector "${PLUGIN}" "FNOP" d9d0 "fnop"
 #XXX: broken test! (needs pi 2)
 #test_vector "${PLUGIN}" "FNSAVE [EAX]" 9bdd30 "`echo -e 'wait\nfnsave [eax]'`"
@@ -199,4 +195,3 @@ test_vector "${PLUGIN}" "SAL = SHL" c13000 "shl dword [eax], 0x0"
 test_vector "${PLUGIN}" "SAR DWORD [EAX], 0X0" c13800 "sar dword [eax], 0x0"
 test_vector "${PLUGIN}" "NOP [EAX]" 0f1f00 "nop [eax]"
 test_vector "${PLUGIN}" "NOP [ECX]" 0f1f01 "nop [ecx]"
-done

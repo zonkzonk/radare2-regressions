@@ -4,13 +4,9 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 test_vector() {
 NAME="${1}: [${2}]"
 FILE=malloc://32
-IFS=$','
-for i in ${5}; do
-	if [ "${i}" == "${1}" ]; then
-		BROKEN=1
-	fi
-done
-unset IFS
+if [ "${5}" == "br" ]; then
+	BROKEN=1
+fi
 CMDS='
 e asm.arch='${1}'
 e asm.bits=32
@@ -23,10 +19,10 @@ run_test
 }
 
 
-for PLUGIN in x86 x86.cs; do
+PLUGIN=x86
 
 test_vector "${PLUGIN}" "MULSD" 66f3f20f59ff "o16 mulsd xmm7, xmm7"
-br="x86" test_vector "${PLUGIN}" "MULSS" 66f2f0f59ff "mulss xmm7, xmm7" $br
+test_vector "${PLUGIN}" "MULSS" 66f2f0f59ff "mulss xmm7, xmm7" "br"
 test_vector "${PLUGIN}" "MULPD" 660f59ff "mulpd xmm7, xmm7"
 test_vector "${PLUGIN}" "MULSD" f2660f59ff "o16 mulsd xmm7, xmm7"
 test_vector "${PLUGIN}" "MULPS" 0f59ff "mulps xmm7, xmm7"
@@ -169,7 +165,7 @@ test_vector "${PLUGIN}" "MOVNTDQA XMM0, [EAX]" 660f382a00 "movntdqa xmm0, [eax]"
 test_vector "${PLUGIN}" "PACKUSDW XMM0, XMM0" 660f382bc0 "packusdw xmm0, xmm0"
 test_vector "${PLUGIN}" "EXTRACTPS EAX, XMM0, 0" 660f3a17c000 "extractps eax, xmm0, 0x0"
 test_vector "${PLUGIN}" "PINSRB XMM0, EAX, 0" 660f3a20c000 "pinsrb xmm0, eax, 0x0"
-br="x86" test_vector "${PLUGIN}" "INSERTPS XMM0, XMM0, 0" 660f3a21c000 "insertps xmm0, xmm0, 0x0" $br
+test_vector "${PLUGIN}" "INSERTPS XMM0, XMM0, 0" 660f3a21c000 "insertps xmm0, xmm0, 0x0" "br"
 test_vector "${PLUGIN}" "DPPS XMM0, XMM0, 0" 660f3a40c000 "dpps xmm0, xmm0, 0x0"
 test_vector "${PLUGIN}" "DPPD XMM0, XMM0, 0" 660f3a41c000 "dppd xmm0, xmm0, 0x0"
 test_vector "${PLUGIN}" "PSLLD MM0, 0X0" 0f72f000 "pslld mm0, 0x0"
@@ -179,30 +175,30 @@ test_vector "${PLUGIN}" "UNPCKLPS XMM0, [EAX]" 0f14 "unpcklps xmm0, [eax]"
 test_vector "${PLUGIN}" "UNPCKHPS XMM0, [EAX]" 0f15 "unpckhps xmm0, [eax]"
 test_vector "${PLUGIN}" "MOVLPS XMM0, [EAX]" 0f12 "movlps xmm0, [eax]"
 test_vector "${PLUGIN}" "MOVLPS [EAX], XMM0" 0f13 "movlps [eax], xmm0"
-br="x86" test_vector "${PLUGIN}" "MOVHLPS XMM0, XMM0" 0f12 "movhlps xmm0, xmm0" $br
-br="x86" test_vector "${PLUGIN}" "MOVLHPS XMM0, XMM0" 0f16 "movlhps xmm0, xmm0" $br
+test_vector "${PLUGIN}" "MOVHLPS XMM0, XMM0" 0f12 "movhlps xmm0, xmm0" "br"
+test_vector "${PLUGIN}" "MOVLHPS XMM0, XMM0" 0f16 "movlhps xmm0, xmm0" "br"
 test_vector "${PLUGIN}" "MOVHPS XMM0, [EAX]" 0f16 "movhps xmm0, [eax]"
 test_vector "${PLUGIN}" "MOVHPS [EAX], XMM0" 0f17 "movhps [eax], xmm0"
 test_vector "${PLUGIN}" "MOVMSKPS EAX, XMM0" 0f50c0 "movmskps eax, xmm0"
 test_vector "${PLUGIN}" "MOVMSKPD EAX, XMM0" 660f50c0 "movmskpd eax, xmm0"
-br="x86" test_vector "${PLUGIN}" "VFMSUBPD XMM0, XMM0, XMM0, XMM0" c4e3796dc000 "vfmsubpd xmm0, xmm0, xmm0, xmm0" $br
-br="x86" test_vector "${PLUGIN}" "VFMSUBPS XMM0, XMM0, XMM0, XMM0" c4e3796cc000 "vfmsubps xmm0, xmm0, xmm0, xmm0" $br
-br="x86" test_vector "${PLUGIN}" "VFMSUBSD XMM0, XMM0, XMM0, XMM0" c4e3796fc000 "vfmsubsd xmm0, xmm0, xmm0, xmm0" $br
-br="x86" test_vector "${PLUGIN}" "VFMSUBSS XMM0, XMM0, XMM0, XMM0" c4e3796ec000 "vfmsubss xmm0, xmm0, xmm0, xmm0" $br
-br="x86" test_vector "${PLUGIN}" "VFNMADDPD XMM0, XMM0, XMM0, XMM0" c4e37979c000 "vfnmaddpd xmm0, xmm0, xmm0, xmm0" $br
-br="x86" test_vector "${PLUGIN}" "VFNMADDPS XMM0, XMM0, XMM0, XMM0" c4e37978c000 "vfnmaddps xmm0, xmm0, xmm0, xmm0" $br
-br="x86" test_vector "${PLUGIN}" "VFNMADDSD XMM0, XMM0, XMM0, XMM0" c4e3797bc000 "vfnmaddsd xmm0, xmm0, xmm0, xmm0" $br
-br="x86" test_vector "${PLUGIN}" "VFNMADDSS XMM0, XMM0, XMM0, XMM0" c4e3797ac000 "vfnmaddss xmm0, xmm0, xmm0, xmm0" $br
-br="x86" test_vector "${PLUGIN}" "VFNMADDPD YMM0, YMM0, YMM0, YMM0" c4e37d79c000 "vfnmaddpd ymm0, ymm0, ymm0, ymm0" $br
-br="x86" test_vector "${PLUGIN}" "VFNMADDPS YMM0, YMM0, YMM0, YMM0" c4e37d78c000 "vfnmaddps ymm0, ymm0, ymm0, ymm0" $br
-br="x86" test_vector "${PLUGIN}" "VFNMSUBPD XMM0, XMM0, XMM0, XMM0" c4e3797dc000 "vfnmsubpd xmm0, xmm0, xmm0, xmm0" $br
-br="x86" test_vector "${PLUGIN}" "VFNMSUBPS XMM0, XMM0, XMM0, XMM0" c4e3797cc000 "vfnmsubps xmm0, xmm0, xmm0, xmm0" $br
-br="x86" test_vector "${PLUGIN}" "VFNMSUBSD XMM0, XMM0, XMM0, XMM0" c4e3797fc000 "vfnmsubsd xmm0, xmm0, xmm0, xmm0" $br
-br="x86" test_vector "${PLUGIN}" "VFNMSUBSS XMM0, XMM0, XMM0, XMM0" c4e3797ec000 "vfnmsubss xmm0, xmm0, xmm0, xmm0" $br
-br="x86" test_vector "${PLUGIN}" "VFNMSUBPD YMM0, YMM0, YMM0, YMM0" c4e37d7dc000 "vfnmsubpd ymm0, ymm0, ymm0, ymm0" $br
-br="x86" test_vector "${PLUGIN}" "VFNMSUBPS YMM0, YMM0, YMM0, YMM0" c4e37d7cc000 "vfnmsubps ymm0, ymm0, ymm0, ymm0" $br
-br="x86" test_vector "${PLUGIN}" "VFNMSUBSS XMM0, XMM0, XMM0, XMM0" c4e3797ec000 "vfnmsubss xmm0, xmm0, xmm0, xmm0" $br
-br="x86" test_vector "${PLUGIN}" "VFNMSUBSD XMM0, XMM0, XMM0, XMM0" c4e3797fc000 "vfnmsubsd xmm0, xmm0, xmm0, xmm0" $br
+test_vector "${PLUGIN}" "VFMSUBPD XMM0, XMM0, XMM0, XMM0" c4e3796dc000 "vfmsubpd xmm0, xmm0, xmm0, xmm0" "br"
+test_vector "${PLUGIN}" "VFMSUBPS XMM0, XMM0, XMM0, XMM0" c4e3796cc000 "vfmsubps xmm0, xmm0, xmm0, xmm0" "br"
+test_vector "${PLUGIN}" "VFMSUBSD XMM0, XMM0, XMM0, XMM0" c4e3796fc000 "vfmsubsd xmm0, xmm0, xmm0, xmm0" "br"
+test_vector "${PLUGIN}" "VFMSUBSS XMM0, XMM0, XMM0, XMM0" c4e3796ec000 "vfmsubss xmm0, xmm0, xmm0, xmm0" "br"
+test_vector "${PLUGIN}" "VFNMADDPD XMM0, XMM0, XMM0, XMM0" c4e37979c000 "vfnmaddpd xmm0, xmm0, xmm0, xmm0" "br"
+test_vector "${PLUGIN}" "VFNMADDPS XMM0, XMM0, XMM0, XMM0" c4e37978c000 "vfnmaddps xmm0, xmm0, xmm0, xmm0" "br"
+test_vector "${PLUGIN}" "VFNMADDSD XMM0, XMM0, XMM0, XMM0" c4e3797bc000 "vfnmaddsd xmm0, xmm0, xmm0, xmm0" "br"
+test_vector "${PLUGIN}" "VFNMADDSS XMM0, XMM0, XMM0, XMM0" c4e3797ac000 "vfnmaddss xmm0, xmm0, xmm0, xmm0" "br"
+test_vector "${PLUGIN}" "VFNMADDPD YMM0, YMM0, YMM0, YMM0" c4e37d79c000 "vfnmaddpd ymm0, ymm0, ymm0, ymm0" "br"
+test_vector "${PLUGIN}" "VFNMADDPS YMM0, YMM0, YMM0, YMM0" c4e37d78c000 "vfnmaddps ymm0, ymm0, ymm0, ymm0" "br"
+test_vector "${PLUGIN}" "VFNMSUBPD XMM0, XMM0, XMM0, XMM0" c4e3797dc000 "vfnmsubpd xmm0, xmm0, xmm0, xmm0" "br"
+test_vector "${PLUGIN}" "VFNMSUBPS XMM0, XMM0, XMM0, XMM0" c4e3797cc000 "vfnmsubps xmm0, xmm0, xmm0, xmm0" "br"
+test_vector "${PLUGIN}" "VFNMSUBSD XMM0, XMM0, XMM0, XMM0" c4e3797fc000 "vfnmsubsd xmm0, xmm0, xmm0, xmm0" "br"
+test_vector "${PLUGIN}" "VFNMSUBSS XMM0, XMM0, XMM0, XMM0" c4e3797ec000 "vfnmsubss xmm0, xmm0, xmm0, xmm0" "br"
+test_vector "${PLUGIN}" "VFNMSUBPD YMM0, YMM0, YMM0, YMM0" c4e37d7dc000 "vfnmsubpd ymm0, ymm0, ymm0, ymm0" "br"
+test_vector "${PLUGIN}" "VFNMSUBPS YMM0, YMM0, YMM0, YMM0" c4e37d7cc000 "vfnmsubps ymm0, ymm0, ymm0, ymm0" "br"
+test_vector "${PLUGIN}" "VFNMSUBSS XMM0, XMM0, XMM0, XMM0" c4e3797ec000 "vfnmsubss xmm0, xmm0, xmm0, xmm0" "br"
+test_vector "${PLUGIN}" "VFNMSUBSD XMM0, XMM0, XMM0, XMM0" c4e3797fc000 "vfnmsubsd xmm0, xmm0, xmm0, xmm0" "br"
 test_vector "${PLUGIN}" "MOVSD XMM0, [EAX]" f20f1000 "movsd xmm0, qword [eax]"
 test_vector "${PLUGIN}" "MOVSD [EAX], XMM0" f20f1100 "movsd [eax], xmm0"
 test_vector "${PLUGIN}" "MOVDDUP XMM0, [EAX]" f20f1200 "movddup xmm0, [eax]"
@@ -292,4 +288,3 @@ test_vector "${PLUGIN}" "PSUBQ XMM0, [EAX]" 660ffb00 "psubq xmm0, [eax]"
 test_vector "${PLUGIN}" "PADDB XMM0, [EAX]" 660ffc00 "paddb xmm0, [eax]"
 test_vector "${PLUGIN}" "PADDW XMM0, [EAX]" 660ffd00 "paddw xmm0, [eax]"
 test_vector "${PLUGIN}" "PADDD XMM0, [EAX]" 660ffe00 "paddd xmm0, [eax]"
-done

@@ -19,11 +19,11 @@ af;
 java prototypes m;
 java prototypes f;
 '
-EXPECT='public void <init>(); // @0x02eb
-public static java.lang.String a(java.lang.String); // @0x030a
-private static java.lang.String a(java.lang.String, java.lang.String, java.lang.String); // @0x033b
-private static java.lang.String a(java.lang.String, java.lang.String); // @0x0425
-static void <clinit>(); // @0x04ef
+EXPECT='public void <init> (); // @0x02eb
+public static java.lang.String a (java.lang.String); // @0x030a
+private static java.lang.String a (java.lang.String, java.lang.String, java.lang.String); // @0x033b
+private static java.lang.String a (java.lang.String, java.lang.String); // @0x0425
+static void <clinit> (); // @0x04ef
 private static java.lang.String a; // @0x02d1
 private static java.lang.String b; // @0x02d9
 private static java.lang.String c; // @0x02e1

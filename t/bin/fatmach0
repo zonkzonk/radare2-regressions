@@ -1,0 +1,18 @@
+#!/bin/sh
+# LGPLv3 - Copyright (C) 2014  pancake
+
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+NAME='mach0 archs'
+BROKEN=
+FILE=../../b/files/fatmach0-3true
+ARGS=
+# post-2014-04-18
+CMDS='iA'
+# pre-2014-04-18
+CMDS='!rabin2 -A $FILE | cut -d " " -f1-4'
+EXPECT='000 0x00001000 13792 x86_64
+001 0x00005000 13760 x86_32
+002 0x00009000 13616 ppc_32
+'
+run_test

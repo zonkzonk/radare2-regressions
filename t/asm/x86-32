@@ -44,7 +44,7 @@ e asm.bits=64
 pa mov [rbp+4],0
 pa mov [ebp+4],0
 e asm.bits=32
-#pa mov [rbp+4],0
+# pa mov [rbp+4],0
 pa mov [ebp+4],0
 '
 EXPECT='c7850400000000000000

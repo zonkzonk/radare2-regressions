@@ -7,7 +7,7 @@ CMDS='
 /x 5b
 pi 1 @ hit0_0
 '
-EXPECT='0x08048065 hit0_0 5bb801000000bb2a00
+EXPECT='0x08048065 hit0_0 5b
 pop ebx
 '
 

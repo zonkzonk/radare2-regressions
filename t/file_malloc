@@ -60,6 +60,7 @@ run_test
 NAME='malloc://'
 FILE=malloc://
 ARGS=
+IGNORE_ERR=1
 CMDS='
 '
 EXPECT=

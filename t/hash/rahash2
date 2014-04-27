@@ -1,0 +1,25 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+CMDS='!rahash2 -a all ../../b/files/hello-linux-x86_64'
+BROKEN=1
+EXPECT='../../b/files/hello-linux-x86_64: 0x00000000-0x00001a36 md5: c957bd5bd6204470256bc15248ccafd4
+../../b/files/hello-linux-x86_64: 0x00000000-0x00001a36 sha1: 687c82d13cb27f0600d8e57edc784282c1732f56
+../../b/files/hello-linux-x86_64: 0x00000000-0x00001a36 sha256: 7bdbf25324af1946ec0b16dbf928875a588a786f7c279cd115729c5a3a297a55
+../../b/files/hello-linux-x86_64: 0x00000000-0x00001a36 sha384: a6fed224b0b5892ab44839b5ae6a12e54fb3393b5f1e1ca174fb5a0032c994f1c492c5b3a090518d8a60875223977ba4
+../../b/files/hello-linux-x86_64: 0x00000000-0x00001a36 sha512: 2640b1ff96870fb78a3d8ae6b51595ca86c37e25443b2e8c5441e77d11cdb3830ece8d791561c22788d37d7f22c99cdabf8f798826c0ff441901e6157890fee6
+../../b/files/hello-linux-x86_64: 0x00000000-0x00001a36 crc16: 6cee
+../../b/files/hello-linux-x86_64: 0x00000000-0x00001a36 crc32: b382af65
+../../b/files/hello-linux-x86_64: 0x00000000-0x00001a36 md4: d4d61472a12d59be3a85e07ff9065658
+../../b/files/hello-linux-x86_64: 0x00000000-0x00001a36 xor: d1
+../../b/files/hello-linux-x86_64: 0x00000000-0x00001a36 xorpair: b7
+../../b/files/hello-linux-x86_64: 0x00000000-0x00001a36 parity: 00
+../../b/files/hello-linux-x86_64: 0x00000000-0x00001a36 entropy: 03661472
+../../b/files/hello-linux-x86_64: 0x00000000-0x00001a36 hamdist: 01
+../../b/files/hello-linux-x86_64: 0x00000000-0x00001a36 pcprint: 13
+../../b/files/hello-linux-x86_64: 0x00000000-0x00001a36 mod255: 4e
+../../b/files/hello-linux-x86_64: 0x00000000-0x00001a36 xxhash: c16e756e
+../../b/files/hello-linux-x86_64: 0x00000000-0x00001a36 adler32: 453441ad
+'
+
+run_test

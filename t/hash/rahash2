@@ -1,6 +1,7 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
+NAME='rahash2 -a all'
 CMDS='!rahash2 -a all ../../b/files/hello-linux-x86_64'
 BROKEN=1
 EXPECT='../../b/files/hello-linux-x86_64: 0x00000000-0x00001a36 md5: c957bd5bd6204470256bc15248ccafd4

@@ -54,7 +54,7 @@ addr=0x1f44 off=0x00001f44 baddr=0x00000000
 '
 run_test
 
-NAME='mach0 entry2'
+NAME='fatmach0 entry2'
 BROKEN=
 FILE=../../b/files/fatmach0-3true
 ARGS='-a ppc -b 32'
@@ -72,5 +72,16 @@ CMDS='iA'
 # pre-2014-04-18
 #CMDS='!rabin2 -A $FILE | cut -d " " -f1-4'
 EXPECT='000 0x00000000 8496 x86_64
+'
+run_test
+
+NAME='fatmach0 extract'
+BROKEN=
+FILE=../../b/files/fatmach0-3true
+ARGS=-n
+CMDS="!rabin2 -x ${FILE};!rm -rf fatmach0-3true.fat"
+EXPECT='fatmach0-3true.fat/fatmach0-3true.x86_64.0 created (13792)
+fatmach0-3true.fat/fatmach0-3true.x86_32.1 created (13760)
+fatmach0-3true.fat/fatmach0-3true.ppc_32.2 created (13616)
 '
 run_test

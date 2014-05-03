@@ -3,7 +3,7 @@
 
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
-NAME='mach0 archs'
+NAME='fatmach0 archs'
 BROKEN=
 FILE=../../b/files/fatmach0-3true
 ARGS=
@@ -17,7 +17,7 @@ EXPECT='000 0x00001000 13792 x86_64 x86 64 all
 '
 run_test
 
-NAME='mach0 entry0'
+NAME='fatmach0 entry0'
 BROKEN=
 FILE=../../b/files/fatmach0-3true
 ARGS='-a x86 -b 64'
@@ -26,7 +26,7 @@ EXPECT='0x100000ef8
 '
 run_test
 
-NAME='mach0 entry1'
+NAME='fatmach0 entry1'
 BROKEN=
 FILE=../../b/files/fatmach0-3true
 ARGS='-a x86 -b 32'
@@ -35,7 +35,7 @@ EXPECT='0x1f44
 '
 run_test
 
-NAME='mach0 entry1 rabin2'
+NAME='fatmach0 entry1 rabin2'
 BROKEN=
 FILE=../../b/files/fatmach0-3true
 ARGS='-n'
@@ -44,7 +44,7 @@ EXPECT='0x1f44
 '
 run_test
 
-NAME='mach0 entry1 rabin2 (2)'
+NAME='fatmach0 entry1 rabin2 (2)'
 BROKEN=
 FILE=../../b/files/fatmach0-3true
 ARGS='-n'
@@ -63,7 +63,7 @@ EXPECT='0x28
 '
 run_test
 
-NAME='mach0 archs'
+NAME='fatmach0 archs'
 BROKEN=
 FILE=../../b/files/mach0-x86-64
 ARGS=

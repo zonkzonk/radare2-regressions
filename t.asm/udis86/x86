@@ -4,7 +4,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh; done
 test_vector() {
 NAME="${1}: [${2}]"
 FILE=malloc://32
-if [ "${5}" == "br" ]; then
+if [ "${5}" = "br" ]; then
 	BROKEN=1
 fi
 CMDS='

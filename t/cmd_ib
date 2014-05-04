@@ -28,7 +28,7 @@ class	0x3200 0x0000
 lang	java
 arch	java
 bits	32
-machine	Java VM
+machine	java
 os	any
 subsys	any
 endian	little
@@ -40,7 +40,7 @@ relocs	false
 rpath	NONE
 type	JAVA CLASS
 os	any
-arch	Java VM
+arch	java
 bits	32
 endian	little
 file	malloc://1024

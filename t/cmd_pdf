@@ -15,7 +15,7 @@ EXPECT='/ (fcn) sym.Conditionals.check_if 58
 |          0x000001cc    100a         bipush 10
 |          0x000001ce    60           iadd
 |          0x000001cf    1014         bipush 20
-|      ,=< 0x000001d1    a0000b       if_icmpne 0x01dc
+|      ,=< 0x000001d1    a0000b       if_icmpne 0x01dc ; (sym.Conditionals.check_if)
 |      |   0x000001d4    b20010       getstatic java/lang/System/out Ljava/io/PrintStream;
 |      |   0x000001d7    1216         ldc "X is 20"
 |      |   0x000001d9    b60018       invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
@@ -25,7 +25,7 @@ EXPECT='/ (fcn) sym.Conditionals.check_if 58
 |          0x000001e0    100a         bipush 10
 |          0x000001e2    60           iadd
 |          0x000001e3    1014         bipush 20
-|     ,==< 0x000001e5    a0000b       if_icmpne 0x01f0
+|     ,==< 0x000001e5    a0000b       if_icmpne 0x01f0 ; (sym.Conditionals.check_if)
 |     |    0x000001e8    b20010       getstatic java/lang/System/out Ljava/io/PrintStream;
 |     |    0x000001eb    1216         ldc "X is 20"
 |     |    0x000001ed    b60018       invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
@@ -35,7 +35,7 @@ EXPECT='/ (fcn) sym.Conditionals.check_if 58
 |          0x000001f4    100a         bipush 10
 |          0x000001f6    60           iadd
 |          0x000001f7    1014         bipush 20
-|    ,===< 0x000001f9    a0000b       if_icmpne 0x0204
+|    ,===< 0x000001f9    a0000b       if_icmpne 0x0204 ; (sym.Conditionals.check_if)
 |    |     0x000001fc    b20010       getstatic java/lang/System/out Ljava/io/PrintStream;
 |    |     0x000001ff    1216         ldc "X is 20"
 |    |     0x00000201    b60018       invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V

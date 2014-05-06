@@ -1,23 +1,32 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
+# Search r2 in path
+IFS=:
+for A in ${PATH} ; do
+	if [ -x "$A/r2" ] ; then
+		r2_path=$A/r2
+		break
+	fi
+done
+
 NAME="stdin eof"
 # Seems broken on some platforms.. strange
 BROKEN=1
-SHELLCMD='echo | rarun2 timeout=1 program="/usr/bin/r2" arg1=-nq arg2=-'
+SHELLCMD='echo | rarun2 timeout=1 program="$r2_path" arg1=-nq arg2=-'
 EXITCODE=0
 run_test
 
 NAME="stdin quit"
 # fails in jenkins only?
 BROKEN=
-SHELLCMD='echo q | rarun2 timeout=1 program="/usr/bin/r2" arg1=-nq arg2=-'
+SHELLCMD='echo q | rarun2 timeout=1 program="$r2_path" arg1=-nq arg2=-'
 EXITCODE=0
 run_test
 
 NAME="stdin quit"
 # fails in jenkins only?
 BROKEN=
-SHELLCMD='echo q 2 | rarun2 timeout=1 program="/usr/bin/r2" arg1=-nq arg2=-'
+SHELLCMD='echo q 2 | rarun2 timeout=1 program="$r2_path" arg1=-nq arg2=-'
 EXITCODE=2
 run_test

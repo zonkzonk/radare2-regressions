@@ -48,7 +48,7 @@ test_blne_wrapping
 test_vector "${PLUGIN}" "BXEQ lr" 1eff2f01 "bxeq lr"
 test_vector "${PLUGIN}" "BXNE lr" 1eff2f11 "bxne lr"
 test_vector "${PLUGIN}" "CLZNE r5, sl" 1a5f6f11 "clzne r5, sl"
-test_vector "${PLUGIN}" "CMPEQ sl, r4" 40005a01 "cmpeq sl, r4"
+test_vector "${PLUGIN}" "CMPEQ sl, r4" 40005a01 "cmpeq sl, r4" "br"
 test_vector "${PLUGIN}" "CMPNE r7, r6" 06005711 "cmpne r7, r6"
 test_vector "${PLUGIN}" "EOREQ r2, r2, 1" 01202202 "eoreq r2, r2, 1"
 test_vector "${PLUGIN}" "EORNE r0, r0, r3" 03002010 "eorne r0, r0, r3"

@@ -1,0 +1,14 @@
+#!/bin/sh
+
+[ -e tests.sh ] && . ./tests.sh || . ../tests.sh
+
+
+NAME='pm hello.c'
+FILE=../b/files/hello.c
+CMDS='
+pm
+'
+EXPECT='0x00000000 1 ISO-8859 C program text
+'
+
+run_test

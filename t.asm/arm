@@ -4,14 +4,9 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 test_vector() {
 NAME="${1}: [${2}]"
 FILE=malloc://32
-IFS=$','
-for i in ${5}; do
-	echo i $i; echo 5 $5
-	if [ "${i}" == "${1}" ]; then
+if [ "${5}" = "br" ]; then
 		BROKEN=1
 	fi
-done
-unset IFS
 CMDS='
 e asm.arch='${1}'
 e asm.bits=32
@@ -28,7 +23,7 @@ test_blne_wrapping()
 NAME="${PLUGIN}: [BLNE 0x1900 @ 0xFF7A46EC]"
 FILE=malloc://32
 BROKEN=1
-CMDS="!rasm2 -a arm -b 32 -o 0xFF7A46EC -d 8374211b"
+CMDS="!rasm2 -a ${PLUGIN} -b 32 -o 0xFF7A46EC -d 8374211b"
 EXPECT="blne 0x00001900
 "
 run_test

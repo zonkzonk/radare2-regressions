@@ -4,14 +4,9 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 test_vector() {
 NAME="${1}: [${2}]"
 FILE=malloc://32
-IFS=$','
-for i in ${5}; do
-	echo i $i; echo 5 $5
-	if [ "${i}" == "${1}" ]; then
-		BROKEN=1
-	fi
-done
-unset IFS
+if [ "${5}" = "br" ]; then
+	BROKEN=1
+fi
 CMDS='
 e asm.arch='${1}'
 e asm.bits=32
@@ -108,7 +103,7 @@ test_vector "${PLUGIN}" "STRHNE r1, [r2,r3]" b3108211 "strhne r1, [r2, r3]"
 test_vector "${PLUGIN}" "SUBEQ ip, r0, 32" 20c04002 "subeq ip, r0, 32"
 test_vector "${PLUGIN}" "SUBNE r6, r3, r6, asr 1" c6604310 "subne r6, r3, r6, asr 1"
 test_vector "${PLUGIN}" "SUBNE r5, r5, r3" 03504510 "subne r5, r5, r3"
-test_vector "${PLUGIN}" "SVCEQ 0x00000000" 0000000f "svceq 0x00000000"
+test_vector "${PLUGIN}" "SVCEQ 0" 0000000f "svceq 0"
 test_vector "${PLUGIN}" "UMLALNE r4, r5, r3, r7" 9347a510 "umlalne r4, r5, r3, r7"
 test_vector "${PLUGIN}" "UXTBEQ r1, r0" 7010ef06 "uxtbeq r1, r0"
 test_vector "${PLUGIN}" "UXTHEQ r0, r0" 7000ff06 "uxtheq r0, r0"

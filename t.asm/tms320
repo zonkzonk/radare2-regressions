@@ -194,3 +194,12 @@ tms320_c55x_test	"ASUB"		14000a		"ASUB AC0, AC0"		# ?
 tms320_c55x_test	"AADD"		14110c		"AADD 0x11, AC0"	# ?
 tms320_c55x_test	"AMOV"		14220d		"AMOV 0x22, AC0"	# ?
 tms320_c55x_test	"ASUB"		14330e		"ASUB 0x33, AC0"	# ?
+
+# AAAD/AMOV/ASUB + [XACsrc,XACdst] test
+
+tms320_c55x_test	"AADD"		1481d0		"AADD XAR0, XAR5"
+tms320_c55x_test	"AMOV"		1491c1		"AMOV XAR1, XAR4"
+tms320_c55x_test	"ASUB"		14a1b2		"ASUB XAR2, XAR3"
+tms320_c55x_test	"AADD"		14b1a8		"AADD XAR3, XAR2"
+tms320_c55x_test	"AMOV"		14c199		"AMOV XAR4, XAR1"
+tms320_c55x_test	"ASUB"		14d18a		"ASUB XAR5, XAR0"

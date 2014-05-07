@@ -203,3 +203,19 @@ tms320_c55x_test	"ASUB"		14a1b2		"ASUB XAR2, XAR3"
 tms320_c55x_test	"AADD"		14b1a8		"AADD XAR3, XAR2"
 tms320_c55x_test	"AMOV"		14c199		"AMOV XAR4, XAR1"
 tms320_c55x_test	"ASUB"		14d18a		"ASUB XAR5, XAR0"
+
+# MOV + [k7,k9,k12] test
+
+tms320_c55x_test	"MOV"		1601a0		"MOV 0x1A, DPH"		# k7
+tms320_c55x_test	"MOV"		160250		"MOV 0x25, DPH"		# k7
+tms320_c55x_test	"MOV"		1604a0		"MOV 0x4A, DPH"		# k7
+
+tms320_c55x_test	"MOV"		160af3		"MOV 0x0AF, PDP"	# k9
+tms320_c55x_test	"MOV"		1615f3		"MOV 0x15F, PDP"	# k9
+
+tms320_c55x_test	"MOV"		1606c4		"MOV 0x06C, BK03"	# k12
+tms320_c55x_test	"MOV"		1617d5		"MOV 0x17D, BK47"	# k12
+tms320_c55x_test	"MOV"		1628e6		"MOV 0x28E, BKC"	# k12
+tms320_c55x_test	"MOV"		1639f8		"MOV 0x39F, CSR"	# k12
+tms320_c55x_test	"MOV"		164a09		"MOV 0x4A0, BRC0"	# k12
+tms320_c55x_test	"MOV"		165b1a		"MOV 0x5B1, BRC1"	# k12

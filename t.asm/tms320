@@ -1,0 +1,171 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+tms320_c55x_test() {
+    local BROKEN=
+    local NAME="c55x -- $1"
+    local FILE=malloc://128
+    local CMDS="e asm.arch=tms320
+e asm.cpu=c55x
+e io.va=true
+wx $2
+pi 1
+"
+    local EXPECT="$3
+"
+    run_test
+}
+
+# NOP + [E] test
+
+tms320_c55x_test	"NOP"		20		"NOP"
+tms320_c55x_test	"NOP E"		21		"|| NOP"
+
+# RPTCC + [k8, cond] full test
+
+tms320_c55x_test	"RPTCC"		00000f		"RPTCC 0x0F, AC0 == 0"		# cond = 000 0000 b
+tms320_c55x_test	"RPTCC"		00111e		"RPTCC 0x1E, AC1 != 0"		# cond = 001 0001 b
+tms320_c55x_test	"RPTCC"		00222d		"RPTCC 0x2D, AC2 < 0"		# cond = 010 0010 b
+tms320_c55x_test	"RPTCC"		00333c		"RPTCC 0x3C, AC3 <= 0"		# cond = 011 0011 b
+tms320_c55x_test	"RPTCC"		00444b		"RPTCC 0x4B, T0 > 0"		# cond = 100 0100 b
+tms320_c55x_test	"RPTCC"		00555a		"RPTCC 0x5A, T1 >= 0"		# cond = 101 0101 b
+tms320_c55x_test	"RPTCC"		000669		"RPTCC 0x69, T2 == 0"		# cond = 000 0110 b
+tms320_c55x_test	"RPTCC"		001778		"RPTCC 0x78, T3 != 0"		# cond = 001 0111 b
+tms320_c55x_test	"RPTCC"		002887		"RPTCC 0x87, AR0 < 0"		# cond = 010 1000 b
+tms320_c55x_test	"RPTCC"		003996		"RPTCC 0x96, AR1 <= 0"		# cond = 011 1001 b
+tms320_c55x_test	"RPTCC"		004aa5		"RPTCC 0xA5, AR2 > 0"		# cond = 100 1010 b
+tms320_c55x_test	"RPTCC"		005bb4		"RPTCC 0xB4, AR3 >= 0"		# cond = 101 1011 b
+tms320_c55x_test	"RPTCC"		000cc3		"RPTCC 0xC3, AR4 == 0"		# cond = 000 1100 b
+tms320_c55x_test	"RPTCC"		001dd2		"RPTCC 0xD2, AR5 != 0"		# cond = 001 1101 b
+tms320_c55x_test	"RPTCC"		002ee1		"RPTCC 0xE1, AR6 < 0"		# cond = 010 1110 b
+tms320_c55x_test	"RPTCC"		003ff0		"RPTCC 0xF0, AR7 <= 0"		# cond = 011 1111 b
+
+tms320_c55x_test	"RPTCC"		006011		"RPTCC 0x11, overflow(AC0)"	# cond = 110 0000 b
+tms320_c55x_test	"RPTCC"		007122		"RPTCC 0x22, !overflow(AC1)"	# cond = 111 0001 b
+tms320_c55x_test	"RPTCC"		007233		"RPTCC 0x33, !overflow(AC2)"	# cond = 111 0010 b
+tms320_c55x_test	"RPTCC"		006344		"RPTCC 0x44, overflow(AC3)"	# cond = 110 0011 b
+
+tms320_c55x_test	"RPTCC"		006400		"RPTCC 0x00, TC1"		# cond = 110 0100 b
+tms320_c55x_test	"RPTCC"		006500		"RPTCC 0x00, TC2"		# cond = 110 0101 b
+tms320_c55x_test	"RPTCC"		006600		"RPTCC 0x00, CARRY"		# cond = 110 0110 b
+tms320_c55x_test	"RPTCC"		006800		"RPTCC 0x00, TC1 & TC2"		# cond = 110 1000 b
+tms320_c55x_test	"RPTCC"		006900		"RPTCC 0x00, TC1 & !TC2"	# cond = 110 1001 b
+tms320_c55x_test	"RPTCC"		006a00		"RPTCC 0x00, !TC1 & TC2"	# cond = 110 1010 b
+tms320_c55x_test	"RPTCC"		006b00		"RPTCC 0x00, !TC1 & !TC2"	# cond = 110 1011 b
+tms320_c55x_test	"RPTCC"		007400		"RPTCC 0x00, !TC1"		# cond = 111 0100 b
+tms320_c55x_test	"RPTCC"		007500		"RPTCC 0x00, !TC2"		# cond = 111 0101 b
+tms320_c55x_test	"RPTCC"		007600		"RPTCC 0x00, !CARRY"		# cond = 111 0110 b
+
+tms320_c55x_test	"RPTCC"		007800		"RPTCC 0x00, TC1 | TC2"		# cond = 111 1000 b
+tms320_c55x_test	"RPTCC"		007900		"RPTCC 0x00, TC1 | !TC2"	# cond = 111 1001 b
+tms320_c55x_test	"RPTCC"		007a00		"RPTCC 0x00, !TC1 | TC2"	# cond = 111 1010 b
+tms320_c55x_test	"RPTCC"		007b00		"RPTCC 0x00, !TC1 | !TC2"	# cond = 111 1011 b
+tms320_c55x_test	"RPTCC"		007c00		"RPTCC 0x00, TC1 ^ TC2"		# cond = 111 1100 b
+tms320_c55x_test	"RPTCC"		007d00		"RPTCC 0x00, TC1 ^ !TC2"	# cond = 111 1101 b
+tms320_c55x_test	"RPTCC"		007e00		"RPTCC 0x00, !TC1 ^ TC2"	# cond = 111 1110 b
+tms320_c55x_test	"RPTCC"		007f00		"RPTCC 0x00, !TC1 ^ !TC2"	# cond = 111 1111 b
+
+# RETCC
+
+tms320_c55x_test	"RETCC"		020000		"RETCC AC0 == 0"
+
+# BCC + [L8] full test
+
+tms320_c55x_test	"BCC"		040030		"BCC 0x30, AC0 == 0"		# L8 = 0x30
+tms320_c55x_test	"BCC"		040021		"BCC 0x21, AC0 == 0"		# L8 = 0x21
+tms320_c55x_test	"BCC"		040012		"BCC 0x12, AC0 == 0"		# L8 = 0x12
+tms320_c55x_test	"BCC"		040003		"BCC 0x03, AC0 == 0"		# L8 = 0x03
+
+# B + [L16] full test
+
+tms320_c55x_test	"B"		063012		"B 0x3012"			# L16 = 0x3012
+tms320_c55x_test	"B"		062301		"B 0x2301"			# L16 = 0x2301
+tms320_c55x_test	"B"		061230		"B 0x1230"			# L16 = 0x1230
+tms320_c55x_test	"B"		060123		"B 0x0123"			# L16 = 0x0123
+
+# CALL
+
+tms320_c55x_test	"CALL"		08dead		"CALL 0xDEAD"			# L16 = 0xDEAD
+
+# RPT + [k16] test
+
+tms320_c55x_test	"RPT"		0cdead		"RPT 0xDEAD"			# k16 = 0xDEAD
+
+# RPTB + [pmad] test
+
+tms320_c55x_test	"RPTB"		0edead		"RPTB 0xDEAD"			# pmad = 0xDEAD
+
+# AND/OR/XOR/ADD/SUB/SFTS/SFTSC/SFTL + [DDSS, xxSHIFTW] full test
+
+tms320_c55x_test	"AND"		100000		"AND AC0 << 0x00"		# DDSS = 0000 b
+tms320_c55x_test	"OR"		101111		"OR AC1 << 0x11, AC0"		# DDSS = 0001 b
+tms320_c55x_test	"XOR"		102222		"XOR AC2 << 0x22, AC0"		# DDSS = 0010 b
+tms320_c55x_test	"ADD"		103333		"ADD AC3 << 0x33, AC0"		# DDSS = 0011 b
+tms320_c55x_test	"SUB"		104444		"SUB AC0 << 0x04, AC1"		# DDSS = 0100 b
+tms320_c55x_test	"SFTS"		105555		"SFTS AC1, 0x15"		# DDSS = 0101 b
+tms320_c55x_test	"SFTSC"		106666		"SFTSC AC2, 0x26, AC1"		# DDSS = 0110 b
+tms320_c55x_test	"SFTL"		107777		"SFTL AC3, 0x37, AC1"		# DDSS = 0111 b
+
+tms320_c55x_test	"AND"		108088		"AND AC0 << 0x08, AC2"		# DDSS = 1000 b
+tms320_c55x_test	"OR"		109199		"OR AC1 << 0x19, AC2"		# DDSS = 1001 b
+tms320_c55x_test	"XOR"		10a2aa		"XOR AC2 << 0x2A"		# DDSS = 1010 b
+tms320_c55x_test	"ADD"		10b3bb		"ADD AC3 << 0x3B, AC2"		# DDSS = 1011 b
+tms320_c55x_test	"SUB"		10c4cc		"SUB AC0 << 0x0C, AC3"		# DDSS = 1100 b
+tms320_c55x_test	"SFTS"		10d5dd		"SFTS AC1, 0x1D, AC3"		# DDSS = 1101 b
+tms320_c55x_test	"SFTSC"		10e6ee		"SFTSC AC2, 0x2E, AC3"		# DDSS = 1110 b
+tms320_c55x_test	"SFTL"		10f7ff		"SFTL AC3, 0x3F"		# DDSS = 1111 b
+
+# EXP + [SS,dd] full test
+
+tms320_c55x_test	"EXP"		103800		"EXP AC3, T0"			# SS = 11 b, dd = 00
+tms320_c55x_test	"EXP"		102810		"EXP AC2, T1"			# SS = 10 b, dd = 01
+tms320_c55x_test	"EXP"		101820		"EXP AC1, T2"			# SS = 01 b, dd = 10
+tms320_c55x_test	"EXP"		100830		"EXP AC0, T3"			# SS = 00 b, dd = 11
+
+# MANT :: NEXP
+
+tms320_c55x_test	"MANT::NEXP"	109930		"MANT AC1, AC2 :: NEXP AC1, T3"
+
+# BCNT + [SS,SS,dd,t] full test
+
+tms320_c55x_test	"BCNT"		100ac0		"BCNT AC0, AC3, TC1, T0"
+tms320_c55x_test	"BCNT"		101a80		"BCNT AC1, AC2, TC1, T0"
+tms320_c55x_test	"BCNT"		102a50		"BCNT AC2, AC1, TC1, T1"
+tms320_c55x_test	"BCNT"		103a10		"BCNT AC3, AC0, TC1, T1"
+
+tms320_c55x_test	"BCNT"		100ae1		"BCNT AC0, AC3, TC2, T2"
+tms320_c55x_test	"BCNT"		101aa1		"BCNT AC1, AC2, TC2, T2"
+tms320_c55x_test	"BCNT"		102a71		"BCNT AC2, AC1, TC2, T3"
+tms320_c55x_test	"BCNT"		103a31		"BCNT AC3, AC0, TC2, T3"
+
+# MAXDIFF [DD,SS,SS,DD] test
+
+tms320_c55x_test	"MAXDIFF"	108c70		"MAXDIFF AC0, AC1, AC2, AC3"
+
+# DMAXDIFF [DD,SS,SS,DD,r] test
+
+tms320_c55x_test	"DMAXDIFF"	108d70		"DMAXDIFF AC0, AC1, AC2, AC3, TRN0"
+tms320_c55x_test	"DMAXDIFF"	108d71		"DMAXDIFF AC0, AC1, AC2, AC3, TRN1"
+
+# MINDIFF [DD,SS,SS,DD] test
+
+tms320_c55x_test	"MINDIFF"	107e80		"MINDIFF AC3, AC2, AC1, AC0"
+
+# DMINDIFF [DD,SS,SS,DD,r] test
+
+tms320_c55x_test	"DMINDIFF"	107f80		"DMINDIFF AC3, AC2, AC1, AC0, TRN0"
+tms320_c55x_test	"DMINDIFF"	107f81		"DMINDIFF AC3, AC2, AC1, AC0, TRN1"
+
+# CMP/CMPAND/CMPOR [FSSS,FDDD,cc,tt,t,u] full test
+
+tms320_c55x_test	"CMP"		1200a0		"CMP AC0 == AR2, TC1"
+tms320_c55x_test	"CMPAND"	1211b1		"CMPAND AC1 == AR3, TC1, TC2"
+tms320_c55x_test	"CMPAND"	1221c9		"CMPAND AC2 == AR4, !TC1, TC2"
+tms320_c55x_test	"CMPOR"		1232d2		"CMPOR AC3 == AR5, TC2, TC1"
+tms320_c55x_test	"CMPOR"		1242ea		"CMPOR T0 == AR6, !TC2, TC1"
+
+tms320_c55x_test	"CMPU"		1250f5		"CMPU T1 == AR7, TC2"
+tms320_c55x_test	"CMPANDU"	126106		"CMPANDU T2 == AC0, TC2, TC1"
+tms320_c55x_test	"CMPANDU"	12711e		"CMPANDU T3 == AC1, !TC2, TC1"
+tms320_c55x_test	"CMPORU"	128225		"CMPORU AR0 == AC2, TC1, TC2"
+tms320_c55x_test	"CMPORU"	12923d		"CMPORU AR1 == AC3, !TC1, TC2"

@@ -169,3 +169,10 @@ tms320_c55x_test	"CMPANDU"	126106		"CMPANDU T2 == AC0, TC2, TC1"
 tms320_c55x_test	"CMPANDU"	12711e		"CMPANDU T3 == AC1, !TC2, TC1"
 tms320_c55x_test	"CMPORU"	128225		"CMPORU AR0 == AC2, TC1, TC2"
 tms320_c55x_test	"CMPORU"	12923d		"CMPORU AR1 == AC3, !TC1, TC2"
+
+# ROL/ROR + [BitIn,BitOut] full test
+
+tms320_c55x_test	"ROL"		120330		"ROL CARRY, AC0, CARRY, AC3"
+tms320_c55x_test	"ROL"		121321		"ROL TC2, AC1, CARRY, AC2"
+tms320_c55x_test	"ROR"		12231a		"ROR TC2, AC2, CARRY, AC1"
+tms320_c55x_test	"ROR"		12330b		"ROR TC2, AC3, TC2, AC0"

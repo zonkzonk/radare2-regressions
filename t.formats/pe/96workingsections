@@ -1,0 +1,124 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+BROKEN=1
+IGNORE_ERR=
+NAME='PE: corkami 96workingsections.exe - entrypoint'
+FILE=../../b/files/pe/96workingsections.exe
+CMDS='
+s
+'
+EXPECT='0x00401000
+'
+EXPECT_ERR=''
+
+run_test
+
+NAME='PE: corkami 96workingsections.exe - section list'
+BROKEN=1
+FILE=../../b/files/pe/96workingsections.exe
+ARGS='-n'
+CMDS="!rabin2 -S ${FILE}"
+EXPECT='[Sections]
+idx=00 addr=0x00001200 off=0x00001200 sz=512 vsz=512 perm=--wx name=
+idx=01 addr=0x00001400 off=0x00001400 sz=512 vsz=512 perm=--wx name=
+idx=02 addr=0x00001600 off=0x00001600 sz=512 vsz=512 perm=--wx name=
+idx=03 addr=0x00001800 off=0x00001800 sz=512 vsz=512 perm=--wx name=
+idx=04 addr=0x00001a00 off=0x00001a00 sz=512 vsz=512 perm=--wx name=
+idx=05 addr=0x00001c00 off=0x00001c00 sz=512 vsz=512 perm=--wx name=
+idx=06 addr=0x00001e00 off=0x00001e00 sz=512 vsz=512 perm=--wx name=
+idx=07 addr=0x00002000 off=0x00002000 sz=512 vsz=512 perm=--wx name=
+idx=08 addr=0x00002200 off=0x00002200 sz=512 vsz=512 perm=--wx name=
+idx=09 addr=0x00002400 off=0x00002400 sz=512 vsz=512 perm=--wx name=
+idx=10 addr=0x00002600 off=0x00002600 sz=512 vsz=512 perm=--wx name=
+idx=11 addr=0x00002800 off=0x00002800 sz=512 vsz=512 perm=--wx name=
+idx=12 addr=0x00002a00 off=0x00002a00 sz=512 vsz=512 perm=--wx name=
+idx=13 addr=0x00002c00 off=0x00002c00 sz=512 vsz=512 perm=--wx name=
+idx=14 addr=0x00002e00 off=0x00002e00 sz=512 vsz=512 perm=--wx name=
+idx=15 addr=0x00003000 off=0x00003000 sz=512 vsz=512 perm=--wx name=
+idx=16 addr=0x00003200 off=0x00003200 sz=512 vsz=512 perm=--wx name=
+idx=17 addr=0x00003400 off=0x00003400 sz=512 vsz=512 perm=--wx name=
+idx=18 addr=0x00003600 off=0x00003600 sz=512 vsz=512 perm=--wx name=
+idx=19 addr=0x00003800 off=0x00003800 sz=512 vsz=512 perm=--wx name=
+idx=20 addr=0x00003a00 off=0x00003a00 sz=512 vsz=512 perm=--wx name=
+idx=21 addr=0x00003c00 off=0x00003c00 sz=512 vsz=512 perm=--wx name=
+idx=22 addr=0x00003e00 off=0x00003e00 sz=512 vsz=512 perm=--wx name=
+idx=23 addr=0x00004000 off=0x00004000 sz=512 vsz=512 perm=--wx name=
+idx=24 addr=0x00004200 off=0x00004200 sz=512 vsz=512 perm=--wx name=
+idx=25 addr=0x00004400 off=0x00004400 sz=512 vsz=512 perm=--wx name=
+idx=26 addr=0x00004600 off=0x00004600 sz=512 vsz=512 perm=--wx name=
+idx=27 addr=0x00004800 off=0x00004800 sz=512 vsz=512 perm=--wx name=
+idx=28 addr=0x00004a00 off=0x00004a00 sz=512 vsz=512 perm=--wx name=
+idx=29 addr=0x00004c00 off=0x00004c00 sz=512 vsz=512 perm=--wx name=
+idx=30 addr=0x00004e00 off=0x00004e00 sz=512 vsz=512 perm=--wx name=
+idx=31 addr=0x00005000 off=0x00005000 sz=512 vsz=512 perm=--wx name=
+idx=32 addr=0x00005200 off=0x00005200 sz=512 vsz=512 perm=--wx name=
+idx=33 addr=0x00005400 off=0x00005400 sz=512 vsz=512 perm=--wx name=
+idx=34 addr=0x00005600 off=0x00005600 sz=512 vsz=512 perm=--wx name=
+idx=35 addr=0x00005800 off=0x00005800 sz=512 vsz=512 perm=--wx name=
+idx=36 addr=0x00005a00 off=0x00005a00 sz=512 vsz=512 perm=--wx name=
+idx=37 addr=0x00005c00 off=0x00005c00 sz=512 vsz=512 perm=--wx name=
+idx=38 addr=0x00005e00 off=0x00005e00 sz=512 vsz=512 perm=--wx name=
+idx=39 addr=0x00006000 off=0x00006000 sz=512 vsz=512 perm=--wx name=
+idx=40 addr=0x00006200 off=0x00006200 sz=512 vsz=512 perm=--wx name=
+idx=41 addr=0x00006400 off=0x00006400 sz=512 vsz=512 perm=--wx name=
+idx=42 addr=0x00006600 off=0x00006600 sz=512 vsz=512 perm=--wx name=
+idx=43 addr=0x00006800 off=0x00006800 sz=512 vsz=512 perm=--wx name=
+idx=44 addr=0x00006a00 off=0x00006a00 sz=512 vsz=512 perm=--wx name=
+idx=45 addr=0x00006c00 off=0x00006c00 sz=512 vsz=512 perm=--wx name=
+idx=46 addr=0x00006e00 off=0x00006e00 sz=512 vsz=512 perm=--wx name=
+idx=47 addr=0x00007000 off=0x00007000 sz=512 vsz=512 perm=--wx name=
+idx=48 addr=0x00007200 off=0x00007200 sz=512 vsz=512 perm=--wx name=
+idx=49 addr=0x00007400 off=0x00007400 sz=512 vsz=512 perm=--wx name=
+idx=50 addr=0x00007600 off=0x00007600 sz=512 vsz=512 perm=--wx name=
+idx=51 addr=0x00007800 off=0x00007800 sz=512 vsz=512 perm=--wx name=
+idx=52 addr=0x00007a00 off=0x00007a00 sz=512 vsz=512 perm=--wx name=
+idx=53 addr=0x00007c00 off=0x00007c00 sz=512 vsz=512 perm=--wx name=
+idx=54 addr=0x00007e00 off=0x00007e00 sz=512 vsz=512 perm=--wx name=
+idx=55 addr=0x00008000 off=0x00008000 sz=512 vsz=512 perm=--wx name=
+idx=56 addr=0x00008200 off=0x00008200 sz=512 vsz=512 perm=--wx name=
+idx=57 addr=0x00008400 off=0x00008400 sz=512 vsz=512 perm=--wx name=
+idx=58 addr=0x00008600 off=0x00008600 sz=512 vsz=512 perm=--wx name=
+idx=59 addr=0x00008800 off=0x00008800 sz=512 vsz=512 perm=--wx name=
+idx=60 addr=0x00008a00 off=0x00008a00 sz=512 vsz=512 perm=--wx name=
+idx=61 addr=0x00008c00 off=0x00008c00 sz=512 vsz=512 perm=--wx name=
+idx=62 addr=0x00008e00 off=0x00008e00 sz=512 vsz=512 perm=--wx name=
+idx=63 addr=0x00009000 off=0x00009000 sz=512 vsz=512 perm=--wx name=
+idx=64 addr=0x00009200 off=0x00009200 sz=512 vsz=512 perm=--wx name=
+idx=65 addr=0x00009400 off=0x00009400 sz=512 vsz=512 perm=--wx name=
+idx=66 addr=0x00009600 off=0x00009600 sz=512 vsz=512 perm=--wx name=
+idx=67 addr=0x00009800 off=0x00009800 sz=512 vsz=512 perm=--wx name=
+idx=68 addr=0x00009a00 off=0x00009a00 sz=512 vsz=512 perm=--wx name=
+idx=69 addr=0x00009c00 off=0x00009c00 sz=512 vsz=512 perm=--wx name=
+idx=70 addr=0x00009e00 off=0x00009e00 sz=512 vsz=512 perm=--wx name=
+idx=71 addr=0x0000a000 off=0x0000a000 sz=512 vsz=512 perm=--wx name=
+idx=72 addr=0x0000a200 off=0x0000a200 sz=512 vsz=512 perm=--wx name=
+idx=73 addr=0x0000a400 off=0x0000a400 sz=512 vsz=512 perm=--wx name=
+idx=74 addr=0x0000a600 off=0x0000a600 sz=512 vsz=512 perm=--wx name=
+idx=75 addr=0x0000a800 off=0x0000a800 sz=512 vsz=512 perm=--wx name=
+idx=76 addr=0x0000aa00 off=0x0000aa00 sz=512 vsz=512 perm=--wx name=
+idx=77 addr=0x0000ac00 off=0x0000ac00 sz=512 vsz=512 perm=--wx name=
+idx=78 addr=0x0000ae00 off=0x0000ae00 sz=512 vsz=512 perm=--wx name=
+idx=79 addr=0x0000b000 off=0x0000b000 sz=512 vsz=512 perm=--wx name=
+idx=80 addr=0x0000b200 off=0x0000b200 sz=512 vsz=512 perm=--wx name=
+idx=81 addr=0x0000b400 off=0x0000b400 sz=512 vsz=512 perm=--wx name=
+idx=82 addr=0x0000b600 off=0x0000b600 sz=512 vsz=512 perm=--wx name=
+idx=83 addr=0x0000b800 off=0x0000b800 sz=512 vsz=512 perm=--wx name=
+idx=84 addr=0x0000ba00 off=0x0000ba00 sz=512 vsz=512 perm=--wx name=
+idx=85 addr=0x0000bc00 off=0x0000bc00 sz=512 vsz=512 perm=--wx name=
+idx=86 addr=0x0000be00 off=0x0000be00 sz=512 vsz=512 perm=--wx name=
+idx=87 addr=0x0000c000 off=0x0000c000 sz=512 vsz=512 perm=--wx name=
+idx=88 addr=0x0000c200 off=0x0000c200 sz=512 vsz=512 perm=--wx name=
+idx=89 addr=0x0000c400 off=0x0000c400 sz=512 vsz=512 perm=--wx name=
+idx=90 addr=0x0000c600 off=0x0000c600 sz=512 vsz=512 perm=--wx name=
+idx=91 addr=0x0000c800 off=0x0000c800 sz=512 vsz=512 perm=--wx name=
+idx=92 addr=0x0000ca00 off=0x0000ca00 sz=512 vsz=512 perm=--wx name=
+idx=93 addr=0x0000cc00 off=0x0000cc00 sz=512 vsz=512 perm=--wx name=
+idx=94 addr=0x0000ce00 off=0x0000ce00 sz=512 vsz=512 perm=--wx name=
+idx=95 addr=0x0000d000 off=0x0000d000 sz=512 vsz=512 perm=--wx name=
+
+96 sections
+'
+run_test
+
+

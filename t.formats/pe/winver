@@ -1,0 +1,33 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+BROKEN=
+IGNORE_ERR=
+NAME='PE: corkami winver.exe - entrypoint'
+FILE=../../b/files/pe/winver.exe
+CMDS='
+s
+'
+EXPECT='0x00401000
+'
+EXPECT_ERR=''
+
+run_test
+
+BROKEN=1
+IGNORE_ERR=
+NAME='PE: corkami winver.exe - linked libraries'
+FILE=../../b/files/pe/winver.exe
+CMDS='
+il
+'
+EXPECT='[Linked libraries]
+KERNEL32.dll
+msvcrt.dll
+
+2 libraries
+
+'
+EXPECT_ERR=''
+
+run_test

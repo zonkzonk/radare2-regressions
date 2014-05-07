@@ -2,12 +2,12 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 BROKEN=
-IGNORE_ERR=1
+IGNORE_ERR=
 FILE=../../b/files/pe.exe
 CMDS='
 s
 '
-EXPECT='0x401000
+EXPECT='0x00401000
 '
 EXPECT_ERR=''
 

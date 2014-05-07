@@ -10,11 +10,17 @@ all:
 	@sh run_tests.sh t2
 	@sh run_tests.sh t.asm
 	@sh run_tests.sh t.archos
+	@sh run_tests.sh t.formats
+	@sh run_tests.sh t.formats/pe
 
 asm:
 	@sh run_tests.sh t.asm
 	@sh run_tests.sh t.asm/udis86
 	@sh run_tests.sh t.asm/capstone
+
+formats:
+	@sh run_tests.sh t.formats
+	@sh run_tests.sh t.formats/pe
 
 udis86:
 	@sh run_tests.sh t.asm/udis86

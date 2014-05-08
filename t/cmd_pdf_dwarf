@@ -20,22 +20,22 @@ EXPECT='|          ; DATA XREF from 0x0040045d (fcn.00400436)
 |          0x00400531    4883ec20     sub rsp, 0x20
 |          0x00400535    897dec       mov [rbp-0x14], edi
 |          0x00400538    488975e0     mov [rbp-0x20], rsi
-|          0x0040053c    c745fc00000. mov dword [rbp-0x4], 0x0  ; main.c:6     for (i = 0; i < 10; i++) {  
+|          0x0040053c    c745fc00000. mov dword [rbp-0x4], 0x0  ; main.c:6 	for (i = 0; i < 10; i++) {  
 |      ,=< 0x00400543    eb18         jmp 0x40055d ; (fcn.004004fc)
 |      |   ; JMP XREF from 0x00400561 (fcn.004004fc)
 |- loc.00400545 37
-|      |   0x00400545    8b45fc       mov eax, [rbp-0x4]  ; main.c:7           printf("This is a dwarf test %d\n", i);
+|      |   0x00400545    8b45fc       mov eax, [rbp-0x4]  ; main.c:7 		printf("This is a dwarf test %d\n", i);  
 |- fcn.0040055d 34
 |      |   0x00400548    89c6         mov esi, eax
 |      |   0x0040054a    bff4054000   mov edi, str.Thisisadwarftest_d ;  0x004005f4 
 |      |   0x0040054f    b800000000   mov eax, 0x0
 |      |   0x00400554    e8b7feffff   call sym.imp.printf
 |      |      sym.imp.printf(unk)
-|      |   0x00400559    8345fc01     add dword [rbp-0x4], 0x1  ; main.c:6     for (i = 0; i < 10; i++) {  
+|      |   0x00400559    8345fc01     add dword [rbp-0x4], 0x1  ; main.c:6 	for (i = 0; i < 10; i++) {  
 |      |   ; JMP XREF from 0x00400543 (fcn.004004fc)
 |      `-> 0x0040055d    837dfc09     cmp dword [rbp-0x4], 0x9
 |          0x00400561    7ee2         jle loc.00400545
-|          0x00400563    b800000000   mov eax, 0x0  ; main.c:10        return 0;
+|          0x00400563    b800000000   mov eax, 0x0  ; main.c:10 	return 0;  
 |          0x00400568    c9           leave  ; main.c:11 }  
 \          0x00400569    c3           ret
 '

@@ -34,6 +34,7 @@ FILE=$F
 ARGS=
 CMDS='pd 1@0x0040131a~str.Hello
 '
-EXPECT='           0x0040131a    c7042400304. mov dword [esp], str.Hello ;  0x00403000 
+
+EXPECT='           0x0040131a    c7042400304. mov dword [esp], str.Hello ; "0@" ;  0x00403000 
 '
 run_test

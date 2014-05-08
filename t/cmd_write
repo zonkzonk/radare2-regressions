@@ -52,3 +52,23 @@ EXPECT='0102030405060708
 0203040506070809
 '
 run_test
+
+
+## "wt" - write to file
+
+# see bug #503
+NAME='wt'
+FILE=../b/files/b.exe
+ARGS=
+CMDS='wt a_piece_of_ls_saved_to_PWD 0x400
+!ls -l a_piece_of_ls_saved_to_PWD
+'
+EXPECT='1024 a_piece_of_ls_saved_to_PWD
+'
+EXPECT_ERR='dumped 0x400 bytes
+'
+FILTER='sed "s/.*\(\<1024\>\).*\(\<a_piece_of_ls_saved_to_PWD\>\)$/\1 \2/"'
+
+run_test
+
+

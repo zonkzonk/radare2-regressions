@@ -63,19 +63,20 @@ run_tests.sh or manually in t/.
 
 The following variables are available:
 
- * NAME (recommend): radare2 command being tested (e.g. px).
- * FILE (required): File argument for radare2.
- * ARGS (optional): Additional arguments for radare2. If not present no
-                    additional arguments are used.
- * CMDS (required): Commands to run, one per line. Just like in interactive
-                    mode.
- * EXPECT (required): Expected output.
- * FILTER (optional): Filter program (like grep or sed) to filter radare2's
-                      output before comparing it with EXPECT. Useful to fix
-                      random output to generate stable tests.
- * BROKEN (optional): This tests documents a bug which is not yet fixed.
- * EXITCODE (optional): Check the exit code of radare2 matches. Can be used to
-                        check handling of invalid arguments.
+ * NAME (recommend):       radare2 command being tested (e.g. px).
+ * FILE (required):        File argument for radare2.
+ * ARGS (optional):        Additional arguments for radare2. If not present 
+                           no additional arguments are used.
+ * CMDS (required):        Commands to run, one per line. Just like in 
+                           interactive mode.
+ * EXPECT (required):      Expected stdout output.
+ * EXPECT_ERR (optional):  Expected stderr output.
+ * FILTER (optional):      Filter program (like grep or sed) to filter 
+                           radare2's output before comparing it with EXPECT. 
+                           Useful to fix random output to generate stable tests.
+ * BROKEN (optional):      This tests documents a bug which is not yet fixed.
+ * EXITCODE (optional):    Check the exit code of radare2 matches. Can be used 
+                           to check handling of invalid arguments.
 
 All uppercase variable names are reserved for the test system.
 

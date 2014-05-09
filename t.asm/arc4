@@ -14,7 +14,7 @@ e asm.bits=32
 wx 107e8e43
 pi 1
 '
-EXPECT='add sp, sp, 16
+EXPECT='add sp, sp, 0x10
 '
 run_test
 

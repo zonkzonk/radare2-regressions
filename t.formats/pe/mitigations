@@ -2,7 +2,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='PE: pic false'
-FILE=../../b/files/pe/mitigation_fixed.exe
+FILE=../../b/files/pe/mitigation_nothing.exe
 ARGS='-n'
 CMDS="!rabin2 -I ${FILE} | grep \"pic	false\" "
 EXPECT='pic	false

@@ -8,6 +8,7 @@ do:
 all:
 	@sh run_tests.sh
 	@sh run_tests.sh t.asm
+	@sh run_tests.sh t.anal
 	@sh run_tests.sh t.archos
 	@sh run_tests.sh t.formats
 	@sh run_tests.sh t.formats/pe
@@ -32,6 +33,7 @@ udis86:
 
 capstone:	
 	@sh run_tests.sh t.asm/capstone
+	@sh run_tests.sh t.anal/capstone
 
 broken:
 	@cd t ; grep BROKEN=1 * | cut -d : -f1 |sort -u

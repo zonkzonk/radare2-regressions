@@ -56,8 +56,8 @@ test_vector "${PLUGIN}" "DAA" 27 "daa"
 test_vector "${PLUGIN}" "AAA" 37 "aaa"
 test_vector "${PLUGIN}" "DAS" 2F "das"
 test_vector "${PLUGIN}" "AAS" 3F "aas"
-test_vector "${PLUGIN}" "AAM" d40a "aam" "br" # This instruction doesn't seem to need arguments
-test_vector "${PLUGIN}" "AAD" d50a "aad" "br" # This instruction doesn't seem to need arguments
+test_vector "${PLUGIN}" "AAM" d40a "aam" # This instruction doesn't seem to need arguments
+test_vector "${PLUGIN}" "AAD" d50a "aad" # This instruction doesn't seem to need arguments
 test_vector "${PLUGIN}" "ADX" d4 "adx" "br"
 test_vector "${PLUGIN}" "AMX" d5 "amx" "br"
 test_vector "${PLUGIN}" "PUSH EAX" 50 "push eax"
@@ -341,9 +341,9 @@ test_vector "${PLUGIN}" "ARPL WORD [EAX], AX" 6300 "arpl word [eax], ax"
 test_vector "${PLUGIN}" "CMPXCHG BYTE [EAX], AL" 0fb000 "cmpxchg byte [eax], al"
 test_vector "${PLUGIN}" "CMPXCHG DWORD [EAX], EAX" 0fb100 "cmpxchg dword [eax], eax"
 test_vector "${PLUGIN}" "CMPXCHG8B DWORD [EAX]" 0fc7c0 "cmpxchg8b dword [eax]" "br"
-test_vector "${PLUGIN}" "LOCK CMPXCHG8B" f00fc7c0 "lock" "br"
+test_vector "${PLUGIN}" "LOCK CMPXCHG8B" f00fc7c0 "lock"
 test_vector "${PLUGIN}" "VMPTRLD QWORD [EAX]" 0fc730 "vmptrld qword [eax]"
-test_vector "${PLUGIN}" "VMCLEAR QWORD [EAX]" 660fc730 "vmclear qword [eax]" 
+test_vector "${PLUGIN}" "VMCLEAR QWORD [EAX]" 660fc730 "vmclear qword [eax]"
 test_vector "${PLUGIN}" "VMXON QWORD [EAX]" f30fc730 "vmxon qword [eax]"
 test_vector "${PLUGIN}" "VMPTRST QWORD [EAX]" 0fc738 "vmptrst qword [eax]"
 test_vector "${PLUGIN}" "ADC BYTE [EAX], AL" 1000 "adc byte [eax], al"

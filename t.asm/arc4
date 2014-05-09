@@ -443,7 +443,7 @@ run_test
 
 NAME="arc4: [EXTW]"
 FILE=malloc://32
-BROKEN=1
+BROKEN=
 CMDS='
 e asm.arch=arc
 e asm.bits=32
@@ -693,7 +693,7 @@ run_test
 # MOV instruction
 NAME="arc4: [MOV]"
 FILE=malloc://32
-BROKEN=1
+BROKEN=
 CMDS='
 e asm.arch=arc
 e asm.bits=32
@@ -783,7 +783,7 @@ run_test
 # ROR instruction
 NAME="arc4: [ROR]"
 FILE=malloc://32
-BROKEN=1
+BROKEN=
 CMDS='
 e asm.arch=arc
 e asm.bits=32
@@ -796,7 +796,7 @@ run_test
 
 NAME="arc4: [ROR.Z]"
 FILE=malloc://32
-BROKEN=1
+BROKEN=
 CMDS='
 e asm.arch=arc
 e asm.bits=32
@@ -890,7 +890,7 @@ run_test
 # SUB instruction
 NAME="arc4: [SUB]"
 FILE=malloc://32
-BROKEN=1
+BROKEN=
 CMDS='
 e asm.arch=arc
 e asm.bits=32

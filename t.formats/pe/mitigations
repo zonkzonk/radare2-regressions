@@ -1,0 +1,34 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+NAME='PE: pic false'
+FILE=../../b/files/pe/mitigation_fixed.exe
+ARGS='-n'
+CMDS="!rabin2 -I ${FILE} | grep \"pic	false\" "
+EXPECT='pic	false
+'
+run_test
+
+NAME='PE: pic true'
+FILE=../../b/files/pe/mitigation_dynamic.exe
+ARGS='-n'
+CMDS="!rabin2 -I ${FILE} | grep \"pic	true\" "
+EXPECT='pic	true
+'
+run_test
+
+NAME='PE: /NXCOMPAT (Compatible with Data Execution Prevention)'
+FILE=../../b/files/pe/mitigation_nxcompat.exe
+ARGS='-n'
+CMDS="!rabin2 -I ${FILE} | grep \"nx	true\" "
+EXPECT='nx	true
+'
+run_test
+
+NAME='PE: /NXCOMPAT:NO (Compatible with Data Execution Prevention)'
+FILE=../../b/files/pe/mitigation_nothing.exe
+ARGS='-n'
+CMDS="!rabin2 -I ${FILE} | grep \"nx	false\" "
+EXPECT='nx	false
+'
+run_test

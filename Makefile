@@ -7,7 +7,6 @@ do:
 
 all:
 	@sh run_tests.sh
-	@sh run_tests.sh t2
 	@sh run_tests.sh t.asm
 	@sh run_tests.sh t.archos
 	@sh run_tests.sh t.formats

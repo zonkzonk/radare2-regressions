@@ -1,0 +1,20 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+NAME='PE: corkami CoST.exe - entrypoint'
+FILE=../../b/files/pe/CoST.exe
+ARGS='-n'
+CMDS="!rabin2 -eq ${FILE}"
+EXPECT='0x00000000
+'
+run_test
+
+NAME='PE: corkami CoST.exe - sections list'
+FILE=../../b/files/pe/CoST.exe
+ARGS='-n'
+CMDS="!rabin2 -S ${FILE}"
+EXPECT='[Sections]
+
+0 sections
+'
+run_test

@@ -5,7 +5,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='fatmach0 archs'
 BROKEN=
-FILE=../../b/files/fatmach0-3true
+FILE=../../b/files/match0/fatmach0-3true
 ARGS=
 # post-2014-04-18
 CMDS='iA'
@@ -19,7 +19,7 @@ run_test
 
 NAME='fatmach0 entry0'
 BROKEN=
-FILE=../../b/files/fatmach0-3true
+FILE=../../b/files/match0/fatmach0-3true
 ARGS='-a x86 -b 64'
 CMDS='?v entry0'
 EXPECT='0x100000ef8
@@ -28,7 +28,7 @@ run_test
 
 NAME='fatmach0 entry1'
 BROKEN=
-FILE=../../b/files/fatmach0-3true
+FILE=../../b/files/match0/fatmach0-3true
 ARGS='-a x86 -b 32'
 CMDS='?v entry0'
 EXPECT='0x1f44
@@ -37,7 +37,7 @@ run_test
 
 NAME='fatmach0 entry1 rabin2'
 BROKEN=
-FILE=../../b/files/fatmach0-3true
+FILE=../../b/files/match0/fatmach0-3true
 ARGS='-n'
 CMDS="!rabin2 -a x86 -b 32 -qe ${FILE}"
 EXPECT='0x1f44
@@ -46,7 +46,7 @@ run_test
 
 NAME='fatmach0 entry1 rabin2 (2)'
 BROKEN=
-FILE=../../b/files/fatmach0-3true
+FILE=../../b/files/match0/fatmach0-3true
 ARGS='-n'
 CMDS="!rabin2 -a x86 -b 32 -e ${FILE} | grep off="
 EXPECT='
@@ -56,7 +56,7 @@ run_test
 
 NAME='fatmach0 entry2'
 BROKEN=
-FILE=../../b/files/fatmach0-3true
+FILE=../../b/files/match0/fatmach0-3true
 ARGS='-a ppc -b 32'
 CMDS='?v entry0'
 EXPECT='0x28
@@ -65,7 +65,7 @@ run_test
 
 NAME='fatmach0 archs'
 BROKEN=
-FILE=../../b/files/mach0-x86-64
+FILE=../../b/files/match0/mach0-x86-64
 ARGS=
 # post-2014-04-18
 CMDS='iA'
@@ -77,7 +77,7 @@ run_test
 
 NAME='fatmach0 extract'
 BROKEN=
-FILE=../../b/files/fatmach0-3true
+FILE=../../b/files/match0/fatmach0-3true
 ARGS=-n
 CMDS="!rabin2 -x ${FILE};!rm -rf fatmach0-3true.fat"
 EXPECT='fatmach0-3true.fat/fatmach0-3true.x86_64.0 created (13792)

@@ -3,11 +3,11 @@
 
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
-gcc ../b/files/main.c -gdwarf-2 -o ../b/files/main
+gcc ../b/files/elf/main.c -gdwarf-2 -o ../b/files/elf/main
 
 NAME="pdf dwarf"
 BROKEN=
-FILE=../b/files/main
+FILE=../b/files/elf/main
 IGNORE_ERR=1
 ARGS=
 CMDS='e asm.dwarf=true

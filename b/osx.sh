@@ -20,7 +20,7 @@ runtest() {
 	fi
 }
 
-runtest hello-osx-i386 getentry 0x00001f14
-runtest hello-osx-i386 getmain 0x00001f52
-runtest hello-osx-x86_64 getentry 0x100000ed0
-runtest hello-osx-x86_64 getmain 0x100000f0c
+runtest ./match0/hello-osx-i386 getentry 0x00001f14
+runtest ./match0/hello-osx-i386 getmain 0x00001f52
+runtest ./match0/hello-osx-x86_64 getentry 0x100000ed0
+runtest ./match0/hello-osx-x86_64 getmain 0x100000f0c

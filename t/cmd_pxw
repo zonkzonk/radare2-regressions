@@ -4,7 +4,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='pxw cfg.bigendian=true'
 BROKEN=
-FILE=../b/files/hello-linux-x86_64
+FILE=../b/files/elf/hello-linux-x86_64
 ARGS=
 CMDS='e cfg.bigendian=true
 pxw 16'
@@ -14,7 +14,7 @@ run_test
 
 NAME='pxw cfg.bigendian=false'
 BROKEN=
-FILE=../b/files/hello-linux-x86_64
+FILE=../b/files/elf/hello-linux-x86_64
 ARGS=
 CMDS='e cfg.bigendian=false
 pxw 16'

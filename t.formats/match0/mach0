@@ -6,7 +6,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='mach0 entrypoint'
 BROKEN=
-FILE=../../b/files/hello-osx-i386
+FILE=../../b/files/match0/hello-osx-i386
 ARGS=
 CMDS='ie~addr
 '
@@ -16,7 +16,7 @@ run_test
 
 NAME='osx mach0 entrypoint'
 BROKEN=
-FILE=../../b/files/ls-osx-x86_64
+FILE=../../b/files/match0/ls-osx-x86_64
 ARGS=
 CMDS='ie~addr
 '
@@ -26,7 +26,7 @@ run_test
 
 NAME='osx mach0 ik'
 BROKEN=
-FILE=../../b/files/ls-osx-x86_64
+FILE=../../b/files/match0/ls-osx-x86_64
 ARGS=
 IGNORE_ERR=1
 CMDS='ik

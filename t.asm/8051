@@ -1,6 +1,42 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
+# Tests only whole disassembly opcode
+test_vector() {
+NAME="${1}: [${2}]"
+FILE=malloc://32
+if [ "${5}" = "br" ]; then
+	BROKEN=1
+fi
+CMDS='
+e asm.arch='${1}'
+wx '${3}'
+pi 1
+'
+EXPECT="${4}
+"
+run_test
+}
+
+# Tests jump analysis
+test_jump() {
+NAME="${1}: [${2}] - jump check"
+FILE=malloc://32
+if [ "${5}" = "br" ]; then
+	BROKEN=1
+fi
+CMDS='
+e asm.arch='${1}'
+wx '${3}'
+ao 1~jump
+'
+EXPECT="jump: ${4}
+"
+run_test
+}
+
+PLUGIN=8051
+
 # -------------------------------
 # bitness check
 NAME="8051: checking bitness (asm.bits)"
@@ -27,555 +63,49 @@ EXPECT='
 '
 run_test
 
-# -------------------------------
-# ADD instruction
-NAME="8051: [ADD]"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 2b
-pi 1
-'
-EXPECT='add a, r3
-'
-run_test
-
-# -------------------------------
-# ADDC instruction
-NAME="8051: [ADDC]"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 3438
-pi 1
-'
-EXPECT='addc a, 0x38
-'
-run_test
-
-# -------------------------------
-# ANL instruction
-NAME="8051: [ANL]"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 5401
-pi 1
-'
-EXPECT='anl a, 0x1
-'
-run_test
-
-# -------------------------------
-# CJNE instruction
-NAME="8051: [CJNE]"
-BROKEN=1
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx b4ab13
-pi 1
-'
-EXPECT='cjne a, 0xab, 0x13
-'
-run_test
-
-NAME="8051: [CJNE] - jump check"
-BROKEN=1
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx b4ab13
-ao 1~jump
-'
-EXPECT='jump: 0x00000013
-'
-run_test
-
-# -------------------------------
-# CLR instruction
-NAME="8051: [CLR]"
-BROKEN=1
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx e4
-pi 1
-'
-EXPECT='clr a
-'
-run_test
-
-# -------------------------------
-# CPL instruction
-NAME="8051: [CPL]"
-BROKEN=
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx f4
-pi 1
-'
-EXPECT='cpl a 0x0
-'
-run_test
-
-# -------------------------------
-# DEC instruction
-NAME="8051: [DEC]"
-BROKEN=
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 14
-pi 1
-'
-EXPECT='dec a 0x0
-'
-run_test
-
-# -------------------------------
-# DJNZ instruction
-NAME="8051: [DJNZ]"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx d8fc
-pi 1
-'
-EXPECT='djnz r0, 0xfc
-'
-run_test
-
-NAME="8051: [DJNZ] - jump check"
-BROKEN=1
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx d8fc
-ao 1~jump
-'
-EXPECT='jump: 0x000000fc
-'
-run_test
-
-# -------------------------------
-# INC instruction
-NAME="8051: [INC]"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 08
-pi 1
-'
-EXPECT='inc r0
-'
-run_test
-
-# -------------------------------
-# JC instruction
-NAME="8051: [JC]"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 4003
-pi 1
-'
-EXPECT='jc 0x05
-'
-run_test
-
-NAME="8051: [JC] - jump check"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 4003
-ao 1~jump
-'
-EXPECT='jump: 0x00000005
-'
-run_test
-
-# -------------------------------
-# JNC instruction
-NAME="8051: [JNC]"
-BROKEN=1
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 5007
-pi 1
-'
-EXPECT='jz 0x09
-'
-run_test
-
-NAME="8051: [JNC] - jump check"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 5007
-ao 1~jump
-'
-EXPECT='jump: 0x00000009
-'
-run_test
-
-# -------------------------------
-# JZ instruction
-NAME="8051: [JZ]"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 6013
-pi 1
-'
-EXPECT='jz 0x15
-'
-run_test
-
-NAME="8051: [JZ] - jump check"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 6013
-ao 1~jump
-'
-EXPECT='jump: 0x00000015
-'
-run_test
-
-# -------------------------------
-# JB instruction
-NAME="8051: [JB]"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 20e004
-pi 1
-'
-EXPECT='jb bit, 0xe004
-'
-run_test
-
-NAME="8051: [JB] - jump check"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 20e004
-ao 1~jump
-'
-EXPECT='jump: 0x0000e004
-'
-run_test
-
-# -------------------------------
-# JNB instruction
-NAME="8051: [JNB]"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 30e002
-pi 1
-'
-EXPECT='jnb bit, 0xe002
-'
-run_test
-
-NAME="8051: [JNB] - jump check"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 30e002
-ao 1~jump
-'
-EXPECT='jump: 0x0000e002
-'
-run_test
-
-# -------------------------------
-# LCALL instruction
-NAME="8051: [LCALL]"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 12b6cf
-pi 1
-'
-EXPECT='lcall 0xb6cf
-'
-run_test
-
-NAME="8051: [LCALL] - jump check"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 12b6cf
-ao 1~jump
-'
-EXPECT='jump: 0x0000b6cf
-'
-run_test
-
-# -------------------------------
-# LJMP instruction
-NAME="8051: [LJMP]"
-BROKEN=1
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 022c0d
-pi 1
-'
-EXPECT='ljmp 0x2d0d
-'
-run_test
-
-NAME="8051: [LJMP] - jump check"
-BROKEN=1
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 022c0d
-ao 1~jump
-'
-EXPECT='jump: 0x00002d0d
-'
-run_test
-
-# -------------------------------
-# MOV instruction
-NAME="8051: [MOV]"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx f6
-pi 1
-'
-EXPECT='mov @r0, a
-'
-run_test
-
-# -------------------------------
-# MOV instruction
-NAME="8051: [MOV]"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 7900
-pi 1
-'
-EXPECT='mov r1, 0x00
-'
-run_test
-
-# -------------------------------
-# MOVC instruction
-NAME="8051: [MOVC]"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 93
-pi 1
-'
-EXPECT='movc a, @a+dptr
-'
-run_test
-
-# -------------------------------
-# MOVX instruction
-NAME="8051: [MOVX]"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx e0
-pi 1
-'
-EXPECT='movx a, @dptr
-'
-run_test
-
-# -------------------------------
-# MUL instruction
-NAME="8051: [MUL]"
-BROKEN=1
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx a4
-pi 1
-'
-EXPECT='mul ab
-'
-run_test
-
-# -------------------------------
-# ORL instruction
-NAME="8051: [ORL]"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 4480
-pi 1
-'
-EXPECT='orl a, 0x80
-'
-run_test
-
-# -------------------------------
-# PUSH instruction
-NAME="8051: [PUSH]"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx c083
-pi 1
-'
-EXPECT='push 0x83
-'
-run_test
-
-# -------------------------------
-# POP instruction
-NAME="8051: [PUSH]"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx d083
-pi 1
-'
-EXPECT='pop 0x83
-'
-run_test
-
-# -------------------------------
-# RET instruction
-NAME="8051: [RET]"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 22
-pi 1
-'
-EXPECT='ret
-'
-run_test
-
-# -------------------------------
-# RLC instruction
-NAME="8051: [RLC]"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 33
-pi 1
-'
-EXPECT='rlc a
-'
-run_test
-
-# -------------------------------
-# RRC instruction
-NAME="8051: [RRC]"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 13
-pi 1
-'
-EXPECT='rrc a
-'
-run_test
-
-# -------------------------------
-# SETB instruction
-NAME="8051: [SETB]"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx d242
-pi 1
-'
-EXPECT='setb 0x42
-'
-run_test
-
-# -------------------------------
-# SETB instruction
-NAME="8051: [SETB]"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx d3
-pi 1
-'
-EXPECT='setb c
-'
-run_test
-
-# -------------------------------
-# SJMP instruction
-NAME="8051: [SJMP]"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 8014
-pi 1
-'
-EXPECT='sjmp 0x16
-'
-run_test
-
-NAME="8051: [SJMP] - jump check"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 8014
-ao 1~jump
-'
-EXPECT='jump: 0x00000016
-'
-run_test
-
-# -------------------------------
-# SUBB instruction
-NAME="8051: [SUBB]"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 96
-pi 1
-'
-EXPECT='subb a, @r0
-'
-run_test
-
-# -------------------------------
-# SWAP instruction
-NAME="8051: [SWAP]"
-BROKEN=1
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx c4
-pi 1
-'
-EXPECT='swap a
-'
-run_test
-
-# -------------------------------
-# XRL instruction
-NAME="8051: [XRL]"
-FILE=malloc://32
-CMDS='
-e asm.arch=8051
-wx 64fa
-pi 1
-'
-EXPECT='xrl a, 0xfa
-'
-run_test
+test_vector "${PLUGIN}" "ADD" 2b "add a, r3"
+test_vector "${PLUGIN}" "ADDC" 3438 "addc a, 0x38"
+test_vector "${PLUGIN}" "ANL" 5401 "anl a, 0x1"
+test_vector "${PLUGIN}" "CJNE" b4ab13 "cjne a, 0xab, 0x13" "br"
+test_jump "${PLUGIN}" "CJNE" b4ab13 "0x00000013" "br"
+test_vector "${PLUGIN}" "CLR" e4 "clr a" "br"
+test_vector "${PLUGIN}" "CPL" f4 "cpl a 0x0"
+test_vector "${PLUGIN}" "DEC" 14 "dec a 0x0"
+test_vector "${PLUGIN}" "DJNZ" d8fc "djnz r0, 0xfc"
+test_jump "${PLUGIN}" "DJNZ" d8fc "0x000000fc" "br"
+test_vector "${PLUGIN}" "INC" 08 "inc r0"
+test_vector "${PLUGIN}" "JC" 4003 "jc 0x05"
+test_jump "${PLUGIN}" "JC" 4003 "0x00000005"
+test_vector "${PLUGIN}" "JNC" 5007 "jnc 0x09"
+test_jump "${PLUGIN}" "JNC" 5007 "0x00000009"
+test_vector "${PLUGIN}" "JZ" 6013 "jz 0x15"
+test_jump "${PLUGIN}" "JZ" 6013 "0x00000015"
+test_vector "${PLUGIN}" "JB" 20e004 "jb bit, 0xe004"
+test_jump "${PLUGIN}" "JB" 20e004 "0x0000e004"
+test_vector "${PLUGIN}" "JNB" 30e002 "jnb bit, 0e002"
+test_jump "${PLUGIN}" "JNB" 30e002 "0x0000e002"
+test_vector "${PLUGIN}" "LCALL" 12b6cf "lcall 0xb6cf"
+test_jump "${PLUGIN}" "LCALL" 12b6cf "0x0000b6cf"
+test_vector "${PLUGIN}" "LJMP" 022c0d "ljmp 0x2d0d" "br"
+test_jump "${PLUGIN}" "LJMP" 022c0d "0x00002d0d" "br"
+test_vector "${PLUGIN}" "MOV" f6 "mov @r0, a"
+test_vector "${PLUGIN}" "MOV" 7900 "mov r1, 0x00"
+test_vector "${PLUGIN}" "MOVC" 93 "movc a, @a+dptr"
+test_vector "${PLUGIN}" "MOVX" e0 "movx a, @dptr"
+test_vector "${PLUGIN}" "MUL" a4 "mul ab" "br"
+test_vector "${PLUGIN}" "ORL" 4480 "orl a, 0x80"
+test_vector "${PLUGIN}" "PUSH" c083 "push 0x83"
+test_vector "${PLUGIN}" "POP" d083 "pop 0x83"
+test_vector "${PLUGIN}" "RET" 22 "ret"
+test_vector "${PLUGIN}" "RLC" 33 "rlc a"
+test_vector "${PLUGIN}" "RRC" 13 "rrc a"
+test_vector "${PLUGIN}" "SETB" d242 "setb 0x42"
+test_vector "${PLUGIN}" "SETB" d3 "setb c"
+test_vector "${PLUGIN}" "SJMP" 8014 "sjmp 0x16"
+test_jump "${PLUGIN}" "SJMP" 8014 "0x00000016"
+test_vector "${PLUGIN}" "SUBB" 96 "subb a, @r0"
+test_vector "${PLUGIN}" "SWAP" c4 "swap a" "br"
+test_vector "${PLUGIN}" "XRL" 64fa "xrl a, 0xfa"
 
 # -------------------------------
 # 8051 instruction length

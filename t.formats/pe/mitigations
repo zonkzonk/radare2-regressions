@@ -18,17 +18,22 @@ EXPECT='pic	true
 run_test
 
 NAME='PE: /NXCOMPAT (Compatible with Data Execution Prevention)'
-FILE=../../b/files/pe/mitigation_nxcompat.exe
+FILE=../../b/files/pe/dep.exe
 ARGS='-n'
 CMDS="!rabin2 -I ${FILE} | grep \"nx	true\" "
+EXPECT_ERR="Warning: Invalid import directory size: 0x0
+"
 EXPECT='nx	true
 '
 run_test
 
 NAME='PE: /NXCOMPAT:NO (Compatible with Data Execution Prevention)'
-FILE=../../b/files/pe/mitigation_nothing.exe
+FILE=../../b/files/pe/no_dep.exe
 ARGS='-n'
 CMDS="!rabin2 -I ${FILE} | grep \"nx	false\" "
+EXPECT_ERR="Warning: Invalid import directory size: 0x0
+"
 EXPECT='nx	false
 '
+
 run_test

@@ -1,0 +1,13 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+
+NAME='PE: /NXCOMPAT (Compatible with Data Execution Prevention)'
+FILE=../../b/files/pe/dep.exe
+ARGS='-n'
+CMDS="!rabin2 -I ${FILE} | grep \"nx	true\" "
+EXPECT_ERR="Warning: Invalid import directory size: 0x0
+"
+EXPECT='nx	true
+'
+run_test

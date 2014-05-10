@@ -82,3 +82,18 @@ EXPECT='01020304
 03040506
 '
 run_test
+
+# comma separated commands
+NAME='3(foo,?e a,?e b)()'
+BROKEN=
+FILE=-
+ARGS=
+CMDS='
+2(foo,?e a,?e b)()
+'
+EXPECT='a
+b
+a
+b
+'
+run_test

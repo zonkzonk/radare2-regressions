@@ -12,6 +12,9 @@ all:
 	@sh run_tests.sh t.archos
 	@sh run_tests.sh t.formats
 	@sh run_tests.sh t.formats/pe
+	@sh run_tests.sh t.formats/elf
+	@sh run_tests.sh t.formats/java
+	@sh run_tests.sh t.formats/match0
 
 asm:
 	@sh run_tests.sh t.asm
@@ -21,6 +24,9 @@ asm:
 formats:
 	@sh run_tests.sh t.formats
 	@sh run_tests.sh t.formats/pe
+	@sh run_tests.sh t.formats/elf
+	@sh run_tests.sh t.formats/java
+	@sh run_tests.sh t.formats/match0
 
 udis86:
 	@sh run_tests.sh t.asm/udis86

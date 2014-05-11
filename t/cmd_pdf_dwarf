@@ -39,8 +39,8 @@ EXPECT='|          ; DATA XREF from 0x0040045d (fcn.00400436)
 |          0x00400563    b800000000   mov eax, 0x0  ; main.c:10 	return 0;  
 |          0x00400568    c9           leave  ; main.c:11 }  
 \          0x00400569    c3           ret
-'`pwd`/../b/files/'
-'`pwd`/../b/files/'
+'`pwd`/../b/files/elf/'
+'`pwd`/../b/files/elf/'
 '
 
 run_test

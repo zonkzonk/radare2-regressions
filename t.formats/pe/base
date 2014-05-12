@@ -1,0 +1,12 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+NAME='Relocs'
+FILE=../../b/files/pe/base.exe
+ARGS=''
+CMDS='pd 1 @ 0x0040128d'
+EXPECT='           0x0040128d    ff15c8504000 call dword [reloc.msvcrt.dll___set_app_type]
+              0x0080635b() ; section_end..stabst
+'
+
+run_test

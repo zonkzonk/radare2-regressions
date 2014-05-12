@@ -22,6 +22,7 @@ EXPECT='file	malloc://1024
 type	JAVA CLASS
 pic	false
 canary	false
+nx	false
 has_va	false
 root	class
 class	0x3200 0x0000

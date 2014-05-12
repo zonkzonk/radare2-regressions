@@ -9,7 +9,7 @@ Directory Hierarchy
 -------------------
 
  * t/:           Test scripts.
- * s/:           Sample binaries.
+ * b/:           Sample binaries.
  * test.sh:      Test driver script sourced by tests (not to be run manually).
  * run_tests.sh: Run all tests.
 

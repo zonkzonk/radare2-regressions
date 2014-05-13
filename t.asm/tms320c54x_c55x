@@ -274,3 +274,8 @@ tms320_c55x_test	"SUB"		42f7		"SUB 0xF, T3"
 # MOV HI(ACx), TAx test
 
 tms320_c55x_test	"MOV"		4408		"MOV HI(AC0), AR0"
+
+# SFTS + [dst] test
+
+tms320_c55x_test	"SFTS"		4440		"SFTS AC0, #-1"
+tms320_c55x_test	"SFTS"		4450		"SFTS AC0, #1"

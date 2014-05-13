@@ -312,3 +312,33 @@ tms320_c55x_test	"RPT"		4803		"RPTSUB CSR, 0x0"
 tms320_c55x_test	"RET"		4804		"RET"
 tms320_c55x_test	"RET E"		4904		"|| RET"
 tms320_c55x_test	"RETI"		4805		"RETI"
+
+# B + [L7] test
+
+tms320_c55x_test	"B"		4a7f		"B 0x7F"
+
+# RPTBLOCAL + [pmad] test
+
+tms320_c55x_test	"RPTBLOCAL"	4aff		"RPTBLOCAL 0x7F"
+
+# RPT + [k8] test
+
+tms320_c55x_test	"RPT"		4cff		"RPT 0xFF"
+
+# AADD + [K8] test
+
+tms320_c55x_test	"AADD"		4eff		"AADD 0xFF, SP"
+
+# SFTL
+
+tms320_c55x_test	"SFTL"		5000		"SFTL AC0, #1"		# need to replace '#..' -> '0x..' ?
+tms320_c55x_test	"SFTL"		5001		"SFTL AC0, #-1"		# need to replace '#..' -> '0x..' ?
+
+# POP/PSH/POPBOTH/PUSHBOTH
+
+tms320_c55x_test	"POP"		5002		"POP AC0"
+tms320_c55x_test	"POP"		5003		"POP dbl(AC0)"
+tms320_c55x_test	"PSH"		5006		"PSH AC0"
+tms320_c55x_test	"PSH"		5007		"PSH dbl(AC0)"
+tms320_c55x_test	"POPBOTH"	5004		"POPBOTH AC0"
+tms320_c55x_test	"PSHBOTH"	5005		"PSHBOTH AC0"

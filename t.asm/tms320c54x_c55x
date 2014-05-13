@@ -306,3 +306,9 @@ tms320_c55x_test	"RPT"		4800		"RPT CSR"
 tms320_c55x_test	"RPT"		4801		"RPTADD CSR, AC0"
 tms320_c55x_test	"RPT"		4802		"RPTADD CSR, 0x0"
 tms320_c55x_test	"RPT"		4803		"RPTSUB CSR, 0x0"
+
+# RET/RETI
+
+tms320_c55x_test	"RET"		4804		"RET"
+tms320_c55x_test	"RET E"		4904		"|| RET"
+tms320_c55x_test	"RETI"		4805		"RETI"

@@ -225,3 +225,11 @@ tms320_c55x_test	"MOV"		165b1a		"MOV 0x5B1, BRC1"	# k12
 tms320_c55x_test	"AND"		181110		"AND 0x11, AC0, AC1"
 tms320_c55x_test	"OR"		1a2232		"OR 0x22, AC2, AC3"
 tms320_c55x_test	"XOR"		1c3354		"XOR 0x33, T0, T1"
+
+# MPYK/MACK + [R] test
+
+tms320_c55x_test	"MPYK"		1e1110		"MPYK 0x11, AC0, AC1"
+tms320_c55x_test	"MPYK"		1e2261		"MPYKR 0x22, AC1, AC2"
+
+tms320_c55x_test	"MACK"		1e3316		"MACK T1, 0x33, AC0, AC1"
+tms320_c55x_test	"MACK"		1e446b		"MACKR T2, 0x44, AC1, AC2"

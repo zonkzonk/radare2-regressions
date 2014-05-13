@@ -263,3 +263,10 @@ tms320_c55x_test	"NOT"		366d		"NOT T2, AR5"
 
 tms320_c55x_test	"PSH"		3812		"PSH AC1, AC2"
 tms320_c55x_test	"POP"		3a34		"POP AC3, T0"
+
+# MOV/ADD/SUB + [k4,dst] test
+
+tms320_c55x_test	"MOV"		3cf4		"MOV 0xF, T0"
+tms320_c55x_test	"MOV"		3ef5		"MOV -0xF, T1"
+tms320_c55x_test	"ADD"		40f6		"ADD 0xF, T2"
+tms320_c55x_test	"SUB"		42f7		"SUB 0xF, T3"

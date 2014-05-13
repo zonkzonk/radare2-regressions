@@ -288,3 +288,14 @@ tms320_c55x_test	"MOV"		44aa		"MOV CDP, AR2"
 tms320_c55x_test	"MOV"		44cb		"MOV BRC0, AR3"
 tms320_c55x_test	"MOV"		44dc		"MOV BRC1, AR4"
 tms320_c55x_test	"MOV"		44ed		"MOV RPTC, AR5"
+
+# BCLR/BSET + [k4,ST0_55,ST1_55] test
+
+tms320_c55x_test	"BLCR"		4610		"BCLR 0x1, ST0_55"
+tms320_c55x_test	"BSET"		4621		"BSET 0x2, ST0_55"
+tms320_c55x_test	"BLCR"		4632		"BCLR 0x3, ST1_55"
+tms320_c55x_test	"BSET"		4643		"BSET 0x4, ST1_55"
+tms320_c55x_test	"BLCR"		4654		"BCLR 0x5, ST2_55"
+tms320_c55x_test	"BSET"		4665		"BSET 0x6, ST2_55"
+tms320_c55x_test	"BLCR"		4676		"BCLR 0x7, ST3_55"
+tms320_c55x_test	"BSET"		4687		"BSET 0x8, ST3_55"

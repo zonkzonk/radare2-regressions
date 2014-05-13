@@ -279,3 +279,12 @@ tms320_c55x_test	"MOV"		4408		"MOV HI(AC0), AR0"
 
 tms320_c55x_test	"SFTS"		4440		"SFTS AC0, #-1"
 tms320_c55x_test	"SFTS"		4450		"SFTS AC0, #1"
+
+# MOV SP/SSP/CDP/BRC0/BRC1/RPTC
+
+tms320_c55x_test	"MOV"		4488		"MOV SP, AR0"
+tms320_c55x_test	"MOV"		4499		"MOV SSP, AR1"
+tms320_c55x_test	"MOV"		44aa		"MOV CDP, AR2"
+tms320_c55x_test	"MOV"		44cb		"MOV BRC0, AR3"
+tms320_c55x_test	"MOV"		44dc		"MOV BRC1, AR4"
+tms320_c55x_test	"MOV"		44ed		"MOV RPTC, AR5"

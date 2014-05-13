@@ -233,3 +233,28 @@ tms320_c55x_test	"MPYK"		1e2261		"MPYKR 0x22, AC1, AC2"
 
 tms320_c55x_test	"MACK"		1e3316		"MACK T1, 0x33, AC0, AC1"
 tms320_c55x_test	"MACK"		1e446b		"MACKR T2, 0x44, AC1, AC2"
+
+# MOV/AND/OR/XOR + [src,dst] test
+
+tms320_c55x_test	"MOV"		2204		"MOV AC0, T0"
+tms320_c55x_test	"AND"		2815		"AND AC1, T1"
+tms320_c55x_test	"OR"		2a26		"OR AC2, T2"
+tms320_c55x_test	"XOR"		2c37		"XOR AC3, T3"
+
+# ADD/SUB/MAX/MIN/ABS/NEG/NOT + [src,dst] test
+
+tms320_c55x_test	"ADD"		2400		"ADD AC0"
+tms320_c55x_test	"SUB"		2600		"SUB AC0"
+tms320_c55x_test	"MAX"		2e00		"MAX AC0"
+tms320_c55x_test	"MIN"		3000		"MIN AC0"
+tms320_c55x_test	"ABS"		3200		"ABS AC0"
+tms320_c55x_test	"NEG"		3400		"NEG AC0"
+tms320_c55x_test	"NOT"		3600		"NOT AC0"
+
+tms320_c55x_test	"ADD"		2407		"ADD AC0, T3"
+tms320_c55x_test	"SUB"		2618		"SUB AC1, AR0"
+tms320_c55x_test	"MAX"		2e29		"MAX AC2, AR1"
+tms320_c55x_test	"MIN"		303a		"MIN AC3, AR2"
+tms320_c55x_test	"ABS"		324b		"ABS T0, AR3"
+tms320_c55x_test	"NEG"		345c		"NEG T1, AR4"
+tms320_c55x_test	"NOT"		366d		"NOT T2, AR5"

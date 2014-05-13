@@ -299,3 +299,10 @@ tms320_c55x_test	"BLCR"		4654		"BCLR 0x5, ST2_55"
 tms320_c55x_test	"BSET"		4665		"BSET 0x6, ST2_55"
 tms320_c55x_test	"BLCR"		4676		"BCLR 0x7, ST3_55"
 tms320_c55x_test	"BSET"		4687		"BSET 0x8, ST3_55"
+
+# RPT/RPTADD/RPTSUB
+
+tms320_c55x_test	"RPT"		4800		"RPT CSR"
+tms320_c55x_test	"RPT"		4801		"RPTADD CSR, AC0"
+tms320_c55x_test	"RPT"		4802		"RPTADD CSR, 0x0"
+tms320_c55x_test	"RPT"		4803		"RPTSUB CSR, 0x0"

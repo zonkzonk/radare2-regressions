@@ -1,0 +1,17 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+
+NAME='PE: nosectionXP - entrypoint'
+FILE=../../b/files/pe/nosectionXP.exe
+ARGS='-n'
+CMDS="!rabin2 -S ${FILE} "
+EXPECT_ERR=""
+EXPECT='[Sections]
+
+0 sections
+'
+
+run_test
+
+

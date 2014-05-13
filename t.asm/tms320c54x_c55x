@@ -342,3 +342,13 @@ tms320_c55x_test	"PSH"		5006		"PSH AC0"
 tms320_c55x_test	"PSH"		5007		"PSH dbl(AC0)"
 tms320_c55x_test	"POPBOTH"	5004		"POPBOTH AC0"
 tms320_c55x_test	"PSHBOTH"	5005		"PSHBOTH AC0"
+
+# MOV TAx, HI(ACx)/SP/SSP/CDP/CSR/BRC0/BRC1 test
+
+tms320_c55x_test	"MOV"		5200		"MOV AC0, HI(AC0)"
+tms320_c55x_test	"MOV"		5208		"MOV AC0, SP"
+tms320_c55x_test	"MOV"		5209		"MOV AC0, SSP"
+tms320_c55x_test	"MOV"		520a		"MOV AC0, CDP"
+tms320_c55x_test	"MOV"		520c		"MOV AC0, CSR"
+tms320_c55x_test	"MOV"		520d		"MOV AC0, BRC1"
+tms320_c55x_test	"MOV"		520e		"MOV AC0, BRC0"

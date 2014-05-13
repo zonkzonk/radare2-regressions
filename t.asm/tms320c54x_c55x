@@ -270,3 +270,7 @@ tms320_c55x_test	"MOV"		3cf4		"MOV 0xF, T0"
 tms320_c55x_test	"MOV"		3ef5		"MOV -0xF, T1"
 tms320_c55x_test	"ADD"		40f6		"ADD 0xF, T2"
 tms320_c55x_test	"SUB"		42f7		"SUB 0xF, T3"
+
+# MOV HI(ACx), TAx test
+
+tms320_c55x_test	"MOV"		4408		"MOV HI(AC0), AR0"

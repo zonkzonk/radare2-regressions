@@ -258,3 +258,8 @@ tms320_c55x_test	"MIN"		303a		"MIN AC3, AR2"
 tms320_c55x_test	"ABS"		324b		"ABS T0, AR3"
 tms320_c55x_test	"NEG"		345c		"NEG T1, AR4"
 tms320_c55x_test	"NOT"		366d		"NOT T2, AR5"
+
+# PSH/POP + [src1,src2,dst1,dst2] test
+
+tms320_c55x_test	"PSH"		3812		"PSH AC1, AC2"
+tms320_c55x_test	"POP"		3a34		"POP AC3, T0"

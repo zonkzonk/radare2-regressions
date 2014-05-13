@@ -1,0 +1,16 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+
+NAME='PE: dllnullEP - entrypoint'
+FILE=../../b/files/pe/dllnullep.dll
+ARGS='-n'
+CMDS="!rabin2 -eq ${FILE} "
+EXPECT_ERR="Warning: Invalid import directory size: 0x0
+"
+EXPECT='0x00000000
+'
+
+run_test
+
+

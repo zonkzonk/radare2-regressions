@@ -16,3 +16,23 @@ addiu a1, a2, 8
 '
 
 run_test
+
+
+NAME="mips invalid disassembly"
+BROKEN=
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+wx 00988b400068804000800a4007000b242758600124504b0103004a35
+pd 7
+'
+EXPECT='           0x00000000    00988b40     mtc0 t3, $19
+           0x00000004    00688040     mtc0 zero, $13
+           0x00000008    00800a40     mfc0 t2, $16
+           0x0000000c    07000b24     li t3, 7
+           0x00000010    27586001     nor t3, t3, zero
+           0x00000014    24504b01     and t2, t2, t3
+           0x00000018    03004a35     ori t2, t2, 0x3
+'
+
+run_test

@@ -50,6 +50,7 @@ size	0x400
 mode	r--
 block	0x100
 uri	malloc://1024
+format	java
 / (fcn) sym.TestVariableSwitchUp.TestMultipleVariable 37
 | 0x000002fd    1064         bipush 100
 | 0x000002ff    b8000f       invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;

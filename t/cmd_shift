@@ -62,6 +62,7 @@ size	0x200
 mode	rw-
 block	0x100
 uri	malloc://512
+format	any
 '
 FILTER='sed "s/^fd	[0-9][0-9]*/fd	42/"'
 run_test
@@ -125,6 +126,7 @@ size	0x200
 mode	rw-
 block	0x100
 uri	malloc://512
+format	any
 - offset -   0 1  2 3  4 5  6 7  8 9  A B  C D  E F  0123456789ABCDEF
 0x00000000  0000 0000 6161 6161 6161 6161 6161 0000  ....aaaaaaaaaa..
 0x00000010  0000 0000 0000 0000 0000 0000 0000 0000  ................
@@ -205,6 +207,7 @@ size	0x200
 mode	rw-
 block	0x100
 uri	malloc://512
+format	any
 - offset -   0 1  2 3  4 5  6 7  8 9  A B  C D  E F  0123456789ABCDEF
 0x00000000  6161 6161 6161 6161 6161 0000 0000 0000  aaaaaaaaaa......
 0x00000010  0000 0000 0000 0000 0000 0000 0000 0000  ................

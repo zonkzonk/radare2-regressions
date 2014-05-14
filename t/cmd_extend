@@ -42,6 +42,7 @@ size	0x206
 mode	rw-
 block	0x100
 uri	malloc://512
+format	any
 '
 FILTER='sed "s/^fd	[0-9][0-9]*/fd	42/"'
 run_test
@@ -89,6 +90,7 @@ size	0x206
 mode	rw-
 block	0x100
 uri	malloc://512
+format	any
 '
 FILTER='sed "s/^fd	[0-9][0-9]*/fd	42/"'
 run_test
@@ -152,6 +154,7 @@ size	0x206
 mode	rw-
 block	0x100
 uri	malloc://512
+format	any
 '
 FILTER='sed "s/^fd	[0-9][0-9]*/fd	42/"'
 run_test
@@ -193,6 +196,7 @@ size	0x209
 mode	rw-
 block	0x100
 uri	malloc://512
+format	any
 '
 FILTER='sed "s/^fd	[0-9][0-9]*/fd	42/"'
 run_test
@@ -253,6 +257,7 @@ size	0x209
 mode	rw-
 block	0x100
 uri	malloc://512
+format	any
 '
 FILTER='sed "s/^fd	[0-9][0-9]*/fd	42/"'
 run_test

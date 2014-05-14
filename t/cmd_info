@@ -36,6 +36,7 @@ size	0x401
 mode	r--
 block	0x100
 uri	malloc://1025
+format	any
 fs strings
 fs strings
 '
@@ -101,6 +102,7 @@ size	0xfc
 mode	r--
 block	0x40
 uri	../s/x86-simple
+format	any
 
 All information.
 [File info]
@@ -287,6 +289,7 @@ size	0x170
 mode	r--
 block	0x40
 uri	../s/x64-simple
+format	any
 
 All information.
 [File info]

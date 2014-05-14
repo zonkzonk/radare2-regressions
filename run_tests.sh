@@ -51,7 +51,9 @@ fi
 R=$PWD
 # Run all tests.
 T="t"; [ -n "$1" ] && T="$1"
-[ -f "$T" -a -x "$T" ] && exec $T
+if [ -f "$T" -a -x "$T" ]; then
+. $T
+else
 cd $T || die "t/ doesn't exist"
 for file in * ; do
    [ "$file" = '*' ] && break
@@ -71,6 +73,7 @@ for file in * ; do
       . ./${file}
    fi
 done
+fi
 
 # Print report.
 echo

@@ -35,7 +35,14 @@ printdiff() {
     fi
 }
 
+COUNT=0
 run_test() {
+    COUNT=$(($COUNT+1))
+    if [ -n "${ONLY}" ]; then
+	if [ "${ONLY}" != "${COUNT}" ]; then
+		return
+        fi
+    fi
     # TODO: remove which dependency
     [ -z "${R2}" ] && R2=$(which radare2)
     PD="/tmp/r2-regressions/" # XXX
@@ -74,9 +81,9 @@ run_test() {
     [ -n "${VALGRIND}" ] && NAME_TMP="${NAME_TMP} (valgrind)"
 
     if [ -n "${NOCOLOR}" ]; then
-        printf "[  ]  %s: %-30s" "${NAME_A}" "${NAME_B}"
+        printf "[  ]  ${COUNT}  %s: %-30s" "${NAME_A}" "${NAME_B}"
     else
-        printf "\033[33m[  ]  %s: \033[0m%-30s" "${NAME_A}" "${NAME_B}" #"${NAME_TMP}"
+        printf "\033[33m[  ]  ${COUNT}  %s: \033[0m%-30s" "${NAME_A}" "${NAME_B}" #"${NAME_TMP}"
     fi
 
     # Check required variables.

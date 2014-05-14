@@ -82,11 +82,10 @@ NAME='!echo "test"'
 BROKEN=
 CMDS='
 !echo "test"
-!echo "test
+"!echo test"
 '
 EXPECT='test
-'
-EXPECT_ERR='sh: 1: Syntax error: Unterminated quoted string
+test
 '
 
 run_test

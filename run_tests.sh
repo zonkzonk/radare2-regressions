@@ -17,6 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+cd `dirname $0` 2>/dev/null
 
 # Statistics.
 TESTS_TOTAL=0

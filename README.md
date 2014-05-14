@@ -64,7 +64,7 @@ run_tests.sh or manually in t/.
 The following variables are available:
 
  * NAME (recommend):       radare2 command being tested (e.g. px).
- * FILE (required):        File argument for radare2.
+ * FILE (optional):        File argument for radare2 (defaults to '-')
  * ARGS (optional):        Additional arguments for radare2. If not present 
                            no additional arguments are used.
  * CMDS (required):        Commands to run, one per line. Just like in 

@@ -352,3 +352,13 @@ tms320_c55x_test	"MOV"		520a		"MOV AC0, CDP"
 tms320_c55x_test	"MOV"		520c		"MOV AC0, CSR"
 tms320_c55x_test	"MOV"		520d		"MOV AC0, BRC1"
 tms320_c55x_test	"MOV"		520e		"MOV AC0, BRC0"
+
+# ADDV/SQA/SQS/MPY/SQR/ROUND/SAT + [R] test
+
+tms320_c55x_test	"ADDV"		5491		"ADDRV AC1, AC2"
+tms320_c55x_test	"SQA"		5493		"SQAR AC1, AC2"
+tms320_c55x_test	"SQS"		5495		"SQSR AC1, AC2"
+tms320_c55x_test	"MPY"		5497		"MPYR AC1, AC2"
+tms320_c55x_test	"SQR"		5499		"SQRR AC1, AC2"
+tms320_c55x_test	"ROUND"		549b		"ROUND AC1, AC2"
+tms320_c55x_test	"SAT"		549d		"SATR AC1, AC2"

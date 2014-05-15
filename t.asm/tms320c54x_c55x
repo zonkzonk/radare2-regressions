@@ -362,3 +362,11 @@ tms320_c55x_test	"MPY"		5497		"MPYR AC1, AC2"
 tms320_c55x_test	"SQR"		5499		"SQRR AC1, AC2"
 tms320_c55x_test	"ROUND"		549b		"ROUND AC1, AC2"
 tms320_c55x_test	"SAT"		549d		"SATR AC1, AC2"
+
+# MAC/MAS/MPY + [R] test
+
+tms320_c55x_test	"MAC"		5601		"MACR AC0, T0, AC0"	# is it correct ?
+tms320_c55x_test	"MAC"		5641		"MACR AC0, T0, AC1, AC1"
+tms320_c55x_test	"MAC"		5843		"MACR AC1, T0, AC0, AC1"
+tms320_c55x_test	"MAS"		5643		"MASR T0, AC0, AC1"
+tms320_c55x_test	"MPY"		5841		"MPYR T0, AC0, AC1"

@@ -370,3 +370,14 @@ tms320_c55x_test	"MAC"		5641		"MACR AC0, T0, AC1, AC1"
 tms320_c55x_test	"MAC"		5843		"MACR AC1, T0, AC0, AC1"
 tms320_c55x_test	"MAS"		5643		"MASR T0, AC0, AC1"
 tms320_c55x_test	"MPY"		5841		"MPYR T0, AC0, AC1"
+
+# ADD/SUB/SFTCC/SFTL/SFTS/SFTSC test
+
+tms320_c55x_test	"ADD"		5a00		"ADD AC0 << T0, AC0"
+tms320_c55x_test	"SUB"		5a01		"SUB AC0 << T0, AC0"
+tms320_c55x_test	"SFTCC"		5a02		"SFTCC AC0, TC1"
+tms320_c55x_test	"SFTCC"		5a03		"SFTCC AC0, TC2"
+
+tms320_c55x_test	"SFTL"		5c40		"SFTL AC0, T0, AC1"
+tms320_c55x_test	"SFTS"		5c41		"SFTS AC0, T0, AC1"
+tms320_c55x_test	"SFTSC"		5c42		"SFTSC AC0, T0, AC1"

@@ -1,0 +1,30 @@
+#!/bin/sh
+# LGPL - Copyright (C) 2014 Fedor Sakharov
+
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+NAME="anal/fcn_name"
+BROKEN=
+FILE=../../b/files/mach0/main-g
+IGNORE_ERR=1
+ARGS=
+CMDS='s 0x0040042c
+af
+pd 1~sym.call_gmon_start'
+EXPECT='/ (fcn) sym.call_gmon_start 23
+'
+run_test
+
+NAME="anal/fcn_subname"
+BROKEN=
+FILE=../../b/files/mach0/main-g
+ARGS=
+# REGRESSION
+BROKEN=
+IGNORE_ERR=1
+CMDS='af
+s 0x0040042c
+pd 1~sym.call_gmon_start'
+EXPECT='/ (fcn) sym.call_gmon_start 23
+'
+run_test

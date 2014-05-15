@@ -53,7 +53,10 @@ R=$PWD
 # Run all tests.
 T="t"; [ -n "$1" ] && T="$1"
 if [ -f "$T" -a -x "$T" ]; then
-. $T
+  BDIR=`dirname $T`
+  FILE=`basename $T`
+  cd $BDIR
+  . ./$FILE
 else
 cd $T || die "t/ doesn't exist"
 for file in * ; do

@@ -74,6 +74,17 @@ EXPECT='000 0x00000000 8496 x86_64
 '
 run_test
 
+NAME='fatmach0 rabin2 archs'
+BROKEN=
+FILE=../../b/files/mach0/fatmach0-3true
+ARGS=-n
+CMDS="!rabin2 -A ${FILE}"
+EXPECT='000 0x00001000 13792 x86_64 x86 64 all
+001 0x00005000 13760 x86_32 386
+002 0x00009000 13616 ppc_32 7400
+'
+run_test
+
 NAME='fatmach0 extract'
 BROKEN=
 FILE=../../b/files/mach0/fatmach0-3true

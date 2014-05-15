@@ -459,3 +459,7 @@ tms320_c55x_test	"SUB"		7c112240	"SUB 0x1122, AC0, T0"
 tms320_c55x_test	"AND"		7d112240	"AND 0x1122, AC0, T0"
 tms320_c55x_test	"OR"		7e112240	"OR 0x1122, AC0, T0"
 tms320_c55x_test	"XOR"		7f112240	"XOR 0x1122, AC0, T0"
+
+# IDLE
+
+tms320_c55x_test	"IDLE"		7a00000c	"IDLE"

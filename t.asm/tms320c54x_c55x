@@ -402,3 +402,16 @@ tms320_c55x_test	"SWAP"		5e1c		"SWAPP AR4, T0"
 tms320_c55x_test	"SWAP"		5e1e		"SWAPP AR6, T2"
 tms320_c55x_test	"SWAP"		5e2c		"SWAP4 AR4, T0"
 tms320_c55x_test	"SWAP"		5e38		"SWAP AR0, AR1"
+
+# B/BCC/CALL/CALLCC + [l4,P24,cond] test
+
+tms320_c55x_test	"B"		6a123456	"B 0x123456"
+tms320_c55x_test	"CALL"		6c123456	"CALL 0x123456"
+
+tms320_c55x_test	"BCC"		6780		"BCC 0xF, AC0 == 0"
+tms320_c55x_test	"BCC"		6d001234	"BCC 0x1234, AC0 == 0"
+tms320_c55x_test	"BCC"		6800123456	"BCC 0x123456, AC0 == 0"
+tms320_c55x_test	"BCC"		6f001122	"BCC 0x22, AC0 == 0x11"
+
+tms320_c55x_test	"CALLCC"	6900123456	"CALLCC 0x123456, AC0 == 0"
+tms320_c55x_test	"CALLCC"	6e001234	"CALLCC 0x1234, AC0 == 0"

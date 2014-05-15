@@ -53,7 +53,12 @@ run_test() {
       echo "ERROR: Cannot find radare2 program in PATH"
       exit 1
     fi
-
+    
+    # add a prepended program to run test eg. zzuf
+    if [ -n "${PREPEND}" ]; then
+      export R2="${PREPEND} ${R2}"
+    fi
+    
     if [ -n "${GREP}" ]; then
         if [ -z "`echo \"${NAME}\" | grep \"${GREP}\"`" ]; then
             return
@@ -240,6 +245,7 @@ test_reset() {
     EXITCODE=
     BROKEN=
     SHELLCMD=
+    PREPEND=
 }
 
 test_reset

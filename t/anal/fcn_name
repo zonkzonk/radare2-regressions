@@ -22,8 +22,8 @@ ARGS=
 # REGRESSION
 BROKEN=
 IGNORE_ERR=1
-CMDS='af
-s 0x0040042c
+CMDS='s 0x0040042c
+af
 pd 1~sym.call_gmon_start'
 EXPECT='/ (fcn) sym.call_gmon_start 23
 '

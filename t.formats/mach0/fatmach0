@@ -74,6 +74,17 @@ EXPECT='000 0x00000000 8496 x86_64
 '
 run_test
 
+NAME='fatmach0 rabin2 archs iA'
+BROKEN=
+FILE=../../b/files/mach0/fatmach0-3true
+ARGS=
+CMDS="iA"
+EXPECT='000 0x00001000 13792 x86_64 x86 64 all
+001 0x00005000 13760 x86_32 386
+002 0x00009000 13616 ppc_32 7400
+'
+run_test
+
 NAME='fatmach0 rabin2 archs'
 BROKEN=
 FILE=../../b/files/mach0/fatmach0-3true
@@ -93,5 +104,15 @@ CMDS="!rabin2 -x ${FILE};!rm -rf fatmach0-3true.fat"
 EXPECT='fatmach0-3true.fat/fatmach0-3true.x86_64.0 created (13792)
 fatmach0-3true.fat/fatmach0-3true.x86_32.1 created (13760)
 fatmach0-3true.fat/fatmach0-3true.ppc_32.2 created (13616)
+'
+run_test
+
+NAME='fatmach0 sections'
+BROKEN=
+# rabin2 -x fatmach0-3true ; r2 fatmach00-3true.fat/*.x86_64
+FILE=../../b/files/mach0/fatmach0-3true
+ARGS="-a x86 -b 64"
+CMDS="S=~?"
+EXPECT='10
 '
 run_test

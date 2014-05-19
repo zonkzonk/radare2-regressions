@@ -6,8 +6,7 @@ NAME='PE: corkami normal64.exe - bits 64'
 FILE=../../b/files/pe/normal64.exe
 ARGS='-n'
 CMDS="!rabin2 -I ${FILE} | grep \"bits	64\" "
-EXPECT_ERR="Warning: Invalid import directory size: 0x0
-"
+
 EXPECT='bits	64
 '
 
@@ -18,8 +17,7 @@ NAME='PE: corkami normal64.exe - machine AMD 64'
 FILE=../../b/files/pe/normal64.exe
 ARGS='-n'
 CMDS="!rabin2 -I ${FILE} | grep \"machine	AMD 64\" "
-EXPECT_ERR="Warning: Invalid import directory size: 0x0
-"
+
 EXPECT='machine	AMD 64
 '
 
@@ -30,8 +28,7 @@ NAME='PE: corkami normal64.exe - class PE32+'
 FILE=../../b/files/pe/normal64.exe
 ARGS='-n'
 CMDS="!rabin2 -I ${FILE} | grep \"class	PE32+\" "
-EXPECT_ERR="Warning: Invalid import directory size: 0x0
-"
+
 EXPECT='class	PE32+
 '
 

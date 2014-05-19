@@ -6,8 +6,7 @@ NAME='PE: corkami normal.exe - bits 32'
 FILE=../../b/files/pe/normal.exe
 ARGS='-n'
 CMDS="!rabin2 -I ${FILE} | grep \"bits	32\" "
-EXPECT_ERR="Warning: Invalid import directory size: 0x0
-"
+
 EXPECT='bits	32
 '
 
@@ -18,8 +17,7 @@ NAME='PE: corkami normal.exe - machine i386'
 FILE=../../b/files/pe/normal.exe
 ARGS='-n'
 CMDS="!rabin2 -I ${FILE} | grep \"machine	i386\" "
-EXPECT_ERR="Warning: Invalid import directory size: 0x0
-"
+
 EXPECT='machine	i386
 '
 
@@ -30,8 +28,7 @@ NAME='PE: corkami normal.exe - class PE32'
 FILE=../../b/files/pe/normal.exe
 ARGS='-n'
 CMDS="!rabin2 -I ${FILE} | grep \"class	PE32\" "
-EXPECT_ERR="Warning: Invalid import directory size: 0x0
-"
+
 EXPECT='class	PE32
 '
 

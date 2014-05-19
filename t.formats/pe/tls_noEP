@@ -6,8 +6,7 @@ NAME='PE: tls_noEP - entrypoint'
 FILE=../../b/files/pe/tls_noEP.exe
 ARGS='-n'
 CMDS="!rabin2 -eq ${FILE} "
-EXPECT_ERR="Warning: Invalid import directory size: 0x0
-"
+
 EXPECT='0x00000000
 '
 

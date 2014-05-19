@@ -6,8 +6,7 @@ NAME='PE: corkami dep.exe - dep not enabled'
 FILE=../../b/files/pe/no_dep.exe
 ARGS='-n'
 CMDS="!rabin2 -I ${FILE} | grep \"nx	false\" "
-EXPECT_ERR="Warning: Invalid import directory size: 0x0
-"
+
 EXPECT='nx	false
 '
 

@@ -15,7 +15,7 @@ EXPECT_ERR=''
 run_test
 
 NAME='PE: corkami 96workingsections.exe - section list'
-BROKEN=1
+BROKEN=
 FILE=../../b/files/pe/96workingsections.exe
 ARGS='-n'
 CMDS="!rabin2 -S ${FILE}"

@@ -29,7 +29,7 @@ run_test
 
 NAME='pe relocs [rabin2 a.exe]'
 FILE=../../b/files/pe/a.exe
-ARGS='-n'
+ARGS=
 CMDS="!rabin2 -R ${FILE}"
 EXPECT='[Relocations]
 addr=0x000050a0 off=0x000012a0 type=SET_32 KERNEL32.dll_AddAtomA
@@ -53,12 +53,13 @@ addr=0x000050ec off=0x000012ec type=SET_32 msvcrt.dll_malloc
 addr=0x000050f0 off=0x000012f0 type=SET_32 msvcrt.dll_printf
 addr=0x000050f4 off=0x000012f4 type=SET_32 msvcrt.dll_signal
 
-20 relocations'
+20 relocations
+'
 run_test
 
 NAME='pe relocs [rabin2 b.exe]'
 FILE=../../b/files/pe/b.exe
-ARGS='-n'
+ARGS=
 CMDS="!rabin2 -R ${FILE}"
 EXPECT='[Relocations]
 addr=0x000050a0 off=0x000012a0 type=SET_32 KERNEL32.dll_AddAtomA
@@ -82,7 +83,8 @@ addr=0x000050ec off=0x000012ec type=SET_32 msvcrt.dll_malloc
 addr=0x000050f0 off=0x000012f0 type=SET_32 msvcrt.dll_printf
 addr=0x000050f4 off=0x000012f4 type=SET_32 msvcrt.dll_signal
 
-20 relocations'
+20 relocations
+'
 run_test
 
 NAME='pe string'

@@ -19,6 +19,7 @@
 
 GREP="$1"
 GREP=""
+SKIP=0
 cd `dirname $0` 2>/dev/null
 
 # ignore encoding in sed
@@ -229,7 +230,11 @@ run_test() {
           "${TMP_EXP}" "${TMP_EXR}"
 
     # Reset most variables in case the next test script doesn't set them.
+    if [ "${REVERSERC}" = '1' ]; then
+       export OUT_CODE=0
+    fi
     test_reset
+
     return $OUT_CODE
 }
 
@@ -246,6 +251,8 @@ test_reset() {
     BROKEN=
     SHELLCMD=
     PREPEND=
+    REVERSERC=
+    SKIP=
 }
 
 test_reset
@@ -267,10 +274,16 @@ test_success() {
 }
 
 test_failed() {
+    if [ -n "${REVERSERC}" ]; then
+        print_success "OK"
+        SKIP=1
+    fi
+    if [ "${SKIP}" = 0 ]; then
     if [ -z "${BROKEN}" ]; then
         print_failed "XX"
     else
         print_broken "BR"
+    fi
     fi
     FAILED="${FAILED}${TEST_NAME}:"
     if [ -n "${R2_SOURCED}" ]; then

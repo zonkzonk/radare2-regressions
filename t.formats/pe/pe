@@ -16,7 +16,7 @@ EXPECT='addr=0x00001280 off=0x00000680 baddr=0x00000000
 '
 run_test
 
-NAME='pe relocs'
+NAME='pe relocs [r2]'
 IGNORE_ERR=1
 BROKEN=
 FILE=$F
@@ -25,6 +25,64 @@ CMDS='pd 1@0x401820~reloc
 '
 EXPECT='           0x00401820    ff25f0504000 jmp dword [reloc.msvcrt.dll_puts]
 '
+run_test
+
+NAME='pe relocs [rabin2 a.exe]'
+FILE=../../b/files/pe/a.exe
+ARGS='-n'
+CMDS="!rabin2 -R ${FILE}"
+EXPECT='[Relocations]
+addr=0x000050a0 off=0x000012a0 type=SET_32 KERNEL32.dll_AddAtomA
+addr=0x000050a4 off=0x000012a4 type=SET_32 KERNEL32.dll_ExitProcess
+addr=0x000050a8 off=0x000012a8 type=SET_32 KERNEL32.dll_FindAtomA
+addr=0x000050ac off=0x000012ac type=SET_32 KERNEL32.dll_GetAtomNameA
+addr=0x000050b0 off=0x000012b0 type=SET_32 KERNEL32.dll_SetUnhandledExceptionFilter
+addr=0x000050bc off=0x000012bc type=SET_32 msvcrt.dll___getmainargs
+addr=0x000050c0 off=0x000012c0 type=SET_32 msvcrt.dll___p__environ
+addr=0x000050c4 off=0x000012c4 type=SET_32 msvcrt.dll___p__fmode
+addr=0x000050c8 off=0x000012c8 type=SET_32 msvcrt.dll___set_app_type
+addr=0x000050cc off=0x000012cc type=SET_32 msvcrt.dll__assert
+addr=0x000050d0 off=0x000012d0 type=SET_32 msvcrt.dll__cexit
+addr=0x000050d4 off=0x000012d4 type=SET_32 msvcrt.dll__iob
+addr=0x000050d8 off=0x000012d8 type=SET_32 msvcrt.dll__onexit
+addr=0x000050dc off=0x000012dc type=SET_32 msvcrt.dll__setmode
+addr=0x000050e0 off=0x000012e0 type=SET_32 msvcrt.dll_abort
+addr=0x000050e4 off=0x000012e4 type=SET_32 msvcrt.dll_atexit
+addr=0x000050e8 off=0x000012e8 type=SET_32 msvcrt.dll_free
+addr=0x000050ec off=0x000012ec type=SET_32 msvcrt.dll_malloc
+addr=0x000050f0 off=0x000012f0 type=SET_32 msvcrt.dll_printf
+addr=0x000050f4 off=0x000012f4 type=SET_32 msvcrt.dll_signal
+
+20 relocations'
+run_test
+
+NAME='pe relocs [rabin2 b.exe]'
+FILE=../../b/files/pe/b.exe
+ARGS='-n'
+CMDS="!rabin2 -R ${FILE}"
+EXPECT='[Relocations]
+addr=0x000050a0 off=0x000012a0 type=SET_32 KERNEL32.dll_AddAtomA
+addr=0x000050a4 off=0x000012a4 type=SET_32 KERNEL32.dll_ExitProcess
+addr=0x000050a8 off=0x000012a8 type=SET_32 KERNEL32.dll_FindAtomA
+addr=0x000050ac off=0x000012ac type=SET_32 KERNEL32.dll_GetAtomNameA
+addr=0x000050b0 off=0x000012b0 type=SET_32 KERNEL32.dll_SetUnhandledExceptionFilter
+addr=0x000050bc off=0x000012bc type=SET_32 msvcrt.dll___getmainargs
+addr=0x000050c0 off=0x000012c0 type=SET_32 msvcrt.dll___p__environ
+addr=0x000050c4 off=0x000012c4 type=SET_32 msvcrt.dll___p__fmode
+addr=0x000050c8 off=0x000012c8 type=SET_32 msvcrt.dll___set_app_type
+addr=0x000050cc off=0x000012cc type=SET_32 msvcrt.dll__assert
+addr=0x000050d0 off=0x000012d0 type=SET_32 msvcrt.dll__cexit
+addr=0x000050d4 off=0x000012d4 type=SET_32 msvcrt.dll__iob
+addr=0x000050d8 off=0x000012d8 type=SET_32 msvcrt.dll__onexit
+addr=0x000050dc off=0x000012dc type=SET_32 msvcrt.dll__setmode
+addr=0x000050e0 off=0x000012e0 type=SET_32 msvcrt.dll_abort
+addr=0x000050e4 off=0x000012e4 type=SET_32 msvcrt.dll_atexit
+addr=0x000050e8 off=0x000012e8 type=SET_32 msvcrt.dll_free
+addr=0x000050ec off=0x000012ec type=SET_32 msvcrt.dll_malloc
+addr=0x000050f0 off=0x000012f0 type=SET_32 msvcrt.dll_printf
+addr=0x000050f4 off=0x000012f4 type=SET_32 msvcrt.dll_signal
+
+20 relocations'
 run_test
 
 NAME='pe string'
@@ -38,3 +96,4 @@ CMDS='pd 1@0x0040131a~str.Hello
 EXPECT='           0x0040131a    c7042400304. mov dword [esp], str.Hello ; "0@" ;  0x00403000 
 '
 run_test
+

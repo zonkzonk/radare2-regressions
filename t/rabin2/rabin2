@@ -8,7 +8,7 @@ FILE=../../b/files/elf/hello-linux-x86_64
 ARGS=
 CMDS='!rabin2 -k ${FILE}'
 EXPECT=''
-EXPECT_ERR="r_core: Cannot open '(null)'
+EXPECT_ERR="r_core: Cannot open file
 "
 run_test
 

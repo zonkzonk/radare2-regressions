@@ -15,7 +15,7 @@ r 10
 i~^size[1]
 r 4
 i~^size[1]
-r +6
+r+6
 i~^size[1]
 '
 EXPECT='0x0

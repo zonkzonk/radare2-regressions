@@ -14,30 +14,30 @@ run_test
 
 FILE=malloc://1024
 NAME="Cs : concatenated strings bug"
-BROKEN=1
+BROKEN=
 CMDS='
 w hello\x00world
 Cs 6
 Cs 6@6
 pd 2
 '
-EXPECT='            0x00000000     .string "hello" ; len=6
-          0x00000007     .string "world" ; len=6
+EXPECT='           0x00000000     .string "hello" ; len=6
+           0x00000006     .string "world" ; len=6
 '
 run_test
 
 
 FILE=malloc://1024
 NAME="Cs : concatenated strings bug"
-BROKEN=1
+BROKEN=
 CMDS='
 w hello\x00world
 Cs 6
 Cs 6@6
 pd 2
 '
-EXPECT='            0x00000000     .string "hello" ; len=6
-          0x00000007     .string "world" ; len=6
+EXPECT='           0x00000000     .string "hello" ; len=6
+           0x00000006     .string "world" ; len=6
 '
 run_test
 

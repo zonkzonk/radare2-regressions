@@ -2,8 +2,8 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 BROKEN=1
-NAME='PE: corkami dllfakess-ld.dll - open'
-FILE=../../b/files/pe/dllfakess-ld.dll
+NAME='PE: corkami tls_aoiOSDET.exe - open'
+FILE=../../b/files/pe/tls_aoiOSDET.exe
 ARGS=''
 CMDS="q!"
 EXPECT=''

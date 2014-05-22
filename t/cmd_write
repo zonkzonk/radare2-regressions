@@ -61,9 +61,9 @@ NAME='wt'
 FILE=../b/files/pe/b.exe
 ARGS=
 CMDS='wt a_piece_of_ls_saved_to_PWD 0x400
-!ls -l a_piece_of_ls_saved_to_PWD
+ls -l a_piece_of_ls_saved_to_PWD~[3]
 '
-EXPECT='1024 a_piece_of_ls_saved_to_PWD
+EXPECT='1024
 '
 EXPECT_ERR='dumped 0x400 bytes
 '

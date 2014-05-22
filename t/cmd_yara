@@ -7,8 +7,8 @@ BROKEN=
 FILE=../b/files/pe/a.exe
 ARGS=
 CMDS='yara scan'
-EXPECT='/usr/share/radare2/0.9.8.git/yara/packers.rules added
-/usr/share/radare2/0.9.8.git/yara/crypto.rules added
+EXPECT='/usr/share/radare2/0.9.8.git/yara/crypto.rules added
+/usr/share/radare2/0.9.8.git/yara/packers.rules added
 MingWin32_GCC_3_x
 Microsoft_Windows_Update_CAB_SFX_module
 Microsoft_Visual_C___v7_1_DLL

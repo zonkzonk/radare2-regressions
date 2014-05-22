@@ -1,0 +1,10 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+BROKEN=1
+NAME='PE: corkami dllfakess-ld.exe - open'
+FILE=../../b/files/pe/dllfakess-ld.exe
+ARGS=''
+CMDS="q!"
+EXPECT=''
+run_test

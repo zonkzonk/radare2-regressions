@@ -1,0 +1,10 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+BROKEN=1
+NAME='PE: corkami bigSoRD.exe - open'
+FILE=../../b/files/pe/bigSoRD.exe
+ARGS=''
+CMDS="q!"
+EXPECT=''
+run_test

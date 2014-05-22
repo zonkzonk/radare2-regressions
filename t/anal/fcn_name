@@ -11,7 +11,7 @@ ARGS=
 CMDS='s 0x0040042c
 af
 pd 1~sym.call_gmon_start'
-EXPECT='/ (fcn) sym.call_gmon_start 23
+EXPECT='/ (fcn) sym.call_gmon_start 21
 '
 run_test
 
@@ -25,6 +25,6 @@ IGNORE_ERR=1
 CMDS='s 0x0040042c
 af
 pd 1~sym.call_gmon_start'
-EXPECT='/ (fcn) sym.call_gmon_start 23
+EXPECT='/ (fcn) sym.call_gmon_start 21
 '
 run_test

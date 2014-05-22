@@ -278,7 +278,7 @@ test_failed() {
         print_success "OK"
         SKIP=1
     fi
-    if [ "${SKIP}" = 0 ]; then
+    if [ -z "${SKIP}" -o "${SKIP}" = 0 ]; then
     if [ -z "${BROKEN}" ]; then
         print_failed "XX"
     else

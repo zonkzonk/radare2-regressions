@@ -2,6 +2,13 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 
+NAME='PE: corkami normal64.exe - open'
+FILE=../../b/files/pe/normal64.exe
+ARGS=''
+CMDS="q!"
+EXPECT=''
+run_test
+
 NAME='PE: corkami normal64.exe - bits 64'
 FILE=../../b/files/pe/normal64.exe
 ARGS='-n'

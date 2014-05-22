@@ -6,7 +6,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 ## cache
 
-rm .newfile
+rm -f .newfile
 # Cache write.
 NAME='write'
 FILE=.newfile

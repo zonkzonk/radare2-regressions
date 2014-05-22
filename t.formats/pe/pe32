@@ -7,7 +7,7 @@ FILE=../../b/files/pe/pe.exe
 CMDS='
 s
 '
-EXPECT='0x00401000
+EXPECT='0x401000
 '
 EXPECT_ERR=''
 

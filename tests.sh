@@ -182,11 +182,25 @@ run_test() {
     # Check if the output matched.
     diff "${TMP_OUT}" "${TMP_EXP}" >/dev/null
     OUT_CODE=$?
+if [ "${NOT_EXPECT}" = 1 ]; then
+if [ "${OUT_CODE}" = 0 ]; then
+OUT_CODE=1
+else
+OUT_CODE=0
+fi
+fi
     if [ "${IGNORE_ERR}" = 1 ]; then
         ERR_CODE=0
     else
         diff "${TMP_ERR}" "${TMP_EXR}" >/dev/null
         ERR_CODE=$?
+if [ "${NOT_EXPECT}" = 1 ]; then
+if [ "${ERR_CODE}" = 0 ]; then
+ERR_CODE=1
+else
+ERR_CODE=0
+fi
+fi
     fi
 
     if [ ${CODE} -eq 47 ]; then
@@ -243,6 +257,7 @@ test_reset() {
     FILE="-"
     ARGS=
     CMDS=
+    NOT_EXPECT=
     EXPECT=
     EXPECT_ERR=
     IGNORE_ERR=0

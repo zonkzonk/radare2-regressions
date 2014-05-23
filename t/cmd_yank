@@ -41,3 +41,34 @@ EXPECT='0x00000000 = catty
 '
 
 run_test
+
+# Yank a string
+NAME='yz'
+FILE=malloc://128
+ARGS=
+CMDS='
+w HelloWorld @0
+yz
+?y
+yz 5
+?y
+yz 4 @ 4
+?y
+yz @ 6
+?y
+yz 2 @ 6
+?y
+b 6
+yz
+?y
+'
+EXPECT='HelloWorld
+Hello
+oWor
+orld
+oWor
+or
+HelloW
+'
+
+run_test

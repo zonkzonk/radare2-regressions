@@ -1,6 +1,7 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
+BROKEN=1
 NAME='PE: corkami dummy_shnum.elf - open'
 FILE=../../b/files/elf/dummy_shnum.elf
 ARGS=''

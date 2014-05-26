@@ -3,11 +3,12 @@
 
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
-gcc ../b/files/elf/main.c -gdwarf-2 -o ../b/files/elf/main
+
+
 
 NAME="pdf dwarf"
 BROKEN=
-FILE=../b/files/elf/main
+FILE=/tmp/r2-regressions/dwarf/main
 IGNORE_ERR=1
 ARGS=
 CMDS='e asm.dwarf=true
@@ -39,8 +40,16 @@ EXPECT='|          ; DATA XREF from 0x0040045d (fcn.00400436)
 |          0x00400563    b800000000   mov eax, 0x0  ; main.c:10 	return 0;  
 |          0x00400568    c9           leave  ; main.c:11 }  
 \          0x00400569    c3           ret
-'`pwd`/../b/files/elf/'
-'`pwd`/../b/files/elf/'
 '
+
+mkdir -p /tmp/r2-regressions/dwarf
+
+if [ $? -eq 1 ]; then
+	echo "Failed to create directory in /tmp/r2-regressions/dwarf"
+	exit 1
+fi
+
+cp ../b/files/elf/main /tmp/r2-regressions/dwarf/main
+cp ../b/files/src/main.c /tmp/r2-regressions/dwarf/main.c
 
 run_test

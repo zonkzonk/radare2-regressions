@@ -28,15 +28,24 @@ EXPECT='81ec08040000535556576a01e88f0100
 '
 run_test
 
+NAME='decoding the thunk table'
+FILE=../../b/files/xbe/default.xbe
+ARGS=''
+BROKEN=1
+CMDS="is~addr"
+EXPECT='addr=0x000116c0 off=0x000016c0 ord=000 fwd= sz=4 bind= type= name=kt.vsnprintf
+'
+run_test
+
 NAME='section header decoding'
 BROKEN=
 FILE=../../b/files/xbe/default.xbe
 ARGS=''
 CMDS='iS~idx'
-EXPECT='idx=00 addr=0x00011000 off=0x00001000 sz=1728 vsz=1728 perm=-r-x name=
-idx=01 addr=0x000116c0 off=0x00002000 sz=24 vsz=24 perm=-r-- name=
-idx=02 addr=0x000116e0 off=0x00003000 sz=28280 vsz=1257188 perm=-rw- name=_
-idx=03 addr=0x000145e0 off=0x0000a000 sz=60 vsz=64 perm=-rwx name=_
-idx=04 addr=0x00014620 off=0x0000b000 sz=164 vsz=1188 perm=-r-- name=_
+EXPECT='idx=00 addr=0x00011000 off=0x00001000 sz=1728 vsz=1728 perm=-r-x name=.0
+idx=01 addr=0x000116c0 off=0x00002000 sz=24 vsz=24 perm=-r-- name=.1
+idx=02 addr=0x000116e0 off=0x00003000 sz=28280 vsz=1257188 perm=-rw- name=_.2
+idx=03 addr=0x000145e0 off=0x0000a000 sz=60 vsz=64 perm=-rwx name=_.3
+idx=04 addr=0x00014620 off=0x0000b000 sz=164 vsz=1188 perm=-r-- name=_.4
 '
 run_test

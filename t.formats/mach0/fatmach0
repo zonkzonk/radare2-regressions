@@ -31,7 +31,7 @@ BROKEN=
 FILE=../../b/files/mach0/fatmach0-3true
 ARGS='-a x86 -b 32'
 CMDS='?v entry0'
-EXPECT='0x1f44
+EXPECT='0x100001f44
 '
 run_test
 
@@ -58,7 +58,7 @@ BROKEN=
 FILE=../../b/files/mach0/fatmach0-3true
 ARGS='-a ppc -b 32'
 CMDS='?v entry0'
-EXPECT='0x1f64
+EXPECT='0x100001f64
 '
 run_test
 

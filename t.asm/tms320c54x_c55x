@@ -463,3 +463,20 @@ tms320_c55x_test	"XOR"		7f112240	"XOR 0x1122, AC0, T0"
 # IDLE
 
 tms320_c55x_test	"IDLE"		7a00000c	"IDLE"
+
+# MOV/ADD/SUB + [Xmem,Ymem] full test
+
+tms320_c55x_test	"MOV"		8003f0		"MOV dbl(*AR0), dbl(*AR7(T0))"
+tms320_c55x_test	"MOV"		802760		"MOV dbl(*AR1+), dbl(*(AR6 - T1))"
+tms320_c55x_test	"MOV"		804ad0		"MOV dbl(*AR2-), dbl(*(AR5 - T0))"
+tms320_c55x_test	"MOV"		806e40		"MOV dbl(*(AR3 + T0)), dbl(*(AR4 + T1))"
+tms320_c55x_test	"MOV"		8091b0		"MOV dbl(*(AR4 + T1)), dbl(*(AR3 + T0))"
+tms320_c55x_test	"MOV"		80b520		"MOV dbl(*(AR5 - T0)), dbl(*AR2-)"
+tms320_c55x_test	"MOV"		80d890		"MOV dbl(*(AR6 - T1)), dbl(*AR1+)"
+tms320_c55x_test	"MOV"		80fc00		"MOV dbl(*AR7(T0)), dbl(*AR0)"
+
+tms320_c55x_test	"MOV"		800004		"MOV *AR0, *AR0"
+tms320_c55x_test	"MOV"		800008		"MOV AC0, *AR0, *AR0"
+tms320_c55x_test	"ADD"		810000		"ADD *AR0, *AR0, AC0"
+tms320_c55x_test	"ADD"		810004		"SUB *AR0, *AR0, AC0"
+tms320_c55x_test	"MOV"		810008		"MOV *AR0, *AR0, AC0"

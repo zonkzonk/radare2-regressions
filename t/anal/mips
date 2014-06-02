@@ -108,10 +108,31 @@ EXPECT='/ (fcn) fcn.80100000 40
 |          0x80100018    40040408     j 0x80101100
 |          0x8010001c    00000000     nop
            ; CALL XREF from 0x80100000 (fcn.80100000)
-/ (fcn) fcn.80100020 12
+/ (fcn) fcn.80100020 8
 |          0x80100020    0800e003     jr ra
 \          0x80100024    00000000     nop
 0x80100000  40  1  fcn.80100000
-0x80100020  12  1  fcn.80100020
+0x80100020  8  1  fcn.80100020
+'
+run_test
+
+#
+# Test that functions are sized correctly with branch delay.
+# Previously, the following sequence would result in a length of 20 bytes not 16.
+#   nop ; nop ; jr ra ; movz v1, v0, a0 ; nop
+NAME="mips branch delay function sizing."
+BROKEN=
+FILE=malloc://20
+ARGS='-m 0x80100000'
+CMDS='e asm.arch=mips
+e asm.bits=32
+e anal.depth=2
+wx 0800e0030a184400000000000000000000000
+af 2> /dev/null
+pdf
+'
+EXPECT='/ (fcn) fcn.80100000 8
+|          0x80100000    0800e003     jr ra
+\          0x80100004    0a184400     movz v1, v0, a0
 '
 run_test

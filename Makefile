@@ -37,7 +37,7 @@ format.elf:
 format.java:
 	@sh run_tests.sh t.formats/java
 
-format.match0:
+format.mach0:
 	@sh run_tests.sh t.formats/mach0
 
 format.xbe:

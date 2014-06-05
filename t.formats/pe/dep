@@ -11,7 +11,7 @@ run_test
 NAME='PE: corkami dep.exe - dep enabled'
 FILE=../../b/files/pe/dep.exe
 ARGS='-n'
-CMDS="!rabin2 -k 'pe.nx' ${FILE}"
+CMDS="I~nx"
 
 EXPECT='true
 '

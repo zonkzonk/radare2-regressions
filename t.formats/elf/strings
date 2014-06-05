@@ -1,0 +1,19 @@
+#!/bin/sh
+# LGPL - Copyright (C) 2014 pancake
+
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+# This test verifies that rabin2 -z returns proper va address for strings
+
+NAME="pdf dwarf"
+BROKEN=
+FILE=../../b/files/elf/main
+IGNORE_ERR=1
+ARGS=
+CMDS='fs *
+f~str.
+'
+EXPECT='0x004005f4 24 str.Thisisadwarftest_d
+'
+
+run_test

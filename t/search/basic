@@ -9,7 +9,7 @@ w test@333
 w test@666
 ?e
 e search.in=block
-b 0x400
+b 777
 / test
 '
 EXPECT='

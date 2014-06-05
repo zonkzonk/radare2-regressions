@@ -3,16 +3,12 @@
 
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
-
-
-
 NAME="pdf dwarf"
 BROKEN=
 FILE=/tmp/r2-regressions/dwarf/main
 IGNORE_ERR=1
 ARGS=
 CMDS='e asm.dwarf=true
-e bin.dwarf=true
 aa
 pdf@main'
 EXPECT='|          ; DATA XREF from 0x0040045d (fcn.00400436)
@@ -27,7 +23,7 @@ EXPECT='|          ; DATA XREF from 0x0040045d (fcn.00400436)
 |      |   ; JMP XREF from 0x00400561 (fcn.004004fc)
 |- loc.00400545 37
 |      |   0x00400545    8b45fc       mov eax, [rbp-0x4]  ; main.c:7 		printf("This is a dwarf test %d\n", i);  
-|- fcn.0040055d 34
+|- fcn.00400548 34
 |      |   0x00400548    89c6         mov esi, eax
 |      |   0x0040054a    bff4054000   mov edi, str.Thisisadwarftest_d ;  0x004005f4 
 |      |   0x0040054f    b800000000   mov eax, 0x0

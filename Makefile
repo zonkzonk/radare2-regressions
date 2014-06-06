@@ -17,9 +17,46 @@ all:
 	@sh run_tests.sh t.formats/xbe
 
 asm:
-	@sh run_tests.sh t.asm
-	@sh run_tests.sh t.asm/udis86
-	@sh run_tests.sh t.asm/capstone
+	@sh run_tests.sh t.asm/8051
+	@sh run_tests.sh t.asm/arc
+	@sh run_tests.sh t.asm/arm
+	@sh run_tests.sh t.asm/avr
+	@sh run_tests.sh t.asm/cr16
+	@sh run_tests.sh t.asm/ebc
+	@sh run_tests.sh t.asm/gb
+	@sh run_tests.sh t.asm/h8300
+	@sh run_tests.sh t.asm/java
+	@sh run_tests.sh t.asm/mips
+	@sh run_tests.sh t.asm/tms320
+	@sh run_tests.sh t.asm/x86
+	@sh run_tests.sh t.asm/z80
+
+asm.8051:
+	@sh run_tests.sh t.asm/8051
+asm.arc:
+	@sh run_tests.sh t.asm/arc
+asm.arm:
+	@sh run_tests.sh t.asm/arm
+asm.avr:
+	@sh run_tests.sh t.asm/avr
+asm.cr16:
+	@sh run_tests.sh t.asm/cr16
+asm.ebc:
+	@sh run_tests.sh t.asm/ebc
+asm.gb:
+	@sh run_tests.sh t.asm/gb
+asm.h8300:
+	@sh run_tests.sh t.asm/h8300
+asm.java:
+	@sh run_tests.sh t.asm/java
+asm.mips:
+	@sh run_tests.sh t.asm/mips
+asm.tms320:
+	@sh run_tests.sh t.asm/tms320
+asm.x86:
+	@sh run_tests.sh t.asm/x86
+asm.z80:
+	@sh run_tests.sh t.asm/z80
 
 formats:
 	@sh run_tests.sh t.formats/pe

@@ -22,7 +22,7 @@ run_test
 NAME='corrupted section data'
 FILE=../../b/files/xbe/default.xbe
 ARGS=''
-BROKEN=1
+BROKEN=
 CMDS="p8 16"
 EXPECT='81ec08040000535556576a01e88f0100
 '
@@ -31,7 +31,7 @@ run_test
 NAME='decoding the thunk table'
 FILE=../../b/files/xbe/default.xbe
 ARGS=''
-BROKEN=1
+BROKEN=
 CMDS="is~addr"
 EXPECT='addr=0x000116c0 off=0x000016c0 ord=000 fwd= sz=4 bind= type= name=kt.vsnprintf
 '

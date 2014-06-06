@@ -1,0 +1,33 @@
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+NEWFILE=/tmp/.___newfile___.
+rm -f ${NEWFILE}
+
+NAME="io/newfile"
+BROKEN=
+ARGS=
+IGNORE_ERR=1
+FILE=${NEWFILE}
+CMDS='wx 9090
+i~size[1]
+'
+EXPECT='0x0
+'
+run_test
+
+
+NEWFILE=/tmp/.___newfile___.
+rm -f ${NEWFILE}
+
+NAME="io/newfile"
+BROKEN=
+ARGS=-w
+FILE=${NEWFILE}
+CMDS='wx 9090
+i~size[1]
+'
+EXPECT='0x2
+'
+run_test
+
+

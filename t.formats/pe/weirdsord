@@ -5,5 +5,6 @@ NAME='PE: corkami weirdsord.exe - open'
 FILE=../../b/files/pe/weirdsord.exe
 ARGS=''
 CMDS="q!"
+IGNORE_ERR=1
 EXPECT=''
 run_test

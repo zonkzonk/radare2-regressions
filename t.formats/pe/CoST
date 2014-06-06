@@ -5,12 +5,14 @@ NAME='PE: corkami CoST.exe - open'
 FILE=../../b/files/pe/CoST.exe
 ARGS=''
 CMDS="q!"
+IGNORE_ERR=1
 EXPECT=''
 run_test
 
 NAME='PE: corkami CoST.exe - entrypoint'
 FILE=../../b/files/pe/CoST.exe
 ARGS='-n'
+IGNORE_ERR=1
 CMDS="!rabin2 -eq ${FILE}"
 EXPECT='0x00000000
 '
@@ -19,6 +21,7 @@ run_test
 NAME='PE: corkami CoST.exe - sections list'
 FILE=../../b/files/pe/CoST.exe
 ARGS='-n'
+IGNORE_ERR=1
 CMDS="!rabin2 -S ${FILE}"
 EXPECT='[Sections]
 

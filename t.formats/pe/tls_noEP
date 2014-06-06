@@ -5,12 +5,14 @@ NAME='PE: corkami tls_noEP.exe - open'
 FILE=../../b/files/pe/tls_noEP.exe
 ARGS=''
 CMDS="q!"
+IGNORE_ERR=1
 EXPECT=''
 run_test
 
 NAME='PE: tls_noEP - entrypoint'
 FILE=../../b/files/pe/tls_noEP.exe
 ARGS='-n'
+IGNORE_ERR=1
 CMDS="!rabin2 -eq ${FILE} "
 
 EXPECT='0x00000000

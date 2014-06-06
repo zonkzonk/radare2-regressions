@@ -4,6 +4,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 BROKEN=1
 NAME='PE: corkami dllord.dll - open'
 FILE=../../b/files/pe/dllord.dll
+IGNORE_ERR=1
 ARGS=''
 CMDS="q!"
 EXPECT=''

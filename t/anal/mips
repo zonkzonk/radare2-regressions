@@ -67,16 +67,17 @@ wx 0800040c000000000000000000000000000000000000000040040408000000000800e00300000
 aa 2> /dev/null
 pd 10
 '
-EXPECT='/ (fcn) fcn.00000000 40
+EXPECT='/ (fcn) fcn.00000000 32
 |          0x00000000    0800040c     jal 0x00100020
-|             0x00100020() ; fcn.00000000+1048608
+|             0x00100020() ; fcn.00000020+1048576
 |          0x00000004    00000000     nop
 |          0x00000008    00000000     nop
 |          0x0000000c    00000000     nop
 |          0x00000010    00000000     nop
 |          0x00000014    00000000     nop
 |          0x00000018    40040408     j 0x00101100
-|          0x0000001c    00000000     nop
+\          0x0000001c    00000000     nop
+/ (fcn) fcn.00000020 8
 |          0x00000020    0800e003     jr ra
 \          0x00000024    00000000     nop
 '
@@ -91,13 +92,13 @@ FILE=malloc://40
 ARGS='-m 0x80100000'
 CMDS='e asm.arch=mips
 e asm.bits=32
-e anal.depth=2
+e anal.depth=3
 wx 0800040c000000000000000000000000000000000000000040040408000000000800e0030000000000000000
 aa 2> /dev/null
 pd 10
 afl
 '
-EXPECT='/ (fcn) fcn.80100000 40
+EXPECT='/ (fcn) fcn.80100000 32
 |          0x80100000    0800040c     jal fcn.80100020
 |             fcn.80100020()
 |          0x80100004    00000000     nop
@@ -106,20 +107,20 @@ EXPECT='/ (fcn) fcn.80100000 40
 |          0x80100010    00000000     nop
 |          0x80100014    00000000     nop
 |          0x80100018    40040408     j 0x80101100
-|          0x8010001c    00000000     nop
+\          0x8010001c    00000000     nop
            ; CALL XREF from 0x80100000 (fcn.80100000)
 / (fcn) fcn.80100020 8
 |          0x80100020    0800e003     jr ra
 \          0x80100024    00000000     nop
-0x80100000  40  1  fcn.80100000
+0x80100000  32  1  fcn.80100000
 0x80100020  8  1  fcn.80100020
 '
 run_test
 
-#
 # Test that functions are sized correctly with branch delay.
-# Previously, the following sequence would result in a length of 20 bytes not 16.
-#   nop ; nop ; jr ra ; movz v1, v0, a0 ; nop
+# Previously, the following sequence would result in a length of 12 bytes not 8.
+#   jr ra ; movz v1, v0, a0 ; nop
+# It turns out that until this was fixed properly, the above two tests were still wrong!
 NAME="mips branch delay function sizing."
 BROKEN=
 FILE=malloc://20
@@ -134,5 +135,32 @@ pdf
 EXPECT='/ (fcn) fcn.80100000 8
 |          0x80100000    0800e003     jr ra
 \          0x80100004    0a184400     movz v1, v0, a0
+'
+run_test
+
+NAME="mips branch delay function sizing with conditional jump."
+BROKEN=
+FILE=malloc://40
+ARGS='-m 0x80100000'
+CMDS='e asm.arch=mips
+e asm.bits=32
+e anal.depth=2
+wx 00000000000000000100001000000000fdff0915000000000800e0030a184400000000000000000000000
+af 2> /dev/null
+pdf
+'
+EXPECT='/ (fcn) fcn.80100000 32
+|          0x80100000    00000000     nop
+|          0x80100004    00000000     nop
+|      ,  ; JMP XREF from 0x80100010 (fcn.80100000)
+|- loc.80100008 24
+|     .,=< 0x80100008    01000010     b loc.80100010
+|     ||   0x8010000c    00000000     nop
+|     ||   ; JMP XREF from 0x80100008 (fcn.80100000)
+|- loc.80100010 16
+|     ``-> 0x80100010    fdff0915     bne t0, t1, loc.80100008
+|          0x80100014    00000000     nop
+|          0x80100018    0800e003     jr ra
+\          0x8010001c    0a184400     movz v1, v0, a0
 '
 run_test

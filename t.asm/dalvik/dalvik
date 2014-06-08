@@ -1,0 +1,43 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh; done
+
+test_vector() {
+NAME="${1}: [${2}]"
+FILE=malloc://32
+if [ "${4}" = "br" ]; then
+	BROKEN=1
+fi
+CMDS='
+e asm.arch='${1}'
+e asm.bits=32
+e cfg.bigendian=true
+wx '${3}'
+pi 1
+'
+EXPECT="$(echo ${2} | tr '[:upper:]' '[:lower:]')
+"
+run_test
+}
+
+PLUGIN=dalvik
+
+test_vector "${PLUGIN}" "nop" 0000
+test_vector "${PLUGIN}" "move v0, v1" 0110
+test_vector "${PLUGIN}" "move/from16 v0, v25" 02001900
+test_vector "${PLUGIN}" "move/16 v0, v0" 03000000
+test_vector "${PLUGIN}" "move-wide v0, v0" 04000000
+test_vector "${PLUGIN}" "move-object v1, v8" 0781
+test_vector "${PLUGIN}" "move-object/from16 v1, v21" 08011500
+test_vector "${PLUGIN}" "move-object/16 v0, v0" 0900
+test_vector "${PLUGIN}" "move-result v0" 0A00
+test_vector "${PLUGIN}" "move-result-wide v2" 0B02
+test_vector "${PLUGIN}" "move-result-object v0" 0C00
+test_vector "${PLUGIN}" "move-exception v25" 0D19
+test_vector "${PLUGIN}" "return-void" 0E00
+test_vector "${PLUGIN}" "return v0" 0F00
+test_vector "${PLUGIN}" "return-wide v0" 1000
+test_vector "${PLUGIN}" "return-object v0" 1100
+test_vector "${PLUGIN}" "const/4 v1, 0x2" 1221
+test_vector "${PLUGIN}" "const/16 v0, 0x0a" 13000A00 #const/16 v0, #int 10
+test_vector "${PLUGIN}" "const v0, 0x00BC614E" 14004E61BC00 br #const v0, #12345678 // #00BC614E
+test_vector "${PLUGIN}" "const/high16 v0, 0x41200000" 15002041 br # const/high16 v0, #float 10.0 // #41200000

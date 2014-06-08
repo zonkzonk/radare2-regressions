@@ -22,6 +22,7 @@ asm:
 	@sh run_tests.sh t.asm/arm
 	@sh run_tests.sh t.asm/avr
 	@sh run_tests.sh t.asm/cr16
+	@sh run_tests.sh t.asm/dalvik
 	@sh run_tests.sh t.asm/ebc
 	@sh run_tests.sh t.asm/gb
 	@sh run_tests.sh t.asm/h8300
@@ -41,6 +42,8 @@ asm.avr:
 	@sh run_tests.sh t.asm/avr
 asm.cr16:
 	@sh run_tests.sh t.asm/cr16
+asm.dalvik:
+	@sh run_tests.sh t.asm/dalvik
 asm.ebc:
 	@sh run_tests.sh t.asm/ebc
 asm.gb:

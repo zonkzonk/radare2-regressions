@@ -62,3 +62,12 @@ pa jmp 0x1b @ 0x14
 EXPECT='eb05
 '
 run_test
+
+NAME="assemble sete al"
+CMDS='
+wa sete al
+pd 1
+'
+EXPECT='           0x00000000    0f94c0       sete al
+'
+run_test

@@ -40,7 +40,6 @@ PLUGIN=8051
 # -------------------------------
 # bitness check
 NAME="8051: checking bitness (asm.bits)"
-BROKEN=1
 FILE=malloc://32
 CMDS='
 e asm.arch=8051
@@ -94,7 +93,7 @@ test_vector "${PLUGIN}" "MOV R2" 7a00 "mov r2, 0x00"
 test_vector "${PLUGIN}" "MOV R3" 7b00 "mov r3, 0x00"
 test_vector "${PLUGIN}" "MOV R4" 7c00 "mov r4, 0x00"
 test_vector "${PLUGIN}" "MOV R5" 7d00 "mov r5, 0x00"
-test_vector "${PLUGIN}" "MOV @a" 75a07f1 "mov @a0, 0x7f"
+test_vector "${PLUGIN}" "MOV @a" 75a07f1 "mov @a0, 0x7f" "br"
 test_vector "${PLUGIN}" "MOVC" 93 "movc a, @a+dptr"
 test_vector "${PLUGIN}" "MOVX" e0 "movx a, @dptr"
 test_vector "${PLUGIN}" "MUL" a4 "mul ab" "br"

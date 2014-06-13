@@ -37,10 +37,19 @@ The following options can be passed to run_tests.sh or the individual tests
  * To get verbose output, use 'VERBOSE=1' (always enabled for individual
    tests).
 
+Failure Levels
+--------------
+
+A test can have one of the following results:
+* success: The test passed, and that was expected.
+* fixed: The test passed, but failure was expeced.
+* broken: Failure was expected, and happened.
+* failed: The test failed unexpectedly. This is a regression.
+
 Exit code
 ---------
 
-run_test.sh exits with the following exit codes:
+run_tests.sh exits with the following exit codes:
 
 * 0: all tests passed
 * 1: at least one test failed

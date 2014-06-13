@@ -11,7 +11,7 @@ Directory Hierarchy
  * t/:           Test scripts.
  * b/:           Sample binaries.
  * test.sh:      Test driver script sourced by tests (not to be run manually).
- * run_tests.sh: Run all tests.
+ * run_tests.sh: Run tests for the core features.
 
 Requirements
 ------------
@@ -22,8 +22,9 @@ Requirements
 Usage
 -----
 
- * Run './run_tests.sh' in the top level directory to run *all* tests
+ * Run './run_tests.sh' in the top level directory to run the core tests
    (alternatively you can use 'make').
+ * To run *all* tests, use 'make all'.
  * To run individual tests, type 'cd t; ./testname'.
  * To remove old test results run 'make clean'.
 

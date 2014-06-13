@@ -113,7 +113,7 @@ print_label "[${TESTS_TOTAL}]"
 BADBOYS=$((${TESTS_BROKEN}+${TESTS_FAILED}))
 BN=`echo "100 ${BADBOYS} * ${TESTS_TOTAL} / n" | dc`
 printf "      BROKENNESS\r"
-print_label "[${BN}%%]"
+print_label "[${BN}%]"
 echo
 
 # Save statistics

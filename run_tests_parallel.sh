@@ -128,6 +128,8 @@ for file in * ; do
          #TEST_NAME=$file
 	 runfile ./$file/ ${file2}
       done
+   elif [ ! -x "$file" ]; then  # Only run files marked as executable.
+      print_found_nonexec "$file"
    else
       NAME=`basename $file`
       TEST_NAME=$NAME

@@ -70,5 +70,6 @@ EXPECT_ERR='dumped 0x400 bytes
 FILTER='sed "s/.*\(\<1024\>\).*\(\<a_piece_of_ls_saved_to_PWD\>\)$/\1 \2/"'
 
 run_test
+rm -f a_piece_of_ls_saved_to_PWD
 
 

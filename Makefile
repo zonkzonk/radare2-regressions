@@ -9,7 +9,7 @@ all:
 	@sh run_tests.sh
 	@sh run_tests.sh t.asm
 	@sh run_tests.sh t.anal
-	@sh run_tests.sh t.archos
+	@$(MAKE) -C t.archos
 	@sh run_tests.sh t.formats/pe
 	@sh run_tests.sh t.formats/elf
 	@sh run_tests.sh t.formats/java

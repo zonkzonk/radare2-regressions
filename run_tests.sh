@@ -71,6 +71,8 @@ for file in * ; do
          . ./${file2}
       done
       cd ..
+   elif [ ! -x "$file" ]; then	# Only run files marked as executable.
+      print_found_nonexec "$file"
    else
       NAME=`basename $file`
       TEST_NAME=$NAME

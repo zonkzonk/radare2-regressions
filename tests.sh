@@ -349,3 +349,12 @@ else
     printf "\033[35m%s \033[0m" $@
 fi
 }
+
+print_found_nonexec() {
+MSG="Found non-executeable file '$1', skipping. (If it's a test, use chmod +x)"
+if [ -n "${NOCOLOR}" ]; then
+    printf "%s\n" "$MSG"
+else
+    printf "\033[1;31m%s\033[0m\n" "$MSG"
+fi
+}

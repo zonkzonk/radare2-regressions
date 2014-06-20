@@ -6,12 +6,14 @@ FILE=../../b/files/pe/jman.exe
 ARGS=''
 CMDS="q!"
 EXPECT=''
+
 run_test
 
 NAME='MZ: jman.exe - entrypoint'
+BROKEN=1
 FILE=../../b/files/pe/jman.exe
 ARGS=''
-CMDS="S-;S 0x70 0x100 0x147bd 0x147bd text rwx;s 0x100;pi 1"
+CMDS="pi 1"
 EXPECT='mov ax, 0x2df3
 '
 run_test

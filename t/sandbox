@@ -3,7 +3,7 @@
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 NAME='sandbox disable'
-IGNORE_ERR=0
+IGNORE_ERR=1
 FILE=-
 ARGS=
 CMDS='e cfg.sandbox=true

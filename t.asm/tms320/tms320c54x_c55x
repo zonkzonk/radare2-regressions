@@ -480,3 +480,28 @@ tms320_c55x_test	"MOV"		800008		"MOV AC0, *AR0, *AR0"
 tms320_c55x_test	"ADD"		810000		"ADD *AR0, *AR0, AC0"
 tms320_c55x_test	"ADD"		810004		"SUB *AR0, *AR0, AC0"
 tms320_c55x_test	"MOV"		810008		"MOV *AR0, *AR0, AC0"
+
+# MPY/MAC/MAS/AMAR::MPY/MAC/MAS + [uu,mm(Cmem)] full test
+
+tms320_c55x_test	"MPY::MPY"	82000000		"MPY *AR0, *CDP, AC0 :: MPY *AR0, *CDP, AC0"
+tms320_c55x_test	"MPY::MPY"	82000103		"MPYR40 *AR0, *CDP+, AC0 :: MPYR40 *AR0, *CDP+, AC0"
+tms320_c55x_test	"MPY::MPY"	82000283		"MPYR40 uns(*AR0), uns(*CDP-), AC0 :: MPYR40 *AR0, *CDP-, AC0"
+tms320_c55x_test	"MPY::MPY"	82000343		"MPYR40 *AR0, *(CDP+T0), AC0 :: MPYR40 uns(*AR0), uns(*(CDP+T0)), AC0"
+tms320_c55x_test	"MPY::MPY"	820000c3		"MPYR40 uns(*AR0), uns(*CDP), AC0 :: MPYR40 uns(*AR0), uns(*CDP), AC0"
+
+tms320_c55x_test	"MAC::MPY"	82000400		"MAC *AR0, *CDP, AC0 :: MPY *AR0, *CDP, AC0"
+tms320_c55x_test	"MAS::MPY"	82000800		"MAS *AR0, *CDP, AC0 :: MPY *AR0, *CDP, AC0"
+tms320_c55x_test	"MAC::MAC"	83000000		"MAC *AR0, *CDP, AC0 :: MAC *AR0, *CDP, AC0"
+tms320_c55x_test	"MAS::MAC"	83000400		"MAS *AR0, *CDP, AC0 :: MAC *AR0, *CDP, AC0"
+tms320_c55x_test	"MAC::MAC"	83000800		"MAC *AR0, *CDP, AC0 >> #16 :: MAC *AR0, *CDP, AC0"
+tms320_c55x_test	"MAS::MAC"	84000000		"MAS *AR0, *CDP, AC0 :: MAC *AR0, *CDP, AC0 >> #16"
+tms320_c55x_test	"MPY::MAC"	84000800		"MPY *AR0, *CDP, AC0 :: MAC *AR0, *CDP, AC0 >> #16"
+tms320_c55x_test	"MAC::MAC"	84000c00		"MAC *AR0, *CDP, AC0 >> #16 :: MAC *AR0, *CDP, AC0 >> #16"
+tms320_c55x_test	"MAS::MAS"	85000400		"MAS *AR0, *CDP, AC0 :: MAS *AR0, *CDP, AC0"
+
+tms320_c55x_test	"AMAR::MPY"	82000c00		"AMAR *AR0 :: MPY *AR0, *CDP, AC0"
+tms320_c55x_test	"AMAR::MAC"	83000c00		"AMAR *AR0 :: MAC *AR0, *CDP, AC0"
+tms320_c55x_test	"AMAR::MAC"	84000400		"AMAR *AR0 :: MAC *AR0, *CDP, AC0 >> #16"
+tms320_c55x_test	"AMAR::MAS"	85000000		"AMAR *AR0 :: MAS *AR0, *CDP, AC0"
+
+tms320_c55x_test	"AMAR"		85000800		"AMAR *AR0, *AR0, *CDP"

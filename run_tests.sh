@@ -113,6 +113,10 @@ printf "      TOTAL\r"
 print_label "[${TESTS_TOTAL}]"
 
 BADBOYS=$((${TESTS_BROKEN}+${TESTS_FAILED}))
+dc -V > /dev/null
+if [ $? != 0 ]; then
+	exit 1
+fi
 BN=`echo "100 ${BADBOYS} * ${TESTS_TOTAL} / n" | dc`
 printf "      BROKENNESS\r"
 print_label "[${BN}%]"

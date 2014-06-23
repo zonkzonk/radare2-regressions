@@ -546,3 +546,12 @@ tms320_c55x_test	"LMSF"		87000061	"LMSF *AR0, *AR0, AC0, AC0"
 tms320_c55x_test	"ADD"		87000080	"ADD *AR0 << #16, AC0, AC0 :: MOV HI(AC0 << T2), *AR0"
 tms320_c55x_test	"SUB"		870000a0	"SUB *AR0 << #16, AC0, AC0 :: MOV HI(AC0 << T2), *AR0"
 tms320_c55x_test	"MOV"		870000c0	"MOV *AR0 << #16, AC0 :: MOV HI(AC0 << T2), *AR0"
+
+# MOV/B/CALL/RESET/INTR/TRAP test
+
+tms320_c55x_test	"MOV"		9000		"MOV AC0, AC0"
+tms320_c55x_test	"B"		9100		"B AC0"
+tms320_c55x_test	"CALL"		9200		"CALL AC0"
+tms320_c55x_test	"RESET"		9400		"RESET"
+tms320_c55x_test	"INTR"		957f		"INTR 0x1F"
+tms320_c55x_test	"TRAP"		95ff		"TRAP 0x1F"

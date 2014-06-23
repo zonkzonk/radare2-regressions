@@ -555,3 +555,12 @@ tms320_c55x_test	"CALL"		9200		"CALL AC0"
 tms320_c55x_test	"RESET"		9400		"RESET"
 tms320_c55x_test	"INTR"		957f		"INTR 0x1F"
 tms320_c55x_test	"TRAP"		95ff		"TRAP 0x1F"
+
+# XCC/XCCPART test
+
+tms320_c55x_test	"XCC"		9600		"XCC AC0 == 0"
+tms320_c55x_test	"XCCPART"	9680		"XCCPART AC0 == 0"
+tms320_c55x_test	"XCC"		9e00		"XCC AC0 == 0"
+tms320_c55x_test	"XCCPART"	9e80		"XCCPART AC0 == 0"
+tms320_c55x_test	"XCC"		9f00		"XCC AC0 == 0"
+tms320_c55x_test	"XCCPART"	9f80		"XCCPART AC0 == 0"

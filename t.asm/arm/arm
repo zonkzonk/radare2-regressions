@@ -18,7 +18,7 @@ EXPECT="${4}
 run_test
 }
 
-PLUGIN=arm
+PLUGIN=arm.gnu
 
 test_vector "${PLUGIN}" "ADDEQ r1, r1, r0" 00108100 "addeq r1, r1, r0"
 test_vector "${PLUGIN}" "ADDEQ r1, r1, r2, lsl 2" 02118100 "addeq r1, r1, r2, lsl 2"

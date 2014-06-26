@@ -10,7 +10,7 @@ FILE=../../b/files/mach0/hello-osx-i386
 ARGS=
 CMDS='ie~addr
 '
-EXPECT='addr=0x00001f14 off=0x00000f14 baddr=0x00000000
+EXPECT='addr=0x00001f14 off=0x00000f14 baddr=0x00001000
 '
 run_test
 
@@ -20,7 +20,7 @@ FILE=../../b/files/mach0/ls-osx-x86_64
 ARGS=
 CMDS='ie~addr
 '
-EXPECT='addr=0x000013d8 off=0x00000000 baddr=0x00000000
+EXPECT='addr=0x1000010f8 off=0x000010f8 baddr=0x100000000
 '
 run_test
 
@@ -34,5 +34,6 @@ CMDS='ik
 EXPECT='uuid.0=ff4d6c2e1dc0369d98d0d3040a8049e8
 entry0=0x13d8
 stacksize=0
+mach0.entry=0x10f8
 '
 run_test

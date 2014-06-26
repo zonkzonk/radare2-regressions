@@ -8,7 +8,7 @@ BROKEN=
 FILE=../../b/files/mach0/fatmach0-3true
 ARGS="-a x86 -b32"
 CMDS='?v entry0;p8 8 @ entry0'
-EXPECT='0x1f44
+EXPECT='0x100001f44
 6a0089e583e4f083
 '
 run_test

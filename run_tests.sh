@@ -25,6 +25,7 @@ TESTS_SUCCESS=0
 TESTS_FAILED=0
 TESTS_BROKEN=0
 TESTS_FIXED=0
+TESTS_FATAL=0
 
 # Let tests.sh know the complete test suite is run, enables statistics.
 R2_SOURCED=1
@@ -103,6 +104,12 @@ if [ "${TESTS_BROKEN}" -gt 0 ]; then
 else
     print_broken 0
 fi
+printf "      FATAL"
+if [ "${TESTS_FATAL}" -gt 0 ]; then
+    print_failed "${TESTS_FATAL}"
+else
+    print_failed 0
+fi
 printf "      FAILED"
 if [ "${TESTS_FAILED}" -gt 0 ]; then
     print_failed  "${TESTS_FAILED}"
@@ -112,7 +119,7 @@ fi
 printf "      TOTAL\r"
 print_label "[${TESTS_TOTAL}]"
 
-BADBOYS=$((${TESTS_BROKEN}+${TESTS_FAILED}))
+BADBOYS=$((${TESTS_BROKEN}+${TESTS_FAILED}+${TESTS_FATAL}))
 dc -V > /dev/null
 if [ $? != 0 ]; then
 	exit 1
@@ -127,23 +134,17 @@ cd $R
 V=`r2 -v 2>/dev/null| grep ^rada| awk '{print $5}'`
 touch stats.csv
 grep -v "^$V" stats.csv > .stats.csv
-echo "$V,${TESTS_SUCCESS},${TESTS_FIXED},${TESTS_BROKEN},${TESTS_FAILED},${FAILED}" >> .stats.csv
+echo "$V,${TESTS_SUCCESS},${TESTS_FIXED},${TESTS_BROKEN},${TESTS_FAILED},${TESTS_FATAL},${FAILED}" >> .stats.csv
 sort .stats.csv > stats.csv
 rm -f .stats.csv
+
+# Proper exit code.
+if [ "${TESTS_FATAL}" -gt 0 ]; then
+  echo "ESSENTIAL TEST HAS FAILED"
+  exit 2
+fi
 
 if [ "${TESTS_FAILED}" -gt 0 ]; then
   exit 1
 fi
 exit 0
-
-# Proper exit code.
-if [ "${TESTS_TOTAL}" -eq "${TESTS_SUCCESS}" ]; then
-    exit 0
-elif [ "${TESTS_FAILED}" -eq 0 ]; then
-    if [ "${TESTS_BROKEN}" -ge 0 ]; then
-        exit 2
-    elif [ "${TESTS_FIXED}" -ge 0 ]; then
-        exit 3
-    fi
-fi
-exit 1

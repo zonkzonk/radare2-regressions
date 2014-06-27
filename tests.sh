@@ -267,6 +267,7 @@ test_reset() {
     SHELLCMD=
     PREPEND=
     REVERSERC=
+    ESSENTIAL=
     SKIP=
 }
 
@@ -294,18 +295,26 @@ test_failed() {
         SKIP=1
     fi
     if [ -z "${SKIP}" -o "${SKIP}" = 0 ]; then
-    if [ -z "${BROKEN}" ]; then
-        print_failed "XX"
-    else
-        print_broken "BR"
-    fi
+        if [ -n "${ESSENTIAL}" ]; then
+            print_failed "EF" # essential failure
+        else
+            if [ -z "${BROKEN}" ]; then
+                print_failed "XX"
+            else
+                print_broken "BR"
+            fi
+        fi
     fi
     FAILED="${FAILED}${TEST_NAME}:"
     if [ -n "${R2_SOURCED}" ]; then
-        if [ -z "${BROKEN}" ]; then
-            TESTS_FAILED=$(( TESTS_FAILED + 1 ))
+        if [ -n "${ESSENTIAL}" ]; then
+            TESTS_FATAL=$(( TESTS_FATAL + 1 ))
         else
-            TESTS_BROKEN=$(( TESTS_BROKEN + 1 ))
+            if [ -z "${BROKEN}" ]; then
+                TESTS_FAILED=$(( TESTS_FAILED + 1 ))
+            else
+                TESTS_BROKEN=$(( TESTS_BROKEN + 1 ))
+            fi
         fi
     fi
 }

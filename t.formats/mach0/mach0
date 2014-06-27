@@ -14,6 +14,16 @@ EXPECT='addr=0x00001f14 off=0x00000f14 baddr=0x00001000
 '
 run_test
 
+NAME='mach0 entry0 data'
+BROKEN=
+FILE=../../b/files/mach0/hello-osx-i386
+ARGS=
+CMDS='p8 10 @ entry0
+'
+EXPECT='6a0089e583e4f083ec10
+'
+run_test
+
 NAME='osx mach0 entrypoint'
 BROKEN=
 FILE=../../b/files/mach0/ls-osx-x86_64

@@ -26,12 +26,32 @@ EXPECT='0x100000ef8
 '
 run_test
 
+NAME='fatmach0 entry0 data'
+ESSENTIAL=1
+BROKEN=
+FILE=../../b/files/mach0/fatmach0-3true
+ARGS='-a x86 -b 64'
+CMDS='p8 16 @ entry0'
+EXPECT='6a004889e54883e4f0488b7d08488d75
+'
+run_test
+
 NAME='fatmach0 entry1'
 BROKEN=
 FILE=../../b/files/mach0/fatmach0-3true
 ARGS='-a x86 -b 32'
 CMDS='?v entry0'
 EXPECT='0x1f44
+'
+run_test
+
+NAME='fatmach0 entry1 data'
+ESSENTIAL=1
+BROKEN=
+FILE=../../b/files/mach0/fatmach0-3true
+ARGS='-a x86 -b 32'
+CMDS='p8 16 @ entry0'
+EXPECT='6a0089e583e4f083ec108b5d04891c24
 '
 run_test
 
@@ -49,7 +69,7 @@ BROKEN=
 FILE=../../b/files/mach0/fatmach0-3true
 ARGS='-n'
 CMDS="!rabin2 -a x86 -b 32 -e ${FILE} | grep off="
-EXPECT='addr=0x00001f44 off=0x00005f44 baddr=0x00000000
+EXPECT='addr=0x00001f44 off=0x00005f44 baddr=0x00001000
 '
 run_test
 
@@ -59,6 +79,16 @@ FILE=../../b/files/mach0/fatmach0-3true
 ARGS='-a ppc -b 32'
 CMDS='?v entry0'
 EXPECT='0x100001f64
+'
+run_test
+
+NAME='fatmach0 entry2 data'
+ESSENTIAL=1
+BROKEN=
+FILE=../../b/files/mach0/fatmach0-3true
+ARGS='-a ppc -b 32'
+CMDS='p8 16 @ entry0'
+EXPECT='7c3a0b783821fffc5421003438000000
 '
 run_test
 

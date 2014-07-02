@@ -66,8 +66,8 @@ run_test
 NAME="assemble sete al"
 CMDS='
 wa sete al
-pd 1
+pi 1
 '
-EXPECT='           0x00000000    0f94c0       sete al
+EXPECT='sete al
 '
 run_test

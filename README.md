@@ -102,6 +102,13 @@ The test files should be named according to the following convention:
            redirection.
  * file_*: For each supported file format.
 
+Advices
+------------------
+
+* Never use shell pipes, use `~`
+* dont use `pd` if not necessary, use `pi`
+
+
 License
 -------
 

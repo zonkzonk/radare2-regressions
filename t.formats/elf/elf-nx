@@ -11,7 +11,7 @@ run_test
 NAME='PE: corkami elf-nx - nx enabled'
 FILE=../../b/files/elf/elf-nx
 ARGS=''
-CMDS="iI | grep \"nx	true\" "
+CMDS="iI~^nx"
 
 EXPECT='nx	true
 '

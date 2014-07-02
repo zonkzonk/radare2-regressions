@@ -1,6 +1,7 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
+IGNORE_ERR=1
 NAME='PE: corkami no_sections.elf - open'
 FILE=../../b/files/elf/no_sections.elf
 ARGS=''

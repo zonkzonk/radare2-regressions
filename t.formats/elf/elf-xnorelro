@@ -21,7 +21,7 @@ run_test
 NAME='PE: corkami elf-nx -  nx disabled'
 FILE=../../b/files/elf/elf-xnorelro
 ARGS=''
-CMDS="iI | grep \"nx	false\" "
+CMDS="iI~^nx"
 
 EXPECT='nx	false
 '

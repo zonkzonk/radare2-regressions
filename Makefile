@@ -61,6 +61,21 @@ asm.x86:
 asm.z80:
 	@sh run_tests.sh t.asm/z80
 
+anal:
+	@sh run_tests.sh t.anal/arm
+	@sh run_tests.sh t.anal/java
+	@sh run_tests.sh t.anal/mips
+	@sh run_tests.sh t.anal/x86
+
+anal.arm:
+	@sh run_tests.sh t.anal/arm
+anal.java:
+	@sh run_tests.sh t.anal/java
+anal.mips:
+	@sh run_tests.sh t.anal/mips
+anal.x86:
+	@sh run_tests.sh t.anal/x86
+
 formats:
 	@sh run_tests.sh t.formats/pe
 	@sh run_tests.sh t.formats/elf
@@ -86,7 +101,7 @@ format.xbe:
 udis86:
 	@sh run_tests.sh t.asm/udis86
 
-capstone:	
+capstone:
 	@sh run_tests.sh t.asm/capstone
 	@sh run_tests.sh t.anal/capstone
 

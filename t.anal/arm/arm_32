@@ -6,7 +6,7 @@ FILE=malloc://32
 CMDS='
 wx 20c09fe5
 wx 0cc09ae7 @ 4
-e asm.arch=arm
+e asm.arch=arm.gnu
 e asm.bits=32
 # pd 2 - note different colors
 pi 2
@@ -24,7 +24,7 @@ NAME="endian"
 BROKEN=
 FILE=malloc://32
 CMDS='
-e asm.arch=arm
+e asm.arch=arm.gnu
 e asm.bits=32
 wx e59a9ae7
 e cfg.bigendian=false

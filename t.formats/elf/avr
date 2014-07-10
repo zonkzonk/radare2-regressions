@@ -1,17 +1,38 @@
 #!/bin/sh
 
-# GPL 3+ - Copyright (C) 2013  pancake
+# GPL 3+ - Copyright (C) 2013-2014  pancake
 
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='avr entrypoint'
-BROKEN=1
 FILE=../../b/files/elf/bugurtos-avr.elf
 ARGS=
 CMDS='ie~addr
 '
-EXPECT='addr=0x00000000 off=0x00000074 baddr=0x00000000
+EXPECT='addr=0x00000074 off=0x00000074 baddr=0x00000000
 '
 run_test
 
+NAME='avr main address'
+BROKEN=1
+FILE=../../b/files/elf/bugurtos-avr.elf
+ARGS=
+CMDS='?v sym.main
+'
+EXPECT='0x184
+'
+# working offset in the past
+#EXPECT='0x308
+#'
+run_test
 
+NAME='avr main code'
+FILE=../../b/files/elf/bugurtos-avr.elf
+ARGS=
+CMDS='pi 3@sym.main
+'
+EXPECT='push r14
+push r15
+push r16
+'
+run_test

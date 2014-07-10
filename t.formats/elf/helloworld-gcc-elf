@@ -5,7 +5,7 @@ FILE=../../s/x86-helloworld-gcc
 CMDS='
 S | grep .init_array
 '
-EXPECT='[17] . 0x0000059c rw- va=0x0804959c sz=0x00000004 vsz=00000004 .init_array
+EXPECT='[17] . 0x0000059c rw- va=0x0804959c sz=0x0004 vsz=0x0004 .init_array
 '
 EXPECT_ERR=''
 

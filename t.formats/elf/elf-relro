@@ -1,11 +1,13 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
-NAME='PE: corkami elf-relro - open'
+NAME='PE: corkami elf-relro - sections'
 FILE=../../b/files/elf/elf-relro
 ARGS=''
-CMDS="q!"
-EXPECT=''
+CMDS="S~rel"
+EXPECT='[08] . 0x0000027c r-- va=0x0804827c sz=0x0008 vsz=0x0008 .rel.dyn
+[09] . 0x00000284 r-- va=0x08048284 sz=0x0010 vsz=0x0010 .rel.plt
+'
 run_test
 
 NAME='PE: corkami elf-relro - relro enabled'

@@ -51,6 +51,7 @@ EXPECT="lol : 0x00000000 = 4000
 cat : 0x00000004 = 75 ; 75 ; 'K'
 "
 run_test
+
 NAME='array obj'
 FILE=malloc://1024
 ARGS=
@@ -66,5 +67,21 @@ EXPECT="0x00000000 [0] {
      nb : 0x00000005 = 42
    plop : 0x00000009 = 76 ; 76 ; 'L'
 }
+"
+run_test
+
+NAME='write test'
+FILE=malloc://1024
+ARGS=
+CMDS='wx 32000000424c41424c41424c41424c41
+pf.troll izi hu swagg plop
+.pf.troll.hu=42
+.pf.troll.swagg=BWAAAA
+.pf.troll.plop=4000
+pf.troll
+'
+EXPECT="   hu : 0x00000000 = 42
+swagg : 0x00000004 = BWAAAABLABLA
+ plop : 0x00000011 = 4000
 "
 run_test

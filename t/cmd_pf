@@ -11,9 +11,9 @@ CMDS='wx a00f00002a4b9a020000
 pf fcbi foo bar fool beer
 '
 EXPECT=" foo : 0x00000000 = 4000.000000
- bar : 0x00000004 = 42 ; 42 ; '*'
-fool : 0x00000005 = 75 ; 0x4b ; 'K'
-beer : 0x00000006 = 666
+ bar : 0x00000004 = 42 ; 42 ; '*' 
+fool : 0x00000005 = 75 ; 0x4b ; 'K' 
+beer : 0x00000006 = 666 
 "
 run_test
 
@@ -24,8 +24,8 @@ BROKEN=1
 CMDS='wx efbeadde00000000adde
 pf qw bigWord beef
 '
-EXPECT="bigWord : 0x00000000 = (qword) 0x00000000deadbeef
-  beef : 0x00000008 = 0xdead
+EXPECT="bigWord : 0x00000000 = (qword) 0x00000000deadbeef 
+  beef : 0x00000008 = 0xdead 
 "
 run_test
 
@@ -35,8 +35,8 @@ ARGS=
 CMDS='wx deadbeef00000000adde
 pf eqew bigWord beef
 '
-EXPECT="bigWord : 0x00000000 = (qword) 0xdeadbeef00000000
-  beef : 0x00000008 = 0xdead
+EXPECT="bigWord : 0x00000000 = (qword) 0xdeadbeef00000000 
+  beef : 0x00000008 = 0xdead 
 "
 run_test
 
@@ -47,8 +47,8 @@ CMDS='wx a00f00004b
 pf.troll ic lol cat
 pf.troll
 '
-EXPECT="lol : 0x00000000 = 4000
-cat : 0x00000004 = 75 ; 75 ; 'K'
+EXPECT="lol : 0x00000000 = 4000 
+cat : 0x00000004 = 75 ; 75 ; 'K' 
 "
 run_test
 
@@ -60,12 +60,12 @@ pf.troll 2ic nb plop
 pf.troll
 '
 EXPECT="0x00000000 [0] {
-     nb : 0x00000000 = 4000
-   plop : 0x00000004 = 75 ; 75 ; 'K'
+     nb : 0x00000000 = 4000 
+   plop : 0x00000004 = 75 ; 75 ; 'K' 
 }
 0x00000005 [1] {
-     nb : 0x00000005 = 42
-   plop : 0x00000009 = 76 ; 76 ; 'L'
+     nb : 0x00000005 = 42 
+   plop : 0x00000009 = 76 ; 76 ; 'L' 
 }
 "
 run_test

@@ -29,6 +29,18 @@ EXPECT="bigWord : 0x00000000 = (qword) 0x00000000deadbeef
 "
 run_test
 
+NAME='[nb]X test'
+FILE=malloc://1024
+ARGS=
+CMDS='wx 122a567890
+pf [5]X
+pf X
+'
+EXPECT="0x00000000 = 12 2a 56 78 90  ... (.*Vx.)
+0x00000000 = 12  ... (.)
+"
+run_test
+
 NAME='swap endianess'
 FILE=malloc://1024
 ARGS=

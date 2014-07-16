@@ -11,9 +11,9 @@ CMDS='wx a00f00002a4b9a020000
 pf fcbi foo bar fool beer
 '
 EXPECT=" foo : 0x00000000 = 4000.000000
- bar : 0x00000004 = 42 ; 42 ; '*' 
-fool : 0x00000005 = 75 ; 0x4b ; 'K' 
-beer : 0x00000006 = 666 
+ bar : 0x00000004 = 42 ; 42 ; '*'
+fool : 0x00000005 = 75 ; 0x4b ; 'K'
+beer : 0x00000006 = 666
 "
 run_test
 
@@ -24,8 +24,8 @@ BROKEN=1
 CMDS='wx efbeadde00000000adde
 pf qw bigWord beef
 '
-EXPECT="bigWord : 0x00000000 = (qword) 0x00000000deadbeef 
-  beef : 0x00000008 = 0xdead 
+EXPECT="bigWord : 0x00000000 = (qword) 0x00000000deadbeef
+  beef : 0x00000008 = 0xdead
 "
 run_test
 
@@ -35,8 +35,8 @@ ARGS=
 CMDS='wx deadbeef00000000adde
 pf eqew bigWord beef
 '
-EXPECT="bigWord : 0x00000000 = (qword) 0xdeadbeef00000000 
-  beef : 0x00000008 = 0xdead 
+EXPECT="bigWord : 0x00000000 = (qword) 0xdeadbeef00000000
+  beef : 0x00000008 = 0xdead
 "
 run_test
 
@@ -47,8 +47,8 @@ CMDS='wx a00f00004b
 pf.troll ic lol cat
 pf.troll
 '
-EXPECT="lol : 0x00000000 = 4000 
-cat : 0x00000004 = 75 ; 75 ; 'K' 
+EXPECT="lol : 0x00000000 = 4000
+cat : 0x00000004 = 75 ; 75 ; 'K'
 "
 run_test
 
@@ -60,12 +60,12 @@ pf.troll 2ic nb plop
 pf.troll
 '
 EXPECT="0x00000000 [0] {
-     nb : 0x00000000 = 4000 
-   plop : 0x00000004 = 75 ; 75 ; 'K' 
+     nb : 0x00000000 = 4000
+   plop : 0x00000004 = 75 ; 75 ; 'K'
 }
 0x00000005 [1] {
-     nb : 0x00000005 = 42 
-   plop : 0x00000009 = 76 ; 76 ; 'L' 
+     nb : 0x00000005 = 42
+   plop : 0x00000009 = 76 ; 76 ; 'L'
 }
 "
 run_test
@@ -80,9 +80,9 @@ pf.troll izi hu swagg plop
 .pf.troll.plop=4000
 pf.troll
 '
-EXPECT="   hu : 0x00000000 = 42 
+EXPECT="   hu : 0x00000000 = 42
 swagg : 0x00000004 = BWAAAABLABLA
- plop : 0x00000011 = 4000 
+ plop : 0x00000011 = 4000
 "
 run_test
 
@@ -96,10 +96,10 @@ pf.troll
 .pf.troll.plop=42
 pf.troll
 '
-EXPECT="swagg : 0x00000000 = BLABLABLABLA 
-plop : 0x0000001a = 4000 
-swagg : 0x00000000 = BWAAAA 
-plop : 0x0000000e = 42 
+EXPECT="swagg : 0x00000000 = BLABLABLABLA
+plop : 0x0000001a = 4000
+swagg : 0x00000000 = BWAAAA
+plop : 0x0000000e = 42
 "
 run_test
 
@@ -110,13 +110,13 @@ BROKEN=1
 CMDS='wx a00f0000002a0000a00f00000000400000adde00000000efbeadde00000000000040
 pf [5]i[3]b[6]f[3]c[6]w[10]q[12]x
 '
-EXPECT="0x00000000 = 4000 
-0x00000005 = 42 ; 0x2a ; '*' 
+EXPECT="0x00000000 = 4000
+0x00000005 = 42 ; 0x2a ; '*'
 0x00000008 = 4000.000000
-0x0000000e = 64 ; 64 ; '@' 
-0x00000011 = 0xdead 
-0x00000017 = (qword) 0x00000000deadbeef 
-0x00000021 = 0x00000040 
+0x0000000e = 64 ; 64 ; '@'
+0x00000011 = 0xdead
+0x00000017 = (qword) 0x00000000deadbeef
+0x00000021 = 0x00000040
 "
 run_test
 
@@ -130,7 +130,7 @@ wx 2a@0x10
 pf [10]z[6]ib
 '
 EXPECT="0x00000000 = TR.LL
-0x0000000a = 4000 
-0x00000010 = 42 ; 0x2a ; '*' 
+0x0000000a = 4000
+0x00000010 = 42 ; 0x2a ; '*'
 "
 run_test

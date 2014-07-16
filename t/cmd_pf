@@ -120,17 +120,19 @@ EXPECT="0x00000000 = 4000
 "
 run_test
 
-NAME='fixed size str and var'
+NAME='fixed size str, widechar, and var'
 FILE=malloc://1024
 ARGS=
 CMDS='w TROLL
 wx 12@0x02
 wx a00f@0x0a
-wx 2a@0x10
-pf [10]z[6]ib
+ww PLOP@0x10
+wx 2a@0x1a
+pf [10]z[6]i[10]Zb
 '
 EXPECT="0x00000000 = TR.LL
 0x0000000a = 4000
-0x00000010 = 42 ; 0x2a ; '*'
+0x00000010 = PLOP
+0x0000001a = 42 ; 0x2a ; '*'
 "
 run_test

@@ -80,8 +80,57 @@ pf.troll izi hu swagg plop
 .pf.troll.plop=4000
 pf.troll
 '
-EXPECT="   hu : 0x00000000 = 42
+EXPECT="   hu : 0x00000000 = 42 
 swagg : 0x00000004 = BWAAAABLABLA
- plop : 0x00000011 = 4000
+ plop : 0x00000011 = 4000 
+"
+run_test
+
+NAME='write wide string'
+FILE=malloc://1024
+ARGS=
+CMDS='wx 42004c00410042004c00410042004c00410042004c0041000000a00f0000
+pf.troll Zi swagg plop
+pf.troll
+.pf.troll.swagg=BWAAAA
+.pf.troll.plop=42
+pf.troll
+'
+EXPECT="swagg : 0x00000000 = BLABLABLABLA 
+plop : 0x0000001a = 4000 
+swagg : 0x00000000 = BWAAAA 
+plop : 0x0000000e = 42 
+"
+run_test
+
+NAME='fixed size variable'
+FILE=malloc://1024
+ARGS=
+BROKEN=1
+CMDS='wx a00f0000002a0000a00f00000000400000adde00000000efbeadde00000000000040
+pf [5]i[3]b[6]f[3]c[6]w[10]q[12]x
+'
+EXPECT="0x00000000 = 4000 
+0x00000005 = 42 ; 0x2a ; '*' 
+0x00000008 = 4000.000000
+0x0000000e = 64 ; 64 ; '@' 
+0x00000011 = 0xdead 
+0x00000017 = (qword) 0x00000000deadbeef 
+0x00000021 = 0x00000040 
+"
+run_test
+
+NAME='fixed size str and var'
+FILE=malloc://1024
+ARGS=
+CMDS='w TROLL
+wx 12@0x02
+wx a00f@0x0a
+wx 2a@0x10
+pf [10]z[6]ib
+'
+EXPECT="0x00000000 = TR.LL
+0x0000000a = 4000 
+0x00000010 = 42 ; 0x2a ; '*' 
 "
 run_test

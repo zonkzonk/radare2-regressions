@@ -65,7 +65,7 @@ EXPECT='0x00005f44
 run_test
 
 NAME='fatmach0 entry1 rabin2 (2)'
-BROKEN=
+BROKEN=1
 FILE=../../b/files/mach0/fatmach0-3true
 ARGS='-n'
 CMDS="!rabin2 -a x86 -b 32 -e ${FILE} | grep off="
@@ -74,7 +74,7 @@ EXPECT='addr=0x00001f44 off=0x00005f44 baddr=0x00001000
 run_test
 
 NAME='fatmach0 entry2'
-BROKEN=
+BROKEN=1
 FILE=../../b/files/mach0/fatmach0-3true
 ARGS='-a ppc -b 32'
 CMDS='?v entry0'

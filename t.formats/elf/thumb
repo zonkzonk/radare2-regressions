@@ -22,6 +22,17 @@ EXPECT='0x8424
 '
 run_test
 
+NAME='thumb sym'
+FILE=../../b/files/elf/thumb
+ARGS=
+CMDS='is~=main[0]
+is~=main[1]
+'
+EXPECT='addr=0x00008424
+off=0x00000425
+'
+run_test
+
 NAME='thumb disasm'
 FILE=../../b/files/elf/thumb
 ARGS=

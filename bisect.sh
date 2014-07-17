@@ -42,6 +42,7 @@ fi
 for a in ${REVS}; do
 	[ "${UPTO}" = 0 ] && break
 	UPTO=$(($UPTO-1))
+	echo "* `date`"
 	echo "* Building revision $a ..."
 	sleep 2
 	sys/install-rev.sh ${a} > build.$a.log 2>&1

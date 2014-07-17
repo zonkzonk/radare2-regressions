@@ -13,7 +13,7 @@ ARGS=
 CMDS='fs *
 f~str.
 '
-EXPECT='0x004005f4 24 str.Thisisadwarftest_d
+EXPECT='0x004005f4 25 str.This_is_a_dwarf_test__d_n
 '
 
 run_test

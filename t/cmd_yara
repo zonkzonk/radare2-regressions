@@ -10,12 +10,24 @@ CMDS='yara scan > /dev/null '
 EXPECT=''
 run_test
 
-NAME='yara add <file>'
+NAME='yara add <filedoesnotexist>'
 BROKEN=
 ARGS=
 CMDS='
 yara add doesnotexist
 '
 EXPECT_ERR='Unable to open doesnotexist
+'
+run_test
+
+NAME='yara add <file>'
+CMDS='
+yara clear
+yara add ../files/test_yara.rules
+yara list
+'
+EXPECT='TEST
+'
+EXPECT_ERR='Rules cleared
 '
 run_test

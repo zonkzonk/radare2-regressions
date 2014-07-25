@@ -1,0 +1,8 @@
+rule TEST : test_rule {
+	strings:
+		$magic_string = "testing_stuff"
+		$magic_bytes = { AA ?? ?? ?? EE }
+
+	condition:
+		$magic_string or $magic_bytes
+}

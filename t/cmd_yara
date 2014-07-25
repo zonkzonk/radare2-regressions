@@ -10,3 +10,12 @@ CMDS='yara scan > /dev/null '
 EXPECT=''
 run_test
 
+NAME='yara add <file>'
+BROKEN=
+ARGS=
+CMDS='
+yara add doesnotexist
+'
+EXPECT_ERR='Unable to open doesnotexist
+'
+run_test

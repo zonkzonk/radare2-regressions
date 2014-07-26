@@ -27,7 +27,18 @@ yara add ../files/test_yara.rules
 yara list
 '
 EXPECT='TEST
+elf
 '
 EXPECT_ERR='Rules cleared
+'
+run_test
+
+NAME='yara add and scan'
+FILE=../b/files/elf/hello-linux-x86_64
+CMDS='
+yara add ../files/test_yara.rules
+yara scan
+'
+EXPECT='elf
 '
 run_test

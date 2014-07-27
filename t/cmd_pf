@@ -40,6 +40,19 @@ EXPECT="bigWord : 0x00000000 = (qword) 0xdeadbeef00000000
 "
 run_test
 
+NAME='String pointer'
+FILE=malloc://1024
+ARGS=
+CMDS='w TROLL @0x30
+wx 0x30
+wx 0x0fa0 @0x04
+pf *zi Pouet Plop
+'
+EXPECT="Pouet : (*0x30) 0x00000000 = TROLL
+Plop : 0x00000004 = 4000
+"
+run_test
+
 NAME='named obj'
 FILE=malloc://1024
 ARGS=

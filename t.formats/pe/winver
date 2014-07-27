@@ -2,7 +2,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='PE: corkami winver.exe - open'
-FILE=../../b/files/pe/winver.exe
+FILE=../../bins/pe/winver.exe
 ARGS=''
 CMDS="q!"
 EXPECT=''
@@ -11,7 +11,7 @@ run_test
 BROKEN=1
 IGNORE_ERR=
 NAME='PE: corkami winver.exe - entrypoint'
-FILE=../../b/files/pe/winver.exe
+FILE=../../bins/pe/winver.exe
 CMDS='
 s
 '
@@ -24,7 +24,7 @@ run_test
 BROKEN=1
 IGNORE_ERR=
 NAME='PE: corkami winver.exe - linked libraries'
-FILE=../../b/files/pe/winver.exe
+FILE=../../bins/pe/winver.exe
 CMDS='
 il
 '

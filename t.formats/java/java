@@ -3,7 +3,7 @@
 # GPL 3+ - Copyright (C) 2013  pancake
 
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
-F=../../b/files/java/ExCaseTableSwitch.class
+F=../../bins/java/ExCaseTableSwitch.class
 
 NAME='java disasm crash'
 IGNORE_ERR=1

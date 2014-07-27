@@ -1,7 +1,7 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh && break ; done
 
-FILE=../../s/x86-simple
+FILE=../../bins/x86-simple
 CMDS='
 p8 10 @ 0x8048065
 '

@@ -3,7 +3,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 BROKEN=1
 NAME='PE: corkami imports_multidesc.exe - open'
-FILE=../../b/files/pe/imports_multidesc.exe
+FILE=../../bins/pe/imports_multidesc.exe
 ARGS=''
 CMDS="q!"
 EXPECT=''

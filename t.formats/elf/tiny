@@ -3,7 +3,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 IGNORE_ERR=1
 NAME='ELF: corkami tiny.elf - open'
-FILE=../../b/files/elf/tiny.elf
+FILE=../../bins/elf/tiny.elf
 ARGS=''
 CMDS="q!"
 EXPECT=''
@@ -11,7 +11,7 @@ run_test
 
 IGNORE_ERR=1
 NAME='ELF: corkami tiny.elf - entry0'
-FILE=../../b/files/elf/tiny.elf
+FILE=../../bins/elf/tiny.elf
 ARGS=''
 CMDS="?v entry0;pid 4 @ entry0"
 EXPECT='0x00010020
@@ -29,7 +29,7 @@ run_test
 
 IGNORE_ERR=1
 NAME='ELF: corkami tiny.elf - sections'
-FILE=../../b/files/elf/tiny.elf
+FILE=../../bins/elf/tiny.elf
 ARGS=''
 CMDS="S"
 EXPECT='[00] * 0x00000000 r-- va=0x00010000 sz=0x00020040 vsz=00020040 phdr0

@@ -45,7 +45,7 @@ if [ $? -eq 1 ]; then
 	exit 1
 fi
 
-cp ../b/files/elf/main /tmp/r2-regressions/dwarf/main
-cp ../b/files/src/main.c /tmp/r2-regressions/dwarf/main.c
+cp ../bins/elf/main /tmp/r2-regressions/dwarf/main
+cp ../bins/src/main.c /tmp/r2-regressions/dwarf/main.c
 
 run_test

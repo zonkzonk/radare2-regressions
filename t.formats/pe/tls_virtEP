@@ -2,7 +2,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='PE: corkami tls_virtEP.exe - open'
-FILE=../../b/files/pe/tls_virtEP.exe
+FILE=../../bins/pe/tls_virtEP.exe
 IGNORE_ERR=1
 ARGS=''
 CMDS="q!"

@@ -2,7 +2,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='PE: corkami 96workingsections.exe - open'
-FILE=../../b/files/pe/96workingsections.exe
+FILE=../../bins/pe/96workingsections.exe
 ARGS=''
 CMDS="q!"
 EXPECT=''
@@ -11,7 +11,7 @@ run_test
 BROKEN=1
 IGNORE_ERR=
 NAME='PE: corkami 96workingsections.exe - entrypoint'
-FILE=../../b/files/pe/96workingsections.exe
+FILE=../../bins/pe/96workingsections.exe
 CMDS='
 s
 '
@@ -23,7 +23,7 @@ run_test
 
 NAME='PE: corkami 96workingsections.exe - section list'
 BROKEN=
-FILE=../../b/files/pe/96workingsections.exe
+FILE=../../bins/pe/96workingsections.exe
 ARGS='-n'
 CMDS="!rabin2 -S ${FILE}"
 EXPECT='[Sections]

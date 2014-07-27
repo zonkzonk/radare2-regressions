@@ -150,7 +150,7 @@ Last comparision value.
 run_test
 
 NAME='$variables (file x86)'
-FILE=../s/x86-simple
+FILE=../bins/x86-simple
 BROKEN=1
 ARGS=
 CMDS="
@@ -211,7 +211,7 @@ Last comparision value.
 run_test
 
 NAME='$variables (file x64)'
-FILE=../s/x64-simple
+FILE=../bins/x64-simple
 BROKEN=1
 ARGS=
 CMDS="

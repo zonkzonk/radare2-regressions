@@ -5,7 +5,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='fatmach0 IO test'
 BROKEN=1
-FILE=../../b/files/mach0/fatmach0-3true
+FILE=../../bins/mach0/fatmach0-3true
 ARGS="-a x86 -b32"
 CMDS='?v entry0;p8 8 @ entry0'
 EXPECT='0x100001f44
@@ -15,7 +15,7 @@ run_test
 
 NAME='fatmach0 IO test'
 BROKEN=
-FILE=../../b/files/mach0/fatmach0-3true
+FILE=../../bins/mach0/fatmach0-3true
 ARGS="-a x86 -b64"
 CMDS='?v entry0;p8 8 @ entry0'
 EXPECT='0x100000ef8
@@ -25,7 +25,7 @@ run_test
 
 NAME='fatmach0 PPC entry0'
 BROKEN=
-FILE=../../b/files/mach0/fatmach0-3true
+FILE=../../bins/mach0/fatmach0-3true
 ARGS="-a ppc -b32"
 CMDS='?v entry0'
 EXPECT='0x1f64
@@ -34,7 +34,7 @@ run_test
 
 NAME='fatmach0 io symbol test'
 BROKEN=
-FILE=../../b/files/mach0/fatmach0-3true
+FILE=../../bins/mach0/fatmach0-3true
 ARGS="-a x86 -b64"
 CMDS='pid 1 @ sym.imp.exit'
 EXPECT='0x100000f40      ff25ca000000  jmp qword [rip+0xca]
@@ -43,7 +43,7 @@ run_test
 
 NAME='fatmach0 SDB uuid'
 BROKEN=1
-FILE=../../b/files/mach0/fatmach0-3true
+FILE=../../bins/mach0/fatmach0-3true
 ARGS="-a x86 -b64"
 CMDS='k bin/cur/info/uuid.0'
 EXPECT='34045671455b7d71054acff65f0ddac1
@@ -52,7 +52,7 @@ run_test
 
 NAME='fatmach0 SDB uuid'
 BROKEN=1
-FILE=../../b/files/mach0/fatmach0-3true
+FILE=../../bins/mach0/fatmach0-3true
 ARGS="-a x86 -b32"
 CMDS='k bin/cur/info/uuid.0'
 EXPECT='5478cf56325ebbbc6ad071df5885e983

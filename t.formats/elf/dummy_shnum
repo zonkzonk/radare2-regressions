@@ -3,7 +3,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='PE: corkami dummy_shnum.elf - open'
 IGNORE_ERR=1
-FILE=../../b/files/elf/dummy_shnum.elf
+FILE=../../bins/elf/dummy_shnum.elf
 ARGS=''
 CMDS="q!"
 EXPECT=''

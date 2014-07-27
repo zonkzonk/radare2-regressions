@@ -5,7 +5,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='thumb entry0'
-FILE=../../b/files/elf/thumb
+FILE=../../bins/elf/thumb
 ARGS=
 CMDS='?v entry0
 '
@@ -14,7 +14,7 @@ EXPECT='0x82f0
 run_test
 
 NAME='thumb main'
-FILE=../../b/files/elf/thumb
+FILE=../../bins/elf/thumb
 ARGS=
 CMDS='?v sym.main
 '
@@ -23,7 +23,7 @@ EXPECT='0x8424
 run_test
 
 NAME='thumb sym'
-FILE=../../b/files/elf/thumb
+FILE=../../bins/elf/thumb
 ARGS=
 CMDS='is~=main[0]
 is~=main[1]
@@ -34,7 +34,7 @@ off=0x00000425
 run_test
 
 NAME='thumb disasm'
-FILE=../../b/files/elf/thumb
+FILE=../../bins/elf/thumb
 ARGS=
 CMDS='pi 1@ sym.main
 '
@@ -43,7 +43,7 @@ EXPECT='push {r7, lr}
 run_test
 
 NAME='arm disasm entry0'
-FILE=../../b/files/elf/thumb
+FILE=../../bins/elf/thumb
 ARGS=
 CMDS='pi 1@ sym.main
 '
@@ -52,7 +52,7 @@ EXPECT='push {r7, lr}
 run_test
 
 NAME='thumb anal expand'
-FILE=../../b/files/elf/thumb
+FILE=../../bins/elf/thumb
 ARGS=
 IGNORE_ERR=1
 CMDS='pi 2@sym.main

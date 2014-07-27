@@ -3,7 +3,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='PE: corkami nullvirt.exe - open'
 IGNORE_ERR=1
-FILE=../../b/files/pe/nullvirt.exe
+FILE=../../bins/pe/nullvirt.exe
 ARGS=''
 CMDS="q!"
 EXPECT=''

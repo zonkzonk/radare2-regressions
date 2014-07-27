@@ -2,7 +2,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='PE: corkami dllnullep.dll - open'
-FILE=../../b/files/pe/dllnullep.dll
+FILE=../../bins/pe/dllnullep.dll
 IGNORE_ERR=1
 ARGS=''
 CMDS="q!"
@@ -10,7 +10,7 @@ EXPECT=''
 run_test
 
 NAME='PE: dllnullEP - entrypoint'
-FILE=../../b/files/pe/dllnullep.dll
+FILE=../../bins/pe/dllnullep.dll
 IGNORE_ERR=1
 ARGS='-n'
 CMDS="!rabin2 -eq ${FILE} "

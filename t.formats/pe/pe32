@@ -3,7 +3,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 BROKEN=
 IGNORE_ERR=
-FILE=../../b/files/pe/pe.exe
+FILE=../../bins/pe/pe.exe
 CMDS='
 s
 '

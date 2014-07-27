@@ -3,14 +3,14 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 
 NAME='PE: corkami normal64.exe - open'
-FILE=../../b/files/pe/normal64.exe
+FILE=../../bins/pe/normal64.exe
 ARGS=''
 CMDS="q!"
 EXPECT=''
 run_test
 
 NAME='PE: corkami normal64.exe - bits 64'
-FILE=../../b/files/pe/normal64.exe
+FILE=../../bins/pe/normal64.exe
 ARGS='-n'
 CMDS="!rabin2 -I ${FILE} | grep \"bits	64\" "
 
@@ -21,7 +21,7 @@ run_test
 
 
 NAME='PE: corkami normal64.exe - machine AMD 64'
-FILE=../../b/files/pe/normal64.exe
+FILE=../../bins/pe/normal64.exe
 ARGS='-n'
 CMDS="!rabin2 -I ${FILE} | grep \"machine	AMD 64\" "
 
@@ -32,7 +32,7 @@ run_test
 
 
 NAME='PE: corkami normal64.exe - class PE32+'
-FILE=../../b/files/pe/normal64.exe
+FILE=../../bins/pe/normal64.exe
 ARGS='-n'
 CMDS="!rabin2 -I ${FILE} | grep \"class	PE32+\" "
 

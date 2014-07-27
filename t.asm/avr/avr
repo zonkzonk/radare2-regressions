@@ -603,7 +603,7 @@ run_test
 
 NAME='avr disasm negative baddr'
 BROKEN=1
-FILE=../../b/files/elf/bugurtos-avr.elf
+FILE=../../bins/elf/bugurtos-avr.elf
 ARGS=
 CMDS='s 0x506
 pd 2~!1

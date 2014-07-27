@@ -2,7 +2,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='PE: hello cxx - entry dis'
-FILE=../../b/files/pe/hellocxx-mingw32.exe
+FILE=../../bins/pe/hellocxx-mingw32.exe
 ARGS=''
 CMDS="?v entry0;pid 4"
 EXPECT='0x401280
@@ -14,7 +14,7 @@ EXPECT='0x401280
 run_test
 
 NAME='PE: hello cxx - sections'
-FILE=../../b/files/pe/hellocxx-mingw32.exe
+FILE=../../bins/pe/hellocxx-mingw32.exe
 ARGS=''
 CMDS="S*~^S"
 EXPECT='S 0x00000400 0x00401000 0x0003fc00 0x0003fb80 .text r-x

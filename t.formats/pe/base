@@ -2,7 +2,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='PE: corkami base.exe - open'
-FILE=../../b/files/pe/base.exe
+FILE=../../bins/pe/base.exe
 ARGS=''
 CMDS="q!"
 EXPECT=''
@@ -10,7 +10,7 @@ run_test
 
 NAME='Relocs'
 BROKEN=1
-FILE=../../b/files/pe/base.exe
+FILE=../../bins/pe/base.exe
 ARGS=''
 CMDS='pd 1 @ 0x0040128d'
 EXPECT='           0x0040128d    ff15c8504000 call dword [reloc.msvcrt.dll___set_app_type]

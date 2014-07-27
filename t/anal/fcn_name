@@ -5,7 +5,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME="anal/fcn_name"
 BROKEN=
-FILE=../../b/files/mach0/main-g
+FILE=../../bins/mach0/main-g
 IGNORE_ERR=1
 ARGS=
 CMDS='s 0x0040042c
@@ -17,7 +17,7 @@ run_test
 
 NAME="anal/fcn_subname"
 BROKEN=
-FILE=../../b/files/mach0/main-g
+FILE=../../bins/mach0/main-g
 ARGS=
 # REGRESSION
 BROKEN=

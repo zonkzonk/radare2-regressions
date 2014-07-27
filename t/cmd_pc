@@ -4,7 +4,7 @@
 
 
 NAME='pc hello-linux-x86_64'
-FILE=../b/files/elf/hello-linux-x86_64
+FILE=../bins/elf/hello-linux-x86_64
 CMDS='
 pc
 '

@@ -86,7 +86,7 @@ iz*
 '
 
 NAME='i (file x86)'
-FILE=../s/x86-simple
+FILE=../bins/x86-simple
 ARGS=
 BROKEN=1
 CMDS="$cmds_info"
@@ -96,17 +96,17 @@ os	linux
 arch	Intel 80386
 bits	32
 endian	little
-file	../s/x86-simple
+file	../bins/x86-simple
 fd	42
 size	0xfc
 mode	r--
 block	0x40
-uri	../s/x86-simple
+uri	../bins/x86-simple
 format	any
 
 All information.
 [File info]
-File=../s/x86-simple
+File=../bins/x86-simple
 Type=EXEC (Executable file)
 HasVA=true
 RootClass=elf
@@ -188,7 +188,7 @@ fs imports
 
 Binary info.
 [File info]
-File=../s/x86-simple
+File=../bins/x86-simple
 Type=EXEC (Executable file)
 HasVA=true
 RootClass=elf
@@ -274,7 +274,7 @@ run_test
 
 NAME='i (file x64)'
 BROKEN=1
-FILE=../s/x64-simple
+FILE=../bins/x64-simple
 ARGS=
 CMDS="$cmds_info"
 EXPECT='Basic information.
@@ -283,17 +283,17 @@ os	linux
 arch	AMD x86-64 architecture
 bits	64
 endian	little
-file	../s/x64-simple
+file	../bins/x64-simple
 fd	42
 size	0x170
 mode	r--
 block	0x40
-uri	../s/x64-simple
+uri	../bins/x64-simple
 format	any
 
 All information.
 [File info]
-File=../s/x64-simple
+File=../bins/x64-simple
 Type=EXEC (Executable file)
 HasVA=true
 RootClass=elf
@@ -375,7 +375,7 @@ fs imports
 
 Binary info.
 [File info]
-File=../s/x64-simple
+File=../bins/x64-simple
 Type=EXEC (Executable file)
 HasVA=true
 RootClass=elf

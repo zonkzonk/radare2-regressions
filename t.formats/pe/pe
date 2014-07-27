@@ -3,7 +3,7 @@
 # GPL 3+ - Copyright (C) 2013  pancake
 
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
-F=../../b/files/pe/base.exe
+F=../../bins/pe/base.exe
 
 NAME='pe entrypoint'
 IGNORE_ERR=1
@@ -28,7 +28,7 @@ EXPECT='           0x00401820    ff25f0504000 jmp dword [reloc.msvcrt.dll_puts]
 run_test
 
 NAME='pe relocs [rabin2 a.exe]'
-FILE=../../b/files/pe/a.exe
+FILE=../../bins/pe/a.exe
 ARGS=
 CMDS="!rabin2 -R ${FILE}"
 EXPECT='[Relocations]
@@ -58,7 +58,7 @@ addr=0x000012f4 off=0x000012f4 type=SET_32 msvcrt.dll_signal
 run_test
 
 NAME='pe relocs va [rabin2 a.exe]'
-FILE=../../b/files/pe/a.exe
+FILE=../../bins/pe/a.exe
 ARGS=
 CMDS="!rabin2 -vR ${FILE}"
 EXPECT='[Relocations]
@@ -88,7 +88,7 @@ addr=0x004050f4 off=0x000012f4 type=SET_32 msvcrt.dll_signal
 run_test
 
 NAME='pe relocs [rabin2 b.exe]'
-FILE=../../b/files/pe/b.exe
+FILE=../../bins/pe/b.exe
 ARGS=
 CMDS="!rabin2 -R ${FILE}"
 EXPECT='[Relocations]

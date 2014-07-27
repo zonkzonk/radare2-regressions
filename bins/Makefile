@@ -18,4 +18,7 @@ x86%: x86%.o
 x64%: x64%.o
 	ld -m elf_x86_64 -s -o $@ $<
 
+osx:
+	@sh osx.sh
+
 .PHONY: all clean

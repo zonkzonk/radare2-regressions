@@ -5,7 +5,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME="io/va-entry0 linux-arm"
 BROKEN=
-FILE=../../b/files/elf/hello-android-arm
+FILE=../../bins/elf/hello-android-arm
 CMDS='
 ie*~0x[3]
 e io.va=0

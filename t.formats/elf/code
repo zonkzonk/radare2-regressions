@@ -2,7 +2,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='ELF: dis entry0 hello-android-arm'
-FILE=../../b/files/elf/hello-android-arm
+FILE=../../bins/elf/hello-android-arm
 ARGS=''
 CMDS="pid 6@entry0"
 EXPECT='0x00008300          0d00a0e1  mov r0, sp

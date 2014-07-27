@@ -2,14 +2,14 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='PE: corkami nosectionXP.exe - open'
-FILE=../../b/files/pe/nosectionXP.exe
+FILE=../../bins/pe/nosectionXP.exe
 ARGS=''
 CMDS="q!"
 EXPECT=''
 run_test
 
 NAME='PE: nosectionXP - entrypoint'
-FILE=../../b/files/pe/nosectionXP.exe
+FILE=../../bins/pe/nosectionXP.exe
 ARGS='-n'
 CMDS="!rabin2 -S ${FILE} "
 EXPECT_ERR=""

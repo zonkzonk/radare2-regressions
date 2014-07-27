@@ -4,7 +4,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='yara scan'
 BROKEN=
-FILE=../b/files/pe/a.exe
+FILE=../bins/pe/a.exe
 ARGS=
 CMDS='yara scan > /dev/null '
 EXPECT=''
@@ -34,7 +34,7 @@ EXPECT_ERR='Rules cleared
 run_test
 
 NAME='yara add and scan'
-FILE=../b/files/elf/hello-linux-x86_64
+FILE=../bins/elf/hello-linux-x86_64
 CMDS='
 yara add ../files/test_yara.rules
 yara scan

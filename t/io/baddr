@@ -6,7 +6,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME="io.baddr"
 BROKEN=
-FILE=../../b/files/elf/hello-linux-x86_64
+FILE=../../bins/elf/hello-linux-x86_64
 CMDS='
 ie*~0x[3]
 '
@@ -17,7 +17,7 @@ run_test
 NAME="io.baddr"
 BROKEN=
 ARGS="-B 0xf00000"
-FILE=../../b/files/elf/hello-linux-x86_64
+FILE=../../bins/elf/hello-linux-x86_64
 CMDS='
 ie*~0x[3]
 '
@@ -27,7 +27,7 @@ run_test
 
 NAME="io.baddr"
 BROKEN=
-FILE=../../b/files/elf/hello-linux-x86_64
+FILE=../../bins/elf/hello-linux-x86_64
 CMDS='!rabin2 -B 0xf00000 -rve ${FILE} | grep 0x'
 EXPECT='f entry0 @ 0x00f00410
 '
@@ -36,7 +36,7 @@ run_test
 NAME="io.baddr"
 BROKEN=
 ARGS="-e bin.baddr=0xf00000"
-FILE=../../b/files/elf/hello-linux-x86_64
+FILE=../../bins/elf/hello-linux-x86_64
 CMDS='
 ie*~0x[3]
 '
@@ -46,7 +46,7 @@ run_test
 
 NAME="io.baddr.ib"
 BROKEN=1
-FILE=../../b/files/elf/hello-linux-x86_64
+FILE=../../bins/elf/hello-linux-x86_64
 CMDS='
 r bin.baddr=0xf00000
 ib

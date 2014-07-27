@@ -1,7 +1,7 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh && break ; done
 
-FILE=../../s/x86-helloworld-phdr
+FILE=../../bins//x86-helloworld-phdr
 IGNORE_ERR=1
 CMDS='
 S

@@ -4,7 +4,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 BROKEN=
 IGNORE_ERR=1
 NAME='PE: corkami maxvals.exe - open'
-FILE=../../b/files/pe/maxvals.exe
+FILE=../../bins/pe/maxvals.exe
 ARGS=''
 CMDS="q!"
 EXPECT=''

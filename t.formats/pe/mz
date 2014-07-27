@@ -3,7 +3,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='PE: corkami mz.exe - open'
 IGNORE_ERR=1
-FILE=../../b/files/pe/mz.exe
+FILE=../../bins/pe/mz.exe
 ARGS=''
 CMDS="q!"
 EXPECT=''
@@ -11,7 +11,7 @@ run_test
 
 NAME='PE: corkami mz.exe - dis'
 IGNORE_ERR=1
-FILE=../../b/files/pe/mz.exe
+FILE=../../bins/pe/mz.exe
 ARGS=''
 CMDS="pid 4"
 EXPECT='0x00401000        6818104000  push 0x401018

@@ -2,7 +2,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='PE: corkami dllbound-redirld.exe - open'
-FILE=../../b/files/pe/dllbound-redirld.exe
+FILE=../../bins/pe/dllbound-redirld.exe
 ARGS=''
 CMDS="q!"
 EXPECT=''

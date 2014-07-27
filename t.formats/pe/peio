@@ -3,7 +3,7 @@
 # GPL 3+ - Copyright (C) 2014  pancake
 
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
-F=../../b/files/pe/base.exe
+F=../../bins/pe/base.exe
 
 NAME='pe entrypoint'
 IGNORE_ERR=1

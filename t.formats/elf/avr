@@ -36,3 +36,17 @@ push r15
 push r16
 '
 run_test
+
+# in paddr: soo... main address is:
+#  paddr 0x37c
+#  vaddr 0x184  * 2 = 0x308 + text_section_addr
+#
+#
+# [0x0000037c]> pd 20
+#    ;-- hit3_0:
+#    0x0000037c    ef92         push r14
+#    0x0000037e    ff92         push r15
+#    0x00000380    0f93         push r16
+#    0x00000382    df93         push r29
+#    0x00000384    cf93         push r28
+#    0x00000386    00d0         rcall 0x388

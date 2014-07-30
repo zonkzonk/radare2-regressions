@@ -21,11 +21,30 @@ NAME='word types'
 FILE=malloc://1024
 ARGS=
 BROKEN=1
-CMDS='wx efbeadde00000000adde
+CMDS='wx efbeadde002a0000adde
 pf qw bigWord beef
 '
 EXPECT="bigWord : 0x00000000 = (qword) 0x00000000deadbeef
-  beef : 0x00000008 = 0xdead
+   beef : 0x00000008 = 0xdead
+"
+run_test
+
+NAME='Pointers'
+FILE=malloc://1024
+ARGS=
+BROKEN=1
+CMDS='wx 30
+wx 20@0x04
+wx 40@0x08
+wx 2a@0x20
+w TROLL@0x30
+wx a00f@0x40
+pf.plop *z*i*w nb name blob
+pf.plop
+'
+EXPECT="  nb : (*0x30) 0x00000000 = TROLL
+name : (*0x20) 0x00000004 = 42
+blob : (*0x40) 0x00000008 = 0x0fa0
 "
 run_test
 

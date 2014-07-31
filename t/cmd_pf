@@ -24,7 +24,7 @@ BROKEN=1
 CMDS='wx efbeadde002a0000adde
 pf qw bigWord beef
 '
-EXPECT="bigWord : 0x00000000 = (qword) 0x00000000deadbeef
+EXPECT="bigWord : 0x00000000 = (qword) 0x00002a00deadbeef
    beef : 0x00000008 = 0xdead
 "
 run_test
@@ -39,6 +39,7 @@ wx 40@0x08
 wx 2a@0x20
 w TROLL@0x30
 wx a00f@0x40
+e asm.bits=32 # pointer size
 pf.plop *z*i*w nb name blob
 pf.plop
 '
@@ -65,6 +66,7 @@ ARGS=
 CMDS='w TROLL @0x30
 wx 0x30
 wx 0x0fa0 @0x04
+e asm.bits=32
 pf *zi Pouet Plop
 '
 EXPECT="Pouet : (*0x30) 0x00000000 = TROLL

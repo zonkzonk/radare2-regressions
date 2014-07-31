@@ -6,11 +6,11 @@ clean:
 	rm -f $(TARGETS) *.o
 
 
-x86%.o: x86%.s
-	nasm -f elf32 $<
+x86%.o: src/x86%.s
+	nasm -f elf32 -o $@ $<
 
-x64%.o: x64%.s
-	nasm -f elf64 $<
+x64%.o: src/x64%.s
+	nasm -f elf64 -o $@ $<
 
 x86%: x86%.o
 	ld -m elf_i386 -s -o $@ $<

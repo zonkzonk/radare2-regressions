@@ -3,11 +3,11 @@
 # test case for binaries
 
 getentry() {
-	rabin2 -rve files/"$1" | awk '{if(/@/){print $4}}'
+	rabin2 -rve "$1" | awk '{if(/@/){print $4}}'
 }
 
 getmain() {
-	rabin2 -vM files/"$1" | awk -F= '{if(/=/){print $3}}'
+	rabin2 -vM "$1" | awk -F= '{if(/=/){print $3}}'
 }
 
 runtest() {
@@ -20,7 +20,7 @@ runtest() {
 	fi
 }
 
-runtest ./match0/hello-osx-i386 getentry 0x00001f14
-runtest ./match0/hello-osx-i386 getmain 0x00001f52
-runtest ./match0/hello-osx-x86_64 getentry 0x100000ed0
-runtest ./match0/hello-osx-x86_64 getmain 0x100000f0c
+runtest ./mach0/hello-osx-i386 getentry 0x00001f14
+runtest ./mach0/hello-osx-i386 getmain 0x00001f52
+runtest ./mach0/hello-osx-x86_64 getentry 0x100000ed0
+runtest ./mach0/hello-osx-x86_64 getmain 0x100000f0c

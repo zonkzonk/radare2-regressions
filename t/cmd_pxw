@@ -2,7 +2,7 @@
 # GPL 3+ - Copyright (C) 2014  Maijin
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
-NAME='pxw cfg.bigendian=true'
+NAME='pxw cfg.bigendian=true (elf64)'
 BROKEN=
 FILE=../bins/elf/hello-linux-x86_64
 ARGS=
@@ -12,12 +12,32 @@ EXPECT='0x00400410  0x31ed4989 0xd15e4889 0xe24883e4 0xf0505449  1.I..^H..H...PT
 '
 run_test
 
-NAME='pxw cfg.bigendian=false'
+NAME='pxw cfg.bigendian=false (elf64)'
 BROKEN=
 FILE=../bins/elf/hello-linux-x86_64
 ARGS=
 CMDS='e cfg.bigendian=false
 pxw 16'
 EXPECT='0x00400410  0x8949ed31 0x89485ed1 0xe48348e2 0x495450f0  1.I..^H..H...PTI
+'
+run_test
+
+NAME='pxw cfg.bigendian=false (pe32)'
+BROKEN=
+FILE=../bins/pe/hello-mingw32
+ARGS=
+CMDS='e cfg.bigendian=false
+pxw 16'
+EXPECT='0x00401280  0x83e58955 0x04c708ec 0x00000124 0xc815ff00  U.......$.......
+'
+run_test
+
+NAME='pxw cfg.bigendian=true (pe32)'
+BROKEN=
+FILE=../bins/pe/hello-mingw32
+ARGS=
+CMDS='e cfg.bigendian=true
+pxw 16'
+EXPECT='0x00401280  0x5589e583 0xec08c704 0x24010000 0x00ff15c8  U.......$.......
 '
 run_test

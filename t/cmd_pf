@@ -20,7 +20,6 @@ run_test
 NAME='word types'
 FILE=malloc://1024
 ARGS=
-BROKEN=1
 CMDS='wx efbeadde002a0000adde
 pf qw bigWord beef
 '
@@ -32,7 +31,6 @@ run_test
 NAME='Pointers'
 FILE=malloc://1024
 ARGS=
-BROKEN=1
 CMDS='wx 30
 wx 20@0x04
 wx 40@0x08
@@ -140,7 +138,6 @@ run_test
 NAME='fixed size variable'
 FILE=malloc://1024
 ARGS=
-BROKEN=1
 CMDS='wx a00f0000002a0000a00f00000000400000adde00000000efbeadde00000000000040
 pf [5]i[3]b[6]f[3]c[6]w[10]q[12]x
 '
@@ -168,5 +165,25 @@ EXPECT="0x00000000 = TR.LL
 0x0000000a = 4000
 0x00000010 = PLOP
 0x0000001a = 42 ; 0x2a ; '*'
+"
+run_test
+
+NAME='32 bit twice then string'
+FILE=malloc://1024
+ARGS=
+CMDS='e asm.bits=32
+wv 0x10
+wv 0x10 @ 4
+w hello @ 0x10
+pf ss
+pf *x*x
+pf *z*z
+'
+EXPECT="0x00000000 = 0x00000000 -> 0x00000010 hello
+0x00000004 = 0x00000004 -> 0x00000010 hello
+(*0x10) 0x00000000 = 0x6c6c6568
+(*0x10) 0x00000004 = 0x6c6c6568
+(*0x10) 0x00000000 = hello
+(*0x10) 0x00000004 = hello
 "
 run_test

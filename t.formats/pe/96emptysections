@@ -6,18 +6,20 @@ FILE=../../bins/pe/96emptysections.exe
 ARGS=''
 CMDS="q!"
 EXPECT=''
+EXPECT_ERR='Warning: Invalid import directory size: 0xffff
+'
 run_test
 
-BROKEN=1
 IGNORE_ERR=
 NAME='PE: corkami 96emptysections.exe - entrypoint'
 FILE=../../bins/pe/96emptysections.exe
 CMDS='
 s
 '
-EXPECT='0x00402000
+EXPECT='0x402000
 '
-EXPECT_ERR=''
+EXPECT_ERR='Warning: Invalid import directory size: 0xffff
+'
 
 run_test
 
@@ -125,6 +127,8 @@ idx=94 addr=0x00000000 off=0x00000000 sz=0 vsz=512 perm=---- name=
 idx=95 addr=0x00000000 off=0x00000000 sz=0 vsz=512 perm=---- name=
 
 96 sections
+'
+EXPECT_ERR='Warning: Invalid import directory size: 0xffff
 '
 run_test
 

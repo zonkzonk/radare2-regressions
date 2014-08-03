@@ -6,23 +6,24 @@ FILE=../../bins/pe/96workingsections.exe
 ARGS=''
 CMDS="q!"
 EXPECT=''
+EXPECT_ERR='Warning: Invalid import directory size: 0xffff
+'
 run_test
 
-BROKEN=1
 IGNORE_ERR=
 NAME='PE: corkami 96workingsections.exe - entrypoint'
 FILE=../../bins/pe/96workingsections.exe
 CMDS='
 s
 '
-EXPECT='0x00461000
+EXPECT='0x461000
 '
-EXPECT_ERR=''
+EXPECT_ERR='Warning: Invalid import directory size: 0xffff
+'
 
 run_test
 
 NAME='PE: corkami 96workingsections.exe - section list'
-BROKEN=
 FILE=../../bins/pe/96workingsections.exe
 ARGS='-n'
 CMDS="!rabin2 -S ${FILE}"
@@ -125,6 +126,8 @@ idx=94 addr=0x0000ce00 off=0x0000ce00 sz=512 vsz=512 perm=--wx name=
 idx=95 addr=0x0000d000 off=0x0000d000 sz=512 vsz=512 perm=--wx name=
 
 96 sections
+'
+EXPECT_ERR='Warning: Invalid import directory size: 0xffff
 '
 run_test
 

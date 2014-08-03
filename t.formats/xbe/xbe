@@ -15,7 +15,7 @@ FILE=../../bins/xbe/default.xbe
 ARGS=''
 BROKEN=
 CMDS='ie~addr'
-EXPECT='addr=0x00011000 off=0x00001000 baddr=0x00010000
+EXPECT='vaddr=0x00011000 off=0x00001000 baddr=0x00010000 laddr=0x00000000
 '
 run_test
 

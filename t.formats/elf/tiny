@@ -9,7 +9,7 @@ CMDS="q!"
 EXPECT=''
 run_test
 
-IGNORE_ERR=1
+BROKEN=1
 NAME='ELF: corkami tiny.elf - entry0'
 FILE=../../bins/elf/tiny.elf
 ARGS=''
@@ -27,7 +27,7 @@ run_test
 # S 0x00000000 0x00010000 0x00020040 0x00020040 phdr0 r--
 # S 0x00000000 0x00010000 0x0000002d 0x0000002d ehdr rwx
 
-IGNORE_ERR=1
+BROKEN=1
 NAME='ELF: corkami tiny.elf - sections'
 FILE=../../bins/elf/tiny.elf
 ARGS=''

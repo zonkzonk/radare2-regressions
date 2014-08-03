@@ -2,7 +2,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME="esil x86-64"
-BROKEN=
+BROKEN=1
 CMDS='
 ?e
 e asm.arch=x86
@@ -18,7 +18,7 @@ esil: rsi=rdi+104
 run_test
 
 NAME="esil x86-64"
-BROKEN=
+BROKEN=1
 CMDS='
 ?e
 e asm.arch=x86

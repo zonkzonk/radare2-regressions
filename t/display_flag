@@ -7,7 +7,6 @@
 ## test visual mode in batch
 
 NAME='Flags comments'
-BROKEN=1
 FILE=malloc://512
 ARGS=
 CMDS='

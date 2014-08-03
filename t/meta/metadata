@@ -55,22 +55,20 @@ run_test
 FILE=malloc://128
 NAME="Ch : hide bytes in pd"
 CMDS='
-e asm.profile=simple
 e scr.color=false
 wx 554889e54883c768
 Ch 2
 pd 2
 Ch-
 '
-EXPECT='  0x00000000 (2 bytes hidden)
-  0x00000002   mov ebp, esp
+EXPECT='           0x00000000 (2 bytes hidden)
+           0x00000002    89e5         mov ebp, esp
 '
 run_test
 
 FILE=malloc://1024
 NAME="Ch : add/del hide bytes"
 CMDS='
-e asm.profile=simple
 e scr.color=false
 wx 554889e54883c768
 Ch 2@0x100

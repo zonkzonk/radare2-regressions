@@ -32,7 +32,6 @@ EXPECT='8
 '
 run_test
 
-BROKEN=1
 CMDS='
 e asm.arch='$PLUGIN'
 e asm.bits=32
@@ -42,8 +41,10 @@ wx 5589e583ec2083f8000f8507000000b800000000eb05b80100000083c4205dc3
 af
 # count basic blocks
 pdr~true?
+pdr~false?
 '
-EXPECT='3
+EXPECT='2
+1
 '
 
 run_test

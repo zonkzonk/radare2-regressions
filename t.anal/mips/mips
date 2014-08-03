@@ -58,7 +58,7 @@ run_test
 # This wont show a back-ref because 100020 is way above 00000000
 # But it will still show a fcn out ref
 NAME="mips LE correct relative jump reference if not mapped from command line."
-BROKEN=
+BROKEN=1
 FILE=malloc://40
 CMDS='e asm.arch=mips.gnu
 e asm.bits=32
@@ -87,7 +87,7 @@ run_test
 # Test that jumps / calls used mapped address if used (Case 2 - mapped)
 #
 NAME="mips LE correct relative jump reference if mapped from command line."
-BROKEN=
+BROKEN=1
 FILE=malloc://40
 ARGS='-m 0x80100000'
 CMDS='e asm.arch=mips.gnu

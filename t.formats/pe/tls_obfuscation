@@ -3,7 +3,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='PE: corkami tls_obfuscation.exe - open'
 FILE=../../bins/pe/tls_obfuscation.exe
-ARGS=''
+ARGS='-A'
 CMDS="q!"
 EXPECT=''
 IGNORE_ERR=1

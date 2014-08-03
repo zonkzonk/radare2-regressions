@@ -3,8 +3,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='PE: corkami truncatedlast.exe - open'
 FILE=../../bins/pe/truncatedlast.exe
-ARGS=''
+ARGS='-A'
 CMDS="q!"
 EXPECT=''
-IGNORE_ERR=1
 run_test

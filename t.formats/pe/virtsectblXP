@@ -3,7 +3,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='PE: corkami virtsectblXP.exe - open'
 FILE=../../bins/pe/virtsectblXP.exe
-ARGS=''
+ARGS='-A'
 CMDS="q!"
 EXPECT=''
 run_test

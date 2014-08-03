@@ -9,7 +9,6 @@ EXPECT=''
 run_test
 
 NAME='Relocs'
-BROKEN=1
 FILE=../../bins/pe/base.exe
 ARGS=''
 CMDS='pd 1 @ 0x0040128d'

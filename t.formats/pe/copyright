@@ -6,4 +6,5 @@ FILE=../../bins/pe/copyright.exe
 ARGS=''
 CMDS="q!"
 EXPECT=''
+INGORE_ERR=1
 run_test

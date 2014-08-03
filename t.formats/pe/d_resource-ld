@@ -6,4 +6,5 @@ FILE=../../bins/pe/d_resource-ld.exe
 ARGS=''
 CMDS="q!"
 EXPECT=''
+IGNORE_ERR=1
 run_test

@@ -9,6 +9,7 @@ IGNORE_ERR=1
 EXPECT=''
 run_test
 
+BROKEN=1
 NAME='PE: tls_noEP - entrypoint'
 FILE=../../bins/pe/tls_noEP.exe
 ARGS='-n'

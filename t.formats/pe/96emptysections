@@ -6,8 +6,7 @@ FILE=../../bins/pe/96emptysections.exe
 ARGS=''
 CMDS="q!"
 EXPECT=''
-EXPECT_ERR='Warning: Invalid import directory size: 0xffff
-'
+IGNORE_ERR=1
 run_test
 
 IGNORE_ERR=
@@ -18,9 +17,7 @@ s
 '
 EXPECT='0x402000
 '
-EXPECT_ERR='Warning: Invalid import directory size: 0xffff
-'
-
+IGNORE_ERR=1
 run_test
 
 NAME='PE: corkami 96workingsections.exe - sections list'
@@ -128,8 +125,7 @@ idx=95 addr=0x00000000 off=0x00000000 sz=0 vsz=512 perm=---- name=
 
 96 sections
 '
-EXPECT_ERR='Warning: Invalid import directory size: 0xffff
-'
+IGNORE_ERR=1
 run_test
 
 

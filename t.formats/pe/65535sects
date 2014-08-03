@@ -5,6 +5,5 @@ NAME='PE: corkami 65535sects.exe - open'
 FILE=../../bins/pe/65535sects.exe
 ARGS=''
 CMDS="q!"
-EXPECT_ERR='Warning: Invalid import directory size: 0xffff
-'
+IGNORE_ERR=1
 run_test

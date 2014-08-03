@@ -10,7 +10,7 @@ FILE=../../bins/mach0/hello-osx-i386
 ARGS=
 CMDS='ie~addr
 '
-EXPECT='addr=0x00001f14 off=0x00000f14 baddr=0x00001000
+EXPECT='vaddr=0x00001f14 off=0x00000f14 baddr=0x00001000 laddr=0x00000000
 '
 run_test
 
@@ -30,7 +30,7 @@ FILE=../../bins/mach0/ls-osx-x86_64
 ARGS=
 CMDS='ie~addr
 '
-EXPECT='addr=0x1000010f8 off=0x000010f8 baddr=0x100000000
+EXPECT='vaddr=0x1000010f8 off=0x000010f8 baddr=0x100000000 laddr=0x00000000
 '
 run_test
 

@@ -10,7 +10,6 @@ EXPECT=''
 run_test
 
 NAME='MZ: jman.exe - entrypoint'
-BROKEN=1
 FILE=../../bins/pe/jman.exe
 ARGS=''
 CMDS="pi 1"

@@ -9,6 +9,7 @@ CMDS="q!"
 EXPECT=''
 run_test
 
+BROKEN=1
 NAME='PE: corkami normal64.exe - bits 64'
 FILE=../../bins/pe/normal64.exe
 ARGS='-n'
@@ -20,6 +21,7 @@ EXPECT='bits	64
 run_test
 
 
+BROKEN=1
 NAME='PE: corkami normal64.exe - machine AMD 64'
 FILE=../../bins/pe/normal64.exe
 ARGS='-n'
@@ -31,6 +33,7 @@ EXPECT='machine	AMD 64
 run_test
 
 
+BROKEN=1
 NAME='PE: corkami normal64.exe - class PE32+'
 FILE=../../bins/pe/normal64.exe
 ARGS='-n'

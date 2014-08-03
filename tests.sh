@@ -260,7 +260,7 @@ test_reset() {
     NOT_EXPECT=
     EXPECT=
     EXPECT_ERR=
-    IGNORE_ERR=0
+    IGNORE_ERR=1
     FILTER=
     EXITCODE=
     BROKEN=

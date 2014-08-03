@@ -1,8 +1,6 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
-BROKEN=1
-IGNORE_ERR=1
 NAME='PE: corkami imports_vterm.exe - open'
 FILE=../../bins/pe/imports_vterm.exe
 ARGS=''

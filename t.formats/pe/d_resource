@@ -1,7 +1,6 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
-BROKEN=1
 NAME='PE: corkami d_resource.dll - open'
 FILE=../../bins/pe/d_resource.dll
 ARGS=''

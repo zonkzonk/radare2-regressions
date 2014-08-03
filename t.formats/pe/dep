@@ -14,5 +14,6 @@ ARGS='-n'
 CMDS="!rabin2 -k 'pe.nx' ${FILE}"
 
 EXPECT='true
+
 '
 run_test

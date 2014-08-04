@@ -33,19 +33,6 @@ EXPECT='0x0
 '
 run_test
 
-BROKEN=1
-NAME='$b (malloc)'
-FILE=malloc://1024
-ARGS=
-CMDS='b 123
-?v $b
-? $b
-'
-EXPECT='0x7b
-123 0x7b 0173 123.0 0000:007b 123 01111011 123.0 0.000000
-'
-run_test
-
 NAME='$s (malloc)'
 FILE=malloc://1024
 ARGS=
@@ -194,7 +181,6 @@ EXPECT='0x60
 '
 run_test
 
-BROKEN=1
 NAME='$b (x86-simple)'
 FILE=../bins/elf/x86-simple
 ARGS=
@@ -203,7 +189,7 @@ CMDS='b 123
 ? $b
 '
 EXPECT='0x7b
-123 0x7b 0173 123.0 0000:007b 123 01111011 123.0 0.000000
+123 0x7b 0173 123.0 0000:007b 123 "{" 01111011 123.0 0.000000
 '
 run_test
 

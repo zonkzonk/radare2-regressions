@@ -6,7 +6,7 @@
 
 ## "i" - get info about opened file
 
-NAME='i (malloc)'
+NAME='i (all) (malloc)'
 FILE=malloc://1025
 BROKEN=
 ARGS=
@@ -38,233 +38,49 @@ block	0x100
 uri	malloc://1025
 format	any
 fs strings
-fs strings
 '
 # fd changes in each test, replace it with 42.
 FILTER='sed "s/^fd	[0-9][0-9]*/fd	42/"'
 run_test
 
-# Used by multiple tests.
-cmds_info='
-?e Basic information.
-i
-?e
-
-?e All information.
-ia
-ia*
-?e
-
-?e Imports.
-ii
-ii*
-?e
-
-?e Binary info.
-iI
-iI*
-?e
-
-?e Entrypoints.
-ie
-ie*
-?e
-
-?e Symbols.
-is
-is*
-?e
-
-?e Sections.
-iS
-iS*
-?e
-
-?e Strings.
-iz
-iz*
-'
-
 NAME='i (file x86)'
-FILE=../bins/elf/x86-simple
+FILE=../bins/elf/x86-helloworld-gcc
 ARGS=
-BROKEN=1
-CMDS="$cmds_info"
-EXPECT='Basic information.
+CMDS="i"
+EXPECT='file	../bins/elf/x86-helloworld-gcc
+type	EXEC (Executable file)
+pic	false
+canary	false
+nx	true
+crypto	false
+has_va	true
+root	elf
+class	ELF32
+lang	c
+arch	x86
+bits	32
+machine	Intel 80386
+os	linux
+subsys	linux
+endian	little
+strip	false
+static	false
+linenum	true
+lsyms	true
+relocs	true
+rpath	NONE
 type	EXEC (Executable file)
 os	linux
 arch	Intel 80386
 bits	32
 endian	little
-file	../bins/elf/x86-simple
+file	../bins/elf/x86-helloworld-gcc
 fd	42
-size	0xfc
+size	0x1323
 mode	r--
-block	0x40
-uri	../bins/elf/x86-simple
-format	any
-
-All information.
-[File info]
-File=../bins/elf/x86-simple
-Type=EXEC (Executable file)
-HasVA=true
-RootClass=elf
-Class=ELF32
-Arch=x86 32
-Machine=Intel 80386
-OS=linux
-Subsystem=linux
-Big endian=false
-Stripped=true
-Static=true
-Line_nums=false
-Local_syms=false
-Relocs=false
-RPath=NONE
-[Entrypoints]
-addr=0x08048060 off=0x00000060 baddr=0x08048000
-
-1 entrypoints
-[Imports]
-
-0 imports
-[Symbols]
-
-0 symbols
-[Sections]
-idx=00 addr=0x08048060 off=0x00000060 sz=18 vsz=18 perm=-r-x name=.text
-idx=01 addr=0x08048072 off=0x00000072 sz=17 vsz=17 perm=---- name=.shstrtab
-
-2 sections
-[Header fields]
-idx=00 addr=0x08048000 off=0x00000000 name=ehdr
-idx=01 addr=0x08048084 off=0x00000084 name=shoff
-idx=02 addr=0x08048034 off=0x00000034 name=phoff
-idx=03 addr=0x08048000 off=0x00000000 name=phdr_0
-
-4 fields
-[strings]
-
-0 strings
-e file.type=elf
-e cfg.bigendian=false
-e asm.os=linux
-e asm.arch=x86
-e anal.plugin=x86
-e asm.bits=32
-e asm.dwarf=true
-fs symbols
-f entry0 @ 0x08048060
-s entry0
-fs imports
-fs symbols
-fs sections
-S 0x00000060 0x08048060 0x00000012 0x00000012 .text 5
-f section..text 18 0x08048060
-f section_end..text 0 0x08048072
-CC [00] va=0x08048060 pa=0x00000060 sz=18 vsz=18 rwx=-r-x .text @ 0x08048060
-S 0x00000072 0x08048072 0x00000011 0x00000011 .shstrtab 0
-f section..shstrtab 17 0x08048072
-f section_end..shstrtab 0 0x08048083
-CC [01] va=0x08048072 pa=0x00000072 sz=17 vsz=17 rwx=---- .shstrtab @ 0x08048072
-fs header
-f header.ehdr @ 0x08048000
-[00] addr=0x08048000 off=0x00000000 name=ehdr
-f header.shoff @ 0x08048084
-[01] addr=0x08048084 off=0x00000084 name=shoff
-f header.phoff @ 0x08048034
-[02] addr=0x08048034 off=0x00000034 name=phoff
-f header.phdr_0 @ 0x08048000
-[03] addr=0x08048000 off=0x00000000 name=phdr_0
-S 0 0x8048000 0x0 0x0 ehdr rwx
-fs strings
-
-Imports.
-[Imports]
-
-0 imports
-fs imports
-
-Binary info.
-[File info]
-File=../bins/elf/x86-simple
-Type=EXEC (Executable file)
-HasVA=true
-RootClass=elf
-Class=ELF32
-Arch=x86 32
-Machine=Intel 80386
-OS=linux
-Subsystem=linux
-Big endian=false
-Stripped=true
-Static=true
-Line_nums=false
-Local_syms=false
-Relocs=false
-RPath=NONE
-e file.type=elf
-e cfg.bigendian=false
-e asm.os=linux
-e asm.arch=x86
-e anal.plugin=x86
-e asm.bits=32
-e asm.dwarf=true
-
-Entrypoints.
-[Entrypoints]
-addr=0x08048060 off=0x00000060 baddr=0x08048000
-
-1 entrypoints
-fs symbols
-f entry0 @ 0x08048060
-s entry0
-
-Symbols.
-[Symbols]
-
-0 symbols
-fs symbols
-
-Sections.
-[Sections]
-idx=00 addr=0x08048060 off=0x00000060 sz=18 vsz=18 perm=-r-x name=.text
-idx=01 addr=0x08048072 off=0x00000072 sz=17 vsz=17 perm=---- name=.shstrtab
-
-2 sections
-[Header fields]
-idx=00 addr=0x08048000 off=0x00000000 name=ehdr
-idx=01 addr=0x08048084 off=0x00000084 name=shoff
-idx=02 addr=0x08048034 off=0x00000034 name=phoff
-idx=03 addr=0x08048000 off=0x00000000 name=phdr_0
-
-4 fields
-fs sections
-S 0x00000060 0x08048060 0x00000012 0x00000012 .text 5
-f section..text 18 0x08048060
-f section_end..text 0 0x08048072
-CC [00] va=0x08048060 pa=0x00000060 sz=18 vsz=18 rwx=-r-x .text @ 0x08048060
-S 0x00000072 0x08048072 0x00000011 0x00000011 .shstrtab 0
-f section..shstrtab 17 0x08048072
-f section_end..shstrtab 0 0x08048083
-CC [01] va=0x08048072 pa=0x00000072 sz=17 vsz=17 rwx=---- .shstrtab @ 0x08048072
-fs header
-f header.ehdr @ 0x08048000
-[00] addr=0x08048000 off=0x00000000 name=ehdr
-f header.shoff @ 0x08048084
-[01] addr=0x08048084 off=0x00000084 name=shoff
-f header.phoff @ 0x08048034
-[02] addr=0x08048034 off=0x00000034 name=phoff
-f header.phdr_0 @ 0x08048000
-[03] addr=0x08048000 off=0x00000000 name=phdr_0
-S 0 0x8048000 0x0 0x0 ehdr rwx
-
-Strings.
-[strings]
-
-0 strings
-fs strings
+block	0x100
+uri	../bins/elf/x86-helloworld-gcc
+format	elf
 '
 # fd changes in each test, replace it with 42.
 FILTER='sed "s/^fd	[0-9][0-9]*/fd	42/;
@@ -272,189 +88,205 @@ FILTER='sed "s/^fd	[0-9][0-9]*/fd	42/;
              s/^File=\/.*\.\.\/bins\/elf\/x86-simple$/File=..\/bins\/elf\/x86-simple/"'
 run_test
 
-NAME='i (file x64)'
-BROKEN=1
-FILE=../bins/elf/x64-simple
+NAME='iA (file x86)'
+FILE=../bins/elf/x86-helloworld-gcc
 ARGS=
-CMDS="$cmds_info"
-EXPECT='Basic information.
+CMDS="iA"
+EXPECT='000 0x00000000 4899 x86_32
+'
+run_test
+
+NAME='ie (file x86)'
+FILE=../bins/elf/x86-helloworld-gcc
+ARGS=
+CMDS="ie"
+EXPECT='[Entrypoints]
+vaddr=0x08048300 off=0x00000300 baddr=0x08048000 laddr=0x00000000
+
+1 entrypoints
+'
+run_test
+
+NAME='ih (file x86)'
+FILE=../bins/elf/x86-helloworld-gcc
+ARGS=
+CMDS="ih"
+EXPECT='[Header fields]
+idx=00 addr=0x00000000 off=0x00000000 name=ehdr
+idx=01 addr=0x000007cc off=0x000007cc name=shoff
+idx=02 addr=0x00000034 off=0x00000034 name=phoff
+idx=03 addr=0x00000034 off=0x00000034 name=phdr_0
+idx=04 addr=0x00000134 off=0x00000134 name=phdr_1
+idx=05 addr=0x00000000 off=0x00000000 name=phdr_2
+idx=06 addr=0x0000059c off=0x0000059c name=phdr_3
+idx=07 addr=0x000005a8 off=0x000005a8 name=phdr_4
+idx=08 addr=0x00000148 off=0x00000148 name=phdr_5
+idx=09 addr=0x000004c0 off=0x000004c0 name=phdr_6
+idx=10 addr=0x00000000 off=0x00000000 name=phdr_7
+
+11 fields
+'
+run_test
+
+NAME='ii (file x86)'
+FILE=../bins/elf/x86-helloworld-gcc
+ARGS=
+CMDS="ii"
+EXPECT='[Imports]
+ordinal=001 plt=0x080482d0 bind=GLOBAL type=FUNC name=puts
+ordinal=002 plt=0x080482e0 bind=UNKNOWN type=NOTYPE name=__gmon_start__
+ordinal=003 plt=0x080482f0 bind=GLOBAL type=FUNC name=__libc_start_main
+
+3 imports
+'
+run_test
+
+NAME='iI (file x86)'
+FILE=../bins/elf/x86-helloworld-gcc
+ARGS=
+CMDS="iI"
+EXPECT='file	../bins/elf/x86-helloworld-gcc
 type	EXEC (Executable file)
+pic	false
+canary	false
+nx	true
+crypto	false
+has_va	true
+root	elf
+class	ELF32
+lang	c
+arch	x86
+bits	32
+machine	Intel 80386
 os	linux
-arch	AMD x86-64 architecture
-bits	64
+subsys	linux
 endian	little
-file	../bins/elf/x64-simple
-fd	42
-size	0x170
-mode	r--
-block	0x40
-uri	../bins/elf/x64-simple
-format	any
-
-All information.
-[File info]
-File=../bins/elf/x64-simple
-Type=EXEC (Executable file)
-HasVA=true
-RootClass=elf
-Class=ELF64
-Arch=x86 64
-Machine=AMD x86-64 architecture
-OS=linux
-Subsystem=linux
-Big endian=false
-Stripped=true
-Static=true
-Line_nums=false
-Local_syms=false
-Relocs=false
-RPath=NONE
-[Entrypoints]
-addr=0x00400080 off=0x00000080 baddr=0x00400000
-
-1 entrypoints
-[Imports]
-
-0 imports
-[Symbols]
-
-0 symbols
-[Sections]
-idx=00 addr=0x00400080 off=0x00000080 sz=28 vsz=28 perm=-r-x name=.text
-idx=01 addr=0x0040009c off=0x0000009c sz=17 vsz=17 perm=---- name=.shstrtab
-
-2 sections
-[Header fields]
-idx=00 addr=0x00400000 off=0x00000000 name=ehdr
-idx=01 addr=0x004000b0 off=0x000000b0 name=shoff
-idx=02 addr=0x00400040 off=0x00000040 name=phoff
-idx=03 addr=0x00400000 off=0x00000000 name=phdr_0
-
-4 fields
-[strings]
-
-0 strings
-e file.type=elf
-e cfg.bigendian=false
-e asm.os=linux
-e asm.arch=x86
-e anal.plugin=x86
-e asm.bits=64
-e asm.dwarf=true
-fs symbols
-f entry0 @ 0x00400080
-s entry0
-fs imports
-fs symbols
-fs sections
-S 0x00000080 0x00400080 0x0000001c 0x0000001c .text 5
-f section..text 28 0x00400080
-f section_end..text 0 0x0040009c
-CC [00] va=0x00400080 pa=0x00000080 sz=28 vsz=28 rwx=-r-x .text @ 0x00400080
-S 0x0000009c 0x0040009c 0x00000011 0x00000011 .shstrtab 0
-f section..shstrtab 17 0x0040009c
-f section_end..shstrtab 0 0x004000ad
-CC [01] va=0x0040009c pa=0x0000009c sz=17 vsz=17 rwx=---- .shstrtab @ 0x0040009c
-fs header
-f header.ehdr @ 0x00400000
-[00] addr=0x00400000 off=0x00000000 name=ehdr
-f header.shoff @ 0x004000b0
-[01] addr=0x004000b0 off=0x000000b0 name=shoff
-f header.phoff @ 0x00400040
-[02] addr=0x00400040 off=0x00000040 name=phoff
-f header.phdr_0 @ 0x00400000
-[03] addr=0x00400000 off=0x00000000 name=phdr_0
-S 0 0x400000 0x0 0x0 ehdr rwx
-fs strings
-
-Imports.
-[Imports]
-
-0 imports
-fs imports
-
-Binary info.
-[File info]
-File=../bins/elf/x64-simple
-Type=EXEC (Executable file)
-HasVA=true
-RootClass=elf
-Class=ELF64
-Arch=x86 64
-Machine=AMD x86-64 architecture
-OS=linux
-Subsystem=linux
-Big endian=false
-Stripped=true
-Static=true
-Line_nums=false
-Local_syms=false
-Relocs=false
-RPath=NONE
-e file.type=elf
-e cfg.bigendian=false
-e asm.os=linux
-e asm.arch=x86
-e anal.plugin=x86
-e asm.bits=64
-e asm.dwarf=true
-
-Entrypoints.
-[Entrypoints]
-addr=0x00400080 off=0x00000080 baddr=0x00400000
-
-1 entrypoints
-fs symbols
-f entry0 @ 0x00400080
-s entry0
-
-Symbols.
-[Symbols]
-
-0 symbols
-fs symbols
-
-Sections.
-[Sections]
-idx=00 addr=0x00400080 off=0x00000080 sz=28 vsz=28 perm=-r-x name=.text
-idx=01 addr=0x0040009c off=0x0000009c sz=17 vsz=17 perm=---- name=.shstrtab
-
-2 sections
-[Header fields]
-idx=00 addr=0x00400000 off=0x00000000 name=ehdr
-idx=01 addr=0x004000b0 off=0x000000b0 name=shoff
-idx=02 addr=0x00400040 off=0x00000040 name=phoff
-idx=03 addr=0x00400000 off=0x00000000 name=phdr_0
-
-4 fields
-fs sections
-S 0x00000080 0x00400080 0x0000001c 0x0000001c .text 5
-f section..text 28 0x00400080
-f section_end..text 0 0x0040009c
-CC [00] va=0x00400080 pa=0x00000080 sz=28 vsz=28 rwx=-r-x .text @ 0x00400080
-S 0x0000009c 0x0040009c 0x00000011 0x00000011 .shstrtab 0
-f section..shstrtab 17 0x0040009c
-f section_end..shstrtab 0 0x004000ad
-CC [01] va=0x0040009c pa=0x0000009c sz=17 vsz=17 rwx=---- .shstrtab @ 0x0040009c
-fs header
-f header.ehdr @ 0x00400000
-[00] addr=0x00400000 off=0x00000000 name=ehdr
-f header.shoff @ 0x004000b0
-[01] addr=0x004000b0 off=0x000000b0 name=shoff
-f header.phoff @ 0x00400040
-[02] addr=0x00400040 off=0x00000040 name=phoff
-f header.phdr_0 @ 0x00400000
-[03] addr=0x00400000 off=0x00000000 name=phdr_0
-S 0 0x400000 0x0 0x0 ehdr rwx
-
-Strings.
-[strings]
-
-0 strings
-fs strings
+strip	false
+static	false
+linenum	true
+lsyms	true
+relocs	true
+rpath	NONE
 '
 # fd changes in each test, replace it with 42.
 FILTER='sed "s/^fd	[0-9][0-9]*/fd	42/;
-             s/^file	\/.*\.\.\/bins\/elf\/x64-simple$/file	..\/bins\/elf\/x64-simple/;
-             s/^File=\/.*\.\.\/bins\/elf\/x64-simple$/File=..\/bins\/elf\/x64-simple/"'
+             s/^file	\/.*\.\.\/bins\/elf\/x86-simple$/file	..\/bins\/elf\/x86-simple/;
+             s/^File=\/.*\.\.\/bins\/elf\/x86-simple$/File=..\/bins\/elf\/x86-simple/"'
+run_test
+
+NAME='iS (file x86)'
+FILE=../bins/elf/x86-helloworld-gcc
+ARGS=
+CMDS="iS"
+EXPECT='[Sections]
+idx=00 addr=0x08048134 off=0x00000134 sz=19 vsz=19 perm=-r-- name=.interp
+idx=01 addr=0x08048148 off=0x00000148 sz=32 vsz=32 perm=-r-- name=.note.ABI_tag
+idx=02 addr=0x08048168 off=0x00000168 sz=36 vsz=36 perm=-r-- name=.note.gnu.build_id
+idx=03 addr=0x0804818c off=0x0000018c sz=32 vsz=32 perm=-r-- name=.gnu.hash
+idx=04 addr=0x080481ac off=0x000001ac sz=80 vsz=80 perm=-r-- name=.dynsym
+idx=05 addr=0x080481fc off=0x000001fc sz=74 vsz=74 perm=-r-- name=.dynstr
+idx=06 addr=0x08048246 off=0x00000246 sz=10 vsz=10 perm=-r-- name=.gnu.version
+idx=07 addr=0x08048250 off=0x00000250 sz=32 vsz=32 perm=-r-- name=.gnu.version_r
+idx=08 addr=0x08048270 off=0x00000270 sz=8 vsz=8 perm=-r-- name=.rel.dyn
+idx=09 addr=0x08048278 off=0x00000278 sz=24 vsz=24 perm=-r-- name=.rel.plt
+idx=10 addr=0x08048290 off=0x00000290 sz=35 vsz=35 perm=-r-x name=.init
+idx=11 addr=0x080482c0 off=0x000002c0 sz=64 vsz=64 perm=-r-x name=.plt
+idx=12 addr=0x08048300 off=0x00000300 sz=404 vsz=404 perm=-r-x name=.text
+idx=13 addr=0x08048494 off=0x00000494 sz=20 vsz=20 perm=-r-x name=.fini
+idx=14 addr=0x080484a8 off=0x000004a8 sz=21 vsz=21 perm=-r-- name=.rodata
+idx=15 addr=0x080484c0 off=0x000004c0 sz=44 vsz=44 perm=-r-- name=.eh_frame_hdr
+idx=16 addr=0x080484ec off=0x000004ec sz=176 vsz=176 perm=-r-- name=.eh_frame
+idx=17 addr=0x0804959c off=0x0000059c sz=4 vsz=4 perm=-rw- name=.init_array
+idx=18 addr=0x080495a0 off=0x000005a0 sz=4 vsz=4 perm=-rw- name=.fini_array
+idx=19 addr=0x080495a4 off=0x000005a4 sz=4 vsz=4 perm=-rw- name=.jcr
+idx=20 addr=0x080495a8 off=0x000005a8 sz=232 vsz=232 perm=-rw- name=.dynamic
+idx=21 addr=0x08049690 off=0x00000690 sz=4 vsz=4 perm=-rw- name=.got
+idx=22 addr=0x08049694 off=0x00000694 sz=24 vsz=24 perm=-rw- name=.got.plt
+idx=23 addr=0x080496ac off=0x000006ac sz=8 vsz=8 perm=-rw- name=.data
+idx=24 addr=0x080496b4 off=0x000006b4 sz=4 vsz=4 perm=-rw- name=.bss
+idx=25 addr=0x00000000 off=0x000006b4 sz=17 vsz=17 perm=---- name=.comment
+idx=26 addr=0x00000000 off=0x000006c5 sz=262 vsz=262 perm=---- name=.shstrtab
+idx=27 addr=0x00000000 off=0x00000c7c sz=1104 vsz=1104 perm=---- name=.symtab
+idx=28 addr=0x00000000 off=0x000010cc sz=599 vsz=599 perm=---- name=.strtab
+idx=29 addr=0x08048000 off=0x00000000 sz=4096 vsz=4096 perm=-r-x name=phdr0
+idx=30 addr=0x0804959c off=0x0000059c sz=4096 vsz=4096 perm=-rw- name=phdr1
+idx=31 addr=0x08048000 off=0x00000000 sz=52 vsz=52 perm=-rw- name=ehdr
+
+32 sections
+'
+run_test
+
+NAME='il (file x86)'
+FILE=../bins/elf/x86-helloworld-gcc
+ARGS=
+CMDS="il"
+EXPECT='[Linked libraries]
+libc.so.6
+
+1 libraries
+'
+run_test
+
+NAME='ir (file x86)'
+FILE=../bins/elf/x86-helloworld-gcc
+ARGS=
+CMDS="ir"
+EXPECT='[Relocations]
+addr=0x000016a0 off=0x000006a0 type=SET_32 puts
+addr=0x000016a4 off=0x000006a4 type=SET_32 __gmon_start__
+addr=0x000016a8 off=0x000006a8 type=SET_32 __libc_start_main
+
+3 relocations
+'
+run_test
+
+NAME='is (file x86)'
+FILE=../bins/elf/x86-helloworld-gcc
+ARGS=
+CMDS="is"
+EXPECT='[Symbols]
+addr=0x080495a4 off=0x000015a4 ord=030 fwd=NONE sz=0 bind=LOCAL type=OBJECT name=__JCR_LIST__
+addr=0x08048340 off=0x00000340 ord=031 fwd=NONE sz=0 bind=LOCAL type=FUNC name=deregister_tm_clones
+addr=0x08048370 off=0x00000370 ord=032 fwd=NONE sz=0 bind=LOCAL type=FUNC name=register_tm_clones
+addr=0x080483b0 off=0x000003b0 ord=033 fwd=NONE sz=0 bind=LOCAL type=FUNC name=__do_global_dtors_aux
+addr=0x080496b4 off=0x000016b4 ord=034 fwd=NONE sz=1 bind=LOCAL type=OBJECT name=completed.5979
+addr=0x080495a0 off=0x000015a0 ord=035 fwd=NONE sz=0 bind=LOCAL type=OBJECT name=__do_global_dtors_aux_fini_array_entry
+addr=0x080483d0 off=0x000003d0 ord=036 fwd=NONE sz=0 bind=LOCAL type=FUNC name=frame_dummy
+addr=0x0804959c off=0x0000159c ord=037 fwd=NONE sz=0 bind=LOCAL type=OBJECT name=__frame_dummy_init_array_entry
+addr=0x08048598 off=0x00000598 ord=040 fwd=NONE sz=0 bind=LOCAL type=OBJECT name=__FRAME_END__
+addr=0x080495a4 off=0x000015a4 ord=041 fwd=NONE sz=0 bind=LOCAL type=OBJECT name=__JCR_END__
+addr=0x080495a0 off=0x000015a0 ord=043 fwd=NONE sz=0 bind=LOCAL type=NOTYPE name=__init_array_end
+addr=0x080495a8 off=0x000015a8 ord=044 fwd=NONE sz=0 bind=LOCAL type=OBJECT name=_DYNAMIC
+addr=0x0804959c off=0x0000159c ord=045 fwd=NONE sz=0 bind=LOCAL type=NOTYPE name=__init_array_start
+addr=0x08049694 off=0x00001694 ord=046 fwd=NONE sz=0 bind=LOCAL type=OBJECT name=_GLOBAL_OFFSET_TABLE_
+addr=0x08048490 off=0x00000490 ord=047 fwd=NONE sz=2 bind=GLOBAL type=FUNC name=__libc_csu_fini
+addr=0x08048330 off=0x00000330 ord=049 fwd=NONE sz=4 bind=GLOBAL type=FUNC name=__x86.get_pc_thunk.bx
+addr=0x080496ac off=0x000016ac ord=050 fwd=NONE sz=0 bind=UNKNOWN type=NOTYPE name=data_start
+addr=0x080496b4 off=0x000016b4 ord=051 fwd=NONE sz=0 bind=GLOBAL type=NOTYPE name=_edata
+addr=0x08048494 off=0x00000494 ord=052 fwd=NONE sz=0 bind=GLOBAL type=FUNC name=_fini
+addr=0x080496ac off=0x000016ac ord=053 fwd=NONE sz=0 bind=GLOBAL type=NOTYPE name=__data_start
+addr=0x080496b0 off=0x000016b0 ord=056 fwd=NONE sz=0 bind=GLOBAL type=OBJECT name=__dso_handle
+addr=0x080484ac off=0x000004ac ord=057 fwd=NONE sz=4 bind=GLOBAL type=OBJECT name=_IO_stdin_used
+addr=0x08048420 off=0x00000420 ord=059 fwd=NONE sz=97 bind=GLOBAL type=FUNC name=__libc_csu_init
+addr=0x080496b8 off=0x000016b8 ord=060 fwd=NONE sz=0 bind=GLOBAL type=NOTYPE name=_end
+addr=0x08048300 off=0x00000300 ord=061 fwd=NONE sz=0 bind=GLOBAL type=FUNC name=_start
+addr=0x080484a8 off=0x000004a8 ord=062 fwd=NONE sz=4 bind=GLOBAL type=OBJECT name=_fp_hw
+addr=0x080496b4 off=0x000016b4 ord=063 fwd=NONE sz=0 bind=GLOBAL type=NOTYPE name=__bss_start
+addr=0x08048400 off=0x00000400 ord=064 fwd=NONE sz=28 bind=GLOBAL type=FUNC name=main
+addr=0x080496b4 off=0x000016b4 ord=066 fwd=NONE sz=0 bind=GLOBAL type=OBJECT name=__TMC_END__
+addr=0x08048290 off=0x00000290 ord=068 fwd=NONE sz=0 bind=GLOBAL type=FUNC name=_init
+addr=0x080482d0 off=0x000002d0 ord=001 fwd=NONE sz=16 bind=GLOBAL type=FUNC name=imp.puts
+addr=0x080482e0 off=0x000002e0 ord=002 fwd=NONE sz=16 bind=UNKNOWN type=NOTYPE name=imp.__gmon_start__
+addr=0x080482f0 off=0x000002f0 ord=003 fwd=NONE sz=16 bind=GLOBAL type=FUNC name=imp.__libc_start_main
+
+33 symbols
+'
+run_test
+
+NAME='iz (file x86)'
+FILE=../bins/elf/x86-helloworld-gcc
+ARGS=
+CMDS="iz"
+EXPECT='addr=0x100904b0 off=0x000004b0 ordinal=000 sz=13 len=12 section=.rodata type=a string=Hello world!
+'
 run_test

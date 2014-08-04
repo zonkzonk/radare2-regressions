@@ -2,7 +2,6 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME="esil x86-64"
-BROKEN=1
 CMDS='
 ?e
 e asm.arch=x86
@@ -12,13 +11,12 @@ ao~opcode,esil
 '
 EXPECT='
 opcode: lea rsi, [rdi+0x68]
-esil: rsi=rdi+104
+esil: rdi+104,rsi,=
 '
 
 run_test
 
 NAME="esil x86-64"
-BROKEN=1
 CMDS='
 ?e
 e asm.arch=x86
@@ -28,7 +26,7 @@ ao~opcode,esil
 '
 EXPECT='
 opcode: mov dword [rip+0x40dd], 0x1
-esil: [rip+0x40dd]=1
+esil: 1,[rip+0x40dd],=
 '
 
 run_test

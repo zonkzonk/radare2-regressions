@@ -38,7 +38,6 @@ jg 0x14
 run_test
 
 NAME='pi -3 @ 3'
-BROKEN=1
 FILE=malloc://512
 ARGS=
 CMDS='

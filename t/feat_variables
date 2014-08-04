@@ -3,74 +3,128 @@
 
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
-## Variables
 
-# Used by multiple tests.
+NAME='$$ (malloc)'
+FILE=malloc://1024
+ARGS=
+CMDS='?v $$
+s 42
+?v $$
+s-
+?v $$'
+EXPECT='0x0
+0x2a
+0x0
+'
+run_test
+
+NAME='$o (malloc)'
+FILE=malloc://1024
+ARGS=
+CMDS='?v $o
+s 42
+?v $o
+s-
+?v $o
+'
+EXPECT='0x0
+0x2a
+0x0
+'
+run_test
+
 BROKEN=1
-cmds_variables='
-e asm.arch = x86
-e asm.bits =  32
+NAME='$b (malloc)'
+FILE=malloc://1024
+ARGS=
+CMDS='b 123
+?v $b
+? $b
+'
+EXPECT='0x7b
+123 0x7b 0173 123.0 0000:007b 123 01111011 123.0 0.000000
+'
+run_test
 
-?e Current seek.
-?v $$
-s 42
-?v $$
-s-
-?v $$
-?e
+NAME='$s (malloc)'
+FILE=malloc://1024
+ARGS=
+CMDS='?v $s
+'
+EXPECT='0x400
+'
+run_test
 
-?e Current io offset.
-?v $o
-s 42
-?v $o
-s-
-?v $o
-?e
-
-?e File size reporting.
-?v $s
-?e
-
-?e Block size.
-b 123;?v $b;? $b
-?e
-
-?e Jump address.
-wa jmp 0x30
+NAME='$j (malloc)'
+FILE=malloc://1024
+ARGS=
+CMDS='wa jmp 0x30
 ?v $j
 wa jz 0x01
 ?v $j
 wa xor eax, eax
 ?v $j
 ?e
+'
+EXPECT='0x30
+0x1
+0xffffffffffffffff
 
-?e Jump fail address.
-wa jmp 0x30
+'
+run_test
+
+NAME='$f (malloc)'
+FILE=malloc://1024
+ARGS=
+CMDS='wa jmp 0x30
 ?v $f
 wa jz 0x01
 ?v $f
 wa xor eax, eax
 ?v $f
-?e
+'
+EXPECT='0xffffffffffffffff
+0x6
+0xffffffffffffffff
+'
+run_test
 
-?e Opcode memory reference.
-wa mov eax, [0x500]
-?v $r
+BROKEN=1
+NAME='$m (malloc)'
+FILE=malloc://1024
+ARGS=
+CMDS='wa mov eax, [0x500]
+?v $m
 wa mov eax, ebx
-?v $r
+?v $m
 ?e
+'
+EXPECT='0x500
+0xffffffffffffffff
+'
+run_test
 
-?e Opcode length.
-wa xor eax, eax
+NAME='$l (malloc)'
+FILE=malloc://1024
+ARGS=
+CMDS='wa xor eax, eax
 ?v $l
 wa mov esp, 0x1
 ?v $l
 wa ret
 ?v $l
-?e
+'
+EXPECT='0x2
+0x5
+0x1
+'
+run_test
 
-?e End of (assembly) block?
-wa inc eax
+BROKEN=1
+NAME='$e (malloc)'
+FILE=malloc://1024
+ARGS=
+CMDS='wa inc eax
 ?v $e
 wa jmp 0x01
 ?v $e
@@ -78,195 +132,86 @@ wa ret
 ?v $e
 wa call 0x01
 ?v $e
-?e
+'
+EXPECT='0x0
+0x1
+0x1
+0x0
+'
+run_test
 
-?e Get value of configuration variable.
+NAME='$e (malloc)'
+FILE=malloc://1024
+ARGS=
+CMDS='e asm.bits = 0x20
 ?v ${asm.bits}
-?e
+'
+EXPECT='0x20
+'
+run_test
 
-?e Last comparision value.
-? 5 + 3
+NAME='$e (malloc)'
+FILE=malloc://1024
+ARGS=
+CMDS='? 5 + 3
 ?v $?
 ? 0
 ?v $?
 '
-
-NAME='$variables (malloc)'
-FILE=malloc://1024
-ARGS=
-BROKEN=1
-CMDS="$cmds_variables"
-EXPECT='Current seek.
-0x0
-0x2a
-0x0
-
-Current io offset.
-0x0
-0x2a
-0x0
-
-File size reporting.
-0x400
-
-Block size.
-0x7b
-123 0x7b 0173 123.0 0000:007b 123 01111011 123.0 0.000000
-
-Jump address.
-0x30
-0x1
-0xffffffffffffffff
-
-Jump fail address.
-0xffffffffffffffff
-0x6
-0xffffffffffffffff
-
-Opcode memory reference.
-0x500
-0xffffffffffffffff
-
-Opcode length.
-0x2
-0x5
-0x1
-
-End of (assembly) block?
-0x0
-0x1
-0x1
-0x0
-
-Get value of configuration variable.
-0x20
-
-Last comparision value.
-8 0x8 010 8.0 0000:0008 8 00001000 8.0 0.000000
-0x8
-0 0x0 00 8.0 0000:0000 0 00000000 0.0 0.000000
-0x0
-'
-run_test
-
-NAME='$variables (file x86)'
-FILE=../bins/elf/x86-simple
-BROKEN=1
-ARGS=
-CMDS="
-# We can't write to a file.
-e io.cache = 1
-$cmds_variables"
-EXPECT='Current seek.
-0x8048060
-0x2a
-0x8048060
-
-Current io offset.
-0x60
-0x2a
-0x60
-
-File size reporting.
-0xfc
-
-Block size.
-0x7b
-123 0x7b 0173 123.0 0000:007b 123 01111011 123.0 0.000000
-
-Jump address.
-0x30
-0x1
-0xffffffffffffffff
-
-Jump fail address.
-0xffffffffffffffff
-0x8048066
-0xffffffffffffffff
-
-Opcode memory reference.
-0x500
-0xffffffffffffffff
-
-Opcode length.
-0x2
-0x5
-0x1
-
-End of (assembly) block?
-0x0
-0x1
-0x1
-0x0
-
-Get value of configuration variable.
-0x20
-
-Last comparision value.
-8 0x8 010 8.0 0000:0008 8 00001000 8.0 0.000000
-0x8
-0 0x0 00 8.0 0000:0000 0 00000000 0.0 0.000000
-0x0
-'
-run_test
-
-NAME='$variables (file x64)'
-FILE=../bins/elf/x64-simple
-BROKEN=1
-ARGS=
-CMDS="
-# We can't write to a file.
-e io.cache = 1
-$cmds_variables"
-EXPECT='Current seek.
-0x400080
-0x2a
-0x400080
-
-Current io offset.
-0x80
-0x2a
-0x80
-
-File size reporting.
-0x170
-
-Block size.
-0x7b
-123 0x7b 0173 123.0 0000:007b 123 01111011 123.0 0.000000
-
-Jump address.
-0x30
-0x1
-0xffffffffffffffff
-
-Jump fail address.
-0xffffffffffffffff
-0x400086
-0xffffffffffffffff
-
-Opcode memory reference.
-0x500
-0xffffffffffffffff
-
-Opcode length.
-0x2
-0x5
-0x1
-
-End of (assembly) block?
-0x0
-0x1
-0x1
-0x0
-
-Get value of configuration variable.
-0x20
-
-Last comparision value.
-8 0x8 010 8.0 0000:0008 8 00001000 8.0 0.000000
+EXPECT='8 0x8 010 8.0 0000:0008 8 00001000 8.0 0.000000
 0x8
 0 0x0 00 0.0 0000:0000 0 00000000 0.0 0.000000
 0x0
+'
+run_test
+
+NAME='$$ (x86-simple)'
+FILE=../bins/elf/x86-simple
+ARGS=
+CMDS='?v $$
+s 42
+?v $$
+s-
+?v $$'
+EXPECT='0x8048060
+0x2a
+0x8048060
+'
+run_test
+
+NAME='$o (x86-simple)'
+FILE=../bins/elf/x86-simple
+ARGS=
+CMDS='?v $o
+s 42
+?v $o
+s-
+?v $o
+'
+EXPECT='0x60
+0x2a
+0x60
+'
+run_test
+
+BROKEN=1
+NAME='$b (x86-simple)'
+FILE=../bins/elf/x86-simple
+ARGS=
+CMDS='b 123
+?v $b
+? $b
+'
+EXPECT='0x7b
+123 0x7b 0173 123.0 0000:007b 123 01111011 123.0 0.000000
+'
+run_test
+
+NAME='$s (x86-simple)'
+FILE=../bins/elf/x86-simple
+ARGS=
+CMDS='?v $s
+'
+EXPECT='0xfc
 '
 run_test

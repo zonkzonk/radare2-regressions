@@ -287,7 +287,7 @@ NAME='iz (file x86)'
 FILE=../bins/elf/x86-helloworld-gcc
 ARGS=
 CMDS="iz"
-EXPECT='addr=0x100904b0 off=0x000004b0 ordinal=000 sz=13 len=12 section=.rodata type=a string=Hello world!
+EXPECT='addr=0x080484b0 off=0x000004b0 ordinal=000 sz=13 len=12 section=.rodata type=a string=Hello world!
 '
 run_test
 
@@ -539,6 +539,6 @@ NAME='iz (file x86_64)'
 FILE=../bins/elf/hello-linux-x86_64
 ARGS=
 CMDS="iz"
-EXPECT='addr=0x008005c4 off=0x000005c4 ordinal=000 sz=12 len=11 section=.rodata type=a string=Hello World
+EXPECT='addr=0x004005c4 off=0x000005c4 ordinal=000 sz=12 len=11 section=.rodata type=a string=Hello World
 '
 run_test

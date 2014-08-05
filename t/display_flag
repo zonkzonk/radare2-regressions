@@ -6,8 +6,15 @@
 
 ## test visual mode in batch
 
+# XXX this test have several issues
+# - local flags doesnt work that way
+# - testing the output of 'pd' is a bad idea
+# - functions are not flags
+# - jumps into the same function doesnt show comments
+
 NAME='Flags comments'
 FILE=malloc://512
+BROKEN=1
 ARGS=
 CMDS='
 e asm.arch=x86

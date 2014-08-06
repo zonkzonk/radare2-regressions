@@ -138,13 +138,16 @@ echo "$V,${TESTS_SUCCESS},${TESTS_FIXED},${TESTS_BROKEN},${TESTS_FAILED},${TESTS
 sort .stats.csv > stats.csv
 rm -f .stats.csv
 
-# Proper exit code.
+# Exit codes, as documented in README.md
 if [ "${TESTS_FATAL}" -gt 0 ]; then
   echo "ESSENTIAL TEST HAS FAILED"
-  exit 2
-fi
-
-if [ "${TESTS_FAILED}" -gt 0 ]; then
   exit 1
+elif [ "${TESTS_FAILED}" -gt 0 ]; then
+  exit 2
+elif [ "${TESTS_BROKEN}" -gt 0 ]; then
+  exit 3
+elif [ "${TESTS_FIXED}" -gt 0 ]; then
+  exit 4
+else
+  exit 0
 fi
-exit 0

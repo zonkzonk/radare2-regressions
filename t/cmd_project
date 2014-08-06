@@ -1,0 +1,40 @@
+#!/bin/sh
+# GPL 3+ - Copyright (C) 2012  jvoisin
+
+[ -e tests.sh ] && . ./tests.sh || . ../tests.sh
+
+NAME='Import project'
+FILE=malloc://512
+ARGS=
+CMDS="e dir.projects = ../files/
+Po project.r2
+C*"
+EXPECT='"CCu Some test" @ 0x00404890
+'
+run_test
+
+NAME='Import project with overwriting'
+FILE=malloc://512
+ARGS=
+CMDS='e dir.projects = ../files/
+CCu "Some other test" @ 0x00404890
+Po project.r2
+C*
+'
+EXPECT='"CCu Some test" @ 0x00404890
+'
+run_test
+
+
+NAME='Export project'
+FILE=malloc://512
+ARGS=
+CMDS='e dir.projects = /tmp/
+CCu "Some other test" @ 0x00404890
+Ps project.r2
+cat /tmp/project.r2~Some
+rm /tmp/project.r2~Some
+'
+EXPECT='"CCu Some test" @ 0x00404890
+'
+run_test

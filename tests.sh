@@ -26,6 +26,11 @@ cd `dirname $0` 2>/dev/null
 export LANG=C
 export LC_CTYPE=C
 
+die() {
+    echo "$1"
+    exit 1
+}
+
 printdiff() {
     if [ -n "${VERBOSE}" ]; then
         echo
@@ -182,25 +187,25 @@ run_test() {
     # Check if the output matched.
     diff "${TMP_OUT}" "${TMP_EXP}" >/dev/null
     OUT_CODE=$?
-if [ "${NOT_EXPECT}" = 1 ]; then
-if [ "${OUT_CODE}" = 0 ]; then
-OUT_CODE=1
-else
-OUT_CODE=0
-fi
-fi
+    if [ "${NOT_EXPECT}" = 1 ]; then
+        if [ "${OUT_CODE}" = 0 ]; then
+            OUT_CODE=1
+        else
+            OUT_CODE=0
+        fi
+    fi
     if [ "${IGNORE_ERR}" = 1 ]; then
         ERR_CODE=0
     else
         diff "${TMP_ERR}" "${TMP_EXR}" >/dev/null
         ERR_CODE=$?
-if [ "${NOT_EXPECT}" = 1 ]; then
-if [ "${ERR_CODE}" = 0 ]; then
-ERR_CODE=1
-else
-ERR_CODE=0
-fi
-fi
+        if [ "${NOT_EXPECT}" = 1 ]; then
+            if [ "${ERR_CODE}" = 0 ]; then
+                ERR_CODE=1
+            else
+                ERR_CODE=0
+            fi
+        fi
     fi
 
     if [ ${CODE} -eq 47 ]; then
@@ -366,4 +371,51 @@ if [ -n "${NOCOLOR}" ]; then
 else
     printf "\033[1;31m%s\033[0m\n" "$MSG"
 fi
+}
+
+print_report() {
+    echo
+    echo "=== Report ==="
+    echo
+    printf "      SUCCESS"
+    if [ "${TESTS_SUCCESS}" -gt 0 ]; then
+        print_success "${TESTS_SUCCESS}"
+    else
+        print_failed "${TESTS_SUCCESS}"
+    fi
+    printf "      FIXED"
+    if [ "${TESTS_FIXED}" -gt 0 ]; then
+        print_fixed   "${TESTS_FIXED}"
+    else
+        print_fixed   0
+    fi
+    printf "      BROKEN"
+    if [ "${TESTS_BROKEN}" -gt 0 ]; then
+        print_broken "${TESTS_BROKEN}"
+    else
+        print_broken 0
+    fi
+    printf "      FATAL"
+    if [ "${TESTS_FATAL}" -gt 0 ]; then
+        print_failed "${TESTS_FATAL}"
+    else
+        print_failed 0
+    fi
+    printf "      FAILED"
+    if [ "${TESTS_FAILED}" -gt 0 ]; then
+        print_failed  "${TESTS_FAILED}"
+    else
+        print_failed  0
+    fi
+    printf "      TOTAL\r"
+    print_label "[${TESTS_TOTAL}]"
+
+    BADBOYS=$((${TESTS_BROKEN}+${TESTS_FAILED}+${TESTS_FATAL}))
+
+    dc -V > /dev/null || die "dc is not available, please install it."
+
+    BN=`echo "100 ${BADBOYS} * ${TESTS_TOTAL} / n" | dc`
+    printf "      BROKENNESS\r"
+    print_label "[${BN}%]"
+    echo
 }

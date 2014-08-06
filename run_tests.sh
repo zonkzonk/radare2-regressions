@@ -30,11 +30,6 @@ TESTS_FATAL=0
 # Let tests.sh know the complete test suite is run, enables statistics.
 R2_SOURCED=1
 
-die() {
-    echo "$1"
-    exit 1
-}
-
 control_c() {
 	echo
 	exit 1
@@ -82,52 +77,7 @@ for file in * ; do
 done
 fi
 
-# Print report.
-echo
-echo "=== Report ==="
-echo
-printf "      SUCCESS"
-if [ "${TESTS_SUCCESS}" -gt 0 ]; then
-    print_success "${TESTS_SUCCESS}"
-else
-    print_failed "${TESTS_SUCCESS}"
-fi
-printf "      FIXED"
-if [ "${TESTS_FIXED}" -gt 0 ]; then
-    print_fixed   "${TESTS_FIXED}"
-else
-    print_fixed   0
-fi
-printf "      BROKEN"
-if [ "${TESTS_BROKEN}" -gt 0 ]; then
-    print_broken "${TESTS_BROKEN}"
-else
-    print_broken 0
-fi
-printf "      FATAL"
-if [ "${TESTS_FATAL}" -gt 0 ]; then
-    print_failed "${TESTS_FATAL}"
-else
-    print_failed 0
-fi
-printf "      FAILED"
-if [ "${TESTS_FAILED}" -gt 0 ]; then
-    print_failed  "${TESTS_FAILED}"
-else
-    print_failed  0
-fi
-printf "      TOTAL\r"
-print_label "[${TESTS_TOTAL}]"
-
-BADBOYS=$((${TESTS_BROKEN}+${TESTS_FAILED}+${TESTS_FATAL}))
-dc -V > /dev/null
-if [ $? != 0 ]; then
-	exit 1
-fi
-BN=`echo "100 ${BADBOYS} * ${TESTS_TOTAL} / n" | dc`
-printf "      BROKENNESS\r"
-print_label "[${BN}%]"
-echo
+print_report
 
 # Save statistics
 cd $R

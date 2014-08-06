@@ -28,17 +28,13 @@ unlock() {
 # Statistics.
 TESTS_TOTAL=0
 TESTS_SUCCESS=0
+TESTS_FATAL=0
 TESTS_FAILED=0
 TESTS_BROKEN=0
 TESTS_FIXED=0
 
 # Let tests.sh know the complete test suite is run, enables statistics.
 R2_SOURCED=1
-
-die() {
-    echo "$1"
-    exit 1
-}
 
 control_c() {
 	echo
@@ -72,6 +68,7 @@ echo "==> Using $THREADS threads"
 
 FILE_SUCCESS=$(mktemp /tmp/.r2-stats.XXXXXX)
 FILE_FAILED=$(mktemp /tmp/.r2-stats.XXXXXX)
+FILE_FATAL=$(mktemp /tmp/.r2-stats.XXXXXX)
 FILE_BROKEN=$(mktemp /tmp/.r2-stats.XXXXXX)
 FILE_FIXED=$(mktemp /tmp/.r2-stats.XXXXXX)
 FILE_TOTAL=$(mktemp /tmp/.r2-stats.XXXXXX)
@@ -92,6 +89,7 @@ runfile() {
       . ./$2 > $TF
       lock
       N=$((`cat ${FILE_SUCCESS}`+${TESTS_SUCCESS})); echo $N > ${FILE_SUCCESS}
+      N=$((`cat ${FILE_FATAL}`+${TESTS_FATAL})); echo $N > ${FILE_FATAL}
       N=$((`cat ${FILE_FAILED}`+${TESTS_FAILED})); echo $N > ${FILE_FAILED}
       N=$((`cat ${FILE_BROKEN}`+${TESTS_BROKEN})); echo $N > ${FILE_BROKEN}
       N=$((`cat ${FILE_FIXED}`+${TESTS_FIXED})); echo $N > ${FILE_FIXED}
@@ -141,6 +139,7 @@ rm -f $TFS
 wait
 if [ $THREADS -gt 1 ]; then
     TESTS_SUCCESS=$(cat ${FILE_SUCCESS})
+    TESTS_FATAL=$(cat ${FILE_FATAL})
     TESTS_FAILED=$(cat ${FILE_FAILED})
     TESTS_FIXED=$(cat ${FILE_FIXED})
     TESTS_BROKEN=$(cat ${FILE_BROKEN})
@@ -148,64 +147,27 @@ if [ $THREADS -gt 1 ]; then
 fi
 rm -f ${FILES}
 
-# Print report.
-echo
-echo "=== Report ==="
-echo
-printf "      SUCCESS"
-if [ "${TESTS_SUCCESS}" -gt 0 ]; then
-    print_success "${TESTS_SUCCESS}"
-else
-    print_failed "${TESTS_SUCCESS}"
-fi
-printf "      FIXED"
-if [ "${TESTS_FIXED}" -gt 0 ]; then
-    print_fixed   "${TESTS_FIXED}"
-else
-    print_fixed   0
-fi
-printf "      BROKEN"
-if [ "${TESTS_BROKEN}" -gt 0 ]; then
-    print_broken "${TESTS_BROKEN}"
-else
-    print_broken 0
-fi
-printf "      FAILED"
-if [ "${TESTS_FAILED}" -gt 0 ]; then
-    print_failed  "${TESTS_FAILED}"
-else
-    print_failed  0
-fi
-printf "      TOTAL\r"
-print_label "[${TESTS_TOTAL}]"
-
-BN=`echo "100 ${TESTS_BROKEN} * ${TESTS_TOTAL} / n" | dc`
-printf "      BROKENNESS\r"
-print_label "[${BN}%]"
-echo
+print_report
 
 # Save statistics
 cd $R
 V=`r2 -v 2>/dev/null| grep ^rada| awk '{print $5}'`
 touch stats.csv
 grep -v "^$V" stats.csv > .stats.csv
-echo "$V,${TESTS_SUCCESS},${TESTS_FIXED},${TESTS_BROKEN},${TESTS_FAILED},${FAILED}" >> .stats.csv
+echo "$V,${TESTS_SUCCESS},${TESTS_FIXED},${TESTS_BROKEN},${TESTS_FAILED},${TESTS_FATAL},${FAILED}" >> .stats.csv
 sort .stats.csv > stats.csv
 rm -f .stats.csv
 
-if [ "${TESTS_FAILED}" -gt 0 ]; then
-  exit 1
-fi
-exit 0
-
-# Proper exit code.
-if [ "${TESTS_TOTAL}" -eq "${TESTS_SUCCESS}" ]; then
+# Exit codes, as documented in README.md
+if [ "${TESTS_FATAL}" -gt 0 ]; then
+    echo "ESSENTIAL TEST HAS FAILED"
+    exit 1
+elif [ "${TESTS_FAILED}" -gt 0 ]; then
+    exit 2
+elif [ "${TESTS_BROKEN}" -gt 0 ]; then
+    exit 3
+elif [ "${TESTS_FIXED}" -gt 0 ]; then
+    exit 4
+else
     exit 0
-elif [ "${TESTS_FAILED}" -eq 0 ]; then
-    if [ "${TESTS_BROKEN}" -ge 0 ]; then
-        exit 2
-    elif [ "${TESTS_FIXED}" -ge 0 ]; then
-        exit 3
-    fi
 fi
-exit 1

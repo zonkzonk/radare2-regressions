@@ -37,3 +37,21 @@ rm /tmp/project.r2
 EXPECT='"CCu Some test" @ 0x00404890
 '
 run_test
+
+NAME='Set, export, unset and import'
+FILE=malloc://512
+ARGS=
+CMDS='e dir.projects = /tmp/
+CC "First comment" @ 0x00404890
+CC "Second comment" @ 0x00404800
+Ps project.r2
+C- @ 0x00404890
+C- @ 0x00404800
+Po project.r2
+cat /tmp/project.r2~comment
+rm /tmp/project.r2
+'
+EXPECT='CCu "First comment" @ 0x00404890
+CCu "Second comment" @ 0x00404800
+'
+run_test

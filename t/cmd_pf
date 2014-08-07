@@ -187,3 +187,84 @@ EXPECT="0x00000000 = 0x00000000 -> 0x00000010 hello
 (*0x10) 0x00000004 = hello
 "
 run_test
+
+NAME='simple nested struct'
+FILE=malloc://1024
+ARGS=
+CMDS='e asm.bits=32
+wx 2a
+wx a00f@0x04
+wx 2a@0x08
+wx 10@0x0a
+wx efbe@0x0e
+wx 20@0x10
+pf.troll iw integer word
+pf.plop i??i firstInt [troll]One [troll]Two secondInt
+pf.plop
+'
+EXPECT="  firstInt : 0x00000000 = 42
+[troll]One : <struct>
+      integer : 0x00000004 = 4000
+         word : 0x00000008 = 0x002a
+[troll]Two : <struct>
+      integer : 0x0000000a = 16
+         word : 0x0000000e = 0xbeef
+ secondInt : 0x00000010 = 32
+"
+run_test
+
+NAME='nested struct'
+FILE=malloc://1024
+ARGS=
+CMDS='e asm.bits=32
+wx 2a000000a00f00001234100000006416
+wx 2a0000002a@0x10
+pf.troll iw*? integer word [troll]Bah
+pf.plop i?w firstInt [troll]Boh plop
+pf.plop
+'
+EXPECT="  firstInt : 0x00000000 = 42
+[troll]Boh : <struct>
+         integer : 0x00000004 = 4000
+            word : 0x00000008 = 0x3412
+      [troll]Bah : (*0x10) <struct>
+         integer : 0x00000010 = 42
+            word : 0x00000014 = 0x002a
+      [troll]Bah : (*0x0) NULL
+      plop : 0x0000000e = 0x1664
+"
+run_test
+
+NAME='complex nested struct'
+FILE=malloc://1024
+ARGS=
+DEBUG=1
+CMDS='e asm.bits=32
+wx 341289679a020000a00f00002a00300000001442
+wx 800600000040@0x20
+wx 14000000641620000000@0x30
+pf.troll iw*? integer word [troll]Bah
+pf.plop i?w first [troll]Boh bwa
+pf.gobelin ww? blah meh [plop]Buh
+pf.gobelin
+'
+EXPECT="     blah : 0x00000000 = 0x1234
+      meh : 0x00000002 = 0x6789
+[plop]Buh : <struct>
+           first : 0x00000004 = 666
+      [troll]Boh : <struct>
+               integer : 0x00000008 = 4000
+                  word : 0x0000000c = 0x002a
+            [troll]Bah : (*0x30) <struct>
+               integer : 0x00000030 = 20
+                  word : 0x00000034 = 0x1664
+            [troll]Bah : (*0x20) <struct>
+               integer : 0x00000020 = 1664
+                  word : 0x00000024 = 0x4000
+            [troll]Bah : (*0x0) NULL
+             bwa : 0x00000012 = 0x4214
+"
+run_test
+
+
+

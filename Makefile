@@ -76,6 +76,9 @@ anal.mips:
 anal.x86:
 	@sh run_tests.sh t.anal/x86
 
+esil:
+	@sh run_tests.sh t.esil/esil
+
 formats:
 	@sh run_tests.sh t.formats/pe
 	@sh run_tests.sh t.formats/elf

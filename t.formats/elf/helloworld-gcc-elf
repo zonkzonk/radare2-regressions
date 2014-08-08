@@ -14,33 +14,33 @@ FILE=../../bins/elf/x86-helloworld-gcc
 CMDS='C*
 '
 EXPECT='Cs 13 0x080484b0 # Hello_world_
-"CC [0] va=0x08048134 pa=0x00000134 sz=19 vsz=19 rwx=-r-- .interp" @ 0x08048134
-"CC [1] va=0x08048148 pa=0x00000148 sz=32 vsz=32 rwx=-r-- .note.ABI_tag" @ 0x08048148
-"CC [2] va=0x08048168 pa=0x00000168 sz=36 vsz=36 rwx=-r-- .note.gnu.build_id" @ 0x08048168
-"CC [3] va=0x0804818c pa=0x0000018c sz=32 vsz=32 rwx=-r-- .gnu.hash" @ 0x0804818c
-"CC [4] va=0x080481ac pa=0x000001ac sz=80 vsz=80 rwx=-r-- .dynsym" @ 0x080481ac
-"CC [5] va=0x080481fc pa=0x000001fc sz=74 vsz=74 rwx=-r-- .dynstr" @ 0x080481fc
-"CC [6] va=0x08048246 pa=0x00000246 sz=10 vsz=10 rwx=-r-- .gnu.version" @ 0x08048246
-"CC [7] va=0x08048250 pa=0x00000250 sz=32 vsz=32 rwx=-r-- .gnu.version_r" @ 0x08048250
-"CC [8] va=0x08048270 pa=0x00000270 sz=8 vsz=8 rwx=-r-- .rel.dyn" @ 0x08048270
-"CC [9] va=0x08048278 pa=0x00000278 sz=24 vsz=24 rwx=-r-- .rel.plt" @ 0x08048278
-"CC [10] va=0x08048290 pa=0x00000290 sz=35 vsz=35 rwx=-r-x .init" @ 0x08048290
-"CC [11] va=0x080482c0 pa=0x000002c0 sz=64 vsz=64 rwx=-r-x .plt" @ 0x080482c0
-"CC [12] va=0x08048300 pa=0x00000300 sz=404 vsz=404 rwx=-r-x .text" @ 0x08048300
-"CC [13] va=0x08048494 pa=0x00000494 sz=20 vsz=20 rwx=-r-x .fini" @ 0x08048494
-"CC [14] va=0x080484a8 pa=0x000004a8 sz=21 vsz=21 rwx=-r-- .rodata" @ 0x080484a8
-"CC [15] va=0x080484c0 pa=0x000004c0 sz=44 vsz=44 rwx=-r-- .eh_frame_hdr" @ 0x080484c0
-"CC [16] va=0x080484ec pa=0x000004ec sz=176 vsz=176 rwx=-r-- .eh_frame" @ 0x080484ec
-"CC [30] va=0x0804959c pa=0x0000059c sz=4096 vsz=4096 rwx=-rw- phdr1" @ 0x0804959c
-"CC [18] va=0x080495a0 pa=0x000005a0 sz=4 vsz=4 rwx=-rw- .fini_array" @ 0x080495a0
-"CC [19] va=0x080495a4 pa=0x000005a4 sz=4 vsz=4 rwx=-rw- .jcr" @ 0x080495a4
-"CC [20] va=0x080495a8 pa=0x000005a8 sz=232 vsz=232 rwx=-rw- .dynamic" @ 0x080495a8
-"CC [21] va=0x08049690 pa=0x00000690 sz=4 vsz=4 rwx=-rw- .got" @ 0x08049690
-"CC [22] va=0x08049694 pa=0x00000694 sz=24 vsz=24 rwx=-rw- .got.plt" @ 0x08049694
-"CC [23] va=0x080496ac pa=0x000006ac sz=8 vsz=8 rwx=-rw- .data" @ 0x080496ac
-"CC [24] va=0x080496b4 pa=0x000006b4 sz=4 vsz=4 rwx=-rw- .bss" @ 0x080496b4
-"CC [28] va=0x00000000 pa=0x000010cc sz=599 vsz=599 rwx=---- .strtab" @ 0x00000000
-"CC [31] va=0x08048000 pa=0x00000000 sz=52 vsz=52 rwx=-rw- ehdr" @ 0x08048000
+"CCu [0] va=0x08048134 pa=0x00000134 sz=19 vsz=19 rwx=-r-- .interp" @ 0x08048134
+"CCu [1] va=0x08048148 pa=0x00000148 sz=32 vsz=32 rwx=-r-- .note.ABI_tag" @ 0x08048148
+"CCu [2] va=0x08048168 pa=0x00000168 sz=36 vsz=36 rwx=-r-- .note.gnu.build_id" @ 0x08048168
+"CCu [3] va=0x0804818c pa=0x0000018c sz=32 vsz=32 rwx=-r-- .gnu.hash" @ 0x0804818c
+"CCu [4] va=0x080481ac pa=0x000001ac sz=80 vsz=80 rwx=-r-- .dynsym" @ 0x080481ac
+"CCu [5] va=0x080481fc pa=0x000001fc sz=74 vsz=74 rwx=-r-- .dynstr" @ 0x080481fc
+"CCu [6] va=0x08048246 pa=0x00000246 sz=10 vsz=10 rwx=-r-- .gnu.version" @ 0x08048246
+"CCu [7] va=0x08048250 pa=0x00000250 sz=32 vsz=32 rwx=-r-- .gnu.version_r" @ 0x08048250
+"CCu [8] va=0x08048270 pa=0x00000270 sz=8 vsz=8 rwx=-r-- .rel.dyn" @ 0x08048270
+"CCu [9] va=0x08048278 pa=0x00000278 sz=24 vsz=24 rwx=-r-- .rel.plt" @ 0x08048278
+"CCu [10] va=0x08048290 pa=0x00000290 sz=35 vsz=35 rwx=-r-x .init" @ 0x08048290
+"CCu [11] va=0x080482c0 pa=0x000002c0 sz=64 vsz=64 rwx=-r-x .plt" @ 0x080482c0
+"CCu [12] va=0x08048300 pa=0x00000300 sz=404 vsz=404 rwx=-r-x .text" @ 0x08048300
+"CCu [13] va=0x08048494 pa=0x00000494 sz=20 vsz=20 rwx=-r-x .fini" @ 0x08048494
+"CCu [14] va=0x080484a8 pa=0x000004a8 sz=21 vsz=21 rwx=-r-- .rodata" @ 0x080484a8
+"CCu [15] va=0x080484c0 pa=0x000004c0 sz=44 vsz=44 rwx=-r-- .eh_frame_hdr" @ 0x080484c0
+"CCu [16] va=0x080484ec pa=0x000004ec sz=176 vsz=176 rwx=-r-- .eh_frame" @ 0x080484ec
+"CCu [30] va=0x0804959c pa=0x0000059c sz=4096 vsz=4096 rwx=-rw- phdr1" @ 0x0804959c
+"CCu [18] va=0x080495a0 pa=0x000005a0 sz=4 vsz=4 rwx=-rw- .fini_array" @ 0x080495a0
+"CCu [19] va=0x080495a4 pa=0x000005a4 sz=4 vsz=4 rwx=-rw- .jcr" @ 0x080495a4
+"CCu [20] va=0x080495a8 pa=0x000005a8 sz=232 vsz=232 rwx=-rw- .dynamic" @ 0x080495a8
+"CCu [21] va=0x08049690 pa=0x00000690 sz=4 vsz=4 rwx=-rw- .got" @ 0x08049690
+"CCu [22] va=0x08049694 pa=0x00000694 sz=24 vsz=24 rwx=-rw- .got.plt" @ 0x08049694
+"CCu [23] va=0x080496ac pa=0x000006ac sz=8 vsz=8 rwx=-rw- .data" @ 0x080496ac
+"CCu [24] va=0x080496b4 pa=0x000006b4 sz=4 vsz=4 rwx=-rw- .bss" @ 0x080496b4
+"CCu [28] va=0x00000000 pa=0x000010cc sz=599 vsz=599 rwx=---- .strtab" @ 0x00000000
+"CCu [31] va=0x08048000 pa=0x00000000 sz=52 vsz=52 rwx=-rw- ehdr" @ 0x08048000
 '
 run_test
 

@@ -1,0 +1,39 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+NAME='no flags'
+CMDS='f
+'
+EXPECT=''
+run_test
+
+NAME='Set/get'
+CMDS='
+f cat
+f rimmer 12
+f lister 32@666
+f kryten 32 666
+f+skutter 1 @ 12
+f
+'
+EXPECT='0x0000000c 1 skutter
+0x0000029a 32 kryten
+0x0000029a 32 lister
+0x00000000 12 rimmer
+0x00000000 1 cat
+'
+run_test
+
+NAME='flags (JSON)'
+CMDS='
+# Add flags.
+f cat
+f rimmer 12
+f lister 32@666
+f kryten 32 666
+f+skutter 1 @ 12
+fj
+'
+EXPECT='[{"name":"skutter","size":"1","offset":12},{"name":"kryten","size":"32","offset":666},{"name":"lister","size":"32","offset":666},{"name":"rimmer","size":"12","offset":0},{"name":"cat","size":"1","offset":0}]
+'
+run_test

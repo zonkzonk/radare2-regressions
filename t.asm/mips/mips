@@ -36,7 +36,7 @@ run_test
 NAME="mips invalid disassembly"
 BROKEN=
 CMDS='
-e asm.arch=mips.gnu
+e asm.arch=mips
 e asm.bits=32
 wx 00988b400068804000800a4007000b242758600124504b0103004a35
 pd 7

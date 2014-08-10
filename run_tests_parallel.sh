@@ -164,10 +164,6 @@ if [ "${TESTS_FATAL}" -gt 0 ]; then
     exit 1
 elif [ "${TESTS_FAILED}" -gt 0 ]; then
     exit 2
-elif [ "${TESTS_BROKEN}" -gt 0 ]; then
-    exit 3
-elif [ "${TESTS_FIXED}" -gt 0 ]; then
-    exit 4
 else
     exit 0
 fi

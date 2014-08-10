@@ -55,8 +55,6 @@ run_tests.sh exits with the following exit codes:
 * 0: all tests passed
 * 1: at least one essential test failed
 * 2: no essential tests, but at least one regular one failed
-* 3: no tests failed, but there was at least one broken test
-* 4: no tests failed or are broken, but there is at least one fixed test
 
 Reporting Radare2 Bugs
 ----------------------

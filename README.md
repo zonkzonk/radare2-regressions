@@ -74,21 +74,24 @@ run_tests.sh or manually in t/.
 
 The following variables are available:
 
- * NAME (string)(recommend):       radare2 command being tested (e.g. px).
- * FILE (path)(optional):          File argument for radare2 (defaults to '-')
- * ARGS (string)(optional):        Additional arguments for radare2. If not
+ * NAME (string, recommend):       radare2 command being tested (e.g. px).
+ * FILE (path, optional):          File argument for radare2 (defaults to '-')
+ * ARGS (string, optional):        Additional arguments for radare2. If not
                                    present no additional arguments are used.
- * CMDS (string)(required):        Commands to run, one per line. Just like in
-                                   interactive mode.
- * EXPECT (string)(required):      Expected stdout output.
- * EXPECT_ERR (string)(optional):  Expected stderr output.
- * FILTER (string)(optional):      Filter program (like grep or sed) to filter
-                                   radare2's output before comparing it with EXPECT.
-                                   Useful to fix random output to generate stable tests.
- * BROKEN (boolean)(optional):     This tests documents a bug which is not yet fixed.
- * ESSENTIAL (boolean)(optional):  A failure of this test is treated as fatal.
- * EXITCODE (number)(optional):    Check the exit code of radare2 matches. Can be used
-                                   to check handling of invalid arguments.
+ * CMDS (string, required):        Commands to run,  one per line. Just like
+                                   in interactive mode.
+ * EXPECT (string, required):      Expected stdout output.
+ * EXPECT_ERR (string, optional):  Expected stderr output.
+ * FILTER (string, optional):      Filter program (like grep or sed) to filter
+                                   radare2's output before comparing it with
+                                   EXPECT. Useful to fix random output to
+                                   generate stable tests.
+ * BROKEN (boolean, optional):     This tests documents a bug which is not yet
+                                   fixed.
+ * ESSENTIAL (boolean, optional):  A failure of this test is treated as fatal.
+ * EXITCODE (number, optional):    Check the exit code of radare2 matches.
+                                   Can be used to check handling of invalid
+                                   arguments.
 
 In this case, "boolean" means 1 for "true" or nothing for "false". Not setting
 the variable has the same effect as setting it to an empty value.

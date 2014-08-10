@@ -48,11 +48,23 @@ BROKEN=1
 CMDS='
 yara tags
 yara add ../files/test_yara.rules
+yara tags
 '
 EXPECT='crypto
 packer
 crypto
 packer
 test_rule
+'
+run_test
+
+NAME='yara add duplicate then original'
+FILE=../bins/elf/hello-linux-x86_64
+CMDS='
+yara add ../files/test_yara.rules
+yara add ../files/test_yara.rules
+yara add ../files/test_yara_2.rules
+'
+EXPECT_ERR='Error: duplicate rule identifier "elf" : ../files/test_yara.rules
 '
 run_test

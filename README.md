@@ -84,7 +84,8 @@ The following variables are available:
  * FILTER (string)(optional):      Filter program (like grep or sed) to filter
                                    radare2's output before comparing it with EXPECT.
                                    Useful to fix random output to generate stable tests.
- * BROKEN (boolean)(optional):      This tests documents a bug which is not yet fixed.
+ * BROKEN (boolean)(optional):     This tests documents a bug which is not yet fixed.
+ * ESSENTIAL (boolean)(optional):  A failure of this test is treated as fatal.
  * EXITCODE (number)(optional):    Check the exit code of radare2 matches. Can be used
                                    to check handling of invalid arguments.
 

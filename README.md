@@ -90,6 +90,9 @@ The following variables are available:
  * EXITCODE (number)(optional):    Check the exit code of radare2 matches. Can be used
                                    to check handling of invalid arguments.
 
+In this case, "boolean" means 1 for "true" or nothing for "false". Not setting
+the variable has the same effect as setting it to an empty value.
+
 All uppercase variable names are reserved for the test system.
 
 The following functions are available:

@@ -8,7 +8,7 @@ FILE=../bins/src/hello.c
 CMDS='
 pm
 '
-EXPECT='0x00000000 1 ISO-8859 C program text
+EXPECT='0x00000000 1 ISO-8859 C source code
 '
 
 run_test

@@ -5,7 +5,7 @@ BROKEN=
 FILE=malloc://32
 CMDS='
 wx 01001104
-e asm.arch=mips.gnu
+e asm.arch=mips
 e asm.bits=32
 ao 1~type[2]
 '
@@ -26,7 +26,7 @@ FILE=malloc://32
 ARGS='-m 0x80100000'
 CMDS='
 wx 0000000000000000010000100000000000000000
-e asm.arch=mips.gnu
+e asm.arch=mips
 e asm.bits=32
 af+ 0x80100000 20 fcn.test
 pdf
@@ -60,7 +60,7 @@ run_test
 NAME="mips LE correct relative jump reference if not mapped from command line."
 BROKEN=1
 FILE=malloc://40
-CMDS='e asm.arch=mips.gnu
+CMDS='e asm.arch=mips
 e asm.bits=32
 e anal.depth=2
 wx 0800040c000000000000000000000000000000000000000040040408000000000800e0030000000000000000
@@ -90,7 +90,7 @@ NAME="mips LE correct relative jump reference if mapped from command line."
 BROKEN=1
 FILE=malloc://40
 ARGS='-m 0x80100000'
-CMDS='e asm.arch=mips.gnu
+CMDS='e asm.arch=mips
 e asm.bits=32
 e anal.depth=3
 wx 0800040c000000000000000000000000000000000000000040040408000000000800e0030000000000000000
@@ -125,7 +125,7 @@ NAME="mips branch delay function sizing."
 BROKEN=
 FILE=malloc://20
 ARGS='-m 0x80100000'
-CMDS='e asm.arch=mips.gnu
+CMDS='e asm.arch=mips
 e asm.bits=32
 e anal.depth=2
 wx 0800e0030a184400000000000000000000000
@@ -146,7 +146,7 @@ NAME="mips branch delay function sizing with conditional jump loop."
 BROKEN=
 FILE=malloc://40
 ARGS='-m 0x80100000'
-CMDS='e asm.arch=mips.gnu
+CMDS='e asm.arch=mips
 e asm.bits=32
 e anal.depth=2
 wx e0ffbd27000000000100001000000000fdff09150a1844000800e0032000bd27000000000000000000000
@@ -171,7 +171,7 @@ NAME="mips branch delay function sizing with conditional jump foward."
 BROKEN=
 FILE=malloc://40
 ARGS='-m 0x80100000'
-CMDS='e asm.arch=mips.gnu
+CMDS='e asm.arch=mips
 e asm.bits=32
 e anal.depth=2
 wx e0ffbd27000000000100001000000000000000000a1844000800e003 2000bd27000000000000000000000
@@ -195,7 +195,7 @@ NAME="mips branch delay function sizing with conditional jump back."
 BROKEN=
 FILE=malloc://40
 ARGS='-m 0x80100000'
-CMDS='e asm.arch=mips.gnu
+CMDS='e asm.arch=mips
 e asm.bits=32
 e anal.depth=2
 wx e0ffbd27000000000000000000000000fdff09150a1844000800e0032000bd27000000000000000000000
@@ -220,7 +220,7 @@ NAME="mips branch delay function sizing with conditional jump back then forward.
 BROKEN=
 FILE=malloc://56
 ARGS='-m 0x80100000'
-CMDS='e asm.arch=mips.gnu
+CMDS='e asm.arch=mips
 e asm.bits=32
 e anal.depth=2
 wx e0ffbd27000000000000000000000000fdff09150000000001000010000000000a1844000800e0032000bd27000000000000000000000
@@ -248,7 +248,7 @@ NAME="mips branch delay function detection #1."
 BROKEN=
 FILE=malloc://160
 ARGS='-m 0x8060b4f8'
-CMDS='e asm.arch=mips.gnu
+CMDS='e asm.arch=mips
 e asm.bits=32
 e anal.depth=2
 wx 0000000000000000002e0500032e05000f00801021100000492d1808000082900800e003211080000000829007004010000000000016020003160200f8ff451000000000482d180801008424211000000800e003000000000000a290050040100100a524000082a00000a290552d1808010084240800e003000080a000000000e0ffbd27542d180c000000000800e0032000bd270000000000000000

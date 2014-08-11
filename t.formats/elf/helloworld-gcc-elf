@@ -264,5 +264,5 @@ NAME='x86 - pdj 10'
 FILE=../../bins/elf/x86-helloworld-gcc
 CMDS='pdj 10
 '
-EXPECT='[{"offset":134513408,"size":2,"opcode":"xor ebp, ebp","bytes":"31ed","type":"xor"},{"offset":134513410,"size":1,"opcode":"pop esi","bytes":"5e","type":"pop"},{"offset":134513411,"size":2,"opcode":"mov ecx, esp","bytes":"89e1","type":"mov"},{"offset":134513413,"size":3,"opcode":"and esp, 0xfffffff0","bytes":"83e4f0","type":"and"},{"offset":134513416,"size":1,"opcode":"push eax","bytes":"50","type":"upush"},{"offset":134513417,"size":1,"opcode":"push esp","bytes":"54","type":"upush"}]'
+EXPECT='[{"offset":134513408,"size":2,"opcode":"xor ebp, ebp","bytes":"31ed","type":"xor","type_num":28,"type2_num":0,"is_switch":0},{"offset":134513410,"size":1,"opcode":"pop esi","bytes":"5e","type":"pop","type_num":14,"type2_num":0,"is_switch":0},{"offset":134513411,"size":2,"opcode":"mov ecx, esp","bytes":"89e1","type":"mov","type_num":9,"type2_num":0,"is_switch":0},{"offset":134513413,"size":3,"opcode":"and esp, 0xfffffff0","bytes":"83e4f0","type":"and","type_num":27,"type2_num":0,"is_switch":0},{"offset":134513416,"size":1,"opcode":"push eax","bytes":"50","type":"upush","type_num":12,"type2_num":0,"is_switch":0},{"offset":134513417,"size":1,"opcode":"push esp","bytes":"54","type":"upush","type_num":12,"type2_num":0,"is_switch":0}]'
 run_test

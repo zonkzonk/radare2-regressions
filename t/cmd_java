@@ -3,7 +3,6 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='use java prototypes command to print methods and fields'
-BROKEN=1
 FILE=malloc://4096
 IGNORE_ERR=1
 ARGS=
@@ -32,8 +31,6 @@ FILTER='sed "s/^db = 0x[0-9a-f]*$/db = 42/"'
 run_test
 
 NAME='use java calc_flags command to calculate java flags'
-BROKEN=1
-IGNORE_ERR=1
 FILE=malloc://4096
 ARGS=
 CMDS='
@@ -109,8 +106,6 @@ FILTER='sed "s/^db = 0x[0-9a-f]*$/db = 42/"'
 run_test
 
 NAME='use java set_flags and flags_str_at to reset the access flag on class file entities'
-BROKEN=1
-IGNORE_ERR=1
 FILE=malloc://4096
 ARGS=
 CMDS='

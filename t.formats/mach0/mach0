@@ -30,7 +30,7 @@ FILE=../../bins/mach0/ls-osx-x86_64
 ARGS=
 CMDS='ie~addr
 '
-EXPECT='vaddr=0x1000010f8 off=0x000010f8 baddr=0x100000000 laddr=0x00000000
+EXPECT='vaddr=0x1000010f8 paddr=0x000010f8 baddr=0x100000000 laddr=0x00000000
 '
 run_test
 

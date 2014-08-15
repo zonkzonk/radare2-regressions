@@ -32,7 +32,7 @@ NAME='ELF: corkami tiny.elf - sections'
 FILE=../../bins/elf/tiny.elf
 ARGS=''
 CMDS="S"
-EXPECT='[00] * 0x00000000 r-- va=0x00010000 sz=0x00020040 vsz=00020040 phdr0
-[01] * 0x00000000 rwx va=0x00010000 sz=0x0000002d vsz=0000002d ehdr
+EXPECT='[00] * 0x00000000 r-- va=0x00010000 sz=0x20040 vsz=0x20040 phdr0
+[01] * 0x00000000 rwx va=0x00010000 sz=0x002d vsz=0x002d ehdr
 '
 run_test

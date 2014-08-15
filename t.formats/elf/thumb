@@ -28,8 +28,8 @@ ARGS=
 CMDS='is~=main[0]
 is~=main[1]
 '
-EXPECT='addr=0x00008424
-off=0x00000425
+EXPECT='vaddr=0x00008424
+paddr=0x00000425
 '
 run_test
 

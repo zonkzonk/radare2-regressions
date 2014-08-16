@@ -76,7 +76,6 @@ EXPECT='0xffffffffffffffff
 '
 run_test
 
-BROKEN=1
 NAME='$m (malloc)'
 FILE=malloc://1024
 ARGS=
@@ -107,7 +106,6 @@ EXPECT='0x2
 '
 run_test
 
-BROKEN=1
 NAME='$e (malloc)'
 FILE=malloc://1024
 ARGS=

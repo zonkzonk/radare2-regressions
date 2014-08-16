@@ -11,7 +11,7 @@ ao~opcode,esil
 '
 EXPECT='
 opcode: lea rsi, [rdi+0x68]
-esil: rdi+104,rsi,=
+esil: rdi,104,+,rsi,=
 '
 
 run_test
@@ -26,7 +26,7 @@ ao~opcode,esil
 '
 EXPECT='
 opcode: mov dword [rip+0x40dd], 0x1
-esil: 1,[rip+0x40dd],=
+esil: 1,rip,0x40dd,+,[8],=
 '
 
 run_test

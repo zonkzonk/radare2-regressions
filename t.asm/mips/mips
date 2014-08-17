@@ -12,6 +12,7 @@ if [ "${5}" = "br" ]; then
 fi
 CMDS='
 e asm.arch='${1}'
+s 4
 wx '${3}'
 pi 1
 '
@@ -24,29 +25,29 @@ test_vector "${PLUGIN}" "ADD.S" 00000046 'add.s $f0, $f0, $f0'
 test_vector "${PLUGIN}" "ADDI" 00000020 "addi zero, zero, 0"
 test_vector "${PLUGIN}" "ADDIU" 00000025 "addiu zero, t0, 0"
 test_vector "${PLUGIN}" "ANDI" 00000030 "andi zero, zero, 0x0"
-test_vector "${PLUGIN}" "B" 00000010 "b 0x00000004"
-test_vector "${PLUGIN}" "BC0F" 00000041 "bc0f 0x00000004"
-test_vector "${PLUGIN}" "BC1F" 00000045 "bc1f 0x00000004"
-test_vector "${PLUGIN}" "BC2F" 00000049 'bc2f 0x00000004'
-test_vector "${PLUGIN}" "BC3F" 0000004d 'bc3f 0x00000004'
-test_vector "${PLUGIN}" "BEQ" 11111011 "beq t0, s0, 0x00004448"
-test_vector "${PLUGIN}" "BEQL" 0050b853 "beql sp, t8, 0x00014004"
-test_vector "${PLUGIN}" "BEQZL" 00000050 'beqzl zero, 0x00000004'
-test_vector "${PLUGIN}" "BEZQ" 00000011 "beqz t0, 0x00000004"
-test_vector "${PLUGIN}" "BGEZ" 02004104 "bgez v0, 0x0000000c"
-test_vector "${PLUGIN}" "BGEZL" 4800c305 "bgezl t6, 0x00000124"
-test_vector "${PLUGIN}" "BGEZAL" 40003106 "bgezal s1, 0x00000104"
-test_vector "${PLUGIN}" "BGEZALL" 48007305 "bgezall t3, 0x00000124"
-test_vector "${PLUGIN}" "BGTZ" 0000001c "bgtz zero, 0x00000004"
-test_vector "${PLUGIN}" "BGTZL" 0000005c 'bgtzl zero, 0x00000004'
-test_vector "${PLUGIN}" "BLEZ" 00000018 "blez zero, 0x00000004"
-test_vector "${PLUGIN}" "BLEZL" 00000058 'blezl zero, 0x00000004'
-test_vector "${PLUGIN}" "BLTZ" 00000004 "bltz zero, 0x00000004"
-test_vector "${PLUGIN}" "BLTZL" 4400c206 "bltzl s6, 0x00000114"
-test_vector "${PLUGIN}" "BNE" 01111015 "bne t0, s0, 0x00004408"
-test_vector "${PLUGIN}" "BNEL" 00d01056 "bnel s0, s0, 0xffffffffffff4004"
-test_vector "${PLUGIN}" "BNEZ" 00000014 "bnez zero, 0x00000004"
-test_vector "${PLUGIN}" "BNEZL" 00000055 'bnezl t0, 0x00000004'
+test_vector "${PLUGIN}" "B" 00000010 "b 0x00000008"
+test_vector "${PLUGIN}" "BC0F" 00000041 "bc0f 0x00000008"
+test_vector "${PLUGIN}" "BC1F" 00000045 "bc1f 0x00000008"
+test_vector "${PLUGIN}" "BC2F" 00000049 'bc2f 0x00000008'
+test_vector "${PLUGIN}" "BC3F" 0000004d 'bc3f 0x00000008'
+test_vector "${PLUGIN}" "BEQ" 11111011 "beq t0, s0, 0x0000444c"
+test_vector "${PLUGIN}" "BEQL" 0050b853 "beql sp, t8, 0x00014008"
+test_vector "${PLUGIN}" "BEQZL" 00000050 'beqzl zero, 0x00000008'
+test_vector "${PLUGIN}" "BEZQ" 00000011 "beqz t0, 0x00000008"
+test_vector "${PLUGIN}" "BGEZ" 02004104 "bgez v0, 0x00000010"
+test_vector "${PLUGIN}" "BGEZL" 4800c305 "bgezl t6, 0x00000128"
+test_vector "${PLUGIN}" "BGEZAL" 40003106 "bgezal s1, 0x00000108"
+test_vector "${PLUGIN}" "BGEZALL" 48007305 "bgezall t3, 0x00000128"
+test_vector "${PLUGIN}" "BGTZ" 0000001c "bgtz zero, 0x00000008"
+test_vector "${PLUGIN}" "BGTZL" 0000005c 'bgtzl zero, 0x00000008'
+test_vector "${PLUGIN}" "BLEZ" 00000018 "blez zero, 0x00000008"
+test_vector "${PLUGIN}" "BLEZL" 00000058 'blezl zero, 0x00000008'
+test_vector "${PLUGIN}" "BLTZ" 00000004 "bltz zero, 0x00000008"
+test_vector "${PLUGIN}" "BLTZL" 4400c206 "bltzl s6, 0x00000118"
+test_vector "${PLUGIN}" "BNE" 01111015 "bne t0, s0, 0x0000440c"
+test_vector "${PLUGIN}" "BNEL" 00d01056 "bnel s0, s0, 0xffffffffffff4008"
+test_vector "${PLUGIN}" "BNEZ" 00000014 "bnez zero, 0x00000008"
+test_vector "${PLUGIN}" "BNEZL" 00000055 'bnezl t0, 0x00000008'
 test_vector "${PLUGIN}" "C0" 00000042 "c0 0x0"
 test_vector "${PLUGIN}" "C1" 00000047 'c1 0x1000000'
 test_vector "${PLUGIN}" "C2" 0000004a 'c2 0x0'

@@ -9,12 +9,12 @@ CMDS="q!"
 EXPECT=''
 run_test
 
-BROKEN=1
+BROKEN=
 NAME='ELF: corkami tiny.elf - entry0'
 FILE=../../bins/elf/tiny.elf
 ARGS=''
 CMDS="?v entry0;pid 4 @ entry0"
-EXPECT='0x00010020
+EXPECT='0x10020
 0x00010020              b32a  mov bl, 0x2a
 0x00010022              31c0  xor eax, eax
 0x00010024                40  inc eax
@@ -26,13 +26,11 @@ run_test
 # e io.va=1
 # S 0x00000000 0x00010000 0x00020040 0x00020040 phdr0 r--
 # S 0x00000000 0x00010000 0x0000002d 0x0000002d ehdr rwx
-
-BROKEN=1
 NAME='ELF: corkami tiny.elf - sections'
 FILE=../../bins/elf/tiny.elf
 ARGS=''
 CMDS="S"
-EXPECT='[00] * 0x00000000 r-- va=0x00010000 sz=0x20040 vsz=0x20040 phdr0
-[01] * 0x00000000 rwx va=0x00010000 sz=0x002d vsz=0x002d ehdr
+EXPECT='[00] * 0x00000000 rwx va=0x00010000 sz=0x002d vsz=0x002d uphdr
+[01] * 0x00000000 rwx va=0x00000000 sz=0x002d vsz=0x002d ehdr
 '
 run_test

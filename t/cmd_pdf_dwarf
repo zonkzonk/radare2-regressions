@@ -5,47 +5,42 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME="pdf dwarf"
 BROKEN=
-FILE=/tmp/r2-regressions/dwarf/main
+FILE=/tmp/r2-regressions/dwarftest
 IGNORE_ERR=1
 ARGS=
 CMDS='e asm.dwarf=true
 aa
 pdf@main'
 EXPECT='|          ; DATA XREF from 0x0040045d (fcn.00400436)
-/ (fcn) sym.main 61
-|          0x0040052d    55           push rbp  ; main.c:3 int main(int argc, char **argv) {  
+/ (fcn) sym.main 44
+|          0x0040052d    55           push rbp  ; dwarftest.c:4 {  
 |          0x0040052e    4889e5       mov rbp, rsp
-|          0x00400531    4883ec20     sub rsp, 0x20
-|          0x00400535    897dec       mov [rbp-0x14], edi
-|          0x00400538    488975e0     mov [rbp-0x20], rsi
-|          0x0040053c    c745fc00000. mov dword [rbp-0x4], 0x0  ; main.c:6 	for (i = 0; i < 10; i++) {  
-|      ,=< 0x00400543    eb18         jmp 0x40055d ; (fcn.004004fc)
-|      |   ; JMP XREF from 0x00400561 (fcn.004004fc)
-|- loc.00400545 37
-|      |   0x00400545    8b45fc       mov eax, [rbp-0x4]  ; main.c:7 		printf("This is a dwarf test %d\n", i);  
-|- fcn.00400548 34
-|      |   0x00400548    89c6         mov esi, eax
-|      |   0x0040054a    bff4054000   mov edi, str.Thisisadwarftest_d ;  0x004005f4 
-|      |   0x0040054f    b800000000   mov eax, 0x0
-|      |   0x00400554    e8b7feffff   call sym.imp.printf
-|      |      sym.imp.printf(unk)
-|      |   0x00400559    8345fc01     add dword [rbp-0x4], 0x1  ; main.c:6 	for (i = 0; i < 10; i++) {  
-|      |   ; JMP XREF from 0x00400543 (fcn.004004fc)
-|      `-> 0x0040055d    837dfc09     cmp dword [rbp-0x4], 0x9
-|          0x00400561    7ee2         jle loc.00400545
-|          0x00400563    b800000000   mov eax, 0x0  ; main.c:10 	return 0;  
-|          0x00400568    c9           leave  ; main.c:11 }  
-\          0x00400569    c3           ret
+|          0x00400531    4883ec10     sub rsp, 0x10
+|          0x00400535    c745fc00000. mov dword [rbp-0x4], 0x0  ; dwarftest.c:7 	for (i = 0; i < 5; i++) {  
+|      ,=< 0x0040053c    eb0e         jmp fcn.0040054c
+|      |   ; JMP XREF from 0x00400550 (unk)
+|- loc.0040053e 27
+|      |   0x0040053e    bfe4054000   mov edi, str.dwarftest  ; dwarftest.c:8 		printf ("dwarftest\n");   ; str.dwarftest
+|      |   0x00400543    e8c8feffff   call sym.imp.puts
+|      |      sym.imp.puts(unk)
+|      |   0x00400548    8345fc01     add dword [rbp-0x4], 0x1  ; dwarftest.c:7 	for (i = 0; i < 5; i++) {  
+|      |   ; JMP XREF from 0x0040053c (unk)
+|- fcn.0040054c 13
+|      `-> 0x0040054c    837dfc04     cmp dword [rbp-0x4], 0x4
+|          0x00400550    7eec         jle loc.0040053e
+|          0x00400552    b800000000   mov eax, 0x0  ; dwarftest.c:11 	return 0;  
+|          0x00400557    c9           leave  ; dwarftest.c:12 }  
+\          0x00400558    c3           ret
 '
 
-mkdir -p /tmp/r2-regressions/dwarf
+mkdir -p /tmp/r2-regressions/
 
 if [ $? -eq 1 ]; then
 	echo "Failed to create directory in /tmp/r2-regressions/dwarf"
 	exit 1
 fi
 
-cp ../bins/elf/main /tmp/r2-regressions/dwarf/main
-cp ../bins/src/main.c /tmp/r2-regressions/dwarf/main.c
+cp ../bins/elf/dwarftest /tmp/r2-regressions/dwarftest
+cp ../bins/src/dwarftest.c /tmp/r2-regressions/dwarftest.c
 
 run_test

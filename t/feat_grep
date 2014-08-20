@@ -6,6 +6,26 @@
 
 ## grep
 
+# Escaped esc
+NAME='?e ~'
+FILE=malloc://1024
+ARGS=
+CMDS='
+?e jeje~jojo
+'
+EXPECT=''
+run_test
+
+NAME='?e \~'
+FILE=malloc://1024
+ARGS=
+CMDS='
+?e jeje\~jojo
+'
+EXPECT='jeje~jojo
+'
+run_test
+
 # Basic grep.
 NAME='px~:1[1]'
 FILE=malloc://1024

@@ -80,7 +80,7 @@ pd 2 @ 0x200
 EXPECT='2
    ;      hello
    ;      world
-           0x00000200    0000         add [rax], al
-           0x00000202    0000         add [rax], al
+           0x00000200    0000         add [eax], al
+           0x00000202    0000         add [eax], al
 '
 run_test

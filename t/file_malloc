@@ -25,7 +25,7 @@ has_va	false
 root	
 class	
 lang	
-arch	x86
+arch	
 bits	32
 machine	
 os	
@@ -78,7 +78,7 @@ has_va	false
 root	
 class	
 lang	
-arch	x86
+arch	
 bits	32
 machine	
 os	

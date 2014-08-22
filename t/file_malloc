@@ -16,6 +16,33 @@ i
 px
 '
 EXPECT='file	malloc://1024
+type	
+pic	false
+canary	false
+nx	false
+crypto	false
+has_va	false
+root	
+class	
+lang	
+arch	x86
+bits	32
+machine	
+os	
+subsys	
+endian	little
+strip	false
+static	false
+linenum	false
+lsyms	false
+relocs	false
+rpath	
+type	
+os	
+arch	
+bits	32
+endian	little
+file	malloc://1024
 fd	42
 size	0x400
 mode	r--
@@ -42,6 +69,33 @@ i
 px
 '
 EXPECT='file	malloc://1
+type	
+pic	false
+canary	false
+nx	false
+crypto	false
+has_va	false
+root	
+class	
+lang	
+arch	x86
+bits	32
+machine	
+os	
+subsys	
+endian	little
+strip	false
+static	false
+linenum	false
+lsyms	false
+relocs	false
+rpath	
+type	
+os	
+arch	
+bits	32
+endian	little
+file	malloc://1
 fd	42
 size	0x1
 mode	r--

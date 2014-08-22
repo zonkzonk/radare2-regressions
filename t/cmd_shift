@@ -57,6 +57,33 @@ EXPECT='0x00000000 = aaaaaaaaaa
 0x000000e0  0000 0000 0000 0000 0000 0000 0000 0000  ................
 0x000000f0  0000 0000 0000 0000 0000 0000 0000 0000  ................
 file	malloc://512
+type	
+pic	false
+canary	false
+nx	false
+crypto	false
+has_va	false
+root	
+class	
+lang	
+arch	x86
+bits	32
+machine	
+os	
+subsys	
+endian	little
+strip	false
+static	false
+linenum	false
+lsyms	false
+relocs	false
+rpath	
+type	
+os	
+arch	
+bits	32
+endian	little
+file	malloc://512
 fd	42
 size	0x200
 mode	rw-
@@ -120,6 +147,33 @@ EXPECT='0x00000008 = aaaaaaaaaa
 0x000000d8  0000 0000 0000 0000 0000 0000 0000 0000  ................
 0x000000e8  0000 0000 0000 0000 0000 0000 0000 0000  ................
 0x000000f8  0000 0000 0000 0000 0000 0000 0000 0000  ................
+file	malloc://512
+type	
+pic	false
+canary	false
+nx	false
+crypto	false
+has_va	false
+root	
+class	
+lang	
+arch	x86
+bits	32
+machine	
+os	
+subsys	
+endian	little
+strip	false
+static	false
+linenum	false
+lsyms	false
+relocs	false
+rpath	
+type	
+os	
+arch	
+bits	32
+endian	little
 file	malloc://512
 fd	42
 size	0x200
@@ -201,6 +255,33 @@ EXPECT='0x00000008 = aaaaaaaaaa
 0x000000d8  0000 0000 0000 0000 0000 0000 0000 0000  ................
 0x000000e8  0000 0000 0000 0000 0000 0000 0000 0000  ................
 0x000000f8  0000 0000 0000 0000 0000 0000 0000 0000  ................
+file	malloc://512
+type	
+pic	false
+canary	false
+nx	false
+crypto	false
+has_va	false
+root	
+class	
+lang	
+arch	x86
+bits	32
+machine	
+os	
+subsys	
+endian	little
+strip	false
+static	false
+linenum	false
+lsyms	false
+relocs	false
+rpath	
+type	
+os	
+arch	
+bits	32
+endian	little
 file	malloc://512
 fd	42
 size	0x200

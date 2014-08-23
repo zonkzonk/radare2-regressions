@@ -2,13 +2,23 @@
 # LGPL 3+ - Copyright (C) 2014  pancake
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
-NAME='rabin -k file'
+NAME='baddr >0'
 BROKEN=
 FILE=../../bins/elf/hello-linux-x86_64
 ARGS=
 CMDS='!rabin2 -qe ${FILE};!rabin2 -B 0x800000 -qe ${FILE}'
 EXPECT='0x00400410
 0x00800410
+'
+run_test
+
+NAME='baddr 0'
+BROKEN=
+FILE=../../bins/elf/hello-linux-x86_64
+ARGS=
+CMDS='!rabin2 -qe ${FILE};!rabin2 -B 0 -qe ${FILE}'
+EXPECT='0x00400410
+0x00000410
 '
 run_test
 

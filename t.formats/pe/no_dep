@@ -15,5 +15,14 @@ CMDS="!rabin2 -k 'pe.nx' ${FILE}"
 EXPECT='false
 
 '
+run_test
+
+NAME='PE: corkami dep.exe - dep not enabled'
+FILE=../../bins/pe/no_dep.exe
+ARGS=
+CMDS="k bin/cur/pe.nx"
+EXPECT='false
+
+'
 
 run_test

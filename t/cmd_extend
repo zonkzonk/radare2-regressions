@@ -15,7 +15,6 @@ pf z @0x0
 wen 6
 pf z @0x6
 px
-i
 '
 EXPECT='0x00000000 = AABBCCDDEEFF
 0x00000006 = AABBCCDDEEFF
@@ -36,40 +35,6 @@ EXPECT='0x00000000 = AABBCCDDEEFF
 0x000000d0  0000 0000 0000 0000 0000 0000 0000 0000  ................
 0x000000e0  0000 0000 0000 0000 0000 0000 0000 0000  ................
 0x000000f0  0000 0000 0000 0000 0000 0000 0000 0000  ................
-file	malloc://512
-type	
-pic	false
-canary	false
-nx	false
-crypto	false
-has_va	false
-root	
-class	
-lang	
-arch	
-bits	32
-machine	
-os	
-subsys	
-endian	little
-strip	false
-static	false
-linenum	false
-lsyms	false
-relocs	false
-rpath	
-type	
-os	
-arch	
-bits	32
-endian	little
-file	malloc://512
-fd	42
-size	0x206
-mode	rw-
-block	0x100
-uri	malloc://512
-format	any
 '
 FILTER='sed "s/^fd	[0-9][0-9]*/fd	42/"'
 run_test
@@ -88,7 +53,6 @@ pf z @0x6
 pf z @0xB
 s 0
 px
-i
 '
 EXPECT='0x00000000 = AABBCCDDEEFF
 0x00000000 = AABB
@@ -111,40 +75,6 @@ EXPECT='0x00000000 = AABBCCDDEEFF
 0x000000d0  0000 0000 0000 0000 0000 0000 0000 0000  ................
 0x000000e0  0000 0000 0000 0000 0000 0000 0000 0000  ................
 0x000000f0  0000 0000 0000 0000 0000 0000 0000 0000  ................
-file	malloc://512
-type	
-pic	false
-canary	false
-nx	false
-crypto	false
-has_va	false
-root	
-class	
-lang	
-arch	
-bits	32
-machine	
-os	
-subsys	
-endian	little
-strip	false
-static	false
-linenum	false
-lsyms	false
-relocs	false
-rpath	
-type	
-os	
-arch	
-bits	32
-endian	little
-file	malloc://512
-fd	42
-size	0x206
-mode	rw-
-block	0x100
-uri	malloc://512
-format	any
 '
 FILTER='sed "s/^fd	[0-9][0-9]*/fd	42/"'
 run_test
@@ -162,7 +92,6 @@ pf z @0xE
 px
 s 0
 px
-i
 '
 EXPECT='0x00000000 = AABBCCDDEEFFGGHH
 0x00000000 = AABBCCDD
@@ -202,40 +131,6 @@ EXPECT='0x00000000 = AABBCCDDEEFFGGHH
 0x000000d0  0000 0000 0000 0000 0000 0000 0000 0000  ................
 0x000000e0  0000 0000 0000 0000 0000 0000 0000 0000  ................
 0x000000f0  0000 0000 0000 0000 0000 0000 0000 0000  ................
-file	malloc://512
-type	
-pic	false
-canary	false
-nx	false
-crypto	false
-has_va	false
-root	
-class	
-lang	
-arch	
-bits	32
-machine	
-os	
-subsys	
-endian	little
-strip	false
-static	false
-linenum	false
-lsyms	false
-relocs	false
-rpath	
-type	
-os	
-arch	
-bits	32
-endian	little
-file	malloc://512
-fd	42
-size	0x206
-mode	rw-
-block	0x100
-uri	malloc://512
-format	any
 '
 FILTER='sed "s/^fd	[0-9][0-9]*/fd	42/"'
 run_test
@@ -250,7 +145,6 @@ pf z @0x0
 wex 575757575757575757
 pf z @0x0
 px
-i
 '
 EXPECT='0x00000000 = AABBCCDDEEFFGGHH
 0x00000000 = WWWWWWWWWAABBCCDDEEFFGGHH
@@ -271,40 +165,6 @@ EXPECT='0x00000000 = AABBCCDDEEFFGGHH
 0x000000d0  0000 0000 0000 0000 0000 0000 0000 0000  ................
 0x000000e0  0000 0000 0000 0000 0000 0000 0000 0000  ................
 0x000000f0  0000 0000 0000 0000 0000 0000 0000 0000  ................
-file	malloc://512
-type	
-pic	false
-canary	false
-nx	false
-crypto	false
-has_va	false
-root	
-class	
-lang	
-arch	
-bits	32
-machine	
-os	
-subsys	
-endian	little
-strip	false
-static	false
-linenum	false
-lsyms	false
-relocs	false
-rpath	
-type	
-os	
-arch	
-bits	32
-endian	little
-file	malloc://512
-fd	42
-size	0x209
-mode	rw-
-block	0x100
-uri	malloc://512
-format	any
 '
 FILTER='sed "s/^fd	[0-9][0-9]*/fd	42/"'
 run_test
@@ -321,7 +181,6 @@ pf z @0x0
 px
 s 0
 px
-i
 '
 EXPECT='0x00000000 = AABBCCDDEEFFGGHH
 0x00000000 = AABBCCDDEEFFWWWWWWWWWGGHH
@@ -359,40 +218,6 @@ EXPECT='0x00000000 = AABBCCDDEEFFGGHH
 0x000000d0  0000 0000 0000 0000 0000 0000 0000 0000  ................
 0x000000e0  0000 0000 0000 0000 0000 0000 0000 0000  ................
 0x000000f0  0000 0000 0000 0000 0000 0000 0000 0000  ................
-file	malloc://512
-type	
-pic	false
-canary	false
-nx	false
-crypto	false
-has_va	false
-root	
-class	
-lang	
-arch	
-bits	32
-machine	
-os	
-subsys	
-endian	little
-strip	false
-static	false
-linenum	false
-lsyms	false
-relocs	false
-rpath	
-type	
-os	
-arch	
-bits	32
-endian	little
-file	malloc://512
-fd	42
-size	0x209
-mode	rw-
-block	0x100
-uri	malloc://512
-format	any
 '
 FILTER='sed "s/^fd	[0-9][0-9]*/fd	42/"'
 run_test

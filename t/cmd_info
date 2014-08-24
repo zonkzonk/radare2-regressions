@@ -11,10 +11,7 @@ FILE=malloc://1025
 BROKEN=
 ARGS=
 CMDS='
-# malloc://1025 reports correct file size (bug report #54).
 i
-
-# All other i commands print nothing for malloc://.
 ia
 ia*
 ii
@@ -31,90 +28,44 @@ iz
 iz*
 '
 EXPECT='file	malloc://1025
-type	
-pic	false
-canary	false
-nx	false
-crypto	false
-has_va	false
-root	
-class	
-lang	
-arch	x86
-bits	32
-machine	
-os	
-subsys	
-endian	little
-strip	false
-static	false
-linenum	false
-lsyms	false
-relocs	false
-rpath	
-type	
-os	
-arch	
-bits	32
-endian	little
-file	malloc://1025
 fd	42
 size	0x401
 mode	r--
 block	0x100
 uri	malloc://1025
 format	any
-file	malloc://1025
-type	
-pic	false
-canary	false
-nx	false
-crypto	false
-has_va	false
-root	
-class	
-lang	
-arch	x86
-bits	32
-machine	
-os	
-subsys	
-endian	little
-strip	false
-static	false
-linenum	false
-lsyms	false
-relocs	false
-rpath	
-file	malloc://1025
-type	
-pic	false
-canary	false
-nx	false
-crypto	false
-has_va	false
-root	
-class	
-lang	
-arch	x86
-bits	32
-machine	
-os	
-subsys	
-endian	little
-strip	false
-static	false
-linenum	false
-lsyms	false
-relocs	false
-rpath	
-e file.type=
-e cfg.bigendian=false
-e asm.os=
-e asm.arch=x86
-e anal.arch=x86
-e asm.bits=32
-e asm.dwarf=false
+[Imports]
+
+0 imports
+[Imports]
+
+0 imports
+[Entrypoints]
+
+0 entrypoints
+[Symbols]
+
+0 symbols
+[Sections]
+
+0 sections
+fs imports
+[Imports]
+
+0 imports
+fs imports
+[Entrypoints]
+
+0 entrypoints
+fs symbols
+[Symbols]
+
+0 symbols
+fs symbols
+[Sections]
+
+0 sections
+fs sections
 fs strings
 '
 # fd changes in each test, replace it with 42.

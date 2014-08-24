@@ -17,7 +17,6 @@ wes 0 10
 pf z @0x0
 pf z @0xa
 px
-i
 '
 EXPECT='0x00000000 = aaaaaaaaaa
 - offset -   0 1  2 3  4 5  6 7  8 9  A B  C D  E F  0123456789ABCDEF
@@ -56,40 +55,6 @@ EXPECT='0x00000000 = aaaaaaaaaa
 0x000000d0  0000 0000 0000 0000 0000 0000 0000 0000  ................
 0x000000e0  0000 0000 0000 0000 0000 0000 0000 0000  ................
 0x000000f0  0000 0000 0000 0000 0000 0000 0000 0000  ................
-file	malloc://512
-type	
-pic	false
-canary	false
-nx	false
-crypto	false
-has_va	false
-root	
-class	
-lang	
-arch	
-bits	32
-machine	
-os	
-subsys	
-endian	little
-strip	false
-static	false
-linenum	false
-lsyms	false
-relocs	false
-rpath	
-type	
-os	
-arch	
-bits	32
-endian	little
-file	malloc://512
-fd	42
-size	0x200
-mode	rw-
-block	0x100
-uri	malloc://512
-format	any
 '
 FILTER='sed "s/^fd	[0-9][0-9]*/fd	42/"'
 run_test
@@ -106,7 +71,6 @@ wes 8 -4
 pf z @0x4
 pf z @0xa
 px
-i
 s 0
 px
 '
@@ -147,40 +111,6 @@ EXPECT='0x00000008 = aaaaaaaaaa
 0x000000d8  0000 0000 0000 0000 0000 0000 0000 0000  ................
 0x000000e8  0000 0000 0000 0000 0000 0000 0000 0000  ................
 0x000000f8  0000 0000 0000 0000 0000 0000 0000 0000  ................
-file	malloc://512
-type	
-pic	false
-canary	false
-nx	false
-crypto	false
-has_va	false
-root	
-class	
-lang	
-arch	
-bits	32
-machine	
-os	
-subsys	
-endian	little
-strip	false
-static	false
-linenum	false
-lsyms	false
-relocs	false
-rpath	
-type	
-os	
-arch	
-bits	32
-endian	little
-file	malloc://512
-fd	42
-size	0x200
-mode	rw-
-block	0x100
-uri	malloc://512
-format	any
 - offset -   0 1  2 3  4 5  6 7  8 9  A B  C D  E F  0123456789ABCDEF
 0x00000000  0000 0000 6161 6161 6161 6161 6161 0000  ....aaaaaaaaaa..
 0x00000010  0000 0000 0000 0000 0000 0000 0000 0000  ................
@@ -214,7 +144,6 @@ wes 8 -8
 pf z @0x8
 pf z @0x0
 px
-i
 s 0
 px
 '
@@ -255,40 +184,6 @@ EXPECT='0x00000008 = aaaaaaaaaa
 0x000000d8  0000 0000 0000 0000 0000 0000 0000 0000  ................
 0x000000e8  0000 0000 0000 0000 0000 0000 0000 0000  ................
 0x000000f8  0000 0000 0000 0000 0000 0000 0000 0000  ................
-file	malloc://512
-type	
-pic	false
-canary	false
-nx	false
-crypto	false
-has_va	false
-root	
-class	
-lang	
-arch	
-bits	32
-machine	
-os	
-subsys	
-endian	little
-strip	false
-static	false
-linenum	false
-lsyms	false
-relocs	false
-rpath	
-type	
-os	
-arch	
-bits	32
-endian	little
-file	malloc://512
-fd	42
-size	0x200
-mode	rw-
-block	0x100
-uri	malloc://512
-format	any
 - offset -   0 1  2 3  4 5  6 7  8 9  A B  C D  E F  0123456789ABCDEF
 0x00000000  6161 6161 6161 6161 6161 0000 0000 0000  aaaaaaaaaa......
 0x00000010  0000 0000 0000 0000 0000 0000 0000 0000  ................

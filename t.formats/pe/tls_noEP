@@ -11,7 +11,7 @@ run_test
 NAME='PE: tls_noEP - entrypoint'
 FILE=../../bins/pe/tls_noEP.exe
 ARGS='-n'
-CMDS="!rabin2 -eq ${FILE} "
+CMDS="!rabin2 -peq ${FILE} "
 
 EXPECT='0xffc00000
 '

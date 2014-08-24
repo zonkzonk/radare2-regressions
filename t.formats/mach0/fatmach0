@@ -68,7 +68,7 @@ NAME='fatmach0 entry1 rabin2'
 BROKEN=
 FILE=../../bins/mach0/fatmach0-3true
 ARGS='-n'
-CMDS="!rabin2 -V -a x86 -b 32 -qe ${FILE}"
+CMDS="!rabin2 -p -a x86 -b 32 -qe ${FILE}"
 EXPECT='0x00005f44
 '
 run_test

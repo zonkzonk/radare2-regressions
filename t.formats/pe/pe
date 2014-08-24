@@ -60,7 +60,7 @@ run_test
 NAME='pe relocs va [rabin2 a.exe]'
 FILE=../../bins/pe/a.exe
 ARGS=
-CMDS="!rabin2 -vR ${FILE}"
+CMDS="!rabin2 -pR ${FILE}"
 EXPECT='[Relocations]
 vaddr=0x004050a0 paddr=0x000012a0 type=SET_32 KERNEL32.dll_AddAtomA
 vaddr=0x004050a4 paddr=0x000012a4 type=SET_32 KERNEL32.dll_ExitProcess

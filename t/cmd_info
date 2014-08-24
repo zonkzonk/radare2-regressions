@@ -28,6 +28,33 @@ iz
 iz*
 '
 EXPECT='file	malloc://1025
+type	
+pic	false
+canary	false
+nx	false
+crypto	false
+has_va	false
+root	
+class	
+lang	
+arch	
+bits	32
+machine	
+os	
+subsys	
+endian	little
+strip	false
+static	false
+linenum	false
+lsyms	false
+relocs	false
+rpath	
+type	
+os	
+arch	
+bits	32
+endian	little
+file	malloc://1025
 fd	42
 size	0x401
 mode	r--
@@ -37,6 +64,28 @@ format	any
 [Imports]
 
 0 imports
+file	malloc://1025
+type	
+pic	false
+canary	false
+nx	false
+crypto	false
+has_va	false
+root	
+class	
+lang	
+arch	
+bits	32
+machine	
+os	
+subsys	
+endian	little
+strip	false
+static	false
+linenum	false
+lsyms	false
+relocs	false
+rpath	
 [Imports]
 
 0 imports
@@ -54,6 +103,35 @@ fs imports
 
 0 imports
 fs imports
+file	malloc://1025
+type	
+pic	false
+canary	false
+nx	false
+crypto	false
+has_va	false
+root	
+class	
+lang	
+arch	
+bits	32
+machine	
+os	
+subsys	
+endian	little
+strip	false
+static	false
+linenum	false
+lsyms	false
+relocs	false
+rpath	
+e file.type=
+e cfg.bigendian=false
+e asm.os=
+e asm.arch=
+e anal.arch=
+e asm.bits=32
+e asm.dwarf=false
 [Entrypoints]
 
 0 entrypoints

@@ -12,12 +12,22 @@ e asm.arch=x86
 e asm.bits=32
 wx 9090
 ao 1~?
+ao 1
 p8 1
 ao 1~?
 '
-EXPECT='10
+EXPECT='9
+opcode: nop
+addr: 0x00000000
+bytes: 90
+size: 1
+type: 8 (nop)
+esil: ,
+stack: 0
+cond: 0
+family: 0
 90
-10
+9
 '
 run_test
 

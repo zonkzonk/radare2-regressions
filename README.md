@@ -80,6 +80,7 @@ The following variables are available:
                                    in interactive mode.
  * EXPECT (string, required):      Expected stdout output.
  * EXPECT_ERR (string, optional):  Expected stderr output.
+ * IGNORE_ERR (boolean, optional): Ignore stderr output.
  * FILTER (string, optional):      Filter program (like grep or sed) to filter
                                    radare2's output before comparing it with
                                    EXPECT. Useful to fix random output to

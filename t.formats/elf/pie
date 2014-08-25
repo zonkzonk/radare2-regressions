@@ -1,0 +1,54 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+NAME='ELF: pie open'
+FILE=../../bins/elf/pie
+ARGS=''
+CMDS="q!"
+EXPECT=''
+run_test
+
+NAME='ELF: entrypoint'
+FILE=../../bins/elf/pie
+BROKEN=1
+ARGS=''
+CMDS="ie~addr"
+EXPECT=''
+run_test
+
+NAME='ELF: sym.main'
+FILE=../../bins/elf/pie
+BROKEN=1
+ARGS=''
+CMDS="?v sym.main"
+EXPECT='0x5c5
+'
+run_test
+
+NAME='ELF: simple.elf - code'
+FILE=../../bins/elf/pie
+ARGS='-n'
+CMDS=".!rabin2 -rps $FILE
+?v sym.main
+pi 5 @ sym.main"
+EXPECT='0x5c5
+push ebp
+mov ebp, esp
+int3
+pop ebp
+ret
+'
+run_test
+
+NAME='ELF: simple.elf - code'
+FILE=../../bins/elf/pie
+ARGS='-n'
+CMDS=".!rabin2 -rps $FILE
+pi 5 @ sym.main"
+EXPECT='push ebp
+mov ebp, esp
+int3
+pop ebp
+ret
+'
+run_test

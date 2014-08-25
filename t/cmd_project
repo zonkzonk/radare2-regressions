@@ -31,10 +31,10 @@ ARGS=
 CMDS='e dir.projects = /tmp/
 CC "Some other test" @ 0x00404890
 Ps project.r2
-cat /tmp/project.r2~Some
+cat /tmp/project.r2|grep Some
 rm /tmp/project.r2
 '
-EXPECT='"CCu Some test" @ 0x00404890
+EXPECT='"CCu "Some other test"" @ 0x00404890
 '
 run_test
 
@@ -48,10 +48,11 @@ Ps project.r2
 C- @ 0x00404890
 C- @ 0x00404800
 Po project.r2
-cat /tmp/project.r2~comment
+cat /tmp/project.r2|grep comment
 rm /tmp/project.r2
 '
-EXPECT='CCu "First comment" @ 0x00404890
-CCu "Second comment" @ 0x00404800
+EXPECT='"e asm.comments = true"
+"CCu "First comment"" @ 0x00404890
+"CCu "Second comment"" @ 0x00404800
 '
 run_test

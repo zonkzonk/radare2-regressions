@@ -52,3 +52,15 @@ pop ebp
 ret
 '
 run_test
+
+NAME='ELF: simple.elf - baddr - code'
+FILE=../../bins/elf/pie
+ARGS='-B 0x100000'
+CMDS="pi 5 @ sym.main"
+EXPECT='push ebp
+mov ebp, esp
+int3
+pop ebp
+ret
+'
+run_test

@@ -8,9 +8,9 @@ NAME="io.baddr"
 BROKEN=
 FILE=../../bins/elf/hello-linux-x86_64
 CMDS='
-ie*~0x[3]
+?v entry0
 '
-EXPECT='0x00400410
+EXPECT='0x400410
 '
 run_test
 
@@ -19,28 +19,28 @@ BROKEN=
 ARGS="-B 0xf00000"
 FILE=../../bins/elf/hello-linux-x86_64
 CMDS='
-ie*~0x[3]
+?v entry0
 '
-EXPECT='0x00f00410
+EXPECT='0xf00410
 '
 run_test
 
 NAME="io.baddr"
 BROKEN=
 FILE=../../bins/elf/hello-linux-x86_64
-CMDS='!rabin2 -B 0xf00000 -rve ${FILE} | grep 0x'
-EXPECT='f entry0 @ 0x00f00410
+CMDS='!rabin2 -B 0xf00000 -re ${FILE} | grep 0x'
+EXPECT='f entry0 1 @ 0x00f00410
 '
 run_test
 
 NAME="io.baddr"
-BROKEN=
+BROKEN=1
 ARGS="-e bin.baddr=0xf00000"
 FILE=../../bins/elf/hello-linux-x86_64
 CMDS='
-ie*~0x[3]
+?v entry0
 '
-EXPECT='0x00f00410
+EXPECT='0xf00410
 '
 run_test
 
@@ -50,8 +50,8 @@ FILE=../../bins/elf/hello-linux-x86_64
 CMDS='
 r bin.baddr=0xf00000
 ib
-ie*~0x[3]
+ie*~0x[4]
 '
-EXPECT='0x00f00410
+EXPECT='0xf00410
 '
 run_test

@@ -37,3 +37,32 @@ fj
 EXPECT='[{"name":"skutter","size":"1","offset":12},{"name":"kryten","size":"32","offset":666},{"name":"lister","size":"32","offset":666},{"name":"rimmer","size":"12","offset":0},{"name":"cat","size":"1","offset":0}]
 '
 run_test
+
+NAME='flag alias'
+CMDS='
+fa foo=bar+3
+f bar=3
+?v foo
+'
+EXPECT='0x6
+'
+run_test
+
+NAME='flag alias 2'
+CMDS='
+fa foo bar+3
+f bar=3
+?v foo
+'
+EXPECT='0x6
+'
+run_test
+
+NAME='flag alias infinite check'
+CMDS='
+fa foo=foo+3
+?v foo
+'
+EXPECT='0x3
+'
+run_test

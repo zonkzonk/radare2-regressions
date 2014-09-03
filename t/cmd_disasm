@@ -4,6 +4,20 @@
 
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
+NAME='pd 3;?v'
+FILE=-
+ARGS=
+CMDS='
+wx 00000000000000000000
+e asm.arch=x86
+e asm.bits=32
+pd 4 > /dev/null
+?=
+'
+EXPECT='0x8
+'
+run_test
+
 NAME='wx e9010f;?v $l'
 FILE=-
 ARGS=

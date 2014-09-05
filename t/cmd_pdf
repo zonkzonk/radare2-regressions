@@ -1,3 +1,5 @@
+#!/bin/sh
+
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 NAME='pdf with conditional linesout set'

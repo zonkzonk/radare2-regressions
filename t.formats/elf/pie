@@ -13,7 +13,8 @@ FILE=../../bins/elf/pie
 BROKEN=1
 ARGS=''
 CMDS="ie~addr"
-EXPECT=''
+EXPECT='vaddr=0x00000450 paddr=0x00000450 baddr=0x00000000 laddr=0x00000000
+'
 run_test
 
 NAME='ELF: sym.main'

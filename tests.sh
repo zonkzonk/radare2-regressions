@@ -410,12 +410,15 @@ print_report() {
     printf "      TOTAL\r"
     print_label "[${TESTS_TOTAL}]"
 
-    BADBOYS=$((${TESTS_BROKEN}+${TESTS_FAILED}+${TESTS_FATAL}))
-
-    dc -V > /dev/null || die "dc is not available, please install it."
-
-    BN=`echo "100 ${BADBOYS} * ${TESTS_TOTAL} / n" | dc`
-    printf "      BROKENNESS\r"
-    print_label "[${BN}%]"
-    echo
+    dc -V > /dev/null 2>&1
+    if [ $? = 0 ]; then
+      BADBOYS=$((${TESTS_BROKEN}+${TESTS_FAILED}+${TESTS_FATAL}))
+      BN=`echo "100 ${BADBOYS} * ${TESTS_TOTAL} / n" | dc`
+      printf "      BROKENNESS\r"
+      print_label "[${BN}%]"
+      echo
+    else
+      printf " TOTAL\r"
+      echo
+    fi
 }

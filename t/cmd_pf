@@ -138,16 +138,16 @@ run_test
 NAME='fixed size variable'
 FILE=malloc://1024
 ARGS=
-CMDS='wx a00f0000002a0000a00f00000000400000adde00000000efbeadde00000000000040
-pf [5]i[3]b[6]f[3]c[6]w[10]q[12]x
+CMDS='wx a00f0000000000002a0000a00f000000000000400000adde00000000efbeadde00000000000000000000000040
+pf [2]i[3]b[2]f[3]c[3]w[2]q[6]x
 '
 EXPECT="0x00000000 = 4000
-0x00000005 = 42 ; 0x2a ; '*'
-0x00000008 = 4000.000000
-0x0000000e = 64 ; 64 ; '@'
-0x00000011 = 0xdead
-0x00000017 = (qword) 0x00000000deadbeef
-0x00000021 = 0x00000040
+0x00000008 = 42 ; 0x2a ; '*'
+0x0000000b = 4000.000000
+0x00000013 = 64 ; 64 ; '@'
+0x00000016 = 0xdead
+0x0000001c = (qword) 0x00000000deadbeef
+0x0000002c = 0x00000040
 "
 run_test
 
@@ -157,14 +157,14 @@ ARGS=
 CMDS='w TROLL
 wx 12@0x02
 wx a00f@0x0a
-ww PLOP@0x10
-wx 2a@0x1a
-pf [10]z[6]i[10]Zb
+ww PLOP@0x16
+wx 2a@0x2a
+pf [10]z[3]i[10]Zb
 '
 EXPECT="0x00000000 = TR.LL
 0x0000000a = 4000
-0x00000010 = PLOP
-0x0000001a = 42 ; 0x2a ; '*'
+0x00000016 = PLOP
+0x0000002a = 42 ; 0x2a ; '*'
 "
 run_test
 
@@ -199,14 +199,14 @@ wx 10@0x0a
 wx efbe@0x0e
 wx 20@0x10
 pf.troll iw integer word
-pf.plop i??i firstInt [troll]One [troll]Two secondInt
+pf.plop i??i firstInt (troll)One (troll)Two secondInt
 pf.plop
 '
 EXPECT="  firstInt : 0x00000000 = 42
-[troll]One : <struct>
+(troll)One : <struct>
       integer : 0x00000004 = 4000
          word : 0x00000008 = 0x002a
-[troll]Two : <struct>
+(troll)Two : <struct>
       integer : 0x0000000a = 16
          word : 0x0000000e = 0xbeef
  secondInt : 0x00000010 = 32
@@ -219,18 +219,18 @@ ARGS=
 CMDS='e asm.bits=32
 wx 2a000000a00f00001234100000006416
 wx 2a0000002a@0x10
-pf.troll iw*? integer word [troll]Bah
-pf.plop i?w firstInt [troll]Boh plop
+pf.troll iw*? integer word (troll)Bah
+pf.plop i?w firstInt (troll)Boh plop
 pf.plop
 '
 EXPECT="  firstInt : 0x00000000 = 42
-[troll]Boh : <struct>
+(troll)Boh : <struct>
          integer : 0x00000004 = 4000
             word : 0x00000008 = 0x3412
-      [troll]Bah : (*0x10) <struct>
+      (troll)Bah : (*0x10) <struct>
          integer : 0x00000010 = 42
             word : 0x00000014 = 0x002a
-      [troll]Bah : (*0x0) NULL
+      (troll)Bah : (*0x0) NULL
       plop : 0x0000000e = 0x1664
 "
 run_test
@@ -243,28 +243,53 @@ CMDS='e asm.bits=32
 wx 341289679a020000a00f00002a00300000001442
 wx 800600000040@0x20
 wx 14000000641620000000@0x30
-pf.troll iw*? integer word [troll]Bah
-pf.plop i?w first [troll]Boh bwa
-pf.gobelin ww? blah meh [plop]Buh
+pf.troll iw*? integer word (troll)Bah
+pf.plop i?w first (troll)Boh bwa
+pf.gobelin ww? blah meh (plop)Buh
 pf.gobelin
 '
 EXPECT="     blah : 0x00000000 = 0x1234
       meh : 0x00000002 = 0x6789
-[plop]Buh : <struct>
+(plop)Buh : <struct>
            first : 0x00000004 = 666
-      [troll]Boh : <struct>
+      (troll)Boh : <struct>
                integer : 0x00000008 = 4000
                   word : 0x0000000c = 0x002a
-            [troll]Bah : (*0x30) <struct>
+            (troll)Bah : (*0x30) <struct>
                integer : 0x00000030 = 20
                   word : 0x00000034 = 0x1664
-            [troll]Bah : (*0x20) <struct>
+            (troll)Bah : (*0x20) <struct>
                integer : 0x00000020 = 1664
                   word : 0x00000024 = 0x4000
-            [troll]Bah : (*0x0) NULL
+            (troll)Bah : (*0x0) NULL
              bwa : 0x00000012 = 0x4214
 "
 run_test
 
+NAME='flag for nested struct'
+FILE=malloc://1024
+ARGS=
+DEBUG=1
+CMDS='e asm.bits=32
+wx 341289679a020000a00f00002a00300000001442
+wx 800600000040@0x20
+wx 14000000641620000000@0x30
+pf.troll iw*? integer word (troll)Bah
+pf.plop i?w first (troll)Boh bwa
+pf.gobelin ww? blah meh (plop)Buh
+pf*.gobelin
+'
+EXPECT="f blah=0x00000000
+f meh=0x00000002
+f plop.Buh_first=0x00000004
+f troll.Boh_integer=0x00000008
+f word=0x0000000c
+f troll.Bah_integer=0x00000030
+f word=0x00000034
+f troll.Bah_integer=0x00000020
+f word=0x00000024
+f bwa=0x00000012
+"
+run_test
 
 

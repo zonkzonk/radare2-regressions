@@ -17,3 +17,15 @@ pop rbp
 ret
 '
 run_test
+
+NAME='Rasm2 #1167'
+CMDS="!rasm2 -a x86 -b 64 'cmp rax,rbx' "
+EXPECT='4839d8
+'
+run_test
+
+NAME='Rasm2 #1167 2'
+CMDS="!rasm2 -a x86 -b 64 'test rax, rbx' "
+EXPECT='4885d8
+'
+run_test

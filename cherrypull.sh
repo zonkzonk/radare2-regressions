@@ -7,18 +7,25 @@ RR=$1
 RB=$2
 N=$3
 
+git diff --exit-code 2>&1 >/dev/null
+if [ $? != 0 ]; then
+	echo "ERROR: There are local changes that must be commited or reseted"
+	echo "ERROR: Cherrypulling process stopped to avoid data loss."
+	exit 1
+fi
+
 if [ -z "$N" ]; then
 	echo "Usage: sys/cherrypull.sh [url] [branch] [ncommits]"
 	exit 1
 fi
 
 git branch -D branch
-git co -b branch
+git checkout -b branch
 git reset --hard @~100
 git pull $RR $RB
 C=`git log | grep ^commit | head -n $N | cut -d ' ' -f2`
 RC=""
-git co master
+git checkout master
 for a in $C ; do
 	RC="$a $RC"
 done

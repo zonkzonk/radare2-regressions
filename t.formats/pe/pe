@@ -23,7 +23,7 @@ FILE=$F
 ARGS=
 CMDS='pd 1@0x401820~reloc
 '
-EXPECT='           0x00401820    ff25f0504000 jmp dword [reloc.msvcrt.dll_puts]
+EXPECT='           0x00401820    ff25f0504000 jmp dword [reloc.msvcrt.dll_puts] ; reloc.msvcrt.dll_puts
 '
 run_test
 

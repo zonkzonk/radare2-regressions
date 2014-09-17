@@ -39,11 +39,8 @@ BROKEN=
 FILE=../../bins/mach0/ls-osx-x86_64
 ARGS=
 IGNORE_ERR=1
-CMDS='ik
+CMDS='ik~uuid
 '
 EXPECT='uuid.0=ff4d6c2e1dc0369d98d0d3040a8049e8
-entry0=0x13d8
-stacksize=0
-mach0.entry=0x10f8
 '
 run_test

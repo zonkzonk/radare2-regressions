@@ -13,7 +13,7 @@ run_test
 NAME='PE: corkami elf-relro - relro enabled'
 FILE=../../bins/elf/elf-relro
 ARGS=''
-CMDS="ik~elf.relro=true"
+CMDS="ik~relro"
 
 EXPECT='elf.relro=true
 '

@@ -69,7 +69,7 @@ run_test
 
 NAME='flags spaces after analysis'
 FILE=../../bins/elf/x86-helloworld-gcc
-CMDS='aa;fs
+CMDS='aa0;fs
 '
 EXPECT='00   strings
 02   symbols

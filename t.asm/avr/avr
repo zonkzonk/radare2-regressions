@@ -67,6 +67,60 @@ EXPECT='bld r14, 1
 run_test
 
 # -------------------------------
+# BRBC instruction
+NAME="AVR: [BRBC]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 08f4 @ 0
+wx 09f4 @ 2
+wx 0af4 @ 4
+wx 0bf4 @ 6
+wx 0cf4 @ 8
+wx 0df4 @ 0xa
+wx 0ef4 @ 0xc
+wx 0ff4 @ 0xe 
+pi 8
+'
+EXPECT='brcc 0x4
+brne 0x6
+brpl 0x8
+brvc 0xa
+brge 0xc
+brhc 0xe
+brtc 0x10
+brid 0x12
+'
+run_test
+
+# -------------------------------
+# BRBS instruction
+NAME="AVR: [BRBS]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 08f0 @ 0
+wx 09f0 @ 2
+wx 0af0 @ 4
+wx 0bf0 @ 6
+wx 0cf0 @ 8
+wx 0df0 @ 0xa
+wx 0ef0 @ 0xc
+wx 0ff0 @ 0xe 
+pi 8
+'
+EXPECT='brcs 0x4
+breq 0x6
+brmi 0x8
+brvs 0xa
+brlt 0xc
+brhs 0xe
+brts 0x10
+brie 0x12
+'
+run_test
+
+# -------------------------------
 # CLI instruction
 NAME="AVR: [CLI]"
 FILE=malloc://32
@@ -434,6 +488,32 @@ wx df93
 pi 1
 '
 EXPECT='push r29
+'
+run_test
+
+# -------------------------------
+# RCALL instruction
+NAME="AVR: [RCALL]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 01d0
+pi 1
+'
+EXPECT='rcall 0x4
+'
+run_test
+
+# -------------------------------
+# RJMP instruction
+NAME="AVR: [RJMP]"
+FILE=malloc://32
+CMDS='
+e asm.arch=avr
+wx 01c0
+pi 1
+'
+EXPECT='rjmp 0x4
 '
 run_test
 

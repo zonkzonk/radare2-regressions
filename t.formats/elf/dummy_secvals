@@ -3,7 +3,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='PE: corkami dummy_secvals.elf - open'
 FILE=../../bins/elf/dummy_secvals.elf
-ARGS=''
+ARGS='-A'
 CMDS="q!"
 EXPECT=''
 run_test

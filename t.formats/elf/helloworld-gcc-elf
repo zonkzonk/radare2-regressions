@@ -51,7 +51,10 @@ CMDS='/ \x90\x06
 EXPECT_ERR='Searching 2 bytes from 0x08048000 to 0x0804a59c: 90 06 
 hits: 2
 '
-EXPECT='0x08048b4c hit0_0 "
+FILTER='sed "s/^#.*//;"'
+
+EXPECT='
+0x08048b4c hit0_0 "
 0x08049b4c hit0_1 "
 '
 run_test
@@ -63,19 +66,19 @@ CMDS='fs
 EXPECT='00   strings
 02   symbols
 04   relocs
-06 * sections
+06   sections
 '
 run_test
 
 NAME='flags spaces after analysis'
 FILE=../../bins/elf/x86-helloworld-gcc
-CMDS='aa0;fs
+CMDS='aa0;fs *;fs
 '
 EXPECT='00   strings
 02   symbols
 04   relocs
 06   sections
-08 * functions
+08   functions
 '
 run_test
 
@@ -188,7 +191,7 @@ NAME='flags (total)'
 FILE=../../bins/elf/x86-helloworld-gcc
 CMDS='f~?
 '
-EXPECT='64
+EXPECT='103
 '
 run_test
 
@@ -260,6 +263,45 @@ EXPECT='0x08048034 0 section_end.ehdr
 0x08048148 32 section..note.ABI_tag
 0x08048147 0 section_end..interp
 0x08048134 19 section..interp
+0x080482f0 16 sym.imp.__libc_start_main
+0x080482e0 16 sym.imp.__gmon_start__
+0x080482d0 16 sym.imp.puts
+0x08048290 0 sym._init
+0x080496b4 0 sym.__TMC_END__
+0x08048400 28 sym.main
+0x080496b4 0 sym.__bss_start
+0x080484a8 4 sym._fp_hw
+0x08048300 0 sym._start
+0x080496b8 0 sym._end
+0x08048420 97 sym.__libc_csu_init
+0x080484ac 4 sym._IO_stdin_used
+0x080496b0 0 sym.__dso_handle
+0x080496ac 0 sym.__data_start
+0x08048494 0 sym._fini
+0x080496b4 0 sym._edata
+0x080496ac 0 sym.data_start
+0x08048330 4 sym.__x86.get_pc_thunk.bx
+0x08048490 2 sym.__libc_csu_fini
+0x08049694 0 sym._GLOBAL_OFFSET_TABLE_
+0x0804959c 0 sym.__init_array_start
+0x080495a8 0 sym._DYNAMIC
+0x080495a0 0 sym.__init_array_end
+0x080495a4 0 sym.__JCR_END__
+0x08048598 0 sym.__FRAME_END__
+0x0804959c 0 sym.__frame_dummy_init_array_entry
+0x080483d0 0 sym.frame_dummy
+0x080495a0 0 sym.__do_global_dtors_aux_fini_array_entry
+0x080496b4 1 sym.completed.5979
+0x080483b0 0 sym.__do_global_dtors_aux
+0x08048370 0 sym.register_tm_clones
+0x08048340 0 sym.deregister_tm_clones
+0x080495a4 0 sym.__JCR_LIST__
+0x000016a8 4 reloc.__libc_start_main
+0x000016a4 4 reloc.__gmon_start__
+0x000016a0 4 reloc.puts
+0x08048300 1 entry0
+0x08048400 256 main
+0x080484b0 13 str.Hello_world_
 '
 run_test
 

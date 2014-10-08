@@ -1,18 +1,20 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
+ARCH=arm
+
 NAME="ldr code analysis"
 BROKEN=
 FILE=malloc://32
-CMDS='
+CMDS="
 wx 20c09fe5
 wx 0cc09ae7 @ 4
-e asm.arch=arm.gnu
+e asm.arch=${ARCH}
 e asm.bits=32
 # pd 2 - note different colors
 pi 2
 ao~type[2]
 ao@4~type[2]
-'
+"
 EXPECT='ldr ip, [pc, 32] ; 0x00000028
 ldr ip, [sl, ip]
 (load)
@@ -23,15 +25,15 @@ run_test
 NAME="endian"
 BROKEN=
 FILE=malloc://32
-CMDS='
-e asm.arch=arm.gnu
+CMDS="
+e asm.arch=${ARCH}
 e asm.bits=32
 wx e59a9ae7
 e cfg.bigendian=false
 pi 1@0
 e cfg.bigendian=true
 pi 1@0
-'
+"
 EXPECT='ldr r9, [sl, r5, ror 21]
 ldr r9, [sl, 2791]
 '

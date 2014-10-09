@@ -44,7 +44,7 @@ os
 subsys	
 endian	little
 strip	false
-static	false
+static	true
 linenum	false
 lsyms	false
 relocs	false
@@ -81,7 +81,7 @@ os
 subsys	
 endian	little
 strip	false
-static	false
+static	true
 linenum	false
 lsyms	false
 relocs	false
@@ -120,7 +120,7 @@ os
 subsys	
 endian	little
 strip	false
-static	false
+static	true
 linenum	false
 lsyms	false
 relocs	false
@@ -144,7 +144,6 @@ fs symbols
 
 0 sections
 fs sections
-fs strings
 '
 # fd changes in each test, replace it with 42.
 FILTER='sed "s/^fd	[0-9][0-9]*/fd	42/"'

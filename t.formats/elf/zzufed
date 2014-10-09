@@ -17,7 +17,7 @@ run_test
 
 NAME='ELF: zzufed 3 - open'
 FILE=../../bins/elf/zzufed/file3
-ARGS='-A'
+ARGS='-qA'
 CMDS="q!"
 EXPECT=''
 run_test

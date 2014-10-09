@@ -23,7 +23,7 @@ bytes: 90
 size: 1
 type: 8 (nop)
 esil: ,
-stack: 0
+stack: null
 cond: 0
 family: 0
 90

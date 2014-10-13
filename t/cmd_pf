@@ -241,12 +241,12 @@ FILE=malloc://1024
 ARGS=
 DEBUG=1
 CMDS='e asm.bits=32
-wx 341289679a020000a00f00002a00300000001442
+wx 341289679a020000a00f00002a003000000014426416
 wx 800600000040@0x20
 wx 14000000641620000000@0x30
 pf.troll iw*? integer word (troll)Bah
 pf.plop i?w first (troll)Boh bwa
-pf.gobelin ww? blah meh (plop)Buh
+pf.gobelin ww?x blah meh (plop)Buh foo
 pf.gobelin
 '
 EXPECT="     blah : 0x00000000 = 0x1234
@@ -264,6 +264,7 @@ EXPECT="     blah : 0x00000000 = 0x1234
                   word : 0x00000024 = 0x4000
             (troll)Bah : (*0x0) NULL
              bwa : 0x00000012 = 0x4214
+      foo : 0x00000014 = 0x00001664
 "
 run_test
 

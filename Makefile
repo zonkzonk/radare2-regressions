@@ -16,6 +16,7 @@ all:
 	@sh run_tests.sh t.formats/java
 	@sh run_tests.sh t.formats/mach0
 	@sh run_tests.sh t.formats/xbe
+	@sh run_tests.sh t.formats/firmware
 
 asm:
 	@sh run_tests.sh t.asm/8051
@@ -86,6 +87,7 @@ formats:
 	@sh run_tests.sh t.formats/java
 	@sh run_tests.sh t.formats/mach0
 	@sh run_tests.sh t.formats/xbe
+	@sh run_tests.sh t.formats/firmware
 
 format.pe:
 	@sh run_tests.sh t.formats/pe
@@ -101,6 +103,9 @@ format.mach0:
 
 format.xbe:
 	@sh run_tests.sh t.formats/xbe
+
+format.firmware:
+	@sh run_tests.sh t.formats/firmware
 
 udis86:
 	@sh run_tests.sh t.asm/udis86

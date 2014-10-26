@@ -4,7 +4,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 FILE=../../bins/elf/x86-simple
 IGNORE_ERR=1
 CMDS='
-e search.in=section
+e search.in=io.section
 /x 5b
 pi 1 @ hit0_0
 '

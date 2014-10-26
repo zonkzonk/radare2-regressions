@@ -176,7 +176,7 @@ td enum troll { BITE=42, PATE=4000};
 wx a00f
 pf E (troll)plop
 '
-EXPECT="(troll)plop : 0x00000000 =  plop (enum) = 0xfa0 ; PATE
+EXPECT="       plop : 0x00000000 =  plop (enum) = 0xfa0 ; PATE
 "
 run_test
 

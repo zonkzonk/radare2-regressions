@@ -169,6 +169,18 @@ EXPECT="0x00000000 = TR.LL
 "
 run_test
 
+NAME='Enum test'
+FILE=malloc://1024
+ARGS=
+CMDS='e asm.bits=32
+td enum troll { BITE=42, PATE=4000};
+wx a00f
+pf E (troll)plop
+'
+EXPECT="(troll)plop : 0x00000000 =  plop (enum) = 0xfa0 ; PATE
+"
+run_test
+
 NAME='32 bit twice then string'
 FILE=malloc://1024
 ARGS=
@@ -408,42 +420,6 @@ pf.plop i?w first (troll)Boh bwa
 pf.gobelin 2ww?x blah meh (plop)Buh foo
 pfj.gobelin
 '
-EXPECT='[
-[
-{"index":0,"offset":0},
-{"name":"blah","type":"w","offset":0,"value":4660},
-{"name":"meh","type":"w","offset":2,"value":26505},
-{"name":"Buh","type":"plop","offset":4,"value":[
-   {"name":"first","type":"i","offset":4,"value":666},
-   {"name":"Boh","type":"troll","offset":8,"value":[
-      {"name":"integer","type":"i","offset":8,"value":4000},
-      {"name":"word","type":"w","offset":12,"value":42},
-      {"name":"Bah","type":"troll*","offset":14,"value":48},
-      {"name":"integer","type":"i","offset":48,"value":20},
-      {"name":"word","type":"w","offset":52,"value":5732},
-      {"name":"Bah","type":"troll*","offset":54,"value":32},
-      {"name":"integer","type":"i","offset":32,"value":1664},
-      {"name":"word","type":"w","offset":36,"value":16384},
-      {"name":"Bah","type":"troll*","offset":38,"value":"NULL"}
-   ]},
-   {"name":"bwa","type":"w","offset":18,"value":16916}
-]},
-{"name":"foo","type":"x","offset":20,"value":5732}],
-[
-{"index":1,"offset":24},
-{"name":"blah","type":"w","offset":24,"value":0},
-{"name":"meh","type":"w","offset":26,"value":0},
-{"name":"Buh","type":"plop","offset":28,"value":[
-   {"name":"first","type":"i","offset":28,"value":0},
-   {"name":"Boh","type":"troll","offset":32,"value":[
-      {"name":"integer","type":"i","offset":32,"value":1664},
-      {"name":"word","type":"w","offset":36,"value":16384},
-      {"name":"Bah","type":"troll*","offset":38,"value":"NULL"}
-   ]},
-   {"name":"bwa","type":"w","offset":42,"value":0}
-]},
-{"name":"foo","type":"x","offset":44,"value":0}]
-]
-'
+EXPECT='[[{"index":0,"offset":0},{"name":"blah","type":"w","offset":0,"value":4660},{"name":"meh","type":"w","offset":2,"value":26505},{"name":"Buh","type":"plop","offset":4,"value":[{"name":"first","type":"i","offset":4,"value":666},{"name":"Boh","type":"troll","offset":8,"value":[{"name":"integer","type":"i","offset":8,"value":4000},{"name":"word","type":"w","offset":12,"value":42},{"name":"Bah","type":"troll*","offset":14,"value":48},{"name":"integer","type":"i","offset":48,"value":20},{"name":"word","type":"w","offset":52,"value":5732},{"name":"Bah","type":"troll*","offset":54,"value":32},{"name":"integer","type":"i","offset":32,"value":1664},{"name":"word","type":"w","offset":36,"value":16384},{"name":"Bah","type":"troll*","offset":38,"value":"NULL"}]},{"name":"bwa","type":"w","offset":18,"value":16916}]},{"name":"foo","type":"x","offset":20,"value":5732}],[{"index":1,"offset":24},{"name":"blah","type":"w","offset":24,"value":0},{"name":"meh","type":"w","offset":26,"value":0},{"name":"Buh","type":"plop","offset":28,"value":[{"name":"first","type":"i","offset":28,"value":0},{"name":"Boh","type":"troll","offset":32,"value":[{"name":"integer","type":"i","offset":32,"value":1664},{"name":"word","type":"w","offset":36,"value":16384},{"name":"Bah","type":"troll*","offset":38,"value":"NULL"}]},{"name":"bwa","type":"w","offset":42,"value":0}]},{"name":"foo","type":"x","offset":44,"value":0}]]'
 run_test
 

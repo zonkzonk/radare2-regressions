@@ -1,0 +1,17 @@
+#!/bin/sh
+# LGPL - Copyright (C) 2014 Maijin
+
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+NAME="axt"
+BROKEN=
+FILE=../../bins/elf/main
+IGNORE_ERR=1
+ARGS=
+CMDS='e scr.color=false
+e scr.wheel = false
+aa
+axt @ str.Hello_World'
+EXPECT='d 0x40050a mov edi, str.Hello_World
+'
+run_test

@@ -48,6 +48,6 @@ ARGS=-n
 CMDS='
 pm
 '
-EXPECT='0x00000000 1 MS-DOS executable PE  for MS Windows (console) Intel 80386 32-bit
+EXPECT='0x00000000 1 PE  for MS Windows (console) Intel 80386 32-bit
 '
 run_test

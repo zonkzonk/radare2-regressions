@@ -18,10 +18,10 @@ ao 1~?
 '
 EXPECT='9
 opcode: nop
-addr: 0x00000000
+prefix: 0
 bytes: 90
 size: 1
-type: 8 (nop)
+type: nop
 esil: ,
 stack: null
 cond: 0

@@ -11,7 +11,7 @@ CMDS='wx a00f00002a4b9a020000
 pf fcbi foo bar fool beer
 '
 EXPECT=" foo : 0x00000000 = 4000.000000
- bar : 0x00000004 = 42 ; 42 ; '*'
+ bar : 0x00000004 =  42 ; '*'
 fool : 0x00000005 = 75 ; 0x4b ; 'K'
 beer : 0x00000006 = 666
 "
@@ -80,7 +80,7 @@ pf.troll ic lol cat
 pf.troll
 '
 EXPECT="lol : 0x00000000 = 4000
-cat : 0x00000004 = 75 ; 75 ; 'K'
+cat : 0x00000004 =  75 ; 'K'
 "
 run_test
 
@@ -93,11 +93,11 @@ pf.troll
 '
 EXPECT="0x00000000 [0] {
      nb : 0x00000000 = 4000
-   plop : 0x00000004 = 75 ; 75 ; 'K'
+   plop : 0x00000004 =  75 ; 'K'
 }
 0x00000005 [1] {
      nb : 0x00000005 = 42
-   plop : 0x00000009 = 76 ; 76 ; 'L'
+   plop : 0x00000009 =  76 ; 'L'
 }
 "
 run_test
@@ -204,10 +204,10 @@ pf.plop i??i firstInt (troll)One (troll)Two secondInt
 pf.plop
 '
 EXPECT="  firstInt : 0x00000000 = 42
-(troll)One : <struct>
+       One : struct<troll>
       integer : 0x00000004 = 4000
          word : 0x00000008 = 0x002a
-(troll)Two : <struct>
+       Two : struct<troll>
       integer : 0x0000000a = 16
          word : 0x0000000e = 0xbeef
  secondInt : 0x00000010 = 32
@@ -225,13 +225,13 @@ pf.plop i?w firstInt (troll)Boh plop
 pf.plop
 '
 EXPECT="  firstInt : 0x00000000 = 42
-(troll)Boh : <struct>
+       Boh : struct<troll>
          integer : 0x00000004 = 4000
             word : 0x00000008 = 0x3412
-      (troll)Bah : (*0x10) <struct>
+             Bah : (*0x10) struct<troll>
          integer : 0x00000010 = 42
             word : 0x00000014 = 0x002a
-      (troll)Bah : (*0x0) NULL
+             Bah : (*0x0) NULL
       plop : 0x0000000e = 0x1664
 "
 run_test
@@ -251,18 +251,18 @@ pf.gobelin
 '
 EXPECT="     blah : 0x00000000 = 0x1234
       meh : 0x00000002 = 0x6789
-(plop)Buh : <struct>
+      Buh : struct<plop>
            first : 0x00000004 = 666
-      (troll)Boh : <struct>
+             Boh : struct<troll>
                integer : 0x00000008 = 4000
                   word : 0x0000000c = 0x002a
-            (troll)Bah : (*0x30) <struct>
+                   Bah : (*0x30) struct<troll>
                integer : 0x00000030 = 20
                   word : 0x00000034 = 0x1664
-            (troll)Bah : (*0x20) <struct>
+                   Bah : (*0x20) struct<troll>
                integer : 0x00000020 = 1664
                   word : 0x00000024 = 0x4000
-            (troll)Bah : (*0x0) NULL
+                   Bah : (*0x0) NULL
              bwa : 0x00000012 = 0x4214
       foo : 0x00000014 = 0x00001664
 "
@@ -294,4 +294,156 @@ f bwa=0x00000012
 "
 run_test
 
+NAME='PE test'
+FILE=../bins/pe/ch22.exe
+ARGS=-nn
+DEBUG=1
+CMDS='e asm.bits=32
+s 0x80
+pf.pe_nt_image_headers32
+'
+EXPECT="                                 signature : 0x00000080 = PE
+                                fileHeader : struct<pe_image_file_header>
+                      (pe_machine)machine : 0x00000084 =  machine (enum) = 0x14c ; IMAGE_FILE_MACHINE_I386
+                         numberOfSections : 0x00000086 = 0x0004
+                            timeDateStamp : 0x00000088 = 0x5411e83a
+                     pointerToSymbolTable : 0x0000008c = 0x00000000
+                          numberOfSymbols : 0x00000090 = 0x00000000
+                     sizeOfOptionalHeader : 0x00000094 = 0x00e0
+      (pe_characteristics)characteristics : 0x00000096 =  characteristics (bitfield) = 0x00000102 : IMAGE_FILE_EXECUTABLE_IMAGE | IMAGE_FILE_32BIT_MACHINE
+                            optionalHeader : struct<pe_image_optional_header32>
+                                (pe_magic)magic : 0x00000098 =  magic (enum) = 0x10b ; IMAGE_NT_OPTIONAL_HDR32_MAGIC
+                             majorLinkerVersion : 0x0000009a = 11 ; 0x0b ; ''
+                             minorLinkerVersion : 0x0000009b = 0 ; 0x00 ; ''
+                                     sizeOfCode : 0x0000009c = 0x00003000
+                          sizeOfInitializedData : 0x000000a0 = 0x00003400
+                        sizeOfUninitializedData : 0x000000a4 = 0x00000000
+                            addressOfEntryPoint : 0x000000a8 = 0x00004f3e
+                                     baseOfCode : 0x000000ac = 0x00002000
+                                     baseOfData : 0x000000b0 = 0x00006000
+                                      imageBase : 0x000000b4 = 0x00400000
+                               sectionAlignment : 0x000000b8 = 0x00002000
+                                  fileAlignment : 0x000000bc = 0x00000200
+                    majorOperatingSystemVersion : 0x000000c0 = 0x0004
+                    minorOperatingSystemVersion : 0x000000c2 = 0x0000
+                              majorImageVersion : 0x000000c4 = 0x0000
+                              minorImageVersion : 0x000000c6 = 0x0000
+                          majorSubsystemVersion : 0x000000c8 = 0x0006
+                          minorSubsystemVersion : 0x000000ca = 0x0000
+                              win32VersionValue : 0x000000cc = 0x00000000
+                                    sizeOfImage : 0x000000d0 = 0x0000e000
+                                  sizeOfHeaders : 0x000000d4 = 0x00000400
+                                       checkSum : 0x000000d8 = 0x00000000
+                        (pe_subsystem)subsystem : 0x000000dc =  subsystem (enum) = 0x2 ; IMAGE_SUBSYSTEM_WINDOWS_GUI
+      (pe_dllcharacteristics)dllCharacteristics : 0x000000de =  dllCharacteristics (bitfield) = 0x00008560 : IMAGE_DLLCHARACTERISTICS_HIGH_ENTROPY_VA | IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE | IMAGE_DLLCHARACTERISTICS_NX_COMPAT | IMAGE_DLLCHARACTERISTICS_NO_SEH | IMAGE_DLLCHARACTERISTICS_TERMINAL_SERVER_AWARE
+                             sizeOfStackReserve : 0x000000e0 = 0x00100000
+                              sizeOfStackCommit : 0x000000e4 = 0x00001000
+                              sizeOfHeapReserve : 0x000000e8 = 0x00100000
+                               sizeOfHeapCommit : 0x000000ec = 0x00001000
+                                    loaderFlags : 0x000000f0 = 0x00000000
+                            numberOfRvaAndSizes : 0x000000f4 = 0x00000010
+                                  dataDirectory : struct<pe_image_data_directory>
+[
+            virtualAddress : 0x000000f8 = 0x00000000
+                      size : 0x000000fc = 0x00000000
+,
+            virtualAddress : 0x000000f8 = 0x00004ef0
+                      size : 0x000000fc = 0x0000004b
+,
+            virtualAddress : 0x000000f8 = 0x00008000
+                      size : 0x000000fc = 0x00002e40
+,
+            virtualAddress : 0x000000f8 = 0x00000000
+                      size : 0x000000fc = 0x00000000
+,
+            virtualAddress : 0x000000f8 = 0x00000000
+                      size : 0x000000fc = 0x00000000
+,
+            virtualAddress : 0x000000f8 = 0x0000c000
+                      size : 0x000000fc = 0x0000000c
+,
+            virtualAddress : 0x000000f8 = 0x00006000
+                      size : 0x000000fc = 0x0000001c
+,
+            virtualAddress : 0x000000f8 = 0x00000000
+                      size : 0x000000fc = 0x00000000
+,
+            virtualAddress : 0x000000f8 = 0x00000000
+                      size : 0x000000fc = 0x00000000
+,
+            virtualAddress : 0x000000f8 = 0x00000000
+                      size : 0x000000fc = 0x00000000
+,
+            virtualAddress : 0x000000f8 = 0x00000000
+                      size : 0x000000fc = 0x00000000
+,
+            virtualAddress : 0x000000f8 = 0x00000000
+                      size : 0x000000fc = 0x00000000
+,
+            virtualAddress : 0x000000f8 = 0x00002000
+                      size : 0x000000fc = 0x00000008
+,
+            virtualAddress : 0x000000f8 = 0x00000000
+                      size : 0x000000fc = 0x00000000
+,
+            virtualAddress : 0x000000f8 = 0x00002008
+                      size : 0x000000fc = 0x00000048
+,
+            virtualAddress : 0x000000f8 = 0x00000000
+                      size : 0x000000fc = 0x00000000
+]
+"
+run_test
+
+NAME='JSON output'
+FILE=malloc://1024
+ARGS=
+DEBUG=1
+CMDS='e asm.bits=32
+wx 341289679a020000a00f00002a003000000014426416
+wx 800600000040@0x20
+wx 14000000641620000000@0x30
+pf.troll iw*? integer word (troll)Bah
+pf.plop i?w first (troll)Boh bwa
+pf.gobelin 2ww?x blah meh (plop)Buh foo
+pfj.gobelin
+'
+EXPECT='[
+[
+{"index":0,"offset":0},
+{"name":"blah","type":"w","offset":0,"value":4660},
+{"name":"meh","type":"w","offset":2,"value":26505},
+{"name":"Buh","type":"plop","offset":4,"value":[
+   {"name":"first","type":"i","offset":4,"value":666},
+   {"name":"Boh","type":"troll","offset":8,"value":[
+      {"name":"integer","type":"i","offset":8,"value":4000},
+      {"name":"word","type":"w","offset":12,"value":42},
+      {"name":"Bah","type":"troll*","offset":14,"value":48},
+      {"name":"integer","type":"i","offset":48,"value":20},
+      {"name":"word","type":"w","offset":52,"value":5732},
+      {"name":"Bah","type":"troll*","offset":54,"value":32},
+      {"name":"integer","type":"i","offset":32,"value":1664},
+      {"name":"word","type":"w","offset":36,"value":16384},
+      {"name":"Bah","type":"troll*","offset":38,"value":"NULL"}
+   ]},
+   {"name":"bwa","type":"w","offset":18,"value":16916}
+]},
+{"name":"foo","type":"x","offset":20,"value":5732}],
+[
+{"index":1,"offset":24},
+{"name":"blah","type":"w","offset":24,"value":0},
+{"name":"meh","type":"w","offset":26,"value":0},
+{"name":"Buh","type":"plop","offset":28,"value":[
+   {"name":"first","type":"i","offset":28,"value":0},
+   {"name":"Boh","type":"troll","offset":32,"value":[
+      {"name":"integer","type":"i","offset":32,"value":1664},
+      {"name":"word","type":"w","offset":36,"value":16384},
+      {"name":"Bah","type":"troll*","offset":38,"value":"NULL"}
+   ]},
+   {"name":"bwa","type":"w","offset":42,"value":0}
+]},
+{"name":"foo","type":"x","offset":44,"value":0}]
+]
+'
+run_test
 

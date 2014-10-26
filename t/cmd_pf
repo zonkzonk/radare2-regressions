@@ -136,16 +136,15 @@ swagg : 0x00000000 = BWAAAA
 run_test
 
 NAME='fixed size variable'
-BROKEN=1
 FILE=malloc://1024
 ARGS=
-CMDS='wx a00f0000000000002a002fa00f000000000000400044adde00000000efbeadde00000000000000000000000040
+CMDS='wx a00f0000000000002a412fa00f000000000000402a44adde00000000efbeadde00000000000000000000000040
 pf [2]i[3]b[2]f[3]c[3]w[2]q[6]x
 '
 EXPECT="0x00000000 = [ 4000, 0 ]
-0x00000008 = [ 42 ; 0x2a ; '*', 0 ; 0x00 ; '', 47 ; 0x2f ; '/' ]
+0x00000008 = [ 42 ; 0x2a ; '*', 65 ; 0x41 ; 'A', 47 ; 0x2f ; '/' ]
 0x0000000b = [ 4000.000000, 0.000000 ]
-0x00000013 = [ 64 ; 64 ; '@', 0 ; 0 ; '', 68 ; 68 ; 'D' ]
+0x00000013 = [ 64 ; '@', 42 ; '*', 68 ; 'D' ]
 0x00000016 = [ 0xdead, 0x0000, 0x0000 ]
 0x0000001c = (qword) [ 0x00000000deadbeef, 0x0000000000000000 ]
 0x0000002c = [ 0x00000040, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000 ]
@@ -177,7 +176,7 @@ td enum troll { BITE=42, PATE=4000};
 wx a00f
 pf E (troll)plop
 '
-EXPECT="(troll)plop : 0x00000000 =  plop (enum) = 0xfa0 ; PATE
+EXPECT="       plop : 0x00000000 =  plop (enum) = 0xfa0 ; PATE
 "
 run_test
 
@@ -316,17 +315,17 @@ pf.pe_nt_image_headers32
 '
 EXPECT="                                 signature : 0x00000080 = PE
                                 fileHeader : struct<pe_image_file_header>
-                      (pe_machine)machine : 0x00000084 =  machine (enum) = 0x14c ; IMAGE_FILE_MACHINE_I386
+                                  machine : 0x00000084 =  machine (enum) = 0x14c ; IMAGE_FILE_MACHINE_I386
                          numberOfSections : 0x00000086 = 0x0004
                             timeDateStamp : 0x00000088 = 0x5411e83a
                      pointerToSymbolTable : 0x0000008c = 0x00000000
                           numberOfSymbols : 0x00000090 = 0x00000000
                      sizeOfOptionalHeader : 0x00000094 = 0x00e0
-      (pe_characteristics)characteristics : 0x00000096 =  characteristics (bitfield) = 0x00000102 : IMAGE_FILE_EXECUTABLE_IMAGE | IMAGE_FILE_32BIT_MACHINE
+                          characteristics : 0x00000096 =  characteristics (bitfield) = 0x00000102 : IMAGE_FILE_EXECUTABLE_IMAGE | IMAGE_FILE_32BIT_MACHINE
                             optionalHeader : struct<pe_image_optional_header32>
-                                (pe_magic)magic : 0x00000098 =  magic (enum) = 0x10b ; IMAGE_NT_OPTIONAL_HDR32_MAGIC
-                             majorLinkerVersion : 0x0000009a = 11 ; 0x0b ; ''
-                             minorLinkerVersion : 0x0000009b = 0 ; 0x00 ; ''
+                                          magic : 0x00000098 =  magic (enum) = 0x10b ; IMAGE_NT_OPTIONAL_HDR32_MAGIC
+                             majorLinkerVersion : 0x0000009a = 11 ; 0x0b ; '.'
+                             minorLinkerVersion : 0x0000009b = 0 ; 0x00 ; '.'
                                      sizeOfCode : 0x0000009c = 0x00003000
                           sizeOfInitializedData : 0x000000a0 = 0x00003400
                         sizeOfUninitializedData : 0x000000a4 = 0x00000000
@@ -346,8 +345,8 @@ EXPECT="                                 signature : 0x00000080 = PE
                                     sizeOfImage : 0x000000d0 = 0x0000e000
                                   sizeOfHeaders : 0x000000d4 = 0x00000400
                                        checkSum : 0x000000d8 = 0x00000000
-                        (pe_subsystem)subsystem : 0x000000dc =  subsystem (enum) = 0x2 ; IMAGE_SUBSYSTEM_WINDOWS_GUI
-      (pe_dllcharacteristics)dllCharacteristics : 0x000000de =  dllCharacteristics (bitfield) = 0x00008560 : IMAGE_DLLCHARACTERISTICS_HIGH_ENTROPY_VA | IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE | IMAGE_DLLCHARACTERISTICS_NX_COMPAT | IMAGE_DLLCHARACTERISTICS_NO_SEH | IMAGE_DLLCHARACTERISTICS_TERMINAL_SERVER_AWARE
+                                      subsystem : 0x000000dc =  subsystem (enum) = 0x2 ; IMAGE_SUBSYSTEM_WINDOWS_GUI
+                             dllCharacteristics : 0x000000de =  dllCharacteristics (bitfield) = 0x00008560 : IMAGE_DLLCHARACTERISTICS_HIGH_ENTROPY_VA | IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE | IMAGE_DLLCHARACTERISTICS_NX_COMPAT | IMAGE_DLLCHARACTERISTICS_NO_SEH | IMAGE_DLLCHARACTERISTICS_TERMINAL_SERVER_AWARE
                              sizeOfStackReserve : 0x000000e0 = 0x00100000
                               sizeOfStackCommit : 0x000000e4 = 0x00001000
                               sizeOfHeapReserve : 0x000000e8 = 0x00100000
@@ -403,8 +402,7 @@ EXPECT="                                 signature : 0x00000080 = PE
 ,
             virtualAddress : 0x000000f8 = 0x00000000
                       size : 0x000000fc = 0x00000000
-]
-"
+]"
 run_test
 
 NAME='JSON output'

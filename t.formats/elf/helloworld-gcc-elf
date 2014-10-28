@@ -53,8 +53,7 @@ hits: 2
 '
 FILTER='sed "s/^#.*//;"'
 
-EXPECT='
-0x08048b4c hit0_0 "
+EXPECT='0x08048b4c hit0_0 "
 0x08049b4c hit0_1 "
 '
 run_test
@@ -124,7 +123,8 @@ FILE=../../bins/elf/x86-helloworld-gcc
 CMDS='e scr.color = 0
 pDi 10
 '
-EXPECT='0x08048300              31ed  xor ebp, ebp
+EXPECT='0x08048300    section..text:
+0x08048300              31ed  xor ebp, ebp
 0x08048302                5e  pop esi
 0x08048303              89e1  mov ecx, esp
 0x08048305            83e4f0  and esp, 0xfffffff0

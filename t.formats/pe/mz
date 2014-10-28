@@ -14,7 +14,8 @@ IGNORE_ERR=1
 FILE=../../bins/pe/mz.exe
 ARGS=''
 CMDS="pid 4"
-EXPECT='0x00401000        6818104000  push 0x401018
+EXPECT='0x00401000    section.:
+0x00401000        6818104000  push 0x401018
 0x00401005      ff15c8104000  call dword [0x4010c8]
 0x0040100b            83c404  add esp, 0x4
 0x0040100e                90  nop

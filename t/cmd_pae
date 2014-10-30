@@ -1,0 +1,14 @@
+#!/bin/sh
+
+[ -e tests.sh ] && . ./tests.sh || . ../tests.sh
+
+
+NAME='pae 0xed31'
+FILE=-
+CMDS='
+pae 0xed31
+'
+EXPECT='ebp,ebp,^=
+'
+
+run_test

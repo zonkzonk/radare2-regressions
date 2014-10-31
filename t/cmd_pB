@@ -1,0 +1,15 @@
+#!/bin/sh
+
+[ -e tests.sh ] && . ./tests.sh || . ../tests.sh
+
+
+NAME='p2 hello-linux-x86_64'
+FILE=-
+CMDS='
+wx 0xff
+pB 2
+'
+EXPECT='1111111100000000
+'
+
+run_test

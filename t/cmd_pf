@@ -326,9 +326,11 @@ DEBUG=1
 CMDS='e asm.bits=32
 pf.plop wi word int
 pf.troll bciwqfdoxs:S.[4]z[2]B[4]E? byte char int word quad float hexa octal hex strp skip4 wstrp skip1 str bitfield enum (plop)struct
-pfs troll
+pfs.troll
+pfs qiw
 '
 EXPECT="65 bytes
+14 bytes
 "
 run_test
 

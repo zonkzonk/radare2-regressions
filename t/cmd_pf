@@ -251,6 +251,7 @@ EXPECT="  firstInt : 0x00000000 = 42
          integer : 0x00000004 = 4000
             word : 0x00000008 = 0x3412
              Bah : (*0x10) struct<troll>
+            ---- : 
          integer : 0x00000010 = 42
             word : 0x00000014 = 0x002a
              Bah : (*0x0) NULL
@@ -279,9 +280,11 @@ EXPECT="     blah : 0x00000000 = 0x1234
                integer : 0x00000008 = 4000
                   word : 0x0000000c = 0x002a
                    Bah : (*0x30) struct<troll>
+                  ---- : 
                integer : 0x00000030 = 20
                   word : 0x00000034 = 0x1664
                    Bah : (*0x20) struct<troll>
+                  ---- : 
                integer : 0x00000020 = 1664
                   word : 0x00000024 = 0x4000
                    Bah : (*0x0) NULL

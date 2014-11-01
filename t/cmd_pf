@@ -251,6 +251,7 @@ EXPECT="  firstInt : 0x00000000 = 42
          integer : 0x00000004 = 4000
             word : 0x00000008 = 0x3412
              Bah : (*0x10) struct<troll>
+            ---- : 
          integer : 0x00000010 = 42
             word : 0x00000014 = 0x002a
              Bah : (*0x0) NULL
@@ -279,9 +280,11 @@ EXPECT="     blah : 0x00000000 = 0x1234
                integer : 0x00000008 = 4000
                   word : 0x0000000c = 0x002a
                    Bah : (*0x30) struct<troll>
+                  ---- : 
                integer : 0x00000030 = 20
                   word : 0x00000034 = 0x1664
                    Bah : (*0x20) struct<troll>
+                  ---- : 
                integer : 0x00000020 = 1664
                   word : 0x00000024 = 0x4000
                    Bah : (*0x0) NULL
@@ -316,6 +319,19 @@ f bwa=0x00000012
 "
 run_test
 
+NAME='struct size'
+FILE=malloc://256
+ARGS=
+DEBUG=1
+CMDS='e asm.bits=32
+pf.plop wi word int
+pf.troll bciwqfdoxs:S.[4]z[2]B[4]E? byte char int word quad float hexa octal hex strp skip4 wstrp skip1 str bitfield enum (plop)struct
+pfs troll
+'
+EXPECT="65 bytes
+"
+run_test
+
 NAME='PE test'
 FILE=../bins/pe/ch22.exe
 ARGS=-nn
@@ -328,7 +344,7 @@ EXPECT="                                 signature : 0x00000080 = PE
                                 fileHeader : struct<pe_image_file_header>
                                   machine : 0x00000084 =  machine (enum) = 0x14c ; IMAGE_FILE_MACHINE_I386
                          numberOfSections : 0x00000086 = 0x0004
-                            timeDateStamp : 0x00000088 = 0x5411e83a
+                            timeDateStamp : 0x00000088 = Thu Sep 11 20:21:46 2014
                      pointerToSymbolTable : 0x0000008c = 0x00000000
                           numberOfSymbols : 0x00000090 = 0x00000000
                      sizeOfOptionalHeader : 0x00000094 = 0x00e0

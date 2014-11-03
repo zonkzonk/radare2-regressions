@@ -1,0 +1,20 @@
+#!/bin/sh
+[ -e tests.sh ] && . ./tests.sh || . ../tests.sh
+
+NAME='r2 -'
+FILE=-
+ARGS=
+CMDS='e file.path
+'
+EXPECT='malloc://512
+'
+run_test
+
+NAME='r2 --'
+FILE=--
+ARGS=
+CMDS='e file.path
+'
+EXPECT='
+'
+run_test

@@ -52,14 +52,13 @@ run_test
 # -------------------------------
 # bitness writing check
 NAME="8051: checking bitness writing (asm.bits)"
-BROKEN=1
+BROKEN=
 FILE=malloc://32
 CMDS='
 e asm.arch=8051
 e asm.bits=8
 '
-EXPECT='
-'
+EXPECT=''
 run_test
 
 test_vector "${PLUGIN}" "ADD" 2b "add a, r3"

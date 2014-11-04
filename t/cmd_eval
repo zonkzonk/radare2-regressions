@@ -3,12 +3,11 @@
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 
-NAME='e asm.os, e asm.cpu'
+NAME='e asm.os'
 FILE=../bins/elf/hello-linux-x86_64
 CMDS='e asm.os=?
 '
-EXPECT='
-dos                                                                                
+EXPECT='dos                                                                                
 darwin                                                                             
 linux                                                                              
 freebsd                                                                            

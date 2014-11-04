@@ -11,9 +11,8 @@ run_test
 NAME='Relocs'
 FILE=../../bins/pe/base.exe
 ARGS=''
-CMDS='pd 1 @ 0x0040128d'
-EXPECT='           0x0040128d    ff15c8504000 call dword [reloc.msvcrt.dll___set_app_type]
-              0x0080635b() ; section_end..stabst
-'
+CMDS='e asm.functions = false
+pd 1 @ 0x0040128d~!reloc'
+EXPECT=''
 
 run_test

@@ -21,10 +21,11 @@ IGNORE_ERR=1
 BROKEN=
 FILE=$F
 ARGS=
-CMDS='pd 1@0x401820~reloc
+CMDS='e asm.functions = false
+e asm.flags = false
+pd 1@0x401820~!reloc
 '
-EXPECT='           0x00401820    ff25f0504000 jmp dword [reloc.msvcrt.dll_puts] ; reloc.msvcrt.dll_puts
-'
+EXPECT=''
 run_test
 
 NAME='pe relocs [rabin2 a.exe]'

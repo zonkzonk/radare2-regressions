@@ -1,0 +1,31 @@
+#!/bin/sh
+
+[ -e tests.sh ] && . ./tests.sh || . ../tests.sh
+
+
+NAME='e asm.os, e asm.cpu'
+FILE=../bins/elf/hello-linux-x86_64
+CMDS='e asm.os=?
+'
+EXPECT='
+dos                                                                                
+darwin                                                                             
+linux                                                                              
+freebsd                                                                            
+openbsd                                                                            
+netbsd                                                                             
+windows
+'
+
+run_test                                                         
+
+NAME='e asm.cpu'
+FILE=../bins/elf/hello-linux-x86_64
+CMDS='e asm.arch=mips.cs
+e asm.cpu=?
+'
+EXPECT='n64
+micro
+'
+
+run_test    

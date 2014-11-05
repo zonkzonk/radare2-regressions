@@ -18,7 +18,7 @@ EXPECT="${4}
 run_test
 }
 
-PLUGIN=arm.gnu
+PLUGIN=arm
 
 test_vector "${PLUGIN}" "ADDEQ r1, r1, r0" 00108100 "addeq r1, r1, r0"
 test_vector "${PLUGIN}" "ADDEQ r1, r1, r2, lsl 2" 02118100 "addeq r1, r1, r2, lsl 2"
@@ -137,12 +137,10 @@ e cfg.bigendian=0
 pa mov r0, 33
 e cfg.bigendian=1
 pa mov r0, 33
-#
 e cfg.bigendian=0
 pad 2100a0e3
 e cfg.bigendian=1
 pad e3a00021
-#
 '
 EXPECT='2100a0e3
 e3a00021

@@ -1,6 +1,5 @@
 #!/bin/sh
-
-# GPL 3+ - Copyright (C) 2012  pancake, Edd Barrett, Simon Ruderich
+# GPL 3+ - Copyright (C) 2012-2014  pancake
 
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
@@ -11,8 +10,7 @@ CMDS='b 11
 w hello world
 p6e
 '
-EXPECT='aGVsbG8gd29ybGQ=
-'
+EXPECT='aGVsbG8gd29ybGQ='
 run_test
 
 NAME='base64 decode'
@@ -22,6 +20,5 @@ CMDS='b 16
 w aGVsbG8gd29ybGQ=
 p6d
 '
-EXPECT='hello world
-'
+EXPECT='hello world'
 run_test

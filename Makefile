@@ -120,4 +120,7 @@ broken:
 clean:
 	rm -rf tmp
 
+install:
+	ln -fs `pwd`/r2-v /usr/bin/r2-v
+
 .PHONY: all clean

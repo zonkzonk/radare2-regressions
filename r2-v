@@ -1,0 +1,136 @@
+#!/bin/sh
+MASTER=~/prg/radare2
+COPIES=~/prg/r2-v
+
+mkdir -p ${COPIES}
+
+Head() {
+	cd ${MASTER}
+	git rev-list HEAD |head -n1
+}
+
+Next() {
+	cd ${MASTER}
+	git rev-list HEAD | grep -C 1 $1 |head -n1
+}
+
+Prev() {
+	cd ${MASTER}
+	git rev-list HEAD | grep -C 1 $1 |tail -n1
+}
+
+Cur() {
+	if [ -f ${COPIES}/cur ]; then
+		cat ${COPIES}/cur
+	else
+		echo "Run init first"
+	fi
+}
+
+Note() {
+	if [ -n "$1" ]; then
+		if [ -n "$2" ]; then
+			echo "$2" > ${COPIES}/radare2-$1.note
+		else
+			cat ${COPIES}/radare2-$1.note
+		fi
+	else
+		echo "Missing argument"
+	fi
+}
+
+Clone() {
+	cd ${COPIES}
+	if [ ! -d ${COPIES}/radare2-${1} ]; then
+		echo "$1  git clone"
+		git clone ${MASTER} radare2-${1} > /dev/null 2>&1
+	fi
+	cd radare2-${1}
+	if [ -d .git ]; then
+		git reset --hard $1 || exit 1
+		mv .git _git
+	fi
+	if [ ! -f binr/radare2/radare2 ]; then
+		echo "$1  make"
+		sys/install.sh > ${COPIES}/radare2-${1}.log 2>&1 || exit 1
+	fi
+	echo "$1  symstall"
+	sudo make symstall >> ${COPIES}/radare2-${1}.log
+	echo $1 > ${COPIES}/cur
+}
+
+case "$1" in
+init)
+	Clone `Head`
+	;;
+log)
+	cd ${MASTER}
+	cur=`Cur`
+	for a in `git rev-list HEAD` ; do
+		NOTE=`cat ${COPIES}/radare2-${a}.note 2>/dev/null`
+		if [ $cur = $a ]; then
+			echo "$a  [CUR] <<<< $NOTE"
+		elif [ -d "${COPIES}/radare2-${a}" ]; then
+			echo "$a  [x] $NOTE"
+		else
+			echo "$a  $NOTE"
+		fi
+	done
+	;;
+head)
+	Head
+	;;
+ls)
+	if [ -d "${COPIES}" ]; then
+		cd ${COPIES}
+		for a in radare2-* ; do
+			echo $a
+		done
+	else
+		echo "Run 'init' first"
+	fi
+	;;
+up)
+	$0 use `Prev $(Cur)`
+	;;
+cur)
+	Cur
+	;;
+down)
+	$0 use `Next $(Cur)`
+	;;
+rm)
+	if [ -n "$2" ]; then
+		if [ -d "${COPIES}/radare2-$2" ]; then
+			rm -rf "${COPIES}/radare2-$2"
+		else
+			echo "Invalid ref"
+		fi
+	else
+		echo "Usage rm [file]"
+	fi
+	;;
+good)
+	Note `Cur` good
+	;;
+bad)
+	Note `Cur` bad
+	;;
+reset)
+	rm ${COPIES}/*.note
+	;;
+note)
+	Note $2 $3
+	;;
+diff)
+	cd ${MASTER}
+	git diff `Cur`^..`Cur`
+	;;
+use)
+	Clone $2
+	;;
+''|-h|help|-?)
+	echo "Radare2 Version Manager"
+	echo "Usage: r2vm [init|cur|head|note|ls|log|up|down|rm|use|good|bad|note|reset]"
+	;;
+esac

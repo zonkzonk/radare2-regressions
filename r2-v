@@ -130,7 +130,18 @@ use)
 	Clone $2
 	;;
 ''|-h|help|-?)
-	echo "Radare2 Version Manager"
-	echo "Usage: r2vm [init|cur|head|note|ls|log|up|down|rm|use|good|bad|note|reset]"
+	echo "Usage: r2-v [cmd] ([arg])      - Radare2 Version Manager"
+	echo "  init   initialize r2-v repository"
+	echo "  cur    show current commit"
+	echo "  head                 show last commit"
+	echo "  ls                   list all build"
+	echo "  log                  show log history with marks and notes"
+	echo "  use [commit]         build and install this commit"
+	echo "  up                   build and install previous commit"
+	echo "  down                 build and install next commit"
+	echo "  rm [commit]          remove build"
+	echo "  reset                reset/remove all notes"
+	echo "  good | bad           mark current commit as good or bad"
+	echo "  note [commit] [msg]  add note for given commit"
 	;;
 esac

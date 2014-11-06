@@ -1,0 +1,19 @@
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+# TODO: Add tests for mach0, PE, ...
+# TODO: check symbols too
+
+NAME="asm/callflag"
+BROKEN=
+FILE=-
+CMDS='
+f eax=33
+pa call eax
+f test=eax
+pa call test
+'
+EXPECT='ffd0
+e81c000000
+'
+run_test
+

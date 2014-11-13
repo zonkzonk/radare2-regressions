@@ -1,0 +1,19 @@
+#!/bin/sh
+
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+NAME="a2f cjmp"
+BROKEN=
+FILE=malloc://0x5000
+IGNORE_ERR=1
+ARGS=
+CMDS='s 0x4000
+wx 31ed4989d15e4889e24883e4f0505449c7c00022410048c7c19021410048c7c720284000e812dcfffff4
+a2f
+'
+EXPECT='af+ 0x00004000 42 fcn2.0x00004000
+afb+ 0x4000 0x4000 42
+a2f @ 0x1c3b
+'
+run_test
+

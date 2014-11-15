@@ -37,7 +37,7 @@ BROKEN=
 FILE=../../bins/mach0/fatmach0-3true
 ARGS="-a x86 -b64"
 CMDS='pi 1 @ sym.imp.exit'
-EXPECT='jmp qword [rip+0xca]
+EXPECT='jmp qword [rip + 0xca]
 '
 run_test
 

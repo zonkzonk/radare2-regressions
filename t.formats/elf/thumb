@@ -60,7 +60,7 @@ af@sym.main
 pi 2 @sym.main
 '
 EXPECT='push {r7, lr}
-andcs sl, sl, r0, lsl 30
+andhs sl, sl, r0, lsl 30
 push {r7, lr}
 add r7, sp, 0
 '

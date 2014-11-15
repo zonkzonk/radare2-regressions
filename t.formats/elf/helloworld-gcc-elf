@@ -13,7 +13,7 @@ NAME='metadata'
 FILE=../../bins/elf/x86-helloworld-gcc
 CMDS='C*
 '
-EXPECT='Cs 13 0x080484b0 # Hello_world_
+EXPECT='Cs 13 @ 0x080484b0 # Hello_world_
 "CCu [0] va=0x08048134 pa=0x00000134 sz=19 vsz=19 rwx=-r-- .interp" @ 0x08048134
 "CCu [1] va=0x08048148 pa=0x00000148 sz=32 vsz=32 rwx=-r-- .note.ABI_tag" @ 0x08048148
 "CCu [2] va=0x08048168 pa=0x00000168 sz=36 vsz=36 rwx=-r-- .note.gnu.build_id" @ 0x08048168
@@ -144,11 +144,11 @@ and esp, 0xfffffff0
 push eax
 push esp
 push edx
-push 0x8048490
-push 0x8048420
+push sym.__libc_csu_fini
+push sym.__libc_csu_init
 push ecx
 push esi
-push 0x8048400
+push sym.main
 '
 run_test
 
@@ -191,7 +191,7 @@ NAME='flags (total)'
 FILE=../../bins/elf/x86-helloworld-gcc
 CMDS='f~?
 '
-EXPECT='103
+EXPECT='104
 '
 run_test
 

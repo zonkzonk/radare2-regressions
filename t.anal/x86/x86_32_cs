@@ -1,7 +1,7 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
-PLUGIN="x86.cs"
+PLUGIN="x86"
 
 CMDS='
 e asm.arch='$PLUGIN'

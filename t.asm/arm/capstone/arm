@@ -1,5 +1,5 @@
 #!/bin/sh
-for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+for a in . .. ../../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 test_vector() {
 NAME="${1}: [${2}]"

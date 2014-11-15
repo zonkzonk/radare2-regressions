@@ -1,6 +1,6 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
-PLUGIN=mips.cs
+PLUGIN=mips
 
 NAME="mips LE anal"
 BROKEN=

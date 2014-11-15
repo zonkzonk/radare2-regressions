@@ -1,7 +1,7 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
-PLUGIN=mips
+PLUGIN=mips.gnu
 
 # Tests only whole disassembly opcode
 test_vector() {

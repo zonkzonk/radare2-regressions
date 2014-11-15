@@ -7,11 +7,11 @@ CMDS="!rasm2 -a x86 -b 64 -d '5589e583ec2083f8000f8507000000b800000000eb05b80100
 EXPECT='push rbp
 mov ebp, esp
 sub esp, 0x20
-cmp eax, 0x0
+cmp eax, 0
 jne 0x16
-mov eax, 0x0
+mov eax, 0
 jmp 0x1b
-mov eax, 0x1
+mov eax, 1
 add esp, 0x20
 pop rbp
 ret

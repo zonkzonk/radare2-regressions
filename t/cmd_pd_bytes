@@ -10,7 +10,7 @@ e asm.bits=64
 wx b8010000004839ca7f00
 pD -10 @ 0xa
 '
-EXPECT='           0x00000000    b801000000   mov eax, 0x1
+EXPECT='           0x00000000    b801000000   mov eax, 1
            0x00000005    4839ca       cmp rdx, rcx
            0x00000008    7f00         jg 0xa
 '
@@ -25,7 +25,7 @@ e asm.bits=64
 wx b8010000004839ca7f00
 pD -10 @ 10
 '
-EXPECT='           0x00000000    b801000000   mov eax, 0x1
+EXPECT='           0x00000000    b801000000   mov eax, 1
            0x00000005    4839ca       cmp rdx, rcx
            0x00000008    7f00         jg 0xa
 '
@@ -39,7 +39,7 @@ e asm.bits=64
 wx b8010000004839ca7f00
 pD 5
 '
-EXPECT='           0x00000000    b801000000   mov eax, 0x1
+EXPECT='           0x00000000    b801000000   mov eax, 1
 '
 run_test
 
@@ -51,7 +51,7 @@ e asm.bits=64
 wx b8010000004839ca7f00
 pDj 5 @ 0
 '
-EXPECT='[{"offset":0,"size":5,"opcode":"mov eax, 0x1","bytes":"b801000000","type":"mov","type_num":9,"type2_num":0}]
+EXPECT='[{"offset":0,"size":5,"opcode":"mov eax, 1","bytes":"b801000000","type":"mov","type_num":9,"type2_num":0}]
 
 '
 run_test

@@ -3,8 +3,21 @@
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 
-NAME='pae 0xed31'
+NAME='udis pae 0xed31'
 FILE=-
+CMDS='
+e asm.arch = x86.udis
+pae 0xed31
+'
+EXPECT='ebp,ebp,^=
+'
+
+run_test
+
+
+NAME='capstone pae 0xed31'
+FILE=-
+BROKEN=1
 CMDS='
 pae 0xed31
 '

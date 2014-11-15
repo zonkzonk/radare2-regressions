@@ -12,7 +12,7 @@ done
 
 NAME="stdin eof"
 # Seems broken on some platforms.. strange
-BROKEN=1
+BROKEN=
 SHELLCMD='echo | rarun2 timeout=1 program="$r2_path" arg1=-nq arg2=-'
 EXITCODE=0
 run_test

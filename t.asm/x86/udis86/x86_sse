@@ -19,7 +19,7 @@ run_test
 }
 
 
-PLUGIN=x86
+PLUGIN=x86.udis
 
 test_vector "${PLUGIN}" "MULSD" 66f3f20f59ff "o16 mulsd xmm7, xmm7"
 test_vector "${PLUGIN}" "MULSS" 66f2f0f59ff "mulss xmm7, xmm7" "br"

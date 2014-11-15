@@ -18,7 +18,7 @@ EXPECT="${4}
 run_test
 }
 
-PLUGIN=x86
+PLUGIN=x86.udis
 
 test_vector "${PLUGIN}" "F2XM1" d9f0 "f2xm1"
 test_vector "${PLUGIN}" "FABS" d9e1 "fabs"

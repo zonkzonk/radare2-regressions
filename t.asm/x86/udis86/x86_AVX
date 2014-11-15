@@ -18,7 +18,7 @@ EXPECT="${4}
 run_test
 }
 
-PLUGIN=x86
+PLUGIN=x86.udis
 
 test_vector "${PLUGIN}" "VADDPD YMM0, YMM0, YMM0" c5fd58c0 "vaddpd ymm0, ymm0, ymm0"
 test_vector "${PLUGIN}" "AESDEC XMM0, XMM0" 660f38dec0 "aesdec xmm0, xmm0"

@@ -1,7 +1,7 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 CMDS='
-e asm.arch=x86
+e asm.arch=x86.udis
 e asm.bits=32
 wa mov eax, 0x21
    pi 1;s+$l
@@ -21,7 +21,7 @@ run_test
 
 NAME="eax vs rax"
 CMDS='
-e asm.arch=x86
+e asm.arch=x86.udis
 e asm.bits=32
 pa mov eax, 33
 pa mov rax, 33
@@ -39,7 +39,7 @@ run_test
 
 NAME="[rbp+4]"
 CMDS='
-e asm.arch=x86
+e asm.arch=x86.udis
 e asm.bits=64
 pa mov [rbp+4],0
 pa mov [ebp+4],0
@@ -55,7 +55,7 @@ run_test
 
 NAME="jmp 0x1b"
 CMDS='
-e asm.arch=x86
+e asm.arch=x86.udis
 e asm.bits=32
 pa jmp 0x1b @ 0x14
 '

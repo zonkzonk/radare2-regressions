@@ -18,7 +18,7 @@ EXPECT="${4}
 run_test
 }
 
-PLUGIN=x86
+PLUGIN=x86.udis
 
 test_vector "${PLUGIN}" "CWDE" 98 "cwde"
 test_vector "${PLUGIN}" "CBW" 6698 "cbw"

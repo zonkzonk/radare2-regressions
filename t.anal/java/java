@@ -21,13 +21,16 @@ s sym.radare_test_cases_challenge.simple_case_stmt_4val; pdf
 EXPECT='file	malloc://1023
 type	JAVA CLASS
 pic	false
+canary	false
+nx	false
+crypto	false
 has_va	false
 root	class
 class	0x3300 0x0000
 lang	java
 arch	java
 bits	32
-machine	Java VM
+machine	java
 os	any
 subsys	any
 endian	little
@@ -39,15 +42,16 @@ relocs	false
 rpath	NONE
 type	JAVA CLASS
 os	any
-arch	Java VM
+arch	java
 bits	32
 endian	little
 file	malloc://1023
 fd	42
 size	0x3ff
 mode	r--
-block	0x100
 uri	malloc://1023
+block	0x100
+format	java
   ;-- sym.java_lang_Object._init_:
   0x0000012d    2a           aload_0
   0x0000012e    b70008       invokespecial java/lang/Object/<init>()V

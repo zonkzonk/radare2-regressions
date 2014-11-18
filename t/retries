@@ -8,7 +8,7 @@ pd~?
 pd 3~?
 pd 20~?
 '
-EXPECT='10
+EXPECT='2
 3
 20
 '

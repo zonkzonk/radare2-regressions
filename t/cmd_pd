@@ -9,7 +9,7 @@ CMDS='
 wx ba3d000000
 pd 1
 '
-EXPECT="           0x00000000    ba3d000000   mov edx, 0x3d ; '='
+EXPECT="           0x00000000    ba3d000000   mov edx, 0x3d                    ; '='
 "
 run_test
 

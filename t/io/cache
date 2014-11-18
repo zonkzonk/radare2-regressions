@@ -7,7 +7,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 ## cache
 
 # Cache write.
-NAME='minimal usage'
+NAME='io.cache: minimal usage'
 FILE=malloc://1024
 ARGS=
 CMDS='
@@ -27,7 +27,7 @@ run_test
 
 # Cache usage. Cache write, cache reset, cache commit.
 FILE=malloc://1024
-ARGS='basic usage'
+ARGS='io.cache: basic usage'
 ARGS=
 CMDS='
 ?e
@@ -69,7 +69,8 @@ run_test
 # Basic cache usage with an empty file. Cache write, cache reset, cache
 # commit. Also tests if undo at end of file works.
 touch .empty.tmp
-NAME='empty file'
+NAME='io.cache: empty file'
+BROKEN=1
 FILE=.empty.tmp
 ARGS='-w'
 CMDS='
@@ -110,7 +111,7 @@ overwrite
 run_test
 rm -f .empty.tmp
 
-NAME='Reading behind cache written area'
+NAME='io.cache: Reading behind cache written area'
 FILE=malloc://32
 ARGS=
 CMDS='

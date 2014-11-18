@@ -55,7 +55,6 @@ format	java
 / (fcn) sym.TestVariableSwitchUp.TestMultipleVariable 37
 | 0x000002fd    1064         bipush 100
 | 0x000002ff    b8000f       invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
-|    0x00000000(0x0)
 | 0x00000302    4b           astore_0
 | 0x00000303    1064         bipush 100
 | 0x00000305    3c           istore_1
@@ -68,14 +67,10 @@ format	java
 | 0x00000311    59           dup
 | 0x00000312    121f         ldc "Attempting print "
 | 0x00000314    b70021       invokespecial java/lang/StringBuilder/<init>(Ljava/lang/String;)V
-|    0x00000000(0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
 | 0x00000317    2c           aload_2
 | 0x00000318    b60024       invokevirtual java/lang/StringBuilder/append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-|    0x00000000(0x0)
 | 0x0000031b    b60028       invokevirtual java/lang/StringBuilder/toString()Ljava/lang/String;
-|    0x00000000()
 | 0x0000031e    b6002c       invokevirtual java/io/PrintStream/print(Ljava/lang/String;)V
-|    0x00000000()
 \ 0x00000321    b1           return
 '
 FILTER='sed "s/^fd	[0-9][0-9]*/fd	42/"'

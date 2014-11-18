@@ -20,9 +20,9 @@ EXPECT='9
 opcode: nop
 prefix: 0
 bytes: 90
+refptr: 0
 size: 1
 type: nop
-esil: ,
 stack: null
 cond: 0
 family: 0

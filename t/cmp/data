@@ -13,11 +13,11 @@ wx 41
 e scr.null=1
 cx 41 2>/dev/null
 e scr.null=0
-?? ?e thats fine
+?! ?e thats fine
 e scr.null=1
 cx 11 2>/dev/null
 e scr.null=0
-?? ?e thats wrong
+?! ?e thats wrong
 '
 EXPECT='thats fine
 '

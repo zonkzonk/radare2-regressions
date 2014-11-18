@@ -5,7 +5,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 RET=0
 
-NAME='alloc map'
+NAME='io.maps alloc map'
 FILE=malloc://1024
 ARGS=
 CMDS='
@@ -21,9 +21,10 @@ run_test
 [ $? != 0 ] && RET=$?
 
 # Basic grep.
-NAME='o 100'
+NAME='io.maps: o 100'
 FILE=malloc://1024
 ARGS=
+BROKEN=1
 CMDS='
 s 0
 b 100

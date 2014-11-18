@@ -72,7 +72,7 @@ run_test
 NAME='i;$s'
 FILE=malloc://1024
 ARGS=
-CMDS='?v `i~size[1]`-$s;?? ?e works'
+CMDS='?v `i~size[1]`-$s;?! ?e works'
 EXPECT='0x0
 works
 '

@@ -51,30 +51,30 @@ af
 b 0x80
 pIf
 '
-EXPECT='push 0x0
+EXPECT='push 0
 dec eax
 mov ebp, esp
 dec eax
 and esp, 0xfffffff0
 dec eax
-mov edi, [ebp+0x8]
+mov edi, dword [ebp + 8]
 dec eax
-lea esi, [ebp+0x10]
+lea esi, dword [ebp + 0x10]
 mov edx, edi
-add edx, 0x1
-shl edx, 0x3
+add edx, 1
+shl edx, 3
 dec eax
 add edx, esi
 dec eax
 mov ecx, edx
 jmp 0x25
 dec eax
-add ecx, 0x8
+add ecx, 8
 dec eax
-cmp dword [ecx], 0x0
+cmp dword [ecx], 0
 jne 0x21
 dec eax
-add ecx, 0x8
+add ecx, 8
 call 0xf8c
 mov edi, eax
 call 0x3956
@@ -95,27 +95,27 @@ b 0x100
 af
 pIf @0
 '
-EXPECT='push 0x0
+EXPECT='push 0
 dec eax
 mov ebp, esp
 dec eax
 and esp, 0xfffffff0
 dec eax
-mov edi, [ebp+0x8]
+mov edi, dword [ebp + 8]
 dec eax
-lea esi, [ebp+0x10]
+lea esi, dword [ebp + 0x10]
 mov edx, edi
-add edx, 0x1
-shl edx, 0x3
+add edx, 1
+shl edx, 3
 dec eax
 add edx, esi
 dec eax
 mov ecx, edx
 jmp 0x25
 dec eax
-add ecx, 0x8
+add ecx, 8
 dec eax
-cmp dword [ecx], 0x0
+cmp dword [ecx], 0
 jne 0x21
 dec eax
 add ecx, 0x8

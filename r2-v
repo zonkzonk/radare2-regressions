@@ -68,7 +68,7 @@ log)
 	cur=`Cur`
 	for a in `git rev-list HEAD` ; do
 		NOTE=`cat ${COPIES}/radare2-${a}.note 2>/dev/null`
-		if [ $cur = $a ]; then
+		if [ "$cur" = "$a" ]; then
 			echo "$a  [CUR] <<<< $NOTE"
 		elif [ -d "${COPIES}/radare2-${a}" ]; then
 			echo "$a  [x] $NOTE"

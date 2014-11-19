@@ -123,9 +123,13 @@ IGNORE_ERR=1
 BROKEN=
 FILE=$F
 ARGS=
-CMDS='pd 1@0x0040131a~str.Hello
+CMDS='
+e asm.lines=false
+e asm.bytes=false
+e asm.comments=false
+pd 1@0x0040131a~str.Hello
 '
-EXPECT='           0x0040131a    c7042400304. mov dword [esp], str.Hello_n
+EXPECT='  0x0040131a   mov dword [esp], str.Hello_n
 '
 run_test
 

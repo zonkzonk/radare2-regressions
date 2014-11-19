@@ -296,9 +296,10 @@ EXPECT='0x08048034 0 section_end.ehdr
 0x08048370 0 sym.register_tm_clones
 0x08048340 0 sym.deregister_tm_clones
 0x080495a4 0 sym.__JCR_LIST__
-0x000016a8 4 reloc.__libc_start_main
-0x000016a4 4 reloc.__gmon_start__
-0x000016a0 4 reloc.puts
+0x080496a8 4 reloc.__libc_start_main_168
+0x080496a4 4 reloc.__gmon_start___164
+0x080496a0 4 reloc.puts_160
+0x08049690 4 reloc.__gmon_start___144
 0x08048300 1 entry0
 0x08048400 256 main
 0x080484b0 13 str.Hello_world_
@@ -311,7 +312,7 @@ FILE=../../bins/elf/x86-helloworld-gcc
 CMDS='pdj 10
 ?e
 '
-EXPECT='[{"offset":134513408,"size":2,"opcode":"xor ebp, ebp","bytes":"31ed","type":"xor","type_num":28,"type2_num":0},{"offset":134513410,"size":1,"opcode":"pop esi","bytes":"5e","type":"pop","type_num":14,"type2_num":0},{"offset":134513411,"size":2,"opcode":"mov ecx, esp","bytes":"89e1","type":"mov","type_num":9,"type2_num":0},{"offset":134513413,"size":3,"opcode":"and esp, 0xfffffff0","bytes":"83e4f0","type":"and","type_num":27,"type2_num":0},{"offset":134513416,"size":1,"opcode":"push eax","bytes":"50","type":"upush","type_num":12,"type2_num":0},{"offset":134513417,"size":1,"opcode":"push esp","bytes":"54","type":"upush","type_num":12,"type2_num":0},{"offset":134513418,"size":1,"opcode":"push edx","bytes":"52","type":"upush","type_num":12,"type2_num":0},{"offset":134513419,"size":5,"opcode":"push 0x8048490","bytes":"6890840408","type":"push","type_num":13,"type2_num":0},{"offset":134513424,"size":5,"opcode":"push 0x8048420","bytes":"6820840408","type":"push","type_num":13,"type2_num":0},{"offset":134513429,"size":1,"opcode":"push ecx","bytes":"51","type":"upush","type_num":12,"type2_num":0}]
+EXPECT='[{"offset":134513408,"size":2,"opcode":"xor ebp, ebp","bytes":"31ed","type":"xor","type_num":28,"type2_num":0},{"offset":134513410,"size":1,"opcode":"pop esi","bytes":"5e","type":"pop","type_num":14,"type2_num":0},{"offset":134513411,"size":2,"opcode":"mov ecx, esp","bytes":"89e1","type":"mov","type_num":9,"type2_num":0},{"offset":134513413,"size":3,"opcode":"and esp, 0xfffffff0","bytes":"83e4f0","type":"and","type_num":27,"type2_num":0},{"offset":134513416,"size":1,"opcode":"push eax","bytes":"50","type":"push","type_num":13,"type2_num":0},{"offset":134513417,"size":1,"opcode":"push esp","bytes":"54","type":"push","type_num":13,"type2_num":0},{"offset":134513418,"size":1,"opcode":"push edx","bytes":"52","type":"push","type_num":13,"type2_num":0},{"offset":134513419,"size":5,"opcode":"push 0x8048490","bytes":"6890840408","type":"push","type_num":13,"type2_num":0},{"offset":134513424,"size":5,"opcode":"push 0x8048420","bytes":"6820840408","type":"push","type_num":13,"type2_num":0},{"offset":134513429,"size":1,"opcode":"push ecx","bytes":"51","type":"push","type_num":13,"type2_num":0}]
 
 
 '

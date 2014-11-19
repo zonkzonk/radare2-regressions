@@ -125,7 +125,7 @@ FILE=$F
 ARGS=
 CMDS='pd 1@0x0040131a~str.Hello
 '
-EXPECT='           0x0040131a    c7042400304. mov dword [esp], str.Hello_n ; section..rdata
+EXPECT='           0x0040131a    c7042400304. mov dword [esp], str.Hello_n
 '
 run_test
 

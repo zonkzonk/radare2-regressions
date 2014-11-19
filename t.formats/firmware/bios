@@ -24,7 +24,7 @@ FILE=../../bins/firmware/bios_64k.bin
 ARGS=''
 BROKEN=
 CMDS="pi 1"
-EXPECT='jmp word 0xf000:0xffaa
+EXPECT='ljmp 0xf000:0xffaa
 '
 run_test
 
@@ -51,7 +51,7 @@ FILE=../../bins/firmware/bios_128k.bin
 ARGS=''
 BROKEN=
 CMDS="pi 1"
-EXPECT='jmp word 0xf000:0xffaa
+EXPECT='ljmp 0xf000:0xffaa
 '
 run_test
 
@@ -78,7 +78,7 @@ FILE=../../bins/firmware/bios_256k.bin
 ARGS=''
 BROKEN=
 CMDS="pi 1"
-EXPECT='jmp word 0xf000:0xffaa
+EXPECT='ljmp 0xf000:0xffaa
 '
 run_test
 
@@ -105,7 +105,7 @@ FILE=../../bins/firmware/bios_512k.bin
 ARGS=''
 BROKEN=
 CMDS="pi 1"
-EXPECT='jmp word 0xf000:0xffaa
+EXPECT='ljmp 0xf000:0xffaa
 '
 run_test
 
@@ -132,7 +132,7 @@ FILE=../../bins/firmware/bios_1M.bin
 ARGS=''
 BROKEN=
 CMDS="pi 1"
-EXPECT='jmp word 0xf000:0xffaa
+EXPECT='ljmp 0xf000:0xffaa
 '
 run_test
 
@@ -159,7 +159,7 @@ FILE=../../bins/firmware/bios_2M.bin
 ARGS=''
 BROKEN=
 CMDS="pi 1"
-EXPECT='jmp word 0xf000:0xffaa
+EXPECT='ljmp 0xf000:0xffaa
 '
 run_test
 
@@ -186,7 +186,7 @@ FILE=../../bins/firmware/bios_4M.bin
 ARGS=''
 BROKEN=
 CMDS="pi 1"
-EXPECT='jmp word 0xf000:0xffaa
+EXPECT='ljmp 0xf000:0xffaa
 '
 run_test
 
@@ -213,7 +213,7 @@ FILE=../../bins/firmware/bios_8M.bin
 ARGS=''
 BROKEN=
 CMDS="pi 1"
-EXPECT='jmp word 0xf000:0xffaa
+EXPECT='ljmp 0xf000:0xffaa
 '
 run_test
 

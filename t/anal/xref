@@ -8,7 +8,9 @@ BROKEN=
 FILE=../../bins/elf/main
 IGNORE_ERR=1
 ARGS=
-CMDS='e scr.color=false
+CMDS='e asm.arch = x86.udis
+e scr.color=false
+e asm.anal = x86.udis
 e scr.wheel = false
 aa
 axt @ str.Hello_World'
@@ -21,12 +23,43 @@ BROKEN=
 FILE=../../bins/elf/main
 IGNORE_ERR=1
 ARGS=
-CMDS='e asm.arch = x86.cs
+CMDS='e asm.arch = x86
 e asm.anal = x86.cs
 e scr.color=false
 e scr.wheel = false
 aa
 axt @ str.Hello_World'
 EXPECT='d 0x40050a mov edi, str.Hello_World
+'
+run_test
+
+
+NAME="axt capstone x86: IOLI0"
+BROKEN=
+FILE=../../bins/elf/ioli/crackme0x00
+IGNORE_ERR=1
+ARGS=
+CMDS='e asm.arch = x86
+e asm.anal = x86.cs
+e scr.color=false
+e scr.wheel = false
+aa
+axt @ str.Password_'
+EXPECT='d 0x804843c mov dword [esp], str.Password_
+'
+run_test
+
+NAME="axt udis86: IOLI0"
+BROKEN=
+FILE=../../bins/elf/ioli/crackme0x00
+IGNORE_ERR=1
+ARGS=
+CMDS='e asm.arch = x86.udis
+e asm.anal = x86.udis
+e scr.color=false
+e scr.wheel = false
+aa
+axt @ str.Password_'
+EXPECT='d 0x804843c mov dword [esp], str.Password_
 '
 run_test

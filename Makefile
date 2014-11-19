@@ -13,6 +13,7 @@ all:
 	@sh run_tests.sh t.esil
 	@sh run_tests.sh t.formats/pe
 	@sh run_tests.sh t.formats/elf
+	@sh run_tests.sh t.formats/dex
 	@sh run_tests.sh t.formats/java
 	@sh run_tests.sh t.formats/mach0
 	@sh run_tests.sh t.formats/xbe
@@ -97,6 +98,9 @@ format.elf:
 
 format.java:
 	@sh run_tests.sh t.formats/java
+
+format.dex:
+	@sh run_tests.sh t.formats/dex
 
 format.mach0:
 	@sh run_tests.sh t.formats/mach0

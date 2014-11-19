@@ -17,8 +17,26 @@ ao@4~type[2]
 "
 EXPECT='ldr ip, [pc, 32] ; 0x00000028
 ldr ip, [sl, ip]
-(load)
-(load)
+opcode: ldr ip, [pc, 32] ; 0x00000028
+prefix: 0
+bytes: 20c09fe5
+ptr: 0x00000028
+refptr: 4
+size: 4
+type: load
+stack: null
+cond: 6
+family: 0
+opcode: ldr ip, [sl, ip]
+prefix: 0
+bytes: 0cc09ae7
+ptr: 0x00000000
+refptr: 4
+size: 4
+type: load
+stack: null
+cond: 6
+family: 0
 '
 run_test
 

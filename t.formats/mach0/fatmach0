@@ -77,8 +77,8 @@ NAME='fatmach0 entry1 rabin2 (2)'
 BROKEN=1
 FILE=../../bins/mach0/fatmach0-3true
 ARGS='-n'
-CMDS="!rabin2 -a x86 -b 32 -e ${FILE} | grep off="
-EXPECT='addr=0x00001f44 off=0x00005f44 baddr=0x00001000
+CMDS="!rabin2 -a x86 -b 32 -e ${FILE} | grep paddr="
+EXPECT='vaddr=0x00001f44 paddr=0x00005f44 baddr=0x00001000 laddr=0x00000000
 '
 run_test
 
@@ -87,7 +87,7 @@ BROKEN=1
 FILE=../../bins/mach0/fatmach0-3true
 ARGS='-a ppc -b 32'
 CMDS='?v entry0'
-EXPECT='0x100001f64
+EXPECT='0x1f64
 '
 run_test
 

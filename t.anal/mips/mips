@@ -9,9 +9,9 @@ CMDS="
 wx 01001104
 e asm.arch=${PLUGIN}
 e asm.bits=32
-ao 1~type[2]
+ao 1~type[1]
 "
-EXPECT='(call)
+EXPECT='call
 '
 run_test
 

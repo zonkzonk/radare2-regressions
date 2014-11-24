@@ -18,7 +18,7 @@ EXPECT='369
 run_test
 
 NAME='create mach0 x86-64 auto-mach064'
-BROKEN=1
+BROKEN=
 FILE=-
 IGNORE_ERR=1
 ARGS=

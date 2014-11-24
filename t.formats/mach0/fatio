@@ -4,7 +4,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='fatmach0 IO test'
-BROKEN=1
+BROKEN=
 FILE=../../bins/mach0/fatmach0-3true
 ARGS="-a x86 -b32"
 CMDS='?v entry0;p8 8 @ entry0'
@@ -42,7 +42,7 @@ EXPECT='jmp qword [rip + 0xca]
 run_test
 
 NAME='fatmach0 SDB uuid'
-BROKEN=1
+BROKEN=
 FILE=../../bins/mach0/fatmach0-3true
 ARGS="-a x86 -b64"
 CMDS='k bin/cur/info/uuid.0'
@@ -51,7 +51,7 @@ EXPECT='34045671455b7d71054acff65f0ddac1
 run_test
 
 NAME='fatmach0 SDB uuid'
-BROKEN=1
+BROKEN=
 FILE=../../bins/mach0/fatmach0-3true
 ARGS="-a x86 -b32"
 CMDS='k bin/cur/info/uuid.0'

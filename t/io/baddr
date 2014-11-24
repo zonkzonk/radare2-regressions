@@ -34,8 +34,8 @@ EXPECT='f entry0 1 @ 0x00f00410
 run_test
 
 NAME="io.baddr"
-BROKEN=1
-ARGS="-e bin.baddr=0xf00000"
+BROKEN=
+ARGS="-e bin.laddr=0xf00000"
 FILE=../../bins/elf/hello-linux-x86_64
 CMDS='
 ?v entry0
@@ -48,7 +48,7 @@ NAME="io.baddr.ib"
 BROKEN=1
 FILE=../../bins/elf/hello-linux-x86_64
 CMDS='
-r bin.baddr=0xf00000
+e bin.laddr=0xf00000
 ib
 ie*~0x[4]
 '

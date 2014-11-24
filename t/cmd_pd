@@ -13,3 +13,24 @@ EXPECT="           0x00000000    ba3d000000   mov edx, 0x3d                    ;
 "
 run_test
 
+NAME='String capstone'
+FILE=../bins/elf/main
+ARGS=
+CMDS='e asm.arch = x86
+aa
+pd 1 @ 0x0040050a
+'
+EXPECT='|          0x0040050a    bfc4054000   mov edi, str.Hello_World         ; "Hello World" @ 0x4005c4
+'
+run_test
+
+NAME='String udis86'
+FILE=../bins/elf/main
+ARGS=
+CMDS='e asm.arch = x86.udis
+aa
+pd 1 @ 0x0040050a
+'
+EXPECT='|          0x0040050a    bfc4054000   mov edi, str.Hello_World         ; "Hello World" @ 0x4005c4
+'
+run_test

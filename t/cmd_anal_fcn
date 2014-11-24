@@ -7,6 +7,7 @@ FILE=malloc://1024
 ARGS=
 CMDS='
 e anal.hasnext=0
+e anal.eobjmp=false
 e asm.arch=x86
 e asm.bits=32
 wx 6a00 4889e5 c3 
@@ -25,6 +26,7 @@ ARGS=
 CMDS='
 e anal.hasnext=0
 e asm.arch=x86
+e anal.eobjmp=false
 e asm.bits=32
 wx 6a00 4889e5 ff25f8120000 ff25f8120000ffe0c3
 af
@@ -42,6 +44,7 @@ FILE=malloc://1024
 ARGS=
 CMDS='e anal.hasnext=0
 e asm.arch=x86
+e anal.eobjmp=false
 e asm.bits=32
 wx 6a004889e54883e4f0488b7d08488d751089fa83c201c1e2034801f24889d1eb044883c1084883390075f64883c108e8580f000089c7e81b390000c3554889e5
 s +0x40
@@ -85,6 +88,7 @@ run_test
 NAME='disasm bug'
 FILE=malloc://1024
 CMDS='e anal.hasnext=0
+e anal.eobjmp=false
 e asm.arch=x86
 e asm.bits=32
 wx 6a004889e54883e4f0488b7d08488d751089fa83c201c1e2034801f24889d1eb044883c1084883390075f64883c108e8580f000089c7e81b390000c3554889e5
@@ -118,7 +122,7 @@ dec eax
 cmp dword [ecx], 0
 jne 0x21
 dec eax
-add ecx, 0x8
+add ecx, 8
 call 0xf8c
 mov edi, eax
 call 0x3956

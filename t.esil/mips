@@ -211,3 +211,204 @@ EXPECT='0x00000001
 '
 run_test
 
+NAME="sub zero, 5, 1"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=5
+ar v1=1
+wx 22004300
+aes
+ar zero
+'
+EXPECT='0x00000000
+'
+run_test
+
+NAME="sub a1, 1, 5"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=1
+ar v1=5
+wx 22284300
+aes
+ar a1
+'
+EXPECT='0x00000000
+'
+run_test
+
+NAME="sub a1, 0xFFFFFFFF, 5"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=0xFFFFFFFF
+ar v1=0x5
+wx 22284300
+aes
+ar a1
+'
+EXPECT='0xfffffffa
+'
+run_test
+
+NAME="subu a1, 1, 5"
+FILE=malloc://0x200
+BROKEN=capstone_bug
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=1
+ar v1=5
+wx 23284300
+aes
+ar a1
+'
+EXPECT='0xfffffffc
+'
+run_test
+
+NAME="subu a1, 0xFFFFFFFF, 5"
+FILE=malloc://0x200
+BROKEN=capstone_bug
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=0xFFFFFFFF
+ar v1=0x5
+wx 23284300
+aes
+ar a1
+'
+EXPECT='0xfffffffa
+'
+run_test
+
+NAME="and a1, 0xFFFFFFFF, 0x10101010"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=0xffffffff
+ar v1=0x10101010
+wx 24284300
+aes
+ar a1
+'
+EXPECT='0x10101010
+'
+run_test
+
+NAME="andi a1, 0xFFFFFFFF, 0xFFFF"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=0xffffffff
+wx ffff4530
+aes
+ar a1
+'
+EXPECT='0x0000ffff
+'
+run_test
+
+NAME="andi a1, 0xFFFFFFFF, 1"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=0xffffffff
+wx 01004530
+aes
+ar a1
+'
+EXPECT='0x00000001
+'
+run_test
+
+NAME="or zero, zero, 0x10101010"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=0x10101010
+wx 24000200
+aes
+ar zero
+'
+EXPECT='0x00000000
+'
+run_test
+
+NAME="or a1, zero, 0x10101010"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=0x10101010
+wx 25280200
+aes
+ar a1
+'
+EXPECT='0x10101010
+'
+run_test
+
+NAME="ori zero, zero, 0xFFFF"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+wx ffff0034
+aes
+ar zero
+'
+EXPECT='0x00000000
+'
+run_test
+
+NAME="ori a1, zero, 0xFFFF"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+wx ffff0534
+aes
+ar a1
+'
+EXPECT='0x0000ffff
+'
+run_test
+
+NAME="ori a1, 0xFFFF0000, 1"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=0xffff0000
+wx 01004534
+aes
+ar a1
+'
+EXPECT='0xffff0001
+'
+run_test
+

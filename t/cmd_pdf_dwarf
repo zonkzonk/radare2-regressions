@@ -3,33 +3,74 @@
 
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
+NAME="pdf dwarf invalid main for analysis not found (aa)"
+BROKEN=
+FILE=/tmp/r2-regressions/dwarftest
+IGNORE_ERR=1
+ARGS=
+CMDS='e asm.dwarf=true
+e asm.arch=x86.udis
+e anal.eobjmp=false
+e anal.nopskip=true # if set to true it fucks the test
+aa # full analysis fuckups main
+pd 1 @main'
+EXPECT='|          ; DATA XREF from 0x0040045d (entry0)
+arg int arg_fc @ rbp+252
+var int local_4 @ rbp-4
+/ (fcn) main 44
+|          0x0040052d    55           push rbp                          ; dwarftest.c:4 {
+'
+run_test
+
+NAME="pdf dwarf invalid main for analysis not found (af)"
+BROKEN=
+FILE=/tmp/r2-regressions/dwarftest
+IGNORE_ERR=1
+ARGS=
+CMDS='e asm.dwarf=true
+e asm.arch=x86.udis
+e anal.eobjmp=false
+e anal.nopskip=true # if set to true it fucks the test
+af@main # full analysis fuckups main
+pd 1 @main'
+EXPECT='|          ; DATA XREF from 0x0040045d (sym._start)
+arg int arg_fc @ rbp+252
+var int local_4 @ rbp-4
+/ (fcn) sym.main 44
+|          0x0040052d    55           push rbp                          ; dwarftest.c:4 {
+'
+run_test
+
 NAME="pdf dwarf"
 BROKEN=
 FILE=/tmp/r2-regressions/dwarftest
 IGNORE_ERR=1
 ARGS=
 CMDS='e asm.dwarf=true
-aa
+e asm.arch=x86.udis
+e anal.eobjmp=false
+e anal.nopskip=true
+af@main
 pdf@main'
-EXPECT='|          ; DATA XREF from 0x0040045d (fcn.00400436)
+EXPECT='|          ; DATA XREF from 0x0040045d (sym._start)
+arg int arg_fc @ rbp+252
+var int local_4 @ rbp-4
 / (fcn) sym.main 44
-|          0x0040052d    55           push rbp  ; dwarftest.c:4 {  
+|          0x0040052d    55           push rbp                          ; dwarftest.c:4 {
 |          0x0040052e    4889e5       mov rbp, rsp
 |          0x00400531    4883ec10     sub rsp, 0x10
-|          0x00400535    c745fc00000. mov dword [rbp-0x4], 0x0  ; dwarftest.c:7 	for (i = 0; i < 5; i++) {  
-|      ,=< 0x0040053c    eb0e         jmp fcn.0040054c
-|      |   ; JMP XREF from 0x00400550 (unk)
-|- loc.0040053e 27
-|      |   0x0040053e    bfe4054000   mov edi, str.dwarftest  ; dwarftest.c:8 		printf ("dwarftest\n");   ; str.dwarftest
+|          0x00400535    c745fc00000. mov dword [rbp-0x4], 0x0          ; dwarftest.c:7  for (i = 0; i < 5; i++) {
+|      ,=< 0x0040053c    eb0e         jmp 0x40054c                     ; (sym.main)
+|      |   ; JMP XREF from 0x00400550 (sym.main)
+|      |   0x0040053e    bfe4054000   mov edi, str.dwarftest            ; dwarftest.c:8   printf ("dwarftest\n"); ; "dwarftest" @ 0x4005e4
 |      |   0x00400543    e8c8feffff   call sym.imp.puts
 |      |      sym.imp.puts(unk)
-|      |   0x00400548    8345fc01     add dword [rbp-0x4], 0x1  ; dwarftest.c:7 	for (i = 0; i < 5; i++) {  
-|      |   ; JMP XREF from 0x0040053c (unk)
-|- fcn.0040054c 13
-|      `-> 0x0040054c    837dfc04     cmp dword [rbp-0x4], 0x4
-|          0x00400550    7eec         jle loc.0040053e
-|          0x00400552    b800000000   mov eax, 0x0  ; dwarftest.c:11 	return 0;  
-|          0x00400557    c9           leave  ; dwarftest.c:12 }  
+|      |   0x00400548    8345fc01     add dword [rbp-0x4], 0x1          ; dwarftest.c:7  for (i = 0; i < 5; i++) {
+|      |   ; JMP XREF from 0x0040053c (sym.main)
+|      `-> 0x0040054c    837dfc04     cmp dword [rbp-0x4], 0x4         ; [0xfc:4]=0
+|          0x00400550    7eec         jle 0x40053e
+|          0x00400552    b800000000   mov eax, 0x0                      ; dwarftest.c:11  return 0;
+|          0x00400557    c9           leave                             ; dwarftest.c:12 }
 \          0x00400558    c3           ret
 '
 

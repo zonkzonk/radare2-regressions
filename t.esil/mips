@@ -1,0 +1,213 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+NAME="add zero, zero, 5"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=5
+wx 20000200
+aes
+ar zero
+'
+EXPECT='0x00000000
+'
+run_test
+
+NAME="add a1, zero, 5"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=5
+wx 20280200
+aes
+ar a1
+'
+EXPECT='0x00000005
+'
+run_test
+
+NAME="add a1, 0xFFFFFFFF, 5"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=0xFFFFFFFF
+ar v1=0x5
+wx 20284300
+aes
+ar a1
+'
+EXPECT='0x00000000
+'
+run_test
+
+NAME="addi zero, zero, 5"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+wx 05000020
+aes
+ar zero
+'
+EXPECT='0x00000000
+'
+run_test
+
+NAME="addi a1, zero, 5"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=5
+wx 05000520
+aes
+ar a1
+'
+EXPECT='0x00000005
+'
+run_test
+
+NAME="addi a1, zero, -5"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=5
+wx fbff0520
+aes
+ar a1
+'
+EXPECT='0xfffffffb
+'
+run_test
+
+NAME="addi a1, 6, -5"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=6
+wx fbff4520
+aes
+ar a1
+'
+EXPECT='0x00000000
+'
+run_test
+
+NAME="addu zero, zero, 5"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=5
+wx 21000200
+aes
+ar zero
+'
+EXPECT='0x00000000
+'
+run_test
+
+NAME="addu a1, zero, 5"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=5
+wx 21280200
+aes
+ar a1
+'
+EXPECT='0x00000005
+'
+run_test
+
+NAME="addu a1, 0xFFFFFFFF, 5"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=0xFFFFFFFF
+ar v1=0x5
+wx 21284300
+aes
+ar a1
+'
+EXPECT='0x00000004
+'
+run_test
+
+NAME="addiu zero, zero, 5"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+wx 05000024
+aes
+ar zero
+'
+EXPECT='0x00000000
+'
+run_test
+
+NAME="addiu a1, zero, 5"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=5
+wx 05000524
+aes
+ar a1
+'
+EXPECT='0x00000005
+'
+run_test
+
+NAME="addiu a1, zero, -5"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=5
+wx fbff0524
+aes
+ar a1
+'
+EXPECT='0xfffffffb
+'
+run_test
+
+NAME="addiu a1, 6, -5"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=6
+wx fbff4524
+aes
+ar a1
+'
+EXPECT='0x00000001
+'
+run_test
+

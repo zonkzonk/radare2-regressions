@@ -1,6 +1,17 @@
 #!/bin/sh
 for a in . .. ../../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
+# notes
+# -----
+# r9 = sb
+# 
+# gnu uses pre-UAL syntax:
+# -ldrdne r2, [r3, ip]
+#
+# capstone uses the new one:
+# +ldrdne r2, r3, [r3, ip]
+
+
 test_vector() {
 NAME="${1}: [${2}]"
 FILE=malloc://32
@@ -38,7 +49,7 @@ test_vector "${PLUGIN}" "B 0x1900" 3e0600ea "b 0x1900"
 test_vector "${PLUGIN}" "BXEQ lr" 1eff2f01 "bxeq lr"
 test_vector "${PLUGIN}" "BXNE lr" 1eff2f11 "bxne lr"
 test_vector "${PLUGIN}" "CLZNE r5, sl" 1a5f6f11 "clzne r5, sl"
-test_vector "${PLUGIN}" "CMPEQ sl, r4" 40005a01 "cmpeq sl, r4" "br"
+test_vector "${PLUGIN}" "CMPEQ sl, r4" 40005a01 "cmpeq sl, r0, asr 32"
 test_vector "${PLUGIN}" "CMPNE r7, r6" 06005711 "cmpne r7, r6"
 test_vector "${PLUGIN}" "EOREQ r2, r2, 1" 01202202 "eoreq r2, r2, 1"
 test_vector "${PLUGIN}" "EORNE r0, r0, r3" 03002010 "eorne r0, r0, r3"
@@ -48,7 +59,7 @@ test_vector "${PLUGIN}" "LDMEQ r3, {r0, r1, r2, r3}" 0f009308 "ldmeq r3, {r0, r1
 test_vector "${PLUGIN}" "LDMEQ r5, {r0, r1, r2}" 07009508 "ldmeq r5, {r0, r1, r2}"
 test_vector "${PLUGIN}" "LDMEQ r6, {r0, r1}" 03009608 "ldmeq r6, {r0, r1}"
 test_vector "${PLUGIN}" "LDRBEQ r5, [r7, -1]" 01505705 "ldrbeq r5, [r7, -1]"
-test_vector "${PLUGIN}" "LDRDNE r2, r3, [r3, ip]" dc208311 "ldrdne r2, [r3, ip]"
+test_vector "${PLUGIN}" "LDRDNE r2, r3, [r3, ip]" dc208311 "ldrdne r2, r3, [r3, ip]"
 test_vector "${PLUGIN}" "LDREQ r0, [fp, -0xb4]" b4001b05 "ldreq r0, [fp, -0xb4]"
 test_vector "${PLUGIN}" "LDRHEQ r0, [r3, r0]" b0009301 "ldrheq r0, [r3, r0]"
 test_vector "${PLUGIN}" "LSLNE r1, r1, 2" 0111a011 "lslne r1, r1, 2"
@@ -57,7 +68,7 @@ test_vector "${PLUGIN}" "LSRNE r0, r0, 9" a004a011 "lsrne r0, r0, 9"
 test_vector "${PLUGIN}" "MLAEQ r7, r5, r7, r0" 95072700 "mlaeq r7, r5, r7, r0"
 test_vector "${PLUGIN}" "MLANE r3, r1, r3, r2" 91232310 "mlane r3, r1, r3, r2"
 test_vector "${PLUGIN}" "MOVEQ r0, sl" 0a00a001 "moveq r0, sl"
-test_vector "${PLUGIN}" "MOVNE r0, r9" 0900a011 "movne r0, r9"
+test_vector "${PLUGIN}" "MOVNE r0, sb" 0900a011 "movne r0, sb"
 test_vector "${PLUGIN}" "MULNE r3, r3, r0" 93000310 "mulne r3, r3, r0"
 test_vector "${PLUGIN}" "MVNEQ r0, 0x15" 1500e003 "mvneq r0, 0x15"
 test_vector "${PLUGIN}" "MVNEQ r0, 0x80000000" 0201e003 "mvneq r0, 0x80000000"
@@ -66,14 +77,14 @@ test_vector "${PLUGIN}" "ORREQ r6, r6, r2, lsr 1" a2608601 "orreq r6, r6, r2, ls
 test_vector "${PLUGIN}" "ORREQ r3, r3, 0x80000000" 02318303 "orreq r3, r3, 0x80000000"
 test_vector "${PLUGIN}" "ORRNE r0, r0, r1, lsl ip" 110c8011 "orrne r0, r0, r1, lsl ip"
 test_vector "${PLUGIN}" "ORRNE r1, r1, r3" 03108111 "orrne r1, r1, r3"
-test_vector "${PLUGIN}" "LDREQQ pc, [sp], 4" 04f09d04 "popeq {pc}  ; (ldreq pc, [sp], 4)"
+test_vector "${PLUGIN}" "LDREQQ pc, [sp], 4" 04f09d04 "popeq {pc}"
 test_vector "${PLUGIN}" "POPEQ {r4, pc}" 1080bd08 "popeq {r4, pc}"
 test_vector "${PLUGIN}" "POPEQ {r4, r5, pc}" 3080bd08 "popeq {r4, r5, pc}"
 test_vector "${PLUGIN}" "POPEQ {r3, r4, r5, pc}" 3880bd08 "popeq {r3, r4, r5, pc}"
 test_vector "${PLUGIN}" "POPEQ {r4, r5, r6, r7, pc}" f080bd08 "popeq {r4, r5, r6, r7, pc}"
 test_vector "${PLUGIN}" "POPEQ {r3, r4, r5, r6, r7, pc}" f880bd08 "popeq {r3, r4, r5, r6, r7, pc}"
 test_vector "${PLUGIN}" "POPEQ {r3, r4, r5, r6, r7, r8, sl, pc}" f885bd08 "popeq {r3, r4, r5, r6, r7, r8, sl, pc}"
-test_vector "${PLUGIN}" "POPEQ {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}" f88fbd08 "popeq {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}"
+test_vector "${PLUGIN}" "POPEQ {r3, r4, r5, r6, r7, r8, sb, sl, fp, pc}" f88fbd08 "popeq {r3, r4, r5, r6, r7, r8, sb, sl, fp, pc}"
 test_vector "${PLUGIN}" "REVEQ r3, r3" 333fbf06 "reveq r3, r3"
 test_vector "${PLUGIN}" "RSBEQ ip, r1, r7" 07c06100 "rsbeq ip, r1, r7"
 test_vector "${PLUGIN}" "RSBNE r6, r0, r6" 06606010 "rsbne r6, r0, r6"
@@ -82,8 +93,8 @@ test_vector "${PLUGIN}" "STMEQ ip, {r0, r1, r2}" 07008c08 "stmeq ip, {r0, r1, r2
 test_vector "${PLUGIN}" "STMEQ ip, {r0, r1, r2, r3}" 0f008c08 "stmeq ip, {r0, r1, r2, r3}"
 test_vector "${PLUGIN}" "STRBEQ ip, [r2, -1]" 01c04205 "strbeq ip, [r2, -1]"
 test_vector "${PLUGIN}" "STRBEQ r3, [r5]" 0030c505 "strbeq r3, [r5]"
-test_vector "${PLUGIN}" "STRDEQ r2, r3, [r4]" f020c401 "strdeq r2, [r4]"
-test_vector "${PLUGIN}" "STRDEQ r4, r5, [r8, 0x50]" f045c801 "strdeq r4, [r8, 0x50]"
+test_vector "${PLUGIN}" "STRDEQ r2, r3, [r4]" f020c401 "strdeq r2, r3, [r4]"
+test_vector "${PLUGIN}" "STRDEQ r4, r5, [r8, 0x50]" f045c801 "strdeq r4, r5, [r8, 0x50]"
 test_vector "${PLUGIN}" "STREQ r3, [r5, -4]" 04300505 "streq r3, [r5, -4]"
 test_vector "${PLUGIN}" "STREQ r1, [fp, -0x130]" 30110b05 "streq r1, [fp, -0x130]"
 test_vector "${PLUGIN}" "STRHNE r3, [fp, -0x32]" b2334b11 "strhne r3, [fp, -0x32]"

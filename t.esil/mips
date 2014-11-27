@@ -261,7 +261,6 @@ run_test
 
 NAME="subu a1, 1, 5"
 FILE=malloc://0x200
-BROKEN=capstone_bug
 CMDS='
 e asm.arch=mips
 e asm.bits=32
@@ -278,7 +277,6 @@ run_test
 
 NAME="subu a1, 0xFFFFFFFF, 5"
 FILE=malloc://0x200
-BROKEN=capstone_bug
 CMDS='
 e asm.arch=mips
 e asm.bits=32
@@ -346,7 +344,7 @@ e asm.arch=mips
 e asm.bits=32
 ar > /dev/null
 ar v0=0x10101010
-wx 24000200
+wx 25000200
 aes
 ar zero
 '
@@ -366,6 +364,22 @@ aes
 ar a1
 '
 EXPECT='0x10101010
+'
+run_test
+
+NAME="or a1, 0x01010111, 0x10101010"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v1=0x01010111
+ar v0=0x10101010
+wx 25284300
+aes
+ar a1
+'
+EXPECT='0x11111111
 '
 run_test
 
@@ -409,6 +423,156 @@ aes
 ar a1
 '
 EXPECT='0xffff0001
+'
+run_test
+
+NAME="xor zero, zero, 0x10101010"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=0x10101010
+wx 26000200
+aes
+ar zero
+'
+EXPECT='0x00000000
+'
+run_test
+
+NAME="xor a1, zero, 0x10101010"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=0x10101010
+wx 26280200
+aes
+ar a1
+'
+EXPECT='0x10101010
+'
+run_test
+
+NAME="xor a1, 0x01010111, 0x10101010"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=0x01010111
+ar v1=0x10101010
+wx 26284300
+aes
+ar a1
+'
+EXPECT='0x11111101
+'
+run_test
+
+NAME="xori zero, zero, 0xFFFF"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+wx ffff0038
+aes
+ar zero
+'
+EXPECT='0x00000000
+'
+run_test
+
+NAME="xori a1, zero, 0xFFFF"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+wx ffff0538
+aes
+ar a1
+'
+EXPECT='0x0000ffff
+'
+run_test
+
+NAME="xori a1, 0xFFFF0000, 1"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=0xffff0000
+wx 01004538
+aes
+ar a1
+'
+EXPECT='0xffff0001
+'
+run_test
+
+NAME="xori a1, 0xFFFF00FF, 0xF1"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=0xffff00ff
+wx f1004538
+aes
+ar a1
+'
+EXPECT='0xffff000e
+'
+run_test
+
+NAME="nor zero, zero, 0x10101010"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=0x10101010
+wx 27000200
+aes
+ar zero
+'
+EXPECT='0x00000000
+'
+run_test
+
+NAME="nor a1, zero, 0x10101010"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=0x10101010
+wx 27280200
+aes
+ar a1
+'
+EXPECT='0xefefefef
+'
+run_test
+
+NAME="nor a1, 0x10101010, 0xFFFF0000"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v0=0x10101010
+ar v1=0xffff0000
+wx 27284300
+aes
+ar a1
+'
+EXPECT='0x0000efef
 '
 run_test
 

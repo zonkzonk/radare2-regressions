@@ -23,7 +23,7 @@ FILE=../../bins/elf/elf-xnorelro
 ARGS=''
 CMDS="iI~^nx"
 
-EXPECT='nx	false
+EXPECT='nx       false
 '
 
 run_test

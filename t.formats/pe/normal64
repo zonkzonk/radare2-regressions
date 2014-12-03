@@ -12,9 +12,9 @@ run_test
 NAME='PE: corkami normal64.exe - bits 64'
 FILE=../../bins/pe/normal64.exe
 ARGS='-n'
-CMDS="!rabin2 -I ${FILE} | grep \"bits	64\" "
+CMDS="!rabin2 -I ${FILE} | grep \"bits     64\" "
 
-EXPECT='bits	64
+EXPECT='bits     64
 '
 
 run_test
@@ -23,9 +23,9 @@ run_test
 NAME='PE: corkami normal64.exe - machine AMD 64'
 FILE=../../bins/pe/normal64.exe
 ARGS='-n'
-CMDS="!rabin2 -I ${FILE} | grep \"machine	AMD 64\" "
+CMDS="!rabin2 -I ${FILE} | grep \"machine  AMD 64\" "
 
-EXPECT='machine	AMD 64
+EXPECT='machine  AMD 64
 '
 
 run_test
@@ -34,9 +34,9 @@ run_test
 NAME='PE: corkami normal64.exe - class PE32+'
 FILE=../../bins/pe/normal64.exe
 ARGS='-n'
-CMDS="!rabin2 -I ${FILE} | grep \"class	PE32+\" "
+CMDS="!rabin2 -I ${FILE} | grep \"class    PE32+\" "
 
-EXPECT='class	PE32+
+EXPECT='class    PE32+
 '
 
 run_test

@@ -6,6 +6,6 @@ FILE=../../bins/elf/elf-nx
 ARGS='-A'
 CMDS="iI~^nx"
 
-EXPECT='nx	true
+EXPECT='nx       true
 '
 run_test

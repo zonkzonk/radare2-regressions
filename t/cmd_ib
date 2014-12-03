@@ -18,40 +18,40 @@ if
 af
 pdf
 '
-EXPECT='file	malloc://1024
-type	JAVA CLASS
-pic	false
-canary	false
-nx	false
-crypto	false
-has_va	false
-root	class
-class	0x3200 0x0000
-lang	java
-arch	java
-bits	32
-machine	java
-os	any
-subsys	any
-endian	little
-strip	false
-static	false
-linenum	true
-lsyms	true
-relocs	false
-rpath	NONE
-type	JAVA CLASS
-os	any
-arch	java
-bits	32
-endian	little
-file	malloc://1024
-fd	42
-size	0x400
-mode	r--
-uri	malloc://1024
-block	0x100
-format	java
+EXPECT='file      malloc://1024
+type      JAVA CLASS
+pic      false
+canary      false
+nx      false
+crypto      false
+has_va      false
+root      class
+class      0x3200 0x0000
+lang      java
+arch      java
+bits      32
+machine      java
+os      any
+subsys      any
+endian      little
+strip      false
+static      false
+linenum      true
+lsyms      true
+relocs      false
+rpath      NONE
+type      JAVA CLASS
+os      any
+arch      java
+bits      32
+endian      little
+file      malloc://1024
+fd      42
+size      0x400
+mode      r--
+uri      malloc://1024
+block      0x100
+format      java
 / (fcn) sym.TestVariableSwitchUp.TestMultipleVariable 37
 | 0x000002fd    1064         bipush 100
 | 0x000002ff    b8000f       invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;

@@ -55,7 +55,7 @@ FILE=malloc://1024
 ARGS=
 CMDS='i~^size
 '
-EXPECT='size	0x400
+EXPECT='size     0x400
 '
 run_test
 
@@ -64,7 +64,7 @@ FILE=malloc://1024
 ARGS=
 CMDS='i~0x400$
 '
-EXPECT='size	0x400
+EXPECT='size     0x400
 '
 run_test
 

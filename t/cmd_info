@@ -27,65 +27,65 @@ iS*
 iz
 iz*
 '
-EXPECT='file      malloc://1025
-type      
+EXPECT='file     malloc://1025
+type     
 pic      false
-canary      false
-nx      false
-crypto      false
-has_va      false
-root      
-class      
-lang      
-arch      
-bits      32
-machine      
-os      
-subsys      
-endian      little
-strip      false
-static      true
-linenum      false
-lsyms      false
-relocs      false
-rpath      
-type      
-os      
-arch      
-bits      32
-endian      little
-file      malloc://1025
-fd      42
-size      0x401
-mode      r--
+canary   false
+nx       false
+crypto   false
+va       false
+root     
+class    
+lang     
+arch     
+bits     32
+machine  
+os       
+subsys   
+endian   little
+strip    false
+static   true
+linenum  false
+lsyms    false
+relocs   false
+rpath    
+type     
+os       
+arch     
+bits     32
+endian   little
+file     malloc://1025
+fd       42
+size     0x401
+mode     r--
 uri      malloc://1025
-block      0x100
-format      any
+block    0x100
+format   any
 [Imports]
 
 0 imports
-file      malloc://1025
-type      
+file     malloc://1025
+type     
 pic      false
-canary      false
-nx      false
-crypto      false
-has_va      false
-root      
-class      
-lang      
-arch      
-bits      32
-machine      
-os      
-subsys      
-endian      little
-strip      false
-static      true
-linenum      false
-lsyms      false
-relocs      false
-rpath      
+canary   false
+nx       false
+crypto   false
+va       false
+root     
+class    
+lang     
+arch     
+bits     32
+machine  
+os       
+subsys   
+endian   little
+strip    false
+static   true
+linenum  false
+lsyms    false
+relocs   false
+rpath    
 [Imports]
 
 0 imports
@@ -103,28 +103,28 @@ fs imports
 
 0 imports
 fs imports
-file      malloc://1025
-type      
+file     malloc://1025
+type     
 pic      false
-canary      false
-nx      false
-crypto      false
-has_va      false
-root      
-class      
-lang      
-arch      
-bits      32
-machine      
-os      
-subsys      
-endian      little
-strip      false
-static      true
-linenum      false
-lsyms      false
-relocs      false
-rpath      
+canary   false
+nx       false
+crypto   false
+va       false
+root     
+class    
+lang     
+arch     
+bits     32
+machine  
+os       
+subsys   
+endian   little
+strip    false
+static   true
+linenum  false
+lsyms    false
+relocs   false
+rpath    
 e file.type=
 e cfg.bigendian=false
 e asm.os=
@@ -146,52 +146,52 @@ fs symbols
 fs sections
 '
 # fd changes in each test, replace it with 42.
-FILTER='sed "s/^fd	[0-9][0-9]*/fd	42/"'
+FILTER='sed "s/^fd       [0-9][0-9]*/fd       42/"'
 run_test
 
 NAME='i (file x86)'
 FILE=../bins/elf/x86-helloworld-gcc
 ARGS=
 CMDS="i"
-EXPECT='file      ../bins/elf/x86-helloworld-gcc
-type      EXEC (Executable file)
+EXPECT='file     ../bins/elf/x86-helloworld-gcc
+type     EXEC (Executable file)
 pic      false
-canary      false
-nx      true
-crypto      false
-has_va      true
-root      elf
-class      ELF32
-lang      c
-arch      x86
-bits      32
-machine      Intel 80386
-os      linux
-subsys      linux
-endian      little
-strip      false
-static      false
-linenum      true
-lsyms      true
-relocs      true
-rpath      NONE
-type      EXEC (Executable file)
-os      linux
-arch      Intel 80386
-bits      32
-endian      little
-file      ../bins/elf/x86-helloworld-gcc
-fd      42
-size      0x1323
-mode      r--
+canary   false
+nx       true
+crypto   false
+va       true
+root     elf
+class    ELF32
+lang     c
+arch     x86
+bits     32
+machine  Intel 80386
+os       linux
+subsys   linux
+endian   little
+strip    false
+static   false
+linenum  true
+lsyms    true
+relocs   true
+rpath    NONE
+type     EXEC (Executable file)
+os       linux
+arch     Intel 80386
+bits     32
+endian   little
+file     ../bins/elf/x86-helloworld-gcc
+fd       6
+size     0x1323
+mode     r--
 uri      ../bins/elf/x86-helloworld-gcc
-block      0x100
-format      elf
+block    0x100
+format   elf
 '
 # fd changes in each test, replace it with 42.
-FILTER='sed "s/^fd	[0-9][0-9]*/fd	42/;
-             s/^file	\/.*\.\.\/bins\/elf\/x86-simple$/file	..\/bins\/elf\/x86-simple/;
-             s/^File=\/.*\.\.\/bins\/elf\/x86-simple$/File=..\/bins\/elf\/x86-simple/"'
+FILTER='sed "s/^fd	[0-9][0-9]*/fd       42/;
+           s/^file	\/.*\.\.\/bins\/elf\/x86-simple$/file	..\/bins\/elf\/x86-simple/;
+           s/^File=\/.*\.\.\/bins\/elf\/x86-simple$/File=..\/bins\/elf\/x86-simple/"'
 run_test
 
 NAME='iA (file x86)'
@@ -251,33 +251,33 @@ NAME='iI (file x86)'
 FILE=../bins/elf/x86-helloworld-gcc
 ARGS=
 CMDS="iI"
-EXPECT='file      ../bins/elf/x86-helloworld-gcc
-type      EXEC (Executable file)
+EXPECT='file     ../bins/elf/x86-helloworld-gcc
+type     EXEC (Executable file)
 pic      false
-canary      false
-nx      true
-crypto      false
-has_va      true
-root      elf
-class      ELF32
-lang      c
-arch      x86
-bits      32
-machine      Intel 80386
-os      linux
-subsys      linux
-endian      little
-strip      false
-static      false
-linenum      true
-lsyms      true
-relocs      true
-rpath      NONE
+canary   false
+nx       true
+crypto   false
+va       true
+root     elf
+class    ELF32
+lang     c
+arch     x86
+bits     32
+machine  Intel 80386
+os       linux
+subsys   linux
+endian   little
+strip    false
+static   false
+linenum  true
+lsyms    true
+relocs   true
+rpath    NONE
 '
 # fd changes in each test, replace it with 42.
-FILTER='sed "s/^fd	[0-9][0-9]*/fd	42/;
-             s/^file	\/.*\.\.\/bins\/elf\/x86-simple$/file	..\/bins\/elf\/x86-simple/;
-             s/^File=\/.*\.\.\/bins\/elf\/x86-simple$/File=..\/bins\/elf\/x86-simple/"'
+FILTER='sed "s/^fd	[0-9][0-9]*/fd       42/;
+           s/^file	\/.*\.\.\/bins\/elf\/x86-simple$/file	..\/bins\/elf\/x86-simple/;
+           s/^File=\/.*\.\.\/bins\/elf\/x86-simple$/File=..\/bins\/elf\/x86-simple/"'
 run_test
 
 NAME='iS (file x86)'
@@ -402,45 +402,45 @@ NAME='i (file x86_64)'
 FILE=../bins/elf/hello-linux-x86_64
 ARGS=
 CMDS="i"
-EXPECT='file      ../bins/elf/hello-linux-x86_64
-type      EXEC (Executable file)
+EXPECT='file     ../bins/elf/hello-linux-x86_64
+type     EXEC (Executable file)
 pic      false
-canary      false
-nx      true
-crypto      false
-has_va      true
-root      elf
-class      ELF64
-lang      c
-arch      x86
-bits      64
-machine      AMD x86-64 architecture
-os      linux
-subsys      linux
-endian      little
-strip      false
-static      false
-linenum      true
-lsyms      true
-relocs      true
-rpath      NONE
-type      EXEC (Executable file)
-os      linux
-arch      AMD x86-64 architecture
-bits      64
-endian      little
-file      ../bins/elf/hello-linux-x86_64
-fd      42
-size      0x1a36
-mode      r--
+canary   false
+nx       true
+crypto   false
+va       true
+root     elf
+class    ELF64
+lang     c
+arch     x86
+bits     64
+machine  AMD x86-64 architecture
+os       linux
+subsys   linux
+endian   little
+strip    false
+static   false
+linenum  true
+lsyms    true
+relocs   true
+rpath    NONE
+type     EXEC (Executable file)
+os       linux
+arch     AMD x86-64 architecture
+bits     64
+endian   little
+file     ../bins/elf/hello-linux-x86_64
+fd       6
+size     0x1a36
+mode     r--
 uri      ../bins/elf/hello-linux-x86_64
-block      0x100
-format      elf64
+block    0x100
+format   elf64
 '
 # fd changes in each test, replace it with 42.
-FILTER='sed "s/^fd	[0-9][0-9]*/fd	42/;
-             s/^file	\/.*\.\.\/bins\/elf\/x86_64-simple$/file	..\/bins\/elf\/x86_64-simple/;
-             s/^File=\/.*\.\.\/bins\/elf\/x86_64-simple$/File=..\/bins\/elf\/x86_64-simple/"'
+FILTER='sed "s/^fd	[0-9][0-9]*/fd       42/;
+           s/^file	\/.*\.\.\/bins\/elf\/x86_64-simple$/file	..\/bins\/elf\/x86_64-simple/;
+           s/^File=\/.*\.\.\/bins\/elf\/x86_64-simple$/File=..\/bins\/elf\/x86_64-simple/"'
 run_test
 
 NAME='iA (file x86_64)'
@@ -500,33 +500,33 @@ NAME='iI (file x86_64)'
 FILE=../bins/elf/hello-linux-x86_64
 ARGS=
 CMDS="iI"
-EXPECT='file      ../bins/elf/hello-linux-x86_64
-type      EXEC (Executable file)
+EXPECT='file     ../bins/elf/hello-linux-x86_64
+type     EXEC (Executable file)
 pic      false
-canary      false
-nx      true
-crypto      false
-has_va      true
-root      elf
-class      ELF64
-lang      c
-arch      x86
-bits      64
-machine      AMD x86-64 architecture
-os      linux
-subsys      linux
-endian      little
-strip      false
-static      false
-linenum      true
-lsyms      true
-relocs      true
-rpath      NONE
+canary   false
+nx       true
+crypto   false
+va       true
+root     elf
+class    ELF64
+lang     c
+arch     x86
+bits     64
+machine  AMD x86-64 architecture
+os       linux
+subsys   linux
+endian   little
+strip    false
+static   false
+linenum  true
+lsyms    true
+relocs   true
+rpath    NONE
 '
 # fd changes in each test, replace it with 42.
-FILTER='sed "s/^fd	[0-9][0-9]*/fd	42/;
-             s/^file	\/.*\.\.\/bins\/elf\/hello-linux-x86_64$/file	..\/bins\/elf\/hello-linux-x86_64/;
-             s/^File=\/.*\.\.\/bins\/elf\/hello-linux-x86_64/File=..\/bins\/elf\/hello-linux-x86_64/"'
+FILTER='sed "s/^fd	[0-9][0-9]*/fd       42/;
+           s/^file	\/.*\.\.\/bins\/elf\/hello-linux-x86_64$/file	..\/bins\/elf\/hello-linux-x86_64/;
+           s/^File=\/.*\.\.\/bins\/elf\/hello-linux-x86_64/File=..\/bins\/elf\/hello-linux-x86_64/"'
 run_test
 
 NAME='iS (file x86_64)'

@@ -17,7 +17,7 @@ run_test
 
 NAME='capstone pae 0xed31'
 FILE=-
-BROKEN=1
+BROKEN=
 CMDS='
 pae 0xed31
 '

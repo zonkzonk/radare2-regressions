@@ -1,5 +1,5 @@
 #!/bin/sh
-MASTER=~/prg/radare2
+MASTER=/home/maijin/radare2/
 COPIES=~/prg/r2-v
 
 mkdir -p ${COPIES}

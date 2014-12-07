@@ -336,7 +336,6 @@ EXPECT='            0x8060b4f8    00000000     nop
 '
 run_test
 
-exit 1
 NAME="capstone: mips branch delay function detection #1."
 BROKEN=1
 FILE=malloc://160

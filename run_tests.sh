@@ -19,6 +19,12 @@
 
 cd `dirname $0` 2>/dev/null
 
+r2 -v
+if [ $? != 0 ]; then
+	echo "Cannot find r2"
+	exit 1
+fi
+
 # Statistics.
 TESTS_TOTAL=0
 TESTS_SUCCESS=0

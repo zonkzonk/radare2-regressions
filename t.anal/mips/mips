@@ -67,7 +67,7 @@ e anal.eobjmp=true
 e anal.nopskip=false
 e anal.depth=2
 e asm.lines=0
-wx 0800040c000000000000000000000000000000000000000040040408000000000800e0030000000000000000
+wx 0800040c000000000000000000000000000000000000000040040408000000000800e00300000000
 aa 2> /dev/null
 pd 10
 "
@@ -91,7 +91,7 @@ run_test
 # Test that jumps / calls used mapped address if used (Case 2 - mapped)
 #
 NAME="mips LE correct relative jump reference if mapped from command line."
-BROKEN=1
+BROKEN=
 FILE=malloc://40
 ARGS='-m 0x80100000'
 CMDS="e asm.bits=32
@@ -99,27 +99,24 @@ e asm.arch=${PLUGIN}
 e anal.eobjmp=false
 e anal.depth=3
 e asm.lines=0
-wx 0800040c000000000000000000000000000000000000000040040408000000000800e0030000000000000000
+wx 0800040c000000000000000000000000000000000000000040040408000000000800e00300000000
 af 2> /dev/null
 pd 10
 afl
 "
-EXPECT='/ (fcn) fcn.80100000 32
-| 0x80100000    0800040c     jal fcn.80100020
-|    fcn.80100020()
+EXPECT='/ (fcn) fcn.80100000 40
+| 0x80100000    0800040c     jal 0x80100020                            ; (fcn.80100000)
+|    fcn.80100000()
 | 0x80100004    00000000     nop
 | 0x80100008    00000000     nop
 | 0x8010000c    00000000     nop
 | 0x80100010    00000000     nop
 | 0x80100014    00000000     nop
 | 0x80100018    40040408     j 0x80101100
-\ 0x8010001c    00000000     nop
-  ; CALL XREF from 0x80100000 (fcn.80100000)
-/ (fcn) fcn.80100020 8
+| 0x8010001c    00000000     nop
 | 0x80100020    0800e003     jr ra
 \ 0x80100024    00000000     nop
-0x80100000  32  1  fcn.80100000
-0x80100020  8  1  fcn.80100020
+0x80100000  40  1  fcn.80100000
 '
 run_test
 

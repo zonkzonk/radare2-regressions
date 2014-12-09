@@ -57,7 +57,8 @@ test_vector "${PLUGIN}" "DADDI" 00000060 'daddi zero, zero, 0'
 test_vector "${PLUGIN}" "DADDIU" 00000064 'daddiu zero, zero, 0'
 test_vector "${PLUGIN}" "J" 00000008 "j 0x00000000"
 test_vector "${PLUGIN}" "JAL" 0000000c "jal 0x00000000"
-test_vector "${PLUGIN}" "JALX" 00000074 'jalx 0x00000001'
+test_vector "${PLUGIN}" "JALX" 00000074 'jalx 0x00000000'
+test_vector "${PLUGIN}" "JALX" 01000074 'jalx 0x00000004'
 test_vector "${PLUGIN}" "LB" 00000080 'lb zero, 0(zero)'
 test_vector "${PLUGIN}" "LBU" 00000090 'lbu zero, 0(zero)'
 test_vector "${PLUGIN}" "LD" 000000dc 'ld zero, 0(zero)'

@@ -51,7 +51,8 @@ test_vector "${PLUGIN}" "BNEZL" 00000055 'bnezl t0, 8'
 test_vector "${PLUGIN}" "CACHE" 000000bc 'cache 0, (zero)'
 test_vector "${PLUGIN}" "J" 00000008 "j 0"
 test_vector "${PLUGIN}" "JAL" 0000000c "jal 0"
-test_vector "${PLUGIN}" "JALX" 00000074 'jalx 1'
+test_vector "${PLUGIN}" "JALX" 00000074 'jalx 0'
+test_vector "${PLUGIN}" "JALX" 01000074 'jalx 4'
 test_vector "${PLUGIN}" "LB" 00000080 'lb zero, (zero)'
 test_vector "${PLUGIN}" "LBU" 00000090 'lbu zero, (zero)'
 test_vector "${PLUGIN}" "LDC1" 000000d4 'ldc1 f0, (zero)'

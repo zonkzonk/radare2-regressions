@@ -47,6 +47,7 @@ FILE=/tmp/r2-regressions/dwarftest
 IGNORE_ERR=1
 ARGS=
 CMDS='e asm.dwarf=true
+e scr.interactive=false
 e asm.arch=x86.udis
 e anal.eobjmp=false
 e anal.nopskip=true

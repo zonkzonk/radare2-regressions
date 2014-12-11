@@ -16,3 +16,11 @@ CMDS="?v sym.main"
 EXPECT='0x400506
 '
 run_test
+
+NAME='ELF: pie main'
+FILE=../../bins/elf/pie-main
+ARGS=''
+CMDS="?v main"
+EXPECT='0x403bd0
+'
+run_test

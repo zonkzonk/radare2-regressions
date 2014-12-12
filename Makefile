@@ -18,6 +18,7 @@ all:
 	@sh run_tests.sh t.formats/mach0
 	@sh run_tests.sh t.formats/xbe
 	@sh run_tests.sh t.formats/firmware
+	@sh run_tests.sh t.pe
 
 asm:
 	@sh run_tests.sh t.asm/8051

@@ -1,5 +1,5 @@
 #!/bin/sh
-for a in ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh && break ; done
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='dll import function names bug for ws2_32.dll'
 FILE=../../bins/pe/Lab05-01.dll

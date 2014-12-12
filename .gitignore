@@ -2,3 +2,6 @@
 *.un~
 
 /stats.csv
+
+/t/io/.newfile
+/t/seek/.empty.tmp

@@ -1,0 +1,41 @@
+#!/bin/sh
+
+# GPL 3+ - Copyright (C) 2014  maijin
+
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+analysis_test() {
+NAME="elf analysis $1"
+IGNORE_ERR=1
+BROKEN=
+FILE=../../bins/elf/$1
+ARGS=
+CMDS='Aq'
+EXPECT=''
+run_test
+}
+
+fuzz_test() {
+NAME="fuzzez elf analysis $1"
+IGNORE_ERR=1
+BROKEN=
+FILE=../../bins/elf/zzufed/$1
+ARGS=
+CMDS='Aq'
+EXPECT=''
+run_test
+}
+
+
+for FILE in $(ls ../../bins/elf/); do 
+	if [ -f ../../bins/elf/$FILE ]; then
+    	analysis_test $FILE
+    fi
+done
+
+
+for FILE in $(ls ../../bins/elf/zzufed/); do 
+	if [ -f ../../bins/elf/zzufed/$FILE ]; then
+    	fuzz_test $FILE
+    fi
+done

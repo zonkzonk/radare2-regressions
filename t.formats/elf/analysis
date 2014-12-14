@@ -10,7 +10,7 @@ IGNORE_ERR=1
 BROKEN=
 FILE=../../bins/elf/$1
 ARGS=
-CMDS='Aq'
+CMDS='aa ; q'
 EXPECT=''
 run_test
 }
@@ -21,7 +21,7 @@ IGNORE_ERR=1
 BROKEN=
 FILE=../../bins/elf/zzufed/$1
 ARGS=
-CMDS='Aq'
+CMDS='aa ; q'
 EXPECT=''
 run_test
 }

@@ -10,7 +10,7 @@ IGNORE_ERR=1
 BROKEN=
 FILE=$2
 ARGS=
-CMDS='Aq'
+CMDS='aa ; q'
 EXPECT=''
 run_test
 }

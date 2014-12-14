@@ -5,7 +5,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 analysis_test() {
-NAME="elf analysis $1"
+NAME="elf $1"
 IGNORE_ERR=1
 BROKEN=
 FILE=../../bins/elf/$1
@@ -16,7 +16,7 @@ run_test
 }
 
 fuzz_test() {
-NAME="fuzzez elf analysis $1"
+NAME="fuzzed elf $1"
 IGNORE_ERR=1
 BROKEN=
 FILE=../../bins/elf/zzufed/$1

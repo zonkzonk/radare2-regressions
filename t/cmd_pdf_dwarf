@@ -10,14 +10,15 @@ IGNORE_ERR=1
 ARGS=
 CMDS='e asm.dwarf=true
 e asm.arch=x86.udis
+e asm.varsub=false
 e anal.eobjmp=false
 e anal.nopskip=true # if set to true it fucks the test
 aa # full analysis fuckups main
 pd 1 @main'
-EXPECT='|          ; DATA XREF from 0x0040045d (entry0)
-arg int arg_fc @ rbp+252
-var int local_4 @ rbp-4
-/ (fcn) main 44
+EXPECT='/ (fcn) sym.main 44
+|          ; var int local_4 @ rbp-0x4
+|          ; arg int arg_fc @ rbp+0xfc
+|          ; DATA XREF from 0x0040045d (entry0)
 |          0x0040052d    55           push rbp                          ; dwarftest.c:4 {
 '
 run_test
@@ -30,13 +31,14 @@ ARGS=
 CMDS='e asm.dwarf=true
 e asm.arch=x86.udis
 e anal.eobjmp=false
+e asm.varsub=false
 e anal.nopskip=true # if set to true it fucks the test
 af@main # full analysis fuckups main
 pd 1 @main'
-EXPECT='|          ; DATA XREF from 0x0040045d (sym._start)
-arg int arg_fc @ rbp+252
-var int local_4 @ rbp-4
-/ (fcn) sym.main 44
+EXPECT='/ (fcn) sym.main 44
+|          ; var int local_4 @ rbp-0x4
+|          ; arg int arg_fc @ rbp+0xfc
+|          ; DATA XREF from 0x0040045d (sym._start)
 |          0x0040052d    55           push rbp                          ; dwarftest.c:4 {
 '
 run_test
@@ -49,14 +51,15 @@ ARGS=
 CMDS='e asm.dwarf=true
 e scr.interactive=false
 e asm.arch=x86.udis
+e asm.varsub=false
 e anal.eobjmp=false
 e anal.nopskip=true
 af@main
 pdf@main'
-EXPECT='|          ; DATA XREF from 0x0040045d (sym._start)
-arg int arg_fc @ rbp+252
-var int local_4 @ rbp-4
-/ (fcn) sym.main 44
+EXPECT='/ (fcn) sym.main 44
+|          ; var int local_4 @ rbp-0x4
+|          ; arg int arg_fc @ rbp+0xfc
+|          ; DATA XREF from 0x0040045d (sym._start)
 |          0x0040052d    55           push rbp                          ; dwarftest.c:4 {
 |          0x0040052e    4889e5       mov rbp, rsp
 |          0x00400531    4883ec10     sub rsp, 0x10

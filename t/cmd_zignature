@@ -34,6 +34,6 @@ zb sym.fmt.Println 653b2530000000724b53b834e7150883ec188b15401c22088d4c24048b5c2
 aa
 axt 0x805b030
 '
-EXPECT='C 0x8049adb call fcn.0805b030
+EXPECT='C 0x8049adb call sign.sign.b.sym.fmt.Println
 '
 run_test

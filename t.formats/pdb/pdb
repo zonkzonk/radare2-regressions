@@ -243,15 +243,97 @@ EXPECT='0x0
 '
 
 run_test
+rabin2 -Pr ~/Projects/radare2-regressions/bins/pdb/Project1.pdb 
+###############################################################################
+NAME='enumerate export test'
+BROKEN=
+FILE=../../bins/pdb/Project1.pdb
+ARGS=
+CMDS='!rabin2 -Pr ${FILE} | grep -ao R2_TEST_ENUM'
+EXPECT='R2_TEST_ENUM
+'
+run_test
+
+NAME='enumerate value1 export test'
+BROKEN=
+FILE=../../bins/pdb/Project1.pdb
+ARGS=
+CMDS='!rabin2 -Pr ${FILE} | grep -ao eENUM1_R2=00000010'
+EXPECT='eENUM1_R2=00000010
+'
+run_test
+
+NAME='enumerate value2 export test'
+BROKEN=
+FILE=../../bins/pdb/Project1.pdb
+ARGS=
+CMDS='!rabin2 -Pr ${FILE} | grep -ao eENUM2_R2=00000020'
+EXPECT='eENUM2_R2=00000020
+'
+run_test
+
+NAME='enumerate value3 export test'
+BROKEN=
+FILE=../../bins/pdb/Project1.pdb
+ARGS=
+CMDS='!rabin2 -Pr ${FILE} | grep -ao eENUM_R2_MAX=00000021'
+EXPECT='eENUM_R2_MAX=00000021
+'
+run_test
+###############################################################################
+NAME='struct export test'
+BROKEN=
+FILE=../../bins/pdb/Project1.pdb
+ARGS=
+CMDS='!rabin2 -Pr ${FILE} | grep -ao R2_TEST_STRUCT'
+EXPECT='R2_TEST_STRUCT
+'
+run_test
+
+NAME='struct export command'
+BROKEN=
+FILE=../../bins/pdb/Project1.pdb
+ARGS=
+CMDS='!rabin2 -Pr ${FILE} | grep R2_TEST_STRUCT | grep -ao pf'
+EXPECT='pf
+'
+run_test
+
+NAME='struct export types'
+BROKEN=
+FILE=../../bins/pdb/Project1.pdb
+ARGS=
+CMDS='!rabin2 -Pr ${FILE} | grep R2_TEST_STRUCT | grep -ao iw'
+EXPECT='iw
+'
+run_test
+
+NAME='struct export name1'
+BROKEN=
+FILE=../../bins/pdb/Project1.pdb
+ARGS=
+CMDS='!rabin2 -Pr ${FILE} | grep R2_TEST_STRUCT | grep -ao r2_struct_var_1'
+EXPECT='r2_struct_var_1
+'
+run_test
+
+NAME='struct export name2'
+BROKEN=
+FILE=../../bins/pdb/Project1.pdb
+ARGS=
+CMDS='!rabin2 -Pr ${FILE} | grep R2_TEST_STRUCT | grep -ao r2_struct_var_2'
+EXPECT='r2_struct_var_2
+'
+run_test
+
 ###############################################################################
 NAME='PDB downloader check'
 BROKEN=
 FILE=../../bins/pdb/user32.dll
 ARGS=
-CMDS='!sudo rabin2 -PP ${FILE}~All done, no errors'
+CMDS='!rabin2 -PP ${FILE}~All done, no errors'
 EXPECT='
 All done, no errors.
 '
 run_test
-
 

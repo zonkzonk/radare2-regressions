@@ -331,9 +331,7 @@ NAME='PDB downloader check'
 BROKEN=
 FILE=../../bins/pdb/user32.dll
 ARGS=
-CMDS='!rabin2 -PP ${FILE}~All done, no errors'
-EXPECT='
-All done, no errors.
+CMDS='!rabin2 -PP ${FILE}~PDB file user32.pdb has been downloaded sucessfully'
+EXPECT='PDB file user32.pdb has been downloaded sucessfully
 '
 run_test
-

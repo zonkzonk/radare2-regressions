@@ -335,3 +335,13 @@ CMDS='!rabin2 -PP ${FILE}~PDB file user32.pdb has been downloaded sucessfully'
 EXPECT='PDB file user32.pdb has been downloaded sucessfully
 '
 run_test
+
+###############################################################################
+NAME='GUID CHECK'
+BROKEN=
+FILE=../../bins/pdb/user32.dll
+ARGS=
+CMDS='!rabin2 -I ${FILE} | grep -ao 15F778B3671D4EFDBDCDE79905308B792'
+EXPECT='15F778B3671D4EFDBDCDE79905308B792
+'
+run_test

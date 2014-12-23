@@ -37,8 +37,8 @@ TESTS_FATAL=0
 R2_SOURCED=1
 
 control_c() {
-	echo
-	exit 1
+  echo
+  exit 1
 }
 trap control_c 2
 
@@ -46,8 +46,8 @@ trap control_c 2
 
 r2 > /dev/null
 if [ $? != 0 ]; then
-    echo "Cannot find r2"
-    exit 1
+  echo "Cannot find r2"
+  exit 1
 fi
 
 
@@ -70,7 +70,9 @@ for file in * ; do
          TEST_NAME=$(echo "${file2}" | sed 's/.sh$//')
 	 NAME=`basename $file2`
          TEST_NAME=$file
-         . ./${file2}
+         if [ -f "${file2}" ]; then
+           . ./${file2}
+         fi
       done
       cd ..
    elif [ ! -x "$file" ]; then	# Only run files marked as executable.

@@ -8,8 +8,13 @@ Originally based on work by and now in collaboration with pancake.
 Directory Hierarchy
 -------------------
 
- * t/:           Test scripts.
- * b/:           Sample binaries.
+ * t.anal/:      Test scripts covering code analysis within radare2
+ * t.asm/:       Test scripts covering assembly within radare2
+ * t.esil/:      Test scripts covering use of ESIL within radare2
+ * t.formats/:   Test scripts covering detection of binaries within radare2
+ * t.archos/:    Platform specific test scripts
+ * t/:           Test scripts (presently uncategorised)
+ * bins/:        Sample binaries.
  * test.sh:      Test driver script sourced by tests (not to be run manually).
  * run_tests.sh: Run tests for the core features.
 

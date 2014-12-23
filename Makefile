@@ -119,6 +119,10 @@ capstone:
 	@sh run_tests.sh t.asm/capstone
 	@sh run_tests.sh t.anal/capstone
 
+utils:
+	@sh run_tests.sh t/rasm2
+	@sh run_tests.sh t/rabin2
+
 broken:
 	@cd t ; grep BROKEN=1 * | cut -d : -f1 |sort -u
 

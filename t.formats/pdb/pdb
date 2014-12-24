@@ -243,7 +243,6 @@ EXPECT='0x0
 '
 
 run_test
-rabin2 -Pr ~/Projects/radare2-regressions/bins/pdb/Project1.pdb 
 ###############################################################################
 NAME='enumerate export test'
 BROKEN=

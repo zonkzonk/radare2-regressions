@@ -329,7 +329,7 @@ run_test
 NAME='PDB downloader check'
 BROKEN=
 FILE=../../bins/pdb/user32.dll
-ARGS=
+ARGS="-e pdb.server=http://radare.org/"
 CMDS='!rabin2 -PP ${FILE} | grep "user32.pdb has been downloaded sucessfully"
 rm user32.pdb'
 EXPECT='PDB file user32.pdb has been downloaded sucessfully

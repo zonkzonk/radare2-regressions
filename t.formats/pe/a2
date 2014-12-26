@@ -56,5 +56,34 @@ EXPECT='0x00401000 0 ___mingw_CRTStartup
 0x00401cb0 0 _LeaveCriticalSection_4
 0x00401c30 0 _printf
 0x00401c40 0 _vfprintf
+0x000060b8 0 imp.KERNEL32.dll_DeleteCriticalSection
+0x000060bc 0 imp.KERNEL32.dll_EnterCriticalSection
+0x000060c0 0 imp.KERNEL32.dll_ExitProcess
+0x000060c4 0 imp.KERNEL32.dll_GetLastError
+0x000060c8 0 imp.KERNEL32.dll_GetModuleHandleA
+0x000060cc 0 imp.KERNEL32.dll_GetProcAddress
+0x000060d0 0 imp.KERNEL32.dll_InitializeCriticalSection
+0x000060d4 0 imp.KERNEL32.dll_LeaveCriticalSection
+0x000060d8 0 imp.KERNEL32.dll_SetUnhandledExceptionFilter
+0x000060dc 0 imp.KERNEL32.dll_TlsGetValue
+0x000060e0 0 imp.KERNEL32.dll_VirtualProtect
+0x000060e4 0 imp.KERNEL32.dll_VirtualQuery
+0x000060ec 0 imp.msvcrt.dll___getmainargs
+0x000060f0 0 imp.msvcrt.dll___p__environ
+0x000060f4 0 imp.msvcrt.dll___p__fmode
+0x000060f8 0 imp.msvcrt.dll___set_app_type
+0x000060fc 0 imp.msvcrt.dll__cexit
+0x00006100 0 imp.msvcrt.dll__iob
+0x00006104 0 imp.msvcrt.dll__onexit
+0x00006108 0 imp.msvcrt.dll__setmode
+0x0000610c 0 imp.msvcrt.dll_abort
+0x00006110 0 imp.msvcrt.dll_atexit
+0x00006114 0 imp.msvcrt.dll_calloc
+0x00006118 0 imp.msvcrt.dll_free
+0x0000611c 0 imp.msvcrt.dll_fwrite
+0x00006120 0 imp.msvcrt.dll_memcpy
+0x00006124 0 imp.msvcrt.dll_printf
+0x00006128 0 imp.msvcrt.dll_signal
+0x0000612c 0 imp.msvcrt.dll_vfprintf
 '
 run_test

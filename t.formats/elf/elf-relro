@@ -1,7 +1,7 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
-NAME='PE: corkami elf-relro - sections'
+NAME='ELF: corkami elf-relro - sections'
 FILE=../../bins/elf/elf-relro
 ARGS=''
 CMDS="S~rel"
@@ -10,7 +10,7 @@ EXPECT='[08] . 0x0000027c r-- va=0x0804827c sz=0x0008 vsz=0x0008 .rel.dyn
 '
 run_test
 
-NAME='PE: corkami elf-relro - relro enabled'
+NAME='ELF: corkami elf-relro - relro enabled'
 FILE=../../bins/elf/elf-relro
 ARGS=''
 CMDS="ik~relro"

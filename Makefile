@@ -132,4 +132,17 @@ clean:
 install:
 	ln -fs `pwd`/r2-v /usr/bin/r2-v
 
+
+tested:
+	@grep -re FILE= t*  | cut -d : -f 2- | sed -e 's/^.*bins\///g' |sort -u | grep -v FILE
+
+untested:
+	@${MAKE} -s tested > .a
+	@${MAKE} -s allbins > .b
+	@diff -ru .a .b | grep ^+ | grep -v +++ | cut -c 2-
+	@rm -f .a .b
+
+allbins:
+	@cd bins ; find * -type f |sort -u
+
 .PHONY: all clean

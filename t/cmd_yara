@@ -44,14 +44,15 @@ EXPECT='elf
 run_test
 
 NAME='yara tags'
-BROKEN=1
 CMDS='
 yara tags
 yara add ../files/test_yara.rules
 yara tags
 '
-EXPECT='crypto
+EXPECT='[YARA tags]
+crypto
 packer
+[YARA tags]
 crypto
 packer
 test_rule

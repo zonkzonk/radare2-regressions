@@ -194,7 +194,7 @@ ap
 afl
 '
 EXPECT='0x00001f00  73  3  sym._bar
-0x00001f50  47  2  sym._foo
-0x00001f80  41  2  sym._main
+0x00001f50  47  1  sym._foo
+0x00001f80  41  1  sym._main
 '
 run_test

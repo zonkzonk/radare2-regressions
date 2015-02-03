@@ -16,11 +16,11 @@ f kryten 32 666
 f+skutter 1 @ 12
 f
 '
-EXPECT='0x0000000c 1 skutter
-0x0000029a 32 kryten
-0x0000029a 32 lister
+EXPECT='0x00000000 1 cat
 0x00000000 12 rimmer
-0x00000000 1 cat
+0x0000029a 32 lister
+0x0000029a 32 kryten
+0x0000000c 1 skutter
 '
 run_test
 
@@ -34,7 +34,7 @@ f kryten 32 666
 f+skutter 1 @ 12
 fj
 '
-EXPECT='[{"name":"skutter","size":"1","offset":12},{"name":"kryten","size":"32","offset":666},{"name":"lister","size":"32","offset":666},{"name":"rimmer","size":"12","offset":0},{"name":"cat","size":"1","offset":0}]
+EXPECT='[{"name":"cat","size":"1","offset":0},{"name":"rimmer","size":"12","offset":0},{"name":"lister","size":"32","offset":666},{"name":"kryten","size":"32","offset":666},{"name":"skutter","size":"1","offset":12}]
 '
 run_test
 

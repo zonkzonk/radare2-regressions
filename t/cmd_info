@@ -125,6 +125,7 @@ linenum  false
 lsyms    false
 relocs   false
 rpath    
+e bin.lang=
 e file.type=
 e cfg.bigendian=false
 e asm.os=

@@ -44,8 +44,8 @@ e asm.anal = x86.cs
 e scr.color=false
 e scr.wheel = false
 aa
-axt @ str.Password_'
-EXPECT='d 0x804843c mov dword [esp], str.Password_
+axt @ str.Password:'
+EXPECT='d 0x804843c mov dword [esp], str.Password:
 '
 run_test
 
@@ -59,7 +59,7 @@ e asm.anal = x86.udis
 e scr.color=false
 e scr.wheel = false
 aa
-axt @ str.Password_'
-EXPECT='d 0x804843c mov dword [esp], str.Password_
+axt @ str.Password:'
+EXPECT='d 0x804843c mov dword [esp], str.Password:
 '
 run_test

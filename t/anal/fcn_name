@@ -10,7 +10,7 @@ IGNORE_ERR=1
 ARGS=
 CMDS='s 0x0040042c
 af
-pd 1~sym.call_gmon_start'
+pd 1~sym.call_gmon_start:0'
 EXPECT='/ (fcn) sym.call_gmon_start 23
 '
 run_test
@@ -24,7 +24,9 @@ BROKEN=
 IGNORE_ERR=1
 CMDS='s 0x0040042c
 af
-pd 1~sym.call_gmon_start'
-EXPECT='/ (fcn) sym.call_gmon_start 23
+afi~name
+pd 1~sym.call_gmon_start:0'
+EXPECT=' name: sym.call_gmon_start
+/ (fcn) sym.call_gmon_start 23
 '
 run_test

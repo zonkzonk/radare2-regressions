@@ -43,7 +43,7 @@ af
 pdr~true?
 pdr~false?
 '
-EXPECT='2
+EXPECT='3
 1
 '
 

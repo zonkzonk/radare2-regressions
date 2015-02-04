@@ -36,6 +36,8 @@ printdiff() {
         echo
         print_label Command:
         echo "${R2CMD}"
+        print_label File:
+        echo "${FILE}"
         print_label Script:
         cat ${TMP_RAD}
     fi

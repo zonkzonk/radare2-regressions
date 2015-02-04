@@ -137,10 +137,11 @@ FILE=../bins/mach0/mach0-i386
 BROKEN=1
 ARGS=
 CMDS='
-aa
+aa > /dev/null
 afl~sym.__mh_execute_header
 '
-EXPECT=''
+EXPECT='0x00001000  313  9  sym.__mh_execute_header
+'
 run_test
 
 
@@ -189,6 +190,7 @@ run_test
 
 NAME='function preludes'
 FILE=../bins/mach0/mach0-i386
+BROKEN=1
 CMDS='s 0x1000
 ap
 afl

@@ -3,7 +3,7 @@ PULLADDR=https://github.com/radare/radare2-regressions.git
 
 do:
 	-git pull ${PULLADDR}
-	@sh run_tests.sh
+	@time sh run_tests.sh
 
 all:
 	@sh run_tests.sh

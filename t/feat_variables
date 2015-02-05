@@ -90,6 +90,7 @@ wa mov eax, ebx
 '
 EXPECT='0x500
 0xffffffffffffffff
+
 '
 run_test
 

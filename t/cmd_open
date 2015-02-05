@@ -11,13 +11,15 @@ CMDS='o-`o~[1]`;o'
 EXPECT=
 run_test
 
+# 3, because one for the adress returned by o -,
+# and the two other are the opened files
 NAME='o -'
 FILE=malloc://1024
 ARGS=
 CMDS='e file.nowarn=true
 e file.loadmethod=append
 o -;o~?'
-EXPECT='2
+EXPECT='3
 '
 run_test
 

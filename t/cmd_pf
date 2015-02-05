@@ -211,6 +211,18 @@ EXPECT="0x00000000 = 0x00000000 -> 0x00000010 hello
 "
 run_test
 
+NAME='simple union test'
+FILE=malloc://1024
+ARGS=
+CMDS='e asm.bits=32
+wv 0x2a
+pf 0iw integer word
+'
+EXPECT="integer : 0x00000000 = 42
+   word : 0x00000000 = 0x002a
+"
+run_test
+
 NAME='simple nested struct'
 FILE=malloc://1024
 ARGS=
@@ -256,6 +268,27 @@ EXPECT="  firstInt : 0x00000000 = 42
             word : 0x00000014 = 0x002a
              Bah : (*0x0) NULL
       plop : 0x0000000e = 0x1664
+"
+run_test
+
+NAME='nested unions'
+FILE=malloc://1024
+ARGS=
+CMDS='e asm.bits=32
+wx 2a000000a00f0000a02000000172
+pf.struct xx first second
+pf.union 0i?w integer (struct)swagg word
+pf.plop i?w firstInt (union)Boh plop
+pf.plop
+'
+EXPECT="  firstInt : 0x00000000 = 42
+       Boh : struct<union>
+            integer : 0x00000004 = 4000
+              swagg : struct<struct>
+             first : 0x00000004 = 0x00000fa0
+            second : 0x00000008 = 0x000020a0
+               word : 0x00000004 = 0x0fa0
+      plop : 0x0000000c = 0x7201
 "
 run_test
 

@@ -238,10 +238,12 @@ pf.plop i??i firstInt (troll)One (troll)Two secondInt
 pf.plop
 '
 EXPECT="  firstInt : 0x00000000 = 42
-       One : struct<troll>
+       One : 
+          struct<troll>
       integer : 0x00000004 = 4000
          word : 0x00000008 = 0x002a
-       Two : struct<troll>
+       Two : 
+          struct<troll>
       integer : 0x0000000a = 16
          word : 0x0000000e = 0xbeef
  secondInt : 0x00000010 = 32
@@ -259,11 +261,12 @@ pf.plop i?w firstInt (troll)Boh plop
 pf.plop
 '
 EXPECT="  firstInt : 0x00000000 = 42
-       Boh : struct<troll>
+       Boh : 
+          struct<troll>
          integer : 0x00000004 = 4000
             word : 0x00000008 = 0x3412
-             Bah : (*0x10) struct<troll>
-            ---- : 
+             Bah : (*0x10) 
+          struct<troll>
          integer : 0x00000010 = 42
             word : 0x00000014 = 0x002a
              Bah : (*0x0) NULL
@@ -282,9 +285,11 @@ pf.plop i?w firstInt (union)Boh plop
 pf.plop
 '
 EXPECT="  firstInt : 0x00000000 = 42
-       Boh : struct<union>
+       Boh : 
+           union<union>
             integer : 0x00000004 = 4000
-              swagg : struct<struct>
+              swagg : 
+                struct<struct>
              first : 0x00000004 = 0x00000fa0
             second : 0x00000008 = 0x000020a0
                word : 0x00000004 = 0x0fa0
@@ -307,17 +312,19 @@ pf.gobelin
 '
 EXPECT="     blah : 0x00000000 = 0x1234
       meh : 0x00000002 = 0x6789
-      Buh : struct<plop>
+      Buh : 
+          struct<plop>
            first : 0x00000004 = 666
-             Boh : struct<troll>
+             Boh : 
+                struct<troll>
                integer : 0x00000008 = 4000
                   word : 0x0000000c = 0x002a
-                   Bah : (*0x30) struct<troll>
-                  ---- : 
+                   Bah : (*0x30) 
+                struct<troll>
                integer : 0x00000030 = 20
                   word : 0x00000034 = 0x1664
-                   Bah : (*0x20) struct<troll>
-                  ---- : 
+                   Bah : (*0x20) 
+                struct<troll>
                integer : 0x00000020 = 1664
                   word : 0x00000024 = 0x4000
                    Bah : (*0x0) NULL
@@ -374,7 +381,8 @@ s 0x80
 pf.pe_nt_image_headers32
 '
 EXPECT="                                 signature : 0x00000080 = PE
-                                fileHeader : struct<pe_image_file_header>
+                                fileHeader : 
+          struct<pe_image_file_header>
                                   machine : 0x00000084 =  machine (enum) = 0x14c ; IMAGE_FILE_MACHINE_I386
                          numberOfSections : 0x00000086 = 0x0004
                             timeDateStamp : 0x00000088 = Thu Sep 11 20:21:46 2014
@@ -382,7 +390,8 @@ EXPECT="                                 signature : 0x00000080 = PE
                           numberOfSymbols : 0x00000090 = 0x00000000
                      sizeOfOptionalHeader : 0x00000094 = 0x00e0
                           characteristics : 0x00000096 =  characteristics (bitfield) = 0x00000102 : IMAGE_FILE_EXECUTABLE_IMAGE | IMAGE_FILE_32BIT_MACHINE
-                            optionalHeader : struct<pe_image_optional_header32>
+                            optionalHeader : 
+          struct<pe_image_optional_header32>
                                           magic : 0x00000098 =  magic (enum) = 0x10b ; IMAGE_NT_OPTIONAL_HDR32_MAGIC
                              majorLinkerVersion : 0x0000009a = 11 ; 0x0b ; '.'
                              minorLinkerVersion : 0x0000009b = 0 ; 0x00 ; '.'
@@ -413,53 +422,69 @@ EXPECT="                                 signature : 0x00000080 = PE
                                sizeOfHeapCommit : 0x000000ec = 0x00001000
                                     loaderFlags : 0x000000f0 = 0x00000000
                             numberOfRvaAndSizes : 0x000000f4 = 0x00000010
-                                  dataDirectory : struct<pe_image_data_directory>
+                                  dataDirectory : 
 [
+                struct<pe_image_data_directory>
             virtualAddress : 0x000000f8 = 0x00000000
                       size : 0x000000fc = 0x00000000
 ,
+                struct<pe_image_data_directory>
             virtualAddress : 0x000000f8 = 0x00004ef0
                       size : 0x000000fc = 0x0000004b
 ,
+                struct<pe_image_data_directory>
             virtualAddress : 0x000000f8 = 0x00008000
                       size : 0x000000fc = 0x00002e40
 ,
+                struct<pe_image_data_directory>
             virtualAddress : 0x000000f8 = 0x00000000
                       size : 0x000000fc = 0x00000000
 ,
+                struct<pe_image_data_directory>
             virtualAddress : 0x000000f8 = 0x00000000
                       size : 0x000000fc = 0x00000000
 ,
+                struct<pe_image_data_directory>
             virtualAddress : 0x000000f8 = 0x0000c000
                       size : 0x000000fc = 0x0000000c
 ,
+                struct<pe_image_data_directory>
             virtualAddress : 0x000000f8 = 0x00006000
                       size : 0x000000fc = 0x0000001c
 ,
+                struct<pe_image_data_directory>
             virtualAddress : 0x000000f8 = 0x00000000
                       size : 0x000000fc = 0x00000000
 ,
+                struct<pe_image_data_directory>
             virtualAddress : 0x000000f8 = 0x00000000
                       size : 0x000000fc = 0x00000000
 ,
+                struct<pe_image_data_directory>
             virtualAddress : 0x000000f8 = 0x00000000
                       size : 0x000000fc = 0x00000000
 ,
+                struct<pe_image_data_directory>
             virtualAddress : 0x000000f8 = 0x00000000
                       size : 0x000000fc = 0x00000000
 ,
+                struct<pe_image_data_directory>
             virtualAddress : 0x000000f8 = 0x00000000
                       size : 0x000000fc = 0x00000000
 ,
+                struct<pe_image_data_directory>
             virtualAddress : 0x000000f8 = 0x00002000
                       size : 0x000000fc = 0x00000008
 ,
+                struct<pe_image_data_directory>
             virtualAddress : 0x000000f8 = 0x00000000
                       size : 0x000000fc = 0x00000000
 ,
+                struct<pe_image_data_directory>
             virtualAddress : 0x000000f8 = 0x00002008
                       size : 0x000000fc = 0x00000048
 ,
+                struct<pe_image_data_directory>
             virtualAddress : 0x000000f8 = 0x00000000
                       size : 0x000000fc = 0x00000000
 ]"
@@ -496,10 +521,13 @@ pf.gobelin ww?x blah meh (plop)Buh foo
 pf.gobelin.Buh.first
 pf.gobelin.Buh.Boh.word
 '
-EXPECT="      Buh : struct<plop>
+EXPECT="      Buh : 
+          struct<plop>
            first : 0x00000004 = 666
-      Buh : struct<plop>
-             Boh : struct<troll>
+      Buh : 
+          struct<plop>
+             Boh : 
+                struct<troll>
                   word : 0x0000000c = 0x002a
 "
 run_test
@@ -525,17 +553,19 @@ EXPECT="wv4 42 @ 0x00000004
 wx adde @ 0x00000024
      blah : 0x00000000 = 0x1234
       meh : 0x00000002 = 0x6789
-      Buh : struct<plop>
+      Buh : 
+          struct<plop>
            first : 0x00000004 = 42
-             Boh : struct<troll>
+             Boh : 
+                struct<troll>
                integer : 0x00000008 = 4000
                   word : 0x0000000c = 0x002a
-                   Bah : (*0x30) struct<troll>
-                  ---- : 
+                   Bah : (*0x30) 
+                struct<troll>
                integer : 0x00000030 = 20
                   word : 0x00000034 = 0x1664
-                   Bah : (*0x20) struct<troll>
-                  ---- : 
+                   Bah : (*0x20) 
+                struct<troll>
                integer : 0x00000020 = 1664
                   word : 0x00000024 = 0xdead
                    Bah : (*0x0) NULL

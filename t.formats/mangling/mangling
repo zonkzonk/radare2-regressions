@@ -1,0 +1,308 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+NAME='m128 parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var__m128@@3T__m128@@A"'
+EXPECT='__m128 var__m128
+'
+run_test
+
+NAME='m64 parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var__m64@@3T__m64@@A"'
+EXPECT='__m64 var__m64
+'
+run_test
+
+NAME='m128d parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var__m128d@@3U__m128d@@A"'
+EXPECT='__m128d var__m128d
+'
+run_test
+
+NAME='m128i parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var__m128i@@3T__m128i@@A"'
+EXPECT='__m128i var__m128i
+'
+run_test
+
+NAME='m256 parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var__m256@@3T__m256@@A"'
+EXPECT='__m256 var__m256
+'
+run_test
+
+NAME='m256d parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var__m256d@@3U__m256d@@A"'
+EXPECT='__m256d var__m256d
+'
+run_test
+
+NAME='m256i parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var__m256i@@3T__m256i@@A"'
+EXPECT='__m256i var__m256i
+'
+run_test
+
+NAME='void * parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_voidptr@@3PEAXA"'
+EXPECT='void * __ptr64 var_voidptr
+'
+run_test
+
+NAME='bool parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_bool@@3_NA"'
+EXPECT='bool var_bool
+'
+run_test
+
+NAME='char parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_char@@3DA"'
+EXPECT='char var_char
+'
+run_test
+
+NAME='signed char parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_signed_char@@3CA"'
+EXPECT='signed char var_signed_char
+'
+run_test
+
+NAME='unsigned char parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_unsigned_char@@3EA"'
+EXPECT='unsigned char var_unsigned_char
+'
+run_test
+
+NAME='short int parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_short_int@@3FA"'
+EXPECT='short int var_short_int
+'
+run_test
+
+NAME='int parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_int@@3HA"'
+EXPECT='int var_int
+'
+run_test
+
+NAME='unsigned int parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_unsigned_int@@3IA"'
+EXPECT='unsigned int var_unsigned_int
+'
+run_test
+
+NAME='long int parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_long_int@@3JA"'
+EXPECT='long int var_long_int
+'
+run_test
+
+NAME='unsigned long int parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_unsigned_long_int@@3KA"'
+EXPECT='unsigned long int var_unsigned_long_int
+'
+run_test
+
+NAME='long long parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_long_long@@3_JA"'
+EXPECT='long long(__int64) var_long_long
+'
+run_test
+
+NAME='unsigned long long parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_unsigned_long_long@@3_KA"'
+EXPECT='unsigned long long(unsigned __int64) var_unsigned_long_long
+'
+run_test
+
+NAME='"whcar_t parsing test"'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_wchar_t@@3_WA"'
+EXPECT='wchar_t var_wchar_t
+'
+run_test
+
+NAME='float parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_float@@3MA"'
+EXPECT='float var_float
+'
+run_test
+
+NAME='double parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_double@@3NA"'
+EXPECT='double var_double
+'
+run_test
+
+NAME='long double parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_long_double@@3OA"'
+EXPECT='long double var_long_double
+'
+run_test
+
+NAME='int * parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_int_ptr@@3PEAHA"'
+EXPECT='int * __ptr64 var_int_ptr
+'
+run_test
+
+NAME='const int * const parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_const_int_ptr@@3PEBHEB"'
+EXPECT='int const * __ptr64 const __ptr64 var_const_int_ptr
+'
+run_test
+
+NAME='int volatile * volatile const parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_volatile_int_ptr@@3PECHEC"'
+EXPECT='int volatile * __ptr64 volatile __ptr64 var_volatile_int_ptr
+'
+run_test
+
+NAME='int const volatile * const volatile parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_const_volatile_int_ptr@@3PEDHED"'
+EXPECT='int const volatile * __ptr64 const volatile __ptr64 var_const_volatile_int_ptr
+'
+run_test
+
+NAME='int * volatile parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_int_ptr_volatile@@3REAHEA"'
+EXPECT='int * volatile __ptr64 __ptr64 var_int_ptr_volatile
+'
+run_test
+
+NAME='arr parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?arr@@3PAHA"'
+EXPECT='int * arr
+'
+run_test
+
+NAME='arr[][] parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?arr2@@3PAY07HA"'
+EXPECT='int (*)[8] arr2
+'
+run_test
+
+NAME='arr[][][] parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?arr3@@3PAY1BA@4HA"'
+EXPECT='int (*)[16][5] arr3
+'
+run_test
+
+NAME='union parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_union@@3TUNION_TEST@@A"'
+EXPECT='union UNION_TEST var_union
+'
+run_test
+
+NAME='class parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_class@@3VCLASS_TEST@@A"'
+EXPECT='class CLASS_TEST var_class
+'
+run_test
+
+NAME='enum parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_enum@@3W4ENUM_TEST@@A"'
+EXPECT='enum ENUM_TEST var_enum
+'
+run_test
+
+NAME='union with namespace parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_union_with_namespace@TEST_NAMESPACE@@3TUNION_TEST@@A"'
+EXPECT='union UNION_TEST TEST_NAMESPACE::var_union_with_namespace
+'
+run_test
+
+NAME='class with namespace parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_class_with_namespace@TEST_NAMESPACE@@3VCLASS_TEST@@A"'
+EXPECT='class CLASS_TEST TEST_NAMESPACE::var_class_with_namespace
+'
+run_test
+
+NAME='enum with namespace parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_enum_with_namespace@TEST_NAMESPACE@@3W4ENUM_TEST@@A"'
+EXPECT='enum ENUM_TEST TEST_NAMESPACE::var_enum_with_namespace
+'
+run_test
+
+NAME='ptr with namespace parsing test'
+BROKEN=
+ARGS=
+CMDS='"!rabin2 -D cxx ?var_ptr_with_namespace@TEST_NAMESPACE@@3PEAUSTRUCT_TEST@@EA"'
+EXPECT='struct STRUCT_TEST * __ptr64 __ptr64 TEST_NAMESPACE::var_ptr_with_namespace
+'
+run_test
+
+#?var_int_ptr_restrict@@3PEIAHEIA

@@ -1,13 +1,13 @@
 #!/bin/sh
-# GPL 3+ - Copyright (C) 2012  jvoisin
+# GPL 3+ - Copyright (C) 2012-2015  jvoisin
 
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 NAME='Import project'
 FILE=malloc://512
 ARGS=
-CMDS="e dir.projects = ../files/
-Po project.r2
+CMDS="e dir.projects = ../files/projects
+Po test > /dev/null
 C*"
 EXPECT='"CCu Some test" @ 0x00404890
 '
@@ -17,8 +17,8 @@ NAME='Import project with overwriting'
 FILE=malloc://512
 ARGS=
 CMDS='e dir.projects = ../files/
-CC "Some other test" @ 0x00404890
-Po project.r2
+CC Some test @ 0x00404890
+Po test > /dev/null
 C*
 '
 EXPECT='"CCu Some test" @ 0x00404890
@@ -30,9 +30,9 @@ FILE=malloc://512
 ARGS=
 CMDS='e dir.projects = /tmp/
 CC "Some other test" @ 0x00404890
-Ps project.r2
-cat /tmp/project.r2|grep Some
-rm /tmp/project.r2
+Ps test > /dev/null
+cat /tmp/test | grep Some
+rm /tmp/test
 '
 EXPECT='"CCu "Some other test"" @ 0x00404890
 '
@@ -44,12 +44,12 @@ ARGS=
 CMDS='e dir.projects = /tmp/
 CC "First comment" @ 0x00404890
 CC "Second comment" @ 0x00404800
-Ps project.r2
+Ps test > /dev/null
 C- @ 0x00404890
 C- @ 0x00404800
 Po project.r2
-cat /tmp/project.r2|grep comment
-rm /tmp/project.r2
+cat /tmp/test | grep comment
+rm /tmp/test
 '
 EXPECT='"e asm.comments = true"
 "CCu "First comment"" @ 0x00404890

@@ -1,0 +1,66 @@
+#!/bin/sh
+
+# GPL 3+ - Copyright (C) 2013-2014  pancake
+
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+NAME='obj entry'
+FILE=../../bins/elf/test.o
+ARGS=
+CMDS='ie~addr
+'
+EXPECT='vaddr=0x00000040 paddr=0x00000040 baddr=0x00000000 laddr=0x00000000
+'
+run_test
+
+NAME='obj entry'
+FILE=../../bins/elf/test.o
+BROKEN=1
+ARGS="-B 0x200000"
+CMDS='ie~addr
+'
+EXPECT='vaddr=0x00200074 paddr=0x00000074 baddr=0x00200000 laddr=0x00000000
+'
+run_test
+
+NAME='obj main address'
+FILE=../../bins/elf/test.o
+ARGS=
+CMDS='?v sym.main
+'
+EXPECT='0x50
+'
+run_test
+
+NAME='obj main address'
+FILE=../../bins/elf/test.o
+ARGS="-B 0x200000"
+CMDS='?v sym.main
+'
+EXPECT='0x200050
+'
+run_test
+
+NAME='obj main'
+FILE=../../bins/elf/test.o
+ARGS=
+CMDS='pi 3@sym.main
+'
+EXPECT='push rbp
+mov rbp, rsp
+call 0x59
+'
+run_test
+
+NAME='obj main baddr'
+FILE=../../bins/elf/test.o
+BROKEN=1
+ARGS="-B 0x200000"
+CMDS='pi 3@sym.main
+'
+EXPECT='push rbp
+mov rbp, rsp
+call 0x59
+'
+run_test
+

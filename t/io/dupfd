@@ -11,7 +11,9 @@ ARGS=
 CMDS='
 e file.nowarn=true
 e file.loadmethod=append
+e scr.null=true
 10o -
+e scr.null=false
 o|sort -u |wc -l|sed -e s,\ ,,g
 '
 EXPECT='11
@@ -26,7 +28,9 @@ ARGS=
 CMDS='
 e file.loadmethod=append
 e file.nowarn=true
+e scr.null=true
 1000o -
+e scr.null=false
 o|sort -u |wc -l|sed -e s,\ ,,g
 '
 EXPECT='1001

@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Copyright (C) 2011-2013  pancake <pancake@nopcode.org>
+# Copyright (C) 2011-2015  pancake <pancake@nopcode.org>
 # Copyright (C) 2011-2012  Edd Barrett <vext01@gmail.com>
 # Copyright (C) 2012       Simon Ruderich <simon@ruderich.org>
 #

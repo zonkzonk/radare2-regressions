@@ -1,6 +1,6 @@
 #!/do/not/execute
 
-# Copyright (C) 2011-2013  pancake<nopcode.org>
+# Copyright (C) 2011-2015  pancake<nopcode.org>
 # Copyright (C) 2011-2012  Edd Barrett <vext01@gmail.com>
 # Copyright (C) 2012       Simon Ruderich <simon@ruderich.org>
 #
@@ -132,8 +132,9 @@ run_test() {
     if [ -n "${SHELLCMD}" ]; then
         R2CMD="$SHELLCMD"
     else
+        # R2_ARGS must be defined by the user in cmdline f.ex -e io.vio=true
         # No colors and no user configs.
-        R2ARGS="${R2} -e scr.color=0 -N -q -i ${TMP_RAD} ${ARGS} ${FILE} > ${TMP_OUT} 2> ${TMP_ERR}"
+        R2ARGS="${R2} -e scr.color=0 -N -q -i ${TMP_RAD} ${R2_ARGS} ${ARGS} ${FILE} > ${TMP_OUT} 2> ${TMP_ERR}"
         R2CMD=
         # Valgrind to detect memory corruption.
         if [ -n "${VALGRIND}" ]; then

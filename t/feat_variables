@@ -71,7 +71,7 @@ wa xor eax, eax
 ?v $f
 '
 EXPECT='0xffffffffffffffff
-0x6
+0x2
 0xffffffffffffffff
 '
 run_test
@@ -100,7 +100,7 @@ CMDS='wa xor eax, eax
 ?v $l
 wa mov esp, 0x1
 ?v $l
-wa ret
+wx c3
 ?v $l
 '
 EXPECT='0x2

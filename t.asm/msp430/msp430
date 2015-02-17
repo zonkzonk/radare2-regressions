@@ -13,8 +13,24 @@ EXPECT="${2}
 run_test
 }
 
-BROKEN=1
-
 test_msp430 3041 "ret"
 
-test_msp430 fb903b000000 "cmp.b #0x3b, 0x0(r11)"
+test_msp430 fb903b000000 "cmp.b #0x003b, 0x0(r11)"
+
+test_msp430 b01296c0 "call #0xc096"
+
+test_msp430 0924 "jeq $+0x0014"
+
+test_msp430 5f422100 "mov.b &0x0021, r15"
+
+test_msp430 7fe02000 "xor.b #0x0020, r15"
+
+test_msp430 c24f2100 "mov.b r15, &0x0021"
+
+test_msp430 8443faff "mov #0, 0xfffa(r4)"
+
+test_msp430 073c "jmp $+0x0010"
+
+test_msp430 5f422100 "mov.b &0x0021, r15"
+
+test_msp430 7fe2 "xor.b #8, r15"

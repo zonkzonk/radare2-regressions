@@ -48,6 +48,7 @@ endian   little
 file     malloc://1024
 fd       42
 size     0x400
+blksize  0x0
 mode     r--
 uri      malloc://1024
 block    0x100

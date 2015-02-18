@@ -57,6 +57,7 @@ endian   little
 file     malloc://1025
 fd       42
 size     0x401
+blksize  0x0
 mode     r--
 uri      malloc://1025
 block    0x100
@@ -184,6 +185,7 @@ endian   little
 file     ../bins/elf/x86-helloworld-gcc
 fd       6
 size     0x1323
+blksize  0x0
 mode     r--
 uri      ../bins/elf/x86-helloworld-gcc
 block    0x100
@@ -433,6 +435,7 @@ endian   little
 file     ../bins/elf/hello-linux-x86_64
 fd       6
 size     0x1a36
+blksize  0x0
 mode     r--
 uri      ../bins/elf/hello-linux-x86_64
 block    0x100

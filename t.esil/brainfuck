@@ -9,13 +9,13 @@ FILE=../bins/bf/hello-ok.bf
 ARGS=
 CMDS='
 f input 128 0x3000
-o malloc://128 0x3000
+o malloc://128 0x3000~z
 f screen 80*25 0x4000
-o malloc://80*25 0x4000
+o malloc://80*25 0x4000~z
 f stack 0x200 0x5000
-o malloc://0x200 0x5000
+o malloc://0x200 0x5000~z
 f data 0x1000 0x6000
-o malloc://0x1000 0x6000
+o malloc://0x1000 0x6000~z
 ar > /dev/null
 ar brk=stack
 ar scr=screen
@@ -34,13 +34,13 @@ FILE=../bins/bf/hello-loops.bf
 ARGS=
 CMDS='
 f input 128 0x3000
-o malloc://128 0x3000
+o malloc://128 0x3000~z
 f screen 80*25 0x4000
-o malloc://80*25 0x4000
+o malloc://80*25 0x4000~z
 f stack 0x200 0x5000
-o malloc://0x200 0x5000
+o malloc://0x200 0x5000~z
 f data 0x1000 0x6000
-o malloc://0x1000 0x6000
+o malloc://0x1000 0x6000~z
 ar > /dev/null
 ar brk=stack
 ar scr=screen

@@ -10,10 +10,9 @@ EXPECT=''
 run_test
 
 NAME='entrypoint decoding'
-BROKEN=
+BROKEN=1
 FILE=../../bins/xbe/default.xbe
 ARGS=''
-BROKEN=
 CMDS='ie~addr'
 EXPECT='vaddr=0x00011000 paddr=0x00001000 baddr=0x00010000 laddr=0x00000000
 '
@@ -38,7 +37,7 @@ EXPECT='vaddr=0x000116c0 paddr=0x000016c0 ord=000 fwd= sz=4 bind= type= name=kt.
 run_test
 
 NAME='section header decoding'
-BROKEN=
+BROKEN=1
 FILE=../../bins/xbe/default.xbe
 ARGS=''
 CMDS='iS~idx'

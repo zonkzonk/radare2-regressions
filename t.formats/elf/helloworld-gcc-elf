@@ -93,9 +93,9 @@ NAME='pxW 10'
 FILE=../../bins/elf/x86-helloworld-gcc
 CMDS='pxW 10
 '
-EXPECT='0x08048300 0x895eed31
-0x08048304 0xf0e483e1
-0x08048308 0x68525450
+EXPECT='0x08048300 0x895eed31 
+0x08048304 0xf0e483e1 
+0x08048308 0x68525450 
 '
 run_test
 
@@ -199,110 +199,110 @@ NAME='flags'
 FILE=../../bins/elf/x86-helloworld-gcc
 CMDS='f
 '
-EXPECT='0x08048034 0 section_end.ehdr
-0x08048000 52 section.ehdr
-0x0804a59c 0 section_end.phdr1
-0x0804959c 4096 section.phdr1
-0x08049000 0 section_end.phdr0
-0x08048000 4096 section.phdr0
-0x00000257 0 section_end..strtab
-0x00000000 599 section..strtab
-0x00000450 0 section_end..symtab
-0x00000000 1104 section..symtab
-0x00000106 0 section_end..shstrtab
-0x00000000 262 section..shstrtab
-0x00000011 0 section_end..comment
-0x00000000 17 section..comment
-0x080496b8 0 section_end..bss
-0x080496b4 4 section..bss
-0x080496b4 0 section_end..data
-0x080496ac 8 section..data
-0x080496ac 0 section_end..got.plt
-0x08049694 24 section..got.plt
-0x08049694 0 section_end..got
-0x08049690 4 section..got
-0x08049690 0 section_end..dynamic
-0x080495a8 232 section..dynamic
-0x080495a8 0 section_end..jcr
-0x080495a4 4 section..jcr
-0x080495a4 0 section_end..fini_array
-0x080495a0 4 section..fini_array
-0x080495a0 0 section_end..init_array
-0x0804959c 4 section..init_array
-0x0804859c 0 section_end..eh_frame
-0x080484ec 176 section..eh_frame
-0x080484ec 0 section_end..eh_frame_hdr
-0x080484c0 44 section..eh_frame_hdr
-0x080484bd 0 section_end..rodata
-0x080484a8 21 section..rodata
-0x080484a8 0 section_end..fini
-0x08048494 20 section..fini
-0x08048494 0 section_end..text
-0x08048300 404 section..text
-0x08048300 0 section_end..plt
-0x080482c0 64 section..plt
-0x080482b3 0 section_end..init
-0x08048290 35 section..init
-0x08048290 0 section_end..rel.plt
-0x08048278 24 section..rel.plt
-0x08048278 0 section_end..rel.dyn
-0x08048270 8 section..rel.dyn
-0x08048270 0 section_end..gnu.version_r
-0x08048250 32 section..gnu.version_r
-0x08048250 0 section_end..gnu.version
-0x08048246 10 section..gnu.version
-0x08048246 0 section_end..dynstr
-0x080481fc 74 section..dynstr
-0x080481fc 0 section_end..dynsym
-0x080481ac 80 section..dynsym
-0x080481ac 0 section_end..gnu.hash
-0x0804818c 32 section..gnu.hash
-0x0804818c 0 section_end..note.gnu.build_id
-0x08048168 36 section..note.gnu.build_id
-0x08048168 0 section_end..note.ABI_tag
-0x08048148 32 section..note.ABI_tag
-0x08048147 0 section_end..interp
-0x08048134 19 section..interp
-0x080482f0 16 sym.imp.__libc_start_main
-0x080482e0 16 sym.imp.__gmon_start__
-0x080482d0 16 sym.imp.puts
-0x08048290 0 sym._init
-0x080496b4 0 sym.__TMC_END__
-0x08048400 28 sym.main
-0x080496b4 0 sym.__bss_start
-0x080484a8 4 sym._fp_hw
-0x08048300 0 sym._start
-0x080496b8 0 sym._end
-0x08048420 97 sym.__libc_csu_init
-0x080484ac 4 sym._IO_stdin_used
-0x080496b0 0 sym.__dso_handle
-0x080496ac 0 sym.__data_start
-0x08048494 0 sym._fini
-0x080496b4 0 sym._edata
-0x080496ac 0 sym.data_start
-0x08048330 4 sym.__x86.get_pc_thunk.bx
-0x08048490 2 sym.__libc_csu_fini
-0x08049694 0 sym._GLOBAL_OFFSET_TABLE_
-0x0804959c 0 sym.__init_array_start
-0x080495a8 0 sym._DYNAMIC
-0x080495a0 0 sym.__init_array_end
-0x080495a4 0 sym.__JCR_END__
-0x08048598 0 sym.__FRAME_END__
-0x0804959c 0 sym.__frame_dummy_init_array_entry
-0x080483d0 0 sym.frame_dummy
-0x080495a0 0 sym.__do_global_dtors_aux_fini_array_entry
-0x080496b4 1 sym.completed.5979
-0x080483b0 0 sym.__do_global_dtors_aux
-0x08048370 0 sym.register_tm_clones
-0x08048340 0 sym.deregister_tm_clones
-0x080495a4 0 sym.__JCR_LIST__
-0x080496a8 4 reloc.__libc_start_main_168
-0x080496a4 4 reloc.__gmon_start___164
-0x080496a0 4 reloc.puts_160
-0x08049690 4 reloc.__gmon_start___144
-0x08048300 1 entry0
+EXPECT='0x080484b0 13 str.Hello_world_
 0x08048400 256 main
-0x080484b0 13 str.Hello_world_
+0x08048300 1 entry0
+0x08049690 4 reloc.__gmon_start___144
+0x080496a0 4 reloc.puts_160
+0x080496a4 4 reloc.__gmon_start___164
+0x080496a8 4 reloc.__libc_start_main_168
+0x080495a4 0 sym.__JCR_LIST__
+0x08048340 0 sym.deregister_tm_clones
+0x08048370 0 sym.register_tm_clones
+0x080483b0 0 sym.__do_global_dtors_aux
+0x080496b4 1 sym.completed.5979
+0x080495a0 0 sym.__do_global_dtors_aux_fini_array_entry
+0x080483d0 0 sym.frame_dummy
+0x0804959c 0 sym.__frame_dummy_init_array_entry
+0x08048598 0 sym.__FRAME_END__
+0x080495a4 0 sym.__JCR_END__
+0x080495a0 0 sym.__init_array_end
+0x080495a8 0 sym._DYNAMIC
+0x0804959c 0 sym.__init_array_start
+0x08049694 0 sym._GLOBAL_OFFSET_TABLE_
+0x08048490 2 sym.__libc_csu_fini
+0x08048330 4 sym.__x86.get_pc_thunk.bx
+0x080496ac 0 sym.data_start
+0x080496b4 0 sym._edata
+0x08048494 0 sym._fini
+0x080496ac 0 sym.__data_start
+0x080496b0 0 sym.__dso_handle
+0x080484ac 4 sym._IO_stdin_used
+0x08048420 97 sym.__libc_csu_init
+0x080496b8 0 sym._end
+0x08048300 0 sym._start
+0x080484a8 4 sym._fp_hw
+0x080496b4 0 sym.__bss_start
+0x08048400 28 sym.main
+0x080496b4 0 sym.__TMC_END__
+0x08048290 0 sym._init
+0x080482d0 16 sym.imp.puts
+0x080482e0 16 sym.imp.__gmon_start__
+0x080482f0 16 sym.imp.__libc_start_main
+0x08048134 19 section..interp
+0x08048147 0 section_end..interp
+0x08048148 32 section..note.ABI_tag
+0x08048168 0 section_end..note.ABI_tag
+0x08048168 36 section..note.gnu.build_id
+0x0804818c 0 section_end..note.gnu.build_id
+0x0804818c 32 section..gnu.hash
+0x080481ac 0 section_end..gnu.hash
+0x080481ac 80 section..dynsym
+0x080481fc 0 section_end..dynsym
+0x080481fc 74 section..dynstr
+0x08048246 0 section_end..dynstr
+0x08048246 10 section..gnu.version
+0x08048250 0 section_end..gnu.version
+0x08048250 32 section..gnu.version_r
+0x08048270 0 section_end..gnu.version_r
+0x08048270 8 section..rel.dyn
+0x08048278 0 section_end..rel.dyn
+0x08048278 24 section..rel.plt
+0x08048290 0 section_end..rel.plt
+0x08048290 35 section..init
+0x080482b3 0 section_end..init
+0x080482c0 64 section..plt
+0x08048300 0 section_end..plt
+0x08048300 404 section..text
+0x08048494 0 section_end..text
+0x08048494 20 section..fini
+0x080484a8 0 section_end..fini
+0x080484a8 21 section..rodata
+0x080484bd 0 section_end..rodata
+0x080484c0 44 section..eh_frame_hdr
+0x080484ec 0 section_end..eh_frame_hdr
+0x080484ec 176 section..eh_frame
+0x0804859c 0 section_end..eh_frame
+0x0804959c 4 section..init_array
+0x080495a0 0 section_end..init_array
+0x080495a0 4 section..fini_array
+0x080495a4 0 section_end..fini_array
+0x080495a4 4 section..jcr
+0x080495a8 0 section_end..jcr
+0x080495a8 232 section..dynamic
+0x08049690 0 section_end..dynamic
+0x08049690 4 section..got
+0x08049694 0 section_end..got
+0x08049694 24 section..got.plt
+0x080496ac 0 section_end..got.plt
+0x080496ac 8 section..data
+0x080496b4 0 section_end..data
+0x080496b4 4 section..bss
+0x080496b8 0 section_end..bss
+0x00000000 17 section..comment
+0x00000011 0 section_end..comment
+0x00000000 262 section..shstrtab
+0x00000106 0 section_end..shstrtab
+0x00000000 1104 section..symtab
+0x00000450 0 section_end..symtab
+0x00000000 599 section..strtab
+0x00000257 0 section_end..strtab
+0x08048000 4096 section.phdr0
+0x08049000 0 section_end.phdr0
+0x0804959c 4096 section.phdr1
+0x0804a59c 0 section_end.phdr1
+0x08048000 52 section.ehdr
+0x08048034 0 section_end.ehdr
 '
 run_test
 
@@ -312,7 +312,7 @@ FILE=../../bins/elf/x86-helloworld-gcc
 CMDS='pdj 10
 ?e
 '
-EXPECT='[{"offset":134513408,"fcn_addr":0,"fcn_last":0,"size":2,"opcode":"xor ebp, ebp","bytes":"31ed","type":"xor","type_num":28,"type2_num":0,"flags":["entry0","sym._start","section_end..plt","section..text"],"comment":"WzEyXSB2YT0weDA4MDQ4MzAwIHBhPTB4MDAwMDAzMDAgc3o9NDA0IHZzej00MDQgcnd4PS1yLXggLnRleHQ="},{"offset":134513410,"fcn_addr":0,"fcn_last":0,"size":1,"opcode":"pop esi","bytes":"5e","type":"pop","type_num":14,"type2_num":0},{"offset":134513411,"fcn_addr":0,"fcn_last":0,"size":2,"opcode":"mov ecx, esp","bytes":"89e1","type":"mov","type_num":9,"type2_num":0},{"offset":134513413,"fcn_addr":0,"fcn_last":0,"size":3,"opcode":"and esp, 0xfffffff0","bytes":"83e4f0","type":"and","type_num":27,"type2_num":0},{"offset":134513416,"fcn_addr":0,"fcn_last":0,"size":1,"opcode":"push eax","bytes":"50","type":"push","type_num":13,"type2_num":0},{"offset":134513417,"fcn_addr":0,"fcn_last":0,"size":1,"opcode":"push esp","bytes":"54","type":"push","type_num":13,"type2_num":0},{"offset":134513418,"fcn_addr":0,"fcn_last":0,"size":1,"opcode":"push edx","bytes":"52","type":"push","type_num":13,"type2_num":0},{"offset":134513419,"fcn_addr":0,"fcn_last":0,"size":5,"opcode":"push 0x8048490","bytes":"6890840408","type":"push","type_num":13,"type2_num":0},{"offset":134513424,"fcn_addr":0,"fcn_last":0,"size":5,"opcode":"push 0x8048420","bytes":"6820840408","type":"push","type_num":13,"type2_num":0},{"offset":134513429,"fcn_addr":0,"fcn_last":0,"size":1,"opcode":"push ecx","bytes":"51","type":"push","type_num":13,"type2_num":0}]
+EXPECT='[{"offset":134513408,"fcn_addr":0,"fcn_last":0,"size":2,"opcode":"xor ebp, ebp","bytes":"31ed","type":"xor","type_num":28,"type2_num":0,"flags":["entry0","sym._start","section_end..plt","section..text"],"comment":"WzEyXSB2YT0weDA4MDQ4MzAwIHBhPTB4MDAwMDAzMDAgc3o9NDA0IHZzej00MDQgcnd4PS1yLXggLnRleHQ="},{"offset":134513410,"fcn_addr":0,"fcn_last":0,"size":1,"opcode":"pop esi","bytes":"5e","type":"pop","type_num":14,"type2_num":0},{"offset":134513411,"fcn_addr":0,"fcn_last":0,"size":2,"opcode":"mov ecx, esp","bytes":"89e1","type":"mov","type_num":9,"type2_num":0},{"offset":134513413,"fcn_addr":0,"fcn_last":0,"size":3,"opcode":"and esp, 0xfffffff0","bytes":"83e4f0","type":"and","type_num":27,"type2_num":0},{"offset":134513416,"fcn_addr":0,"fcn_last":0,"size":1,"opcode":"push eax","bytes":"50","type":"upush","type_num":12,"type2_num":0},{"offset":134513417,"fcn_addr":0,"fcn_last":0,"size":1,"opcode":"push esp","bytes":"54","type":"upush","type_num":12,"type2_num":0},{"offset":134513418,"fcn_addr":0,"fcn_last":0,"size":1,"opcode":"push edx","bytes":"52","type":"upush","type_num":12,"type2_num":0},{"offset":134513419,"fcn_addr":0,"fcn_last":0,"size":5,"opcode":"push 0x8048490","bytes":"6890840408","type":"push","type_num":13,"type2_num":0},{"offset":134513424,"fcn_addr":0,"fcn_last":0,"size":5,"opcode":"push 0x8048420","bytes":"6820840408","type":"push","type_num":13,"type2_num":0},{"offset":134513429,"fcn_addr":0,"fcn_last":0,"size":1,"opcode":"push ecx","bytes":"51","type":"upush","type_num":12,"type2_num":0}]
 
 
 '

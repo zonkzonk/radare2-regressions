@@ -3,6 +3,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh && break ; done
 
 FILE=../../bins/elf/x86-helloworld-phdr
 IGNORE_ERR=1
+BROKEN=1
 CMDS='
 S
 '

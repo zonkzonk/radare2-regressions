@@ -10,10 +10,9 @@ EXPECT=''
 run_test
 
 NAME='entrypoint decoding'
-BROKEN=
+BROKEN=1
 FILE=../../bins/firmware/bios_64k.bin
 ARGS=''
-BROKEN=
 CMDS='ie~addr'
 EXPECT='vaddr=0x000ffff0 paddr=0x000ffff0 baddr=0x00000000 laddr=0x00000000
 '
@@ -37,10 +36,9 @@ EXPECT=''
 run_test
 
 NAME='entrypoint decoding'
-BROKEN=
+BROKEN=1
 FILE=../../bins/firmware/bios_128k.bin
 ARGS=''
-BROKEN=
 CMDS='ie~addr'
 EXPECT='vaddr=0x000ffff0 paddr=0x000ffff0 baddr=0x00000000 laddr=0x00000000
 '
@@ -64,10 +62,9 @@ EXPECT=''
 run_test
 
 NAME='entrypoint decoding'
-BROKEN=
+BROKEN=1
 FILE=../../bins/firmware/bios_256k.bin
 ARGS=''
-BROKEN=
 CMDS='ie~addr'
 EXPECT='vaddr=0x000ffff0 paddr=0x000ffff0 baddr=0x00000000 laddr=0x00000000
 '
@@ -91,10 +88,9 @@ EXPECT=''
 run_test
 
 NAME='entrypoint decoding'
-BROKEN=
+BROKEN=1
 FILE=../../bins/firmware/bios_512k.bin
 ARGS=''
-BROKEN=
 CMDS='ie~addr'
 EXPECT='vaddr=0x000ffff0 paddr=0x000ffff0 baddr=0x00000000 laddr=0x00000000
 '
@@ -118,10 +114,9 @@ EXPECT=''
 run_test
 
 NAME='entrypoint decoding'
-BROKEN=
+BROKEN=1
 FILE=../../bins/firmware/bios_1M.bin
 ARGS=''
-BROKEN=
 CMDS='ie~addr'
 EXPECT='vaddr=0x000ffff0 paddr=0x000ffff0 baddr=0x00000000 laddr=0x00000000
 '
@@ -145,10 +140,9 @@ EXPECT=''
 run_test
 
 NAME='entrypoint decoding'
-BROKEN=
+BROKEN=1
 FILE=../../bins/firmware/bios_2M.bin
 ARGS=''
-BROKEN=
 CMDS='ie~addr'
 EXPECT='vaddr=0x000ffff0 paddr=0x000ffff0 baddr=0x00000000 laddr=0x00000000
 '
@@ -172,10 +166,9 @@ EXPECT=''
 run_test
 
 NAME='entrypoint decoding'
-BROKEN=
+BROKEN=1
 FILE=../../bins/firmware/bios_4M.bin
 ARGS=''
-BROKEN=
 CMDS='ie~addr'
 EXPECT='vaddr=0x000ffff0 paddr=0x000ffff0 baddr=0x00000000 laddr=0x00000000
 '
@@ -199,10 +192,9 @@ EXPECT=''
 run_test
 
 NAME='entrypoint decoding'
-BROKEN=
+BROKEN=1
 FILE=../../bins/firmware/bios_8M.bin
 ARGS=''
-BROKEN=
 CMDS='ie~addr'
 EXPECT='vaddr=0x000ffff0 paddr=0x000ffff0 baddr=0x00000000 laddr=0x00000000
 '

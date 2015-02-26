@@ -29,7 +29,7 @@ CMDS='is~=main[0]
 is~=main[1]
 '
 EXPECT='vaddr=0x00008424
-paddr=0x00000425
+paddr=0x00000424
 '
 run_test
 

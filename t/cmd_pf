@@ -7,13 +7,14 @@
 NAME='types'
 FILE=malloc://1024
 ARGS=
-CMDS='wx a00f00002a4b9a020000
-pf fcbi foo bar fool beer
+CMDS='wx a00f00002a4b9a0200002a
+pf fcbiC foo bar fool beer plop
 '
 EXPECT=" foo : 0x00000000 = 4000.000000
- bar : 0x00000004 =  42 ; '*'
-fool : 0x00000005 = 75 ; 0x4b ; 'K'
+ bar : 0x00000004 = '*'
+fool : 0x00000005 = 0x4b
 beer : 0x00000006 = 666
+plop : 0x0000000a = 42
 "
 run_test
 
@@ -91,7 +92,7 @@ pf.troll ic lol cat
 pf.troll
 '
 EXPECT="lol : 0x00000000 = 4000
-cat : 0x00000004 =  75 ; 'K'
+cat : 0x00000004 = 'K'
 "
 run_test
 
@@ -104,11 +105,11 @@ pf.troll
 '
 EXPECT="0x00000000 [0] {
      nb : 0x00000000 = 4000
-   plop : 0x00000004 =  75 ; 'K'
+   plop : 0x00000004 = 'K'
 }
 0x00000005 [1] {
      nb : 0x00000005 = 42
-   plop : 0x00000009 =  76 ; 'L'
+   plop : 0x00000009 = 'L'
 }
 "
 run_test
@@ -153,9 +154,9 @@ CMDS='wx a00f0000000000002a412fa00f000000000000402a44adde00000000efbeadde0000000
 pf [2]i[3]b[2]f[3]c[3]w[2]q[6]x
 '
 EXPECT="0x00000000 = [ 4000, 0 ]
-0x00000008 = [ 42 ; 0x2a ; '*', 65 ; 0x41 ; 'A', 47 ; 0x2f ; '/' ]
+0x00000008 = [ 0x2a, 0x41, 0x2f ]
 0x0000000b = [ 4000.000000, 0.000000 ]
-0x00000013 = [ 64 ; '@', 42 ; '*', 68 ; 'D' ]
+0x00000013 = [ '@', '*', 'D' ]
 0x00000016 = [ 0xdead, 0x0000, 0x0000 ]
 0x0000001c = (qword) [ 0x00000000deadbeef, 0x0000000000000000 ]
 0x0000002c = [ 0x00000040, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000 ]
@@ -175,7 +176,7 @@ pf [10]z[3]i[10]Zb
 EXPECT="0x00000000 = TR.LL
 0x0000000a = [ 4000, 0, 0 ]
 0x00000016 = PLOP
-0x0000002a = 42 ; 0x2a ; '*'
+0x0000002a = 0x2a
 "
 run_test
 
@@ -393,8 +394,8 @@ EXPECT="                                 signature : 0x00000080 = PE
                             optionalHeader : 
           struct<pe_image_optional_header32>
                                           magic : 0x00000098 =  magic (enum) = 0x10b ; IMAGE_NT_OPTIONAL_HDR32_MAGIC
-                             majorLinkerVersion : 0x0000009a = 11 ; 0x0b ; '.'
-                             minorLinkerVersion : 0x0000009b = 0 ; 0x00 ; '.'
+                             majorLinkerVersion : 0x0000009a = 0x0b
+                             minorLinkerVersion : 0x0000009b = 0x00
                                      sizeOfCode : 0x0000009c = 0x00003000
                           sizeOfInitializedData : 0x000000a0 = 0x00003400
                         sizeOfUninitializedData : 0x000000a4 = 0x00000000

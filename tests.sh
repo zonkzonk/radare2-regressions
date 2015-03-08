@@ -209,6 +209,9 @@ run_test() {
                 ERR_CODE=0
             fi
         fi
+	if [ "${ERR_CODE}" != 0 ]; then
+		cat "${TMP_ERR}"
+	fi
     fi
 
     if [ ${CODE} -eq 47 ]; then

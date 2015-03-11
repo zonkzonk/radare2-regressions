@@ -66,6 +66,8 @@ run_test() {
     if [ -n "${PREPEND}" ]; then
       export R2="${PREPEND} ${R2}"
     fi
+    # load faster
+    R2="${R2} -e cfg.plugins=false"
     
     if [ -n "${GREP}" ]; then
         if [ -z "`echo \"${NAME}\" | grep \"${GREP}\"`" ]; then

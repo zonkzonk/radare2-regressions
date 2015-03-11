@@ -255,7 +255,7 @@ wx 22284300
 aes
 ar a1
 '
-EXPECT='0xfffffffa
+EXPECT='0x00000006
 '
 run_test
 

@@ -15,6 +15,22 @@ EXPECT='0x6
 '
 run_test
 
+NAME='inc/dec'
+FILE=-
+ARGS=
+CMDS='
+ae 0xffffffffffffffff,++
+ae 3,++
+ae 3,--
+ae 0,--
+'
+EXPECT='0x0
+0x4
+0x2
+0xffffffffffffffff
+'
+run_test
+
 NAME='sub'
 FILE=-
 ARGS=
@@ -33,6 +49,28 @@ aei
 ae 3,eax,=,1,eax,-=,eax,0,+
 '
 EXPECT='0x2
+'
+run_test
+
+NAME='shift-left'
+FILE=-
+ARGS=
+CMDS='"ae 3,1,<<"
+"ae 1,3,<<"
+'
+EXPECT='0x8
+0x6
+'
+run_test
+
+NAME='shift-right'
+FILE=-
+ARGS=
+CMDS='"ae 1,8,>>"
+"ae 8,1,>>"
+'
+EXPECT='0x4
+0x0
 '
 run_test
 

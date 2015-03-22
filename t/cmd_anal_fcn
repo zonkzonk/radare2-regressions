@@ -62,7 +62,7 @@ and esp, 0xfffffff0
 dec eax
 mov edi, dword [ebp + 8]
 dec eax
-lea esi, dword [ebp + 0x10]
+lea esi, [ebp + 0x10]
 mov edx, edi
 add edx, 1
 shl edx, 3
@@ -107,7 +107,7 @@ and esp, 0xfffffff0
 dec eax
 mov edi, dword [ebp + 8]
 dec eax
-lea esi, dword [ebp + 0x10]
+lea esi, [ebp + 0x10]
 mov edx, edi
 add edx, 1
 shl edx, 3

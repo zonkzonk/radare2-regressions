@@ -3,7 +3,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME="io ff"
 BROKEN=
-FILE=../../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/hello-linux-x86_64
 CMDS='
 p8 4 @ 0x999999999
 '

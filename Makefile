@@ -67,13 +67,13 @@ asm.x86:
 	@sh run_tests.sh t.asm/x86
 asm.z80:
 	@sh run_tests.sh t.asm/z80
-
+	
 anal:
 	@sh run_tests.sh t.anal/arm
 	@sh run_tests.sh t.anal/java
 	@sh run_tests.sh t.anal/mips
 	@sh run_tests.sh t.anal/x86
-
+	@sh run_tests.sh t.anal/others_anal
 anal.arm:
 	@sh run_tests.sh t.anal/arm
 anal.java:
@@ -82,7 +82,8 @@ anal.mips:
 	@sh run_tests.sh t.anal/mips
 anal.x86:
 	@sh run_tests.sh t.anal/x86
-
+anal.others:
+	@sh run_tests.sh t.anal/others_anal
 esil:
 	@sh run_tests.sh t.esil/esil
 

@@ -10,6 +10,7 @@ all:
 	@sh run_tests.sh t.asm
 	@sh run_tests.sh t.anal
 	@$(MAKE) -C t.archos
+	@sh run_tests.sh t.io
 	@sh run_tests.sh t.esil
 	@sh run_tests.sh t.formats/pe
 	@sh run_tests.sh t.formats/elf
@@ -36,6 +37,8 @@ asm:
 	@sh run_tests.sh t.asm/x86
 	@sh run_tests.sh t.asm/z80
 
+io:
+	@sh run_tests.sh t.io
 asm.8051:
 	@sh run_tests.sh t.asm/8051
 asm.arc:

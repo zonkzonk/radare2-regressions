@@ -1,6 +1,6 @@
 #!/bin/sh
 # GPL 3+ - Copyright (C) 2012  pancake, Edd Barrett, Simon Ruderich
-[ -e tests.sh ] && . ./tests.sh || . ../tests.sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='af x86-32'
 FILE=malloc://1024

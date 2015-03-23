@@ -19,8 +19,8 @@ EXPECT='╒ (fcn) fcn.00000000 1023
 │       ┌─< 0x00000004   jb 0x50
 │      ┌──< 0x00000006   jmp 0x7a
 │      ││   0x00000008   nop
-│      ││   0x00000009   lea esi, dword [esi]
-│  ┌──────> 0x00000010   lea edi, dword [esi + 1]
+│      ││   0x00000009   lea esi, [esi]
+│  ┌──────> 0x00000010   lea edi, [esi + 1]
 │  │   ││   0x00000013   xor edx, edx
 │  │   ││   0x00000015   mov eax, ebp
 │  │   ││   0x00000017   div ecx
@@ -75,8 +75,8 @@ EXPECT='/ (fcn) fcn.00000000 1023
 |       ,=< 0x00000004   jb 0x50
 |      ,==< 0x00000006   jmp 0x7a
 |      ||   0x00000008   nop
-|      ||   0x00000009   lea esi, dword [esi]
-|  .------> 0x00000010   lea edi, dword [esi + 1]
+|      ||   0x00000009   lea esi, [esi]
+|  .------> 0x00000010   lea edi, [esi + 1]
 |  |   ||   0x00000013   xor edx, edx
 |  |   ||   0x00000015   mov eax, ebp
 |  |   ||   0x00000017   div ecx

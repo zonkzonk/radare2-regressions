@@ -49,9 +49,10 @@ linenum  false
 lsyms    false
 relocs   false
 rpath    
+size     1025
 type     
 os       
-arch     
+machine  
 bits     32
 endian   little
 file     malloc://1025
@@ -87,6 +88,7 @@ linenum  false
 lsyms    false
 relocs   false
 rpath    
+size     1025
 [Imports]
 
 0 imports
@@ -99,6 +101,8 @@ rpath
 [Sections]
 
 0 sections
+[Memory]
+
 fs imports
 [Imports]
 
@@ -126,6 +130,7 @@ linenum  false
 lsyms    false
 relocs   false
 rpath    
+size     1025
 e bin.lang=
 e file.type=
 e cfg.bigendian=false
@@ -177,9 +182,10 @@ linenum  true
 lsyms    true
 relocs   true
 rpath    NONE
+size     4899
 type     EXEC (Executable file)
 os       linux
-arch     Intel 80386
+machine  Intel 80386
 bits     32
 endian   little
 file     ../bins/elf/x86-helloworld-gcc
@@ -276,6 +282,7 @@ linenum  true
 lsyms    true
 relocs   true
 rpath    NONE
+size     4899
 '
 # fd changes in each test, replace it with 42.
 FILTER='sed "s/^fd	[0-9][0-9]*/fd       42/;
@@ -427,9 +434,10 @@ linenum  true
 lsyms    true
 relocs   true
 rpath    NONE
+size     6710
 type     EXEC (Executable file)
 os       linux
-arch     AMD x86-64 architecture
+machine  AMD x86-64 architecture
 bits     64
 endian   little
 file     ../bins/elf/hello-linux-x86_64
@@ -526,6 +534,7 @@ linenum  true
 lsyms    true
 relocs   true
 rpath    NONE
+size     6710
 '
 # fd changes in each test, replace it with 42.
 FILTER='sed "s/^fd	[0-9][0-9]*/fd       42/;

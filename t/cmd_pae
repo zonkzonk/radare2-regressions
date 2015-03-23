@@ -21,7 +21,7 @@ BROKEN=
 CMDS='
 pae 0xed31
 '
-EXPECT='ebp,ebp,^=,%z,zf,=,%p,pf,=,0,cf,=,0,of,=,31,ebp,31,1,<<,&,>>,sf,=
+EXPECT='ebp,ebp,^=,%z,zf,=,%p,pf,=,0,cf,=,0,of,=,%s,sf,=
 '
 
 run_test

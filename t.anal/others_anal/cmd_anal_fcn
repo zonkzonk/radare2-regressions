@@ -133,7 +133,7 @@ IGNORE_ERR=0
 
 
 NAME='sym is not fcn'
-FILE=../bins/mach0/mach0-i386
+FILE=../../bins/mach0/mach0-i386
 BROKEN=1
 ARGS=
 CMDS='
@@ -163,7 +163,7 @@ run_test
 
 
 NAME='function address'
-FILE=../bins/mach0/mach0-i386
+FILE=../../bins/mach0/mach0-i386
 ARGS=
 CMDS='e anal.hasnext=0
 aa
@@ -177,7 +177,7 @@ run_test
 
 
 NAME='aF'
-FILE=../bins/mach0/mach0-i386
+FILE=../../bins/mach0/mach0-i386
 ARGS=
 CMDS='e anal.hasnext=0
 aF
@@ -189,7 +189,7 @@ run_test
 
 
 NAME='function preludes'
-FILE=../bins/mach0/mach0-i386
+FILE=../../bins/mach0/mach0-i386
 BROKEN=1
 CMDS='s 0x1000
 ap

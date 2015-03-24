@@ -39,9 +39,10 @@ linenum  true
 lsyms    true
 relocs   false
 rpath    NONE
+size     1023
 type     JAVA CLASS
 os       any
-arch     java
+machine  java
 bits     32
 endian   little
 file     malloc://1023

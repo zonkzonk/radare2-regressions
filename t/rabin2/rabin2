@@ -27,5 +27,4 @@ idx=04 vaddr=0x00405000 paddr=0x00001200 sz=1024 vsz=616 perm=-rw- md5=963212dc5
 
 5 sections
 '
-
 run_test

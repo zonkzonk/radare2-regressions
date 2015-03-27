@@ -88,7 +88,7 @@ anal.x86:
 anal.others:
 	@sh run_tests.sh t.anal/others_anal
 esil:
-	@sh run_tests.sh t.esil/esil
+	@sh run_tests.sh t.esil
 
 formats:
 	@sh run_tests.sh t.formats/pe

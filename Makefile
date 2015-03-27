@@ -20,6 +20,7 @@ all:
 	@sh run_tests.sh t.formats/xbe
 	@sh run_tests.sh t.formats/firmware
 	@sh run_tests.sh t.pe
+	@sh run_tests.sh t.tools
 
 asm:
 	@sh run_tests.sh t.asm/8051
@@ -36,7 +37,9 @@ asm:
 	@sh run_tests.sh t.asm/tms320
 	@sh run_tests.sh t.asm/x86
 	@sh run_tests.sh t.asm/z80
-
+	
+tools:
+	@sh run_tests.sh t.tools
 io:
 	@sh run_tests.sh t.io
 asm.8051:

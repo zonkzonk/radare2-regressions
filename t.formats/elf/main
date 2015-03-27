@@ -24,3 +24,11 @@ CMDS="?v main"
 EXPECT='0x3bd0
 '
 run_test
+
+NAME='MIPS: main'
+FILE=../../bins/elf/mips-main
+ARGS=''
+CMDS="?v main"
+EXPECT='0x4006f0
+'
+run_test

@@ -1,0 +1,73 @@
+#!/bin/sh
+# GPL 3+ - Copyright (C) 2011-2015  pancake, Edd Barrett, Simon Ruderich, jay
+[ -e tests.sh ] && . ./tests.sh || . ../tests.sh
+
+# "!" - run commands (via system)
+
+NAME='Rop search'
+FILE='malloc://1024'
+ARGS=
+BROKEN=
+CMDS='
+"wa add esp,8;pop ebx; pop ebp; ret"
+e scr.color=false
+/R
+q
+'
+EXPECT='  0x00000000             83c408  add esp, 8
+  0x00000003                 5b  pop ebx
+  0x00000004                 5d  pop ebp
+  0x00000005                 c3  ret
+
+  0x00000001               c408  les ecx, [eax]
+  0x00000003                 5b  pop ebx
+  0x00000004                 5d  pop ebp
+  0x00000005                 c3  ret
+
+  0x00000002             085b5d  or byte [ebx + 0x5d], bl
+  0x00000005                 c3  ret
+
+'
+run_test
+
+
+NAME='Rop search w/ regexp'
+FILE='malloc://1024'
+ARGS=
+BROKEN=
+CMDS='
+"wa add esp,8;pop ebx; pop ebp; ret"
+e scr.color=false
+/R/ or.*bl
+q
+'
+EXPECT='  0x00000002             085b5d  or byte [ebx + 0x5d], bl
+  0x00000005                 c3  ret
+
+'
+run_test
+
+
+NAME='Rop search w/ branch delay (mips)'
+FILE='malloc://1024'
+ARGS=
+BROKEN=
+CMDS='
+e asm.arch = mips
+e scr.color=false
+"wx 1b000000040000001a0000004c08410018000000040000000800000000000070"
+/R
+q
+'
+EXPECT='  0x00000000           1b000000  divu zero, zero, zero
+  0x00000004           04000000  sllv zero, zero, zero
+  0x00000008           1a000000  div zero, zero, zero
+  0x0000000c           4c084100  syscall 0x10421
+
+  0x00000010           18000000  mult zero, zero
+  0x00000014           04000000  sllv zero, zero, zero
+  0x00000018           08000000  jr zero
+  0x0000001c           00000070  madd zero, zero
+
+'
+run_test

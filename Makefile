@@ -19,6 +19,9 @@ all:
 	@sh run_tests.sh t.formats/mach0
 	@sh run_tests.sh t.formats/xbe
 	@sh run_tests.sh t.formats/firmware
+	@sh run_tests.sh t.formats/pdb
+	@sh run_tests.sh t.formats/mangling
+	@sh run_tests.sh t.formats/msil
 	@sh run_tests.sh t.pe
 	@sh run_tests.sh t.tools
 
@@ -97,9 +100,15 @@ formats:
 	@sh run_tests.sh t.formats/mach0
 	@sh run_tests.sh t.formats/xbe
 	@sh run_tests.sh t.formats/firmware
+	@sh run_tests.sh t.formats/pdb
+	@sh run_tests.sh t.formats/mangling
+	@sh run_tests.sh t.formats/msil
 
 format.pe:
 	@sh run_tests.sh t.formats/pe
+	@sh run_tests.sh t.formats/pdb
+	@sh run_tests.sh t.formats/mangling
+	@sh run_tests.sh t.formats/msil
 
 format.elf:
 	@sh run_tests.sh t.formats/elf

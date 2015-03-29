@@ -55,7 +55,7 @@ FILE=malloc://1024
 ARGS=
 CMDS='i~^size
 '
-EXPECT='size     0x400
+EXPECT='size     1024
 '
 run_test
 

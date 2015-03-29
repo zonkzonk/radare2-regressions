@@ -40,9 +40,9 @@ test_vector "${PLUGIN}" "VINSERTF128 YMM0, YMM0, XMM0, 0X0" c4e37d18c000 "vinser
 test_vector "${PLUGIN}" "VPERM2F128 YMM0, YMM0, YMM0, 0X0" c4e37d06c000 "vperm2f128 ymm0, ymm0, ymm0, 0"
 test_vector "${PLUGIN}" "VPERMILPD YMM0, YMM0, YMMWORD [0]" c4e27d0d0500000000 "vpermilpd ymm0, ymm0, ymmword [0]"
 test_vector "${PLUGIN}" "VPERMILPS YMM0, YMM0, YMMWORD [0]" c4e27d0c0500000000 "vpermilps ymm0, ymm0, ymmword [0]"
-test_vector "${PLUGIN}" "VFMADD132PD XMM0, XMM0, XMM0" c4e2f998c0 "vfmadd132pd xmm0, xmm0, xmm0" "br"
-test_vector "${PLUGIN}" "VFMADD213PD XMM0, XMM0, XMM0" c4e2f9a8c0 "vfmadd213pd xmm0, xmm0, xmm0" "br"
-test_vector "${PLUGIN}" "VFMADD231PD XMM0, XMM0, XMM0" c4e2f9b8c0 "vfmadd231pd xmm0, xmm0, xmm0" "br"
+test_vector "${PLUGIN}" "VFMADD132PD XMM0, XMM0, XMM0" c4e2f998c0 "vfmadd132pd xmm0, xmm0, xmm0"
+test_vector "${PLUGIN}" "VFMADD213PD XMM0, XMM0, XMM0" c4e2f9a8c0 "vfmadd213pd xmm0, xmm0, xmm0"
+test_vector "${PLUGIN}" "VFMADD231PD XMM0, XMM0, XMM0" c4e2f9b8c0 "vfmadd231pd xmm0, xmm0, xmm0"
 # addpd or vaddpd ?
 test_vector "${PLUGIN}" "ADDPD XMM0, XMMWORD [EAX]" 660f5800 "addpd xmm0, xmmword [eax]"
 test_vector "${PLUGIN}" "VAESKEYGENASSIST XMM0, XMM0, 0" c4e379dfc000 "vaeskeygenassist xmm0, xmm0, 0"

@@ -25,6 +25,9 @@ all:
 	@sh run_tests.sh t.pe
 	@sh run_tests.sh t.tools
 
+commands:
+	@sh run_tests.sh
+
 asm:
 	@sh run_tests.sh t.asm/8051
 	@sh run_tests.sh t.asm/arc

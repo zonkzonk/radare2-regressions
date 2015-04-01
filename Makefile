@@ -109,13 +109,19 @@ formats:
 
 format.pe:
 	@sh run_tests.sh t.formats/pe
-	@sh run_tests.sh t.formats/pdb
+
+format.mangling:
 	@sh run_tests.sh t.formats/mangling
+
+format.msil:
 	@sh run_tests.sh t.formats/msil
+
+format.pdb:
+	@sh run_tests.sh t.formats/pdb
 
 format.elf:
 	@sh run_tests.sh t.formats/elf
-
+	
 format.java:
 	@sh run_tests.sh t.formats/java
 

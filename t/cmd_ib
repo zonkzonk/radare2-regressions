@@ -39,8 +39,8 @@ static   false
 linenum  true
 lsyms    true
 relocs   false
-rpath    NONE
-size     1024
+rpath    
+binsz    1024
 type     JAVA CLASS
 os       any
 machine  jvm
@@ -49,7 +49,7 @@ endian   little
 file     malloc://1024
 fd       42
 size     0x400
-blksize  0x0
+blksz    0x0
 mode     r--
 uri      malloc://1024
 block    0x100

@@ -185,3 +185,11 @@ EXPECT='c3284d0f94606de1fd2af172aba15bf3
 '
 
 run_test
+
+NAME='rahash2 -v~commit?"'
+CMDS='!!rahash2 -v~commit?'
+EXPECT='1
+'
+
+run_test
+

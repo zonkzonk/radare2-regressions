@@ -63,6 +63,7 @@ run_test
 NAME='$f (malloc)'
 FILE=malloc://1024
 ARGS=
+BROKEN=1
 CMDS='wa jmp 0x30
 ?v $f
 wa jz 0x01

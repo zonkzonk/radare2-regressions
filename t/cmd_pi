@@ -49,6 +49,7 @@ run_test
 NAME='pi -3 @ 3'
 FILE=malloc://512
 ARGS=
+BROKEN=1
 CMDS='
 e asm.arch=x86
 e asm.bits=64
@@ -64,6 +65,7 @@ run_test
 NAME='pij -3 @ 3'
 FILE=malloc://512
 ARGS=
+BROKEN=1
 CMDS='
 e asm.arch=x86
 e asm.bits=64

@@ -85,7 +85,7 @@ NAME='pb 4'
 FILE=../../bins/elf/x86-helloworld-gcc
 CMDS='pb 4
 '
-EXPECT='0x08048300 0011.0001  1110.1101  0101.1110  1000.1001  0x31ed5e89  1.^.
+EXPECT='0011
 '
 run_test
 

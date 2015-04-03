@@ -24,3 +24,164 @@ EXPECT='../../bins/elf/hello-linux-x86_64: 0x00000000-0x00001a35 md5: c957bd5bd6
 '
 
 run_test
+
+NAME='rahash2 -a md5,sha1,sha256 -r'
+CMDS='!rahash2 -a md5,sha1,sha256 -r ../../bins/elf/hello-linux-x86_64'
+BROKEN=
+EXPECT='../../bins/elf/hello-linux-x86_64: e file.md5=c957bd5bd6204470256bc15248ccafd4
+../../bins/elf/hello-linux-x86_64: e file.sha1=687c82d13cb27f0600d8e57edc784282c1732f56
+../../bins/elf/hello-linux-x86_64: e file.sha256=7bdbf25324af1946ec0b16dbf928875a588a786f7c279cd115729c5a3a297a55
+'
+
+run_test
+
+NAME='rahash2 -b10 -a md5,sha1,sha256 -r'
+CMDS='!rahash2 -b10 -a md5,sha1,sha256 -r ../../bins/elf/hello-linux-x86_64'
+BROKEN=1
+EXPECT='../../bins/elf/hello-linux-x86_64: e file.md5=c957bd5bd6204470256bc15248ccafd4
+../../bins/elf/hello-linux-x86_64: e file.sha1=687c82d13cb27f0600d8e57edc784282c1732f56
+../../bins/elf/hello-linux-x86_64: e file.sha256=7bdbf25324af1946ec0b16dbf928875a588a786f7c279cd115729c5a3a297a55
+'
+
+run_test
+
+
+NAME='rahash2 -h'
+CMDS='!rahash2~Usage'
+BROKEN=
+EXPECT='Usage: rahash2 [-rBhLkv] [-b sz] [-a algo] [-s str] [-f from] [-t to] [file] ...
+'
+
+run_test
+
+NAME='rahash2 -a md5 -s "admin"'
+CMDS='!rahash2 -a md5 -s "admin"'
+BROKEN=
+EXPECT='0x00000000-0x00000004 md5: 21232f297a57a5a743894a0e4a801fc3
+'
+
+run_test
+
+NAME='rahash2 -a md5 -e -s "admin"'
+CMDS='!rahash2 -a md5 -e -s "admin"'
+BROKEN=
+EXPECT='0x00000000-0x00000004 md5: c31f804a0e4a8943a7a5577a292f2321
+'
+
+run_test
+
+
+NAME='rahash2 -a sha1,sha256 -s "admin"'
+CMDS='!rahash2 -a sha1,sha256 -s "admin"'
+BROKEN=
+EXPECT='0x00000000-0x00000004 sha1: d033e22ae348aeb5660fc2140aec35850c4da997
+0x00000000-0x00000004 sha256: 8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
+'
+
+run_test
+
+
+NAME='rahash2 -D -s "YWRtaW4="'
+CMDS='!rahash2 -D -s "YWRtaW4="'
+BROKEN=
+EXPECT='admin'
+
+run_test
+
+NAME='rahash2 -d -s "admin"'
+CMDS='!rahash2 -d -s "admin"'
+BROKEN=
+EXPECT='YWRtaW4=
+'
+
+run_test
+
+NAME='rahash2 -d -x "61646d696e"'
+CMDS='!rahash2 -d -x "61646d696e"'
+BROKEN=
+EXPECT='YWRtaW4=
+'
+
+run_test
+
+NAME='rahash2 -a md5 -d -x "61646d696e"'
+CMDS='!rahash2 -a md5 -x "61646d696e"'
+BROKEN=
+EXPECT='0x00000000-0x00000004 md5: 21232f297a57a5a743894a0e4a801fc3
+'
+
+run_test
+
+NAME='rahash2 -a md5 -x "61646d696e" -s "admin"'
+CMDS='!rahash2 -a md5 -x "61646d696e" -s "admin"'
+BROKEN=
+EXPECT_ERR='Hashstring already defined
+'
+
+run_test
+
+NAME='rahash2 -L'
+CMDS='!rahash2 -L'
+BROKEN=
+EXPECT='md5
+sha1
+sha256
+sha384
+sha512
+crc16
+crc32
+md4
+xor
+xorpair
+parity
+entropy
+hamdist
+pcprint
+mod255
+xxhash
+adler32
+'
+
+run_test
+
+NAME='rahash2 -a md5 -t0x5 -x "61646d696eaa"'
+CMDS='!rahash2 -a md5 -t0x5 -x "61646d696eaa"'
+BROKEN=
+EXPECT='0x00000000-0x00000004 md5: 21232f297a57a5a743894a0e4a801fc3
+'
+
+run_test
+
+NAME='rahash2 -q -a md5 -t0x5 -x "61646d696eaa"'
+CMDS='!rahash2 -q -a md5 -t0x5 -x "61646d696eaa"'
+BROKEN=
+EXPECT='21232f297a57a5a743894a0e4a801fc3
+'
+
+run_test
+
+
+NAME='rahash2 -q -a md5 -f0x1 -x "aa61646d696e"'
+CMDS='!rahash2 -q -a md5 -f0x1 -x "aa61646d696e"'
+BROKEN=1
+EXPECT='21232f297a57a5a743894a0e4a801fc3
+'
+
+run_test
+
+
+NAME='rahash2 -q -a md5 -i1 -x "61646d696e"'
+CMDS='!rahash2 -q -a md5 -i1 -x "61646d696e"'
+BROKEN=1
+EXPECT='21232f297a57a5a743894a0e4a801fc3
+'
+
+run_test
+
+NAME='rahash2 -q -a md5 -i2 -x "61646d696e"'
+CMDS='!rahash2 -q -a md5 -i2 -x "61646d696e"'
+BROKEN=1
+EXPECT='c3284d0f94606de1fd2af172aba15bf3
+'
+
+run_test

@@ -2,14 +2,35 @@
 
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
-
-NAME='p2 hello-linux-x86_64'
+NAME='pB 0xff'
 FILE=-
 CMDS='
 wx 0xff
 pB 2
 '
 EXPECT='1111111100000000
+'
+run_test
+
+NAME='pb 0x12'
+FILE=-
+CMDS='
+wx 0x12
+pb 8
+pb 4 2
+pb 4 3
+'
+EXPECT='00010010
+0100
+1001
+'
+run_test
+
+NAME='pxb 8'
+FILE=-
+CMDS='pxb 8'
+EXPECT='0x00000000 0000.0000  0000.0000  0000.0000  0000.0000  0x00000000  ....
+0x00000004 0000.0000  0000.0000  0000.0000  0000.0000  0x00000000  ....
 '
 
 run_test

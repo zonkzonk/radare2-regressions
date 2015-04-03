@@ -8,6 +8,7 @@ e asm.bits=32
 f TEST=33
 pa mov eax, TEST
 "
+BROKEN=1
 EXPECT="b821000000
 "
 run_test

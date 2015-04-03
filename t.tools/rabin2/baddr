@@ -3,7 +3,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='baddr >0'
-BROKEN=
+BROKEN=1
 FILE=../../bins/elf/hello-linux-x86_64
 ARGS=
 CMDS='!rabin2 -qe ${FILE};!rabin2 -B 0x800000 -qe ${FILE}'
@@ -13,7 +13,7 @@ EXPECT='0x00400410
 run_test
 
 NAME='baddr 0'
-BROKEN=
+BROKEN=1
 FILE=../../bins/elf/hello-linux-x86_64
 ARGS=
 CMDS='!rabin2 -qe ${FILE};!rabin2 -B 0 -qe ${FILE}'

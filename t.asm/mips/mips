@@ -32,7 +32,7 @@ test_vector "${PLUGIN}" "BC2F" 00000049 'bc2f 8'
 test_vector "${PLUGIN}" "BC3F" 0000004d 'bc3f 8'
 test_vector "${PLUGIN}" "BEQ" 11111011 "beq t0, s0, 0x444c"
 test_vector "${PLUGIN}" "BEQL" 0050b853 "beql sp, t8, 0x14008"
-test_vector "${PLUGIN}" "BEQZL" 00000050 'beqzl zero, 8'
+test_vector "${PLUGIN}" "BEQZL" 00000050 'beqzl zero, 8' "br"
 test_vector "${PLUGIN}" "BEZQ" 00000011 "beqz t0, 8"
 test_vector "${PLUGIN}" "BGEZ" 02004104 "bgez v0, 0x10"
 test_vector "${PLUGIN}" "BGEZL" 4800c305 "bgezl t6, 0x128"
@@ -47,7 +47,7 @@ test_vector "${PLUGIN}" "BLTZL" 4400c206 "bltzl s6, 0x118"
 test_vector "${PLUGIN}" "BNE" 01111015 "bne t0, s0, 0x440c"
 test_vector "${PLUGIN}" "BNEL" 00d01056 "bnel s0, s0, -0xbff8"
 test_vector "${PLUGIN}" "BNEZ" 00000014 "bnez zero, 8"
-test_vector "${PLUGIN}" "BNEZL" 00000055 'bnezl t0, 8'
+test_vector "${PLUGIN}" "BNEZL" 00000055 'bnezl t0, 8' "br"
 test_vector "${PLUGIN}" "CACHE" 000000bc 'cache 0, (zero)'
 test_vector "${PLUGIN}" "J" 00000008 "j 0"
 test_vector "${PLUGIN}" "JAL" 0000000c "jal 0"

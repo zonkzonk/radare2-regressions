@@ -3,7 +3,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 ARCH=arm.gnu
 
 NAME="ldr code analysis"
-BROKEN=
+BROKEN=1
 FILE=malloc://32
 CMDS="
 wx 20c09fe5

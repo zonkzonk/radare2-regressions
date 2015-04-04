@@ -75,3 +75,25 @@ pij -3 @ 10
 EXPECT='[{"offset":3,"fcn_addr":0,"fcn_last":0,"size":2,"opcode":"add byte [rax], al","bytes":"0000","type":"add","type_num":17,"type2_num":0},{"offset":5,"fcn_addr":0,"fcn_last":0,"size":3,"opcode":"cmp rdx, rcx","bytes":"4839ca","type":"cmp","type_num":15,"type2_num":0},{"offset":8,"fcn_addr":0,"fcn_last":0,"size":2,"opcode":"jg 0xa","bytes":"7f00","type":"cjmp","type_num":2147483649,"type2_num":0,"jump":10,"fail":10}]
 '
 run_test
+
+
+
+NAME='pi -10'
+FILE=malloc://1024
+BROKEN=1
+CMDS='
+wx 90909090909090909090 ; s 10 ; pi -10
+'
+EXPECT='nop
+nop
+nop
+nop
+nop
+nop
+nop
+nop
+nop
+nop
+'
+
+run_test

@@ -19,3 +19,26 @@ EXPECT='[44m  [44m  [40m  [41m  [44m  [44m  [47m  [40m  [0m
 '
 
 run_test
+
+
+NAME='p8 10'
+FILE=malloc://1024
+CMDS='
+wx 90909090909090909090 ; p8 10
+'
+EXPECT='90909090909090909090
+'
+
+run_test
+
+
+NAME='p8 -10'
+FILE=malloc://1024
+BROKEN=1
+CMDS='
+wx 90909090909090909090 ; s 10 ; p8 -10
+'
+EXPECT='90909090909090909090
+'
+
+run_test

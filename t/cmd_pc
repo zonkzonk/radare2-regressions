@@ -242,3 +242,17 @@ buf = struct.pack ("256B",
 '
 
 run_test
+
+NAME='pc -10'
+FILE=malloc://1024
+BROKEN=1
+CMDS='
+wx 90909090909090909090 ; s 10 ; pc - 10
+'
+EXPECT='#define _BUFFER_SIZE 10
+unsigned char buffer[10] = {
+  0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, };
+'
+
+run_test
+

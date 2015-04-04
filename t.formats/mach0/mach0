@@ -5,7 +5,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='mach0 entrypoint'
-BROKEN=1
+BROKEN=
 FILE=../../bins/mach0/hello-osx-i386
 ARGS=
 CMDS='ie~addr
@@ -25,7 +25,7 @@ EXPECT='6a0089e583e4f083ec10
 run_test
 
 NAME='mach0 entrypoint i386 LC_MAIN'
-BROKEN=1
+BROKEN=
 FILE=../../bins/mach0/mach0-i386
 ARGS=
 CMDS='ie~addr
@@ -35,7 +35,7 @@ EXPECT='vaddr=0x00001f80 paddr=0x00000f80 baddr=0x00001000 laddr=0x00000000
 run_test
 
 NAME='mach0 entrypoint x86_64 LC_MAIN'
-BROKEN=1
+BROKEN=
 FILE=../../bins/mach0/mach0_2-x86_64
 ARGS=
 CMDS='ie~addr
@@ -45,7 +45,7 @@ EXPECT='vaddr=0x100000f70 paddr=0x00000f70 baddr=0x100000000 laddr=0x00000000
 run_test
 
 NAME='osx mach0 entrypoint'
-BROKEN=1
+BROKEN=
 FILE=../../bins/mach0/ls-osx-x86_64
 ARGS=
 CMDS='ie~addr

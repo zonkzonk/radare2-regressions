@@ -15,10 +15,10 @@ EXPECT=''
 run_test
 }
 
-fuzz_test 1 ../../bins/dalvik/fuzz-dex-jox01
-fuzz_test 2 ../../bins/dalvik/fuzz-loaduleb.dex
-fuzz_test 3 ../../bins/dalvik/fuzz-oobuleb.dex
-fuzz_test 4 ../../bins/dalvik/fuzz-rbufneg.dex
-fuzz_test 5 ../../bins/dalvik/fuzz-uninitstr.dex
-fuzz_test 6 ../../bins/dalvik/fuzz-method.dex
+fuzz_test 1 ../../bins/dex/fuzz-dex-jox01
+fuzz_test 2 ../../bins/dex/fuzz-loaduleb.dex
+fuzz_test 3 ../../bins/dex/fuzz-oobuleb.dex
+fuzz_test 4 ../../bins/dex/fuzz-rbufneg.dex
+fuzz_test 5 ../../bins/dex/fuzz-uninitstr.dex
+fuzz_test 6 ../../bins/dex/fuzz-method.dex
 

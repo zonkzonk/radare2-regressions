@@ -1,8 +1,8 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
-HELLO=../../bins/dalvik/Hello.dex
-HELLOSLACK=../../bins/dalvik/HelloSlack.dex
+HELLO=../../bins/dex/Hello.dex
+HELLOSLACK=../../bins/dex/HelloSlack.dex
 
 NAME='loading DEX file'
 FILE=${HELLO}

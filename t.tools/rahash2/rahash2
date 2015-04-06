@@ -172,16 +172,16 @@ run_test
 
 NAME='rahash2 -q -a md5 -i1 -x "61646d696e"'
 CMDS='!rahash2 -q -a md5 -i1 -x "61646d696e"'
-BROKEN=1
-EXPECT='21232f297a57a5a743894a0e4a801fc3
+BROKEN=
+EXPECT='43442676c74ae59f219c2d87fd6bad52
 '
 
 run_test
 
 NAME='rahash2 -q -a md5 -i2 -x "61646d696e"'
 CMDS='!rahash2 -q -a md5 -i2 -x "61646d696e"'
-BROKEN=1
-EXPECT='c3284d0f94606de1fd2af172aba15bf3
+BROKEN=
+EXPECT='9fec80fbcee7632ce78d1586332b299e
 '
 
 run_test
@@ -214,16 +214,16 @@ run_test
 
 NAME='rahash2 -q -a md5 -i1 -s "admin"'
 CMDS='!rahash2 -q -a md5 -i1 -s "admin"'
-BROKEN=1
-EXPECT='21232f297a57a5a743894a0e4a801fc3
+BROKEN=
+EXPECT='43442676c74ae59f219c2d87fd6bad52
 '
 
 run_test
 
 NAME='rahash2 -q -a md5 -i2 -s "admin"'
 CMDS='!rahash2 -q -a md5 -i2 -s "admin"'
-BROKEN=1
-EXPECT='c3284d0f94606de1fd2af172aba15bf3
+BROKEN=
+EXPECT='9fec80fbcee7632ce78d1586332b299e
 '
 
 run_test

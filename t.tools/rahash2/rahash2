@@ -181,7 +181,7 @@ run_test
 NAME='rahash2 -q -a md5 -i2 -x "61646d696e"'
 CMDS='!rahash2 -q -a md5 -i2 -x "61646d696e"'
 BROKEN=1
-EXPECT='b3e4547ee9f44c618e404e8baf35876a
+EXPECT='c3284d0f94606de1fd2af172aba15bf3
 '
 
 run_test
@@ -223,7 +223,7 @@ run_test
 NAME='rahash2 -q -a md5 -i2 -s "admin"'
 CMDS='!rahash2 -q -a md5 -i2 -s "admin"'
 BROKEN=1
-EXPECT='b3e4547ee9f44c618e404e8baf35876a
+EXPECT='c3284d0f94606de1fd2af172aba15bf3
 '
 
 run_test

@@ -237,15 +237,14 @@ EXPECT='21232f297a57a5a743894a0e4a801fc3
 
 run_test
 
+
 NAME='rahash2 -q -a md5 -f0x1 -t0x4 -x "aa61646d696eaa"'
 CMDS='!rahash2 -q -a md5 -f0x1 -t0x4 -x "aa61646d696eaa"'
-BROKEN=
+BROKEN=1
 EXPECT='21232f297a57a5a743894a0e4a801fc3
 '
 
 run_test
-
-
 
 
 NAME='rahash2 -v~commit?"'

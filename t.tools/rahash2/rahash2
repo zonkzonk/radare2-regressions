@@ -181,7 +181,7 @@ run_test
 NAME='rahash2 -q -a md5 -i2 -x "61646d696e"'
 CMDS='!rahash2 -q -a md5 -i2 -x "61646d696e"'
 BROKEN=1
-EXPECT='c3284d0f94606de1fd2af172aba15bf3
+EXPECT='b3e4547ee9f44c618e404e8baf35876a
 '
 
 run_test
@@ -193,3 +193,52 @@ EXPECT='1
 
 run_test
 
+
+NAME='rahash2 -a md5 -t0x4 -s "admina"'
+CMDS='!rahash2 -a md5 -t0x4 -s "admina"'
+BROKEN=
+EXPECT='0x00000000-0x00000004 md5: 21232f297a57a5a743894a0e4a801fc3
+'
+
+run_test
+
+NAME='rahash2 -q -a md5 -t0x4 -s "admina"'
+CMDS='!rahash2 -q -a md5 -t0x4 -s "admina"'
+BROKEN=
+EXPECT='21232f297a57a5a743894a0e4a801fc3
+'
+
+run_test
+
+
+NAME='rahash2 -q -a md5 -f0x1 -s "aadmin"'
+CMDS='!rahash2 -q -a md5 -f0x1 -s "aadmin"'
+BROKEN=1
+EXPECT='21232f297a57a5a743894a0e4a801fc3
+'
+
+run_test
+
+
+NAME='rahash2 -q -a md5 -i1 -s "admin"'
+CMDS='!rahash2 -q -a md5 -i1 -s "admin"'
+BROKEN=1
+EXPECT='21232f297a57a5a743894a0e4a801fc3
+'
+
+run_test
+
+NAME='rahash2 -q -a md5 -i2 -s "admin"'
+CMDS='!rahash2 -q -a md5 -i2 -s "admin"'
+BROKEN=1
+EXPECT='b3e4547ee9f44c618e404e8baf35876a
+'
+
+run_test
+
+NAME='rahash2 -v~commit?"'
+CMDS='!!rahash2 -v~commit?'
+EXPECT='1
+'
+
+run_test

@@ -93,6 +93,9 @@ anal.x86:
 	@sh run_tests.sh t.anal/x86
 anal.others:
 	@sh run_tests.sh t.anal/others_anal
+dbg.linux:
+	@sh run_tests.sh t.archos/Linux
+
 esil:
 	@sh run_tests.sh t.esil
 

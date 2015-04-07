@@ -144,17 +144,17 @@ adler32
 
 run_test
 
-NAME='rahash2 -a md5 -t0x5 -x "61646d696eaa"'
-CMDS='!rahash2 -a md5 -t0x5 -x "61646d696eaa"'
-BROKEN=1
+NAME='rahash2 -a md5 -t0x4 -x "61646d696eaa"'
+CMDS='!rahash2 -a md5 -t0x4 -x "61646d696eaa"'
+BROKEN=
 EXPECT='0x00000000-0x00000004 md5: 21232f297a57a5a743894a0e4a801fc3
 '
 
 run_test
 
-NAME='rahash2 -q -a md5 -t0x5 -x "61646d696eaa"'
-CMDS='!rahash2 -q -a md5 -t0x5 -x "61646d696eaa"'
-BROKEN=1
+NAME='rahash2 -q -a md5 -t0x4 -x "61646d696eaa"'
+CMDS='!rahash2 -q -a md5 -t0x4 -x "61646d696eaa"'
+BROKEN=
 EXPECT='21232f297a57a5a743894a0e4a801fc3
 '
 
@@ -186,17 +186,17 @@ EXPECT='9fec80fbcee7632ce78d1586332b299e
 
 run_test
 
-NAME='rahash2 -a md5 -t0x5 -s "admina"'
-CMDS='!rahash2 -a md5 -t0x5 -s "admina"'
-BROKEN=1
+NAME='rahash2 -a md5 -t0x4 -s "admina"'
+CMDS='!rahash2 -a md5 -t0x4 -s "admina"'
+BROKEN=
 EXPECT='0x00000000-0x00000004 md5: 21232f297a57a5a743894a0e4a801fc3
 '
 
 run_test
 
-NAME='rahash2 -q -a md5 -t0x5 -s "admina"'
-CMDS='!rahash2 -q -a md5 -t0x5 -s "admina"'
-BROKEN=1
+NAME='rahash2 -q -a md5 -t0x4 -s "admina"'
+CMDS='!rahash2 -q -a md5 -t0x4 -s "admina"'
+BROKEN=
 EXPECT='21232f297a57a5a743894a0e4a801fc3
 '
 

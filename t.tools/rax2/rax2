@@ -193,3 +193,9 @@ CMDS='!!rax2 -v~commit?'
 EXPECT='1
 '
 run_test
+
+NAME='rax2 -h~Usage?"'
+CMDS='!!rax2 -h~Usage?'
+EXPECT='1
+'
+run_test

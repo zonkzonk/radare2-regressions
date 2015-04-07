@@ -145,11 +145,40 @@ EXPECT='\x34\x12\x00\x00
 '
 run_test
 
-
-
 NAME='rax2 -d 3'
 CMDS='!rax2 -d 3'
 EXPECT='3
+'
+run_test
+
+NAME='cat ../../bins/other/shellcode.c | rax2 -F'
+CMDS='!cat ../../bins/other/shellcode.c | rax2 -F'
+EXPECT='31c050686e2f7368682f2f626989e35089e25389e1b00bcd80
+'
+BROKEN=1
+run_test
+
+NAME='rax2 -s 43 4a 50'
+CMDS='!rax2 -s 43 4a 50'
+EXPECT='CJP'
+run_test
+
+NAME='rax2 -S CJP'
+CMDS='!rax2 -S CJP'
+EXPECT='434a50
+'
+run_test
+
+NAME='rax2 -t 1234567890'
+CMDS='!rax2 -t 1234567890'
+EXPECT='2009-02-13 23:31:30 +0000
+'
+run_test
+
+NAME='rax2 -x linux osx'
+CMDS='!rax2 -x linux osx'
+EXPECT='0x5ca62a43
+0xad593a1
 '
 run_test
 

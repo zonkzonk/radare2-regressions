@@ -52,3 +52,53 @@ EXPECT='23
 
 '
 run_test
+
+
+NAME='to test.h'
+FILE=-
+CMDS='
+to ../bins/other/test.h
+t
+t addr
+'
+EXPECT='unsigned int=type
+unsigned char=type
+unsigned short=type
+int=type
+long=type
+void *=type
+char=type
+char *=type
+const char*=type
+type.unsigned int=i
+type.unsigned char=b
+type.unsigned short=w
+type.int=d
+type.long=x
+type.void *=p
+type.char=x
+type.char *=*z
+type.const char*=*z
+name=struct
+struct.name=first,middle,last
+struct.name.first=char *,0,40
+struct.name.middle=char *,40,40
+struct.name.last=char *,80,40
+date=struct
+struct.date=day,month,year
+struct.date.day=unsigned char,0,0
+struct.date.month=unsigned char,1,0
+struct.date.year=unsigned short,2,0
+addr=struct
+struct.addr=street,city,zip
+struct.addr.street=char *,0,127
+struct.addr.city=char *,127,40
+struct.addr.zip=unsigned int,168,0
+dox=struct
+struct.dox=address,name,bday
+struct.dox.address=struct addr,0,0
+struct.dox.name=struct name,172,0
+struct.dox.bday=struct date,292,0
+pf *z*zi street city zip 
+'
+run_test

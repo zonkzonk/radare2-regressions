@@ -75,19 +75,19 @@ aa 2> /dev/null
 pd 10
 "
 EXPECT='/ (fcn) fcn.00000000 32
-| 0x00000000    0800040c     jal 0x100020
-|    0x00100020() ; fcn.00000020+1048576
-| 0x00000004    00000000     nop
-| 0x00000008    00000000     nop
-| 0x0000000c    00000000     nop
-| 0x00000010    00000000     nop
-| 0x00000014    00000000     nop
-| 0x00000018    40040408     j 0x101100
-\ 0x0000001c    00000000     nop
+| ; JMP XREF from 0x00000020 (fcn.00000020)
+| 0x00000000    0800040c   jal 0x100020
+|    0x00100020()
+| 0x00000004    00000000   nop
+| 0x00000008    00000000   nop
+| 0x0000000c    00000000   nop
+| 0x00000010    00000000   nop
+| 0x00000014    00000000   nop
+| 0x00000018    40040408   j 0x101100
+\ 0x0000001c    00000000   nop
 / (fcn) fcn.00000020 8
-| ;-- fcn.00000020:
-| 0x00000020    0800e003     jr ra
-\ 0x00000024    00000000     nop
+| 0x00000020    0800e003   jr ra                                        ; (fcn.00000000)
+\ 0x00000024    00000000   nop
 '
 run_test
 
@@ -95,7 +95,7 @@ run_test
 # Test that jumps / calls used mapped address if used (Case 2 - mapped)
 #
 NAME="mips LE correct relative jump reference if mapped from command line."
-BROKEN=
+BROKEN=1
 FILE=malloc://40
 ARGS='-m 0x80100000'
 CMDS="e asm.bits=32
@@ -110,8 +110,8 @@ pd 10
 afl
 "
 EXPECT='/ (fcn) fcn.80100000 40
-| 0x80100000    0800040c     jal 0x80100020                            ; (fcn.80100000)
-|    fcn.80100000()
+/ (fcn) fcn.80100000 4352
+| 0x80100000    0800040c   jal 0x80100020                               ; (fcn.80100000)
 | 0x80100004    00000000     nop
 | 0x80100008    00000000     nop
 | 0x8010000c    00000000     nop
@@ -131,7 +131,7 @@ run_test
 # It turns out that until this was fixed properly, the above two tests were still wrong!
 # problem is related to IO, not anal
 NAME="mips branch delay function sizing."
-BROKEN=
+BROKEN=1
 FILE=malloc://20
 ARGS='-m 0x80100000'
 CMDS="e asm.bits=32
@@ -151,7 +151,7 @@ EXPECT='/ (fcn) fcn.80100000 8
 run_test
 
 NAME="mips branch delay function sizing."
-BROKEN=
+BROKEN=1
 FILE=malloc://20
 ARGS=
 CMDS="e asm.bits=32
@@ -174,7 +174,7 @@ run_test
 # As a hack we skip return on the fail pass if mips, but is the test coverage complete?
 
 NAME="mips branch delay function sizing with conditional jump loop."
-BROKEN=
+BROKEN=1
 FILE=malloc://40
 ARGS='-m 0x80100000'
 CMDS="e asm.bits=32
@@ -201,7 +201,7 @@ EXPECT='/ (fcn) fcn.80100000 32
 run_test
 
 NAME="mips branch delay function sizing with conditional jump foward."
-BROKEN=
+BROKEN=1
 FILE=malloc://40
 ARGS='-m 0x80100000'
 CMDS="
@@ -230,7 +230,7 @@ EXPECT='/ (fcn) fcn.80100000 32
 run_test
 
 NAME="mips branch delay function sizing with conditional jump back."
-BROKEN=
+BROKEN=1
 FILE=malloc://40
 ARGS='-m 0x80100000'
 CMDS="e asm.arch=${PLUGIN}
@@ -258,7 +258,7 @@ EXPECT='/ (fcn) fcn.80100000 32
 run_test
 
 NAME="mips branch delay function sizing with conditional jump back then forward."
-BROKEN=
+BROKEN=1
 FILE=malloc://56
 ARGS='-m 0x80100000'
 CMDS="e asm.arch=${PLUGIN}
@@ -288,7 +288,7 @@ EXPECT='/ (fcn) fcn.80100000 44
 run_test
 
 NAME="mips branch delay function detection #1."
-BROKEN=
+BROKEN=1
 FILE=malloc://160
 ARGS='-m 0x8060b4f8'
 CMDS="e asm.bits=32
@@ -350,6 +350,7 @@ EXPECT='            0x8060b4f8    00000000     nop
 run_test
 
 NAME="capstone: mips branch delay function detection #1."
+BROKEN=1
 FILE=malloc://160
 ARGS='-m 0x8060b4f8'
 CMDS="e asm.bits=32

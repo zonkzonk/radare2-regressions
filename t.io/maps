@@ -12,7 +12,7 @@ CMDS='
 s 0
 b 100
 wox 0x10 @ 0
-on malloc://0x1000 0x80000
+on malloc://0x1000 0x80000 >/dev/null
 p8 4 @ 0x80000
 '
 EXPECT='00000000
@@ -29,7 +29,7 @@ CMDS='
 s 0
 b 100
 wox 0x10 @ 0
-o malloc://0x1000 0x80000
+o malloc://0x1000 0x80000 > /dev/null
 b 0x1000
 wow 20 @ 0x80000
 b 20
@@ -80,7 +80,7 @@ RET=4
 
 NAME='o - 0x9000;x@0x8f00'
 FILE=-
-CMDS='o malloc://128 0x9000
+CMDS='o malloc://128 0x9000 > /dev/null
 x 32 @ 0x8ff0
 '
 EXPECT='- offset -   0 1  2 3  4 5  6 7  8 9  A B  C D  E F  0123456789ABCDEF

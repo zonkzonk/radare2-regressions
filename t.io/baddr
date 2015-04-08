@@ -26,7 +26,7 @@ EXPECT='0xf00410
 run_test
 
 NAME="io.baddr"
-BROKEN=
+BROKEN=1
 FILE=../bins/elf/hello-linux-x86_64
 CMDS='!rabin2 -B 0xf00000 -re ${FILE} | grep 0x'
 EXPECT='f entry0 1 @ 0x00f00410

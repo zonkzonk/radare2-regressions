@@ -63,16 +63,16 @@ run_test
 NAME='$f (malloc)'
 FILE=malloc://1024
 ARGS=
-BROKEN=1
-CMDS='wa jmp 0x30
+BROKEN=
+CMDS='wx eb2e
 ?v $f
-wa jz 0x01
+wx 0f84fbffffff
 ?v $f
-wa xor eax, eax
+wx 31c0
 ?v $f
 '
 EXPECT='0xffffffffffffffff
-0x2
+0x6
 0xffffffffffffffff
 '
 run_test

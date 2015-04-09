@@ -39,6 +39,24 @@ EXPECT='|          0x0040050a    bfc4054000     mov edi, str.Hello_World       ;
 '
 run_test
 
+NAME='pD -10'
+FILE=malloc://1024
+CMDS='
+wx 90909090909090909090 ; s 10 ; pD -10
+'
+EXPECT='           0x00000000    90             nop
+           0x00000001    90             nop
+           0x00000002    90             nop
+           0x00000003    90             nop
+           0x00000004    90             nop
+           0x00000005    90             nop
+           0x00000006    90             nop
+           0x00000007    90             nop
+           0x00000008    90             nop
+           0x00000009    90             nop
+'
+
+run_test
 
 NAME='pd -10'
 FILE=malloc://1024
@@ -57,5 +75,4 @@ EXPECT='           0x00000000    90           nop
            0x00000008    90           nop
            0x00000009    90           nop
 '
-
 run_test

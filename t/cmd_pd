@@ -10,7 +10,7 @@ e scr.columns = 90
 wx ba3d000000
 pd 1
 '
-EXPECT="           0x00000000    ba3d000000   mov edx, 0x3d                    ; '='
+EXPECT="           0x00000000    ba3d000000     mov edx, 0x3d                  ; '='
 "
 run_test
 
@@ -23,7 +23,7 @@ e scr.columns = 90
 aa
 pd 1 @ 0x0040050a
 '
-EXPECT='|          0x0040050a    bfc4054000   mov edi, str.Hello_World         ; "Hello World" @ 0x4005c4
+EXPECT='|          0x0040050a    bfc4054000     mov edi, str.Hello_World       ; "Hello World" @ 0x4005c4
 '
 run_test
 
@@ -35,7 +35,7 @@ e scr.columns = 90
 aa
 pd 1 @ 0x0040050a
 '
-EXPECT='|          0x0040050a    bfc4054000   mov edi, str.Hello_World         ; "Hello World" @ 0x4005c4
+EXPECT='|          0x0040050a    bfc4054000     mov edi, str.Hello_World       ; "Hello World" @ 0x4005c4
 '
 run_test
 

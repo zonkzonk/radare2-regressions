@@ -30,6 +30,6 @@ ARGS=''
 BROKEN=
 CMDS='?v entry0
 '
-EXPECT='0x1b0
+EXPECT='0x1c0
 '
 run_test

@@ -68,6 +68,7 @@ e asm.arch=${PLUGIN}
 e anal.eobjmp=true
 e anal.nopskip=false
 e anal.depth=2
+e asm.cmtcol=0
 e asm.lines=0
 e asm.nbytes=4
 wx 0800040c000000000000000000000000000000000000000040040408000000000800e00300000000
@@ -86,7 +87,7 @@ EXPECT='/ (fcn) fcn.00000000 32
 | 0x00000018    40040408   j 0x101100
 \ 0x0000001c    00000000   nop
 / (fcn) fcn.00000020 8
-| 0x00000020    0800e003   jr ra                                        ; (fcn.00000000)
+| 0x00000020    0800e003   jr ra  ; fcn.00000000
 \ 0x00000024    00000000   nop
 '
 run_test
@@ -131,7 +132,6 @@ run_test
 # It turns out that until this was fixed properly, the above two tests were still wrong!
 # problem is related to IO, not anal
 NAME="mips branch delay function sizing."
-BROKEN=1
 FILE=malloc://20
 ARGS='-m 0x80100000'
 CMDS="e asm.bits=32
@@ -144,9 +144,8 @@ af 2>/dev/null
 pdf
 "
 EXPECT='/ (fcn) fcn.80100000 8
-|          ;-- fcn.80100000:
-|          0x80100000    0800e003     jr ra
-\          0x80100004    0a184400     movz v1, v0, a0
+|          0x80100000    0800e003   jr ra
+\          0x80100004    0a184400   movz v1, v0, a0
 '
 run_test
 
@@ -189,18 +188,18 @@ af 2> /dev/null
 pdf
 "
 EXPECT='/ (fcn) fcn.80100000 32
-|          0x80100000    e0ffbd27     addiu sp, sp, -0x20
-|          0x80100004    00000000     nop
-|     .,=< 0x80100008    01000010     b 0x80100010
-|     ||   0x8010000c    00000000     nop
-|     ``-> 0x80100010    fdff0915     bne t0, t1, 0x80100008
-|          0x80100014    0a184400     movz v1, v0, a0
-|          0x80100018    0800e003     jr ra
-\          0x8010001c    2000bd27     addiu sp, sp, 0x20
+|          0x80100000    e0ffbd27   addiu sp, sp, -0x20
+|          0x80100004    00000000   nop
+|     .,=< 0x80100008    01000010   b 0x80100010
+|     ||   0x8010000c    00000000   nop
+|     ``-> 0x80100010    fdff0915   bne t0, t1, 0x80100008
+|          0x80100014    0a184400   movz v1, v0, a0
+|          0x80100018    0800e003   jr ra
+\          0x8010001c    2000bd27   addiu sp, sp, 0x20
 '
 run_test
 
-NAME="mips branch delay function sizing with conditional jump foward."
+NAME="mips branch delay function sizing with conditional jump forward."
 BROKEN=1
 FILE=malloc://40
 ARGS='-m 0x80100000'
@@ -218,14 +217,14 @@ af 2> /dev/null
 pdf
 "
 EXPECT='/ (fcn) fcn.80100000 32
-|          0x80100000    e0ffbd27     addiu sp, sp, -0x20
-|          0x80100004    00000000     nop
-|      ,=< 0x80100008    01000010     b 0x80100010
-|      |   0x8010000c    00000000     nop
-|      `-> 0x80100010    00000000     nop
-|          0x80100014    0a184400     movz v1, v0, a0
-|          0x80100018    0800e003     jr ra
-\          0x8010001c    2000bd27     addiu sp, sp, 0x20
+|          0x80100000    e0ffbd27   addiu sp, sp, -0x20
+|          0x80100004    00000000   nop
+|      ,=< 0x80100008    01000010   b 0x80100010
+|      |   0x8010000c    00000000   nop
+|      `-> 0x80100010    00000000   nop
+|          0x80100014    0a184400   movz v1, v0, a0
+|          0x80100018    0800e003   jr ra
+\          0x8010001c    2000bd27   addiu sp, sp, 0x20
 '
 run_test
 
@@ -273,22 +272,21 @@ af 2> /dev/null
 pdf
 "
 EXPECT='/ (fcn) fcn.80100000 44
-|          0x80100000    e0ffbd27     addiu sp, sp, -0x20
-|          0x80100004    00000000     nop
-|      .-> 0x80100008    00000000     nop
-|      |   0x8010000c    00000000     nop
-|      `=< 0x80100010    fdff0915     bne t0, t1, 0x80100008
-|          0x80100014    00000000     nop
-|     ,==< 0x80100018    01000010     b 0x80100020
-|     |    0x8010001c    00000000     nop
-|     `--> 0x80100020    0a184400     movz v1, v0, a0
-|          0x80100024    0800e003     jr ra
-\          0x80100028    2000bd27     addiu sp, sp, 0x20
+|          0x80100000    e0ffbd27   addiu sp, sp, -0x20
+|          0x80100004    00000000   nop
+|      .-> 0x80100008    00000000   nop
+|      |   0x8010000c    00000000   nop
+|      `=< 0x80100010    fdff0915   bne t0, t1, 0x80100008
+|          0x80100014    00000000   nop
+|     ,==< 0x80100018    01000010   b 0x80100020
+|     |    0x8010001c    00000000   nop
+|     `--> 0x80100020    0a184400   movz v1, v0, a0
+|          0x80100024    0800e003   jr ra
+\          0x80100028    2000bd27   addiu sp, sp, 0x20
 '
 run_test
 
 NAME="mips branch delay function detection #1."
-BROKEN=1
 FILE=malloc://160
 ARGS='-m 0x8060b4f8'
 CMDS="e asm.bits=32
@@ -304,53 +302,52 @@ wx 0000000000000000002e0500032e05000f00801021100000492d1808000082900800e00321108
 aa 2> /dev/null
 pd 38
 "
-EXPECT='            0x8060b4f8    00000000     nop
-            0x8060b4fc    00000000     nop
+EXPECT='            0x8060b4f8    00000000   nop
+            0x8060b4fc    00000000   nop
 / (fcn) fcn.8060b500 80
-|           0x8060b500    002e0500     sll a1, a1, 0x18
-|           0x8060b504    032e0500     sra a1, a1, 0x18
-|       ,=< 0x8060b508    0f008010     beqz a0, 0x8060b548
-|       |   0x8060b50c    21100000     move v0, zero
-|      ,==< 0x8060b510    492d1808     j 0x8060b524
-|      ||   0x8060b514    00008290     lbu v0, 0(a0)
-|    .----> 0x8060b518    0800e003     jr ra
-|    | ||   0x8060b51c    21108000     move v0, a0
-|   .-----> 0x8060b520    00008290     lbu v0, 0(a0)
-|   ||,`--> 0x8060b524    07004010     beqz v0, 0x8060b544
-|   ||| |   0x8060b528    00000000     nop
-|   ||| |   0x8060b52c    00160200     sll v0, v0, 0x18
-|   ||| |   0x8060b530    03160200     sra v0, v0, 0x18
-|   |`====< 0x8060b534    f8ff4510     beq v0, a1, 0x8060b518
-|   | | |   0x8060b538    00000000     nop
-|   `=====< 0x8060b53c    482d1808     j 0x8060b520
-|     | |   0x8060b540    01008424     addiu a0, a0, 1
-|     `---> 0x8060b544    21100000     move v0, zero
-|       `-> 0x8060b548    0800e003     jr ra
-\           0x8060b54c    00000000     nop
+|           0x8060b500    002e0500   sll a1, a1, 0x18
+|           0x8060b504    032e0500   sra a1, a1, 0x18
+|       ,=< 0x8060b508    0f008010   beqz a0, 0x8060b548
+|       |   0x8060b50c    21100000   move v0, zero
+|      ,==< 0x8060b510    492d1808   j 0x8060b524
+|      ||   0x8060b514    00008290   lbu v0, 0(a0)
+|    .----> 0x8060b518    0800e003   jr ra
+|    | ||   0x8060b51c    21108000   move v0, a0
+|   .-----> 0x8060b520    00008290   lbu v0, 0(a0)
+|   ||,`--> 0x8060b524    07004010   beqz v0, 0x8060b544
+|   ||| |   0x8060b528    00000000   nop
+|   ||| |   0x8060b52c    00160200   sll v0, v0, 0x18
+|   ||| |   0x8060b530    03160200   sra v0, v0, 0x18
+|   |`====< 0x8060b534    f8ff4510   beq v0, a1, 0x8060b518
+|   | | |   0x8060b538    00000000   nop
+|   `=====< 0x8060b53c    482d1808   j 0x8060b520
+|     | |   0x8060b540    01008424   addiu a0, a0, 1
+|     `---> 0x8060b544    21100000   move v0, zero
+|       `-> 0x8060b548    0800e003   jr ra
+\           0x8060b54c    00000000   nop
 / (fcn) fcn.8060b550 36
-|           0x8060b550    0000a290     lbu v0, 0(a1)
-| .,======< 0x8060b554    05004010     beqz v0, 0x8060b56c
-| ||        0x8060b558    0100a524     addiu a1, a1, 1
-| ||        0x8060b55c    000082a0     sb v0, 0(a0)
-| ||        0x8060b560    0000a290     lbu v0, 0(a1)
-| `=======< 0x8060b564    552d1808     j 0x8060b554
-|  |        0x8060b568    01008424     addiu a0, a0, 1
-|  `------> 0x8060b56c    0800e003     jr ra
-\           0x8060b570    000080a0     sb zero, 0(a0)
-            0x8060b574    00000000     nop
+|           0x8060b550    0000a290   lbu v0, 0(a1)
+| .,======< 0x8060b554    05004010   beqz v0, 0x8060b56c
+| ||        0x8060b558    0100a524   addiu a1, a1, 1
+| ||        0x8060b55c    000082a0   sb v0, 0(a0)
+| ||        0x8060b560    0000a290   lbu v0, 0(a1)
+| `=======< 0x8060b564    552d1808   j 0x8060b554
+|  |        0x8060b568    01008424   addiu a0, a0, 1
+|  `------> 0x8060b56c    0800e003   jr ra
+\           0x8060b570    000080a0   sb zero, 0(a0)
+            0x8060b574    00000000   nop
 / (fcn) fcn.8060b578 20
 |           ;-- fcn.8060b578:
-|           0x8060b578    e0ffbd27     addiu sp, sp, -32
-|           0x8060b57c    542d180c     jal fcn.8060b550
-|           0x8060b580    00000000     nop
-|           0x8060b584    0800e003     jr ra
-\           0x8060b588    2000bd27     addiu sp, sp, 32
-            0x8060b58c    00000000     nop
+|           0x8060b578    e0ffbd27   addiu sp, sp, -32
+|           0x8060b57c    542d180c   jal fcn.8060b550
+|           0x8060b580    00000000   nop
+|           0x8060b584    0800e003   jr ra
+\           0x8060b588    2000bd27   addiu sp, sp, 32
+            0x8060b58c    00000000   nop
 '
 run_test
 
 NAME="capstone: mips branch delay function detection #1."
-BROKEN=1
 FILE=malloc://160
 ARGS='-m 0x8060b4f8'
 CMDS="e asm.bits=32
@@ -366,49 +363,46 @@ wx 0000000000000000002e0500032e05000f00801021100000492d1808000082900800e00321108
 aa 2> /dev/null
 pd 38
 "
-EXPECT='            0x8060b4f8    00000000     nop
-            0x8060b4fc    00000000     nop
+EXPECT='            0x8060b4f8    00000000   nop
+            0x8060b4fc    00000000   nop
 / (fcn) fcn.8060b500 80
-|           ;-- fcn.8060b500:
-|           0x8060b500    002e0500     sll a1, a1, 0x18
-|           0x8060b504    032e0500     sra a1, a1, 0x18
-|       ,=< 0x8060b508    0f008010     beqz a0, 0x8060b548
-|       |   0x8060b50c    21100000     move v0, zero
-|      ,==< 0x8060b510    492d1808     j 0x8060b524
-|      ||   0x8060b514    00008290     lbu v0, (a0)
-|    .----> 0x8060b518    0800e003     jr ra
-|    | ||   0x8060b51c    21108000     move v0, a0
-|   .-----> 0x8060b520    00008290     lbu v0, (a0)
-|   ||,`--> 0x8060b524    07004010     beqz v0, 0x8060b544
-|   ||| |   0x8060b528    00000000     nop
-|   ||| |   0x8060b52c    00160200     sll v0, v0, 0x18
-|   ||| |   0x8060b530    03160200     sra v0, v0, 0x18
-|   |`====< 0x8060b534    f8ff4510     beq v0, a1, 0x8060b518
-|   | | |   0x8060b538    00000000     nop
-|   `=====< 0x8060b53c    482d1808     j 0x8060b520
-|     | |   0x8060b540    01008424     addiu a0, a0, 1
-|     `---> 0x8060b544    21100000     move v0, zero
-|       `-> 0x8060b548    0800e003     jr ra
-\           0x8060b54c    00000000     nop
+|           0x8060b500    002e0500   sll a1, a1, 0x18
+|           0x8060b504    032e0500   sra a1, a1, 0x18
+|       ,=< 0x8060b508    0f008010   beqz a0, 0x8060b548
+|       |   0x8060b50c    21100000   move v0, zero
+|      ,==< 0x8060b510    492d1808   j 0x8060b524
+|      ||   0x8060b514    00008290   lbu v0, (a0)
+|    .----> 0x8060b518    0800e003   jr ra
+|    | ||   0x8060b51c    21108000   move v0, a0
+|   .-----> 0x8060b520    00008290   lbu v0, (a0)
+|   ||,`--> 0x8060b524    07004010   beqz v0, 0x8060b544
+|   ||| |   0x8060b528    00000000   nop
+|   ||| |   0x8060b52c    00160200   sll v0, v0, 0x18
+|   ||| |   0x8060b530    03160200   sra v0, v0, 0x18
+|   |`====< 0x8060b534    f8ff4510   beq v0, a1, 0x8060b518
+|   | | |   0x8060b538    00000000   nop
+|   `=====< 0x8060b53c    482d1808   j 0x8060b520
+|     | |   0x8060b540    01008424   addiu a0, a0, 1
+|     `---> 0x8060b544    21100000   move v0, zero
+|       `-> 0x8060b548    0800e003   jr ra
+\           0x8060b54c    00000000   nop
 / (fcn) fcn.8060b550 36
-|           ;-- fcn.8060b550:
-|           0x8060b550    0000a290     lbu v0, (a1)
-| .,======< 0x8060b554    05004010     beqz v0, 0x8060b56c
-| ||        0x8060b558    0100a524     addiu a1, a1, 1
-| ||        0x8060b55c    000082a0     sb v0, (a0)
-| ||        0x8060b560    0000a290     lbu v0, (a1)
-| `=======< 0x8060b564    552d1808     j 0x8060b554
-|  |        0x8060b568    01008424     addiu a0, a0, 1
-|  `------> 0x8060b56c    0800e003     jr ra
-\           0x8060b570    000080a0     sb zero, (a0)
-            0x8060b574    00000000     nop
+|           0x8060b550    0000a290   lbu v0, (a1)
+| .,======< 0x8060b554    05004010   beqz v0, 0x8060b56c
+| ||        0x8060b558    0100a524   addiu a1, a1, 1
+| ||        0x8060b55c    000082a0   sb v0, (a0)
+| ||        0x8060b560    0000a290   lbu v0, (a1)
+| `=======< 0x8060b564    552d1808   j 0x8060b554
+|  |        0x8060b568    01008424   addiu a0, a0, 1
+|  `------> 0x8060b56c    0800e003   jr ra
+\           0x8060b570    000080a0   sb zero, (a0)
+            0x8060b574    00000000   nop
 / (fcn) fcn.8060b578 20
-|           ;-- fcn.8060b578:
-|           0x8060b578    e0ffbd27     addiu sp, sp, -0x20
-|           0x8060b57c    542d180c     jal fcn.8060b550
-|           0x8060b580    00000000     nop
-|           0x8060b584    0800e003     jr ra
-\           0x8060b588    2000bd27     addiu sp, sp, 0x20
-            0x8060b58c    00000000     nop
+|           0x8060b578    e0ffbd27   addiu sp, sp, -0x20
+|           0x8060b57c    542d180c   jal fcn.8060b550
+|           0x8060b580    00000000   nop
+|           0x8060b584    0800e003   jr ra
+\           0x8060b588    2000bd27   addiu sp, sp, 0x20
+            0x8060b58c    00000000   nop
 '
 run_test

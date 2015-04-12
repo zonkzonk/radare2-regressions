@@ -24,7 +24,7 @@ EXPECT='/ (fcn) sym.Conditionals.check_if 58
 |      |   0x000001d4    b20010         getstatic java/lang/System/out Ljava/io/PrintStream;
 |      |   0x000001d7    1216           ldc "X is 20"
 |      |   0x000001d9    b60018         invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
-|      |      0x00000000(0x0, 0x0, 0x0, 0x0, 0x0)
+|      |      0x00000018(0x0, 0x0, 0x0, 0x0, 0x0) ; sym.imp.println
 |      `-> 0x000001dc    840002         iinc 0 2
 |          0x000001df    1a             iload_0
 |          0x000001e0    100a           bipush 10
@@ -34,7 +34,7 @@ EXPECT='/ (fcn) sym.Conditionals.check_if 58
 |     |    0x000001e8    b20010         getstatic java/lang/System/out Ljava/io/PrintStream;
 |     |    0x000001eb    1216           ldc "X is 20"
 |     |    0x000001ed    b60018         invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
-|     |       0x00000000(0x0, 0x0, 0x0, 0x0, 0x0)
+|     |       0x00000018(0x0, 0x0, 0x0, 0x0, 0x0) ; sym.imp.println
 |     `--> 0x000001f0    84000a         iinc 0 10
 |          0x000001f3    1a             iload_0
 |          0x000001f4    100a           bipush 10
@@ -44,7 +44,7 @@ EXPECT='/ (fcn) sym.Conditionals.check_if 58
 |    |     0x000001fc    b20010         getstatic java/lang/System/out Ljava/io/PrintStream;
 |    |     0x000001ff    1216           ldc "X is 20"
 |    |     0x00000201    b60018         invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
-|    |        0x00000000(0x0, 0x0, 0x0, 0x0, 0x0)
+|    |        0x00000018(0x0, 0x0, 0x0, 0x0, 0x0) ; sym.imp.println
 \    `---> 0x00000204    b1             return
 '
 run_test

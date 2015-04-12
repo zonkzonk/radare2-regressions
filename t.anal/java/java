@@ -89,8 +89,6 @@ format   java
  0x000001b0    1b             iload_1
  0x000001b1    ac             ireturn
 / (fcn) sym.radare_test_cases_loops.simple_for_loop_multi_return 43
-| ;-- entry2:
-| ;-- sym.radare_test_cases_loops.simple_for_loop_multi_return:
 | 0x000001f1    46             fstore_3
 | 0x000001f2    00             nop
 | 0x000001f3    1000           bipush 0

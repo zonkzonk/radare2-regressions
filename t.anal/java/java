@@ -17,8 +17,16 @@ wx cafebabe0000003300180700020100177261646172655f746573745f63617365732f6c6f6f707
 ib;af;pdf
 s sym.radare_test_cases_challenge.simple_case_stmt_4val; pdf
 '
-EXPECT='file     malloc://1023
-type     JAVA CLASS
+EXPECT='type     JAVA CLASS
+bits     32
+endian   little
+file     malloc://1023
+fd       42
+size     0x3ff
+blksz    0x0
+mode     r--
+block    0x100
+format   java
 pic      false
 canary   false
 nx       false
@@ -28,31 +36,15 @@ root     class
 class    0x3300 0x0000
 lang     java
 arch     java
-bits     32
 machine  jvm
 os       any
 subsys   any
-endian   little
 strip    false
 static   false
 linenum  true
 lsyms    true
 relocs   false
-rpath    
 binsz    1023
-type     JAVA CLASS
-os       any
-machine  jvm
-bits     32
-endian   little
-file     malloc://1023
-fd       42
-size     0x3ff
-blksz    0x0
-mode     r--
-uri      malloc://1023
-block    0x100
-format   java
   ;-- entry0:
   ;-- sym.java_lang_Object._init_:
  0x0000012d    2a             aload_0

@@ -27,9 +27,7 @@ iS*
 iz
 iz*
 '
-EXPECT='bits     32
-endian   little
-file     malloc://1025
+EXPECT='file     malloc://1025
 fd       42
 size     0x401
 blksz    0x0
@@ -44,6 +42,8 @@ canary   false
 nx       false
 crypto   false
 va       false
+bits     32
+endian   little
 strip    false
 static   true
 linenum  false
@@ -74,6 +74,8 @@ canary   false
 nx       false
 crypto   false
 va       false
+bits     32
+endian   little
 strip    false
 static   true
 linenum  false
@@ -106,8 +108,6 @@ FILE=../bins/elf/x86-helloworld-gcc
 ARGS=
 CMDS="i"
 EXPECT='type     EXEC (Executable file)
-bits     32
-endian   little
 file     ../bins/elf/x86-helloworld-gcc
 fd       6
 size     0x1323
@@ -124,9 +124,11 @@ root     elf
 class    ELF32
 lang     c
 arch     x86
+bits     32
 machine  Intel 80386
 os       linux
 subsys   linux
+endian   little
 strip    false
 static   false
 linenum  true
@@ -207,9 +209,11 @@ root     elf
 class    ELF32
 lang     c
 arch     x86
+bits     32
 machine  Intel 80386
 os       linux
 subsys   linux
+endian   little
 strip    false
 static   false
 linenum  true
@@ -348,8 +352,6 @@ FILE=../bins/elf/hello-linux-x86_64
 ARGS=
 CMDS="i"
 EXPECT='type     EXEC (Executable file)
-bits     64
-endian   little
 file     ../bins/elf/hello-linux-x86_64
 fd       6
 size     0x1a36
@@ -366,9 +368,11 @@ root     elf
 class    ELF64
 lang     c
 arch     x86
+bits     64
 machine  AMD x86-64 architecture
 os       linux
 subsys   linux
+endian   little
 strip    false
 static   false
 linenum  true
@@ -449,9 +453,11 @@ root     elf
 class    ELF64
 lang     c
 arch     x86
+bits     64
 machine  AMD x86-64 architecture
 os       linux
 subsys   linux
+endian   little
 strip    false
 static   false
 linenum  true

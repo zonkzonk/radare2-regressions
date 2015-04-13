@@ -19,8 +19,6 @@ af
 pdf
 '
 EXPECT='type     JAVA CLASS
-bits     32
-endian   little
 file     malloc://1024
 fd       42
 size     0x400
@@ -37,9 +35,11 @@ root     class
 class    0x3200 0x0000
 lang     java
 arch     java
+bits     32
 machine  jvm
 os       any
 subsys   any
+endian   little
 strip    false
 static   false
 linenum  true

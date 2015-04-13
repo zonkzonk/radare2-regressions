@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# GPL 3+ - Copyright (C) 2011-2012  pancake, Edd Barrett, Simon Ruderich
+# GPL 3+ - Copyright (C) 2011-2015  pancake, Edd Barrett, Simon Ruderich
 
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
@@ -27,67 +27,28 @@ iS*
 iz
 iz*
 '
-EXPECT='file     malloc://1025
-type     
-pic      false
-canary   false
-nx       false
-crypto   false
-va       false
-root     
-class    
-lang     
-arch     
-bits     32
-machine  
-os       
-subsys   
-endian   little
-strip    false
-static   true
-linenum  false
-lsyms    false
-relocs   false
-rpath    
-binsz    1025
-type     
-os       
-machine  
-bits     32
+EXPECT='bits     32
 endian   little
 file     malloc://1025
 fd       42
 size     0x401
 blksz    0x0
 mode     r--
-uri      malloc://1025
 block    0x100
 format   any
 [Imports]
 
 0 imports
-file     malloc://1025
-type     
 pic      false
 canary   false
 nx       false
 crypto   false
 va       false
-root     
-class    
-lang     
-arch     
-bits     32
-machine  
-os       
-subsys   
-endian   little
 strip    false
 static   true
 linenum  false
 lsyms    false
 relocs   false
-rpath    
 binsz    1025
 [Imports]
 
@@ -108,28 +69,16 @@ fs imports
 
 0 imports
 fs imports
-file     malloc://1025
-type     
 pic      false
 canary   false
 nx       false
 crypto   false
 va       false
-root     
-class    
-lang     
-arch     
-bits     32
-machine  
-os       
-subsys   
-endian   little
 strip    false
 static   true
 linenum  false
 lsyms    false
 relocs   false
-rpath    
 binsz    1025
 e cfg.bigendian=false
 e asm.bits=32
@@ -151,12 +100,21 @@ fs sections
 FILTER='sed "s/^fd       [0-9][0-9]*/fd       42/"'
 run_test
 
+
 NAME='i (file x86)'
 FILE=../bins/elf/x86-helloworld-gcc
 ARGS=
 CMDS="i"
-EXPECT='file     ../bins/elf/x86-helloworld-gcc
-type     EXEC (Executable file)
+EXPECT='type     EXEC (Executable file)
+bits     32
+endian   little
+file     ../bins/elf/x86-helloworld-gcc
+fd       6
+size     0x1323
+blksz    0x0
+mode     r--
+block    0x100
+format   elf
 pic      false
 canary   false
 nx       true
@@ -166,11 +124,9 @@ root     elf
 class    ELF32
 lang     c
 arch     x86
-bits     32
 machine  Intel 80386
 os       linux
 subsys   linux
-endian   little
 strip    false
 static   false
 linenum  true
@@ -178,19 +134,6 @@ lsyms    true
 relocs   true
 rpath    NONE
 binsz    4899
-type     EXEC (Executable file)
-os       linux
-machine  Intel 80386
-bits     32
-endian   little
-file     ../bins/elf/x86-helloworld-gcc
-fd       6
-size     0x1323
-blksz    0x0
-mode     r--
-uri      ../bins/elf/x86-helloworld-gcc
-block    0x100
-format   elf
 '
 # fd changes in each test, replace it with 42.
 FILTER='sed "s/^fd	[0-9][0-9]*/fd       42/;
@@ -255,9 +198,7 @@ NAME='iI (file x86)'
 FILE=../bins/elf/x86-helloworld-gcc
 ARGS=
 CMDS="iI"
-EXPECT='file     ../bins/elf/x86-helloworld-gcc
-type     EXEC (Executable file)
-pic      false
+EXPECT='pic      false
 canary   false
 nx       true
 crypto   false
@@ -266,11 +207,9 @@ root     elf
 class    ELF32
 lang     c
 arch     x86
-bits     32
 machine  Intel 80386
 os       linux
 subsys   linux
-endian   little
 strip    false
 static   false
 linenum  true
@@ -408,8 +347,16 @@ NAME='i (file x86_64)'
 FILE=../bins/elf/hello-linux-x86_64
 ARGS=
 CMDS="i"
-EXPECT='file     ../bins/elf/hello-linux-x86_64
-type     EXEC (Executable file)
+EXPECT='type     EXEC (Executable file)
+bits     64
+endian   little
+file     ../bins/elf/hello-linux-x86_64
+fd       6
+size     0x1a36
+blksz    0x0
+mode     r--
+block    0x100
+format   elf64
 pic      false
 canary   false
 nx       true
@@ -419,11 +366,9 @@ root     elf
 class    ELF64
 lang     c
 arch     x86
-bits     64
 machine  AMD x86-64 architecture
 os       linux
 subsys   linux
-endian   little
 strip    false
 static   false
 linenum  true
@@ -431,19 +376,6 @@ lsyms    true
 relocs   true
 rpath    NONE
 binsz    6710
-type     EXEC (Executable file)
-os       linux
-machine  AMD x86-64 architecture
-bits     64
-endian   little
-file     ../bins/elf/hello-linux-x86_64
-fd       6
-size     0x1a36
-blksz    0x0
-mode     r--
-uri      ../bins/elf/hello-linux-x86_64
-block    0x100
-format   elf64
 '
 # fd changes in each test, replace it with 42.
 FILTER='sed "s/^fd	[0-9][0-9]*/fd       42/;
@@ -508,9 +440,7 @@ NAME='iI (file x86_64)'
 FILE=../bins/elf/hello-linux-x86_64
 ARGS=
 CMDS="iI"
-EXPECT='file     ../bins/elf/hello-linux-x86_64
-type     EXEC (Executable file)
-pic      false
+EXPECT='pic      false
 canary   false
 nx       true
 crypto   false
@@ -519,11 +449,9 @@ root     elf
 class    ELF64
 lang     c
 arch     x86
-bits     64
 machine  AMD x86-64 architecture
 os       linux
 subsys   linux
-endian   little
 strip    false
 static   false
 linenum  true

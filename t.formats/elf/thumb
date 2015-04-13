@@ -25,11 +25,11 @@ run_test
 NAME='thumb sym'
 FILE=../../bins/elf/thumb
 ARGS=
-CMDS='is~=main[0]
-is~=main[1]
+CMDS='is~=main[1]
+is~=main[3]
 '
-EXPECT='vaddr=0x00008424
-paddr=0x00000424
+EXPECT='0x00008424
+0x00000424
 '
 run_test
 

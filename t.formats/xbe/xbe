@@ -10,7 +10,7 @@ EXPECT=''
 run_test
 
 NAME='entrypoint decoding'
-BROKEN=1
+BROKEN=
 FILE=../../bins/xbe/default.xbe
 ARGS=''
 CMDS='ie~addr'

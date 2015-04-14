@@ -86,3 +86,15 @@ CMDS="!rasm2 -D -a x86 -b 32 'b821000000'"
 EXPECT='0x00000000   5               b821000000  mov eax, 0x21
 '
 run_test
+
+NAME='rasm2 -v~commit?"'
+CMDS='!!rasm2 -v~commit?'
+EXPECT='1
+'
+run_test
+
+NAME='Rasm2 -w'
+CMDS="!rasm2 -w -a x86 -b 32 'mov'"
+EXPECT='moves data from src to dst
+'
+run_test

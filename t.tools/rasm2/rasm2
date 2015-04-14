@@ -87,6 +87,13 @@ EXPECT='0x00000000   5               b821000000  mov eax, 0x21
 '
 run_test
 
+NAME='Rasm2 -s'
+CMDS="!rasm2 -s att -a x86 -b 32 '31ed'"
+BROKEN=1
+EXPECT='xorl %ebp, %ebp
+'
+run_test
+
 NAME='rasm2 -v~commit?"'
 CMDS='!!rasm2 -v~commit?'
 EXPECT='1

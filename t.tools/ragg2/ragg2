@@ -28,3 +28,16 @@ EXPECT='414141414141414141cb41414141414141414141
 '
 run_test
 
+NAME='ragg2 -v~commit?"'
+CMDS='!!ragg2 -v~commit?'
+BROKEN=1
+EXPECT='1
+'
+run_test
+
+NAME='ragg2 -h~Usage?"'
+CMDS='!!ragg2 -h~Usage?'
+BROKEN=1
+EXPECT='1
+'
+run_test

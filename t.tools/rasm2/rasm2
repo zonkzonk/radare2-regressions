@@ -61,3 +61,34 @@ EXPECT_ERR="Cannot assemble 'mov hello, eax' at line 3
 invalid
 "
 run_test
+
+
+NAME='rasm2 -h~Usage?"'
+CMDS='!!rasm2 -h~Usage?'
+EXPECT='1
+'
+run_test
+
+NAME='Rasm2 -C'
+CMDS="!rasm2 -C -a x86 -b 32 'mov eax, 33'"
+EXPECT='"\xb8\x21\x00\x00\x00"
+'
+run_test
+
+NAME='Rasm2 -d'
+CMDS="!rasm2 -d -a x86 -b 32 'b821000000'"
+EXPECT='mov eax, 0x21
+'
+run_test
+
+NAME='Rasm2 -D'
+CMDS="!rasm2 -D -a x86 -b 32 'b821000000'"
+EXPECT='0x00000000   5               b821000000  mov eax, 0x21
+'
+run_test
+
+NAME='Rasm2 '
+CMDS="!rasm2 -e -a x86 -b 32 'mov eax, 33'"
+EXPECT='"\xb8\x21\x00\x00\x00"
+'
+run_test

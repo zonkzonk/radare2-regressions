@@ -10,7 +10,6 @@ run_test
 
 NAME='PE: corkami normal.exe - bits 32'
 FILE=../../bins/pe/normal.exe
-BROKEN=1
 ARGS='-n'
 CMDS="!rabin2 -I ${FILE} | grep bits "
 

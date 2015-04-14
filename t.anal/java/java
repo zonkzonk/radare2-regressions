@@ -30,7 +30,7 @@ canary   false
 nx       false
 crypto   false
 va       false
-root     class
+bintype  class
 class    0x3300 0x0000
 lang     java
 arch     java
@@ -39,7 +39,7 @@ machine  jvm
 os       any
 subsys   any
 endian   little
-strip    false
+stripped false
 static   false
 linenum  true
 lsyms    true

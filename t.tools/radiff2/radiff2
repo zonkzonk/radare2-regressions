@@ -1,0 +1,16 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+NAME='radiff2 -v~commit?"'
+CMDS='!!radiff2 -v~commit?'
+BROKEN=1
+EXPECT='1
+'
+run_test
+
+NAME='radiff2 -h~Usage?"'
+CMDS='!!radiff2 -h~Usage?'
+BROKEN=1
+EXPECT='1
+'
+run_test

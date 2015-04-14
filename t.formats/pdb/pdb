@@ -3,7 +3,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 ###############################################################################
 NAME='PDB downloader check'
-BROKEN=
+BROKEN=1
 FILE=../../bins/pdb/user32.dll
 ARGS="-e pdb.server=http://radare.org/"
 CMDS='!rabin2 -PP ${FILE} | grep PDB;rm user32.pdb'

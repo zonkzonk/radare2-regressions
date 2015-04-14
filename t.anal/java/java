@@ -18,8 +18,6 @@ ib;af;pdf
 s sym.radare_test_cases_challenge.simple_case_stmt_4val; pdf
 '
 EXPECT='type     JAVA CLASS
-bits     32
-endian   little
 file     malloc://1023
 fd       42
 size     0x3ff
@@ -36,9 +34,11 @@ root     class
 class    0x3300 0x0000
 lang     java
 arch     java
+bits     32
 machine  jvm
 os       any
 subsys   any
+endian   little
 strip    false
 static   false
 linenum  true

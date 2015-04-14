@@ -1,7 +1,6 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
-
 NAME='rax2 =10 0x46'
 CMDS='!rax2 =10 0x46'
 EXPECT='70
@@ -198,4 +197,14 @@ NAME='rax2 -h~Usage?"'
 CMDS='!!rax2 -h~Usage?'
 EXPECT='1
 '
+run_test
+
+
+NAME='long number conversion'
+BROKEN=1
+ARGS=
+CMDS='!rax2 10000000000000000000000000000000000000000000000b'
+EXPECT='0x8000000000000000
+'
+
 run_test

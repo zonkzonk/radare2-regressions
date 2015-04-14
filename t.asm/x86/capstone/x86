@@ -465,7 +465,7 @@ test_vector "${PLUGIN}" "MOV EAX, DWORD FS:[EBP]" 648b4500 "mov eax, dword fs:[e
 test_vector "${PLUGIN}" "MOVSD DWORD ES:[EDI], DWORD PTR FS:[ESI]" 64a5 "movsd dword es:[edi], dword ptr fs:[esi]"
 test_vector "${PLUGIN}" "MOVSB BYTE ES:[EDI], BYTE ptr [ESI]" a4 "movsb byte es:[edi], byte ptr [esi]"
 test_vector "${PLUGIN}" "REPZ MOVSB" f3a4 "repz movsb" "br" #or repe
-test_vector "${PLUGIN}" "REPNE MOVSB BYTE ES:[EDI], BYTE PTR [ESI]" f2a4 "repne movsb byte es:[edi], byte ptr [esi]" "br"
+test_vector "${PLUGIN}" "REPNE MOVSB BYTE ES:[EDI], BYTE PTR [ESI]" f2a4 "repne movsb byte es:[edi], byte ptr [esi]" 
 test_vector "${PLUGIN}" "MOV DWORD [EAX], EAX" 8900 "mov dword [eax], eax"
 # This is not a valid instruction. gcc cant assemble it
 test_vector "${PLUGIN}" "LOCK MOV DWORD [EAX], EAX" f08900 "lock mov dword [eax], eax" "br"

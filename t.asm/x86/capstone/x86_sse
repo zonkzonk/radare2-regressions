@@ -24,7 +24,7 @@ PLUGIN=x86.cs
 test_vector "${PLUGIN}" "MULSD" 66f3f20f59ff "mulsd xmm7, xmm7"
 test_vector "${PLUGIN}" "MULSS" 66f2f0f59ff "mulss xmm7, xmm7" "br"
 test_vector "${PLUGIN}" "MULPD" 660f59ff "mulpd xmm7, xmm7"
-test_vector "${PLUGIN}" "MULSD" f2660f59ff "mulsd xmm7, xmm7"
+test_vector "${PLUGIN}" "MULSD" f2660f59ff "mulsd xmm7, xmm7" "br"
 test_vector "${PLUGIN}" "MULPS" 0f59ff "mulps xmm7, xmm7"
 test_vector "${PLUGIN}" "MPSADBW XMM0, XMM0, 0" 660f3a42c000 "mpsadbw xmm0, xmm0, 0"
 test_vector "${PLUGIN}" "PCMPESTRM XMM0, XMM0, 0" 660f3a60c000 "pcmpestrm xmm0, xmm0, 0"

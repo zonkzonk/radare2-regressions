@@ -86,9 +86,3 @@ CMDS="!rasm2 -D -a x86 -b 32 'b821000000'"
 EXPECT='0x00000000   5               b821000000  mov eax, 0x21
 '
 run_test
-
-NAME='Rasm2 '
-CMDS="!rasm2 -e -a x86 -b 32 'mov eax, 33'"
-EXPECT='"\xb8\x21\x00\x00\x00"
-'
-run_test

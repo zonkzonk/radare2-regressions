@@ -139,6 +139,9 @@ format.xbe:
 
 format.firmware:
 	@sh run_tests.sh t.formats/firmware
+	
+format.others:
+	@sh run_tests.sh t.formats/others
 
 udis86:
 	@sh run_tests.sh t.asm/udis86

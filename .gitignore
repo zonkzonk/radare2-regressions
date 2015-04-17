@@ -5,3 +5,6 @@
 
 /t/io/.newfile
 /t/seek/.empty.tmp
+/bins/other/ragg2/hi.c.o
+/bins/other/ragg2/hi.c.text
+/bins/other/ragg2/hi.c.s

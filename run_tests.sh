@@ -58,11 +58,7 @@ if [ -f "$T" -a -x "$T" ]; then
   BDIR=`dirname $T`
   FILE=`basename $T`
   cd $BDIR
-  if [ -z "$VALGRIND" -o "${VALGRIND+x}" = "x" ]; then
-	. ./$FILE
-  else
-    $VALGRIND $FILE
-  fi
+  . ./$FILE
 else
 cd $T || die "t/ doesn't exist"
 for file in * ; do

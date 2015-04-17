@@ -61,7 +61,7 @@ run_test() {
       echo "ERROR: Cannot find radare2 program in PATH"
       exit 1
     fi
-    
+
     # add a prepended program to run test eg. zzuf
     if [ -n "${PREPEND}" ]; then
       export R2="${PREPEND} ${R2}"
@@ -138,7 +138,11 @@ run_test() {
         R2CMD=
         # Valgrind to detect memory corruption.
         if [ -n "${VALGRIND}" ]; then
-            R2CMD="valgrind --error-exitcode=47 --log-file=${TMP_VAL}"
+			if [ -n "${VALGRIND_XML}"]; then
+				R2CMD="${VALGRIND} --xml=yes --xml-file=${TMP_VAL}.memcheck"
+			else
+				R2CMD="valgrind --error-exitcode=47 --log-file=${TMP_VAL}"
+			fi
         fi
         R2CMD="${R2CMD} ${R2ARGS}"
         #if [ -n "${VERBOSE}" ]; then

@@ -138,7 +138,7 @@ run_test() {
         R2CMD=
         # Valgrind to detect memory corruption.
         if [ -n "${VALGRIND}" ]; then
-			if [ -n "${VALGRIND_XML}"]; then
+			if [ -n "${VALGRIND_XML}" ]; then
 				R2CMD="${VALGRIND} --xml=yes --xml-file=${TMP_VAL}.memcheck"
 			else
 				R2CMD="valgrind --error-exitcode=47 --log-file=${TMP_VAL}"

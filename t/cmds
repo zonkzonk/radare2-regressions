@@ -1,51 +1,51 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
-NAME='p8 2@b:9090'
+NAME='p8 2@x:9090'
 FILE=malloc://128
 ARGS=
 CMDS='
 e asm.arch=x86
 e asm.bits=32
-p8 2 @b:9090
+p8 2 @x:9090
 '
 EXPECT='9090
 '
 run_test
 
-NAME='pi 2@b:9090'
+NAME='pi 2@x:9090'
 FILE=malloc://128
 ARGS=
 CMDS='
 e asm.arch=x86
 e asm.bits=32
-pi 2 @b:9090
+pi 2 @x:9090
 '
 EXPECT='nop
 nop
 '
 run_test
 
-NAME='pdi 2@b:9090@0x1000'
+NAME='pdi 2@x:9090@0x1000'
 FILE=malloc://128
 ARGS=
 CMDS='
 e asm.arch=x86
 e asm.bits=32
-pdi 2 @b:9090@0x1000
+pdi 2 @x:9090@0x1000
 '
 EXPECT='0x00001000                90  nop
 0x00001001                90  nop
 '
 run_test
 
-NAME='pd 2@b:9090'
+NAME='pd 2@x:9090'
 FILE=malloc://128
 ARGS=
 CMDS='
 e asm.arch=x86
 e asm.bits=32
-pd 2 @b:9090
+pd 2 @x:9090
 '
 EXPECT='           0x00000000    90             nop
            0x00000001    90             nop

@@ -6,7 +6,7 @@ BROKEN=
 CMDS='
 #md5@s:hello
 #md5 @ s:hello
-#md5@b:01020304
+#md5@x:01020304
 '
 EXPECT='5d41402abc4b2a76b9719d911017c592
 5d41402abc4b2a76b9719d911017c592

@@ -25,7 +25,7 @@ s 0
 150aes
 ps 12 @ screen
 '
-BROKEN=1
+BROKEN=
 EXPECT='Hello World!
 '
 run_test
@@ -51,7 +51,7 @@ s 0
 700aes
 ps 12 @ screen
 '
-BROKEN=1
+BROKEN=
 EXPECT='Hello World!
 '
 run_test

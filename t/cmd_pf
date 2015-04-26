@@ -496,6 +496,7 @@ run_test
 NAME='PE JSON test'
 FILE=../bins/pe/ch22.exe
 ARGS=-nn
+BROKEN=1
 DEBUG=1
 CMDS='e asm.bits=32
 s 0x80

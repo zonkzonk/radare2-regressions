@@ -30,7 +30,7 @@ BROKEN=
 FILE=/tmp/r2-regressions/dwarftest
 IGNORE_ERR=1
 ARGS=
-BROKEN=
+BROKEN=1
 CMDS='e asm.dwarf=true
 e asm.arch=x86.udis
 e anal.eobjmp=false
@@ -51,7 +51,7 @@ BROKEN=
 FILE=/tmp/r2-regressions/dwarftest
 IGNORE_ERR=1
 ARGS=
-BROKEN=
+BROKEN=1
 CMDS='e asm.dwarf=true
 e scr.interactive=false
 e asm.arch=x86.udis

@@ -440,6 +440,6 @@ CMDS='il
 EXPECT='[Linked libraries]
 comctl32.dll
 
-1 libraries
+1 library
 '
 run_test

@@ -277,7 +277,7 @@ CMDS="il"
 EXPECT='[Linked libraries]
 libc.so.6
 
-1 libraries
+1 library
 '
 run_test
 
@@ -521,7 +521,7 @@ CMDS="il"
 EXPECT='[Linked libraries]
 libc.so.6
 
-1 libraries
+1 library
 '
 run_test
 

@@ -29,6 +29,26 @@ EXPECT="bigWord : 0x00000000 = (qword) 0x00002a00deadbeef
 "
 run_test
 
+NAME='uleb type'
+FILE=malloc://1024
+ARGS=
+CMDS='wx e58e26
+pf u ulebtest
+wx 00000000e58e258e2525 @ 0x10
+pf.plop [4]u ulebtest
+pf.plop @ 0x14
+pf.plop.ulebtest[2]=42 @ 0x14
+.pf.plop.ulebtest[2]=42 @ 0x14
+pf.plop @ 0x14
+pfj.plop @ 0x14
+'
+EXPECT='ulebtest : 0x00000000 = 624485
+ulebtest : 0x00000014 = [ 608101, 4750, 37, 0 ]
+"wx 2a" @ 0x00000019
+ulebtest : 0x00000014 = [ 608101, 4750, 42, 0 ]
+[{"name":"ulebtest","type":"u","offset":20,"value":[ "608101", "4750", "42", "0" ]}]'
+run_test
+
 NAME='Pointers'
 FILE=malloc://1024
 ARGS=

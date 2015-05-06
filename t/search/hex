@@ -9,5 +9,39 @@ CMDS='wx 01020304 @ 0x100
 EXPECT='0x00000100 hit0_0 01020304
 0x100
 '
+run_test
 
+NAME="spaces"
+FILE=malloc://1024
+BROKEN=1
+IGNORE_ERR=1
+CMDS='wx 01020304 @ 0x100
+/x 01 02 03 04
+?v hit0_0'
+EXPECT='0x00000100 hit0_0 01020304
+0x100
+'
+run_test
+
+NAME="binmask"
+FILE=malloc://1024
+IGNORE_ERR=1
+CMDS='wx 01020304 @ 0x100
+/x 01020304:ffffffff
+?v hit0_0'
+EXPECT='0x00000100 hit0_0 01020304
+0x100
+'
+run_test
+
+NAME="binmask spaces"
+BROKEN=1
+FILE=malloc://1024
+IGNORE_ERR=1
+CMDS='wx 01020304 @ 0x100
+/x 01 02 03 04
+?v hit0_0'
+EXPECT='0x00000100 hit0_0 01020304
+0x100
+'
 run_test

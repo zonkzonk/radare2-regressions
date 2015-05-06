@@ -96,7 +96,7 @@ run_test
 NAME='timestamp'
 FILE=malloc://1024
 ARGS=
-BROKEN=1
+BROKEN=
 CMDS='wx 321ED92D90DF5254
 pf tt troll plop
 '
@@ -398,7 +398,7 @@ NAME='PE test'
 FILE=../bins/pe/ch22.exe
 ARGS=-nn
 DEBUG=1
-BROKEN=1
+BROKEN=
 CMDS='e asm.bits=32
 s 0x80
 pf.pe_nt_image_headers32
@@ -516,7 +516,7 @@ run_test
 NAME='PE JSON test'
 FILE=../bins/pe/ch22.exe
 ARGS=-nn
-BROKEN=1
+BROKEN=
 DEBUG=1
 CMDS='e asm.bits=32
 s 0x80

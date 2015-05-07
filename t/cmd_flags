@@ -66,3 +66,17 @@ fa foo=foo+3
 EXPECT='0x3
 '
 run_test
+
+NAME='flag prefix dump'
+CMDS='
+f jiji=1
+f jojo=2
+f base=100
+.f*base
+?vi jiji
+?vi jojo
+'
+EXPECT='101
+102
+'
+run_test

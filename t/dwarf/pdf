@@ -89,7 +89,7 @@ if [ $? -eq 1 ]; then
 	exit 1
 fi
 
-cp ../bins/elf/dwarftest /tmp/r2-regressions/dwarftest
-cp ../bins/src/dwarftest.c /tmp/r2-regressions/dwarftest.c
+cp -f ../../bins/elf/dwarftest /tmp/r2-regressions/dwarftest
+cp -f ../../bins/src/dwarftest.c /tmp/r2-regressions/dwarftest.c
 
 run_test

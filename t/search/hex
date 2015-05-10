@@ -45,3 +45,22 @@ EXPECT='0x00000100 hit0_0 01020304
 0x100
 '
 run_test
+
+NAME='binmask seek search (mips)'
+FILE='malloc://1024'
+ARGS=
+BROKEN=
+CMDS='
+e asm.arch = mips
+e scr.color=false
+"wx 2080998f00000000d4a22527"
+e search.from=0
+e search.to=12
+s/x 00002027:0000f0ff
+?v $$
+q
+'
+EXPECT='0x00000008 hit0_0 d4a22527
+0x8
+'
+run_test

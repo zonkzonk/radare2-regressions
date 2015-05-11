@@ -318,12 +318,12 @@ ARGS=''
 CMDS='java summary'
 BROKEN=1
 EXPECT='Summary for research_data/experiment/decompiler/dumped_jar_dec/c.class:
-Size 0x0:
-Constants  size: 0x275 count: 69:
-Methods    size: 0x24e count: 4:
-Fields     size: 0x12 count: 2:
-Attributes size: 0xa count: 1:
-Interfaces size: 0x2 count: 0:
+  Size 0x0:
+  Constants  size: 0x275 count: 69:
+  Methods    size: 0x24e count: 4:
+  Fields     size: 0x12 count: 2:
+  Attributes size: 0xa count: 1:
+  Interfaces size: 0x2 count: 0:
 '
 
 run_test
@@ -343,15 +343,15 @@ import [C;
 
 class c { // @0x0000
 
-// Fields defined in the class
-public static boole; // @0x0287
-private static final java.lang.String z; // @0x028f
+  // Fields defined in the class
+  public static boole; // @0x0287
+  private static final java.lang.String z; // @0x028f
 
-// Methods defined in the class
-public void <init> (); // @0x0299
-public static java.lang.String a (java.lang.String); // @0x02c4
-public static java.lang.String b (java.lang.String); // @0x02fc
-static void <clinit> (); // @0x0395
+  // Methods defined in the class
+  public void <init> (); // @0x0299
+  public static java.lang.String a (java.lang.String); // @0x02c4
+  public static java.lang.String b (java.lang.String); // @0x02fc
+  static void <clinit> (); // @0x0395
 }
 '
 run_test

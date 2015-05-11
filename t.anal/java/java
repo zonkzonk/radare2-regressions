@@ -316,13 +316,14 @@ NAME="java summary"
 FILE='zip://../../bins/java/example.zip::0'
 ARGS=''
 CMDS='java summary'
-EXPECT='Summary for (null):
-	Size 0x0:
-	Constants (size: 0x275)Count: 69:
-	Methods (size: 0x24e)Count: 4:
-	Fields (size: 0x12)Count: 2:
-	Attributes (size: 0xa)Count: 1:
-	Interfaces (size: 0x2)Count: 0:
+BROKEN=1
+EXPECT='Summary for research_data/experiment/decompiler/dumped_jar_dec/c.class:
+Size 0x0:
+Constants  size: 0x275 count: 69:
+Methods    size: 0x24e count: 4:
+Fields     size: 0x12 count: 2:
+Attributes size: 0xa count: 1:
+Interfaces size: 0x2 count: 0:
 '
 
 run_test

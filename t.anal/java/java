@@ -316,7 +316,6 @@ NAME="java summary"
 FILE='zip://../../bins/java/example.zip::0'
 ARGS=''
 CMDS='java summary'
-BROKEN=1
 EXPECT='Summary for research_data/experiment/decompiler/dumped_jar_dec/c.class:
   Size 0x0:
   Constants  size: 0x275 count: 69:
@@ -364,39 +363,39 @@ CMDS='
 s 0x312 
 java m_info s'
 EXPECT='Method Summary Information:
-        File offset: 0x00000299 Access Flags: 1
-        Name Index: 24 (<init>)
-        Descriptor Index: 19 (()V)
-        Access Flags: 0x01 (public)
-        Method Attributes Count: 1
-        Method Attributes:
-Code Attribute information:
-   Attribute Offset: 0x000002a1
-   Attribute Name Index: 26 (Code)
-   Attribute length: 29, Attribute Count: 1
-          Max Stack: 1
-          Max Locals: 1
-          Code Length: 5
-          Code At Offset: 0x000002af
-Code Attribute Exception table information:
-          Exception table length: 0
-          Implicit Method Stack Frame: 
+  File Offset: 0x00000299 Access Flags: 1
+  Name Index: 24 (<init>)
+  Descriptor Index: 19 (()V)
+  Access Flags: 0x01 (public)
+  Method Attributes Count: 1
+  Method Attributes:
+Code Attribute Information:
+  Attribute Offset: 0x000002a1
+  Attribute Name Index: 26 (Code)
+  Attribute Length: 29, Attribute Count: 1
+    Max Stack: 1
+    Max Locals: 1
+    Code Length: 5
+    Code At Offset: 0x000002af
+Code Attribute Exception Table Information:
+  Exception Table Length: 0
+  Implicit Method Stack Frame:
 Stack Map Frame Information
-        Tag Value = 0x00 Name: ImplicitStackFrame
-        Offset: 0x00000000
-        Local Variable Count = 0x0000
-        Stack Items Count = 0x0000
-        Local Variables:
-        Stack Items:
-Code Attribute Attributes information:
-          Code Attribute Attributes count: 1
-Line Number Table Attribute information:
-   Attribute Offset: 0x000002b8
-   Attribute Name Index: 27 (LineNumberTable)
-   Attribute length: 6
-   Line Number Attribute offset: 0x000002c0
-   Line Number Attribute start_pc: 0
-   Line Number Attribute line_number: 7
+  Tag Value = 0x00 Name: ImplicitStackFrame
+  Offset: 0x00000000
+  Local Variable Count = 0x0000
+  Stack Items Count = 0x0000
+  Local Variables:
+  Stack Items:
+Code Attribute Attributes Information:
+  Code Attribute Attributes Count: 1
+Line Number Table Attribute Information:
+  Attribute Offset: 0x000002b8
+  Attribute Name Index: 27 (LineNumberTable)
+  Attribute Length: 6
+  Line Number Attribute Offset: 0x000002c0
+  Line Number Attribute StartPC: 0
+  Line Number Attribute LineNumber: 7
 '
 run_test
 
@@ -404,14 +403,13 @@ run_test
 NAME="java f_info s"
 FILE='zip://../../bins/java/example.zip::0'
 ARGS=''
-BROKEN=1
 CMDS='java f_info s'
 EXPECT='Field Summary Information:
-        File offset: 0x00000287 Access Flags: 9
-        Name Index: 40 (a)
-        Descriptor Index: 41 (Z)
-        Access Flags: 0x09 (public static)
-        Field Attributes Count: 0
-        Field Attributes:
+  File Offset: 0x00000287
+  Name Index: 40 (a)
+  Descriptor Index: 41 (Z)
+  Access Flags: 0x09 (public static)
+  Field Attributes Count: 0
+  Field Attributes:
 '
 run_test

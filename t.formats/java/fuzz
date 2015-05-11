@@ -1,20 +1,29 @@
 #!/bin/sh
 
-# GPL 3+ - Copyright (C) 2013  pancake
+# GPL 3+ - Copyright (C) 2015  pancake
 
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 fuzz_test() {
-NAME="java fuzz $1"
-IGNORE_ERR=1
-BROKEN=
-FILE=$2
-ARGS=
-CMDS='q'
-EXPECT=''
-run_test
+	NAME="java fuzz $1"
+	IGNORE_ERR=1
+	BROKEN=
+	FILE=$2
+	ARGS=
+	CMDS='q'
+	EXPECT=''
+	run_test
 }
 
-fuzz_test 1 ../../bins/java/fuzz-jox01
-fuzz_test 2 ../../bins/java/fuzz-jox02
-fuzz_test 3 ../../bins/java/fuzz-jox03
+FUZZED_FILES="
+3ad48573bb88d13d21f8f1a1031bdbb1
+6cd6d9b1e65cefb5d07076737cec6e0e
+7282bf73d768de789f60623e0d17ca1f
+c4620e044d32403f7c83b74fe3a3dbc9
+fuzz-jox01
+fuzz-jox02
+fuzz-jox03"
+
+for a in ${FUZZED_FILES} ; do
+	fuzz_test $a ../../bins/java/$a
+done

@@ -358,12 +358,11 @@ run_test
 NAME="java m_info s"
 FILE='zip://../../bins/java/example.zip::0'
 ARGS=''
-BROKEN=1
 CMDS='
 s 0x312 
 java m_info s'
 EXPECT='Method Summary Information:
-  File Offset: 0x00000299 Access Flags: 1
+  File Offset: 0x00000299
   Name Index: 24 (<init>)
   Descriptor Index: 19 (()V)
   Access Flags: 0x01 (public)

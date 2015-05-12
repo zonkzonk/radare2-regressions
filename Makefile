@@ -39,11 +39,15 @@ asm:
 	@sh run_tests.sh t.asm/ebc
 	@sh run_tests.sh t.asm/gb
 	@sh run_tests.sh t.asm/h8300
+	@sh run_tests.sh t.asm/lh5801
 	@sh run_tests.sh t.asm/java
 	@sh run_tests.sh t.asm/mips
+	@sh run_tests.sh t.asm/msp430	
 	@sh run_tests.sh t.asm/tms320
+	@sh run_tests.sh t.asm/ws
 	@sh run_tests.sh t.asm/x86
 	@sh run_tests.sh t.asm/z80
+
 
 tools:
 	@sh run_tests.sh t.tools
@@ -69,10 +73,16 @@ asm.h8300:
 	@sh run_tests.sh t.asm/h8300
 asm.java:
 	@sh run_tests.sh t.asm/java
+asm.lh5801:
+	@sh run_tests.sh t.asm/lh5801
 asm.mips:
 	@sh run_tests.sh t.asm/mips
+asm.msp430:
+	@sh run_tests.sh t.asm/msp430
 asm.tms320:
 	@sh run_tests.sh t.asm/tms320
+asm.ws:
+	@sh run_tests.sh t.asm/ws
 asm.x86:
 	@sh run_tests.sh t.asm/x86
 asm.z80:

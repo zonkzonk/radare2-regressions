@@ -10,6 +10,7 @@ pi 1
 '
 EXPECT="${2}
 "
+BROKEN=${3}
 run_test
 }
 
@@ -35,28 +36,28 @@ test_msp430 5f422100 "mov.b &0x0021, r15"
 
 test_msp430 7fe2 "xor.b #8, r15"
 
-test_msp430 1b53 "inc r11"
+test_msp430 1b53 "inc r11" 1
 
-test_msp430 3441 "pop r4"
+test_msp430 3441 "pop r4" 1
 
-test_msp430 3b41 "pop r11"
+test_msp430 3b41 "pop r11" 1
 
-test_msp430 0b63 "adc r11"
+test_msp430 0b63 "adc r11" 1
 
-test_msp430 4b63 "adc.b r11"
+test_msp430 4b63 "adc.b r11" 1
 
-test_msp430 0ba3 "dadc r11"
+test_msp430 0ba3 "dadc r11" 1
 
-test_msp430 4ba3 "dadc.b r11"
+test_msp430 4ba3 "dadc.b r11" 1
 
-test_msp430 1b83 "dec r11"
+test_msp430 1b83 "dec r11" 1
 
-test_msp430 5b83 "dec.b r11"
+test_msp430 5b83 "dec.b r11" 1
 
-test_msp430 0b73 "sbc r11"
+test_msp430 0b73 "sbc r11" 1
 
-test_msp430 4b73 "sbc.b r11"
+test_msp430 4b73 "sbc.b r11" 1
 
-test_msp430 12d3 "setc"
+test_msp430 12d3 "setc" 1
 
-test_msp430 22d3 "setz"
+test_msp430 22d3 "setz" 1

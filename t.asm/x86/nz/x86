@@ -1,0 +1,19 @@
+#!/bin/sh
+for a in . .. ../.. ../../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh; done
+
+test_jmp() {
+NAME="x86.nz: ${1}"
+CMDS='!rasm2 -a x86.nz "jmp '${2}'"
+'
+EXPECT=${3}'
+'
+run_test
+}
+
+test_jmp "jump null" 2 eb00
+test_jmp "jump self" 0 ebfe
+test_jmp "jump some" 0x42 eb40
+test_jmp "jump short" 0x81 eb7f
+test_jmp "jump short neg"  -0x7e eb80
+test_jmp "jump far"  0x82 e97d000000
+test_jmp "jump far negative"  -0x7f e97cffffff

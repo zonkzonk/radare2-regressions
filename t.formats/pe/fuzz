@@ -15,4 +15,7 @@ EXPECT=''
 run_test
 }
 
-fuzz_test 1 ../../bins/pe/fuzz-jox01
+COUNT=0
+for i in ../../bins/pe/pefuzzed/file*; do
+		fuzz_test $COUNT $i
+done

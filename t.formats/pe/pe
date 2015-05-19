@@ -18,7 +18,7 @@ run_test
 
 NAME='pe relocs [r2]'
 IGNORE_ERR=1
-BROKEN=
+BROKEN=1
 FILE=$F
 ARGS=
 CMDS='e asm.functions = false

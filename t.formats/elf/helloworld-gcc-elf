@@ -39,8 +39,8 @@ EXPECT='Cs 13 @ 0x080484b0 # Hello_world_
 "CCu [22] va=0x08049694 pa=0x00000694 sz=24 vsz=24 rwx=-rw- .got.plt" @ 0x08049694
 "CCu [23] va=0x080496ac pa=0x000006ac sz=8 vsz=8 rwx=-rw- .data" @ 0x080496ac
 "CCu [24] va=0x080496b4 pa=0x000006b4 sz=4 vsz=4 rwx=-rw- .bss" @ 0x080496b4
-"CCu [28] va=0x00000000 pa=0x000010cc sz=599 vsz=599 rwx=---- .strtab" @ 0x00000000
 "CCu [31] va=0x08048000 pa=0x00000000 sz=52 vsz=52 rwx=-rw- ehdr" @ 0x08048000
+"CCu [28] va=0x00000000 pa=0x000010cc sz=599 vsz=599 rwx=---- .strtab" @ 0x00000000
 '
 run_test
 

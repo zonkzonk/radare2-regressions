@@ -10,9 +10,10 @@ NAME='dbg.aslr'
 FILE=../../bins/elf/pie
 ARGS=-d
 BROKEN=
-CMDS='pi 3 @ entry0
+CMDS='pid 3 @ entry0
+dm
+? entry0
 '
-NOT_EXPECT=1
 EXPECT='xor ebp, ebp
 pop esi
 mov ecx, esp

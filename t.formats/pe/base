@@ -11,6 +11,7 @@ run_test
 NAME='Relocs'
 FILE=../../bins/pe/base.exe
 ARGS=''
+BROKEN=1
 CMDS='e asm.functions = false
 pd 1 @ 0x0040128d~!reloc'
 EXPECT=''

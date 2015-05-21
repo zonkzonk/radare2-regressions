@@ -77,6 +77,7 @@ run_test
 NAME='flags'
 FILE='malloc://1024'
 ARGS=
+BROKEN=1
 CMDS='aetr 0,0x2147a8,rip,+,[8],==,%z,zf,=,%b64,cf,=,%p,pf,=,%s,sf,='
 EXPECT='0000.00:      ADD       rip    ,  0x2147a8:32 ,      V_00:32
 0001.00:      LDM      V_00:32 ,              ,      V_01:32

@@ -23,6 +23,7 @@ all:
 	@sh run_tests.sh t.formats/mangling
 	@sh run_tests.sh t.formats/msil
 	@sh run_tests.sh t.formats/zimg	
+	@sh run_tests.sh t.formats/omf
 	@sh run_tests.sh t.pe
 	@sh run_tests.sh t.tools
 
@@ -121,6 +122,7 @@ formats:
 	@sh run_tests.sh t.formats/mangling
 	@sh run_tests.sh t.formats/msil
 	@sh run_tests.sh t.formats/zimg
+	@sh run_tests.sh t.formats/omf
 
 format.pe:
 	@sh run_tests.sh t.formats/pe
@@ -154,6 +156,9 @@ format.firmware:
 
 format.zimg:
 	@sh run_tests.sh t.formats/zimg
+
+format.omf:
+	@sh run_tests.sh t.formats/omf
 
 format.others:
 	@sh run_tests.sh t.formats/others

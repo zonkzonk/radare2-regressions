@@ -528,14 +528,14 @@ run_test
 NAME='ir (file x86_64)'
 FILE=../bins/elf/hello-linux-x86_64
 ARGS=
-BROKEN=1
 CMDS="ir"
 EXPECT='[Relocations]
-vaddr=0x002008e8 paddr=0x000008e8 type=SET_64 puts
-vaddr=0x002008f0 paddr=0x000008f0 type=SET_64 __libc_start_main
-vaddr=0x002008f8 paddr=0x000008f8 type=SET_64 __gmon_start__
+vaddr=0x00600cd8 paddr=0x002008c8 type=SET_64 __gmon_start__
+vaddr=0x006008e8 paddr=0x002008e8 type=SET_64 puts
+vaddr=0x006008f0 paddr=0x002008f0 type=SET_64 __libc_start_main
+vaddr=0x006008f8 paddr=0x002008f8 type=SET_64 __gmon_start__
 
-3 relocations
+4 relocations
 '
 run_test
 

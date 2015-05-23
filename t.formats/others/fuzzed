@@ -1,8 +1,8 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
-fuzz_test() {
-  NAME="Other Fuzz $1"
+fuzz_test_aaq() {
+  NAME="Other Fuzz aa ; q $1"
   IGNORE_ERR=1
   BROKEN=
   FILE=$1
@@ -12,6 +12,18 @@ fuzz_test() {
   run_test
 }
 
+fuzz_test_aacq() {
+  NAME="Other Fuzz aac ; q $1"
+  IGNORE_ERR=1
+  BROKEN=
+  FILE=$1
+  ARGS=
+  CMDS='aac ; q'
+  EXPECT=''
+  run_test
+}
+
 for f in ../../bins/fuzzed/* ; do
-  fuzz_test "$f"
+  fuzz_test_aaq "$f"
+  fuzz_test_aacq "$f"
 done

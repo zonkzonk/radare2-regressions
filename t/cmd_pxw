@@ -41,3 +41,40 @@ pxw 16'
 EXPECT='0x00401280  0x5589e583 0xec08c704 0x24010000 0x00ff15c8  U.......$.......
 '
 run_test
+
+NAME='pxw offsets'
+BROKEN=
+FILE=../bins/pe/hello-mingw32
+ARGS=
+CMDS='e hex.cols=16
+pxw 32~[0]'
+EXPECT='0x00401280
+0x00401290
+'
+run_test
+
+NAME='pxw offsets'
+BROKEN=
+FILE=../bins/pe/hello-mingw32
+ARGS=
+CMDS='e hex.cols=12
+pxw 32~[0]'
+EXPECT='0x00401280
+0x0040128c
+0x00401298
+'
+run_test
+
+NAME='pxw offsets'
+BROKEN=
+FILE=../bins/pe/hello-mingw32
+BROKEN=1
+ARGS=
+CMDS='e hex.cols=10
+pxw 32~[0]'
+EXPECT='0x00401280
+0x0040128c
+0x00401298
+'
+run_test
+

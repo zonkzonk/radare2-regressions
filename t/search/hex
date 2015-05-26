@@ -69,7 +69,6 @@ run_test
 NAME='binmask seek search (mips)'
 FILE='malloc://1024'
 ARGS=
-BROKEN=1
 IGNORE_ERR=1
 CMDS='
 e asm.arch = mips

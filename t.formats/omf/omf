@@ -16,7 +16,7 @@ FILE=../../bins/omf/hello_world
 ARGS=''
 BROKEN=1
 CMDS="ie~addr"
-EXPECT='vaddr=0x00000000 paddr=0x00000073 baddr=0x00000000 laddr=0x00000000
+EXPECT='vaddr=0x00001000 paddr=0x00000073 baddr=0x00001000 laddr=0x00000000
 '
 run_test
 
@@ -25,7 +25,7 @@ FILE=../../bins/omf/hello_world
 ARGS=''
 BROKEN=
 CMDS="is~addr"
-EXPECT='vaddr=0x00000000 paddr=0x00000073 ord=001 fwd=NONE sz=0 bind= type= name=_start
+EXPECT='vaddr=0x00001000 paddr=0x00000073 ord=001 fwd=NONE sz=0 bind= type= name=_start
 '
 run_test
 
@@ -34,17 +34,17 @@ FILE=../../bins/omf/hello_world
 ARGS=''
 BROKEN=
 CMDS="iS~addr"
-EXPECT='idx=00 vaddr=0x00000000 paddr=0x00000073 sz=19 vsz=19 perm=-rwx name=text_1
-idx=01 vaddr=0x00000013 paddr=0x00000095 sz=14 vsz=14 perm=-rwx name=data_1
+EXPECT='idx=00 vaddr=0x00001000 paddr=0x00000073 sz=19 vsz=19 perm=-rwx name=text_1
+idx=01 vaddr=0x00001013 paddr=0x00000095 sz=14 vsz=14 perm=-rwx name=data_1
 '
 run_test
 
 NAME="virtual address 16 bits omf"
 FILE=../../bins/omf/hello_world
 ARGS=''
-BROKEN=1
-CMDS="pd 1 @_start ~mov dx, 0xe"
-EXPECT='0000:0073    ba0e00         mov dx, 0xe
+BROKEN=
+CMDS="pd 1 @sym._start ~:3[1]"
+EXPECT='ba0e00
 '
 run_test
 
@@ -62,7 +62,7 @@ FILE=../../bins/omf/hello_world32
 ARGS=''
 BROKEN=1
 CMDS="ie~addr"
-EXPECT='vaddr=0x00000000 paddr=0x00000074 baddr=0x00000000 laddr=0x00000000
+EXPECT='vaddr=0x00001000 paddr=0x00000074 baddr=0x00001000 laddr=0x00000000
 '
 run_test
 
@@ -71,26 +71,26 @@ FILE=../../bins/omf/hello_world32
 ARGS=''
 BROKEN=
 CMDS="is~addr"
-EXPECT='vaddr=0x00000000 paddr=0x00000074 ord=001 fwd=NONE sz=0 bind= type= name=_start
+EXPECT='vaddr=0x00001000 paddr=0x00000074 ord=001 fwd=NONE sz=0 bind= type= name=_start
 '
 run_test
 
 NAME="sections 32 bits omf"
 FILE=../../bins/omf/hello_world32
 ARGS=''
-BROKEN=1
+BROKEN=
 CMDS="iS~addr"
-EXPECT='idx=00 vaddr=0x00000000 paddr=0x00000074 sz=29 vsz=29 perm=-rwx name=text_1
-idx=01 vaddr=0x0000001d paddr=0x000000a3 sz=14 vsz=14 perm=-rwx name=data_1
+EXPECT='idx=00 vaddr=0x00001000 paddr=0x00000074 sz=29 vsz=29 perm=-rwx name=.text_1
+idx=01 vaddr=0x0000101d paddr=0x000000a3 sz=14 vsz=14 perm=-rwx name=.data_1
 '
 run_test
 
 NAME="virtual address 32 bits omf"
 FILE=../../bins/omf/hello_world32
 ARGS=''
-BROKEN=1
-CMDS="pd 1 @_start ~mov edx, 0xe"
-EXPECT='0x00000074    ba0e000000     mov edx, 0xe
+BROKEN=
+CMDS="pd 1 @sym._start ~:3[1]"
+EXPECT='ba0e000000
 '
 run_test
 
@@ -99,8 +99,8 @@ FILE=../../bins/omf/multi_pubdef
 ARGS=''
 BROKEN=
 CMDS="is~addr"
-EXPECT='vaddr=0x00000000 paddr=0x00000084 ord=001 fwd=NONE sz=0 bind= type= name=_start
-vaddr=0x00000013 paddr=0x00000097 ord=002 fwd=NONE sz=0 bind= type= name=second_symbol
+EXPECT='vaddr=0x00001000 paddr=0x00000084 ord=001 fwd=NONE sz=0 bind= type= name=_start
+vaddr=0x00001013 paddr=0x00000097 ord=002 fwd=NONE sz=0 bind= type= name=second_symbol
 '
 run_test
 
@@ -109,7 +109,7 @@ FILE=../../bins/omf/null_checks
 ARGS=''
 BROKEN=
 CMDS="is~addr"
-EXPECT='vaddr=0x00000000 paddr=0x00000073 ord=001 fwd=NONE sz=0 bind= type= name=_start
+EXPECT='vaddr=0x00001000 paddr=0x00000073 ord=001 fwd=NONE sz=0 bind= type= name=_start
 '
 run_test
 

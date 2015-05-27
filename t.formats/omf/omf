@@ -43,7 +43,7 @@ NAME="virtual address 16 bits omf"
 FILE=../../bins/omf/hello_world
 ARGS=''
 BROKEN=
-CMDS="pd 1 @sym._start ~:3[1]"
+CMDS="pid 1~mov[1]"
 EXPECT='ba0e00
 '
 run_test
@@ -89,7 +89,7 @@ NAME="virtual address 32 bits omf"
 FILE=../../bins/omf/hello_world32
 ARGS=''
 BROKEN=
-CMDS="pd 1 @sym._start ~:3[1]"
+CMDS="pid 1~mov[1]"
 EXPECT='ba0e000000
 '
 run_test

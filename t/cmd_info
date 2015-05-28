@@ -530,7 +530,7 @@ FILE=../bins/elf/hello-linux-x86_64
 ARGS=
 CMDS="ir"
 EXPECT='[Relocations]
-vaddr=0x00600cd8 paddr=0x002008c8 type=SET_64 __gmon_start__
+vaddr=0x006008c8 paddr=0x002008c8 type=SET_64 __gmon_start__
 vaddr=0x006008e8 paddr=0x002008e8 type=SET_64 puts
 vaddr=0x006008f0 paddr=0x002008f0 type=SET_64 __libc_start_main
 vaddr=0x006008f8 paddr=0x002008f8 type=SET_64 __gmon_start__

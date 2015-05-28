@@ -78,3 +78,16 @@ EXPECT='0x00401280
 '
 run_test
 
+NAME='pxw offsets'
+BROKEN=
+FILE=../bins/pe/hello-mingw32
+ARGS=
+CMDS='e hex.cols=8
+pxw 32~[0]'
+EXPECT='0x00401280
+0x00401288
+0x00401290
+0x00401298
+'
+run_test
+

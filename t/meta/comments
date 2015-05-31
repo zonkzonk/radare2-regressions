@@ -30,7 +30,7 @@ C*~?
 CC*
 '
 EXPECT='1
-"CCu hello" @ 0x00000008
+CCu base64:aGVsbG8= @ 0x00000008
 '
 run_test
 FILE=malloc://1024
@@ -72,12 +72,14 @@ NAME="multiline comment"
 CMDS='
 CC hello @ 0x200
 CC world @ 0x200
-C*~?
+CC.@0x200~?
+CC~?
 e asm.profile=simple
 e scr.color=false
 pd 2 @ 0x200
 '
 EXPECT='2
+1
    ;      hello
    ;      world
            0x00000200    0000           add byte [eax], al

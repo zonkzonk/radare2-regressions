@@ -20,7 +20,7 @@ run_test
 
 
 NAME="aoj 31c0"
-BROKEN=1
+BROKEN=
 FILE=-
 IGNORE_ERR=1
 ARGS=

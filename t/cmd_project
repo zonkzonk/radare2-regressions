@@ -9,7 +9,7 @@ ARGS=
 CMDS="e dir.projects = ../files/projects
 Po test > /dev/null
 C*"
-EXPECT='"CCu Some test" @ 0x00404890
+EXPECT='CCu base64:U29tZSB0ZXN0 @ 0x00404890
 '
 run_test
 
@@ -19,9 +19,9 @@ ARGS=
 CMDS='e dir.projects = ../files/
 CC Some test @ 0x00404890
 Po test > /dev/null
-C*
+CC*
 '
-EXPECT='"CCu Some test" @ 0x00404890
+EXPECT='CCu base64:U29tZSB0ZXN0 @ 0x00404890
 '
 run_test
 
@@ -31,10 +31,10 @@ ARGS=
 CMDS='e dir.projects = /tmp/
 CC "Some other test" @ 0x00404890
 Ps test > /dev/null
-cat /tmp/test | grep Some
+cat /tmp/test | grep base
 rm /tmp/test
 '
-EXPECT='"CCu "Some other test"" @ 0x00404890
+EXPECT='CCu base64:IlNvbWUgb3RoZXIgdGVzdCI= @ 0x00404890
 '
 run_test
 
@@ -48,11 +48,10 @@ Ps test > /dev/null
 C- @ 0x00404890
 C- @ 0x00404800
 Po project.r2
-cat /tmp/test | grep comment
+cat /tmp/test | grep CC
 rm /tmp/test
 '
-EXPECT='"e asm.comments = true"
-"CCu "First comment"" @ 0x00404890
-"CCu "Second comment"" @ 0x00404800
+EXPECT='CCu base64:IkZpcnN0IGNvbW1lbnQi @ 0x00404890
+CCu base64:IlNlY29uZCBjb21tZW50Ig== @ 0x00404800
 '
 run_test

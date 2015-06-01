@@ -106,10 +106,9 @@ run_test
 NAME='i (file x86)'
 FILE=../bins/elf/x86-helloworld-gcc
 ARGS=
-CMDS="i"
+CMDS="i~!fd"
 EXPECT='type     EXEC (Executable file)
 file     ../bins/elf/x86-helloworld-gcc
-fd       6
 size     0x1323
 blksz    0x0
 mode     r--
@@ -350,10 +349,9 @@ run_test
 NAME='i (file x86_64)'
 FILE=../bins/elf/hello-linux-x86_64
 ARGS=
-CMDS="i"
+CMDS="i~!fd"
 EXPECT='type     EXEC (Executable file)
 file     ../bins/elf/hello-linux-x86_64
-fd       6
 size     0x1a36
 blksz    0x0
 mode     r--

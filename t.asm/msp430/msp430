@@ -28,9 +28,9 @@ test_msp430 7fe02000 "xor.b #0x0020, r15"
 
 test_msp430 c24f2100 "mov.b r15, &0x0021"
 
-test_msp430 8443faff "clr 0xfffa(r4)" 1
+test_msp430 8443faff "clr 0xfffa(r4)"
 
-test_msp430 80433300 "clr 0x0033" 1
+test_msp430 80433300 "clr 0x0033"
 
 test_msp430 073c "jmp $+0x0010"
 
@@ -98,20 +98,20 @@ test_msp430 30402100 "br #0x0021"
 
 test_msp430 10420300 "br &0x0003"
 
-test_msp430 0041 "br r1" 1
+test_msp430 0041 "br r1"
 
-test_msp430 2ac2 "bic #4, r10" 1
+test_msp430 2ac2 "bic #4, r10"
 
-test_msp430 2ac3 "bic #2, r10" 1
+test_msp430 2ac3 "bic #2, r10"
 
-test_msp430 3ae3 "inv r10" 1
+test_msp430 3ae3 "inv r10"
 
-test_msp430 b5e30300 "inv 0x3(r5)" 1
+test_msp430 b5e30300 "inv 0x3(r5)"
 
-test_msp430 b0e30300 "inv 0x0003" 1
+test_msp430 b0e30300 "inv 0x0003"
 
-test_msp430 82930300 "tst &0x0003" 1
+test_msp430 82930300 "tst &0x0003"
 
-test_msp430 0a93 "tst r10" 1
+test_msp430 0a93 "tst r10"
 
-test_msp430 85930300 "tst 0x3(r5)" 1
+test_msp430 85930300 "tst 0x3(r5)"

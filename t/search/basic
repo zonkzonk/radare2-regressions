@@ -37,7 +37,6 @@ run_test
 # NOTE: this test fails because the hit is in the middle of two buffers
 FILE=../../bins/elf/x86-helloworld-gcc
 IGNORE_ERR=1
-BROKEN=1
 CMDS='
 b 100
 e search.from = 0x08048301

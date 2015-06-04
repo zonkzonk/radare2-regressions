@@ -13,9 +13,9 @@ f mid.flag = 4
 wx 31ed4989d15e4889e2
 pid 3
 '
-EXPECT="0x00000000              31ed  xor ebp, ebp
-0x00000002                49  dec ecx
-0x00000003              89d1  mov ecx, edx
+EXPECT="0x00000000             31ed  xor ebp, ebp
+0x00000002               49  dec ecx
+0x00000003             89d1  mov ecx, edx
 "
 run_test
 
@@ -31,11 +31,11 @@ f mid.flag = 4
 wx 31ed4989d15e4889e2
 pid 3
 '
-EXPECT="0x00000000              31ed  xor ebp, ebp
-0x00000002                49  dec ecx
-0x00000003              89d1  mov ecx, edx
+EXPECT="0x00000000             31ed  xor ebp, ebp
+0x00000002               49  dec ecx
+0x00000003             89d1  mov ecx, edx
 0x00000004 mid.flag:
-0x00000004              89d1  mov ecx, edx
+0x00000004             89d1  mov ecx, edx
 "
 run_test
 

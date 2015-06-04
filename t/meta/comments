@@ -87,3 +87,20 @@ EXPECT='2
            0x00000202    0000           add byte [eax], al
 '
 run_test
+
+FILE=malloc://1024
+NAME="cmtright"
+CMDS='
+CC hello
+e scr.color=false
+wx 90
+e asm.cmtright=1
+pd 1
+e asm.cmtright=0
+pd 1
+'
+EXPECT='           0x00000000    90             nop                            ; hello
+   ;      hello
+           0x00000000    90             nop
+'
+run_test

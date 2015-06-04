@@ -75,6 +75,7 @@ CC world @ 0x200
 CC.@0x200~?
 CC~?
 e asm.profile=simple
+e asm.cmtright=0
 e scr.color=false
 pd 2 @ 0x200
 '

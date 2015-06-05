@@ -19,3 +19,31 @@ EXPECT='ffffffff
 IGNORE_ERR=1
 run_test
 
+NAME='dbg.read.entry0'
+FILE=../../bins/elf/elf-nx
+ARGS=-d
+BROKEN=
+CMDS='s entry0
+p8 4
+'
+EXPECT='31ed5e89
+'
+IGNORE_ERR=1
+run_test
+
+NAME='dbg.write'
+FILE=/bin/ls
+ARGS=-d
+BROKEN=
+CMDS='s entry0
+p8 2
+wx 9090
+p8 2
+dk 9
+'
+EXPECT='31ed
+9090
+'
+IGNORE_ERR=1
+run_test
+

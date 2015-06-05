@@ -6,27 +6,39 @@
 
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
-NAME='dbg.oo 10'
-FILE=/bin/ls
+# "!" - run commands (via system)
+
+NAME='dbg.dcu+step'
+FILE=../../bins/elf/elf-nx
 ARGS=-d
 BROKEN=
-CMDS='10oo
-e file.path
+CMDS='e scr.color=0
+dcu entry0
+dr pc
+ds
+dr pc
 dk 9
 '
-EXPECT='dbg:///bin/ls
+EXPECT='0x080482d0
+0x080482d2
 '
 IGNORE_ERR=1
 run_test
 
-NAME='oo ; dc'
-FILE=../../bins/elf/x86-helloworld-gcc
+NAME='dbg.dcu+step'
+FILE=../../bins/elf/elf-nx
 ARGS=-d
 BROKEN=
-CMDS='oo
-dc
+CMDS='e scr.color=0
+dcu entry0
+dr pc
+3ds
+dr pc
+dk 9
 '
-EXPECT='Hello world!
+EXPECT='0x080482d0
+0x080482d5
 '
 IGNORE_ERR=1
 run_test
+

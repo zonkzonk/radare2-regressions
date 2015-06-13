@@ -4,7 +4,8 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 NAME='ELF: simple.elf - code'
 FILE=../../bins/elf/simple.elf
 ARGS=''
-CMDS="pid 4 @ entry0"
+CMDS="e asm.filter=false
+pid 4 @ entry0"
 EXPECT='0x08000060    section..text:
 0x08000060       b990000008  mov ecx, 0x8000090
 0x08000065       ba0d000000  mov edx, 0xd

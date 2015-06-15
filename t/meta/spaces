@@ -17,3 +17,19 @@ EXPECT='0x00000001 CCu "bar"
 1    2 * two
 '
 run_test
+
+FILE=--
+NAME="select all meta spaces"
+CMDS='CS one
+CC foo
+CS two
+CC bar @ 1
+CC cow @ 2
+CS *
+CC
+'
+EXPECT='0x00000000 CCu "foo"
+0x00000001 CCu "bar"
+0x00000002 CCu "cow"
+'
+run_test

@@ -91,3 +91,24 @@ EXPECT='0x00401280
 '
 run_test
 
+NAME='pxw bytes < 4'
+BROKEN=
+FILE=../bins/pe/hello-mingw32
+ARGS=
+CMDS='e hex.cols=8
+pxw 2~[1]'
+EXPECT=''
+run_test
+
+NAME='pxw bytes between 4 and 8'
+BROKEN=
+FILE=../bins/pe/hello-mingw32
+ARGS=
+CMDS='e hex.cols=8
+pxw 7~[1]
+pxw 7~[2]'
+EXPECT='0x83e58955
+U...
+'
+run_test
+

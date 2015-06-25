@@ -104,8 +104,8 @@ BROKEN=
 CMDS='
 wx ff2572962100
 af
-pdf~jmp
+pdf~jmp[0]
 '
-EXPECT='\          0x00000000    ff2572962100   jmp dword [0x219672]
+EXPECT='\
 '
 run_test

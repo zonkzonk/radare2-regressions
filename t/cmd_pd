@@ -98,3 +98,14 @@ EXPECT='0x00000000               90  nop
 run_test
 
 
+NAME='pdfline'
+FILE=malloc://1024
+BROKEN=
+CMDS='
+wx ff2572962100
+af
+pdf~jmp
+'
+EXPECT='\          0x00000000    ff2572962100   jmp dword [0x219672]
+'
+run_test

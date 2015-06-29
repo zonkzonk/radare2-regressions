@@ -55,3 +55,23 @@ EXPECT='CCu base64:IkZpcnN0IGNvbW1lbnQi @ 0x00404890
 CCu base64:IlNlY29uZCBjb21tZW50Ig== @ 0x00404800
 '
 run_test
+
+NAME='xrefs'
+FILE=malloc://512
+ARGS=
+CMDS='ax 1
+e dir.projects = /tmp/
+e file.project=test
+ax
+Ps
+ax
+'
+EXPECT='types=code.jmp,code.call,data.mem,data.string
+ref.unk.0x0=0x1
+xref.unk.0x1=0
+test
+types=code.jmp,code.call,data.mem,data.string
+ref.unk.0x0=0x1
+xref.unk.0x1=0
+'
+run_test

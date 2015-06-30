@@ -190,12 +190,12 @@ run_test
 
 NAME='function preludes'
 FILE=../../bins/mach0/mach0-i386
-BROKEN=1
+BROKEN=
 CMDS='s 0x1000
-ap
+aap
 afl
 '
-EXPECT='0x00001f00  73  3  sym._bar
+EXPECT='0x00001f00  73  4  sym._bar
 0x00001f50  47  1  sym._foo
 0x00001f80  41  1  sym._main
 '

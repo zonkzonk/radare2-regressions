@@ -1,5 +1,5 @@
 #!/bin/sh
-# LGPL - Copyright (C) 2014 Maijin
+# LGPL - Copyright (C) 2014-2015 Maijin, pancake
 
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
@@ -9,8 +9,8 @@ FILE=../../bins/elf/main
 IGNORE_ERR=1
 ARGS=
 CMDS='e asm.arch = x86.udis
-e scr.color=false
-e asm.anal = x86.udis
+e anal.arch = x86.udis
+e scr.color = false
 e scr.wheel = false
 aa
 axt @ str.Hello_World'
@@ -24,7 +24,7 @@ FILE=../../bins/elf/main
 IGNORE_ERR=1
 ARGS=
 CMDS='e asm.arch = x86
-e asm.anal = x86.cs
+e anal.arch = x86
 e scr.color=false
 e scr.wheel = false
 aa
@@ -40,7 +40,7 @@ FILE=../../bins/elf/ioli/crackme0x00
 IGNORE_ERR=1
 ARGS=
 CMDS='e asm.arch = x86
-e asm.anal = x86.cs
+e anal.arch = x86
 e scr.color=false
 e scr.wheel = false
 aa
@@ -55,7 +55,7 @@ FILE=../../bins/elf/ioli/crackme0x00
 IGNORE_ERR=1
 ARGS=
 CMDS='e asm.arch = x86.udis
-e asm.anal = x86.udis
+e anal.arch = x86.udis
 e scr.color=false
 e scr.wheel = false
 aa

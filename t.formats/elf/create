@@ -9,7 +9,7 @@ FILE=-
 IGNORE_ERR=1
 ARGS=
 CMDS='rm /tmp/tiny64.elf
-!rabin2 -c elf64:cc -a x86 -b 64 /tmp/tiny64.elf
+!rabin2 -C elf64:cc -a x86 -b 64 /tmp/tiny64.elf
 ls -l /tmp/tiny64.elf~[3]
 rm /tmp/tiny64.elf
 '
@@ -23,7 +23,7 @@ FILE=-
 IGNORE_ERR=1
 ARGS=
 CMDS='rm /tmp/tiny64.elf
-!rabin2 -c elf:cc -a x86 -b 64 /tmp/tiny64.elf
+!rabin2 -C elf:cc -a x86 -b 64 /tmp/tiny64.elf
 ls -l /tmp/tiny64.elf~[3]
 rm /tmp/tiny64.elf
 '
@@ -36,7 +36,7 @@ FILE=-
 IGNORE_ERR=1
 ARGS=
 CMDS='rm /tmp/tiny32.elf
-!rabin2 -c elf:cc -a x86 -b 32 /tmp/tiny32.elf
+!rabin2 -C elf:cc -a x86 -b 32 /tmp/tiny32.elf
 ls -l /tmp/tiny32.elf~[3]
 rm /tmp/tiny32.elf
 '

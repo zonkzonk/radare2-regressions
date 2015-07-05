@@ -134,7 +134,8 @@ IGNORE_ERR=0
 
 NAME='sym is not fcn'
 FILE=../../bins/mach0/mach0-i386
-BROKEN=1
+BROKEN=
+IGNORE_ERR=1
 ARGS=
 CMDS='
 aa > /dev/null
@@ -188,9 +189,22 @@ EXPECT='0x00001f80  41  1  main
 run_test
 
 
-NAME='function preludes'
+NAME='function prelude offsets'
 FILE=../../bins/mach0/mach0-i386
 BROKEN=
+CMDS='s 0x1000
+aap
+afl~[0]
+'
+EXPECT='0x00001f00
+0x00001f50
+0x00001f80
+'
+run_test
+
+NAME='function preludes symbol names'
+FILE=../../bins/mach0/mach0-i386
+BROKEN=1
 CMDS='s 0x1000
 aap
 afl

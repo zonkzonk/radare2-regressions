@@ -29,7 +29,7 @@ run_test
 
 NAME='decoding the thunk table'
 FILE=../../bins/xbe/default.xbe
-ARGS=''
+ARGS='-u'
 BROKEN=
 CMDS="is~addr"
 EXPECT='vaddr=0x000116c0 paddr=0x000016c0 ord=000 fwd= sz=4 bind= type= name=kt.vsnprintf
@@ -39,7 +39,7 @@ run_test
 NAME='section header decoding'
 BROKEN=1
 FILE=../../bins/xbe/default.xbe
-ARGS=''
+ARGS='-u'
 CMDS='iS~idx'
 EXPECT='idx=00 vaddr=0x00011000 paddr=0x00001000 sz=1728 vsz=1728 perm=-r-x name=.0
 idx=01 vaddr=0x000116c0 paddr=0x00002000 sz=24 vsz=24 perm=-r-- name=.1
@@ -51,7 +51,7 @@ run_test
 
 NAME='section header in r2'
 FILE=../../bins/xbe/default.xbe
-ARGS=''
+ARGS='-u'
 CMDS='S'
 EXPECT='[00] * 0x00001000 r-x va=0x00011000 sz=0x06c0 vsz=0x06c0 .0
 [01] . 0x00002000 r-- va=0x000116c0 sz=0x0018 vsz=0x0018 .1

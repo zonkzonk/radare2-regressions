@@ -341,7 +341,7 @@ NAME='iz (file x86)'
 FILE=../bins/elf/x86-helloworld-gcc
 ARGS=
 CMDS="iz"
-EXPECT='vaddr=0x080484b0 paddr=0x000004b0 ordinal=000 sz=13 len=12 section=.rodata type=a string=Hello world!
+EXPECT='vaddr=0x080484b0 paddr=0x000004b0 ordinal=000 sz=13 len=12 section=.rodata type=ascii string=Hello world!
 '
 run_test
 
@@ -582,7 +582,7 @@ NAME='iz (file x86_64)'
 FILE=../bins/elf/hello-linux-x86_64
 ARGS=
 CMDS="iz"
-EXPECT='vaddr=0x004005c4 paddr=0x000005c4 ordinal=000 sz=12 len=11 section=.rodata type=a string=Hello World
+EXPECT='vaddr=0x004005c4 paddr=0x000005c4 ordinal=000 sz=12 len=11 section=.rodata type=ascii string=Hello World
 '
 run_test
 

@@ -63,3 +63,55 @@ axt @ str.Password:'
 EXPECT='d 0x804843c mov dword [esp], str.Password:
 '
 run_test
+
+NAME="ax-"
+BROKEN=
+FILE=-
+IGNORE_ERR=1
+ARGS=
+CMDS='ax 10 20
+ax
+ax-10 20
+ax
+'
+EXPECT='types=code.jmp,code.call,data.mem,data.string
+ref.unk.0x14=0xa
+xref.unk.0xa=0x14
+types=code.jmp,code.call,data.mem,data.string
+'
+run_test
+
+NAME="ax-@"
+BROKEN=
+FILE=-
+IGNORE_ERR=1
+ARGS=
+CMDS='s 20
+ax 10
+ax
+ax-10
+ax
+'
+EXPECT='types=code.jmp,code.call,data.mem,data.string
+ref.unk.0x14=0xa
+xref.unk.0xa=0x14
+types=code.jmp,code.call,data.mem,data.string
+'
+run_test
+
+NAME="ax-*"
+BROKEN=
+FILE=-
+IGNORE_ERR=1
+ARGS=
+CMDS='ax 10
+ax
+ax-*
+ax
+'
+EXPECT='types=code.jmp,code.call,data.mem,data.string
+ref.unk.0x0=0xa
+xref.unk.0xa=0
+types=code.jmp,code.call,data.mem,data.string
+'
+run_test

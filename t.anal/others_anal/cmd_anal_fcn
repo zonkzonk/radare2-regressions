@@ -139,9 +139,9 @@ IGNORE_ERR=1
 ARGS=
 CMDS='
 aa > /dev/null
-afl~sym.__mh_execute_header
+afl~sym.__mh_execute_header[0]
 '
-EXPECT='0x00001000  313  9  sym.__mh_execute_header
+EXPECT='0x00001000
 '
 run_test
 

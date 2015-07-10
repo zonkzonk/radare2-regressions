@@ -37,7 +37,7 @@ run_test
 
 NAME='rahash2 -b10 -a md5,sha1,sha256 -r'
 CMDS='!rahash2 -b10 -a md5,sha1,sha256 -r ../../bins/elf/hello-linux-x86_64'
-BROKEN=1
+BROKEN=
 EXPECT='../../bins/elf/hello-linux-x86_64: e file.md5=c957bd5bd6204470256bc15248ccafd4
 ../../bins/elf/hello-linux-x86_64: e file.sha1=687c82d13cb27f0600d8e57edc784282c1732f56
 ../../bins/elf/hello-linux-x86_64: e file.sha256=7bdbf25324af1946ec0b16dbf928875a588a786f7c279cd115729c5a3a297a55
@@ -268,14 +268,12 @@ EXPECT='21232f297a57a5a743894a0e4a801fc3
 '
 run_test
 
-
 NAME='rahash2 -f0x1 -t0x5 -q -a md5 admin.txt'
 CMDS='!rahash2 -f0x1 -t0x5 -q -a md5 ../../bins/other/admin.txt'
 FILE=../../bins/other/admin.txt
 BROKEN=
 EXPECT='21232f297a57a5a743894a0e4a801fc3
 '
-
 run_test
 
 
@@ -283,7 +281,16 @@ NAME='rahash2 -v~commit?"'
 CMDS='!!rahash2 -v~commit?'
 EXPECT='1
 '
-
 run_test
 
+NAME='rahash2 -s hello1'
+CMDS='!!rahash2 -qa md5 -s hello1'
+EXPECT='203ad5ffa1d7c650ad681fdff3965cd2
+'
+run_test
 
+NAME='rahash2 -s hello\x31'
+CMDS='!!rahash2 -qa md5 -s hello\\x31'
+EXPECT='203ad5ffa1d7c650ad681fdff3965cd2
+'
+run_test

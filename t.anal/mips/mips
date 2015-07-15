@@ -351,6 +351,7 @@ FILE=malloc://160
 ARGS='-m 0x8060b4f8'
 CMDS="e asm.bits=32
 e asm.arch=${PLUGIN}
+e anal.noncode=1
 e asm.comments=0
 e anal.hasnext=1
 e anal.eobjmp=0

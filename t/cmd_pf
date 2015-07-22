@@ -49,6 +49,20 @@ ulebtest : 0x00000014 = [ 608101, 4750, 42, 0 ]
 [{"name":"ulebtest","type":"u","offset":20,"value":[ "608101", "4750", "42", "0" ]}]'
 run_test
 
+NAME='Register'
+FILE=malloc://1024
+ARGS=
+CMDS='dr eax=4000
+dr eip=42
+pf.plop rr (eax)reg1 (eip)reg2
+pf.plop
+pfj.plop
+'
+EXPECT='     reg1 : eax : 0x00000fa0
+     reg2 : eip : 0x0000002a
+[{"name":"reg1","type":"r","offset":0,"value":4000},{"name":"reg2","type":"r","offset":0,"value":42}]'
+run_test
+
 NAME='Pointers'
 FILE=malloc://1024
 ARGS=

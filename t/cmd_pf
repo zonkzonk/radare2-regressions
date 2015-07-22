@@ -527,6 +527,19 @@ EXPECT="                                 signature : 0x00000080 = PE
 ]"
 run_test
 
+NAME='Print value only'
+FILE=../bins/pe/ch22.exe
+ARGS=-nn
+DEBUG=1
+BROKEN=
+CMDS='e asm.bits=32
+s 0x80
+pfv.pe_nt_image_headers32.optionalHeader.dataDirectory[5].virtualAddress
+'
+EXPECT="0x0000c000
+"
+run_test
+
 NAME='PE JSON test'
 FILE=../bins/pe/ch22.exe
 ARGS=-nn

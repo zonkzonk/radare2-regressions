@@ -620,6 +620,20 @@ EXPECT="      str :
 ]"
 run_test
 
+NAME='Complexe request with specific array element and specific field'
+FILE=../bins/pe/ch22.exe
+ARGS=-nn
+BROKEN=
+DEBUG=1
+CMDS='e asm.bits=32
+s 0x80
+pf.pe_dos_header.e_res[2]
+pf.pe_dos_header.e_res2[8]
+'
+EXPECT='     e_res : 0x000000a0 = [ 0x3400 ]
+    e_res2 : 0x000000b8 = [ 0x2000 ]
+'
+run_test
 
 NAME='write specific element through nested struct'
 FILE=malloc://1024

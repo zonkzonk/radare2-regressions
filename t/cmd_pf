@@ -689,3 +689,21 @@ EXPECT="0x00000000 = [ '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.
 0x00000000 = [ '.', '.', '.', '.', '.' ]
 "
 run_test
+
+NAME='Combining flags, backtick, and var length array'
+FILE=malloc://1024
+ARGS=
+DEBUG=1
+CMDS='e asm.bits=32
+f test 4 @ 0x20
+w SWAG
+wx 04 @ test
+wx 20 @ 0x4
+pf.plop ip int ptr
+pf [`pfv p @ test`]c
+pf [*`pfv.plop.ptr`]c
+'
+EXPECT="0x00000000 = [ 'S', 'W', 'A', 'G' ]
+0x00000000 = [ 'S', 'W', 'A', 'G' ]
+"
+run_test

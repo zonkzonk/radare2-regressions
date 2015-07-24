@@ -82,6 +82,7 @@ agraph.nodes.title1.w=0x12
 run_test
 
 NAME='remove node'
+BROKEN=1
 FILE=-
 ARGS=
 CMDS='agn title1 body1
@@ -94,6 +95,7 @@ EXPECT='agraph.nodes=
 run_test
 
 NAME='remove node with title that contain spaces'
+BROKEN=1
 FILE=-
 ARGS=
 CMDS='agn "Title with spaces" body1
@@ -106,6 +108,7 @@ EXPECT='agraph.nodes=
 run_test
 
 NAME='remove non-existent node'
+BROKEN=1
 FILE=-
 ARGS=
 CMDS='agn "Title with spaces" body1
@@ -119,6 +122,7 @@ agraph.nodes.Title with spaces.body=base64:Ym9keTE=
 run_test
 
 NAME='remove edge'
+BROKEN=1
 FILE=-
 ARGS=
 CMDS='agn "Title with spaces" body1
@@ -133,6 +137,7 @@ agraph.nodes.Title with spaces.neighbours.neighbours=
 run_test
 
 NAME='get graph of a function'
+BROKEN=1
 FILE=../bins/elf/hello-linux-x86_64
 ARGS=
 CMDS='af

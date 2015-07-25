@@ -536,8 +536,7 @@ CMDS='e asm.bits=32
 s 0x80
 pfv.pe_nt_image_headers32.optionalHeader.dataDirectory[5].virtualAddress
 '
-EXPECT="0x0000c000
-"
+EXPECT="0x0000c000"
 run_test
 
 NAME='PE JSON test'

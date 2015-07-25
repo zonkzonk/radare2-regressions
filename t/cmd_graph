@@ -145,3 +145,114 @@ aggk $$~nodes='
 EXPECT='agraph.nodes=0x400410
 '
 run_test
+
+NAME='no selected node in non-interactive'
+BROKEN=1
+FILE=-
+ARGS=
+CMDS='agn title1 body1
+agg'
+EXPECT='
+=----------------=
+|  title1        |
+| body1          |
+=----------------=
+'
+run_test
+
+NAME='agf one'
+BROKEN=1
+FILE=-
+ARGS=
+CMDS='"wa push ebp;mov ebp,esp;pop ebp;ret"
+af
+agf'
+EXPECT='[0x00000000]> 0 VV @ fcn.00000000 (nodes 1 edges 0 zoom 100%) BB mouse:canvas-y movements-speed:5
+=----------------=
+|  0x0           |
+| push ebp       |
+| mov ebp, esp   |
+| pop ebp        |
+| ret            |
+=----------------=
+'
+run_test
+
+NAME='agg one'
+BROKEN=1
+FILE=-
+ARGS=
+CMDS='agn 0x0 base64:cHVzaCBlYnAKbW92IGVicCwgZXNwCnBvcCBlYnAKcmV0
+agg'
+EXPECT='
+=----------------=
+|  0x0           |
+| push ebp       |
+| mov ebp, esp   |
+| pop ebp        |
+| ret            |
+=----------------=
+'
+run_test
+
+NAME='graph size'
+FILE=-
+ARGS=
+CMDS='aggk~agraph.w=
+aggk~agraph.h=
+agn title1 body1
+aggk~agraph.w=
+aggk~agraph.h=
+'
+EXPECT='agraph.w=0
+agraph.h=0
+agraph.w=18
+agraph.h=4
+'
+run_test
+
+NAME='graph size with edges'
+BROKEN=1
+FILE=-
+ARGS=
+CMDS='agn title1 body1
+age title1 title1
+aggk~agraph.w=0x12
+aggk~agraph.h=0x4
+'
+EXPECT=''
+run_test
+
+NAME='graph title'
+BROKEN=1
+FILE=-
+ARGS=
+CMDS='agn title1 body1
+e graph.title=This is the graph title
+agg
+'
+EXPECT='This is the graph title
+=----------------=
+|  title1        |
+| body1          |
+=----------------=
+'
+run_test
+
+NAME='print r2 commands to create graph'
+FILE=-
+ARGS=
+CMDS='agn title1 body1
+agn title2 body2
+agn title3 base64:dGhpcyBpcyBteSBib2R5CndpdGggbmV3bGluZXM=
+age title1 title2
+age title3 title1
+agg*
+'
+EXPECT='agn "title1" base64:Ym9keTE=
+agn "title2" base64:Ym9keTI=
+agn "title3" base64:dGhpcyBpcyBteSBib2R5CndpdGggbmV3bGluZXM=
+age "title1" "title2"
+age "title3" "title1"
+'
+run_test

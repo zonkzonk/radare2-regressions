@@ -20,3 +20,20 @@ EXPECT="1
 "
 run_test
 
+NAME='pd call sym bug'
+FILE=../bins/mach0/hello-objc-arm
+BROKEN=1
+ARGS=
+CMDS='
+e asm.lines=0
+e asm.bytes=0
+e asm.comments=0
+s sym.__Test_callMeNot_
+# s+2
+pi 2
+'
+EXPECT="mov r7, sp
+sub sp, 8
+"
+run_test
+

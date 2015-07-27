@@ -16,7 +16,6 @@ af; pdf
 '
 EXPECT='/ (fcn) sym.Conditionals.check_if 58
 |          ;-- entry1:
-|          ;-- sym.Conditionals.check_if:
 |          0x000001cb    1a             iload_0
 |          0x000001cc    100a           bipush 10
 |          0x000001ce    60             iadd

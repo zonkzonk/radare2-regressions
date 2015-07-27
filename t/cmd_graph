@@ -212,6 +212,22 @@ agraph.h=4
 run_test
 
 NAME='graph size with edges'
+FILE=-
+ARGS=
+CMDS='agn title1 body1
+agn title2 "body2 long body with a lot of spaces and dots...."
+agn title3 body3
+age title1 title2
+age title2 title3
+age title1 title3
+age title3 title1
+aggk~agraph.w=0x35
+agg | head -2 | tail -1 | tr -d " " | grep "=----------------="
+'
+EXPECT=''
+run_test
+
+NAME='graph size with self-referenced bb'
 BROKEN=1
 FILE=-
 ARGS=

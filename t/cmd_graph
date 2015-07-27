@@ -147,7 +147,6 @@ EXPECT='agraph.nodes=0x400410
 run_test
 
 NAME='no selected node in non-interactive'
-BROKEN=1
 FILE=-
 ARGS=
 CMDS='agn title1 body1
@@ -161,7 +160,6 @@ EXPECT='
 run_test
 
 NAME='agf one'
-BROKEN=1
 FILE=-
 ARGS=
 CMDS='"wa push ebp;mov ebp,esp;pop ebp;ret"
@@ -179,7 +177,6 @@ EXPECT='[0x00000000]> 0 VV @ fcn.00000000 (nodes 1 edges 0 zoom 100%) BB mouse:c
 run_test
 
 NAME='agg one'
-BROKEN=1
 FILE=-
 ARGS=
 CMDS='agn 0x0 base64:cHVzaCBlYnAKbW92IGVicCwgZXNwCnBvcCBlYnAKcmV0
@@ -240,7 +237,6 @@ EXPECT=''
 run_test
 
 NAME='graph title'
-BROKEN=1
 FILE=-
 ARGS=
 CMDS='agn title1 body1

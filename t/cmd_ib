@@ -48,7 +48,6 @@ relocs   false
 binsz    1024
 / (fcn) sym.TestVariableSwitchUp.TestMultipleVariable 37
 | ;-- entry1:
-| ;-- sym.TestVariableSwitchUp.TestMultipleVariable:
 | 0x000002fd    1064           bipush 100
 | 0x000002ff    b8000f         invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 | 0x00000302    4b             astore_0

@@ -111,7 +111,19 @@ EXPECT='0    1 . strings
 1   35 . symbols
 2    4 . relocs
 3   64 . sections
-4    4 . functions
+4    0 . functions
+'
+run_test
+
+NAME='flags spaces after analysis'
+FILE=../../bins/elf/x86-helloworld-gcc
+CMDS='s entry0+4; af;fs *;fs
+'
+EXPECT='0    1 . strings
+1   35 . symbols
+2    4 . relocs
+3   64 . sections
+4    1 . functions
 '
 run_test
 

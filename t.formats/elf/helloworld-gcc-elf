@@ -31,7 +31,7 @@ EXPECT='0x080484b0 string[13] "Hello_world_"
 0x080484a8 CCu "[14] va=0x080484a8 pa=0x000004a8 sz=21 vsz=21 rwx=-r-- .rodata"
 0x080484c0 CCu "[15] va=0x080484c0 pa=0x000004c0 sz=44 vsz=44 rwx=-r-- .eh_frame_hdr"
 0x080484ec CCu "[16] va=0x080484ec pa=0x000004ec sz=176 vsz=176 rwx=-r-- .eh_frame"
-0x0804959c CCu "[30] va=0x0804959c pa=0x0000059c sz=4096 vsz=4096 rwx=-rw- phdr1"
+0x0804959c CCu "[30] va=0x0804959c pa=0x0000059c sz=280 vsz=4096 rwx=-rw- phdr1"
 0x080495a0 CCu "[18] va=0x080495a0 pa=0x000005a0 sz=4 vsz=4 rwx=-rw- .fini_array"
 0x080495a4 CCu "[19] va=0x080495a4 pa=0x000005a4 sz=4 vsz=4 rwx=-rw- .jcr"
 0x080495a8 CCu "[20] va=0x080495a8 pa=0x000005a8 sz=232 vsz=232 rwx=-rw- .dynamic"
@@ -66,7 +66,7 @@ CCu base64:WzEzXSB2YT0weDA4MDQ4NDk0IHBhPTB4MDAwMDA0OTQgc3o9MjAgdnN6PTIwIHJ3eD0tc
 CCu base64:WzE0XSB2YT0weDA4MDQ4NGE4IHBhPTB4MDAwMDA0YTggc3o9MjEgdnN6PTIxIHJ3eD0tci0tIC5yb2RhdGE= @ 0x080484a8
 CCu base64:WzE1XSB2YT0weDA4MDQ4NGMwIHBhPTB4MDAwMDA0YzAgc3o9NDQgdnN6PTQ0IHJ3eD0tci0tIC5laF9mcmFtZV9oZHI= @ 0x080484c0
 CCu base64:WzE2XSB2YT0weDA4MDQ4NGVjIHBhPTB4MDAwMDA0ZWMgc3o9MTc2IHZzej0xNzYgcnd4PS1yLS0gLmVoX2ZyYW1l @ 0x080484ec
-CCu base64:WzMwXSB2YT0weDA4MDQ5NTljIHBhPTB4MDAwMDA1OWMgc3o9NDA5NiB2c3o9NDA5NiByd3g9LXJ3LSBwaGRyMQ== @ 0x0804959c
+CCu base64:WzMwXSB2YT0weDA4MDQ5NTljIHBhPTB4MDAwMDA1OWMgc3o9MjgwIHZzej00MDk2IHJ3eD0tcnctIHBoZHIx @ 0x0804959c
 CCu base64:WzE4XSB2YT0weDA4MDQ5NWEwIHBhPTB4MDAwMDA1YTAgc3o9NCB2c3o9NCByd3g9LXJ3LSAuZmluaV9hcnJheQ== @ 0x080495a0
 CCu base64:WzE5XSB2YT0weDA4MDQ5NWE0IHBhPTB4MDAwMDA1YTQgc3o9NCB2c3o9NCByd3g9LXJ3LSAuamNy @ 0x080495a4
 CCu base64:WzIwXSB2YT0weDA4MDQ5NWE4IHBhPTB4MDAwMDA1YTggc3o9MjMyIHZzej0yMzIgcnd4PS1ydy0gLmR5bmFtaWM= @ 0x080495a8
@@ -151,7 +151,7 @@ NAME='pv'
 FILE=../../bins/elf/x86-helloworld-gcc
 CMDS='pv
 '
-EXPECT='0x8048000 [ff......ffff.f.fffff^.ff.ffff..ff.f...f.......................................................................f......................................f......ff..................................................................................................] 0x804a59c
+EXPECT='0x8048000 [ff......ffff.f.fffff^.ff.ffff..ff.f...f..............................................................................................................f......ff..................................................................................................] 0x804a59c
 '
 run_test
 
@@ -342,10 +342,10 @@ EXPECT='0x080484b0 13 str.Hello_world_
 0x00000450 0 section_end..symtab
 0x00000000 599 section..strtab
 0x00000257 0 section_end..strtab
-0x08048000 4096 section.phdr0
-0x08049000 0 section_end.phdr0
-0x0804959c 4096 section.phdr1
-0x0804a59c 0 section_end.phdr1
+0x08048000 1436 section.phdr0
+0x0804859c 0 section_end.phdr0
+0x0804959c 280 section.phdr1
+0x080496b4 0 section_end.phdr1
 0x08048000 52 section.ehdr
 0x08048034 0 section_end.ehdr
 '

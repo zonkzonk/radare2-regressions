@@ -19,6 +19,7 @@ ao@4~type[2]
 '
 EXPECT='ldr ip, [pc, 0x20]
 ldr ip, [sl, ip]
+address: 0x0
 opcode: ldr ip, [pc, 0x20]
 prefix: 0
 bytes: 20c09fe5
@@ -30,6 +31,7 @@ esil: 8,pc,+,32,+,[4],ip,=
 stack: null
 cond: 0
 family: unknown
+address: 0x4
 opcode: ldr ip, [sl, ip]
 prefix: 0
 bytes: 0cc09ae7

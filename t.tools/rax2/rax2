@@ -105,7 +105,7 @@ EXPECT='6161646d696e61
 run_test
 
 NAME='echo "414141" | rax2 -s '
-CMDS='!echo -n "414141" | rax2 -s'
+CMDS='!printf 414141 | rax2 -s'
 EXPECT='AAA'
 run_test
 

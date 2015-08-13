@@ -1,6 +1,16 @@
 #!/bin/sh
-# GPL 3+ - Copyright (C) 2014  Maijin
+# GPL 3+ - Copyright (C) 2014-2015  pancake, Maijin
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+NAME='baddr =='
+BROKEN=
+FILE=../../bins/elf/hello-linux-x86_64
+ARGS=
+CMDS='!rabin2 -qe ${FILE};!rabin2 -B 0x400000 -qe ${FILE}'
+EXPECT='0x00400410
+0x00400410
+'
+run_test
 
 NAME='baddr >0'
 BROKEN=1
@@ -32,7 +42,6 @@ EXPECT_ERR="r_core: Cannot open file
 "
 run_test
 
-
 NAME='rabin2 -K md5 -S file'
 BROKEN=
 FILE=../../bins/pe/a.exe
@@ -46,5 +55,59 @@ idx=03 vaddr=0x00404000 paddr=0x00000000 sz=0 vsz=152 perm=-rw- md5=d41d8cd98f00
 idx=04 vaddr=0x00405000 paddr=0x00001200 sz=1024 vsz=616 perm=-rw- md5=963212dc58a74f32e0f6ffce84dcf7ea name=.idata
 
 5 sections
+'
+run_test
+
+NAME='rabin2 -s file pe'
+BROKEN=
+FILE=../../bins/pe/a.exe
+ARGS=
+CMDS="!rabin2 -s ${FILE}|wc -l|awk '{print \$1}'"
+EXPECT='23
+'
+run_test
+
+NAME='rabin2 -s file elf'
+BROKEN=
+FILE=../../bins/elf/x86-helloworld-gcc
+ARGS=
+CMDS="!rabin2 -s ${FILE}|wc -l|awk '{print \$1}'"
+EXPECT='36
+'
+run_test
+
+NAME='rabin2 -z pe'
+BROKEN=
+FILE=../../bins/pe/a.exe
+ARGS=
+CMDS="!rabin2 -z ${FILE}|wc -l|awk '{print \$1}'"
+EXPECT='4
+'
+run_test
+
+NAME='rabin2 -z elf'
+BROKEN=
+FILE=../../bins/elf/x86-helloworld-gcc
+ARGS=
+CMDS="!rabin2 -z ${FILE}|wc -l|awk '{print \$1}'"
+EXPECT='1
+'
+run_test
+
+NAME='rabin2 -G 0x1000 -rs fatmach0'
+BROKEN=
+FILE=../../bins/mach0/fatmach0-3true
+ARGS=
+CMDS="!rabin2 -G 0x1000 -rs ${FILE}|wc -l|awk '{print \$1}'"
+EXPECT='4
+'
+run_test
+
+NAME='rabin2 -G 0x1300 -rs fatmach0'
+BROKEN=
+FILE=../../bins/mach0/fatmach0-3true
+ARGS=
+CMDS="!rabin2 -G 0x1300 -rs ${FILE}|wc -l|awk '{print \$1}'"
+EXPECT='1
 '
 run_test

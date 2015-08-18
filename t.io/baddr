@@ -33,25 +33,44 @@ EXPECT='f entry0 1 @ 0x00f00410
 '
 run_test
 
-NAME="io.baddr"
-BROKEN=
-ARGS="-e bin.laddr=0xf00000"
+NAME="io.baddr entry0 data"
 FILE=../bins/elf/hello-linux-x86_64
 CMDS='
-?v entry0
+ie~paddr[3]
+ie~vaddr[1]
+p8 10 @ 0x00400410
+p8 10 @ 0x00000410
 '
-EXPECT='0xf00410
+EXPECT='0x00000410
+0x00400410
+31ed4989d15e4889e248
+31ed4989d15e4889e248
 '
 run_test
 
-NAME="io.baddr.ib"
+NAME="io.baddr -x86_32 entry0 data"
+FILE=../bins/mach0/fatmach0-3true
+ARGS='-a x86 -b 32'
+CMDS='
+ie~paddr[3]
+ie~vaddr[1]
+p8 10 @ 0x00001f44
+p8 10 @ 0x00005f44
+'
+EXPECT='0x00005f44
+0x00001f44
+6a0089e583e4f083ec10
+6a0089e583e4f083ec10
+'
+run_test
+
+NAME="io.baddr"
 BROKEN=1
 FILE=../bins/elf/hello-linux-x86_64
-CMDS='
-e bin.laddr=0xf00000
-ib
-ie*~0x[4]
-'
-EXPECT='0xf00410
+ARGS='-B 0xf00000'
+CMDS='!rabin2 -B 0xf00000 -re ${FILE} | grep 0x
+p8 10 @ 0x00f00410'
+EXPECT='f entry0 1 @ 0x00f00410
+31ed4989d15e4889e248
 '
 run_test

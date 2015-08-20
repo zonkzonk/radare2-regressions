@@ -41,5 +41,15 @@ test_vector "${PLUGIN}" "return-wide v0" 1000
 test_vector "${PLUGIN}" "return-object v0" 1100
 test_vector "${PLUGIN}" "const/4 v1, 0x2" 1221
 test_vector "${PLUGIN}" "const/16 v0, 0x0a" 13000A00 #const/16 v0, #int 10
-test_vector "${PLUGIN}" "const v0, 0x00BC614E" 14004E61BC00 br #const v0, #12345678 // #00BC614E
+test_vector "${PLUGIN}" "const v0, 0x00bc614e" 14004E61BC00 br #const v0, #12345678 // #00BC614E
 test_vector "${PLUGIN}" "const/high16 v0, 0x41200000" 15002041 br # const/high16 v0, #float 10.0 // #41200000
+test_vector "${PLUGIN}" "const-wide/16 v0, 0000" 16000000
+test_vector "${PLUGIN}" "const-wide/32 v2, 0x00bc614e" 17024e61bc00 br
+test_vector "${PLUGIN}" "const-wide v2, 0x002bdc545d6b4b87" 1802874b6b5d54dc2b00 br
+test_vector "${PLUGIN}" "const-wide/high16 v0, 0x41200000" 19002440 br
+test_vector "${PLUGIN}" "const-string v8, string+0" 1A080000
+test_vector "${PLUGIN}" "const-string/jumbo v8, string+0" 1B080000
+test_vector "${PLUGIN}" "const-class v0, class+1" 1C000100
+test_vector "${PLUGIN}" "monitor-enter v3" 1D030000
+test_vector "${PLUGIN}" "monitor-exit v3" 1E030000
+test_vector "${PLUGIN}" "check-cast v4, class+1" 1F040100

@@ -53,3 +53,33 @@ test_vector "${PLUGIN}" "const-class v0, class+1" 1C000100
 test_vector "${PLUGIN}" "monitor-enter v3" 1D030000
 test_vector "${PLUGIN}" "monitor-exit v3" 1E030000
 test_vector "${PLUGIN}" "check-cast v4, class+1" 1F040100
+test_vector "${PLUGIN}" "instance-of v0, v4, class+1" 20400100
+test_vector "${PLUGIN}" "array-length v1, v1" 21110000
+test_vector "${PLUGIN}" "new-instance v0, class+1" 22000100
+test_vector "${PLUGIN}" "new-array v2, v1, class+1" 23120100
+test_vector "${PLUGIN}" "filled-new-array {v0, v0}, class+1" 242001000000
+test_vector "${PLUGIN}" "filled-new-array/range {v19..v21}, class+6" 250306001300
+test_vector "${PLUGIN}" "fill-array-data v6, 0x00000025" 260625000000
+test_vector "${PLUGIN}" "throw v0" 2700
+test_vector "${PLUGIN}" "check-cast v4, class+1" 28F0 br # goto 0005 // -0010
+test_vector "${PLUGIN}" "check-cast v4, class+1" 29000FFE br # goto/16 002f // -01f1
+test_vector "${PLUGIN}" "check-cast v4, class+1" 2A000FFE br # goto/32 002f // -01f1
+test_vector "${PLUGIN}" "packed-switch v2, 0x0000000c" 2B020C000000
+test_vector "${PLUGIN}" "sparse-switch v2, 0x0000000c" 2C020c000000
+test_vector "${PLUGIN}" "cmpl-float v0, v6, v7" 2D000607
+test_vector "${PLUGIN}" "cmpg-float v0, v6, v7" 2E000607
+test_vector "${PLUGIN}" "cmpl-double v25, v6, v8" 2F190608
+test_vector "${PLUGIN}" "cmpg-double v0, v8, v10" 3000080A
+test_vector "${PLUGIN}" "cmp-long v0, v2, v4" 31000204
+test_vector "${PLUGIN}" "if-eq v3, v11, 0x0" 32b30000
+test_vector "${PLUGIN}" "if-ne v3, v10, 0x0" 33A30000
+test_vector "${PLUGIN}" "if-lt v2, v3, 0x0" 34320000
+test_vector "${PLUGIN}" "if-ge v0, v1, 0x0" 35100000
+test_vector "${PLUGIN}" "if-gt v0, v1, 0x0" 36100000
+test_vector "${PLUGIN}" "if-le v6, v5, 0x0" 37560000
+test_vector "${PLUGIN}" "if-eqz v2, 0x0" 38020000 br
+test_vector "${PLUGIN}" "if-nez v2, 0x0" 39020000 br
+test_vector "${PLUGIN}" "if-ltz v0, 0x0" 3A000000 br
+test_vector "${PLUGIN}" "if-gez v0, 0x0" 3B000000 br
+test_vector "${PLUGIN}" "if-gtz v0, 0x0" 3C000000 br
+test_vector "${PLUGIN}" "if-lez v0, 0x0" 3D000000 br

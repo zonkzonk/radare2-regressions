@@ -26,6 +26,8 @@ test_vector "${PLUGIN}" "move v0, v1" 0110
 test_vector "${PLUGIN}" "move/from16 v0, v25" 02001900
 test_vector "${PLUGIN}" "move/16 v0, v0" 03000000
 test_vector "${PLUGIN}" "move-wide v0, v0" 04000000
+test_vector "${PLUGIN}" "move-wide/from16 v22, v0" 05160000
+test_vector "${PLUGIN}" "move-wide/16 v0, v0" 06000000
 test_vector "${PLUGIN}" "move-object v1, v8" 0781
 test_vector "${PLUGIN}" "move-object/from16 v1, v21" 08011500
 test_vector "${PLUGIN}" "move-object/16 v0, v0" 0900

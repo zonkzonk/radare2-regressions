@@ -183,8 +183,8 @@ test_vector "${PLUGIN}" "sub-float v0, v2, v3" A7000203
 test_vector "${PLUGIN}" "mul-float v3, v0, v1" A8030001
 test_vector "${PLUGIN}" "div-float v3, v0, v1" A9030001
 test_vector "${PLUGIN}" "rem-float v3, v0, v1" AA030001
-test_vector "${PLUGIN}" "add-double v0, v3, v5" AB000305 br
-test_vector "${PLUGIN}" "sub-double v0, v3, v5" AC000305 br
+test_vector "${PLUGIN}" "add-double v0, v3, v5" AB000305
+test_vector "${PLUGIN}" "sub-double v0, v3, v5" AC000305
 test_vector "${PLUGIN}" "mul-double v6, v0, v2" AD060002
 test_vector "${PLUGIN}" "div-double v6, v0, v2" AE060002
 test_vector "${PLUGIN}" "rem-double v6, v0, v2" AF060002

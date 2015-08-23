@@ -45,5 +45,6 @@ EXPECT='[
 		"cond": 0,
 		"family": "unknown"
 	}
-]'
+]
+'
 run_test

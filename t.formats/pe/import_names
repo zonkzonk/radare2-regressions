@@ -7,6 +7,6 @@ FILE=../../bins/pe/Lab05-01.dll
 BROKEN=1
 CMDS='ii~&WS2_32,ordinal=052
 '
-EXPECT='ordinal=052 plt=0x000163cc bind=NONE type=FUNC name=WS2_32.dll_gethostbyname
+EXPECT='ordinal=052 plt=0x100163cc bind=NONE type=FUNC name=WS2_32.dll_gethostbyname
 '
 run_test

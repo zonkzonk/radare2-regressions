@@ -63,3 +63,11 @@ CMDS="?v main"
 EXPECT='0x4006f0
 '
 run_test
+
+NAME='main non common LD script'
+FILE=../../bins/elf/custom_ldscript
+ARGS=''
+CMDS="?v main"
+EXPECT='0x1c00844
+'
+run_test

@@ -3,8 +3,6 @@
 
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
-# This test verifies that rabin2 -z returns proper va address for strings
-
 NAME="symbols non common LD script"
 BROKEN=1
 FILE=../../bins/elf/custom_ldscript

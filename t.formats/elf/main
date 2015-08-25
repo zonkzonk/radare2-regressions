@@ -71,3 +71,11 @@ CMDS="?v main"
 EXPECT='0x1c00844
 '
 run_test
+
+NAME='main wrong sections'
+FILE=../../bins/elf/main_wrong_sect
+ARGS=''
+CMDS="?v main"
+EXPECT='0x400506
+'
+run_test

@@ -7,9 +7,20 @@ NAME='dbg.maps'
 FILE=../../bins/elf/elf-nx
 ARGS=-d
 BROKEN=
-CMDS='dm~?
+CMDS='dm~?/
 dk 9'
-EXPECT='7
+EXPECT='4
+'
+IGNORE_ERR=1
+run_test
+
+NAME='dbg.maps'
+FILE=../../bins/elf/elf-nx
+ARGS=-d
+BROKEN=1
+CMDS='dm
+dk 9'
+EXPECT='TODO
 '
 IGNORE_ERR=1
 run_test

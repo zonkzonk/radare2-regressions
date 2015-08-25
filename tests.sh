@@ -224,11 +224,9 @@ run_test() {
             cat "${TMP_VAL}"
             echo
         fi
-
     elif [ -n "${EXITCODE}" ]; then
         test_failed "wrong exit code: ${EXITCODE}"
         printdiff
-
     elif [ ${CODE} -ne 0 ]; then
         test_failed "radare2 crashed"
         printdiff

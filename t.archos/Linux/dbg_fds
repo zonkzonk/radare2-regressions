@@ -1,12 +1,9 @@
 #!/bin/sh
-
-# TODO: This script requires ROOT to be run in OSX
-# (or just sign the r2 binary to get debugger priviledges)
-# GPL 3+ - Copyright (C) 2014  pancake
+# GPL 3+ - Copyright (C) 2014-2015  pancake
 
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
-NAME='dbg.filedescriptors'
+NAME='dbg.fds'
 FILE=../../bins/elf/elf-nx
 ARGS=-d
 BROKEN=1
@@ -17,3 +14,26 @@ EXPECT='3
 IGNORE_ERR=1
 run_test
 
+NAME='dbg.fds'
+FILE=../../bins/elf/elf-nx
+ARGS=-d
+BROKEN=1
+CMDS='dd~?
+dd-1
+dk 9'
+EXPECT='2
+'
+IGNORE_ERR=1
+run_test
+
+NAME='dbg.fds'
+FILE=../../bins/elf/elf-nx
+ARGS=-d
+BROKEN=1
+CMDS='dd~?
+dd /bin/ls
+dk 9'
+EXPECT='4
+'
+IGNORE_ERR=1
+run_test

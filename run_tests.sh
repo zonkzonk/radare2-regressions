@@ -34,7 +34,11 @@ TESTS_FIXED=0
 TESTS_FATAL=0
 
 # Let tests.sh know the complete test suite is run, enables statistics.
-R2_SOURCED=1
+if [ -n "${VERBOSE}" ]; then
+  R2_SOURCED=
+else
+  R2_SOURCED=1
+fi
 
 control_c() {
   echo

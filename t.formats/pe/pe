@@ -7,7 +7,6 @@ F=../../bins/pe/base.exe
 
 NAME='pe entrypoint'
 IGNORE_ERR=1
-BROKEN=1
 FILE=$F
 ARGS=
 CMDS='ie~addr

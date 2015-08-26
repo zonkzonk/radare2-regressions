@@ -14,7 +14,7 @@ EXPECT='16
 run_test
 
 NAME='mach0 thumb entrypoint info'
-BROKEN=1
+BROKEN=
 FILE=../../bins/mach0/thumb-test
 ARGS=
 CMDS='ie~vaddr

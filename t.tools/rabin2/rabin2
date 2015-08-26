@@ -12,7 +12,6 @@ EXPECT='0x00400410
 run_test
 
 NAME='baddr > 0'
-BROKEN=1
 FILE=../../bins/elf/hello-linux-x86_64
 ARGS=
 CMDS='!rabin2 -qe ${FILE};!rabin2 -B 0x800000 -qe ${FILE}'
@@ -22,7 +21,6 @@ EXPECT='0x00400410
 run_test
 
 NAME='baddr 0'
-BROKEN=1
 FILE=../../bins/elf/hello-linux-x86_64
 ARGS=
 CMDS='!rabin2 -qe ${FILE};!rabin2 -B 0 -qe ${FILE}'
@@ -32,7 +30,6 @@ EXPECT='0x00400410
 run_test
 
 NAME='laddr 0'
-BROKEN=1
 FILE=../../bins/elf/hello-linux-x86_64
 ARGS=
 CMDS="!rabin2 -G 0 -e ${FILE}"
@@ -44,7 +41,6 @@ vaddr=0x00400410 paddr=0x00000410 baddr=0x00400000 laddr=0x00000000
 run_test
 
 NAME='laddr 0 && baddr 0'
-BROKEN=1
 FILE=../../bins/elf/hello-linux-x86_64
 ARGS=
 CMDS="!rabin2 -G 0 -B 0 -e ${FILE}"
@@ -134,7 +130,6 @@ EXPECT='1
 run_test
 
 NAME='rabin2 -G 0x1000 -e fatmach0'
-BROKEN=1
 FILE=../../bins/mach0/fatmach0-3true
 ARGS=
 CMDS="!rabin2 -G 0x1000 -e ${FILE}"
@@ -158,7 +153,6 @@ vaddr=0x100000ef8 paddr=0x00001ef8 baddr=0x100000000 laddr=0x00001000
 run_test
 
 NAME='rabin2 -G 0x5000 -e fatmach0'
-BROKEN=1
 FILE=../../bins/mach0/fatmach0-3true
 ARGS=
 CMDS="!rabin2 -G 0x5000 -e ${FILE}"
@@ -182,7 +176,6 @@ vaddr=0x00001f44 paddr=0x00005f44 baddr=0x00001000 laddr=0x00005000
 run_test
 
 NAME='rabin2 -B 0x2000000 -G 0x1000 -e fatmach0'
-BROKEN=1
 FILE=../../bins/mach0/fatmach0-3true
 ARGS=
 CMDS="!rabin2 -B 0x2000000 -G 0x1000 -e ${FILE}"

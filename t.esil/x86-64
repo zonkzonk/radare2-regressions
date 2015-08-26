@@ -43,4 +43,13 @@ opcode: mov dword [rip + 0x40dd], 1
 esil: 1,0x40e1,rip,+,=[4]
 '
 
+NAME="eax/rax"
+CMDS='e asm.bits=64
+wa mov eax, 4
+e asm.esil=true
+pd 1
+'
+EXPECT='           0x00000000    b804000000     4,rax,=
+'
+
 run_test

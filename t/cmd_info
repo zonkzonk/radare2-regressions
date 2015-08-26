@@ -281,7 +281,6 @@ libc.so.6
 run_test
 
 NAME='ir (file x86)'
-BROKEN=1
 FILE=../bins/elf/x86-helloworld-gcc
 ARGS=
 CMDS="ir"
@@ -296,7 +295,6 @@ vaddr=0x080496a8 paddr=0x000006a8 type=SET_32 __libc_start_main
 run_test
 
 NAME='is (file x86)'
-BROKEN=1
 FILE=../bins/elf/x86-helloworld-gcc
 ARGS=
 CMDS="is"
@@ -526,7 +524,6 @@ libc.so.6
 run_test
 
 NAME='ir (file x86_64)'
-BROKEN=1
 FILE=../bins/elf/hello-linux-x86_64
 ARGS=
 CMDS="ir"
@@ -541,7 +538,6 @@ vaddr=0x006008f8 paddr=0x000008f8 type=SET_64 __gmon_start__
 run_test
 
 NAME='is (file x86_64)'
-BROKEN=1
 FILE=../bins/elf/hello-linux-x86_64
 ARGS=
 CMDS="is"

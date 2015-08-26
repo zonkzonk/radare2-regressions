@@ -4,7 +4,6 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME="symbols non common LD script"
-BROKEN=1
 FILE=../../bins/elf/custom_ldscript
 ARGS=
 CMDS='is

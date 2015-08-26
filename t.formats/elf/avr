@@ -34,6 +34,7 @@ EXPECT='0x308
 run_test
 
 NAME='avr use va'
+BROKEN=1
 FILE=../../bins/elf/bugurtos-avr.elf
 ARGS=
 CMDS='p8 10 @ entry0
@@ -45,6 +46,7 @@ ef92ff920f93df93cf93
 run_test
 
 NAME='avr main code'
+BROKEN=1
 FILE=../../bins/elf/bugurtos-avr.elf
 ARGS=
 CMDS='pi 3 @ sym.main

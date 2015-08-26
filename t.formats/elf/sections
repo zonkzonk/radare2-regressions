@@ -64,7 +64,6 @@ EXPECT='0x410570
 run_test
 
 NAME="only phdrs mapped"
-BROKEN=1
 FILE=../../bins/elf/main_wrong_sect
 ARGS=
 CMDS='p8 10 @ section..text

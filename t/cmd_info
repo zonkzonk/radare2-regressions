@@ -31,7 +31,7 @@ EXPECT='file     malloc://1025
 fd       42
 size     0x401
 blksz    0x0
-mode     r--
+mode     -r--
 block    0x100
 format   any
 [Imports]
@@ -111,7 +111,7 @@ EXPECT='type     EXEC (Executable file)
 file     ../bins/elf/x86-helloworld-gcc
 size     0x1323
 blksz    0x0
-mode     r--
+mode     -r--
 block    0x100
 format   elf
 pic      false
@@ -356,7 +356,7 @@ EXPECT='type     EXEC (Executable file)
 file     ../bins/elf/hello-linux-x86_64
 size     0x1a36
 blksz    0x0
-mode     r--
+mode     -r--
 block    0x100
 format   elf64
 pic      false
@@ -598,7 +598,7 @@ EXPECT='file     ../bins/elf/hello-linux-x86_64
 fd       42
 size     0x1a36
 blksz    0x0
-mode     r--
+mode     -r--
 block    0x100
 '
 FILTER='sed "s/^fd       [0-9][0-9]*/fd       42/"'

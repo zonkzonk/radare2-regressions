@@ -19,6 +19,19 @@ EXPECT='dbg:///bin/ls
 IGNORE_ERR=1
 run_test
 
+NAME='dbg.ood 10'
+FILE=/bin/ls
+ARGS=-d
+BROKEN=
+CMDS='10ood
+e file.path
+dk 9
+'
+EXPECT='dbg:///bin/ls
+'
+IGNORE_ERR=1
+run_test
+
 NAME='oo ; dc'
 FILE=../../bins/elf/x86-helloworld-gcc
 ARGS=-d

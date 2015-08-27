@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# GPL 3+ - Copyright (C) 2015  pancake
+
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+NAME='ds help changing seek'
+FILE=-
+ARGS=
+CMDS='s 8;ds? > /dev/null
+s'
+EXPECT='0x8
+'
+run_test
+
+NAME='aes help changing seek'
+FILE=-
+ARGS=
+CMDS='wx 55
+aes
+sr pc
+s'
+EXPECT='0x1
+'
+run_test

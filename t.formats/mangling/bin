@@ -62,3 +62,12 @@ EXPECT='0x00002054 0 _NXArgc
 0x00001e1e 0 imp.exit
 '
 run_test
+
+NAME='bin.demangle=true and symbol'
+BROKEN=1
+ARGS='-e bin.demangle=true'
+FILE=../../bins/elf/hello-linux-i386nold
+CMDS="pi 1 @ 0x08048230"
+EXPECT='call sym.imp.puts
+'
+run_test

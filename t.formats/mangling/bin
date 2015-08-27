@@ -64,7 +64,7 @@ EXPECT='0x00002054 0 _NXArgc
 run_test
 
 NAME='bin.demangle=true and symbol'
-BROKEN=1
+BROKEN=
 ARGS='-e bin.demangle=true'
 FILE=../../bins/elf/hello-linux-i386nold
 CMDS="pi 1 @ 0x08048230"

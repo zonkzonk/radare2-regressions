@@ -17,6 +17,8 @@ NAME='aes help changing seek'
 FILE=-
 ARGS=
 CMDS='wx 55
+e asm.arch=x86
+e asm.bits=32
 aes
 sr pc
 s'

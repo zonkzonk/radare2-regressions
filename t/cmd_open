@@ -41,3 +41,27 @@ om~?'
 EXPECT='2
 '
 run_test
+
+NAME='dbg.oob 10'
+FILE=../bins/elf/hello-linux-x86_64
+ARGS=
+BROKEN=1
+CMDS='10oob
+pi 1
+'
+EXPECT='xor ebp, ebp
+'
+IGNORE_ERR=1
+run_test
+
+NAME='dbg.oo+ 10'
+FILE=../bins/elf/hello-linux-x86_64
+ARGS=
+BROKEN=1
+CMDS='10oo+
+pi 1
+'
+EXPECT='xor ebp, ebp
+'
+IGNORE_ERR=1
+run_test

@@ -37,7 +37,7 @@ EXPECT='vaddr=0x000116c0 paddr=0x000016c0 ord=000 fwd= sz=4 bind= type= name=kt.
 run_test
 
 NAME='section header decoding'
-BROKEN=1
+BROKEN=
 FILE=../../bins/xbe/default.xbe
 ARGS='-u'
 CMDS='iS~idx'

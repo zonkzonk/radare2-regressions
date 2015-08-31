@@ -1,0 +1,13 @@
+#!/bin/sh
+# GPL 3+ - Copyright (C) 2015  pancake
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+NAME='use java prototypes command to print methods and fields'
+FILE=../../bins/java/jdwpexeccmd.class
+IGNORE_ERR=1
+ARGS=
+BROKEN=1
+CMDS='java prototypes j
+'
+EXPECT=''
+run_test

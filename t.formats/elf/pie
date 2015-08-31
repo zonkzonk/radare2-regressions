@@ -85,6 +85,7 @@ run_test
 
 NAME='ELF: pd around a reloc with asm.midflags'
 FILE=../../bins/elf/hello-linux-i386-pie
+BROKEN=1
 ARGS=''
 CMDS='e asm.midflags=true;pd 3 @0x00000619 ~?invalid'
 EXPECT='0

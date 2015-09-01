@@ -89,8 +89,8 @@ run_test
 NAME='search rop gadgets with filter and output JSON'
 FILE=../bins/elf/x86-helloworld-phdr
 ARGS=-n
-CMDS='/Rj ecx
-'
+CMDS='/Rj ecx'
 EXPECT='[{"opcodes":[{"offset":180,"size":2,"opcode":"int 0x80","type":"swi"},{"offset":182,"size":5,"opcode":"mov eax, 1","type":"mov"},{"offset":187,"size":5,"opcode":"mov ecx, 0","type":"mov"},{"offset":192,"size":2,"opcode":"int 0x80","type":"swi"},{"offset":194,"size":1,"opcode":"ret","type":"ret"}],"retaddr":194,"size":15},{"opcodes":[{"offset":183,"size":2,"opcode":"add dword [rax], eax","type":"add"},{"offset":185,"size":2,"opcode":"add byte [rax], al","type":"add"},{"offset":187,"size":5,"opcode":"mov ecx, 0","type":"mov"},{"offset":192,"size":2,"opcode":"int 0x80","type":"swi"},{"offset":194,"size":1,"opcode":"ret","type":"ret"}],"retaddr":194,"size":12}]
+
 '
 run_test

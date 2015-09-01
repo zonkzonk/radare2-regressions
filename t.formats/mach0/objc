@@ -1,0 +1,17 @@
+#!/bin/sh
+
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+NAME='objc hello-objc not encrypted'
+BROKEN=
+FILE=../../bins/mach0/hello-objc
+ARGS=
+CMDS='ic
+'
+EXPECT='0x100001180 class 0 Person
+0x100000da0 method 0 sayHello
+0x100000df0 method 1 name
+0x100000e20 method 2 setName:
+
+'
+run_test

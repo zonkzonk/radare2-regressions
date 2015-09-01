@@ -8,7 +8,7 @@ IGNORE_ERR=1
 ARGS=
 CMDS='java prototypes j
 '
-EXPECT='{"access_flags":33,"is_public":1,"is_final":0,"is_super":1,"is_interface":0,"is_abstract":0,"is_synthetic":0,"is_annotation":0,"is_enum":0,"name":"JDWPExecCmd","super":"java/lang/Object","interfaces":null,"methods":null,"fields":null,"imports":null}
+EXPECT='{"access_flags":33,"is_public":1,"is_final":0,"is_super":1,"is_interface":0,"is_abstract":0,"is_synthetic":0,"is_annotation":0,"is_enum":0,"name":"JDWPExecCmd","super":"java/lang/Object","interfaces":[],"methods":[],"fields":[],"imports":[]}
 '
 run_test
 

@@ -53,7 +53,8 @@ run_test
 NAME='Register'
 FILE=malloc://1024
 ARGS=
-CMDS='dr eax=4000
+CMDS='e asm.bits=32
+dr eax=4000
 dr eip=42
 pf.plop rr (eax)reg1 (eip)reg2
 pf.plop

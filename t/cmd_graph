@@ -162,7 +162,9 @@ run_test
 NAME='agf one'
 FILE=-
 ARGS=
-CMDS='"wa push ebp;mov ebp,esp;pop ebp;ret"
+CMDS='e asm.arch=x86
+e asm.bits=32
+"wa push ebp;mov ebp,esp;pop ebp;ret"
 af
 agf'
 EXPECT='[0x00000000]> 0 VV @ fcn.00000000 (nodes 1 edges 0 zoom 100%) BB mouse:canvas-y movements-speed:5

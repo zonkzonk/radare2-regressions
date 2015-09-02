@@ -294,3 +294,18 @@ CMDS='!!rahash2 -qa md5 -s hello\\x31'
 EXPECT='203ad5ffa1d7c650ad681fdff3965cd2
 '
 run_test
+
+NAME='rahash2 zero length hashes md5'
+BROKEN=1
+CMDS='!!echo -n ''| rahash2 -q -a md5 -s -'
+EXPECT='d41d8cd98f00b204e9800998ecf8427e
+'
+run_test
+
+NAME='rahash2 zero length hashes sha1'
+BROKEN=1
+CMDS='!!echo -n ''| rahash2 -q -a sha1 -s -'
+EXPECT='da39a3ee5e6b4b0d3255bfef95601890afd80709
+'
+run_test
+

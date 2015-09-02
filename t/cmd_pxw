@@ -42,7 +42,7 @@ EXPECT='0x00401280  0x5589e583 0xec08c704 0x24010000 0x00ff15c8  U.......$......
 '
 run_test
 
-NAME='pxw offsets'
+NAME='pxw offsets 16'
 BROKEN=
 FILE=../bins/pe/hello-mingw32
 ARGS=
@@ -53,7 +53,7 @@ EXPECT='0x00401280
 '
 run_test
 
-NAME='pxw offsets'
+NAME='pxw offsets 12'
 BROKEN=
 FILE=../bins/pe/hello-mingw32
 ARGS=
@@ -65,16 +65,17 @@ EXPECT='0x00401280
 '
 run_test
 
-NAME='pxw offsets'
+NAME='pxw offsets 10'
 BROKEN=
 FILE=../bins/pe/hello-mingw32
-BROKEN=1
+BROKEN=
 ARGS=
 CMDS='e hex.cols=10
 pxw 32~[0]'
 EXPECT='0x00401280
-0x0040128c
-0x00401298
+0x0040128a
+0x00401294
+0x0040129e
 '
 run_test
 
@@ -112,3 +113,13 @@ U...
 '
 run_test
 
+
+NAME='pxq foo-bar'
+BROKEN=
+FILE=-
+CMDS='f foo=10
+f bar=2
+pxq foo-bar~?'
+EXPECT='1
+'
+run_test

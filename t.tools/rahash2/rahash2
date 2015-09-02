@@ -246,23 +246,23 @@ EXPECT='21232f297a57a5a743894a0e4a801fc3
 
 run_test
 
-NAME='echo -n "admin" | rahash2 -q -a md5 -s -'
-CMDS='!echo -n "admin" | rahash2 -q -a md5 -s -'
+NAME='printf "admin" | rahash2 -q -a md5 -s -'
+CMDS='!printf "admin" | rahash2 -q -a md5 -s -'
 BROKEN=1
 EXPECT='21232f297a57a5a743894a0e4a801fc3
 '
 
 
-NAME='echo -n "aadmina" | rahash2 -f0x1 -t0x5 -q -a md5 -s -'
-CMDS='!echo -n "aadmina" | rahash2 -f0x1 -t0x5 -q -a md5 -s -'
+NAME='printf "aadmina" | rahash2 -f0x1 -t0x5 -q -a md5 -s -'
+CMDS='!printf "aadmina" | rahash2 -f0x1 -t0x5 -q -a md5 -s -'
 BROKEN=
 EXPECT='21232f297a57a5a743894a0e4a801fc3
 '
 
 run_test
 
-NAME='echo -n "aa61646d696eaa" | rahash2 -f0x1 -t0x5 -q -a md5 -x -'
-CMDS='!echo -n "aa61646d696eaa" | rahash2 -f0x1 -t0x5 -q -a md5 -x -'
+NAME='printf "aa61646d696eaa" | rahash2 -f0x1 -t0x5 -q -a md5 -x -'
+CMDS='!printf "aa61646d696eaa" | rahash2 -f0x1 -t0x5 -q -a md5 -x -'
 BROKEN=
 EXPECT='21232f297a57a5a743894a0e4a801fc3
 '

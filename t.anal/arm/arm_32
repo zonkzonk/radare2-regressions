@@ -55,3 +55,18 @@ EXPECT='ldr r9, [sl, r5, ror 21]
 ldr r9, [sl, 2791]
 '
 run_test
+
+NAME="ldr thumb"
+BROKEN=
+FILE=malloc://32
+CMDS="
+e asm.arch=arm
+e asm.bits=16
+wx 2249224a
+ao~^ptr
+ao@2~^ptr
+"
+EXPECT='ptr: 0x0000008c
+ptr: 0x0000008c
+'
+run_test

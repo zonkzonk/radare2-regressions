@@ -44,7 +44,7 @@ esil: 1,0x40e1,rip,+,=[4]
 '
 
 NAME="eax/rax"
-BROKEN=1
+BROKEN=
 CMDS='e asm.bits=64
 wa mov eax, 4
 e asm.esil=true

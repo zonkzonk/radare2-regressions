@@ -88,9 +88,9 @@ EXPECT='0x00000000   5               b821000000  mov eax, 0x21
 run_test
 
 NAME='Rasm2 -s'
-CMDS="!rasm2 -s att -a x86 -b 32 '31ed'"
-BROKEN=1
-EXPECT='xorl %ebp, %ebp
+CMDS="!rasm2 -s att -a x86 -b 32 -D '31ed'"
+BROKEN=
+EXPECT='0x00000000   2                     31ed  xorl %ebp, %ebp
 '
 run_test
 

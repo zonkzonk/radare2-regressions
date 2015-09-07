@@ -95,23 +95,38 @@ EXPECT='0x00000000   2                     31ed  xorl %ebp, %ebp
 run_test
 
 NAME='Rasm2 -o'
-CMDS="!rasm2 -s att -a x86 -b 32 -D '31ed' -o 0xa"
+CMDS="!rasm2 -s att -o 0xa -a x86 -b 32 -D '31ed'"
 BROKEN=
 EXPECT='0x0000000a   2                     31ed  xorl %ebp, %ebp
 '
 run_test
 
-NAME='Rasm2 -F'
+NAME='Rasm2 -F pseudo'
 CMDS="!rasm2 -a x86 -b 32 -D '31ed' -o 0xa -F x86.pseudo"
-BROKEN=
+BROKEN=1
 EXPECT='0x0000000a   2                     31ed  ebp = 0
+'
+run_test
+
+NAME='Rasm2 -F'
+CMDS="!rasm2 -o 0xa -a x86 -b 32 -D 31ed"
+BROKEN=
+EXPECT='0x0000000a   2                     31ed  xor ebp, ebp
+'
+run_test
+
+NAME='Rasm2 -F -o order bug'
+CMDS="!rasm2 -a x86 -b 32 -D 31ed -o 0xa"
+BROKEN=1
+EXPECT='0x0000000a   2                     31ed  xor ebp, ebp
 '
 run_test
 
 NAME='Rasm2 -B'
 CMDS="!rasm2 -a x86 -b 16 'xor al, 0x34' -B"
 BROKEN=
-EXPECT='44'
+EXPECT='3434
+'
 run_test
 
 NAME='rasm2 -v~commit?"'

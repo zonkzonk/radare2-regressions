@@ -94,6 +94,26 @@ EXPECT='0x00000000   2                     31ed  xorl %ebp, %ebp
 '
 run_test
 
+NAME='Rasm2 -o'
+CMDS="!rasm2 -s att -a x86 -b 32 -D '31ed' -o 0xa"
+BROKEN=
+EXPECT='0x0000000a   2                     31ed  xorl %ebp, %ebp
+'
+run_test
+
+NAME='Rasm2 -F'
+CMDS="!rasm2 -a x86 -b 32 -D '31ed' -o 0xa -F x86.pseudo"
+BROKEN=
+EXPECT='0x0000000a   2                     31ed  ebp = 0
+'
+run_test
+
+NAME='Rasm2 -B'
+CMDS="!rasm2 -a x86 -b 16 'xor al, 0x34' -B"
+BROKEN=
+EXPECT='44'
+run_test
+
 NAME='rasm2 -v~commit?"'
 CMDS='!!rasm2 -v~commit?'
 EXPECT='1

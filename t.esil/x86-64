@@ -50,7 +50,7 @@ wa mov eax, 4
 e asm.esil=true
 pd 1
 '
-EXPECT='           0x00000000    b804000000     4,rax,=
+EXPECT='            0x00000000    b804000000     4,rax,=
 '
 
 run_test

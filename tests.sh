@@ -253,7 +253,8 @@ run_test() {
     else
         test_success
     fi
-    rm -f "${TMP_RAD}" "${TMP_OUT}" "${TMP_ERR}" "${TMP_VAL}" \
+    rm -f "${TMP_RAD}" "${TMP_OUT}" \
+	  "${TMP_ERR}" "${TMP_VAL}" \
           "${TMP_EXP}" "${TMP_EXR}"
 
     # Reset most variables in case the next test script doesn't set them.

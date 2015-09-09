@@ -84,8 +84,8 @@ EXPECT='2
 1
    ;      hello
    ;      world
-           0x00000200    0000           add byte [eax], al
-           0x00000202    0000           add byte [eax], al
+            0x00000200    0000           add byte [eax], al
+            0x00000202    0000           add byte [eax], al
 '
 run_test
 
@@ -100,8 +100,8 @@ pd 1
 e asm.cmtright=0
 pd 1
 '
-EXPECT='           0x00000000    90             nop                            ; hello
+EXPECT='            0x00000000    90             nop                           ; hello
    ;      hello
-           0x00000000    90             nop
+            0x00000000    90             nop
 '
 run_test

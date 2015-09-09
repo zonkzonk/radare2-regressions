@@ -103,7 +103,7 @@ run_test
 
 NAME='Rasm2 -F pseudo'
 CMDS="!rasm2 -a x86 -b 32 -D '31ed' -o 0xa -F x86.pseudo"
-BROKEN=1
+BROKEN=
 EXPECT='0x0000000a   2                     31ed  ebp = 0
 '
 run_test
@@ -117,16 +117,15 @@ run_test
 
 NAME='Rasm2 -F -o order bug'
 CMDS="!rasm2 -a x86 -b 32 -D 31ed -o 0xa"
-BROKEN=1
+BROKEN=
 EXPECT='0x0000000a   2                     31ed  xor ebp, ebp
 '
 run_test
 
 NAME='Rasm2 -B'
-CMDS="!rasm2 -a x86 -b 16 'xor al, 0x34' -B"
-BROKEN=1
-EXPECT='44
-'
+CMDS="!rasm2 -a x86 -b16 -B 'xor al, 0x34'"
+BROKEN=
+EXPECT='44'
 run_test
 
 NAME='rasm2 -v~commit?"'

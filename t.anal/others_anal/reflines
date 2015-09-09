@@ -4,6 +4,7 @@ NAME="reflines offset"
 FILE=malloc://1023
 CMDS='e asm.bits=32
 e asm.cpu=x86
+e asm.linesup=false
 e anal.cpu=x86
 e scr.utf8=true
 e asm.comments=false

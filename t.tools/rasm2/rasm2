@@ -102,7 +102,7 @@ EXPECT='0x0000000a   2                     31ed  xorl %ebp, %ebp
 run_test
 
 NAME='Rasm2 -F pseudo'
-CMDS="!rasm2 -a x86 -b 32 -D '31ed' -o 0xa -F x86.pseudo"
+CMDS="!rasm2 -a x86 -b 32 -o 0xa -F x86.pseudo -D 31ed "
 BROKEN=
 EXPECT='0x0000000a   2                     31ed  ebp = 0
 '
@@ -116,7 +116,7 @@ EXPECT='0x0000000a   2                     31ed  xor ebp, ebp
 run_test
 
 NAME='Rasm2 -F -o order bug'
-CMDS="!rasm2 -a x86 -b 32 -D 31ed -o 0xa"
+CMDS="!rasm2 -a x86 -b 32 -o 0xa -D 31ed"
 BROKEN=
 EXPECT='0x0000000a   2                     31ed  xor ebp, ebp
 '

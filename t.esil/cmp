@@ -23,7 +23,7 @@ run_test
 # 2 > 1
 NAME='cmp 1,2,>'
 FILE=-
-BROKEN=1
+BROKEN=
 CMDS='"ae 1,2,>"'
 EXPECT='0x1
 '
@@ -32,7 +32,7 @@ run_test
 # 1 > 2
 NAME='cmp 2,1,>'
 FILE=-
-BROKEN=1
+BROKEN=
 CMDS='"ae 2,1,>"'
 EXPECT='0x0
 '
@@ -41,7 +41,7 @@ run_test
 # 2 <= 1
 NAME='cmp 1,2,<='
 FILE=-
-BROKEN=1
+BROKEN=
 CMDS='"ae 1,2,<="'
 EXPECT='0x0
 '
@@ -51,7 +51,7 @@ run_test
 NAME='cmp 2,1,<='
 FILE=-
 CMDS='"ae 2,1,<="'
-BROKEN=1
+BROKEN=
 EXPECT='0x1
 '
 run_test
@@ -59,7 +59,7 @@ run_test
 # 2 >= 1
 NAME='cmp 1,2,>='
 FILE=-
-BROKEN=1
+BROKEN=
 CMDS='"ae 1,2,>="'
 EXPECT='0x1
 '
@@ -68,7 +68,7 @@ run_test
 # 1 >= 2
 NAME='cmp 2,1,>='
 FILE=-
-BROKEN=1
+BROKEN=
 CMDS='"ae 2,1,>="'
 EXPECT='0x0
 '

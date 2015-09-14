@@ -37,7 +37,7 @@ EXPECT='[
 		"bytes": "31c0",
 		"size": 2,
 		"type": "xor",
-		"esil": "eax,eax,^=,%z,zf,=,%p,pf,=,0,cf,=,0,of,=,%s,sf,=",
+		"esil": "eax,eax,^=,$z,zf,=,$p,pf,=,0,cf,=,0,of,=,$s,sf,=",
 		"refptr": 0,
 		"cycles": 1,
 		"delay": 0,

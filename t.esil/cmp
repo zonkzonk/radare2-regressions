@@ -96,7 +96,7 @@ run_test
 NAME='cmp 1,1,=='
 FILE=-
 BROKEN=
-CMDS='"ae 1,1,==,%z,0,+"'
+CMDS='"ae 1,1,==,$z,0,+"'
 EXPECT='0x1
 '
 run_test
@@ -105,7 +105,7 @@ run_test
 NAME='cmp 1,2,=='
 FILE=-
 BROKEN=
-CMDS='"ae 1,2,==,%z,0,+"'
+CMDS='"ae 1,2,==,$z,0,+"'
 EXPECT='0x0
 '
 run_test

@@ -116,8 +116,8 @@ run_test
 NAME='rabin2 -G 0x1000 -rs fatmach0'
 FILE=../../bins/mach0/fatmach0-3true
 ARGS=
-CMDS="!rabin2 -G 0x1000 -rs ${FILE}|wc -l|awk '{print \$1}'"
-EXPECT='4
+CMDS="!rabin2 -G 0x1000 -rs ${FILE}|grep 'f ' | wc -l|awk '{print \$1}'"
+EXPECT='3
 '
 run_test
 

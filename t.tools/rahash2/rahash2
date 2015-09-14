@@ -3,7 +3,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='rahash2 -a all'
 CMDS='!rahash2 -a all ../../bins/elf/hello-linux-x86_64'
-BROKEN=
+BROKEN=1
 EXPECT='../../bins/elf/hello-linux-x86_64: 0x00000000-0x00001a35 md5: c957bd5bd6204470256bc15248ccafd4
 ../../bins/elf/hello-linux-x86_64: 0x00000000-0x00001a35 sha1: 687c82d13cb27f0600d8e57edc784282c1732f56
 ../../bins/elf/hello-linux-x86_64: 0x00000000-0x00001a35 sha256: 7bdbf25324af1946ec0b16dbf928875a588a786f7c279cd115729c5a3a297a55

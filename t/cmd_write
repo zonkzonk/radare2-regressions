@@ -19,6 +19,46 @@ mov eax, 0x21
 '
 run_test
 
+# wao : modify operation of current opcode
+NAME='wao nop'
+FILE=malloc://1024
+ARGS='-a x86 -b 64 -e io.cache=1'
+CMDS='
+wx 31ed4989d15e4889e24883e4f0
+pi 5
+wao nop
+pi 3
+'
+EXPECT='xor ebp, ebp
+mov r9, rdx
+pop rsi
+mov rdx, rsp
+and rsp, 0xfffffffffffffff0
+nop
+nop
+mov r9, rdx
+'
+run_test
+
+# wao : modify operation of current opcode, on ARM
+NAME='wao nop'
+FILE=malloc://1024
+ARGS='-a arm -b 32 -e io.cache=1'
+CMDS='
+wx 24c09fe500b0a0e304109de40d20a0e1
+pi 4
+wao nop
+pi 3
+'
+EXPECT='ldr ip, [pc, 0x24]
+mov fp, 0
+pop {r1}
+mov r2, sp
+mov r0, r0
+mov fp, 0
+pop {r1}
+'
+run_test
 
 ## "wx" - write hex value
 

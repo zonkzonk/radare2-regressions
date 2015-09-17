@@ -52,5 +52,49 @@ pd 1
 '
 EXPECT='            0x00000000    b804000000     4,rax,=
 '
+run_test
 
+NAME='reg size bitmask'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=64
+aei
+aeim
+aer rsp=0x00108000
+.dr*
+aer rdi=0xFFFFFFFFFFFFFFFF
+ae rdi,rsp,=[8]
+?v [rsp]
+?v [rsp+4]
+?v [rsp+8]
+'
+EXPECT='0xffffffff
+0xffffffff
+0x0
+'
+run_test
+
+NAME='mem read'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=64
+aei
+aeim
+aer rsp=0x00108000
+.aer*
+aer rdi=0xFFFFFFFFFFFFFFFF
+ae rdi,rsp,=[8]
+.aer*
+ae rsp,[8],rax,=
+.aer*
+?v rax
+'
+EXPECT='0xffffffffffffffff
+'
 run_test

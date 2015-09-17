@@ -2,6 +2,7 @@
 #include "minunit.h"
 
 int tests_run = 0;
+char* buf;
 
 char* test_r_list_size(void) {
   // Test that r_list adding and deleting works correctly.
@@ -11,12 +12,16 @@ char* test_r_list_size(void) {
   // Add 100 items.
   for (i = 0; i < 100; ++i) {
     r_list_append (list, (void*)test);
-    mu_assert("error, append gave wrong length", i + 1 == r_list_length (list));
+    sprintf(buf, "error, append gave wrong length. actual %d, expected %d",
+        r_list_length (list), i + 1);
+    mu_assert(buf, i + 1 == r_list_length (list));
   }
   // Delete 50 of them.
   for (i = 0; i < 50; ++i) {
     intptr_t val = (intptr_t)r_list_pop (list);
-    mu_assert("error, pop gave wrong length", 99 - i == r_list_length (list));
+    sprintf(buf, "error, pop gave wrong length. actual: %d, expected %d",
+        r_list_length (list), 99 - i);
+    mu_assert(buf, 99 - i == r_list_length (list));
   }
   // Purge the list.
   r_list_purge (list);
@@ -44,6 +49,7 @@ char* all_tests() {
 }
 
 int main(int argc, char **argv) {
+  buf = malloc(1024);
   char *result = all_tests();
   if (result != 0) {
     printf("%s\n", result);

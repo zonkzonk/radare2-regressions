@@ -12,7 +12,7 @@ char* test_r_base64_decode(void) {
 }
 
 char* test_r_base64_encode(void) {
-  char* hello = (char*) r_base64_encode_dyn("hello", 0);
+  char* hello = (char*) r_base64_encode_dyn("hello", 5);
   sprintf(buf, "error, b64encode(hello) != %s", hello);
   mu_assert(buf, strcmp(hello, "aGVsbG8=") == 0);
   return NULL;

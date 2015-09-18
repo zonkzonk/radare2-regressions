@@ -12,14 +12,14 @@ char* test_r_list_size(void) {
   // Add 100 items.
   for (i = 0; i < 100; ++i) {
     r_list_append (list, (void*)test);
-    sprintf(buf, "error, append gave wrong length. actual %d, expected %d",
+    snprintf(buf, 1024, "error, append gave wrong length. actual %d, expected %d",
         r_list_length (list), i + 1);
     mu_assert(buf, i + 1 == r_list_length (list));
   }
   // Delete 50 of them.
   for (i = 0; i < 50; ++i) {
     intptr_t val = (intptr_t)r_list_pop (list);
-    sprintf(buf, "error, pop gave wrong length. actual: %d, expected %d",
+    snprintf(buf, 1024, "error, pop gave wrong length. actual: %d, expected %d",
         r_list_length (list), 99 - i);
     mu_assert(buf, 99 - i == r_list_length (list));
   }
@@ -70,7 +70,7 @@ char* test_r_list_del_n(void) {
   intptr_t test2 = 0x88888;
   r_list_append (list, (void*)test1);
   r_list_append (list, (void*)test2);
-	sprintf (buf, "error, expected size 2, got %d\n", (int)r_list_length (list));
+	snprintf (buf, 1024, "error, expected size 2, got %d\n", (int)r_list_length (list));
   mu_assert(buf, r_list_length (list) == 2);
 	r_list_del_n (list, 0);
   mu_assert("error, first value not 0x88888",

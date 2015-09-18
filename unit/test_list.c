@@ -38,13 +38,28 @@ char* test_r_list_values(void) {
   mu_assert("error, first value not 0x88888",
       (intptr_t)0x88888 == (intptr_t)r_list_pop (list));
   mu_assert("error, first value not 0x12345",
-      (intptr_t)0x12345== (intptr_t)r_list_pop (list));
+      (intptr_t)0x12345 == (intptr_t)r_list_pop (list));
   return NULL;
+}
+
+char* test_r_list_join(void) {
+  RList* list1 = r_list_new ();
+  RList* list2 = r_list_new ();
+  intptr_t test1 = 0x12345;
+  intptr_t test2 = 0x88888;
+  r_list_append (list1, (void*)test1);
+  r_list_append (list2, (void*)test2);
+	mu_assert("r_list_join returned non-success",
+			r_list_join (list1, list2) == 1);
+	mu_assert("r_list_join two single element lists result length is 1",
+			r_list_length (list1) == 2);
+	return NULL;
 }
 
 char* all_tests() {
   mu_run_test(test_r_list_size);
   mu_run_test(test_r_list_values);
+  mu_run_test(test_r_list_join);
   return NULL;
 }
 

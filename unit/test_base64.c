@@ -13,7 +13,7 @@ char* test_r_base64_decode(void) {
 
 char* test_r_base64_encode(void) {
   char* hello = r_base64_encode_dyn("hello", -1);
-  snprintf(buf, 1024 "error, b64encode(hello) != %s", hello);
+  snprintf(buf, 1024, "error, b64encode(hello) != %s", hello);
   mu_assert(buf, strcmp(hello, "aGVsbG8=") == 0);
   return NULL;
 }

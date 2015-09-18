@@ -8,3 +8,5 @@ test_base64:
 
 clean:
 	rm test_list test_base64
+
+.PHONY: all test_list test_base64

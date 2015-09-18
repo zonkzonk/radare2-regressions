@@ -56,10 +56,34 @@ char* test_r_list_join(void) {
 	return NULL;
 }
 
+
+char* test_r_list_free(void) {
+	RList* list = r_list_newf ((void*)0x9999);
+	mu_assert("r_list_newf function gets set properly",
+			list->free == (void*)0x9999);
+	return NULL;
+}
+
+char* test_r_list_del_n(void) {
+  RList* list = r_list_new ();
+  intptr_t test1 = 0x12345;
+  intptr_t test2 = 0x88888;
+  r_list_append (list, (void*)test1);
+  r_list_append (list, (void*)test2);
+	sprintf (buf, "error, expected size 2, got %d\n", (int)r_list_length (list));
+  mu_assert(buf, r_list_length (list) == 2);
+	r_list_del_n (list, 0);
+  mu_assert("error, first value not 0x88888",
+      (intptr_t)0x88888 == (intptr_t)r_list_pop (list));
+  return NULL;
+}
+
 char* all_tests() {
   mu_run_test(test_r_list_size);
   mu_run_test(test_r_list_values);
   mu_run_test(test_r_list_join);
+  mu_run_test(test_r_list_free);
+  mu_run_test(test_r_list_del_n);
   return NULL;
 }
 

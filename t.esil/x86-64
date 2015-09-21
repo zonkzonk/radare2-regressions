@@ -40,8 +40,9 @@ ao~opcode,esil
 '
 EXPECT='
 opcode: mov dword [rip + 0x40dd], 1
-esil: 1,0x40e1,rip,+,=[4]
+esil: 1,0x40dd,rip,+,=[4]
 '
+run_test
 
 NAME="eax/rax"
 BROKEN=

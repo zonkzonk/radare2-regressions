@@ -1,0 +1,747 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+#-------------------------------------------------------------------------
+# LDA
+#-------------------------------------------------------------------------
+NAME="op: lda #\$42"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502;e asm.anal=6502;e asm.bits=8; aei; aeim
+wx a942
+aes
+ar a
+'
+EXPECT='0x00000042
+'
+run_test
+
+
+NAME="op: lda \$10"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ae 0x42,0x10,=[1]
+wx a510
+aes
+ar a
+'
+EXPECT='0x00000042
+'
+run_test
+
+NAME="op: lda \$10,x"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502;e asm.anal=6502;e asm.bits=8; aei; aeim
+ae 0x42,0x20,=[1]
+ar x=0x10
+wx b510
+aes
+ar a
+'
+EXPECT='0x00000042
+'
+run_test
+
+NAME="op: lda \$0100"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ae 0x42,0x100,=[1]
+wx ad0001
+aes
+ar a
+'
+EXPECT='0x00000042
+'
+run_test
+
+NAME="op: lda \$0100,x"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ae 0x42,0x108,=[1]
+ar x=0x08
+wx bd0001
+aes
+ar a
+'
+EXPECT='0x00000042
+'
+run_test
+
+NAME="op: lda \$0100,y"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ae 0x42,0x108,=[1]
+ar y=0x08
+wx b90001
+aes
+ar a
+'
+EXPECT='0x00000042
+'
+run_test
+
+NAME="op: lda (\$10,x)"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ae 0x42,0x108,=[1]
+ae 0x108,0x18,=[2]
+ar x=0x08
+wx a110
+aes
+ar a
+'
+EXPECT='0x00000042
+'
+run_test
+
+NAME="op: lda (\$10),y"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+aei;aeim
+ae 0x42,0x108,=[1]
+ae 0x100,0x10,=[2]
+ar y=0x08
+wx b110
+aes
+ar a
+'
+EXPECT='0x00000042
+'
+run_test
+
+#-------------------------------------------------------------------------
+# LDX
+#-------------------------------------------------------------------------
+NAME="op: ldx #\$42"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+wx a242
+aes
+ar x
+'
+EXPECT='0x00000042
+'
+run_test
+
+
+NAME="op: ldx \$10"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ae 0x42,0x10,=[1]
+wx a610
+aes
+ar x
+'
+EXPECT='0x00000042
+'
+run_test
+
+NAME="op: ldx \$10,y"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ae 0x42,0x20,=[1]
+ar y=0x10
+wx b610
+aes
+ar x
+'
+EXPECT='0x00000042
+'
+run_test
+
+NAME="op: ldx \$0100"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ae 0x42,0x100,=[1]
+wx ae0001
+aes
+ar x
+'
+EXPECT='0x00000042
+'
+run_test
+
+NAME="op: ldx \$0100,y"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ae 0x42,0x108,=[1]
+ar y=0x08
+wx be0001
+aes
+ar x
+'
+EXPECT='0x00000042
+'
+run_test
+
+#-------------------------------------------------------------------------
+# LDY
+#-------------------------------------------------------------------------
+NAME="op: ldy #\$42"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+wx a042
+aes
+ar y
+'
+EXPECT='0x00000042
+'
+run_test
+
+
+NAME="op: ldy \$10"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ae 0x42,0x10,=[1]
+wx a410
+aes
+ar y
+'
+EXPECT='0x00000042
+'
+run_test
+
+NAME="op: ldy \$10,x"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ae 0x42,0x20,=[1]
+ar x=0x10
+wx b410
+aes
+ar y
+'
+EXPECT='0x00000042
+'
+run_test
+
+NAME="op: ldy \$0100"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ae 0x42,0x100,=[1]
+wx ac0001
+aes
+ar y
+'
+EXPECT='0x00000042
+'
+run_test
+
+NAME="op: ldy \$0100,x"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ae 0x42,0x108,=[1]
+ar x=0x08
+wx bc0001
+aes
+ar y
+'
+EXPECT='0x00000042
+'
+run_test
+
+#-------------------------------------------------------------------------
+# STA
+#-------------------------------------------------------------------------
+
+NAME="op: sta \$10"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ar a=0x42
+wx 8510
+aes
+pu 1 @0x10
+'
+EXPECT='%42
+'
+run_test
+
+NAME="op: sta \$10,x"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ar a=0x42
+ar x=0x08
+wx 9510
+aes
+pu 1 @0x18
+'
+EXPECT='%42
+'
+run_test
+
+NAME="op: sta \$0100"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ar a=0x42
+wx 8d0001
+aes
+pu 1 @0x0100
+'
+EXPECT='%42
+'
+run_test
+
+NAME="op: sta \$0100,x"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ar a=0x42
+ar x=0x08
+wx 9d0001
+aes
+pu 1 @0x0108
+'
+EXPECT='%42
+'
+run_test
+
+NAME="op: sta \$0100,y"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ar a=0x42
+ar y=0x08
+wx 990001
+aes
+pu 1 @0x0108
+'
+EXPECT='%42
+'
+run_test
+
+NAME="op: sta (\$10,x)"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ae 0x108,0x18,=[2]
+ar a=0x42
+ar x=0x08
+wx 8110
+aes
+pu 1 @0x0108
+'
+EXPECT='%42
+'
+run_test
+
+NAME="op: sta (\$10),y"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ae 0x100,0x10,=[2]
+ar a=0x42
+ar y=0x08
+wx 9110
+aes
+pu 1 @0x0108
+'
+EXPECT='%42
+'
+run_test
+
+#-------------------------------------------------------------------------
+# STX
+#-------------------------------------------------------------------------
+
+NAME="op: stx \$10"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ar x=0x42
+wx 8610
+aes
+pu 1 @0x10
+'
+EXPECT='%42
+'
+run_test
+
+NAME="op: stx \$10,y"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ar x=0x42
+ar y=0x08
+wx 9610
+aes
+pu 1 @0x18
+'
+EXPECT='%42
+'
+run_test
+
+NAME="op: stx \$0100"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ar x=0x42
+wx 8e0001
+aes
+pu 1 @0x0100
+'
+EXPECT='%42
+'
+run_test
+
+#-------------------------------------------------------------------------
+# STY
+#-------------------------------------------------------------------------
+
+NAME="op: sty \$10"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ar y=0x42
+wx 8410
+aes
+pu 1 @0x10
+'
+EXPECT='%42
+'
+run_test
+
+NAME="op: sty \$10,x"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ar y=0x42
+ar x=0x08
+wx 9410
+aes
+pu 1 @0x18
+'
+EXPECT='%42
+'
+run_test
+
+NAME="op: sty \$0100"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ar y=0x42
+wx 8c0001
+aes
+pu 1 @0x0100
+'
+EXPECT='%42
+'
+run_test
+
+#-------------------------------------------------------------------------
+# INX, DEX, INY, DEY
+#-------------------------------------------------------------------------
+NAME="op: inx"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ar x=0x41
+wx e8
+aes
+ar x
+'
+EXPECT='0x00000042
+'
+run_test
+
+NAME="op: dex"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ar x=0x43
+wx ca
+aes
+ar x
+'
+EXPECT='0x00000042
+'
+run_test
+
+NAME="op: iny"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ar y=0x41
+wx c8
+aes
+ar y
+'
+EXPECT='0x00000042
+'
+run_test
+
+NAME="op: dey"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ar y=0x43
+wx 88
+aes
+ar y
+'
+EXPECT='0x00000042
+'
+run_test
+
+#-------------------------------------------------------------------------
+# ASL
+#-------------------------------------------------------------------------
+
+NAME="op: asl a"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ar a=0x20
+wx 0a0a0a
+aes; ar a; ar flags
+aes; ar a; ar flags
+aes; ar a; ar flags
+'
+EXPECT='0x00000040
+0x00000000
+0x00000080
+0x00000080
+0x00000000
+0x00000003
+'
+run_test
+
+NAME="op: asl \$10"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ae 0x20,0x10,=[1]
+wx 061006100610
+aes; pu 1 @0x10; ar flags
+aes; pu 1 @0x10; ar flags
+aes; pu 1 @0x10; ar flags
+'
+EXPECT='%40
+0x00000000
+%80
+0x00000080
+%00
+0x00000003
+'
+run_test
+
+NAME="op: asl \$10,x"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ae 0x20,0x18,=[1]
+ar x=0x08
+wx 161016101610
+aes; pu 1 @0x18; ar flags
+aes; pu 1 @0x18; ar flags
+aes; pu 1 @0x18; ar flags
+'
+EXPECT='%40
+0x00000000
+%80
+0x00000080
+%00
+0x00000003
+'
+run_test
+
+NAME="op: asl \$0100"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ae 0x20,0x0100,=[1]
+wx 0e00010e00010e0001
+aes; pu 1 @0x0100; ar flags
+aes; pu 1 @0x0100; ar flags
+aes; pu 1 @0x0100; ar flags
+'
+EXPECT='%40
+0x00000000
+%80
+0x00000080
+%00
+0x00000003
+'
+run_test
+
+NAME="op: asl \$0100,x"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ae 0x20,0x0108,=[1]
+ar x=0x08
+wx 1e00011e00011e0001
+aes; pu 1 @0x0108; ar flags
+aes; pu 1 @0x0108; ar flags
+aes; pu 1 @0x0108; ar flags
+'
+EXPECT='%40
+0x00000000
+%80
+0x00000080
+%00
+0x00000003
+'
+run_test
+
+#-------------------------------------------------------------------------
+# LSR
+#-------------------------------------------------------------------------
+
+NAME="op: lsr a"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ar a=0x04
+wx 4a4a4a
+aes; ar a; ar flags
+aes; ar a; ar flags
+aes; ar a; ar flags
+'
+EXPECT='0x00000002
+0x00000000
+0x00000001
+0x00000000
+0x00000000
+0x00000003
+'
+run_test
+
+NAME="op: lsr \$10"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ae 0x04,0x10,=[1]
+wx 461046104610
+aes; pu 1 @0x10; ar flags
+aes; pu 1 @0x10; ar flags
+aes; pu 1 @0x10; ar flags
+'
+EXPECT='%02
+0x00000000
+%01
+0x00000000
+%00
+0x00000003
+'
+run_test
+
+NAME="op: lsr \$10,x"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ae 0x04,0x18,=[1]
+ar x=0x08
+wx 561056105610
+aes; pu 1 @0x18; ar flags
+aes; pu 1 @0x18; ar flags
+aes; pu 1 @0x18; ar flags
+'
+EXPECT='%02
+0x00000000
+%01
+0x00000000
+%00
+0x00000003
+'
+run_test
+
+NAME="op: lsr \$0100"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ae 0x04,0x0100,=[1]
+wx 4e00014e00014e0001
+aes; pu 1 @0x0100; ar flags
+aes; pu 1 @0x0100; ar flags
+aes; pu 1 @0x0100; ar flags
+'
+EXPECT='%02
+0x00000000
+%01
+0x00000000
+%00
+0x00000003
+'
+run_test
+
+NAME="op: lsr \$0100,x"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ae 0x04,0x0108,=[1]
+ar x=0x08
+wx 5e00015e00015e0001
+aes; pu 1 @0x0108; ar flags
+aes; pu 1 @0x0108; ar flags
+aes; pu 1 @0x0108; ar flags
+'
+EXPECT='%02
+0x00000000
+%01
+0x00000000
+%00
+0x00000003
+'
+run_test
+
+#-------------------------------------------------------------------------
+# Flags
+#-------------------------------------------------------------------------
+
+NAME="flags"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=6502; e asm.anal=6502; e asm.bits=8; aei; aeim
+ar a=0x0f
+wx 0a0a0a0a0a0a0a0a0a0aa97fa97fa980a980
+aes; ar flags
+aes; ar flags
+aes; ar flags
+aes; ar flags
+aes; ar flags
+aes; ar flags
+aes; ar flags
+aes; ar flags
+aes; ar flags
+aes; ar flags
+aes; ar flags
+aes; ar flags
+aes; ar flags
+aes; ar flags
+'
+EXPECT='0x00000000
+0x00000000
+0x00000000
+0x00000080
+0x00000081
+0x00000081
+0x00000081
+0x00000003
+0x00000002
+0x00000002
+0x00000000
+0x00000000
+0x00000080
+0x00000080
+'
+run_test
+

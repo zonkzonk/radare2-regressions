@@ -78,12 +78,33 @@ char* test_r_list_del_n(void) {
   return NULL;
 }
 
+char* test_r_list_sort(void) {
+	int bad = 0;
+  RList* list = r_list_new ();
+  char* test1 = "AAAA";
+  char* test2 = "BBBB";
+  char* test3 = "CCCC";
+	// Put in not sorted order.
+  r_list_append (list, (void*)test1);
+  r_list_append (list, (void*)test3);
+  r_list_append (list, (void*)test2);
+	// Sort.
+	r_list_sort (list, (RListComparator)strcmp);
+	// Check that the list is actually sorted.
+	bad |= strcmp ("AAAA", list->head->data);
+	bad |= strcmp ("BBBB", list->head->n->data);
+	bad |= strcmp ("CCCC", list->head->n->n->data);
+  mu_assert("error, list not sorted properly", bad == 0);
+  return NULL;
+}
+
 char* all_tests() {
   mu_run_test(test_r_list_size);
   mu_run_test(test_r_list_values);
   mu_run_test(test_r_list_join);
   mu_run_test(test_r_list_free);
   mu_run_test(test_r_list_del_n);
+  mu_run_test(test_r_list_sort);
   return NULL;
 }
 

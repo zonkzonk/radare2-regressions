@@ -11,6 +11,14 @@ EXPECT='bits     16
 '
 run_test
 
+NAME="fuzzed omf crash"
+FILE=../../bins/omf/605d45c02352294155cfed6ce0f7e5cc
+ARGS=''
+BROKEN=
+CMDS="q"
+EXPECT=''
+run_test
+
 NAME="entry point 16 bits omf"
 FILE=../../bins/omf/hello_world
 ARGS=''

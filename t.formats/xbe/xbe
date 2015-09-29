@@ -41,11 +41,11 @@ BROKEN=
 FILE=../../bins/xbe/default.xbe
 ARGS='-u'
 CMDS='iS~idx'
-EXPECT='idx=00 vaddr=0x00011000 paddr=0x00001000 sz=1728 vsz=1728 perm=-r-x name=.0
-idx=01 vaddr=0x000116c0 paddr=0x00002000 sz=24 vsz=24 perm=-r-- name=.1
-idx=02 vaddr=0x000116e0 paddr=0x00003000 sz=28280 vsz=1257188 perm=-rw- name=_.2
-idx=03 vaddr=0x001445e0 paddr=0x0000a000 sz=60 vsz=64 perm=-rwx name=_.3
-idx=04 vaddr=0x00144620 paddr=0x0000b000 sz=164 vsz=1188 perm=-r-- name=_.4
+EXPECT='idx=00 vaddr=0x00011000 paddr=0x00001000 sz=1728 vsz=1728 perm=m-r-x name=.0
+idx=01 vaddr=0x000116c0 paddr=0x00002000 sz=24 vsz=24 perm=m-r-- name=.1
+idx=02 vaddr=0x000116e0 paddr=0x00003000 sz=28280 vsz=1257188 perm=m-rw- name=_.2
+idx=03 vaddr=0x001445e0 paddr=0x0000a000 sz=60 vsz=64 perm=m-rwx name=_.3
+idx=04 vaddr=0x00144620 paddr=0x0000b000 sz=164 vsz=1188 perm=m-r-- name=_.4
 '
 run_test
 

@@ -42,8 +42,8 @@ FILE=../../bins/omf/hello_world
 ARGS=''
 BROKEN=
 CMDS="iS~addr"
-EXPECT='idx=00 vaddr=0x00001000 paddr=0x00000073 sz=19 vsz=19 perm=-rwx name=text_1
-idx=01 vaddr=0x00001013 paddr=0x00000095 sz=14 vsz=14 perm=-rwx name=data_1
+EXPECT='idx=00 vaddr=0x00001000 paddr=0x00000073 sz=19 vsz=19 perm=m-rwx name=text_1
+idx=01 vaddr=0x00001013 paddr=0x00000095 sz=14 vsz=14 perm=m-rwx name=data_1
 '
 run_test
 
@@ -88,8 +88,8 @@ FILE=../../bins/omf/hello_world32
 ARGS=''
 BROKEN=
 CMDS="iS~addr"
-EXPECT='idx=00 vaddr=0x00001000 paddr=0x00000074 sz=29 vsz=29 perm=-rwx name=.text_1
-idx=01 vaddr=0x0000101d paddr=0x000000a3 sz=14 vsz=14 perm=-rwx name=.data_1
+EXPECT='idx=00 vaddr=0x00001000 paddr=0x00000074 sz=29 vsz=29 perm=m-rwx name=.text_1
+idx=01 vaddr=0x0000101d paddr=0x000000a3 sz=14 vsz=14 perm=m-rwx name=.data_1
 '
 run_test
 

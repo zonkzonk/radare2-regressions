@@ -1,0 +1,79 @@
+#!/bin/sh
+
+[ -e ./tests.sh ] && . ./tests.sh || . ../../tests.sh
+
+NAME='ahi none'
+CMDS='e asm.bits=64
+e asm.arch=x86
+wx 4881ec48060000
+pi 1
+'
+EXPECT='sub rsp, 0x648
+'
+run_test
+
+NAME='ahi none'
+CMDS='e asm.bits=64
+e asm.arch=x86
+wx 4881ec48060000
+pd 1
+'
+EXPECT='            0x00000000    4881ec480600.  sub rsp, 0x648
+'
+run_test
+
+NAME='ahi none'
+CMDS='e asm.bits=64
+e asm.arch=x86
+ahi 16
+wx 4881ec48060000
+pd 1
+'
+EXPECT='            0x00000000    4881ec480600.  sub rsp, 0x648
+'
+run_test
+
+NAME='ahi 10'
+CMDS='e asm.bits=64
+e asm.arch=x86
+wx 4881ec48060000
+ahi 10
+pd 1
+'
+EXPECT='            0x00000000    4881ec480600.  sub rsp, 1608
+'
+run_test
+
+NAME='ahi 8'
+CMDS='e asm.bits=64
+e asm.arch=x86
+wx 4881ec48060000
+ahi 8
+pd 1
+'
+EXPECT='            0x00000000    4881ec480600.  sub rsp, 03110
+'
+run_test
+
+NAME='ahi 1'
+CMDS='e asm.bits=64
+e asm.arch=x86
+wx 4881ec48060000
+ahi 1
+pd 1
+'
+EXPECT='            0x00000000    4881ec480600.  sub rsp, 11001001000b
+'
+run_test
+
+NAME='ahi 1 - pi'
+BROKEN=1
+CMDS='e asm.bits=64
+e asm.arch=x86
+wx 4881ec48060000
+ahi 1
+pi 1
+'
+EXPECT='sub rsp, 11001001000b
+'
+run_test

@@ -124,6 +124,7 @@ run_test
 
 NAME='Rasm2 -B'
 CMDS="!rasm2 -a x86 -b16 -B 'xor al, 0x34'"
+BROKEN=1
 EXPECT='44'
 run_test
 

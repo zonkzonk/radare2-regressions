@@ -1978,6 +1978,7 @@ run_test
 #-------------------------------------------------------------------------
 NAME="op: jsr \$abcd"
 FILE=malloc://0x200
+BROKEN=1
 CMDS='
 e asm.arch=6502; e asm.bits=8; aei; aeim
 ar pc=0x0180
@@ -2014,6 +2015,7 @@ run_test
 #-------------------------------------------------------------------------
 NAME="op: pha"
 FILE=malloc://0x200
+BROKEN=1
 CMDS='
 e asm.arch=6502; e asm.bits=8; aei; aeim
 ar a=0x81
@@ -2026,6 +2028,7 @@ EXPECT='0x000000fe
 run_test
 
 NAME="op: php"
+BROKEN=1
 FILE=malloc://0x200
 CMDS='
 e asm.arch=6502; e asm.bits=8; aei; aeim

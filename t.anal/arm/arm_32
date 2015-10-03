@@ -24,7 +24,7 @@ type: load
 esil: 8,pc,+,32,+,[4],ip,=
 stack: null
 cond: 0
-family: unknown
+family: cpu
 address: 0x4
 opcode: ldr ip, [sl, ip]
 prefix: 0
@@ -35,7 +35,7 @@ type: load
 esil: sl,0,+,[4],ip,=
 stack: null
 cond: 0
-family: unknown
+family: cpu
 '
 run_test
 

@@ -25,7 +25,7 @@ type: nop
 esil: ,
 stack: null
 cond: 0
-family: unknown
+family: cpu
 90
 11
 '

@@ -1,0 +1,14 @@
+#!/bin/sh
+# GPL 3+ - Copyright (C) 2015  pancake
+
+[ -e tests.sh ] && . ./tests.sh || . ../tests.sh
+
+NAME='anal vars crash'
+FILE=-
+ARGS=
+CMDS='af
+afv-*
+afv-*
+'
+EXPECT=""
+run_test

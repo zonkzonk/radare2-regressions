@@ -43,7 +43,7 @@ EXPECT='[
 		"delay": 0,
 		"stack": "null",
 		"cond": 0,
-		"family": "unknown"
+		"family": "cpu"
 	}
 ]
 '

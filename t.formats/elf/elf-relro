@@ -15,6 +15,6 @@ FILE=../../bins/elf/elf-relro
 ARGS=''
 CMDS="ik~relro"
 
-EXPECT='elf.relro=true
+EXPECT='elf.relro=partial relro
 '
 run_test

@@ -82,7 +82,6 @@ agraph.nodes.title1.w=0x12
 run_test
 
 NAME='remove node'
-BROKEN=1
 FILE=-
 ARGS=
 CMDS='agn title1 body1
@@ -90,12 +89,10 @@ agn- title1
 aggk~nodes=
 aggk~nodes.title1
 '
-EXPECT='agraph.nodes=
-'
+EXPECT=''
 run_test
 
 NAME='remove node with title that contain spaces'
-BROKEN=1
 FILE=-
 ARGS=
 CMDS='agn "Title with spaces" body1
@@ -103,12 +100,10 @@ agn- "Title with spaces"
 aggk~nodes=
 aggk~nodes.Title with spaces
 '
-EXPECT='agraph.nodes=
-'
+EXPECT=''
 run_test
 
 NAME='remove non-existent node'
-BROKEN=1
 FILE=-
 ARGS=
 CMDS='agn "Title with spaces" body1
@@ -122,7 +117,6 @@ agraph.nodes.Title with spaces.body=base64:Ym9keTE=
 run_test
 
 NAME='remove edge'
-BROKEN=1
 FILE=-
 ARGS=
 CMDS='agn "Title with spaces" body1
@@ -132,7 +126,6 @@ aggk~nodes=
 aggk~nodes.Title with spaces.neighbours=
 '
 EXPECT='agraph.nodes=Title with spaces,Title with spaces 2
-agraph.nodes.Title with spaces.neighbours.neighbours=
 '
 run_test
 

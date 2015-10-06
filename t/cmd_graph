@@ -161,13 +161,14 @@ e asm.bits=32
 af
 agf'
 EXPECT='[0x00000000]> 0 VV @ fcn.00000000 (nodes 1 edges 0 zoom 100%) BB mouse:canvas-y movements-speed:5
-=----------------=
-|  0x0           |
-| push ebp       |
-| mov ebp, esp   |
-| pop ebp        |
-| ret            |
-=----------------=
+=----------------------=
+|  0x0                 |
+| (fcn) fcn.00000000 5 |
+| push ebp             |
+| mov ebp, esp         |
+| pop ebp              |
+| ret                  |
+=----------------------=
 '
 run_test
 

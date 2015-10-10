@@ -183,12 +183,9 @@ clean:
 install:
 	ln -fs `pwd`/r2-v /usr/bin/r2-v
 
-build.unit:
+unit_tests:
 	@make -C ./unit all
-
-run.unit:
 	@sh ./run_unit.sh
-
 
 tested:
 	@grep -re FILE= t*  | cut -d : -f 2- | sed -e 's/^.*bins\///g' |sort -u | grep -v FILE

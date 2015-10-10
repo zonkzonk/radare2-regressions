@@ -26,6 +26,7 @@ char* test_r_list_size(void) {
 	// Purge the list.
 	r_list_purge (list);
 	mu_assert("error, purge didn't clear list", 0 == r_list_length (list));
+	r_list_free (list);
 	return NULL;
 }
 
@@ -39,6 +40,7 @@ char* test_r_list_values(void) {
 			(intptr_t)0x88888 == (intptr_t)r_list_pop (list));
 	mu_assert("error, first value not 0x12345",
 			(intptr_t)0x12345 == (intptr_t)r_list_pop (list));
+	r_list_free (list);
 	return NULL;
 }
 
@@ -53,6 +55,8 @@ char* test_r_list_join(void) {
 			r_list_join (list1, list2) == 1);
 	mu_assert("r_list_join two single element lists result length is 1",
 			r_list_length (list1) == 2);
+	r_list_free (list1);
+	r_list_free (list2);
 	return NULL;
 }
 
@@ -61,6 +65,7 @@ char* test_r_list_free(void) {
 	RList* list = r_list_newf ((void*)0x9999);
 	mu_assert("r_list_newf function gets set properly",
 			list->free == (void*)0x9999);
+	r_list_free (list);
 	return NULL;
 }
 
@@ -75,6 +80,7 @@ char* test_r_list_del_n(void) {
 	r_list_del_n (list, 0);
 	mu_assert("error, first value not 0x88888",
 			(intptr_t)0x88888 == (intptr_t)r_list_pop (list));
+	r_list_free (list);
 	return NULL;
 }
 
@@ -95,6 +101,7 @@ char* test_r_list_sort(void) {
 	bad |= strcmp ("BBBB", list->head->n->data);
 	bad |= strcmp ("CCCC", list->head->n->n->data);
 	mu_assert("error, list not sorted properly", bad == 0);
+	r_list_free (list);
 	return NULL;
 }
 
@@ -109,15 +116,14 @@ char* all_tests() {
 }
 
 int main(int argc, char **argv) {
-	buf = malloc(1024);
+	buf = malloc (1024);
 	char *result = all_tests();
 	if (result != 0) {
 		printf("%s\n", result);
-	}
-	else {
+	} else {
 		printf("ALL TESTS PASSED\n");
 	}
 	printf("Tests run: %d\n", tests_run);
-
+	free (buf);
 	return result != 0;
 }

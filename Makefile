@@ -121,7 +121,7 @@ rax2:
 	@sh run_tests.sh t.tools/rax2
 
 broken:
-	@cd t ; grep BROKEN=1 * | cut -d : -f1 |sort -u
+	grep BROKEN=1 t -r -l
 
 clean:
 	rm -rf tmp
@@ -143,6 +143,6 @@ untested:
 	@rm -f .a .b
 
 allbins:
-	find bins -type f |sort -u
+	find bins -type f
 
 .PHONY: all clean

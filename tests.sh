@@ -333,35 +333,41 @@ test_failed() {
     fi
 }
 
+if [ -n "${TRAVIS}" ]; then
+NL="\n"
+else
+NL="\r"
+fi
+
 print_success() {
 if [ -n "${NOCOLOR}" ]; then
-    printf "%b" "\r[${*}]\n"
+    printf "%b" "${NL}[${*}]\n"
 else
-    printf "%b" "\r\033[32m[${*}]\033[0m\n"
+    printf "%b" "${NL}\033[32m[${*}]\033[0m\n"
 fi
 }
 
 print_broken() {
 if [ -n "${NOCOLOR}" ]; then
-    printf "%b" "\r[${*}]\n"
+    printf "%b" "${NL}[${*}]\n"
 else
-    printf "%b" "\r\033[34m[${*}]\033[0m\n"
+    printf "%b" "${NL}\033[34m[${*}]\033[0m\n"
 fi
 }
 
 print_failed() {
 if [ -n "${NOCOLOR}" ]; then
-    printf "%b" "\r[${*}]\n"
+    printf "%b" "${NL}[${*}]\n"
 else
-    printf "%b" "\r\033[31m[${*}]\033[0m\n"
+    printf "%b" "${NL}\033[31m[${*}]\033[0m\n"
 fi
 }
 
 print_fixed() {
 if [ -n "${NOCOLOR}" ]; then
-    printf "%b" "\r[${*}]\n"
+    printf "%b" "${NL}[${*}]\n"
 else
-    printf "%b" "\r\033[33m[${*}]\033[0m\n"
+    printf "%b" "${NL}\033[33m[${*}]\033[0m\n"
 fi
 }
 
@@ -416,18 +422,18 @@ print_report() {
     else
         print_failed  0
     fi
-    printf "      TOTAL\r"
+    printf "      TOTAL${NL}"
     print_label "[${TESTS_TOTAL}]"
 
     dc -V > /dev/null 2>&1
     if [ $? = 0 ]; then
       BADBOYS=$((${TESTS_BROKEN}+${TESTS_FAILED}+${TESTS_FATAL}))
       BN=`echo "100 ${BADBOYS} * ${TESTS_TOTAL} / n" | dc`
-      printf "      BROKENNESS\r"
+      printf "      BROKENNESS${NL}"
       print_label "[${BN}%]"
       echo
     else
-      printf " TOTAL\r"
+      printf " TOTAL${NL}"
       echo
     fi
 }

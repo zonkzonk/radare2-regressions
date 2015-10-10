@@ -143,6 +143,6 @@ untested:
 	@rm -f .a .b
 
 allbins:
-	@cd bins ; find * -type f |sort -u
+	find bins -type f |sort -u
 
 .PHONY: all clean

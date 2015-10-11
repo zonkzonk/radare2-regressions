@@ -5,7 +5,7 @@ int tests_run = 0;
 char* buf;
 
 char* test_r_base64_decode(void) {
-	char* hello = r_base64_decode_dyn ("aGVsbG8=", -1);
+	char* hello = (char*)r_base64_decode_dyn ("aGVsbG8=", -1);
 	snprintf(buf, 1024, "error, b64decode(hello) failed : %s", hello);
 	mu_assert(buf, strcmp(hello, "hello") == 0);
 	free (hello);

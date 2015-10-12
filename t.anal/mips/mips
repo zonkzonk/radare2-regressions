@@ -195,7 +195,7 @@ EXPECT='/ (fcn) fcn.80100000 32
 run_test
 
 NAME="mips branch delay function sizing with conditional jump forward."
-BROKEN=
+BROKEN=1
 FILE=malloc://40
 ARGS='-m 0x80100000'
 CMDS="

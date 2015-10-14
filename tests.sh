@@ -134,7 +134,11 @@ run_test() {
     else
         # R2_ARGS must be defined by the user in cmdline f.ex -e io.vio=true
         # No colors and no user configs.
-        R2ARGS="${R2} -e scr.color=0 -N -q -i ${TMP_RAD} ${R2_ARGS} ${ARGS} ${FILE} > ${TMP_OUT} 2> ${TMP_ERR}"
+        if [ -n "${DEBUG}" ]; then
+            R2ARGS="gdb --args ${R2} -e scr.color=0 -N -q -i ${TMP_RAD} ${R2_ARGS} ${ARGS} ${FILE}"
+        else
+            R2ARGS="${R2} -e scr.color=0 -N -q -i ${TMP_RAD} ${R2_ARGS} ${ARGS} ${FILE} > ${TMP_OUT} 2> ${TMP_ERR}"
+        fi
         R2CMD=
         # Valgrind to detect memory corruption.
         if [ -n "${VALGRIND}" ]; then
@@ -283,6 +287,7 @@ test_reset() {
     REVERSERC=
     ESSENTIAL=
     SKIP=
+    DEBUG=
 }
 
 test_reset

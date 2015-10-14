@@ -170,6 +170,7 @@ run_test
 NAME="mips branch delay function sizing with conditional jump loop."
 BROKEN=1
 FILE=malloc://40
+DEBUG=1
 ARGS='-m 0x80100000'
 CMDS="e asm.bits=32
 e asm.arch=${PLUGIN}

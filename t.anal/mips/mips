@@ -10,7 +10,7 @@ wx 01001104
 e asm.arch=${PLUGIN}
 e asm.bits=32
 e asm.nbytes=4
-ao 1~type[1]
+ao 1~type:[1]
 "
 EXPECT='call
 '

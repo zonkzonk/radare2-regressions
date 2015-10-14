@@ -22,7 +22,7 @@ bytes: 90
 refptr: 0
 size: 1
 type: nop
-type2: 0
+type2: null
 esil: ,
 stack: null
 cond: 0

@@ -27,6 +27,7 @@ EXPECT='Loaded 1 signatures
   1 byte signatures
   0 head signatures
   0 func signatures
+Found 0 matches
 '
 run_test
 

@@ -339,7 +339,6 @@ run_test
 NAME='complex nested struct'
 FILE=malloc://1024
 ARGS=
-DEBUG=1
 CMDS='e asm.bits=32
 wx 341289679a020000a00f00002a003000000014426416
 wx 800600000040@0x20
@@ -375,7 +374,6 @@ run_test
 NAME='flag for nested struct'
 FILE=malloc://1024
 ARGS=
-DEBUG=1
 CMDS='e asm.bits=32
 wx 341289679a020000a00f00002a00300000001442
 wx 800600000040@0x20
@@ -401,7 +399,6 @@ run_test
 NAME='struct size'
 FILE=malloc://256
 ARGS=
-DEBUG=1
 CMDS='e asm.bits=32
 pf.plop wi word int
 pf.troll bciwqfdoxs:S.[4]z[2]B[4]E? byte char int word quad float hexa octal hex strp skip4 wstrp skip1 str bitfield enum (plop)struct
@@ -414,7 +411,6 @@ run_test
 NAME='PE test'
 FILE=../bins/pe/ch22.exe
 ARGS=-nn
-DEBUG=1
 BROKEN=
 CMDS='e asm.bits=32
 s 0x80
@@ -533,7 +529,6 @@ run_test
 NAME='Print value only'
 FILE=../bins/pe/ch22.exe
 ARGS=-nn
-DEBUG=1
 BROKEN=
 CMDS='e asm.bits=32
 s 0x80
@@ -546,7 +541,6 @@ NAME='PE JSON test'
 FILE=../bins/pe/ch22.exe
 ARGS=-nn
 BROKEN=
-DEBUG=1
 CMDS='e asm.bits=32
 s 0x80
 pfj.pe_nt_image_headers32
@@ -559,7 +553,6 @@ run_test
 NAME='JSON output'
 FILE=malloc://1024
 ARGS=
-DEBUG=1
 CMDS='e asm.bits=32
 wx 341289679a020000a00f00002a003000000014426416
 wx 800600000040@0x20
@@ -577,7 +570,6 @@ run_test
 NAME='access specific element through nested struct'
 FILE=malloc://1024
 ARGS=
-DEBUG=1
 CMDS='e asm.bits=32
 wx 341289679a020000a00f00002a003000000014426416
 wx 800600000040@0x20
@@ -602,7 +594,6 @@ run_test
 NAME='access specific element in an array'
 FILE=malloc://1024
 ARGS=
-DEBUG=1
 CMDS='e asm.bits=32
 wx a00f0000adde @ 0x10
 pf.plop iwqw one two three four
@@ -628,7 +619,6 @@ NAME='Complexe request with specific array element and specific field'
 FILE=../bins/pe/ch22.exe
 ARGS=-nn
 BROKEN=
-DEBUG=1
 CMDS='e asm.bits=32
 s 0x80
 pf.pe_dos_header.e_res[2]
@@ -642,7 +632,6 @@ run_test
 NAME='write specific element through nested struct'
 FILE=malloc://1024
 ARGS=
-DEBUG=1
 CMDS='e asm.bits=32
 wx 341289679a020000a00f00002a003000000014426416
 wx 800600000040@0x20
@@ -684,7 +673,6 @@ run_test
 NAME='Variable length array'
 FILE=malloc://1024
 ARGS=
-DEBUG=1
 CMDS='e asm.bits=32
 wx 2a @ 0x20
 pf [*0x20]c
@@ -698,7 +686,6 @@ run_test
 NAME='Combining flags, backtick, and var length array'
 FILE=malloc://1024
 ARGS=
-DEBUG=1
 CMDS='e asm.bits=32
 f test 4 @ 0x20
 w SWAG

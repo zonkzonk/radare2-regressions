@@ -42,7 +42,7 @@ CMDS='
 aa
 afl~?
 '
-EXPECT='15
+EXPECT='14
 '
 run_test
 
@@ -53,6 +53,6 @@ CMDS='
 af @@ sym.*
 afl~?
 '
-EXPECT='16
+EXPECT='15
 '
 run_test

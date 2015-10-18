@@ -17,10 +17,9 @@ run_test
 NAME='dbg.maps'
 FILE=../../bins/elf/elf-nx
 ARGS=-d
-BROKEN=1
-CMDS='dm
+CMDS='dm~?
 dk 9'
-EXPECT='TODO
+EXPECT='7
 '
 IGNORE_ERR=1
 run_test

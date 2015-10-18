@@ -62,7 +62,7 @@ EXPECT_ERR="r_core: Cannot open file
 run_test
 
 NAME='rabin2 -K md5 -S file'
-BROKEN=1
+BROKEN=
 FILE=../../bins/pe/a.exe
 ARGS=
 CMDS='!rabin2 -K md5 -S ${FILE}'

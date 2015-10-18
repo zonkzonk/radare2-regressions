@@ -39,7 +39,7 @@ run_test
 
 NAME='call fcn eip'
 FILE=../bins/elf/ls-alxchk
-BROKEN=1
+BROKEN=
 ARGS=
 CMDS='
 s 0x5e50

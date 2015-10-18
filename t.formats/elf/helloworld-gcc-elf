@@ -81,19 +81,6 @@ CCu base64:WzMxXSB2YT0weDA4MDQ4MDAwIHBhPTB4MDAwMDAwMDAgc3o9NTIgdnN6PTUyIHJ3eD1tL
 '
 run_test
 
-NAME='search'
-FILE=../../bins/elf/x86-helloworld-gcc
-CMDS='/ \x90\x06~[0]
-'
-EXPECT_ERR='Searching 2 bytes from 0x08048000 to 0x0804a59c: 90 06 
-hits: 2
-'
-#FILTER='sed "s/^#.*//;"'
-EXPECT='0x08048b4c
-0x08049b4c
-'
-run_test
-
 NAME='flags spaces'
 FILE=../../bins/elf/x86-helloworld-gcc
 CMDS='fs

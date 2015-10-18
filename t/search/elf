@@ -4,6 +4,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='search'
 FILE=../../bins/elf/x86-helloworld-gcc
+BROKEN=1
 CMDS='/ \x90\x06~[0]
 '
 EXPECT_ERR='Searching 2 bytes from 0x08048000 to 0x0804a59c: 90 06 

@@ -2,10 +2,22 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 
-NAME='search'
+NAME='search escaped string'
 FILE=../../bins/elf/x86-helloworld-gcc
-BROKEN=1
 CMDS='/ \x90\x06~[0]
+'
+EXPECT_ERR='Searching 2 bytes from 0x08048000 to 0x0804a59c: 90 06 
+hits: 2
+'
+#FILTER='sed "s/^#.*//;"'
+EXPECT='0x08048b4c
+0x08049b4c
+'
+run_test
+
+NAME='search in va'
+FILE=../../bins/elf/x86-helloworld-gcc
+CMDS='/x 9006~[0]
 '
 EXPECT_ERR='Searching 2 bytes from 0x08048000 to 0x0804a59c: 90 06 
 hits: 2

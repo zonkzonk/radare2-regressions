@@ -89,21 +89,21 @@ test_vector "${PLUGIN}" "SWR" 000000b8 'swr zero, (zero)'
 test_vector "${PLUGIN}" "XORI" 00000038 "xori zero, zero, 0"
 
 # Not defined in MIPS III>=3.2
-test_vector "${PLUGIN}" "LWC3" 000000cc 'lwc3 0, (zero)' "br" # MIPSVI PREF       MIPSIII [<3.2 LWC3 , >=3.2 undifined]
-test_vector "${PLUGIN}" "SWC3" 000000ec 'swc3 0, (zero)' "br" # MIPSVI undefined  MIPSIII [<3.2 SWC3 , >=3.2 undifined]
+test_vector "${PLUGIN}" "LWC3" 000000cc 'lwc3 0, (zero)'
+test_vector "${PLUGIN}" "SWC3" 000000ec 'swc3 0, (zero)'
 
 # Only 64bit 
-test_vector "${PLUGIN}" "DADDI" 00000060 'daddi zero, zero, 0' "br"
-test_vector "${PLUGIN}" "DADDIU" 00000064 'daddiu zero, zero, 0' "br"
+test_vector "${PLUGIN}" "DADDI" 00000060 'daddi zero, zero, 0'
+test_vector "${PLUGIN}" "DADDIU" 00000064 'daddiu zero, zero, 0'
 test_vector "${PLUGIN}" "LD" 000000dc 'ld zero, 0(zero)' "br"
-test_vector "${PLUGIN}" "LDL" 00000068 'ldl zero, (zero)' "br"
-test_vector "${PLUGIN}" "LDR" 0000006c 'ldr zero, (zero)' "br"
-test_vector "${PLUGIN}" "LLD" 000000d0 'lld zero, (zero)' "br"
-test_vector "${PLUGIN}" "LWU" 0000009c 'lwu zero, (zero)' "br"
-test_vector "${PLUGIN}" "SCD" 000000f0 'scd zero, (zero)' "br"
+test_vector "${PLUGIN}" "LDL" 00000068 'ldl zero, (zero)'
+test_vector "${PLUGIN}" "LDR" 0000006c 'ldr zero, (zero)'
+test_vector "${PLUGIN}" "LLD" 000000d0 'lld zero, (zero)'
+test_vector "${PLUGIN}" "LWU" 0000009c 'lwu zero, (zero)'
+test_vector "${PLUGIN}" "SCD" 000000f0 'scd zero, (zero)'
 test_vector "${PLUGIN}" "SD" 000000fc 'sd zero, (zero)' "br"
-test_vector "${PLUGIN}" "SDL" 000000b0 'sdl zero, (zero)' "br"
-test_vector "${PLUGIN}" "SDR" 000000b4 'sdr zero, (zero)' "br"
+test_vector "${PLUGIN}" "SDL" 000000b0 'sdl zero, (zero)'
+test_vector "${PLUGIN}" "SDR" 000000b4 'sdr zero, (zero)'
 
 # Co-processor dependant
 test_vector "${PLUGIN}" "C0" 00000042 "c0 0x0" "br"

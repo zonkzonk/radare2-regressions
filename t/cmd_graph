@@ -221,7 +221,6 @@ EXPECT=''
 run_test
 
 NAME='graph size with self-referenced bb'
-BROKEN=1
 FILE=-
 ARGS=
 CMDS='agn title1 body1

@@ -6,45 +6,52 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME="io.baddr"
 BROKEN=
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/pie
 CMDS='
 ?v entry0
 '
-EXPECT='0x400410
+EXPECT='0x450
 '
 run_test
 
 NAME="io.baddr"
 BROKEN=
 ARGS="-B 0xf00000"
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/pie
 CMDS='
 ?v entry0
 '
-EXPECT='0xf00410
+EXPECT='0xf00450
 '
 run_test
 
 NAME="io.baddr"
 BROKEN=
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/pie
 CMDS='!rabin2 -B 0xf00000 -re ${FILE} | grep 0x'
-EXPECT='f entry0 1 @ 0x00f00410
+EXPECT='f entry0 1 @ 0x00f00450
 '
 run_test
 
 NAME="io.baddr entry0 data"
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/pie
 CMDS='
 ie~paddr[3]
 ie~vaddr[1]
-p8 10 @ 0x00400410
-p8 10 @ 0x00000410
+p8 10 @ 0x00000450
 '
-EXPECT='0x00000410
-0x00400410
-31ed4989d15e4889e248
-31ed4989d15e4889e248
+EXPECT='0x00000450
+0x00000450
+31ed5e89e183e4f05054
+'
+run_test
+
+NAME="io.baddr -B entry0 data"
+FILE=../bins/elf/pie
+ARGS="-B 0x100000"
+CMDS='p8 10 @ 0x00100450
+'
+EXPECT='31ed5e89e183e4f05054
 '
 run_test
 
@@ -66,12 +73,12 @@ run_test
 
 NAME="io.baddr"
 BROKEN=
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/pie
 ARGS='-B 0xf00000'
 CMDS='!rabin2 -B 0xf00000 -re ${FILE} | grep 0x
-p8 10 @ 0x00f00410'
-EXPECT='f entry0 1 @ 0x00f00410
-31ed4989d15e4889e248
+p8 10 @ 0x00f00450'
+EXPECT='f entry0 1 @ 0x00f00450
+31ed5e89e183e4f05054
 '
 run_test
 
@@ -90,5 +97,29 @@ ARGS='-B 0xf00000'
 CMDS='?v `e bin.baddr`
 '
 EXPECT='0xf00000
+'
+run_test
+
+NAME="bin.baddr and anal"
+FILE=../bins/elf/pie
+ARGS='-B 0xf00000'
+CMDS='aaa
+afl
+'
+EXPECT='0x00f00450  50  1  entry0
+0x00f00482  4  1  fcn.00f00482
+0x00f00440  6  1  sym.imp.__libc_start_main
+0x00f004a0  61  4  sym.deregister_tm_clones
+0x00f00490  4  1  sym.__x86.get_pc_thunk.bx
+0x00f004e0  71  4  sym.register_tm_clones
+0x00f00530  71  5  sym.__do_global_dtors_aux
+0x00f00420  6  1  sym.imp.__cxa_finalize
+0x00f00580  69  4  sym.frame_dummy
+0x00f00640  2  1  sym.__libc_csu_fini
+0x00f00644  20  1  sym._fini
+0x00f005d0  97  4  sym.__libc_csu_init
+0x00f005c5  4  1  sym.main
+0x00f003ec  35  3  sym._init
+0x00f00430  6  1  fcn.00f00430
 '
 run_test

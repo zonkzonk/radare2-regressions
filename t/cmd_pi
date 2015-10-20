@@ -116,5 +116,18 @@ pop r15
 pop rbp
 ret
 '
+run_test
 
+NAME='pi~?'
+BROKEN=1
+FILE=malloc://1024
+CMDS='
+pi 200~?
+pi 200~?
+pd 200~?
+'
+EXPECT='200
+200
+200
+'
 run_test

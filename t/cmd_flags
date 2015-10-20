@@ -15,7 +15,7 @@ run_test
 
 NAME='fs *'
 FILE=../bins/elf/main
-BROKEN=1
+BROKEN=
 CMDS='fs *
 fs~?*
 '

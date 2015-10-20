@@ -80,7 +80,6 @@ run_test
 
 NAME='pi -10'
 FILE=malloc://1024
-BROKEN=1
 CMDS='
 wx 90909090909090909090 ; s 10 ; pi -10
 '
@@ -119,7 +118,6 @@ ret
 run_test
 
 NAME='pi~?'
-BROKEN=1
 FILE=malloc://1024
 CMDS='
 pi 200~?

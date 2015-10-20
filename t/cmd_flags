@@ -19,7 +19,7 @@ BROKEN=1
 CMDS='fs *
 fs~?*
 '
-EXPECT='5
+EXPECT='0
 '
 run_test
 

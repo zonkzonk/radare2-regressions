@@ -109,6 +109,35 @@ EXPECT='0    0 * test2
 '
 run_test
 
+NAME='fSn'
+FILE=malloc://1024
+BROKEN=1
+CMDS='f c @ 0x00000000
+f b @ 0x00000000
+f a @ 0x00000000
+f
+'
+EXPECT='0x00000000 1 a
+0x00000000 1 b
+0x00000000 1 c
+'
+run_test
+
+NAME='fSo'
+FILE=malloc://1024
+BROKEN=1
+CMDS='f a @ 0x00000002
+f b @ 0x00000001
+f c @ 0x00000000
+f
+'
+EXPECT='0x00000000 1 c
+0x00000001 1 b
+0x00000002 1 a
+'
+run_test
+
+
 NAME='Set/get'
 CMDS='
 f cat

@@ -7,6 +7,108 @@ CMDS='f
 EXPECT=''
 run_test
 
+NAME='no flags*'
+CMDS='f*
+'
+EXPECT=''
+run_test
+
+NAME='fs *'
+FILE=../bins/elf/main
+BROKEN=1
+CMDS='fs *
+fs~?*
+'
+EXPECT='5
+'
+run_test
+
+NAME='fs *'
+FILE=malloc://1024
+BROKEN=
+CMDS='fs-*
+fs flagspace_1
+f flag_in_fs1
+fs flagspace_2
+f flag_in_fs2
+fs *
+f
+'
+EXPECT='0x00000000 1 flag_in_fs1
+0x00000000 1 flag_in_fs2
+'
+run_test
+
+NAME='fs test_flagspace'
+FILE=../bins/elf/main
+BROKEN=
+CMDS='fs test_flagspace
+fs~?test_flagspace
+'
+EXPECT='1
+'
+run_test
+
+NAME='fs-test_flagspace'
+FILE=../bins/elf/main
+BROKEN=
+CMDS='fs test_flagspace
+fs-test_flagspace
+fs~?test_flagspace
+'
+EXPECT='0
+'
+run_test
+
+NAME='fs-test_flagspace'
+FILE=../bins/elf/main
+BROKEN=
+CMDS='fs-*
+fs~?0
+'
+EXPECT='0
+'
+run_test
+
+NAME='fs-.'
+FILE=malloc://1024
+BROKEN=
+CMDS='fs test_flagspace
+fs test_bloh
+fs test_blah
+fs-.
+fs~?test_blah
+'
+EXPECT='0
+'
+run_test
+
+
+NAME='fsm'
+FILE=../bins/elf/main
+BROKEN=
+CMDS='fs-*
+fs test
+fsm str.Hello_World test
+fs
+'
+EXPECT='0    1 * test
+'
+run_test
+
+NAME='fsr'
+FILE=../bins/elf/main
+BROKEN=
+CMDS='fs-*
+fs test
+fs test
+fsr test2
+fs
+'
+EXPECT='0    0 * test2
+'
+run_test
+
 NAME='Set/get'
 CMDS='
 f cat

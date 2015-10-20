@@ -137,6 +137,49 @@ EXPECT='0x00000000 1 c
 '
 run_test
 
+NAME='fr'
+FILE=malloc://1024
+BROKEN=
+CMDS='f blah
+fr blah bloh
+f
+'
+EXPECT='0x00000000 1 bloh
+'
+run_test
+
+NAME='fm'
+FILE=malloc://1024
+BROKEN=
+CMDS='f blah
+fm 0x10
+f
+'
+EXPECT='0x00000010 1 blah
+'
+run_test
+
+NAME='fl'
+FILE=malloc://1024
+BROKEN=
+CMDS='f blah 0x0000000a
+fl blah 0x00000003
+fl
+'
+EXPECT='0x00000003
+'
+run_test
+
+NAME='fj'
+FILE=malloc://1024
+BROKEN=
+CMDS='f blah 0x0000000a @ 0x0000000b
+f bloh 0x00000003 @ 0x00000002
+fj
+'
+EXPECT='[{"name":"blah","size":"10","offset":11},{"name":"bloh","size":"3","offset":2}]
+'
+run_test
 
 NAME='Set/get'
 CMDS='

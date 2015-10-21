@@ -16,4 +16,4 @@ for i in ../../bins/mach0/machfuzzed/mach*; do
 	fuzz_test $COUNT $i
 done
 
-fuzz_test RsFuzz ../../bins/mach0/rsfuzz-3b3a5a268 1
+fuzz_test RsFuzz ../../bins/mach0/rsfuzz-3b3a5a268

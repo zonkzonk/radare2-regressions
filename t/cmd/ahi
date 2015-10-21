@@ -67,7 +67,6 @@ EXPECT='            0x00000000    4881ec480600.  sub rsp, 11001001000b
 run_test
 
 NAME='ahi 1 - pi'
-BROKEN=1
 CMDS='e asm.bits=64
 e asm.arch=x86
 wx 4881ec48060000

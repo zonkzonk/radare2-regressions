@@ -223,6 +223,75 @@ EXPECT='1
 '
 run_test
 
+NAME='fb'
+FILE=malloc://1024
+BROKEN=
+CMDS='fb 0x100
+f a
+f
+'
+EXPECT='0x00000100 1 a
+'
+run_test
+
+NAME='fb2'
+FILE=malloc://1024
+BROKEN=
+CMDS='fe a
+fe a
+fe a
+fb 0x100 a.*
+f
+'
+EXPECT='0x00000100 1 a.0
+0x00000100 1 a.1
+0x00000100 1 a.2
+'
+run_test
+
+NAME='f--'
+FILE=malloc://1024
+BROKEN=
+CMDS='f a
+f--
+f
+'
+EXPECT=''
+run_test
+
+NAME='f.'
+FILE=../bins/elf/main
+BROKEN=
+CMDS='aaa
+f.blah
+f.
+f.-blah@entry0
+f.
+'
+EXPECT='0x00400410 blah   [entry0 + 0]
+'
+run_test
+
+NAME='f. display'
+FILE=../bins/elf/main
+BROKEN=
+CMDS='aaa
+e asm.arch=x86
+e asm.bits=32
+s entry0
+e asm.reflines=false
+e asm.offset=false
+e asm.functions=false
+e asm.comments=false
+f--
+f.blah
+pd 1
+'
+EXPECT='           .blah:
+             31ed           xor ebp, ebp
+'
+run_test
+
 NAME='Set/get'
 CMDS='
 f cat

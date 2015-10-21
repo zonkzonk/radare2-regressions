@@ -92,6 +92,18 @@ EXPECT='0x00000000 hit0_0 83c408
 '
 run_test
 
+NAME='/A search'
+FILE='malloc://1024'
+ARGS=
+BROKEN=
+CMDS='e asm.bits=32
+"wa add esp,8;pop ebx; pop ebp; ret"
+/A ret
+'
+EXPECT='0x00000005 - 1 ret
+'
+run_test
+
 NAME='Rop search'
 FILE='malloc://1024'
 ARGS=

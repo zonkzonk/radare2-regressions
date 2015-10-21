@@ -181,6 +181,48 @@ EXPECT='[{"name":"blah","size":"10","offset":11},{"name":"bloh","size":"3","offs
 '
 run_test
 
+NAME='fe'
+FILE=malloc://1024
+BROKEN=
+CMDS='fe a
+fe a
+fe a
+fe-
+fe b
+fe b
+fe b
+f
+'
+EXPECT='0x00000000 1 a.0
+0x00000000 1 a.1
+0x00000000 1 a.2
+0x00000000 1 b.0
+0x00000000 1 b.1
+0x00000000 1 b.2
+'
+run_test
+
+NAME='fd'
+FILE=malloc://1024
+BROKEN=
+CMDS='fe a
+fd 0x100
+'
+EXPECT='a.0 + 256
+'
+run_test
+
+NAME='fC'
+FILE=malloc://1024
+BROKEN=
+CMDS='f a
+fC a blabla
+pd~?blabla
+'
+EXPECT='1
+'
+run_test
+
 NAME='Set/get'
 CMDS='
 f cat

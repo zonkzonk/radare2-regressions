@@ -80,22 +80,15 @@ EXPECT='0x00000000 hit0_0 66
 '
 run_test
 
-EXPECT='0x00000000 hit0_0 66
-0x00000000 hit1_0 66
-'
-run_test
-
-NAME='/# search'
+NAME='/a search'
 FILE='malloc://1024'
 ARGS=
 BROKEN=
-CMDS='
-wx 666f6f00
-/!x 00
-//
+CMDS='e asm.bits=32
+"wa add esp,8;pop ebx; pop ebp; ret"
+/a add esp, 8
 '
-EXPECT='0x00000000 hit0_0 66
-0x00000000 hit1_0 66
+EXPECT='0x00000000 hit0_0 83c408
 '
 run_test
 

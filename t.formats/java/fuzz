@@ -20,6 +20,7 @@ FUZZED_FILES="
 6cd6d9b1e65cefb5d07076737cec6e0e
 7282bf73d768de789f60623e0d17ca1f
 c4620e044d32403f7c83b74fe3a3dbc9
+db10e3103b4defa8fc76892665a14a89
 fuzz-rs-57c2.class
 fuzz-jox01
 fuzz-jox02

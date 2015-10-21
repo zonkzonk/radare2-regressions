@@ -80,6 +80,7 @@ run_test
 
 NAME='pi -10'
 FILE=malloc://1024
+BROKEN=1
 CMDS='
 wx 90909090909090909090 ; s 10 ; pi -10
 '

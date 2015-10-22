@@ -1,8 +1,30 @@
 #!/bin/sh
 
-# GPL 3+ - Copyright (C) 2014
+# GPL 3+ - Copyright (C) 2014-2015
 
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
+
+NAME='seteq'
+FILE=malloc://1024
+ARGS=
+CMDS='pf.foo xd foo bar
+pf.foo
+'
+EXPECT="foo : 0x00000000 = 0x00000000
+bar : 0x00000004 = 0
+"
+run_test
+
+NAME='seteq2'
+FILE=malloc://1024
+ARGS=
+CMDS='pf.foo=xd foo bar
+pf.foo
+'
+EXPECT="foo : 0x00000000 = 0x00000000
+bar : 0x00000004 = 0
+"
+run_test
 
 NAME='types'
 FILE=malloc://1024

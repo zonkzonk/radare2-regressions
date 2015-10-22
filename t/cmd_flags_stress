@@ -12,7 +12,7 @@ run_test
 
 NAME='no flags'
 FILE=../bins/elf/elf-relro
-BROKEN=1
+BROKEN=
 CMDS='f patata
 fs *
 f-*

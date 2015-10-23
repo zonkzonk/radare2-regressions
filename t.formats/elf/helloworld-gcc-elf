@@ -136,12 +136,12 @@ EXPECT='0x08048300 0x895eed31
 '
 run_test
 
-NAME='pv'
+NAME='p-'
 # this test is subject to fail in many situations. it's too generalistic, needs
 # to be splitted down into something more unitary to identify what's wrong
 #BROKEN=0
 FILE=../../bins/elf/x86-helloworld-gcc
-CMDS='pv
+CMDS='p-
 '
 EXPECT='0x8048000 [ff......ffff.f.fffff^.ff.ffff..ff.f...f..............................................................................................................f......ff..................................................................................................] 0x804a59c
 '

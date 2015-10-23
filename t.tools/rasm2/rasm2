@@ -139,3 +139,34 @@ CMDS="!rasm2 -w -a x86 -b 32 'mov'"
 EXPECT='moves data from src to dst
 '
 run_test
+
+NAME='Rasm2  dissassemble ARM32 binary file'
+CMDS="!rasm2 -DB -a arm -o 0x200 -b 32 -f ../../bins/other/rasm2/testARM32.bin"
+BROKEN=
+EXPECT='0x00000200   4                 4661b0e1  asrs r6, r6, 2
+0x00000204   4                 f087bd08  popeq {r4, r5, r6, r7, r8, sb, sl, pc}
+0x00000208   4                 0040a0e3  mov r4, 0
+0x0000020c   4                 014084e2  add r4, r4, 1
+0x00000210   4                 043095e4  ldr r3, [r5], 4
+0x00000214   4                 0920a0e1  mov r2, sb
+0x00000218   4                 0810a0e1  mov r1, r8
+0x0000021c   4                 0700a0e1  mov r0, r7
+0x00000220   4                 33ff2fe1  blx r3
+0x00000224   4                 060054e1  cmp r4, r6
+'
+run_test
+
+NAME='Rasm2  dissassemble ARM32 binary file with skip'
+CMDS="!rasm2 -DB -a arm -o 0x200 -b 32 -f ../../bins/other/rasm2/testARM32.bin -i 4"
+BROKEN=
+EXPECT='0x00000200   4                 f087bd08  popeq {r4, r5, r6, r7, r8, sb, sl, pc}
+0x00000204   4                 0040a0e3  mov r4, 0
+0x00000208   4                 014084e2  add r4, r4, 1
+0x0000020c   4                 043095e4  ldr r3, [r5], 4
+0x00000210   4                 0920a0e1  mov r2, sb
+0x00000214   4                 0810a0e1  mov r1, r8
+0x00000218   4                 0700a0e1  mov r0, r7
+0x0000021c   4                 33ff2fe1  blx r3
+0x00000220   4                 060054e1  cmp r4, r6
+'
+run_test

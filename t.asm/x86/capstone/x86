@@ -335,7 +335,6 @@ test_vector "${PLUGIN}" "MOV DWORD SS:[EAX], EAX" 368900 "mov dword ss:[eax], ea
 test_vector "${PLUGIN}" "MOV DWORD DS:[EAX], EAX" 3e8900 "mov dword ds:[eax], eax"
 test_vector "${PLUGIN}" "MOV DWORD FS:[EAX], EAX" 648900 "mov dword fs:[eax], eax"
 test_vector "${PLUGIN}" "MOV DWORD GS:[EAX], EAX" 658900 "mov dword gs:[eax], eax"
-test_vector "${PLUGIN}" "FXSAVE [EAX]" 0fae00 "fxsave [eax]"
 test_vector "${PLUGIN}" "BOUND EAX, QWORD [EAX]" 6200 "bound eax, qword [eax]"
 test_vector "${PLUGIN}" "ARPL WORD [EAX], AX" 6300 "arpl word [eax], ax"
 test_vector "${PLUGIN}" "CMPXCHG BYTE [EAX], AL" 0fb000 "cmpxchg byte [eax], al"

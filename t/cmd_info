@@ -140,6 +140,7 @@ canary   false
 nx       true
 crypto   false
 va       true
+intrp    /lib/ld-linux.so.2
 bintype  elf
 class    ELF32
 lang     c
@@ -233,6 +234,7 @@ canary   false
 nx       true
 crypto   false
 va       true
+intrp    /lib/ld-linux.so.2
 bintype  elf
 class    ELF32
 lang     c
@@ -391,6 +393,7 @@ canary   false
 nx       true
 crypto   false
 va       true
+intrp    /lib/ld-linux-x86-64.so.2
 bintype  elf
 class    ELF64
 lang     c
@@ -476,6 +479,7 @@ canary   false
 nx       true
 crypto   false
 va       true
+intrp    /lib/ld-linux-x86-64.so.2
 bintype  elf
 class    ELF64
 lang     c

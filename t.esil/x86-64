@@ -72,7 +72,7 @@ ae rdi,rsp,=[8]
 ?v [rsp+4]
 ?v [rsp+8]
 '
-EXPECT='0xffffffff
+EXPECT='0xffffffffffffffff
 0xffffffff
 0x0
 '

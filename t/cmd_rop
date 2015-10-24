@@ -46,20 +46,9 @@ EXPECT='  0x000000b4               cd80  int 0x80
   0x000000c0               cd80  int 0x80
   0x000000c2                 c3  ret
 
-  0x000000b5     80b801000000b9  cmp byte [eax + 1], 0xb9
-  0x000000bc               0000  add byte [eax], al
-  0x000000be               0000  add byte [eax], al
-  0x000000c0               cd80  int 0x80
-  0x000000c2                 c3  ret
-
   0x000000b7               0100  add dword [eax], eax
   0x000000b9               0000  add byte [eax], al
   0x000000bb         b900000000  mov ecx, 0
-  0x000000c0               cd80  int 0x80
-  0x000000c2                 c3  ret
-
-  0x000000b8               0000  add byte [eax], al
-  0x000000ba       00b900000000  add byte [ecx], bh
   0x000000c0               cd80  int 0x80
   0x000000c2                 c3  ret
 

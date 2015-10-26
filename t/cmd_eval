@@ -16,7 +16,7 @@ netbsd
 windows
 '
 
-run_test                                                         
+run_test
 
 NAME='e asm.cpu'
 FILE=../bins/elf/hello-linux-x86_64
@@ -29,4 +29,16 @@ r6
 v3
 '
 
-run_test    
+run_test
+
+NAME='e asm.syntax'
+FILE=-
+BROKEN=1
+CMDS='wx eb0e
+e asm.syntax=masm
+pi 1
+'
+EXPECT='jmp 10h
+'
+
+run_test

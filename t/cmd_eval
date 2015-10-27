@@ -33,7 +33,6 @@ run_test
 
 NAME='e asm.syntax'
 FILE=-
-BROKEN=1
 CMDS='wx eb0e
 e asm.syntax=masm
 pi 1

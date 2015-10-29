@@ -9,6 +9,7 @@ ARGS=
 CMDS='
 e asm.arch=x86
 e asm.bits=32
+e asm.os=linux
 e asm.emu=true
 e asm.bytes=0
 e asm.cmtcol=20
@@ -17,7 +18,7 @@ pd 20~write,exit
 '
 EXPECT='Hello, world!
  0x00000018   int 0x80; 4 = write (1, "Hello, world!..", 14)
- 0x00000020   int 0x80; 1 = exit (0x00000001)
+ 0x00000020   int 0x80; 1 = exit (1)
 '
 run_test
 

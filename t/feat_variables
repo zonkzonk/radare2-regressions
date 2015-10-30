@@ -3,6 +3,17 @@
 
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
+NAME='$B (fcn-begin)'
+FILE=malloc://1024
+ARGS=
+CMDS='s 42
+af
+s 44
+s $B
+s'
+EXPECT='0x2a
+'
+run_test
 
 NAME='$$ (malloc)'
 FILE=malloc://1024

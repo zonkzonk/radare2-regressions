@@ -20,7 +20,7 @@ CMDS='wx 55
 e asm.arch=x86
 e asm.bits=32
 aes
-sr pc
+sr PC
 s'
 EXPECT='0x1
 '

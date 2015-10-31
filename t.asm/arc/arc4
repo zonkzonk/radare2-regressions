@@ -394,6 +394,7 @@ run_test
 
 NAME="arc4: [BLHI] - jump check"
 FILE=malloc://16384
+BROKEN=1
 CMDS='
 e asm.arch=arc
 e asm.bits=32

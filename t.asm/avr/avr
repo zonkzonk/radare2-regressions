@@ -211,7 +211,7 @@ test_vector "${PLUGIN}" "sbci r19, 0xff" 3f4f 2
 test_vector "${PLUGIN}" "sbiw r24, 0x01" 0197 2
 test_vector "${PLUGIN}" "sei " 7894 2
 test_vector "${PLUGIN}" "ser r24" 8fef 2
-test_vector "${PLUGIN}" "st Z, r1" 1082 2
+test_vector "${PLUGIN}" "std Z+0, r1" 1082 2
 test_vector "${PLUGIN}" "std Z+1, r1" 1182 2
 test_vector "${PLUGIN}" "sts 0x7c0, r25" 9093c007 4
 

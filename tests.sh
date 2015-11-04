@@ -17,6 +17,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+export RABIN2_NOPLUGINS=1
+export RASM2_NOPLUGINS=1
+export R2_NOPLUGINS=1
+
 GREP="$1"
 GREP=""
 SKIP=0

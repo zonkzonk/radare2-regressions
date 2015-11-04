@@ -7,6 +7,7 @@ wx 0x00008140
 pfd.test B (pe_characteristics)var0
 pfd.test
 '
+BROKEN=1
 EXPECT='digraph g { graph [ rank=same; rankdir=LR; ];
 root [ rank=1; shape=record
 label="test|{0x0|B|var0|<var0>pe_characteristics.IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE, pe_characteristics.IMAGE_DLLCHARACTERISTICS_NX_COMPAT, pe_characteristics.IMAGE_DLLCHARACTERISTICS_TERMINAL_SERVER_AWARE}"];

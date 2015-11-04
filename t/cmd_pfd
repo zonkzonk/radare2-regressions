@@ -1,6 +1,19 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
+NAME='pfd.test [2]B (pe_characteristics)var0'
+CMDS='"td enum pe_characteristics {IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE=0x40, IMAGE_DLLCHARACTERISTICS_NX_COMPAT=0x100, IMAGE_DLLCHARACTERISTICS_TERMINAL_SERVER_AWARE=0x8000};"
+wx 0x00008140
+pfd.test B (pe_characteristics)var0
+pfd.test
+'
+EXPECT='digraph g { graph [ rank=same; rankdir=LR; ];
+root [ rank=1; shape=record
+label="test|{0x0|B|var0|<var0>pe_characteristics.IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE, pe_characteristics.IMAGE_DLLCHARACTERISTICS_NX_COMPAT, pe_characteristics.IMAGE_DLLCHARACTERISTICS_TERMINAL_SERVER_AWARE}"];
+}
+'
+run_test
+
 NAME='pfd.test E (elf_type)var0'
 CMDS='"td enum elf_type {ET_HIPROC=0xffff};"
 wx 0xffff

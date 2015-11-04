@@ -26,7 +26,10 @@ db10e3103b4defa8fc76892665a14a89
 fuzz-rs-57c2.class
 fuzz-jox01
 fuzz-jox02
-fuzz-jox03"
+fuzz-jox03
+7cc0970af593532fcf484a17dac1563e
+d517740536bfa70d64cc4e1243f11dcb
+"
 
 for a in ${FUZZED_FILES} ; do
 	fuzz_test $a ../../bins/java/$a

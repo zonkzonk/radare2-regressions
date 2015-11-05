@@ -27,7 +27,7 @@ CMDS='10ood
 e file.path
 dk 9
 '
-EXPECT='dbg:///bin/ls 
+EXPECT='dbg:///usr/bin/ls 
 '
 IGNORE_ERR=1
 run_test

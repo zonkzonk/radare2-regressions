@@ -40,3 +40,14 @@ class JDWPExecCmd { // @0x0000
 }
 '
 run_test
+
+NAME='java huge switch case crash'
+FILE=../../bins/java/sjybq.class
+IGNORE_ERR=1
+ARGS=
+CMDS='e asm.arch=java
+e scr.null=true
+pd 200
+'
+EXPECT=''
+run_test

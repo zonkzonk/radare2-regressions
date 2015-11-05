@@ -3,12 +3,24 @@
 
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
+mkdir -p /tmp/r2-regressions/
+
+if [ $? -eq 1 ]; then
+	echo "Failed to create directory in /tmp/r2-regressions/dwarf"
+	exit 1
+fi
+
+cp -f ../../bins/elf/dwarftest /tmp/r2-regressions/dwarftest
+cp -f ../../bins/src/dwarftest.c /tmp/r2-regressions/dwarftest.c
+
+#run_test
+
 NAME="pdf dwarf invalid main for analysis not found (aa)"
 BROKEN=
 FILE=/tmp/r2-regressions/dwarftest
 IGNORE_ERR=1
 ARGS=
-BROKEN=1
+BROKEN=
 CMDS='e asm.dwarf=true
 e asm.arch=x86.udis
 e asm.varsub=false
@@ -17,11 +29,10 @@ e anal.nopskip=true # if set to true it fucks the test
 aa # full analysis fuckups main
 pd 1 @main'
 EXPECT='/ (fcn) sym.main 44
-|          ; arg int arg_31_4     @ rbp+0xfc
-|          ; DATA XREF from 0x0040045d (entry0)
-|          ;-- main:
-|          ;-- sym.main:
-|          0x0040052d    55             push rbp                       ; /tmp/r2-regressions/.//dwarftest.c:4  int main(void)
+|           ; arg int arg_31_4     @ rbp+0xfc
+|           ; DATA XREF from 0x0040045d (sym.main)
+|           ;-- main:
+|           0x0040052d    55             push rbp                      ; dwarftest.c:4  
 '
 run_test
 
@@ -82,27 +93,24 @@ e anal.nopskip=true
 af@main
 pdf@main'
 EXPECT='/ (fcn) sym.main 44
-|          ; arg int arg_31_4     @ rbp+0xfc
-|          ;-- main:
-|          0x0040052c    55             push rbp                      ; dwarftest.c:4  
-|          0x0040052d    55             push rbp                       ; /tmp/r2-regressions/.//dwarftest.c:4  int main(void)
-|          0x0040052e    4889e5         mov rbp, rsp
-|          0x00400531    4883ec10       sub rsp, 0x10
-|          0x00400535    c745fc000000.  mov dword [rbp-0x4], 0x0        ; [0xfc:4]=0 ; /tmp/r2-regressions/.//dwarftest.c:7  
-|      ,=< 0x0040053c    eb0e           jmp 0x40054c                  
-|      |   ; JMP XREF from 0x00400550 (sym.main)
-|      |   0x0040053e    bfe4054000     mov edi, str.dwarftest         ; "dwarftest" @ 0x4005e4 ; /tmp/r2-regressions/.//dwarftest.c:8  .for (i = 0; i < 5; i++) {
-|      |   0x00400543    e8c8feffff     call sym.imp.puts
-|      |      0x00400410() ; sym.imp.puts
-|      |   0x00400548    8345fc01       add dword [rbp-0x4], 0x1       ; /tmp/r2-regressions/.//dwarftest.c:7  
-|      |   ; JMP XREF from 0x0040053c (sym.main)
-|      `-> 0x0040054c    837dfc04       cmp dword [rbp-0x4], 0x4        ; [0xfc:4]=0 ; /tmp/r2-regressions/.//dwarftest.c:7  
-|          0x00400550    7eec           jle 0x40053e                  
-|          0x00400552    b800000000     mov eax, 0x0                   ; /tmp/r2-regressions/.//dwarftest.c:11  
-|          0x00400557    c9             leave                          ; /tmp/r2-regressions/.//dwarftest.c:12  .return 0;
-\          0x00400558    c3             ret
+|           ; arg int arg_31_4     @ rbp+0xfc
+|           ;-- main:
+|           0x0040052d    55             push rbp                      ; dwarftest.c:4 { ; dwarftest.c:4  
+|           0x0040052e    4889e5         mov rbp, rsp
+|           0x00400531    4883ec10       sub rsp, 0x10
+|           0x00400535    c745fc000000.  mov dword [rbp-0x4], 0x0      ; dwarftest.c:7  for (i = 0; i < 5; i++) { ; [0xfc:4]=0 ; dwarftest.c:7  
+|       ,=< 0x0040053c    eb0e           jmp 0x40054c                 
+|       |   0x0040053e    bfe4054000     mov edi, str.dwarftest        ; dwarftest.c:8   printf ("dwarftest\n"); ; "dwarftest" @ 0x4005e4 ; dwarftest.c:8  
+|       |   0x00400543    e8c8feffff     call sym.imp.puts
+|       |   0x00400548    8345fc01       add dword [rbp-0x4], 0x1      ; dwarftest.c:7  for (i = 0; i < 5; i++) { ; dwarftest.c:7  
+|       |   ; JMP XREF from 0x0040053c (sym.main)
+|       `-> 0x0040054c    837dfc04       cmp dword [rbp-0x4], 0x4      ; [0xfc:4]=0 ; dwarftest.c:7  
+|           0x00400550    7eec           jle 0x40053e                 
+|           0x00400552    b800000000     mov eax, 0x0                  ; dwarftest.c:11  return 0; ; dwarftest.c:11  
+|           0x00400557    c9             leave                         ; dwarftest.c:12 } ; dwarftest.c:12  
+\           0x00400558    c3             ret
 '
-run-test
+run_test
 
 NAME="pdf dwarf dir.source"
 BROKEN=
@@ -136,16 +144,5 @@ EXPECT='/ (fcn) sym.main 44
 |           0x00400557    c9             leave                         ; dwarftest.c:12 } ; dwarftest.c:12  
 \           0x00400558    c3             ret
 '
-run-test
-
-mkdir -p /tmp/r2-regressions/
-
-if [ $? -eq 1 ]; then
-	echo "Failed to create directory in /tmp/r2-regressions/dwarf"
-	exit 1
-fi
-
-cp -f ../../bins/elf/dwarftest /tmp/r2-regressions/dwarftest
-cp -f ../../bins/src/dwarftest.c /tmp/r2-regressions/dwarftest.c
-
 run_test
+

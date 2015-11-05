@@ -343,17 +343,21 @@ test_failed() {
 }
 
 if [ -n "${TRAVIS}" ]; then
-NL="\n"
+    NL="\n"
 else
-NL="\r"
+    NL="\r"
 fi
 
 print_success() {
-if [ -n "${NOCOLOR}" ]; then
-    printf "%b" "${NL}[${*}]\n"
-else
-    printf "%b" "${NL}\033[32m[${*}]\033[0m\n"
-fi
+    if [ -n "${NOOK}" ]; then
+        printf "\033[2K\r"
+    else
+        if [ -n "${NOCOLOR}" ]; then
+            printf "%b" "${NL}[${*}]\n"
+        else
+            printf "%b" "${NL}\033[32m[${*}]\033[0m\n"
+        fi
+    fi
 }
 
 print_broken() {

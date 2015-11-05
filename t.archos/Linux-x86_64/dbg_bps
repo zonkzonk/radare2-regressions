@@ -14,9 +14,9 @@ s 0
 db entry0
 dc
 db-entry0
-dr pc
+dr PC
 ds
-dr pc
+dr PC
 dk 9
 '
 EXPECT='0x080482d0

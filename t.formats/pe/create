@@ -28,7 +28,7 @@ CMDS='rm /tmp/tiny64.pe
 ls -l /tmp/tiny64.pe~[3]
 rm /tmp/tiny64.pe
 '
-EXPECT='135
+EXPECT='125
 '
 run_test
 

@@ -111,10 +111,11 @@ run_test
 
 NAME='fSn'
 FILE=malloc://1024
-BROKEN=1
+BROKEN=
 CMDS='f c @ 0x00000000
 f b @ 0x00000000
 f a @ 0x00000000
+fSn
 f
 '
 EXPECT='0x00000000 1 a
@@ -125,10 +126,11 @@ run_test
 
 NAME='fSo'
 FILE=malloc://1024
-BROKEN=1
+BROKEN=
 CMDS='f a @ 0x00000002
 f b @ 0x00000001
 f c @ 0x00000000
+fSo
 f
 '
 EXPECT='0x00000000 1 c

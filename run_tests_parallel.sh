@@ -52,9 +52,9 @@ fi
 
 . ./tests.sh
 
-r2 > /dev/null
+radare2 > /dev/null
 if [ $? != 0 ]; then
-    echo "Cannot find r2"
+    echo "Cannot find radare2"
     exit 1
 fi
 
@@ -151,7 +151,7 @@ print_report
 
 # Save statistics
 cd $R
-V=`r2 -v 2>/dev/null| grep ^rada| awk '{print $5}'`
+V=`radare2 -v 2>/dev/null| grep ^rada| awk '{print $5}'`
 touch stats.csv
 grep -v "^$V" stats.csv > .stats.csv
 echo "$V,${TESTS_SUCCESS},${TESTS_FIXED},${TESTS_BROKEN},${TESTS_FAILED},${TESTS_FATAL},${FAILED}" >> .stats.csv

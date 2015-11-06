@@ -13,7 +13,7 @@ pD -10 @ 0xa
 '
 EXPECT='            0x00000000    b801000000     mov eax, 1
             0x00000005    4839ca         cmp rdx, rcx
-            0x00000008    7f00           jg 0xa
+        ,=< 0x00000008    7f00           jg 0xa
 '
 run_test
 
@@ -29,7 +29,7 @@ pD -10 @ 10
 '
 EXPECT='            0x00000000    b801000000     mov eax, 1
             0x00000005    4839ca         cmp rdx, rcx
-            0x00000008    7f00           jg 0xa
+        ,=< 0x00000008    7f00           jg 0xa
 '
 run_test
 

@@ -2,11 +2,11 @@
 
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
-NAME="search asm commands with grep"
+NAME="search asm commands with internal grep"
 FILE=../../bins/firmware/arduino_avr.bin
 ARGS='-a avr'
 BROKEN=
-CMDS='/c ldi | grep 0x6d'
+CMDS='/c ldi~0x6d'
 EXPECT='0x00000276   # 2: ldi r22, 0x6d
 '
 run_test

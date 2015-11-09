@@ -118,4 +118,26 @@ iS~.comment
 '
 EXPECT='idx=25 vaddr=0x00000000 paddr=0x00000910 sz=34 vsz=34 perm=----- name=.comment
 '
+
+NAME='ob select files'
+FILE=malloc://1024
+ARGS=
+CMDS='
+e scr.null=true
+o malloc://512
+e scr.null=false
+i~file[1]
+obb `ob~:0[2]`
+i~file[1]
+obo `ob~:3[1]`
+i~file[1]
+ob `ob~:0[2]` `ob~:1[1]`
+i~file[1]
+'
+EXPECT='malloc://512
+malloc://1024
+malloc://512
+malloc://1024
+'
+
 run_test

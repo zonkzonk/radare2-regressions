@@ -109,6 +109,7 @@ afl
 EXPECT='0x00f00450  50  1  entry0
 0x00f00482  4  1  fcn.00f00482
 0x00f00440  6  1  sym.imp.__libc_start_main
+0x00f005c5  4  1  sym.main
 0x00f004a0  61  4  sym.deregister_tm_clones
 0x00f00490  4  1  sym.__x86.get_pc_thunk.bx
 0x00f004e0  71  4  sym.register_tm_clones
@@ -118,7 +119,6 @@ EXPECT='0x00f00450  50  1  entry0
 0x00f00640  2  1  sym.__libc_csu_fini
 0x00f00644  20  1  sym._fini
 0x00f005d0  97  4  sym.__libc_csu_init
-0x00f005c5  4  1  sym.main
 0x00f003ec  35  3  sym._init
 0x00f00430  6  1  fcn.00f00430
 '

@@ -15,9 +15,9 @@ NAME="search asm commands with filter"
 FILE=../../bins/firmware/arduino_avr.bin
 ARGS='-a avr'
 BROKEN=
-CMDS='/c in ~ 0x12'
-EXPECT='0x00000181   # 2: in r14, 0x12
-0x00000282   # 2: in r24, 0x12
+CMDS='/c ldi ~ 0x18'
+EXPECT='0x00001672   # 2: ldi r24, 0x18
+0x000019a4   # 2: ldi r18, 0x18
 '
 run_test
 
@@ -35,7 +35,7 @@ run_test
 NAME="Search rop gadgets for in command"
 FILE=../../bins/firmware/arduino_avr.bin
 ARGS='-a avr'
-BROKEN=
+BROKEN=1
 CMDS='/R in r24'
 EXPECT='  0x0000027e           0e947304  call 0x8e6
   0x00000282               82b3  in r24, 0x12
@@ -76,16 +76,10 @@ EXPECT='  0x0000027e           0e947304  call 0x8e6
   0x000005d8               85bd  out 0x25, r24
   0x000005da               0895  ret 
 
-  0x00000819               91fc  sbrc r9, 1
-  0x0000081b               91a0  ldd r9, Z+33
-  0x0000081d               80b1  in r24, 0x00
-  0x0000081f               80be  out 0x30, r8
-  0x00000821               01c6  rjmp 0x1425
-
 '
 run_test
 
-NAME="Search rop gadgets for in command with align=2"
+NAME="Search rop gadgets for IN command with align=2"
 FILE=../../bins/firmware/arduino_avr.bin
 ARGS='-a avr'
 BROKEN=
@@ -133,3 +127,20 @@ EXPECT='  0x0000027e           0e947304  call 0x8e6
 
 '
 run_test
+
+NAME="disasm code after search command IN"
+FILE=../../bins/firmware/arduino_avr.bin
+ARGS='-a avr'
+BROKEN=1
+CMDS='/c in ~ 0x18
+pd 5'
+EXPECT='0x00000296   # 2: in r24, 0x18
+        ,=< 0x00000000    0c94ac00       jmp 0x158
+       ,==< 0x00000004    0c94db00       jmp 0x1b6
+      ,===< 0x00000008    0c94db00       jmp 0x1b6
+     ,====< 0x0000000c    0c94db00       jmp 0x1b6
+     ||||   0x00000010    0c94db00       jmp 0x1b6
+'
+run_test
+
+

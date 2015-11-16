@@ -14,7 +14,7 @@ run_test
 NAME="search asm commands with filter"
 FILE=../../bins/firmware/arduino_avr.bin
 ARGS='-a avr'
-BROKEN=1
+BROKEN=
 CMDS='/c ldi ~ 0x18'
 EXPECT='0x00001672   # 2: ldi r24, 0x18
 0x000019a4   # 2: ldi r18, 0x18
@@ -131,8 +131,9 @@ run_test
 NAME="disasm code after search command IN"
 FILE=../../bins/firmware/arduino_avr.bin
 ARGS='-a avr'
-BROKEN=1
-CMDS='/c in ~ 0x18
+BROKEN=
+CMDS='
+/c in ~ 0x18
 pd 5'
 EXPECT='0x00000296   # 2: in r24, 0x18
         ,=< 0x00000000    0c94ac00       jmp 0x158

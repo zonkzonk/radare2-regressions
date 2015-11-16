@@ -14,7 +14,7 @@ run_test
 NAME="search asm commands with filter"
 FILE=../../bins/firmware/arduino_avr.bin
 ARGS='-a avr'
-BROKEN=
+BROKEN=1
 CMDS='/c ldi ~ 0x18'
 EXPECT='0x00001672   # 2: ldi r24, 0x18
 0x000019a4   # 2: ldi r18, 0x18

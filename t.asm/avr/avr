@@ -156,7 +156,7 @@ NAME="${PLUGIN} DISasm: [0e940b10 => 0x00002016] (ANAL)"
 FILE=malloc://4096
 CMDS='
 e asm.arch=avr
-wx 0e940b10 @ 0x2d
+wx 0e940b10 @ 0x2d0
 s 0x2d0
 ao 1~jump[1]
 '

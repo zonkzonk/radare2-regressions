@@ -85,7 +85,9 @@ for file in * ; do
 done
 fi
 
-print_report
+if [ -z "${NOREPORT}" ]; then
+	print_report
+fi
 
 # Save statistics
 cd $R

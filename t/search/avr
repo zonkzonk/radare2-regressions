@@ -36,7 +36,8 @@ NAME="Search rop gadgets for in command"
 FILE=../../bins/firmware/arduino_avr.bin
 ARGS='-a avr'
 BROKEN=1
-CMDS='/R in r24'
+CMDS='e search.align=2
+/R in r24'
 EXPECT='  0x0000027e           0e947304  call 0x8e6
   0x00000282               82b3  in r24, 0x12
   0x00000284               8058  subi r24, 0x80

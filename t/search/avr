@@ -83,7 +83,7 @@ run_test
 NAME="Search rop gadgets for IN command with align=2"
 FILE=../../bins/firmware/arduino_avr.bin
 ARGS='-a avr'
-BROKEN=
+BROKEN=1
 CMDS='e search.align=2
 /R in r24
 '

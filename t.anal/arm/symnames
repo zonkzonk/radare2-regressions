@@ -14,7 +14,7 @@ EXPECT='0x000102bc  12  1  sym.imp.abort
 run_test
 
 NAME="ELF ARM: function names 2"
-BROKEN=1
+BROKEN=
 FILE=../../bins/elf/arm_32_flags0
 CMDS='
 aa
@@ -42,7 +42,7 @@ CMDS='
 aa
 afl~?
 '
-EXPECT='14
+EXPECT='15
 '
 run_test
 

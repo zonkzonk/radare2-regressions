@@ -408,7 +408,7 @@ EXPECT='/ (fcn) sym.main 140
 |           0x0001016c    2324f4fe       sw a5, -24(s0)
 |           0x00010170    b7170200       lui a5, 0x21
 |           0x00010174    1385874f       addi a0, a5, 1272
-|           0x00010178    ef00c01f       jal ra, sym.printf             ; sym.__libc_init_array+0xe4
+|           0x00010178    ef00c01f       jal ra, sym.printf
 |           0x0001017c    930784fe       addi a5, s0, -24
 |           0x00010180    93850700       addi a1, a5, 0
 |           0x00010184    b7170200       lui a5, 0x21
@@ -419,7 +419,7 @@ EXPECT='/ (fcn) sym.main 140
 |       ,=< 0x00010198    631cf700       bne a4, a5, 0x101b0          
 |       |   0x0001019c    b7170200       lui a5, 0x21
 |       |   0x000101a0    13858751       addi a0, a5, 1304
-|       |   0x000101a4    ef00002d       jal ra, sym.puts               ; sym.__libc_init_array+0x1e4
+|       |   0x000101a4    ef00002d       jal ra, sym.puts
 |       |   0x000101a8    93070000       addi a5, zero, 0
 |       |   0x000101ac    6f000003       jal zero, 0x101dc
 |       |   ; JMP XREF from 0x00010198 (sym.main)
@@ -428,12 +428,12 @@ EXPECT='/ (fcn) sym.main 140
 |       ,=< 0x000101b8    635af700       bge a4, a5, 0x101cc          
 |       |   0x000101bc    b7170200       lui a5, 0x21
 |       |   0x000101c0    13858752       addi a0, a5, 1320
-|       |   0x000101c4    ef00002b       jal ra, sym.puts               ; sym.__libc_init_array+0x1e4
+|       |   0x000101c4    ef00002b       jal ra, sym.puts
 |       |   0x000101c8    6ff09ffa       jal zero, 0x10170
 |       |   ; JMP XREF from 0x000101b8 (sym.main)
 |       `-> 0x000101cc    b7170200       lui a5, 0x21
 |           0x000101d0    13858753       addi a0, a5, 1336
-|           0x000101d4    ef00002a       jal ra, sym.puts               ; sym.__libc_init_array+0x1e4
+|           0x000101d4    ef00002a       jal ra, sym.puts
 \           0x000101d8    6ff09ff9       jal zero, 0x10170
 '
 run_test

@@ -236,7 +236,7 @@ run_test
 
 NAME="reflines offset 3 (ascii + wide)"
 FILE=../../bins/elf/ls-alxchk
-BROKEN=1
+BROKEN=
 CMDS='e asm.bytes=false
 e scr.utf8=false
 e scr.color=false

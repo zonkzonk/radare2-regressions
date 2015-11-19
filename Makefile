@@ -21,7 +21,7 @@ tools:
 io:
 	@sh run_tests.sh t.io
 
-asm: asm.8051 asm.arc asm.arm asm.avr asm.cr16 asm.dalvik asm.ebc asm.gb asm.h8300 asm.lh5801 asm.java asm.mips asm.msp430	asm.tms320 asm.ws asm.x86 asm.z80
+asm: asm.8051 asm.arc asm.arm asm.avr asm.cr16 asm.dalvik asm.ebc asm.gb asm.h8300 asm.labels asm.lh5801 asm.java asm.mips asm.msp430	asm.tms320 asm.ws asm.x86 asm.z80
 asm.8051:
 	@sh run_tests.sh t.asm/8051
 asm.arc:
@@ -42,6 +42,8 @@ asm.h8300:
 	@sh run_tests.sh t.asm/h8300
 asm.java:
 	@sh run_tests.sh t.asm/java
+asm.labels:
+	@sh run_tests.sh t.asm/labels
 asm.lh5801:
 	@sh run_tests.sh t.asm/lh5801
 asm.mips:

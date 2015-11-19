@@ -117,6 +117,7 @@ FILE=../../bins/elf/ls-alxchk
 CMDS='e asm.bytes=false
 e scr.utf8=false
 e scr.color=false
+s $S
 aaa >/dev/null
 s 0x000113bd
 pd 28
@@ -161,6 +162,7 @@ FILE=../../bins/elf/ls-alxchk
 CMDS='e asm.bytes=false
 e scr.utf8=false
 e scr.color=false
+s $S
 aaa >/dev/null
 s 0x00003ca6
 pd 19
@@ -195,6 +197,46 @@ run_test
 
 NAME="reflines offset 3 (ascii + wide)"
 FILE=../../bins/elf/ls-alxchk
+CMDS='e asm.bytes=false
+e scr.utf8=false
+e scr.color=false
+e asm.lineswide=true
+s $S
+aaa >/dev/null
+s 0x00003ca6
+pd 19
+'
+EXPECT='|           0x00003ca6   cmp eax, 2
+|      ,==< 0x00003ca9   je 0x45ec                                    
+|      |    0x00003caf   cmp eax, 3
+|    ,====< 0x00003cb2   je 0x3ce3                                    
+|    | |    0x00003cb4   sub eax, 1
+|  ,======< 0x00003cb7   je 0x3cbe                                    
+|  | | |    ; JMP XREF from 0x000058bc (main)
+|  | | |    0x00003cb9   call sym.imp.abort
+|  | | |    ; JMP XREF from 0x00003cb7 (main)
+|  `------> 0x00003cbe   mov edi, 1
+|    | |    0x00003cc3   call sym.imp.isatty
+|    | |    0x00003cc8   test eax, eax
+|  ,======< 0x00003cca   je 0x4c2e                                    
+|  | | |    0x00003cd0   mov dword [rip + 0x1d626], 2                  ; [0x21300:4]=-1
+|  | | |    0x00003cda   mov byte [rip + 0x1d33f], 1                   ; [0x21020:1]=255
+| ========< 0x00003ce1   jmp 0x3cf9                                   
+|  | | |    ; JMP XREF from 0x00003cb2 (main)
+|  | `----> 0x00003ce3   mov esi, 5
+|  |   |    0x00003ce8   xor edi, edi
+|  |   |    0x00003cea   mov dword [rip + 0x1d60c], 0                  ; [0x21300:4]=-1
+|  |   |    0x00003cf4   call fcn.00012740
+|  |   |    ; JMP XREF from 0x00004602 (main)
+|  |   |    ; JMP XREF from 0x00004c38 (main)
+|  |   |    ; JMP XREF from 0x00003ce1 (main)
+| --------> 0x00003cf9   lea rdi, [rip + 0x14fb4]                      ; 0x18cb4 ; str.QUOTING_STYLE ; "QUOTING_STYLE" @ 0x18cb4
+'
+run_test
+
+NAME="reflines offset 3 (ascii + wide)"
+FILE=../../bins/elf/ls-alxchk
+BROKEN=1
 CMDS='e asm.bytes=false
 e scr.utf8=false
 e scr.color=false

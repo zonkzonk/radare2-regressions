@@ -263,3 +263,21 @@ age "title1" "title2"
 age "title3" "title1"
 '
 run_test
+
+NAME='graph self-ref block'
+FILE=-
+ARGS=
+CMDS='agn title1 body1
+age title1 title1
+agg
+'
+k='`'
+EXPECT="
+.-----.
+| =----------------=
+| |  title1        |
+| | body1          |
+| =----------------=
+$k-----'
+"
+run_test

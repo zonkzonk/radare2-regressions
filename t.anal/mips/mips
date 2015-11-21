@@ -399,3 +399,24 @@ EXPECT='            0x8060b4f8    00000000   nop
             0x8060b58c    00000000   nop
 '
 run_test
+
+NAME="mips ESIL subtraction in mem refs."
+BROKEN=
+FILE=malloc://20
+ARGS=
+CMDS="e asm.bits=32
+e asm.arch=${PLUGIN}
+e anal.depth=2
+e asm.nbytes=4
+e cfg.bigendian=true
+e asm.esil=true
+e asm.bytes=false
+wx 3c1c0042279c89408f99805003e00008
+pd 4
+"
+EXPECT='            0x00000000   0x420000,gp,=
+            0x00000004   -30400,gp,+,gp,=
+            0x00000008   32688,gp,-,[4],t9,=
+            0x0000000c   ra,pc,=
+'
+run_test

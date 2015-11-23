@@ -21,6 +21,25 @@ EXPECT='0x00000021
 run_test
 
 NAME="esil x86-64 pd deinit"
+BROKEN=1
+CMDS='
+e asm.arch=x86
+e asm.bits=64
+aei
+aeim
+wa mov rax, 11
+e asm.emu=false
+ar rax=33
+e scr.null = true
+pd 2000
+e scr.null = false
+ar rax
+'
+EXPECT='0x00000021
+'
+run_test
+
+NAME="esil x86-64 pd deinit"
 CMDS='
 e asm.arch=x86
 e asm.bits=64

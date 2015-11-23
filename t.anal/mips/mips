@@ -95,7 +95,7 @@ run_test
 # Test that jumps / calls used mapped address if used (Case 2 - mapped)
 #
 NAME="mips LE correct relative jump reference if mapped from command line."
-BROKEN=
+BROKEN=1
 FILE=malloc://40
 ARGS='-m 0x80100000'
 CMDS="e asm.bits=32

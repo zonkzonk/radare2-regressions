@@ -17,3 +17,32 @@ EXPECT='5
 0x00000025
 '
 run_test
+
+
+NAME='ahi 1'
+FILE=malloc://16
+BROKEN=
+CMDS='
+e asm.arch=x86
+e asm.bits=64
+wx 4883e4f0
+ahi 1
+pi 1
+'
+EXPECT='and rsp, 1111111111111111111111111111111111111111111111111111111111110000b
+'
+run_test
+
+NAME='ahi 10'
+FILE=malloc://16
+BROKEN=1
+CMDS='
+e asm.arch=x86
+e asm.bits=64
+wx 4883e4f0
+ahi 10
+pi 1
+'
+EXPECT='and rsp, -16
+'
+run_test

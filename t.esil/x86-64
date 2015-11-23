@@ -1,6 +1,82 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
+NAME="esil x86-64 imul"
+CMDS='
+wx 69c389000000
+ao~opcode,esil
+'
+EXPECT='opcode: imul eax, ebx, 0x89
+esil: 137,rbx,*,rax,=
+'
+run_test
+
+NAME="esil x86-64 imul emu"
+CMDS='
+wx 48c7c004000000
+wx 48c7c305000000 @ 7
+wx 69c303000000 @ 14
+3aes
+ar rax
+'
+EXPECT='0x0000000f
+'
+run_test
+
+NAME="esil x86-64 two steps"
+CMDS='
+e asm.arch=x86
+e asm.bits=64
+wx 48c7c004000000
+wx 48c7c305000000 @ 7
+pi 2
+2aes
+ar rax
+ar rbx
+'
+EXPECT='mov rax, 4
+mov rbx, 5
+0x00000004
+0x00000005
+'
+run_test
+
+NAME="esil x86-64 aesu"
+CMDS='
+e asm.arch=x86
+e asm.bits=64
+wx 48c7c004000000
+wx 48c7c305000000 @ 7
+pi 2
+aesu 14
+ar rax
+ar rbx
+'
+EXPECT='mov rax, 4
+mov rbx, 5
+0x00000004
+0x00000005
+'
+run_test
+
+NAME="esil x86-64 aesu"
+CMDS='
+e asm.arch=x86
+e asm.bits=64
+wx 48c7c004000000
+wx 48c7c305000000 @ 7
+pi 2
+aesu 14
+ar rax
+ar rbx
+'
+EXPECT='mov rax, 4
+mov rbx, 5
+0x00000004
+0x00000005
+'
+run_test
+
 NAME="esil x86-64"
 CMDS='
 ?e

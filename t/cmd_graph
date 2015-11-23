@@ -281,3 +281,14 @@ EXPECT="
 $k-----'
 "
 run_test
+
+NAME='with anal.nopskip'
+FILE=../bins/elf/ls-alxchk
+ARGS=
+CMDS='e anal.nopskip=true
+aaa
+s 0x00011390
+agf > /dev/null
+'
+EXPECT=""
+run_test

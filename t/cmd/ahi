@@ -12,6 +12,48 @@ EXPECT='sub rsp, 0x648
 '
 run_test
 
+NAME="ahi 0x41 -> 'A'"
+CMDS='e asm.bits=64
+e asm.arch=x86
+wx 4881ec48060000
+wx 4883f841 # cmp rax, 0x41
+pi 1
+ahi 2
+pi 1
+'
+EXPECT="cmp rax, 0x41
+cmp rax, 'A'
+"
+run_test
+
+NAME='ahi 0xe -> 1'
+CMDS='e asm.bits=64
+e asm.arch=x86
+wx 4881ec48060000
+wx 4883f80e # cmp rax, 0xe
+pi 1
+ahi 1
+pi 1
+'
+EXPECT='cmp rax, 0xe
+cmp rax, 1110b
+'
+run_test
+
+NAME='ahi 4 -> 1'
+CMDS='e asm.bits=64
+e asm.arch=x86
+wx 4881ec48060000
+wx 4883f804 # cmp rax, 4
+pi 1
+ahi 1
+pi 1
+'
+EXPECT='cmp rax, 4
+cmp rax, 100b
+'
+run_test
+
 NAME='ahi none'
 CMDS='e asm.bits=64
 e asm.arch=x86

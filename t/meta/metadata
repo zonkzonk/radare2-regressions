@@ -82,3 +82,16 @@ EXPECT='1
 0
 '
 run_test
+
+NAME="formata memory metadata"
+FILE=-
+ARGS=
+CMDS='wx 41424344
+Cf 4 x
+pd 1
+'
+EXPECT='            0x00000000 format x {
+0x00000000 = 0x44434241
+} 4
+'
+run_test

@@ -174,3 +174,17 @@ pi 1
 EXPECT='mov eax, 'AAAA'
 '
 run_test
+
+NAME='ah*'
+FILE=malloc://16
+BROKEN=1
+CMDS='
+e asm.arch=x86
+e asm.bits=64
+wx 4883e4f0
+ahi 10 @ 0x00404879
+ah*
+'
+EXPECT='ahi 10 @ 0x00404879
+'
+run_test

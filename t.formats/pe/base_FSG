@@ -12,7 +12,7 @@ run_test
 NAME='PE: FSG 2.0- open'
 FILE=../../bins/pe/base_FSG.exe
 ARGS=''
-BROKEN=
+BROKEN=1
 CMDS='e asm.functions = false
 e asm.comments = false
 e asm.bytes = false

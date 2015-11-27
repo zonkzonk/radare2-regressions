@@ -37,3 +37,19 @@ vaddr=0x00400440 paddr=0x00000440 ord=004 fwd=NONE sz=16 bind=GLOBAL type=FUNC n
 '
 
 run_test
+
+NAME="symbols with no sections header information"
+BROKEN=1
+FILE=../../bins/elf/main_nosect
+ARGS=
+CMDS='is
+'
+EXPECT='[Symbols]
+vaddr=0x004003e0 paddr=0x000003e0 ord=001 fwd=NONE sz=16 bind=GLOBAL type=FUNC name=imp.puts
+vaddr=0x004003f0 paddr=0x000003f0 ord=002 fwd=NONE sz=16 bind=GLOBAL type=FUNC name=imp.__libc_start_main
+vaddr=0x00400400 paddr=0x00000400 ord=003 fwd=NONE sz=16 bind=UNKNOWN type=NOTYPE name=imp.__gmon_start__
+
+3 symbols
+'
+
+run_test

@@ -49,7 +49,7 @@ e asm.lines=0
 e asm.bytes=0
 e asm.comments=0
 '
-EXPECT="            0x00005f16    e835ffffff     call fcn.eip
+EXPECT="            0x00005f16     e835ffffff     call fcn.eip
 "
 run_test
 

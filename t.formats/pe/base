@@ -18,6 +18,6 @@ e asm.bytes = false
 e asm.offset = false
 e asm.calls = false
 pd 1 @ 0x0040128d'
-EXPECT='            call dword [sym.imp.msvcrt.dll___set_app_type]
+EXPECT='              call dword [sym.imp.msvcrt.dll___set_app_type]
 '
 run_test

@@ -47,8 +47,8 @@ e asm.arch=x86
 e asm.bits=32
 pd 2 @x:9090
 '
-EXPECT='            0x00000000    90             nop
-            0x00000001    90             nop
+EXPECT='            0x00000000     90             nop
+            0x00000001     90             nop
 '
 run_test
 

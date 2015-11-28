@@ -60,29 +60,28 @@ if [ -f "$T" -a -x "$T" ]; then
   cd $BDIR
   . ./$FILE
 else
-cd $T || die "t/ doesn't exist"
-for file in * ; do
-   [ "$file" = '*' ] && break
-   if [ -d "$file" ]; then
-      cd $file
-      for file2 in *; do
-         [ "$file2" = '*' ] && break
-         TEST_NAME=$(echo "${file2}" | sed 's/.sh$//')
-	 NAME=`basename $file2`
-         TEST_NAME=$file
-         if [ -f "${file2}" ]; then
-           . ./${file2}
-         fi
-      done
-      cd ..
-   elif [ ! -x "$file" ]; then	# Only run files marked as executable.
-      print_found_nonexec "$file"
-   else
-      NAME=`basename $file`
-      TEST_NAME=$NAME
-      . ./${file}
-   fi
-done
+    cd $T || die "t/ doesn't exist"
+
+    do_tests_recurse() {
+        # Tests are run recursively
+        for i in "$1"/*; do
+            if [ -d "$i" ]; then
+                cd ${i}
+                do_tests_recurse "."
+                cd ..
+            elif [ -f "$i" ]; then
+                if [ ! -x "$i" ]; then	# Only run files marked as executable.
+                    print_found_nonexec "$i"
+                else
+                    NAME=`basename $i`
+                    TEST_NAME=${NAME}
+                    . ./${i}
+                fi
+            fi
+        done
+    }
+
+    do_tests_recurse "."
 fi
 
 if [ -z "${NOREPORT}" ]; then

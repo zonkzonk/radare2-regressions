@@ -290,7 +290,7 @@ f.blah
 pd 1
 '
 EXPECT='           .blah:
-              31ed           xor ebp, ebp
+               31ed           xor ebp, ebp
 '
 run_test
 

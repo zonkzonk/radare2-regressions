@@ -12,7 +12,7 @@ e scr.columns = 90
 wx ba3d000000
 pd 1
 '
-EXPECT="            0x00000000     ba3d000000     mov edx, 0x3d                ; '='
+EXPECT="            0x00000000      ba3d000000     mov edx, 0x3d               ; '='
 "
 run_test
 
@@ -27,7 +27,7 @@ e scr.columns = 90
 aa
 pd 1 @ 0x0040050a
 '
-EXPECT='|           0x0040050a     bfc4054000     mov edi, str.Hello_World     ; "Hello World" @ 0x4005c4
+EXPECT='|           0x0040050a      bfc4054000     mov edi, str.Hello_World    ; "Hello World" @ 0x4005c4
 '
 run_test
 
@@ -41,7 +41,7 @@ e scr.columns = 90
 aa
 pd 1 @ 0x0040050a
 '
-EXPECT='|           0x0040050a     bfc4054000     mov edi, str.Hello_World     ; "Hello World" @ 0x4005c4
+EXPECT='|           0x0040050a      bfc4054000     mov edi, str.Hello_World    ; "Hello World" @ 0x4005c4
 '
 run_test
 
@@ -52,16 +52,16 @@ e asm.arch=x86
 e asm.bits=64
 wx 90909090909090909090 ; s 10 ; pD -10
 '
-EXPECT='            0x00000000     90             nop
-            0x00000001     90             nop
-            0x00000002     90             nop
-            0x00000003     90             nop
-            0x00000004     90             nop
-            0x00000005     90             nop
-            0x00000006     90             nop
-            0x00000007     90             nop
-            0x00000008     90             nop
-            0x00000009     90             nop
+EXPECT='            0x00000000      90             nop
+            0x00000001      90             nop
+            0x00000002      90             nop
+            0x00000003      90             nop
+            0x00000004      90             nop
+            0x00000005      90             nop
+            0x00000006      90             nop
+            0x00000007      90             nop
+            0x00000008      90             nop
+            0x00000009      90             nop
 '
 
 run_test
@@ -74,16 +74,16 @@ e asm.arch=x86
 e asm.bits=64
 wx 90909090909090909090 ; s 10 ; pd -10
 '
-EXPECT='            0x00000000     90             nop
-            0x00000001     90             nop
-            0x00000002     90             nop
-            0x00000003     90             nop
-            0x00000004     90             nop
-            0x00000005     90             nop
-            0x00000006     90             nop
-            0x00000007     90             nop
-            0x00000008     90             nop
-            0x00000009     90             nop
+EXPECT='            0x00000000      90             nop
+            0x00000001      90             nop
+            0x00000002      90             nop
+            0x00000003      90             nop
+            0x00000004      90             nop
+            0x00000005      90             nop
+            0x00000006      90             nop
+            0x00000007      90             nop
+            0x00000008      90             nop
+            0x00000009      90             nop
 '
 run_test
 
@@ -141,18 +141,18 @@ pd 3
 e asm.nbytes = 6
 pd 3
 '
-EXPECT=' 0x00000000     488d85c0f9ff.  lea rax, [rbp - 0x640]
- 0x00000007     488985b8f9ff.  mov qword [rbp - 0x648], rax
- 0x0000000e     4585f6         test r14d, r14d
- 0x00000000     488d85c0f9ffff         lea rax, [rbp - 0x640]
- 0x00000007     488985b8f9ffff         mov qword [rbp - 0x648], rax
- 0x0000000e     4585f6                 test r14d, r14d
- 0x00000000             488d85c0f9ffff  lea rax, [rbp - 0x640]
- 0x00000007             488985b8f9ffff  mov qword [rbp - 0x648], rax
- 0x0000000e                     4585f6  test r14d, r14d
- 0x00000000      488d85c0f9ff.  lea rax, [rbp - 0x640]
+EXPECT=' 0x00000000      488d85c0f9ff.  lea rax, [rbp - 0x640]
  0x00000007      488985b8f9ff.  mov qword [rbp - 0x648], rax
- 0x0000000e             4585f6  test r14d, r14d
+ 0x0000000e      4585f6         test r14d, r14d
+ 0x00000000      488d85c0f9ffff         lea rax, [rbp - 0x640]
+ 0x00000007      488985b8f9ffff         mov qword [rbp - 0x648], rax
+ 0x0000000e      4585f6                 test r14d, r14d
+ 0x00000000              488d85c0f9ffff  lea rax, [rbp - 0x640]
+ 0x00000007              488985b8f9ffff  mov qword [rbp - 0x648], rax
+ 0x0000000e                      4585f6  test r14d, r14d
+ 0x00000000       488d85c0f9ff.  lea rax, [rbp - 0x640]
+ 0x00000007       488985b8f9ff.  mov qword [rbp - 0x648], rax
+ 0x0000000e              4585f6  test r14d, r14d
 '
 run_test
 
@@ -169,7 +169,7 @@ pd 1
 e asm.relsub=true
 pd 1
 '
-EXPECT=' 0x00400000     488d05020000.  lea rax, [rip + 2]
- 0x00400000     488d05020000.  lea rax, [0x400009]
+EXPECT=' 0x00400000      488d05020000.  lea rax, [rip + 2]
+ 0x00400000      488d05020000.  lea rax, [0x400009]
 '
 run_test

@@ -20,8 +20,8 @@ run_test
 
 PLUGIN=x86.cs
 
-test_vector "${PLUGIN}" "OUT" e784 "out 0x84, eax" "br"
-test_vector "${PLUGIN}" "IN" e58c "in eax, 0x8c" "br"
+test_vector "${PLUGIN}" "OUT" e784 "out 0x84, eax"
+test_vector "${PLUGIN}" "IN" e58c "in eax, 0x8c"
 test_vector "${PLUGIN}" "CWDE" 98 "cwde"
 test_vector "${PLUGIN}" "CBW" 6698 "cbw"
 test_vector "${PLUGIN}" "CDQ" 99 "cdq"

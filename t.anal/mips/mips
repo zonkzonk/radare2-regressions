@@ -427,7 +427,7 @@ EXPECT='0x8060b4f8     00000000   nop
 run_test
 
 NAME="mips ESIL subtraction in mem refs."
-BROKEN=
+BROKEN=1
 FILE=malloc://20
 ARGS=
 CMDS="e asm.bits=32

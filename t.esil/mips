@@ -1366,3 +1366,51 @@ ar s0
 EXPECT='0x00000001
 '
 run_test
+
+NAME="negu v1, v0 (neg -1 = 1)"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v1=0
+ar v0=-1
+wx 23180200
+aes
+ar v1
+'
+EXPECT='0x00000001
+'
+run_test
+
+NAME="negu v1, v0 (neg 1 = -1)"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v1=0
+ar v0=1
+wx 23180200
+aes
+ar v1
+'
+EXPECT='0xffffffff
+'
+run_test
+
+NAME="negu v1, v0 (neg 3497 = -3497)"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar v1=0
+ar v0=3497
+wx 23180200
+aes
+ar v1
+'
+EXPECT='0xfffff257
+'
+run_test

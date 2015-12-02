@@ -965,7 +965,6 @@ ar v1=0x00112233
 wx 0e004314
 aep 0
 aes
-aes
 ar pc
 '
 EXPECT='0x00000004
@@ -981,7 +980,6 @@ ar > /dev/null
 ar v0=0x00222233
 ar v1=0x00112233
 wx 0e004314
-aes
 aes
 ar pc
 '
@@ -999,7 +997,6 @@ ar v0=0x00222233
 ar v1=0x00112233
 wx 0e004310
 aes
-aes
 ar pc
 '
 EXPECT='0x00000004
@@ -1016,7 +1013,6 @@ ar v0=0x00112233
 ar v1=0x00112233
 wx 0e004310
 aes
-aes
 ar pc
 '
 EXPECT='0x0000003c
@@ -1031,7 +1027,6 @@ e asm.bits=32
 ar > /dev/null
 ar s4=0x00000000
 wx 02008016
-aes
 aes
 ar pc
 '
@@ -1048,7 +1043,6 @@ ar > /dev/null
 ar s4=0x00112233
 wx 02008016
 aes
-aes
 ar pc
 '
 EXPECT='0x0000000c
@@ -1063,7 +1057,6 @@ e asm.bits=32
 ar > /dev/null
 ar v0=0x00000001
 wx 0e004018
-aes
 aes
 ar pc
 '
@@ -1080,7 +1073,6 @@ ar > /dev/null
 ar v0=0xfffffffc
 wx 0e004018
 aes
-aes
 ar pc
 '
 EXPECT='0x0000003c
@@ -1094,7 +1086,6 @@ e asm.arch=mips
 e asm.bits=32
 ar > /dev/null
 wx 0e000018
-aes
 aes
 ar pc
 '
@@ -1111,7 +1102,6 @@ ar > /dev/null
 ar v0=0x00000001
 wx 0e004104
 aes
-aes
 ar pc
 '
 EXPECT='0x0000003c
@@ -1127,7 +1117,6 @@ ar > /dev/null
 ar v0=0xfffffffc
 wx 0e004104
 aes
-aes
 ar pc
 '
 EXPECT='0x00000004
@@ -1141,7 +1130,6 @@ e asm.arch=mips
 e asm.bits=32
 ar > /dev/null
 wx 0e000104
-aes
 aes
 ar pc
 '
@@ -1158,7 +1146,6 @@ ar > /dev/null
 ar v0=0x00000001
 wx 0e004004
 aes
-aes
 ar pc
 '
 EXPECT='0x00000004
@@ -1174,7 +1161,6 @@ ar > /dev/null
 ar v0=0xfffffffc
 wx 0e004004
 aes
-aes
 ar pc
 '
 EXPECT='0x0000003c
@@ -1188,7 +1174,6 @@ e asm.arch=mips
 e asm.bits=32
 ar > /dev/null
 wx 0e000004
-aes
 aes
 ar pc
 '
@@ -1205,7 +1190,6 @@ ar > /dev/null
 ar v0=0x00000001
 wx 0e00401c
 aes
-aes
 ar pc
 '
 EXPECT='0x0000003c
@@ -1221,7 +1205,6 @@ ar > /dev/null
 ar v0=0xfffffffc
 wx 0e00401c
 aes
-aes
 ar pc
 '
 EXPECT='0x00000004
@@ -1236,7 +1219,6 @@ e asm.bits=32
 ar > /dev/null
 wx 0e00001c
 aes
-aes
 ar pc
 '
 EXPECT='0x00000004
@@ -1250,7 +1232,6 @@ e asm.arch=mips
 e asm.bits=32
 ar > /dev/null
 wx 0400000c
-aes
 aes
 ar pc
 ar ra
@@ -1269,7 +1250,6 @@ ar > /dev/null
 ar t9=16
 wx 09f82003
 aes
-aes
 ar pc
 ar ra
 '
@@ -1287,6 +1267,22 @@ ar > /dev/null
 ar t9=16
 wx 09602003
 aes
+ar pc
+ar t4
+'
+EXPECT='0x00000010
+0x00000008
+'
+run_test
+
+NAME="jalr t4, t9 (invalid delay instruction)"
+FILE=malloc://8
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+ar > /dev/null
+ar t9=16
+wx 09602003f673643
 aes
 ar pc
 ar t4

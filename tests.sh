@@ -402,6 +402,10 @@ fi
 }
 
 print_report() {
+    if [ ! -z "${NOREPORT}" ]; then
+        return
+    fi
+
     echo
     echo "=== Report ==="
     echo
@@ -450,3 +454,14 @@ print_report() {
       echo
     fi
 }
+
+save_stats(){
+    cd $R
+    V=`radare2 -v 2>/dev/null| grep ^rada| awk '{print $5}'`
+    touch stats.csv
+    grep -v "^$V" stats.csv > .stats.csv
+    echo "$V,${TESTS_SUCCESS},${TESTS_FIXED},${TESTS_BROKEN},${TESTS_FAILED},${TESTS_FATAL},${FAILED}" >> .stats.csv
+    sort .stats.csv > stats.csv
+    rm -f .stats.csv
+}
+

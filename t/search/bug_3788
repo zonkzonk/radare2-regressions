@@ -3,7 +3,6 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME="bug 3788 #1: search in virtual address"
 FILE=../../bins/vsf/c64-rambo2-norom.vsf
-BROKEN=1
 IGNORE_ERR=1
 CMDS='s 0
 /x ac6c6c68

@@ -128,6 +128,13 @@ BROKEN=1
 EXPECT='44'
 run_test
 
+NAME='Rasm2 -ax86.as -b 64 movq %rdx, %rax'
+CMDS="!rasm2 -a x86.as -b 64 'movq %rdx, %rax'"
+BROKEN=1
+EXPECT='4889c2
+'
+run_test
+
 NAME='rasm2 -v~commit?"'
 CMDS='!!rasm2 -v~commit?'
 EXPECT='1

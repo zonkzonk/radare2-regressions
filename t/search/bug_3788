@@ -22,3 +22,15 @@ EXPECT='0x0000008a hit0_0 ac686b6d
 '
 run_test
 
+NAME="bug 3788 #3: cmd.hit"
+FILE=../../bins/vsf/c64-rambo2-norom.vsf
+IGNORE_ERR=1
+CMDS='s 0
+e cmd.hit = px 16
+/x ac6c6c68
+'
+EXPECT='0x0000008a hit0_0 ac6c6c68
+- offset -   0 1  2 3  4 5  6 7  8 9  A B  C D  E F  0123456789ABCDEF
+0x0000008a  ac6c 6c68 6700 1200 0000 0000 0000 4b0f  .llhg.........K.
+'
+run_test

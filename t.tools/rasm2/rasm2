@@ -157,10 +157,10 @@ BROKEN=1
 EXPECT='44'
 run_test
 
-NAME='Rasm2 -ax86.as -b 64 movq %rdx, %rax'
-CMDS="!rasm2 -a x86.as -b 64 'movq %rdx, %rax'"
+NAME='Rasm2 -s att -ax86.as -b 64 movq %rdx, %rax'
+CMDS="!rasm2 -s att -a x86.as -b 64 'movq %rdx, %rax'"
 BROKEN=
-EXPECT='4889c2
+EXPECT='4889d0
 '
 run_test
 

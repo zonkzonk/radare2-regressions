@@ -50,5 +50,25 @@ vaddr=0x00400400 paddr=0x00000400 ord=003 fwd=NONE sz=16 bind=UNKNOWN type=NOTYP
 
 3 symbols
 '
+run_test
+
+NAME="symbols with no sections header information 2"
+FILE=../../bins/elf/clark
+ARGS=
+CMDS='is
+'
+EXPECT='[Symbols]
+vaddr=0x080487dc paddr=0x000007dc ord=008 fwd=NONE sz=4 bind=GLOBAL type=OBJECT name=_IO_stdin_used
+vaddr=0x08048370 paddr=0x00000370 ord=001 fwd=NONE sz=16 bind=GLOBAL type=FUNC name=imp.mprotect
+vaddr=0x08048380 paddr=0x00000380 ord=002 fwd=NONE sz=16 bind=GLOBAL type=FUNC name=imp.puts
+vaddr=0x08048390 paddr=0x00000390 ord=003 fwd=NONE sz=16 bind=UNKNOWN type=NOTYPE name=imp.__gmon_start__
+vaddr=0x080483a0 paddr=0x000003a0 ord=004 fwd=NONE sz=16 bind=GLOBAL type=FUNC name=imp.exit
+vaddr=0x080483b0 paddr=0x000003b0 ord=005 fwd=NONE sz=16 bind=GLOBAL type=FUNC name=imp.__libc_start_main
+vaddr=0x080483c0 paddr=0x000003c0 ord=006 fwd=NONE sz=16 bind=GLOBAL type=FUNC name=imp.ptrace
+vaddr=0x080483d0 paddr=0x000003d0 ord=007 fwd=NONE sz=16 bind=GLOBAL type=FUNC name=imp.calloc
+
+8 symbols
+'
+
 
 run_test

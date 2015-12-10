@@ -118,7 +118,7 @@ BROKEN=
 ARGS=
 CMDS='af
 afvn local_0 blah
-afvj
+afvj~?blah
 '
 EXPECT="1
 "

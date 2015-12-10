@@ -22,3 +22,59 @@ afvn old_1 new_1
 '
 EXPECT=""
 run_test
+
+
+NAME='afa & afan'
+FILE=../bins/efi/bootia32.efi
+ARGS=
+CMDS='af
+afan arg_2 ImageHandle
+afan arg_3 SystemTable
+afa~?ImageHandle
+afa~?SystemTable
+'
+EXPECT="1
+1
+"
+run_test
+
+NAME='afa* & afan'
+FILE=../bins/efi/bootia32.efi
+ARGS=
+CMDS='af
+afan arg_2 ImageHandle
+afan arg_3 SystemTable
+afa*~?ImageHandle
+afa*~?SystemTable
+'
+EXPECT="1
+1
+"
+run_test
+
+NAME='afa idx... & afan'
+FILE=../bins/efi/bootia32.efi
+ARGS=
+CMDS='af
+afa 8 ImageHandle blah @ 0x10002d8d
+afa*~ImageHandle
+'
+EXPECT="afa 8 ImageHandle blah @ 0x10002d8d
+"
+run_test
+
+
+NAME='afa-*'
+FILE=../bins/efi/bootia32.efi
+ARGS=
+BROKEN=1
+CMDS='af
+afa-*
+afv-*
+afa~?
+afv~?
+'
+EXPECT="0
+0
+"
+run_test

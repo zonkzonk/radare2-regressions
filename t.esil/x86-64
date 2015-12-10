@@ -1,6 +1,50 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
+NAME='imul 1 arg'
+FILE=-
+ARGS=
+CMDS='
+e asm.arch=x86
+e asm.bits=64
+"(pi bytes,wx $0,pi 1,pie 1)"
+.(pi 49f7e9)
+'
+EXPECT='imul r9
+0x00000000 r9,rax,*=
+'
+run_test
+
+NAME='imul 2 arg'
+BROKEN=1
+FILE=-
+ARGS=
+CMDS='
+e asm.arch=x86
+e asm.bits=64
+"(pi bytes,wx $0,pi 1,pie 1)"
+.(pi 0fafc1)
+'
+EXPECT='imul eax, ecx
+0x00000000 ecx,eax,*=
+'
+run_test
+
+NAME='imul 3 arg'
+FILE=-
+ARGS=
+CMDS='
+e asm.arch=x86
+e asm.bits=64
+"(pi bytes,wx $0,pi 1,pie 1)"
+.(pi 4969c367666633)
+'
+EXPECT='imul rax, r11, 0x33666667
+0x00000000 862348903,r11,*,rax,=
+'
+run_test
+exit 1
+
 NAME="esil x86-64 pd deinit"
 BROKEN=
 CMDS='

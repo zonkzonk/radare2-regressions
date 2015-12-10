@@ -23,3 +23,13 @@ EXPECT='Loading:
   0. 16 D2A2 0298 0000:__libc_start_main
 '
 run_test
+
+NAME='af ; af ; zF libc.sig'
+FILE=../bins/elf/pid_stripped
+ARGS=
+CMDS="s 0x4e2420 ; af ; s 0x4e25c7 ; af ; zF ../bins/other/sigs/libc.sig ; afl ~4e2420"
+EXPECT='0x004e2420  664  61  flirt.__libc_start_main
+'
+run_test
+
+

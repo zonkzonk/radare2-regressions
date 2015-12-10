@@ -63,8 +63,96 @@ EXPECT="afa 8 ImageHandle blah @ 0x10002d8d
 "
 run_test
 
+NAME='afaj'
+FILE=../bins/efi/bootia32.efi
+ARGS=
+CMDS='af
+afa 8 ImageHandle blah @ 0x10002d8d
+afaj~?ImageHandle
+'
+EXPECT="1
+"
+run_test
 
-NAME='afa-*'
+NAME='afa-ArgName'
+FILE=../bins/efi/bootia32.efi
+BROKEN=1
+ARGS=
+CMDS='af
+afa 8 ImageHandle blah @ 0x10002d8d
+afa-ImageHandle
+afa~?ImageHandle
+'
+EXPECT="0
+"
+run_test
+
+NAME='afa-IDX'
+FILE=../bins/efi/bootia32.efi
+BROKEN=
+ARGS=
+CMDS='af
+afa 8 ImageHandle blah @ 0x10002d8d
+afa-ebp+0x8
+afa~?ImageHandle
+'
+EXPECT="0
+"
+run_test
+
+NAME='afv & afvn'
+FILE=../bins/efi/bootia32.efi
+BROKEN=
+ARGS=
+CMDS='af
+afvn local_0 blah
+afv~?blah
+'
+EXPECT="1
+"
+run_test
+
+NAME='afv idx & afv*'
+FILE=../bins/efi/bootia32.efi
+BROKEN=
+ARGS=
+CMDS='af
+afv 0 blah typeR @ 0x10002d8d
+afv*~?blah
+afv*~?typeR
+'
+EXPECT="1
+1
+"
+run_test
+
+NAME='afv-name'
+FILE=../bins/efi/bootia32.efi
+BROKEN=1
+ARGS=
+CMDS='af
+afv 0 blah typeR @ 0x10002d8d
+afv-blah
+afv~?blah
+'
+EXPECT="0
+"
+run_test
+
+NAME='afv-idx'
+FILE=../bins/efi/bootia32.efi
+BROKEN=
+ARGS=
+CMDS='af
+afv 0 blah typeR @ 0x10002d8d
+afv-0
+afv~?blah
+'
+EXPECT="0
+"
+run_test
+
+NAME='afa-* afv-*'
 FILE=../bins/efi/bootia32.efi
 ARGS=
 BROKEN=1
@@ -78,3 +166,5 @@ EXPECT="0
 0
 "
 run_test
+
+#TODO AFAG AFAS AFVG AFVS

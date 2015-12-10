@@ -112,6 +112,18 @@ EXPECT="1
 "
 run_test
 
+NAME='afv & afvn'
+FILE=../bins/efi/bootia32.efi
+BROKEN=
+ARGS=
+CMDS='af
+afvn local_0 blah
+afvj
+'
+EXPECT="1
+"
+run_test
+
 NAME='afv idx & afv*'
 FILE=../bins/efi/bootia32.efi
 BROKEN=

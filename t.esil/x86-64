@@ -43,7 +43,6 @@ EXPECT='imul rax, r11, 0x33666667
 0x00000000 862348903,r11,*,rax,=
 '
 run_test
-exit 1
 
 NAME="esil x86-64 pd deinit"
 BROKEN=

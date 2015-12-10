@@ -27,6 +27,16 @@ EXPECT='ljmp 0xf000:0xffaa
 '
 run_test
 
+NAME='ljmp follow'
+FILE=../../bins/firmware/bios_64k.bin
+ARGS=
+BROKEN=1
+CMDS="s \$j
+? \$\$"
+EXPECT='1048490 0xfffaa 03777652 1023.9K f000:0faa 1048490 10101010 1048490.0 0.000000f 0.000000
+'
+run_test
+
 NAME='loading a BIOS file [128k]'
 FILE=../../bins/firmware/bios_128k.bin
 ARGS=''
@@ -208,5 +218,3 @@ CMDS="pi 1"
 EXPECT='ljmp 0xf000:0xffaa
 '
 run_test
-
-

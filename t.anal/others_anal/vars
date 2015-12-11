@@ -25,7 +25,7 @@ run_test
 
 
 NAME='afa & afan'
-FILE=../bins/efi/bootia32.efi
+FILE=../../bins/efi/bootia32.efi
 ARGS=
 CMDS='af
 afan arg_2 ImageHandle
@@ -39,7 +39,7 @@ EXPECT="1
 run_test
 
 NAME='afa* & afan'
-FILE=../bins/efi/bootia32.efi
+FILE=../../bins/efi/bootia32.efi
 ARGS=
 CMDS='af
 afan arg_2 ImageHandle
@@ -53,7 +53,7 @@ EXPECT="1
 run_test
 
 NAME='afa idx... & afan'
-FILE=../bins/efi/bootia32.efi
+FILE=../../bins/efi/bootia32.efi
 ARGS=
 CMDS='af
 afa 8 ImageHandle blah @ 0x10002d8d
@@ -64,7 +64,7 @@ EXPECT="afa 8 ImageHandle blah @ 0x10002d8d
 run_test
 
 NAME='afaj'
-FILE=../bins/efi/bootia32.efi
+FILE=../../bins/efi/bootia32.efi
 ARGS=
 CMDS='af
 afa 8 ImageHandle blah @ 0x10002d8d
@@ -75,7 +75,7 @@ EXPECT="1
 run_test
 
 NAME='afa-ArgName'
-FILE=../bins/efi/bootia32.efi
+FILE=../../bins/efi/bootia32.efi
 BROKEN=1
 ARGS=
 CMDS='af
@@ -88,7 +88,7 @@ EXPECT="0
 run_test
 
 NAME='afa-IDX'
-FILE=../bins/efi/bootia32.efi
+FILE=../../bins/efi/bootia32.efi
 BROKEN=
 ARGS=
 CMDS='af
@@ -101,7 +101,7 @@ EXPECT="0
 run_test
 
 NAME='afv & afvn'
-FILE=../bins/efi/bootia32.efi
+FILE=../../bins/efi/bootia32.efi
 BROKEN=
 ARGS=
 CMDS='af
@@ -113,7 +113,7 @@ EXPECT="1
 run_test
 
 NAME='afv & afvn'
-FILE=../bins/efi/bootia32.efi
+FILE=../../bins/efi/bootia32.efi
 BROKEN=
 ARGS=
 CMDS='af
@@ -125,7 +125,7 @@ EXPECT="1
 run_test
 
 NAME='afv idx & afv*'
-FILE=../bins/efi/bootia32.efi
+FILE=../../bins/efi/bootia32.efi
 BROKEN=
 ARGS=
 CMDS='af
@@ -139,7 +139,7 @@ EXPECT="1
 run_test
 
 NAME='afv-name'
-FILE=../bins/efi/bootia32.efi
+FILE=../../bins/efi/bootia32.efi
 BROKEN=1
 ARGS=
 CMDS='af
@@ -152,7 +152,7 @@ EXPECT="0
 run_test
 
 NAME='afv-idx'
-FILE=../bins/efi/bootia32.efi
+FILE=../../bins/efi/bootia32.efi
 BROKEN=
 ARGS=
 CMDS='af
@@ -165,7 +165,7 @@ EXPECT="0
 run_test
 
 NAME='afa-* afv-*'
-FILE=../bins/efi/bootia32.efi
+FILE=../../bins/efi/bootia32.efi
 ARGS=
 BROKEN=1
 CMDS='af

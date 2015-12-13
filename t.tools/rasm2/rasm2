@@ -33,14 +33,12 @@ run_test
 # broken for gcc (swap args)
 NAME='Rasm2 #1167 3'
 CMDS="!rasm2 -s att -a x86.as -b 64 'test %rbx, %rax' "
-BROKEN=1
 EXPECT='4885c3
 '
 run_test
 
 # broken for gcc (swap args)
 NAME='Rasm2 #1167 4'
-BROKEN=1
 CMDS="!rasm2 -s intel -a x86.as -b 64 'test rax, rbx' "
 EXPECT='4885c3
 '

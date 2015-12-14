@@ -10,12 +10,11 @@ aaa
 /c call 0x4ec
 "
 EXPECT='0x000003e2   # 4: call 0x4ec
-0x000003e2   # 4: call 0x4ec
 '
 run_test
 
 NAME="avr search - XXX dupped hit"
-BROKEN=1
+BROKEN=
 FILE=../../bins/firmware/arduino_avr.bin
 CMDS="e asm.arch=avr
 aaa

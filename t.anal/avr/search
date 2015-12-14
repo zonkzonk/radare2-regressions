@@ -39,6 +39,17 @@ NAME="avr search"
 BROKEN=
 FILE=../../bins/firmware/arduino_avr.bin
 CMDS='e asm.arch=avr
+aac
+axt 0x4ec
+'
+EXPECT='C 0x3e2 call fcn.000004ec
+'
+run_test
+
+NAME="avr search"
+BROKEN=1
+FILE=../../bins/firmware/arduino_avr.bin
+CMDS='e asm.arch=avr
 aaa
 axt 0x4ec
 '

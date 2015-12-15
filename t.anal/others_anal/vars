@@ -167,7 +167,7 @@ run_test
 NAME='afa-* afv-*'
 FILE=../../bins/efi/bootia32.efi
 ARGS=
-BROKEN=1
+BROKEN=
 CMDS='af
 afa-*
 afv-*

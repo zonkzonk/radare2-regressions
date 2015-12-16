@@ -108,8 +108,9 @@ EXPECT='%4c%e2%fc
 '
 run_test
 
-NAME='asm.emu '
+NAME='asm.emu in project'
 FILE=../bins/elf/simpleARM.elf
+BROKEN=1
 ARGS=
 CMDS='e asm.flags = false
 e asm.emu = true

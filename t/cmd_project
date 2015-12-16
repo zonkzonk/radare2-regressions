@@ -125,11 +125,12 @@ run_test
 
 NAME='Variables in project file'
 FILE=../bins/efi/bootia32.efi
-BROKEN=1
+BROKEN=
 ARGS=
 CMDS='e dir.projects = /tmp/
+af
 afv 0 blahblah typeR @ 0x10002d8d
-afa 8 ImageHandle blah @ 0x10002d8d&
+afa 8 ImageHandle blah @ 0x10002d8d
 Ps var > /dev/null
 Pc var~ImageHandle
 Pc var~blahblah

@@ -10,7 +10,7 @@ e anal.hasnext=0
 e anal.eobjmp=false
 e asm.arch=x86
 e asm.bits=32
-wx 6a00 4889e5 c3 
+wx 6a00 4889e5 c3
 af
 afl~[1]
 '
@@ -231,5 +231,45 @@ afl
 EXPECT='0x00001f00  73  4  sym._bar
 0x00001f50  47  1  sym._foo
 0x00001f80  41  1  sym._main
+'
+run_test
+
+NAME='af afF'
+FILE=malloc://1024
+ARGS=
+CMDS='
+e anal.hasnext=0
+e anal.eobjmp=false
+e asm.arch=x86
+e asm.bits=32
+wx 6a004889e5c3
+af test
+afF
+pd 1 @ fcn.test
+'
+EXPECT='/ (fcn) fcn.test
+\           0x00000000 (6 byte folded function)
+'
+run_test
+
+NAME='af afF graph'
+FILE=malloc://1024
+ARGS=
+CMDS='
+e anal.hasnext=0
+e anal.eobjmp=false
+e asm.arch=x86
+e asm.bits=32
+wx 6a004889e5c3
+af test
+afF
+agf
+'
+EXPECT='[0x00000000]> VV @ fcn.test (nodes 1 edges 0 zoom 100%) BB-NORM mouse:canvas-y movements-speed:5
+=---------------------------=
+|  0x0                      |
+| / (fcn) fcn.test          |
+| (6 byte folded function)  |
+=---------------------------=
 '
 run_test

@@ -18,7 +18,7 @@ FILE=malloc://512
 ARGS=
 CMDS='e dir.projects = ../files/
 CC Some test @ 0x00404890
-Po test > /dev/null
+Po import2 > /dev/null
 CC*
 '
 EXPECT='CCu base64:U29tZSB0ZXN0 @ 0x00404890
@@ -35,9 +35,9 @@ wx 31ed4989d15e4889e24883e4f0505449c7c09024410048c7c12024410048c7c7a0284000e857d
 af test
 afF @ fcn.test
 pdf
-Ps test > /dev/null
-Pc test~afF
-rm /tmp/test
+Ps testafF > /dev/null
+Pc testafF~afF
+rm /tmp/testafF
 '
 EXPECT='/ (fcn) fcn.test
 \           0x00000000 (42 byte folded function)
@@ -52,9 +52,9 @@ FILE=malloc://512
 ARGS=
 CMDS='e dir.projects = /tmp/
 CC "Some other test" @ 0x00404890
-Ps test > /dev/null
-cat /tmp/test | grep base
-rm /tmp/test
+Ps testexp > /dev/null
+cat /tmp/testexp | grep base
+rm /tmp/testexp
 '
 EXPECT='CCu base64:IlNvbWUgb3RoZXIgdGVzdCI= @ 0x00404890
 '
@@ -66,12 +66,12 @@ ARGS=
 CMDS='e dir.projects = /tmp/
 CC "First comment" @ 0x00404890
 CC "Second comment" @ 0x00404800
-Ps test > /dev/null
+Ps testset > /dev/null
 C- @ 0x00404890
 C- @ 0x00404800
 Po project.r2
-cat /tmp/test | grep CC
-rm /tmp/test
+cat /tmp/testset | grep CC
+rm /tmp/testset
 '
 EXPECT='CCu base64:IkZpcnN0IGNvbW1lbnQi @ 0x00404890
 CCu base64:IlNlY29uZCBjb21tZW50Ig== @ 0x00404800
@@ -83,15 +83,13 @@ FILE=malloc://512
 ARGS=
 CMDS='ax 1
 e dir.projects = /tmp/
-e file.project=test
 ax
-Ps
+Ps xrefs > /dev/null
 ax
 '
 EXPECT='types=code.jmp,code.call,data.mem,data.string
 ref.unk.0x0=0x1
 xref.unk.0x1=0
-test
 types=code.jmp,code.call,data.mem,data.string
 ref.unk.0x0=0x1
 xref.unk.0x1=0
@@ -115,12 +113,30 @@ ARGS=
 CMDS='e asm.flags = false
 e asm.emu = true
 e dir.projects = /tmp/
-Ps test > /dev/null
-Po test
+Ps emu > /dev/null
+Po emu
 CC-
 pd 1
-rm /tmp/test
+rm /tmp/emu
 '
 EXPECT='            0x08000060      0d20a0e3       mov r2, 0xd                ; r2=0xd -> 0x2000000
+'
+run_test
+
+NAME='Variables in project file'
+FILE=../bins/efi/bootia32.efi
+BROKEN=1
+ARGS=
+CMDS='e dir.projects = /tmp/
+afv 0 blahblah typeR @ 0x10002d8d
+afa 8 ImageHandle blah @ 0x10002d8d&
+Ps var > /dev/null
+Pc var~ImageHandle
+Pc var~blahblah
+Pc var
+rm /tmp/var
+'
+EXPECT='afa 8 ImageHandle blah @ 0x10002d8d
+afv 0 blahblah typeR @ 0x10002d8d
 '
 run_test

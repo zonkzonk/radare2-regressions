@@ -133,7 +133,6 @@ afa 8 ImageHandle blah @ 0x10002d8d&
 Ps var > /dev/null
 Pc var~ImageHandle
 Pc var~blahblah
-Pc var
 rm /tmp/var
 '
 EXPECT='afa 8 ImageHandle blah @ 0x10002d8d

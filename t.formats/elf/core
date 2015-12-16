@@ -6,7 +6,7 @@ NAME='ELF: core sections'
 FILE=../../bins/elf/core.1159
 ARGS=''
 CMDS="iS~?"
-EXPECT='19
+EXPECT='20
 '
 run_test
 
@@ -28,7 +28,7 @@ EXPECT='6
 '
 run_test
 
-#$ rabin2 -S core.1159 
+#$ rabin2 -S core.1159
 #Warning: Cannot initialize section headers
 #Warning: Cannot initialize strings table
 #Warning: Cannot initialize dynamic section
@@ -52,7 +52,7 @@ run_test
 #idx=16 vaddr=0x00400000 paddr=0x00000000 sz=64 vsz=64 perm=-rw- name=ehdr
 
 
-#$ objdump -h core.1159 
+#$ objdump -h core.1159
 #
 #core.1159:     file format elf64-x86-64
 #

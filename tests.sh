@@ -38,6 +38,8 @@ die() {
 printdiff() {
     if [ -n "${VERBOSE}" ]; then
         echo
+        print_label Regression:
+	echo "$0"
         print_label Command:
         echo "${R2CMD}"
         print_label File:

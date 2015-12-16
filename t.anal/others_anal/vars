@@ -167,7 +167,7 @@ run_test
 NAME='afa-* afv-*'
 FILE=../../bins/efi/bootia32.efi
 ARGS=
-BROKEN=1
+BROKEN=
 CMDS='af
 afa-*
 afv-*
@@ -180,3 +180,36 @@ EXPECT="0
 run_test
 
 #TODO AFAG AFAS AFVG AFVS
+
+NAME='anal vars count'
+FILE=../../bins/mach0/ls-osx-x86_64
+ARGS=
+CMDS='af
+afv~?
+'
+EXPECT="12
+"
+run_test
+
+NAME='anal vars retype'
+FILE=../../bins/mach0/ls-osx-x86_64
+ARGS=
+CMDS='af
+afvt local_6 char
+afv~l_6
+'
+EXPECT="var char local_6 @ rbp-0x30
+var int local_6_4 @ rbp-0x34
+"
+run_test
+
+NAME='anal vars rename'
+FILE=../../bins/mach0/ls-osx-x86_64
+ARGS=
+CMDS='af
+afvn local_6 newname
+afv~newname
+'
+EXPECT="var int newname @ rbp-0x30
+"
+run_test

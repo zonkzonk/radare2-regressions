@@ -219,11 +219,11 @@ run_test
 
 NAME='?p and ?P'
 FILE=../bins/elf/simple.elf
-CMDS='?p 0x08000123
-?P 0x00000012
+CMDS='?p 0x08000060
+?P 0x00000060
 '
-EXPECT='0x00000123
-0x08000012
+EXPECT='0x00000060
+0x08000060
 '
 run_test
 

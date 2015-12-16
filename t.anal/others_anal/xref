@@ -14,7 +14,7 @@ e scr.color = false
 e scr.wheel = false
 aa
 axt @ str.Hello_World'
-EXPECT='d 0x40050a mov edi, str.Hello_World
+EXPECT='d 0x40050a mov edi, str.Hello_World in sym.main
 '
 run_test
 
@@ -29,7 +29,7 @@ e scr.color=false
 e scr.wheel = false
 aa
 axt @ str.Hello_World'
-EXPECT='d 0x40050a mov edi, str.Hello_World
+EXPECT='d 0x40050a mov edi, str.Hello_World in sym.main
 '
 run_test
 
@@ -45,7 +45,7 @@ e scr.color=false
 e scr.wheel = false
 aa
 axt @ str.Password:'
-EXPECT='d 0x804843c mov dword [esp], str.Password:
+EXPECT='d 0x804843c mov dword [esp], str.Password: in sym.main
 '
 run_test
 
@@ -60,7 +60,7 @@ e scr.color=false
 e scr.wheel = false
 aa
 axt @ str.Password:'
-EXPECT='d 0x804843c mov dword [esp], str.Password:
+EXPECT='d 0x804843c mov dword [esp], str.Password: in sym.main
 '
 run_test
 

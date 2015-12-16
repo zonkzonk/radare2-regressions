@@ -20,7 +20,6 @@ run_test
 
 NAME='create pe x86-64 auto-pe64'
 FILE=-
-BROKEN=1
 IGNORE_ERR=1
 ARGS=
 CMDS='rm /tmp/tiny64.pe

@@ -25,6 +25,27 @@ EXPECT='CCu base64:U29tZSB0ZXN0 @ 0x00404890
 '
 run_test
 
+NAME='Import project with overwriting'
+FILE=malloc://512
+BROKEN=1
+ARGS=
+CMDS='e dir.projects = /tmp/
+e asm.bits=64
+wx 31ed4989d15e4889e24883e4f0505449c7c09024410048c7c12024410048c7c7a0284000e857dcfffff4
+af test
+afF @ fcn.test
+pdf
+Ps test > /dev/null
+Pc test~afF
+'
+EXPECT='/ (fcn) fcn.test
+\           0x00000000 (42 byte folded function)
+afF @ fcn.test
+'
+run_test
+
+
+
 NAME='Export project'
 FILE=malloc://512
 ARGS=

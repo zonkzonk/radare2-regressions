@@ -110,7 +110,7 @@ run_test
 
 NAME='asm.emu in project'
 FILE=../bins/elf/simpleARM.elf
-BROKEN=1
+BROKEN=
 ARGS=
 CMDS='e asm.flags = false
 e asm.emu = true

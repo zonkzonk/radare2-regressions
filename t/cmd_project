@@ -27,7 +27,7 @@ run_test
 
 NAME='Import project with overwriting'
 FILE=malloc://512
-BROKEN=1
+BROKEN=
 ARGS=
 CMDS='e dir.projects = /tmp/
 e asm.bits=64
@@ -41,7 +41,7 @@ rm /tmp/test
 '
 EXPECT='/ (fcn) fcn.test
 \           0x00000000 (42 byte folded function)
-afF @ fcn.test
+afF @ 0x00000000
 '
 run_test
 

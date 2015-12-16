@@ -28,13 +28,13 @@ EXPECT='{"string":"\\u00e9\\u00bb\\u0091\\u00e5\\u00ae\\u00a2","offset":0,"secti
 run_test
 
 NAME="psj wide"
-FILE=../bins/elf/hello-android-arm
+FILE=../bins/elf/x86-helloworld-gcc
 CMDS='
-s 0x00008370
+s 0x08049600
 psj 4
 '
 
-EXPECT='{"string":"\\u0000\\u0000\\u0000\\u0000","offset":33648,"section":"phdr0","length":4,"type":"wide"}
+EXPECT='{"string":"\\u000b\\u0000\\u0000\\u0000","offset":134518272,"section":".dynamic","length":4,"type":"wide"}
 '
 
 run_test

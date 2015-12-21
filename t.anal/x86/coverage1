@@ -7,7 +7,7 @@ af
 afl
 
 '
-EXPECT='0x00401000  59  1  section..text
+EXPECT='0x00401000  59  1  fcn.00401000
 0x004010e4  148  4  fcn.004010e4
 0x004010c7  29  1  fcn.004010c7
 0x0040104a  109  4  fcn.0040104a

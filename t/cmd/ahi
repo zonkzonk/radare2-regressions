@@ -171,13 +171,12 @@ wx b841414141
 ahi 2
 pi 1
 '
-EXPECT='mov eax, 'AAAA'
-'
+EXPECT="mov eax, 'AAAA'
+"
 run_test
 
 NAME='ah*'
 FILE=malloc://16
-BROKEN=1
 CMDS='
 e asm.arch=x86
 e asm.bits=64
@@ -185,6 +184,23 @@ wx 4883e4f0
 ahi 10 @ 0x00404879
 ah*
 '
-EXPECT='ahi 10 @ 0x00404879
+EXPECT='ahi 10 @ 0x404879
+'
+run_test
+
+NAME='64bit ahi 10'
+FILE=-
+ARGS="-m 0x100001000"
+CMDS='
+e asm.arch=x86
+e asm.bits=64
+wx c7055f44000000000000
+pd 1
+e asm.relsub=true; pd 1
+ahi 10; pd 1
+'
+EXPECT='            0x100001000      c7055f440000.  mov dword [rip + 0x445f], 0 ; [0x100005469:4]=-1
+            0x100001000      c7055f440000.  mov dword [0x100005469], 0 ; [0x100005469:4]=-1
+            0x100001000      c7055f440000.  mov dword [4294988905], 0  ; [0x100005469:4]=-1
 '
 run_test

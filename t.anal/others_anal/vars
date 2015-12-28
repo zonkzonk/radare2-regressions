@@ -76,7 +76,7 @@ run_test
 
 NAME='afa-ArgName'
 FILE=../../bins/efi/bootia32.efi
-BROKEN=1
+BROKEN=
 ARGS=
 CMDS='af
 afa 8 ImageHandle blah @ 0x10002d8d
@@ -140,7 +140,7 @@ run_test
 
 NAME='afv-name'
 FILE=../../bins/efi/bootia32.efi
-BROKEN=1
+BROKEN=
 ARGS=
 CMDS='af
 afv 0 blah typeR @ 0x10002d8d

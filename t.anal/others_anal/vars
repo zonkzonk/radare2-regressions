@@ -93,7 +93,7 @@ BROKEN=
 ARGS=
 CMDS='af
 afa 8 ImageHandle blah @ 0x10002d8d
-afa-ebp+0x8
+afa-0x8
 afa~?ImageHandle
 '
 EXPECT="0

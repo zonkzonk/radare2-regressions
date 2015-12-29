@@ -43,3 +43,30 @@ EXPECT='0x4
 0x4
 '
 run_test
+
+NAME='seek line'
+FILE=../files/projects/resetc64
+ARGS=
+CMDS='
+e lines.from=0x15
+e lines.to=0xed
+sl 9
+sl
+sl+1
+sl
+sl-2
+sl
+sl 999999999999
+sl
+sl 0
+sl
+sl 1; ?v $$
+'
+EXPECT='9
+10
+8
+8
+8
+0x16
+'
+run_test

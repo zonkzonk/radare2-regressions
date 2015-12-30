@@ -2,13 +2,13 @@
 
 [ -e tests.sh ] && . ./tests.sh || . ../../tests.sh
 
-NAME='pid asm.midflags=false'
+NAME='pid asm.midflags=0'
 FILE=malloc://1024
 ARGS=
 CMDS='
 e asm.arch=x86
 e asm.bits=32
-e asm.midflags=false
+e asm.midflags=0
 f mid.flag = 4
 wx 31ed4989d15e4889e2
 pid 3
@@ -19,14 +19,14 @@ EXPECT="0x00000000             31ed  xor ebp, ebp
 "
 run_test
 
-NAME='pid asm.midflags=true'
+NAME='pid asm.midflags=2'
 FILE=malloc://1024
 ARGS=
 BROKEN=1
 CMDS='
 e asm.arch=x86
 e asm.bits=32
-e asm.midflags=true
+e asm.midflags=1
 f mid.flag = 4
 wx 31ed4989d15e4889e2
 pid 3
@@ -39,13 +39,13 @@ EXPECT="0x00000000               31ed  xor ebp, ebp
 "
 run_test
 
-NAME='pd asm.midflags=false'
+NAME='pd asm.midflags=0'
 FILE=malloc://1024
 ARGS=
 CMDS='
 e asm.arch=x86
 e asm.bits=32
-e asm.midflags=false
+e asm.midflags=0
 e asm.lines=false
 f mid.flag = 4
 wx 31ed4989d15e4889e2
@@ -58,14 +58,14 @@ EXPECT=" 0x00000000      31ed           xor ebp, ebp
 "
 run_test
 
-NAME='pd asm.midflags=true'
+NAME='pd asm.midflags=2'
 FILE=malloc://1024
 ARGS=
 CMDS='
 e asm.arch=x86
 e asm.bits=32
 e asm.lines=false
-e asm.midflags=true
+e asm.midflags=2
 f mid.flag = 5
 wx 31ed4989d15e4889e2
 pd 4
@@ -78,14 +78,14 @@ EXPECT=" 0x00000000      31ed           xor ebp, ebp
 "
 run_test
 
-NAME='pd asm.midflags=true'
+NAME='pd asm.midflags=2'
 FILE=malloc://1024
 ARGS=
 CMDS='
 e asm.arch=x86
 e asm.bits=32
 e asm.lines=false
-e asm.midflags=true
+e asm.midflags=2
 f mid.flag = 4
 wx 31ed4989d15e4889e2
 pd 4
@@ -106,7 +106,7 @@ e asm.arch=x86
 e asm.bits=32
 wx 66b8eb0531c074f9e89090909090
 e asm.lines=false
-e asm.midflags=true
+e asm.midflags=2
 f mid.flag = 2
 f mid.flag2 = 9
 pd 6

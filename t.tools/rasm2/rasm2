@@ -220,3 +220,10 @@ EXPECT='0x00000200   4                 f087bd08  popeq {r4, r5, r6, r7, r8, sb, 
 0x00000220   4                 060054e1  cmp r4, r6
 '
 run_test
+
+NAME='rasm2 esil output'
+CMDS="!rasm2 -a arm -b32 -E 03f19f97"
+BROKEN=
+EXPECT='8,pc,+,0,+,[4],pc,=
+'
+run_test

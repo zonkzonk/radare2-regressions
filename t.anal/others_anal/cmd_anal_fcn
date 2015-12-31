@@ -273,3 +273,14 @@ EXPECT='[0x00000000]> VV @ fcn.test (nodes 1 edges 0 zoom 100%) BB-NORM mouse:ca
 =---------------------------=
 '
 run_test
+
+NAME='af-*'
+FILE=../../bins/elf/main
+ARGS=
+CMDS='
+aa
+af-*
+afl
+'
+EXPECT=''
+run_test

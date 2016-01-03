@@ -45,11 +45,12 @@ EXPECT='0x4
 run_test
 
 NAME='seek line'
-FILE=../files/projects/resetc64
+FILE=../bins/mach0/mac-ls
 ARGS=
 CMDS='
-e lines.from=0x15
-e lines.to=0xed
+sl 1; ?v $$
+e lines.from=0x100002000
+e lines.to=0x100004000
 sl 9
 sl
 sl+1
@@ -62,11 +63,12 @@ sl 0
 sl
 sl 1; ?v $$
 '
-EXPECT='9
+EXPECT='0x100000000
+9
 10
 8
 8
 8
-0x16
+0x1000025a3
 '
 run_test

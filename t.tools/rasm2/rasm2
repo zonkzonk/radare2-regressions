@@ -30,7 +30,7 @@ EXPECT='4885d8
 '
 run_test
 
-if [ -n "`as --version | grep GNU`" ]; then
+if [ -n "`as --version 2> /dev/null | grep GNU`" ]; then
 	# GNU GAS is broken and swaps parameters in test opcode
 
 	NAME='Rasm2 #1167 3'
@@ -221,9 +221,12 @@ EXPECT='0x00000200   4                 f087bd08  popeq {r4, r5, r6, r7, r8, sb, 
 '
 run_test
 
-NAME='rasm2 esil output'
+# This is a bug in capstone, shift information is not provided
+NAME='rasm2 esil output # ldrls pc, [pc, r3, lsl 2]'
 CMDS="!rasm2 -a arm -b32 -E 03f19f97"
-BROKEN=
-EXPECT='8,pc,+,0,+,[4],pc,=
+BROKEN=1
+# NOW WE HAVE EXPECT='8,pc,+,r3,+,[4],pc,='
+# BUT IT SHOULD BE:
+EXPECT='2,8,pc,+,r3,+,<<,[4],pc,=
 '
 run_test

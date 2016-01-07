@@ -2,6 +2,34 @@
 
 [ -e ./tests.sh ] && . ./tests.sh || . ../../tests.sh
 
+NAME='ahi 2 + endian'
+CMDS='
+wx b8410d4300
+ahi 2
+e cfg.bigendian=false
+pi 1
+e cfg.bigendian=true
+pi 1
+'
+EXPECT="mov eax, 'A\\x0dC'
+mov eax, 'C\\x0dA'
+"
+run_test
+
+NAME='ahi 2 + endian 2'
+CMDS='
+wx b841424300
+ahi 2
+e cfg.bigendian=false
+pi 1
+e cfg.bigendian=true
+pi 1
+'
+EXPECT="mov eax, 'ABC'
+mov eax, 'CBA'
+"
+run_test
+
 NAME='ahi none'
 CMDS='e asm.bits=64
 e asm.arch=x86

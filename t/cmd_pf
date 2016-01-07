@@ -107,6 +107,21 @@ blob : (*0x40) 0x00000008 = 0x0fa0
 "
 run_test
 
+NAME='Pointer sizes'
+FILE=malloc://1024
+ARGS=
+CMDS='e asm.bits=32
+wx added0dec0de5eba7ada1eab11caefbeadde0bb0
+pf p2p4p8pp2
+'
+EXPECT="0x00000000 = 0xdead
+0x00000002 = 0xdec0ded0
+0x00000006 = (qword) 0xca11ab1eda7aba5e
+0x0000000e = 0xdeadbeef
+0x00000012 = 0xb00b
+"
+run_test
+
 NAME='swap endianess'
 FILE=malloc://1024
 ARGS=

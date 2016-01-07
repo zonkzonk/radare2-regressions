@@ -224,9 +224,9 @@ run_test
 # This is a bug in capstone, shift information is not provided
 NAME='rasm2 esil output # ldrls pc, [pc, r3, lsl 2]'
 CMDS="!rasm2 -a arm -b32 -E 03f19f97"
-BROKEN=1
+BROKEN=
 # NOW WE HAVE EXPECT='8,pc,+,r3,+,[4],pc,='
 # BUT IT SHOULD BE:
-EXPECT='2,8,pc,+,r3,+,<<,[4],pc,=
+EXPECT='8,pc,+,2,r3,<<,+,[4],pc,=
 '
 run_test

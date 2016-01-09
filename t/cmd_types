@@ -162,3 +162,20 @@ struct.dox.bday=struct date,292,0
 pf *z*zi street city zip 
 '
 run_test
+
+
+NAME='tl, tf test on structure'
+FILE=-
+CMDS='"td typedef struct name { char name[10]; }"
+s 100
+w Carlos
+s 0
+wx 0x00000064
+tl name @ 0x0
+tf 0x0
+'
+EXPECT='struct name {
+name : (*0x64) 0x00000000 = Carlos
+}
+'
+run_test

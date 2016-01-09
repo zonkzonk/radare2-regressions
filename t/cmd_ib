@@ -2,6 +2,20 @@
 # GPL 3+ - Copyright (C) 2012  pancake, Edd Barrett, Simon Ruderich
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
+NAME='ib'
+BROKEN=
+FILE=../bins/elf/main
+ARGS=
+CMDS='e bin.baddr=0x00
+ib
+pi 1
+?p
+'
+EXPECT='xor ebp, ebp
+0x00000410
+'
+run_test
+
 NAME='ib java class file'
 BROKEN=
 FILE=malloc://1024
@@ -70,4 +84,3 @@ binsz    1024
 '
 FILTER='sed "s/^fd       [0-9][0-9]*/fd       42/"'
 run_test
-

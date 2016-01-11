@@ -166,9 +166,10 @@ EXPECT='0x0000000a   2                     31ed  xor ebp, ebp
 run_test
 
 NAME='Rasm2 -B'
-CMDS="!rasm2 -a x86 -b16 -B 'xor al, 0x34'"
+CMDS="!rasm2 -a x86 -b16 -B 'xor al, 0x34';echo"
 BROKEN=
-EXPECT='44'
+EXPECT='44
+'
 run_test
 
 NAME='Rasm2 -s att -ax86.as -b 64 movq %rdx, %rax'

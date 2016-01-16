@@ -40,6 +40,9 @@ nx       false
 crypto   false
 va       false
 bits     64
+minopsz  1
+maxopsz  16
+pcalign  0
 endian   little
 stripped false
 static   true
@@ -104,12 +107,16 @@ format   any
 e cfg.bigendian=false
 e asm.bits=64
 e asm.dwarf=false
+e asm.pcalign=0
 pic      false
 canary   false
 nx       false
 crypto   false
 va       false
 bits     64
+minopsz  1
+maxopsz  16
+pcalign  0
 endian   little
 stripped false
 static   true
@@ -120,6 +127,7 @@ binsz    1024
 e cfg.bigendian=false
 e asm.bits=64
 e asm.dwarf=false
+e asm.pcalign=0
 '
 FILTER='sed "s/^fd       [0-9][0-9]*/fd       42/"'
 run_test
@@ -148,6 +156,9 @@ arch     x86
 bits     32
 machine  Intel 80386
 os       linux
+minopsz  1
+maxopsz  16
+pcalign  0
 subsys   linux
 endian   little
 stripped false
@@ -242,6 +253,9 @@ arch     x86
 bits     32
 machine  Intel 80386
 os       linux
+minopsz  1
+maxopsz  16
+pcalign  0
 subsys   linux
 endian   little
 stripped false
@@ -407,6 +421,9 @@ arch     x86
 bits     64
 machine  AMD x86-64 architecture
 os       linux
+minopsz  1
+maxopsz  16
+pcalign  0
 subsys   linux
 endian   little
 stripped false
@@ -493,6 +510,9 @@ arch     x86
 bits     64
 machine  AMD x86-64 architecture
 os       linux
+minopsz  1
+maxopsz  16
+pcalign  0
 subsys   linux
 endian   little
 stripped false

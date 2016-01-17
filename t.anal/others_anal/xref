@@ -114,4 +114,18 @@ ref.unk.0x0=0xa
 xref.unk.0xa=0
 types=code.jmp,code.call,data.mem,data.string
 '
+
+NAME="axt unknown function"
+BROKEN=
+FILE=../../bins/pe/lab11.malware
+IGNORE_ERR=1
+ARGS=
+CMDS='aaa
+axt fcn.00401270
+'
+EXPECT='C 0x401a1d call fcn.00401270 in unknown function
+'
+
+
+
 run_test

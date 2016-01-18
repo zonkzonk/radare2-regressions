@@ -315,11 +315,12 @@ run_test
 
 NAME='ELF: riscv64: file format'
 FILE=../../bins/elf/guess-number-riscv64
+FILTER='sed "s/^fd.*//g"'
 ARGS=''
 CMDS='if'
 EXPECT='type     EXEC (Executable file)
 file     ../../bins/elf/guess-number-riscv64
-fd       7
+
 size     0x9d5a8
 blksz    0x0
 mode     -r--

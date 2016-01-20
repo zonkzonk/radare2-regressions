@@ -1,4 +1,6 @@
 # XXX
+VERSION=0.10.0
+
 PULLADDR=https://github.com/radare/radare2-regressions.git
 
 do:
@@ -149,4 +151,15 @@ untested:
 allbins:
 	find bins -type f
 
-.PHONY: all clean
+PKG=radare2-regressions
+TAR=tar -cvf
+TAREXT=tar.xz
+CZ=xz -f
+
+dist:
+	git clone . $(PKG)-$(VERSION)
+	rm -rf $(PKG)-$(VERSION)/.git
+	$(TAR) "$(PKG)-${VERSION}.tar" "$(PKG)-$(VERSION)"
+	${CZ} "$(PKG)-${VERSION}.tar"
+
+.PHONY: all clean allbins dist

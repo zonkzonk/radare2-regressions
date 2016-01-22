@@ -35,6 +35,7 @@ run_test
 NAME='e asm.syntax'
 FILE=-
 CMDS='wx eb0e
+e asm.arch=x86
 e asm.syntax=masm
 pi 1
 '

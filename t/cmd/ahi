@@ -5,6 +5,7 @@
 NAME='ahi 2 + endian'
 CMDS='
 wx b8410d4300
+e asm.arch=x86
 ahi 2
 e cfg.bigendian=false
 pi 1
@@ -19,6 +20,7 @@ run_test
 NAME='ahi 2 + endian 2'
 CMDS='
 wx b841424300
+e asm.arch=x86
 ahi 2
 e cfg.bigendian=false
 pi 1

@@ -7,6 +7,7 @@ NAME="asm/callflag"
 BROKEN=
 FILE=-
 CMDS='
+e asm.arch=x86
 f eax=33
 pa call eax
 f test=eax

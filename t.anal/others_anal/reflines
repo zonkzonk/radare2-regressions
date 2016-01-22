@@ -5,6 +5,7 @@ FILE=malloc://1023
 CMDS='e asm.bits=32
 e asm.cpu=x86
 e asm.linesup=false
+e asm.arch=x86
 e anal.cpu=x86
 e scr.utf8=true
 e asm.comments=false
@@ -62,6 +63,7 @@ FILE=malloc://1023
 CMDS='e asm.bits=32
 e asm.cpu=x86
 e anal.cpu=x86
+e asm.arch=x86
 e asm.comments=false
 e asm.bytes=false
 e scr.utf8=false

@@ -1,0 +1,89 @@
+#!/bin/sh
+
+# GPL 3+ - Copyright (C) 2015  ninjahacker
+
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+NAME='cmp neq unchanged zf'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=16
+aei
+aeim
+aer sp=0x00108000
+.aer*
+"wa cmp r1, #0x10"
+aes
+aer?cpsr
+'
+EXPECT='0x00000000
+'
+run_test
+
+NAME='cmp neq changed zf'
+BROKEN=1
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=16
+aei
+aeim
+aer sp=0x00108000
+aer cpsr=0xffffffff
+.aer*
+"wa cmp r1, #0x10"
+aes
+aer?cpsr
+'
+EXPECT='0xbfffffff
+'
+run_test
+
+NAME='cmp eq unchanged zf'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=16
+aei
+aeim
+aer sp=0x00108000
+aer r1=0x10
+aer cpsr=0x80000000
+.aer*
+"wa cmp r1, #0x10"
+aes
+aer?cpsr
+'
+EXPECT='0x80000000
+'
+run_test
+
+NAME='cmp eq changed zf'
+BROKEN=1
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=16
+aei
+aeim
+aer sp=0x00108000
+aer r1=0x10
+aer cpsr=0x00000000
+.aer*
+"wa cmp r1, #0x10"
+aes
+aer?cpsr
+'
+EXPECT='0x80000000
+'
+run_test
+

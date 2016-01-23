@@ -40,6 +40,7 @@ FILE=-
 ARGS=
 CMDS='
 wx e99300 e869390000 e828350000
+e asm.arch=x86
 e asm.segoff=1
 e asm.bits=16
 pi 1

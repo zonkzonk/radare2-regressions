@@ -5,11 +5,12 @@
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 ## "i" - get info about opened file
+export BIT_SIZE=`getconf LONG_BIT`
 
 NAME='i (all) (malloc)'
 FILE=malloc://1025
 BROKEN=
-ARGS=
+ARGS='-a x86' # we can find native bit size, but need to set arch for minopsz, maxopsz, pcalign 
 CMDS='i
 ia
 ia*
@@ -24,7 +25,7 @@ iS*
 iz
 iz*
 '
-EXPECT='file     malloc://1025
+EXPECT="file     malloc://1025
 fd       42
 size     0x401
 blksz    0x0
@@ -39,7 +40,7 @@ canary   false
 nx       false
 crypto   false
 va       false
-bits     64
+bits     ${BIT_SIZE}
 minopsz  1
 maxopsz  16
 pcalign  0
@@ -81,7 +82,7 @@ fs symbols
 
 0 sections
 fs sections
-'
+"
 # fd changes in each test, replace it with 42.
 FILTER='sed "s/^fd       [0-9][0-9]*/fd       42/"'
 run_test
@@ -90,14 +91,14 @@ NAME='i (all) (malloc) iI*'
 BROKEN=
 FILE=malloc://1024
 BROKEN=
-ARGS=
+ARGS='-a x86' # see previous for caveat
 CMDS='
 i
 i*
 iI
 iI*
 '
-EXPECT='file     malloc://1024
+EXPECT="file     malloc://1024
 fd       42
 size     0x400
 blksz    0x0
@@ -105,7 +106,7 @@ mode     -r--
 block    0x100
 format   any
 e cfg.bigendian=false
-e asm.bits=64
+e asm.bits=${BIT_SIZE}
 e asm.dwarf=false
 e asm.pcalign=0
 pic      false
@@ -113,7 +114,7 @@ canary   false
 nx       false
 crypto   false
 va       false
-bits     64
+bits     ${BIT_SIZE}
 minopsz  1
 maxopsz  16
 pcalign  0
@@ -125,10 +126,10 @@ lsyms    false
 relocs   false
 binsz    1024
 e cfg.bigendian=false
-e asm.bits=64
+e asm.bits=${BIT_SIZE}
 e asm.dwarf=false
 e asm.pcalign=0
-'
+"
 FILTER='sed "s/^fd       [0-9][0-9]*/fd       42/"'
 run_test
 

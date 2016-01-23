@@ -201,3 +201,21 @@ CMDS="?v 32^'A'
 EXPECT='0x61
 '
 run_test
+
+NAME="? 1;?v"
+FILE=malloc://1024
+ARGS=
+CMDS="? 1;?v"
+EXPECT='1 0x1 01 1 0000:0001 1 00000001 1.0 0.000000f 0.000000
+1
+'
+run_test
+
+NAME="? 0;?v"
+FILE=malloc://1024
+ARGS=
+CMDS="? 0;?v"
+EXPECT='0 0x0 00 0 0000:0000 0 00000000 0.0 0.000000f 0.000000
+0
+'
+run_test

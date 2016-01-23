@@ -218,3 +218,9 @@ EXPECT='0x8000000000000000
 '
 
 run_test
+
+NAME='rax2 -121.875f'
+CMDS='!rax2 -121.875f'
+EXPECT='Fxc2f3c000
+'
+run_test

@@ -166,7 +166,9 @@ run_test() {
     printf "%s" "${EXPECT_ERR}" > ${TMP_EXR}
     eval "${R2CMD}"
     CODE=$?
-
+    if [ -n "${IGNORE_RC}" ]; then
+        CODE=0
+    fi
     if [ -n "${R2_SOURCED}" ]; then
         TESTS_TOTAL=$(( TESTS_TOTAL + 1 ))
     fi

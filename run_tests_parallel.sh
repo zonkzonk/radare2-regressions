@@ -52,7 +52,7 @@ fi
 
 . ./tests.sh
 
-radare2 > /dev/null
+radare2 -v
 if [ $? != 0 ]; then
     echo "Cannot find radare2"
     exit 1
@@ -125,9 +125,12 @@ for file in * ; do
       runfile ./ ${file}
    fi
 done
-rm -f $TFS
 
 wait
+cat $TFS
+rm -f $TFS
+TFS=""
+
 if [ $THREADS -gt 1 ]; then
     TESTS_SUCCESS=$(cat ${FILE_SUCCESS})
     TESTS_FATAL=$(cat ${FILE_FATAL})

@@ -52,7 +52,7 @@ fi
 
 . ./tests.sh
 
-radare2 > /dev/null
+radare2 -v
 if [ $? != 0 ]; then
     echo "Cannot find radare2"
     exit 1

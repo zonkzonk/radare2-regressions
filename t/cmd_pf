@@ -137,8 +137,8 @@ NAME='String pointer'
 FILE=malloc://1024
 ARGS=
 CMDS='w TROLL @0x30
-wx 0x30
-wx 0x0fa0 @0x04
+wx 30
+wx a00f @0x04
 e asm.bits=32
 pf *zi Pouet Plop
 '
@@ -571,7 +571,8 @@ CMDS='e asm.bits=32
 s 0x80
 pfv.pe_nt_image_headers32.optionalHeader.dataDirectory[5].virtualAddress
 '
-EXPECT="0x0000c000"
+EXPECT="0x0000c000
+"
 run_test
 
 NAME='PE JSON test'

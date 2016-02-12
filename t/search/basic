@@ -47,3 +47,29 @@ EXPECT='0x08048362 hit0_0 b4960408ffd0c9c3
 '
 
 run_test
+
+NAME=overlap0
+FILE=-
+IGNORE_ERR=1
+CMDS='
+w AAAA
+/x 4141
+'
+EXPECT='0x00000000 hit0_0 4141
+0x00000002 hit0_1 4141
+'
+run_test
+
+NAME=overlap1
+FILE=-
+IGNORE_ERR=1
+CMDS='
+e search.overlap=true
+w AAAA
+/x 4141
+'
+EXPECT='0x00000000 hit0_0 4141
+0x00000001 hit0_1 4141
+0x00000002 hit0_2 4141
+'
+run_test

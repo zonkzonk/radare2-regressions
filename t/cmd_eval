@@ -2,6 +2,20 @@
 
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
+NAME='et'
+FILE=-
+CMDS='et asm.slow
+et asm.bits
+et asm.arch
+et search.from
+'
+EXPECT='bool
+int
+str
+addr
+'
+run_test
+
 
 NAME='e asm.os'
 FILE=../bins/elf/hello-linux-x86_64

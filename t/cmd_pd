@@ -2,6 +2,32 @@
 
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
+NAME='pd 1'
+FILE=malloc://128
+ARGS=
+BROKEN=1
+CMDS='wx 90
+e asm.lines=0
+b 1
+pd
+pd 1
+'
+EXPECT=" 0x00000000      90             nop
+ 0x00000000      90             nop
+"
+run_test
+
+NAME='pd@x:90'
+FILE=malloc://128
+ARGS=
+BROKEN=1
+CMDS='e asm.lines=0
+pd@x:90
+'
+EXPECT=" 0x00000000      90             nop
+"
+run_test
+
 NAME='asm.filter issue'
 FILE=malloc://1024
 ARGS=

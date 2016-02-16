@@ -63,3 +63,51 @@ EXPECT='ldr sb, [sl, r5, ror 21]
 ldr sb, [sl, 0xae7]
 '
 run_test
+
+NAME="$PLUGIN: no afterjmp or nopskip"
+BROKEN=
+FILE=malloc://32
+CMDS='
+e asm.arch='$PLUGIN'
+e asm.bits=64
+wx 1f2003d5d0d8065800021fd61f2003d5
+e anal.nopskip=false
+e anal.afterjmp=false
+af
+afl~[1]
+'
+EXPECT='12
+'
+run_test
+
+NAME="$PLUGIN: afterjmp"
+BROKEN=
+FILE=malloc://32
+CMDS='
+e asm.arch='$PLUGIN'
+e asm.bits=64
+wx 1f2003d5d0d8065800021fd61f2003d5
+e anal.nopskip=false
+e anal.afterjmp=true
+af
+afl~[1]
+'
+EXPECT='20
+'
+run_test
+
+NAME="$PLUGIN: afterjmp nopskip"
+BROKEN=
+FILE=malloc://32
+CMDS='
+e asm.arch='$PLUGIN'
+e asm.bits=64
+wx 1f2003d5d0d8065800021fd61f2003d5
+e anal.nopskip=true
+e anal.afterjmp=false
+af
+afl~[1]
+'
+EXPECT='8
+'
+run_test

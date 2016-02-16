@@ -103,6 +103,7 @@ EXPECT='            0x00000000 (2 bytes hidden)
 run_test
 
 FILE=malloc://1024
+BROKEN=1
 NAME="Ch : add/del hide bytes"
 CMDS='
 e scr.color=false
@@ -127,5 +128,19 @@ pd 1
 EXPECT='            0x00000000 format x {
 0x00000000 = 0x44434241
 } 4
+'
+run_test
+
+NAME="arm1.bin dword pointers with Cd"
+FILE=../../bins/elf/arm1.bin
+ARGS=
+CMDS='s 0xdb98
+Cd 4[3]
+pd 3
+'
+EXPECT='    ;-- $d_61:
+            0x0000db98 .dword 0x00085038 ; obj.main_arena
+            0x0000db9c .dword 0x000844ac ; obj.check_action
+            0x0000dba0 .dword 0x000663c4 ; str.free__:_invalid_pointer
 '
 run_test

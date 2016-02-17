@@ -2,7 +2,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='fs-fd-flags-visibility'
-BROKEN=1
+BROKEN=
 CMDS='fs jeje
 f hidden
 fs jojo

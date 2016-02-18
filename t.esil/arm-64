@@ -52,7 +52,7 @@ wx 8877665544332211cacacacacaca@0x468
 aes
 ar x9
 '
-EXPECT='0x1122334455667788
+EXPECT='0x55667788
 '
 run_test
 

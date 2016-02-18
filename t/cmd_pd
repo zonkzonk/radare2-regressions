@@ -2,6 +2,13 @@
 
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
+NAME='pd 0'
+FILE=malloc://128
+ARGS=
+CMDS='pd 0'
+EXPECT=""
+run_test
+
 NAME='pd 1'
 FILE=malloc://128
 ARGS=

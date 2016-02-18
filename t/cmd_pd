@@ -4,8 +4,25 @@
 
 NAME='pd 0'
 FILE=malloc://128
+BROKEN=1
 ARGS=
 CMDS='pd 0'
+EXPECT=""
+run_test
+
+NAME='pd 1-1'
+FILE=malloc://128
+BROKEN=1
+ARGS=
+CMDS='pd 1-1'
+EXPECT=""
+run_test
+
+NAME='pd foo-33'
+FILE=malloc://128
+BROKEN=1
+ARGS=
+CMDS='f foo=33;pd foo-33'
 EXPECT=""
 run_test
 

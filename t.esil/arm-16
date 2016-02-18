@@ -87,3 +87,39 @@ EXPECT='0x80000000
 '
 run_test
 
+# load cases
+
+NAME="ldr.w r0, [r0, r1, lsl 2]"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=arm
+e asm.bits=16
+ar > /dev/null
+ar r0=4
+ar r1=2
+wx 50f82100
+wx aaaaaaaabbbbbbbb44332211@4
+aes
+ar r0
+'
+EXPECT='0x11223344
+'
+run_test
+
+# bit fields
+
+NAME="ubfx r2, r0, 8, 8"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=arm
+e asm.bits=16
+ar > /dev/null
+ar r0=0x11223344
+wx c0f30722
+aes
+ar r2
+'
+EXPECT='0x00000033
+'
+run_test
+

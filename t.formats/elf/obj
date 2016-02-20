@@ -5,7 +5,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='obj entry'
-FILE=../../bins/elf/test.o
+FILE=../../bins/elf/test.obj
 BROKEN=1
 ARGS=
 CMDS='ie~addr
@@ -15,7 +15,7 @@ EXPECT='vaddr=0x00000000 paddr=0x00000040 baddr=0x00000000 laddr=0x00000000
 run_test
 
 NAME='obj entry'
-FILE=../../bins/elf/test.o
+FILE=../../bins/elf/test.obj
 BROKEN=1
 ARGS="-B 0x200000"
 CMDS='ie~addr
@@ -26,7 +26,7 @@ run_test
 
 NAME='obj main address'
 BROKEN=1
-FILE=../../bins/elf/test.o
+FILE=../../bins/elf/test.obj
 ARGS=
 CMDS='?v sym.main
 '
@@ -36,7 +36,7 @@ run_test
 
 NAME='obj main address'
 BROKEN=1
-FILE=../../bins/elf/test.o
+FILE=../../bins/elf/test.obj
 ARGS="-B 0x200000"
 CMDS='?v sym.main
 '
@@ -45,7 +45,7 @@ EXPECT='0x200010
 run_test
 
 NAME='obj main'
-FILE=../../bins/elf/test.o
+FILE=../../bins/elf/test.obj
 BROKEN=1
 ARGS=
 CMDS='pi 3@ sym.main
@@ -57,7 +57,7 @@ call 0x19
 run_test
 
 NAME='obj main baddr'
-FILE=../../bins/elf/test.o
+FILE=../../bins/elf/test.obj
 BROKEN=1
 ARGS="-B 0x200000"
 CMDS='pi 3@sym.main

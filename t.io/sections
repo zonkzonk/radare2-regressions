@@ -7,7 +7,6 @@ RET=0
 
 NAME='section borders'
 FILE=../bins/mach0/mac-ls
-BROKEN=1
 ARGS=
 CMDS='
 b 128

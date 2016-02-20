@@ -40,7 +40,6 @@ run_test
 
 NAME="ldrsw x9, [x8, 0x468]"
 FILE=malloc://0x200
-BROKEN=1
 ARGS='-m 0x464'
 CMDS='
 e asm.arch=arm
@@ -88,6 +87,23 @@ EXPECT='0x00000077
 '
 run_test
 
+NAME="ldrb w2, [x19, x23]"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=arm
+e asm.bits=64
+ar > /dev/null
+ar x19=4
+ar x23=2
+wx 626a7738
+wx 8877665544332211cacacacacaca@4
+aes
+ar w2
+'
+EXPECT='0x00000066
+'
+run_test
+
 NAME="ldr x23, [x8]"
 FILE=malloc://0x200
 CMDS='
@@ -122,7 +138,6 @@ run_test
 
 NAME="ldr w10, [x10, x9, lsl 2]"
 FILE=malloc://0x200
-BROKEN=1
 CMDS='
 e asm.arch=arm
 e asm.bits=64
@@ -140,7 +155,6 @@ run_test
 
 NAME="ldr w10, [x11, w10, uxtw 2]"
 FILE=malloc://0x200
-BROKEN=1
 CMDS='
 e asm.arch=arm
 e asm.bits=64
@@ -158,7 +172,6 @@ run_test
 
 NAME="ldr x16, [x13, x9]"
 FILE=malloc://0x200
-BROKEN=1
 CMDS='
 e asm.arch=arm
 e asm.bits=64
@@ -176,7 +189,6 @@ run_test
 
 NAME="ldr w16, [x13, x9]"
 FILE=malloc://0x200
-BROKEN=1
 CMDS='
 e asm.arch=arm
 e asm.bits=64
@@ -194,12 +206,8 @@ run_test
 
 ### arithmetics ###
 
-# movn
-# 0x100058384      0c008012       movn w12, 0
-
 NAME="movn w12, 0"
 FILE=malloc://0x200
-BROKEN=1
 CMDS='
 e asm.arch=arm
 e asm.bits=64
@@ -212,12 +220,8 @@ EXPECT='0xffffffff
 '
 run_test
 
-# orn shift
-# 0x100058394      ac416f2a       orn w12, w13, w15, lsr 16
-
 NAME="orn w12, w13, w15, lsr 16"
 FILE=malloc://0x200
-BROKEN=1
 CMDS='
 e asm.arch=arm
 e asm.bits=64
@@ -232,12 +236,9 @@ EXPECT='0xffff55ff
 '
 run_test
 
-# eor shift
-# 0x100058390      8b414f4a       eor w11, w12, w15, lsr 16
-
+# eor
 NAME="eor w11, w12, w15, lsr 16"
 FILE=malloc://0x200
-BROKEN=1
 CMDS='
 e asm.arch=arm
 e asm.bits=64
@@ -252,5 +253,114 @@ EXPECT='0xffff5544
 '
 run_test
 
+#0x100ee25cc   # 4: eor w11, w11, w11, asr 31
+NAME="eor w11, w11, w11, asr 31 (positive)"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=arm
+e asm.bits=64
+ar > /dev/null
+ar w11=4
+wx 6b7d8b4a
+aes
+ar w11
+'
+EXPECT='0x00000004
+'
+run_test
 
+NAME="eor w11, w11, w11, asr 31 (negative)"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=arm
+e asm.bits=64
+ar > /dev/null
+ar w11=-4
+wx 6b7d8b4a
+aes
+ar w11
+'
+EXPECT='0x00000003
+'
+run_test
+
+#0x100ffdf34   # 4: eor x20, x21, x21, asr 63
+NAME="eor x20, x21, x21, asr 63 (negative)"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=arm
+e asm.bits=64
+ar > /dev/null
+ar x21=-4
+wx b4fe95ca
+aes
+ar x20
+'
+EXPECT='0x00000003
+'
+run_test
+
+
+
+NAME="eor w11, w11, 0x80000000"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=arm
+e asm.bits=64
+ar > /dev/null
+ar w11=-4
+wx 6b010152
+aes
+ar w11
+'
+EXPECT='0x7ffffffc
+'
+run_test
+
+NAME="eor w11, w11, w13"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=arm
+e asm.bits=64
+ar > /dev/null
+ar w11=-4
+ar w13=0x11223344
+wx 6b010d4a
+aes
+ar w11
+'
+EXPECT='0xeeddccb8
+'
+run_test
+
+NAME="eor w11, w11, w15, ror 11"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=arm
+e asm.bits=64
+ar > /dev/null
+ar w11=0xffeeddcc
+ar w15=0x7ffffffc
+wx 6b2dcf4a
+aes
+ar w11
+'
+EXPECT='0x00612233
+'
+run_test
+
+NAME="eon x13, x14, x14, lsl 45"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=arm
+e asm.bits=64
+ar > /dev/null
+ar x14=0xf982834129348123
+wx cdb52eca
+aes
+ar x13
+'
+EXPECT='0x96591cbed6cb7edc
+'
+run_test
 

@@ -33,6 +33,7 @@ run_test
 
 NAME="add a1, 0xFFFFFFFF, 5"
 FILE=malloc://0x200
+BROKEN=1
 CMDS='
 e asm.arch=mips
 e asm.bits=32
@@ -43,7 +44,7 @@ wx 20284300
 aes
 ar a1
 '
-EXPECT='0x00000000
+EXPECT='0x00000004
 '
 run_test
 
@@ -239,7 +240,7 @@ wx 22284300
 aes
 ar a1
 '
-EXPECT='0x00000000
+EXPECT='0x00000004
 '
 run_test
 

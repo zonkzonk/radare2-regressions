@@ -268,6 +268,7 @@ BROKEN=1
 EXPECT='21232f297a57a5a743894a0e4a801fc3
 '
 
+run_test
 
 NAME='printf "aadmina" | rahash2 -f0x1 -t0x5 -q -a md5 -s -'
 CMDS='!printf "aadmina" | rahash2 -f0x1 -t0x5 -q -a md5 -s -'

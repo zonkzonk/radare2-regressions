@@ -4,6 +4,50 @@
 
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
+FILE=malloc://1024
+NAME=?vi-1
+ARGS=
+CMDS='
+?vi 0xffffffff
+?vi4 0xffffffff
+?vi2 0xffffffff
+?vi1 0xffffffff
+?vi4 0xffffffff
+?vi2 0xffff
+?vi1 0xff
+'
+EXPECT='-1
+-1
+-1
+-1
+-1
+-1
+-1
+'
+run_test
+
+FILE=malloc://1024
+NAME=?vi-8
+ARGS=
+CMDS='
+?vi 0xfffffff8
+?vi4 0xfffffff8
+?vi2 0xfffffff8
+?vi1 0xfffffff8
+?vi4 0xfffffff8
+?vi2 0xfff8
+?vi1 0xf8
+'
+EXPECT='-8
+-8
+-8
+-8
+-8
+-8
+-8
+'
+run_test
+
 ## Missing arguments shouldn't cause a crash.
 
 FILE=malloc://1024

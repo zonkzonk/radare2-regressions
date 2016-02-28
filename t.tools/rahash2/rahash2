@@ -268,6 +268,7 @@ BROKEN=1
 EXPECT='21232f297a57a5a743894a0e4a801fc3
 '
 
+run_test
 
 NAME='printf "aadmina" | rahash2 -f0x1 -t0x5 -q -a md5 -s -'
 CMDS='!printf "aadmina" | rahash2 -f0x1 -t0x5 -q -a md5 -s -'
@@ -312,13 +313,113 @@ EXPECT='203ad5ffa1d7c650ad681fdff3965cd2
 run_test
 
 NAME='rahash2 zero length hashes md5'
-CMDS='!rahash2 -a sha1 -s ""'
-EXPECT='0x00000000-0x00000000 sha1: da39a3ee5e6b4b0d3255bfef95601890afd80709
+CMDS='!rahash2 -a md5 -s ""'
+EXPECT='0x00000000-0x00000000 md5: d41d8cd98f00b204e9800998ecf8427e
 '
+
 run_test
 
 NAME='rahash2 zero length hashes sha1'
 CMDS='!rahash2 -a sha1 -s ""'
 EXPECT='0x00000000-0x00000000 sha1: da39a3ee5e6b4b0d3255bfef95601890afd80709
 '
+
+run_test
+
+NAME='rahash2 -c with correct expected hash'
+CMDS='!rahash2 -a md5 -s "admin" -c 21232f297a57a5a743894a0e4a801fc3'
+BROKEN=
+EXPECT='0x00000000-0x00000004 md5: 21232f297a57a5a743894a0e4a801fc3
+rahash2: Computed hash matches the expected one.
+'
+
+run_test
+
+NAME='rahash2 -c with correct expected hash and quiet'
+CMDS='!rahash2 -q -a md5 -s "admin" -c 21232f297a57a5a743894a0e4a801fc3'
+BROKEN=
+EXPECT='21232f297a57a5a743894a0e4a801fc3
+rahash2: Computed hash matches the expected one.
+'
+
+run_test
+
+NAME='rahash2 -c with missing nibble'
+CMDS='!rahash2 -a md5 -s "admin" -c 21232f297a57a5a743894a0e4a801fc'
+BROKEN=
+EXPECT=''
+IGNORE_ERR=0
+EXPECT_ERR='rahash2: Invalid -c hex hash
+'
+
+run_test
+
+NAME='rahash2 -c with incorrect md5 hash length'
+CMDS='!rahash2 -a md5 -s "admin" -c 21232f297a57a5a743894a0e4a801f'
+BROKEN=
+EXPECT=''
+IGNORE_ERR=0
+EXPECT_ERR='rahash2: Given -c hash has 15 bytes but the selected algorithm returns 16 bytes.
+'
+
+run_test
+
+NAME='rahash2 -c with incorrect sha1 hash length'
+CMDS='!rahash2 -a sha1 -s "admin" -c 21232f297a57a5a743894a0e4a801f'
+BROKEN=
+EXPECT=''
+IGNORE_ERR=0
+EXPECT_ERR='rahash2: Given -c hash has 15 bytes but the selected algorithm returns 20 bytes.
+'
+
+run_test
+
+NAME='rahash2 -c with 2 hash algorithms'
+CMDS='!rahash2 -a md5,sha1 -s "admin" -c 21232f297a57a5a743894a0e4a801f'
+BROKEN=
+EXPECT=''
+IGNORE_ERR=0
+EXPECT_ERR='rahash2: Option -c incompatible with multiple algorithms in -a.
+'
+
+run_test
+
+NAME='rahash2 -c with all hash algorithms'
+CMDS='!rahash2 -a all -s "admin" -c 21232f297a57a5a743894a0e4a801f'
+BROKEN=
+EXPECT=''
+IGNORE_ERR=0
+EXPECT_ERR='rahash2: Option -c incompatible with multiple algorithms in -a.
+'
+
+run_test
+
+NAME='rahash2 -c with custom block size and per-block hash'
+CMDS='!rahash2 -b 1 -B -s "admin" -c 21232f297a57a5a743894a0e4a801f'
+BROKEN=
+EXPECT=''
+IGNORE_ERR=0
+EXPECT_ERR='rahash2: Option -c incompatible with -b and -B options.
+'
+
+run_test
+
+NAME='rahash2 -c with base64 encoding'
+CMDS='!rahash2 -d -s "admin" -c 21232f297a57a5a743894a0e4a801f'
+BROKEN=
+EXPECT=''
+IGNORE_ERR=0
+EXPECT_ERR='rahash2: Option -c incompatible with -d or -D options.
+'
+
+run_test
+
+NAME='rahash2 -c with base64 decoding'
+CMDS='!rahash2 -D -s "admin" -c 21232f297a57a5a743894a0e4a801f'
+BROKEN=
+EXPECT=''
+IGNORE_ERR=0
+EXPECT_ERR='rahash2: Option -c incompatible with -d or -D options.
+'
+
 run_test

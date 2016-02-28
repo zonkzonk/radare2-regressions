@@ -204,7 +204,7 @@ run_test() {
     fi
 
     # Check if the output matched.
-    diff "${TMP_OUT}" "${TMP_EXP}" >/dev/null
+    diff --strip-trailing-cr "${TMP_OUT}" "${TMP_EXP}" >/dev/null
     OUT_CODE=$?
     if [ "${NOT_EXPECT}" = 1 ]; then
         if [ "${OUT_CODE}" = 0 ]; then
@@ -216,7 +216,7 @@ run_test() {
     if [ "${IGNORE_ERR}" = 1 ]; then
         ERR_CODE=0
     else
-        diff "${TMP_ERR}" "${TMP_EXR}" >/dev/null
+        diff --strip-trailing-cr "${TMP_ERR}" "${TMP_EXR}" >/dev/null
         ERR_CODE=$?
         if [ "${NOT_EXPECT}" = 1 ]; then
             if [ "${ERR_CODE}" = 0 ]; then

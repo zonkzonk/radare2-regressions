@@ -1,14 +1,17 @@
 #!/bin/sh
 
-# GPL 3+ - Copyright (C) 2011-2012  pancake, Edd Barrett, Simon Ruderich
+# GPL 3+ - Copyright (C) 2011-2016  pancake, Edd Barrett, Simon Ruderich
 
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
+
+# ?vi asumes 64bit values by default
 
 FILE=malloc://1024
 NAME=?vi-1
 ARGS=
 CMDS='
 ?vi 0xffffffff
+?vi8 0xffffffff
 ?vi4 0xffffffff
 ?vi2 0xffffffff
 ?vi1 0xffffffff
@@ -16,7 +19,8 @@ CMDS='
 ?vi2 0xffff
 ?vi1 0xff
 '
-EXPECT='-1
+EXPECT='4294967295
+4294967295
 -1
 -1
 -1
@@ -25,6 +29,7 @@ EXPECT='-1
 -1
 '
 run_test
+
 
 FILE=malloc://1024
 NAME=?vi-8
@@ -38,7 +43,7 @@ CMDS='
 ?vi2 0xfff8
 ?vi1 0xf8
 '
-EXPECT='-8
+EXPECT='4294967288
 -8
 -8
 -8
@@ -47,6 +52,7 @@ EXPECT='-8
 -8
 '
 run_test
+
 
 ## Missing arguments shouldn't cause a crash.
 

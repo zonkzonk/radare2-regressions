@@ -27,7 +27,6 @@ run_test
 
 NAME='rahash2 -a sha384'
 CMDS='!rahash2 -a sha384 ../../bins/elf/hello-linux-x86_64'
-BROKEN=1
 EXPECT='../../bins/elf/hello-linux-x86_64: 0x00000000-0x00001a35 sha384: a6fed224b0b5892ab44839b5ae6a12e54fb3393b5f1e1ca174fb5a0032c994f1c492c5b3a090518d8a60875223977ba4
 '
 
@@ -35,7 +34,6 @@ run_test
 
 NAME='rahash2 -a sha512'
 CMDS='!rahash2 -a sha512 ../../bins/elf/hello-linux-x86_64'
-BROKEN=1
 EXPECT='../../bins/elf/hello-linux-x86_64: 0x00000000-0x00001a35 sha512: 2640b1ff96870fb78a3d8ae6b51595ca86c37e25443b2e8c5441e77d11cdb3830ece8d791561c22788d37d7f22c99cdabf8f798826c0ff441901e6157890fee6
 '
 
@@ -264,7 +262,6 @@ run_test
 
 NAME='printf "admin" | rahash2 -q -a md5 -s -'
 CMDS='!printf "admin" | rahash2 -q -a md5 -s -'
-BROKEN=1
 EXPECT='21232f297a57a5a743894a0e4a801fc3
 '
 

@@ -6,11 +6,11 @@ CMDS='e asm.bits=16
 wx eff31080
 e asm.arch=arm
 pi 1
-e asm.arch=arm.cs
+e asm.arch=arm.gnu
 pi 1
 '
 EXPECT='mrs r0, primask
-mrs r0, primask
+mrs r0, PRIMASK
 '
 
 run_test

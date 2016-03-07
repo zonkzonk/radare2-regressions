@@ -2,7 +2,9 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME="${PLUGIN}: arm-thumb-mclass"
-CMDS='e asm.bits=16
+CMDS='e asm.arch=arm
+e asm.bits=16
+e asm.features=mclass
 wx eff31080
 e asm.arch=arm
 pi 1

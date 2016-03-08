@@ -286,9 +286,18 @@ NAME='rahash2 -f0x1 -t0x5 -q -a md5 admin.txt'
 CMDS='!rahash2 -f0x1 -t0x5 -q -a md5 ../../bins/other/admin.txt'
 FILE=../../bins/other/admin.txt
 BROKEN=
+EXPECT='21232f297a57a5a743894a0e4a801fc3 ../../bins/other/admin.txt
+'
+run_test
+
+NAME='rahash2 -f0x1 -t0x5 -qq -a md5 admin.txt'
+CMDS='!rahash2 -f0x1 -t0x5 -qq -a md5 ../../bins/other/admin.txt'
+FILE=../../bins/other/admin.txt
+BROKEN=
 EXPECT='21232f297a57a5a743894a0e4a801fc3
 '
 run_test
+
 
 
 NAME='rahash2 -v~commit?"'

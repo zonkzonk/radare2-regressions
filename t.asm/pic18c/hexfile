@@ -6,7 +6,7 @@ FILE=ihex://../../bins/pic18c/FreeRTOS-pic18c.hex
 ARGS="-a pic18c"
 CMDS='pi 2
 '
-EXPECT="goto 0x1237
+EXPECT="goto 0x246e
 return 0
 "
 run_test

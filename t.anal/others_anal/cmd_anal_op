@@ -27,7 +27,7 @@ stack: null
 cond: 0
 family: cpu
 90
-12
+11
 '
 run_test
 

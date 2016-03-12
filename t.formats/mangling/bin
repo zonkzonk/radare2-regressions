@@ -34,9 +34,9 @@ run_test
 
 NAME='binsym without demangling'
 BROKEN=
-ARGS=
+ARGS=-M
 FILE=../../bins/mach0/hellocxx-osx-i386
-CMDS="!rabin2 -qs $FILE"
+CMDS="isq"
 EXPECT='0x00002054 0 _NXArgc
 0x00002058 0 _NXArgv
 0x00001d9a 0 __ZSt3minImERKT_S2_S2_

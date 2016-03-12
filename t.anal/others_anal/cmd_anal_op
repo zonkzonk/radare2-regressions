@@ -14,7 +14,7 @@ ao 1
 p8 1
 ao 1~?
 '
-EXPECT='12
+EXPECT='11
 address: 0x0
 opcode: nop
 prefix: 0
@@ -22,7 +22,6 @@ bytes: 90
 refptr: 0
 size: 1
 type: nop
-type2: null
 esil: ,
 stack: null
 cond: 0
@@ -44,4 +43,3 @@ ao 1~size[1]
 EXPECT='10
 '
 run_test
-

@@ -10,12 +10,14 @@ run_test
 
 NAME='PE: tls_noEP - entrypoint'
 FILE=../../bins/pe/tls_noEP.exe
-ARGS='-n'
-CMDS="!rabin2 -peq ${FILE} "
+ARGS=''
+CMDS="ie"
 
-EXPECT='0xffc00000
+EXPECT='[Entrypoints]
+vaddr=0x00000000 paddr=0xffc00000 baddr=0x00400000 laddr=0x00000000 type=program
+vaddr=0x00401000 paddr=0x00000200 baddr=0x00400000 laddr=0x00000000 type=tls
+
+2 entrypoints
 '
 
 run_test
-
-

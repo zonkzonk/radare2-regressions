@@ -14,7 +14,7 @@ BROKEN=
 FILE=../../bins/firmware/bios_64k.bin
 ARGS=''
 CMDS='ie~addr'
-EXPECT='vaddr=0x000ffff0 paddr=0x00000000 baddr=0x00000000 laddr=0x00000000
+EXPECT='vaddr=0x000ffff0 paddr=0x00000000 baddr=0x00000000 laddr=0x00000000 type=program
 '
 run_test
 
@@ -50,7 +50,7 @@ BROKEN=
 FILE=../../bins/firmware/bios_128k.bin
 ARGS=''
 CMDS='ie~addr'
-EXPECT='vaddr=0x000ffff0 paddr=0x00000000 baddr=0x00000000 laddr=0x00000000
+EXPECT='vaddr=0x000ffff0 paddr=0x00000000 baddr=0x00000000 laddr=0x00000000 type=program
 '
 run_test
 
@@ -76,7 +76,7 @@ BROKEN=
 FILE=../../bins/firmware/bios_256k.bin
 ARGS=''
 CMDS='ie~addr'
-EXPECT='vaddr=0x000ffff0 paddr=0x00000000 baddr=0x00000000 laddr=0x00000000
+EXPECT='vaddr=0x000ffff0 paddr=0x00000000 baddr=0x00000000 laddr=0x00000000 type=program
 '
 run_test
 
@@ -102,7 +102,7 @@ BROKEN=
 FILE=../../bins/firmware/bios_512k.bin
 ARGS=''
 CMDS='ie~addr'
-EXPECT='vaddr=0x000ffff0 paddr=0x00000000 baddr=0x00000000 laddr=0x00000000
+EXPECT='vaddr=0x000ffff0 paddr=0x00000000 baddr=0x00000000 laddr=0x00000000 type=program
 '
 run_test
 
@@ -128,7 +128,7 @@ BROKEN=
 FILE=../../bins/firmware/bios_1M.bin
 ARGS=''
 CMDS='ie~addr'
-EXPECT='vaddr=0x000ffff0 paddr=0x00000000 baddr=0x00000000 laddr=0x00000000
+EXPECT='vaddr=0x000ffff0 paddr=0x00000000 baddr=0x00000000 laddr=0x00000000 type=program
 '
 run_test
 
@@ -154,7 +154,7 @@ BROKEN=
 FILE=../../bins/firmware/bios_2M.bin
 ARGS=''
 CMDS='ie~addr'
-EXPECT='vaddr=0x000ffff0 paddr=0x00000000 baddr=0x00000000 laddr=0x00000000
+EXPECT='vaddr=0x000ffff0 paddr=0x00000000 baddr=0x00000000 laddr=0x00000000 type=program
 '
 run_test
 
@@ -180,7 +180,7 @@ BROKEN=
 FILE=../../bins/firmware/bios_4M.bin
 ARGS=''
 CMDS='ie~addr'
-EXPECT='vaddr=0x000ffff0 paddr=0x00000000 baddr=0x00000000 laddr=0x00000000
+EXPECT='vaddr=0x000ffff0 paddr=0x00000000 baddr=0x00000000 laddr=0x00000000 type=program
 '
 run_test
 
@@ -206,7 +206,7 @@ BROKEN=
 FILE=../../bins/firmware/bios_8M.bin
 ARGS=''
 CMDS='ie~addr'
-EXPECT='vaddr=0x000ffff0 paddr=0x00000000 baddr=0x00000000 laddr=0x00000000
+EXPECT='vaddr=0x000ffff0 paddr=0x00000000 baddr=0x00000000 laddr=0x00000000 type=program
 '
 run_test
 

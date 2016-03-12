@@ -6,7 +6,7 @@ FILE=../../bins/elf/guess-number-riscv64
 ARGS=''
 CMDS='ie'
 EXPECT='[Entrypoints]
-vaddr=0x00010000 paddr=0x00001000 baddr=0x00010000 laddr=0x00000000
+vaddr=0x00010000 paddr=0x00001000 baddr=0x00010000 laddr=0x00000000 type=program
 
 1 entrypoints
 '
@@ -373,7 +373,7 @@ EXPECT='/ (fcn) sym.main 140
 |           0x0001018c      ef00402f       jal ra, sym.scanf
 |           0x00010190      032784fe       lw a4, -24(s0)
 |           0x00010194      8327c4fe       lw a5, -20(s0)
-|       ,=< 0x00010198      631cf700       bne a4, a5, 0x101b0        
+|       ,=< 0x00010198      631cf700       bne a4, a5, 0x101b0
 |       |   0x0001019c      b7170200       lui a5, 0x21
 |       |   0x000101a0      13858751       addi a0, a5, 1304
 |       |   0x000101a4      ef00002d       jal ra, sym.puts
@@ -381,7 +381,7 @@ EXPECT='/ (fcn) sym.main 140
 |       |   0x000101ac      6f000003       jal zero, 0x101dc
 |       `-> 0x000101b0      032784fe       lw a4, -24(s0)
 |           0x000101b4      8327c4fe       lw a5, -20(s0)
-|       ,=< 0x000101b8      635af700       bge a4, a5, 0x101cc        
+|       ,=< 0x000101b8      635af700       bge a4, a5, 0x101cc
 |       |   0x000101bc      b7170200       lui a5, 0x21
 |       |   0x000101c0      13858752       addi a0, a5, 1320
 |       |   0x000101c4      ef00002b       jal ra, sym.puts
@@ -417,7 +417,7 @@ EXPECT='/ (fcn) sym.main 140
 |           0x0001018c      ef00402f       jal ra, sym.scanf
 |           0x00010190      032784fe       lw a4, -24(s0)
 |           0x00010194      8327c4fe       lw a5, -20(s0)
-|       ,=< 0x00010198      631cf700       bne a4, a5, 0x101b0        
+|       ,=< 0x00010198      631cf700       bne a4, a5, 0x101b0
 |       |   0x0001019c      b7170200       lui a5, 0x21
 |       |   0x000101a0      13858751       addi a0, a5, 1304
 |       |   0x000101a4      ef00002d       jal ra, sym.puts
@@ -426,7 +426,7 @@ EXPECT='/ (fcn) sym.main 140
 |       |   ; JMP XREF from 0x00010198 (sym.main)
 |       `-> 0x000101b0      032784fe       lw a4, -24(s0)
 |           0x000101b4      8327c4fe       lw a5, -20(s0)
-|       ,=< 0x000101b8      635af700       bge a4, a5, 0x101cc        
+|       ,=< 0x000101b8      635af700       bge a4, a5, 0x101cc
 |       |   0x000101bc      b7170200       lui a5, 0x21
 |       |   0x000101c0      13858752       addi a0, a5, 1320
 |       |   0x000101c4      ef00002b       jal ra, sym.puts
@@ -438,4 +438,3 @@ EXPECT='/ (fcn) sym.main 140
 \           0x000101d8      6ff09ff9       jal zero, 0x10170
 '
 run_test
-

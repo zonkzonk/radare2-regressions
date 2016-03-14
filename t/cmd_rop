@@ -129,3 +129,26 @@ EXPECT='  0x000000b4               cd80  int 0x80
 run_test
 
 
+NAME='search rop gadgets with another end gadget as part of it.'
+FILE=../bins/elf/unoriginal
+ARGS=
+CMDS='e asm.bits=32
+e rop.len=15
+e search.from=0x08048340
+e search.to=0x08048400
+"/R push esp"
+'
+EXPECT='  0x08048350               fff4  push esp
+  0x08048352               6690  nop
+  0x08048354               6690  nop
+  0x08048356               6690  nop
+  0x08048358               6690  nop
+  0x0804835a               6690  nop
+  0x0804835c               6690  nop
+  0x0804835e               6690  nop
+  0x08048360             8b1c24  mov ebx, dword [esp]
+  0x08048363                 c3  ret
+
+'
+run_test
+

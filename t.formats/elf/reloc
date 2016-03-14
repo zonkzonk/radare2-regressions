@@ -16,3 +16,11 @@ vaddr=0x00600988 paddr=0x00000988 type=SET_64 __gmon_start__
 5 relocations
 '
 run_test
+
+NAME='ELF: Spurious relocations'
+FILE=../../bins/elf/spurious-relocs
+BROKEN=1
+ARGS=''
+CMDS="ir~vaddr=0x0000003a"
+EXPECT=''
+run_test

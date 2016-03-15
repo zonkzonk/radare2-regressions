@@ -105,6 +105,64 @@ EXPECT='31
 '
 run_test
 
+NAME='to error.h'
+FILES=-
+CMDS='
+to ../bins/other/error.h
+t
+t addr
+'
+EXPECT_ERR='../bins/other/error.h:1: warning: #error this should be treated as warning
+'
+EXPECT='unsigned int=type
+unsigned char=type
+unsigned short=type
+int=type
+long=type
+void *=type
+char=type
+char *=type
+const char*=type
+uint8_t=type
+uint16_t=type
+uint32_t=type
+uint64_t=type
+type.unsigned int=i
+type.unsigned char=b
+type.unsigned short=w
+type.int=d
+type.long=x
+type.void *=p
+type.char=b
+type.char *=*z
+type.const char*=*z
+type.uint8_t=b
+type.uint16_t=w
+type.uint32_t=d
+type.uint64_t=q
+name=struct
+struct.name=first,middle,last
+struct.name.first=char *,0,40
+struct.name.middle=char *,40,40
+struct.name.last=char *,80,40
+date=struct
+struct.date=day,month,year
+struct.date.day=unsigned char,0,0
+struct.date.month=unsigned char,1,0
+struct.date.year=unsigned short,2,0
+addr=struct
+struct.addr=street,city,zip
+struct.addr.street=char *,0,127
+struct.addr.city=char *,127,40
+struct.addr.zip=unsigned int,168,0
+dox=struct
+struct.dox=address,name,bday
+struct.dox.address=struct addr,0,0
+struct.dox.name=struct name,172,0
+struct.dox.bday=struct date,292,0
+pf *z*zi street city zip 
+'
+run_test
 
 NAME='to test.h'
 FILE=-

@@ -152,3 +152,30 @@ EXPECT='  0x08048350               fff4  push esp
 '
 run_test
 
+NAME='search rop with sequence.'
+FILE=../bins/elf/x86-helloworld-gcc
+ARGS=
+CMDS='"/R push esi;push ebx"
+'
+EXPECT='  0x08048421                 57  push edi
+  0x08048422               31ff  xor edi, edi
+  0x08048424                 56  push esi
+  0x08048425                 53  push ebx
+  0x08048426         e805ffffff  call 0x8048330
+
+'
+run_test
+
+NAME='search rop with regex sequence.'
+FILE=../bins/elf/x86-helloworld-gcc
+ARGS=
+CMDS='"/R/ push esi;push ebx"
+'
+EXPECT='  0x08048421                 57  push edi
+  0x08048422               31ff  xor edi, edi
+  0x08048424                 56  push esi
+  0x08048425                 53  push ebx
+  0x08048426         e805ffffff  call 0x8048330
+
+'
+run_test

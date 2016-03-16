@@ -1,0 +1,30 @@
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+PLUGIN=mips
+
+NAME="mips hello ref anal"
+BROKEN=
+FILE=../../bins/elf/mips-hello
+CMDS="
+s sym.main
+aac
+afl~?
+"
+EXPECT='1
+'
+run_test
+
+NAME="mips hello ref anal"
+BROKEN=
+ARGS="-e bin.strings=false -e anal.strings=true"
+FILE=../../bins/elf/mips.elf
+CMDS="
+s entry0
+aae
+s 0x0041ed50
+pd 5~IGNORE
+"
+EXPECT='            0x0041ed58      24a54268       addiu a1, a1, 0x4268        ; str.IGNORE
+'
+run_test
+

@@ -76,6 +76,20 @@ EXPECT="            0x00000000      fa67bba9       stp x26, x25, [sp, -0x50]!  ;
 "
 run_test
 
+NAME='pd bits hint'
+FILE='-'
+ARGS='-a snes'
+BROKEN=
+CMDS='wx a97e00
+ahb 8
+e scr.color=true
+pd 1
+'
+EXPECT="  [36m          [0m[7m[32m0x00000000[0m      [37ma9[33m7e[0m           [0m[1;31mlda[36m #[33m0x7e[0m[0m
+"
+
+run_test
+
 exit 0
 
 NAME='ASCII Recognition'

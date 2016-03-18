@@ -16,7 +16,7 @@ EXPECT='IMAGE_FILE_MACHINE_I386
 run_test
 
 NAME='tb'
-BROKEN=1
+BROKEN=
 FILE=-
 CMDS='
 "td enum pe_machine { IMAGE_FILE_MACHINE_IA64=0x200, IMAGE_FILE_MACHINE_I386=0x14c };"
@@ -27,7 +27,7 @@ EXPECT='0x14c
 run_test
 
 NAME='t-*'
-BROKEN=1
+BROKEN=
 FILE=-
 CMDS='"td enum pe_machine { IMAGE_FILE_MACHINE_IA64=0x200, IMAGE_FILE_MACHINE_I386=0x14c };"
 t-*
@@ -37,7 +37,7 @@ EXPECT=''
 run_test
 
 NAME='t-name'
-BROKEN=1
+BROKEN=
 FILE=-
 CMDS='"td enum pe_machine { IMAGE_FILE_MACHINE_IA64=0x200, IMAGE_FILE_MACHINE_I386=0x14c };"
 t-pe_machine

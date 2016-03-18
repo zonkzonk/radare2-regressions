@@ -48,11 +48,11 @@ EXPECT='0
 run_test
 
 NAME='t pf'
-BROKEN=1
+BROKEN=
 FILE=-
 CMDS='t uint16_t
 '
-EXPECT='w
+EXPECT='pf w
 '
 run_test
 

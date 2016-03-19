@@ -4,25 +4,98 @@
 
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
-NAME='te'
-BROKEN=
+NAME='t?'
 FILE=-
-CMDS='
-"td enum pe_machine { IMAGE_FILE_MACHINE_IA64=0x200, IMAGE_FILE_MACHINE_I386=0x14c };"
-te pe_machine 0x14c
-'
-EXPECT='IMAGE_FILE_MACHINE_I386
+CMDS='t?'
+EXPECT="|Usage: t # cparse types commands
+| t                  List all loaded types
+| t <type>           Show type in 'pf' syntax
+| t*                 List types info in r2 commands
+| t- <name>          Delete types by its name
+| t-*                Remove all types
+| tb <enum> <value>  Show matching enum bitfield for given number
+| te <enum> <value>  Show name for given enum number
+| td <string>        Load types from string
+| tf <addr>          View linked type at given address
+| tl[?]              Show/Link type to an address
+| to -               Open cfg.editor to load types
+| to <path>          Load types from C header file
+| tk <sdb-query>     Perform sdb query
+| ts <k>=<v>         Set fields at curseek linked type
+"
+run_test
+
+NAME='t'
+FILE=-
+CMDS='t'
+EXPECT='unsigned int=type
+unsigned char=type
+unsigned short=type
+int=type
+long=type
+void *=type
+char=type
+char *=type
+const char*=type
+uint8_t=type
+uint16_t=type
+uint32_t=type
+uint64_t=type
+type.unsigned int=i
+type.unsigned char=b
+type.unsigned short=w
+type.int=d
+type.long=x
+type.void *=p
+type.char=b
+type.char *=*z
+type.const char*=*z
+type.uint8_t=b
+type.uint16_t=w
+type.uint32_t=d
+type.uint64_t=q
 '
 run_test
 
-NAME='tb'
+NAME="t <type>"
+FILE=-
+CMDS='t int
+t-*
+t int'
+EXPECT='pf d
+'
+EXPECT_ERR='Cannot find 'int' type
+'
+run_test
+
+NAME='t-enum'
+FILE=-
+CMDS='"td enum pe_machine { IMAGE_FILE_MACHINE_IA64=0x200, IMAGE_FILE_MACHINE_I386=0x14c };"
+t-pe_machine
+t~?pe_machine'
+EXPECT='0
+'
+run_test
+
+NAME='t-struct'
 BROKEN=
 FILE=-
-CMDS='
-"td enum pe_machine { IMAGE_FILE_MACHINE_IA64=0x200, IMAGE_FILE_MACHINE_I386=0x14c };"
-tb pe_machine IMAGE_FILE_MACHINE_I386
+CMDS='"td struct a{int x; char y; float z;}"
+t-pe_machine
+t~?pe_machine
 '
-EXPECT='0x14c
+EXPECT='0
+'
+run_test
+
+NAME='t-typedef'
+BROKEN=
+FILE=-
+CMDS='"td typedef int Abracadabra"
+t-pe_machine
+t~?pe_machine
+'
+EXPECT='0
 '
 run_test
 
@@ -36,34 +109,36 @@ t
 EXPECT=''
 run_test
 
-NAME='t-name'
-BROKEN=
-FILE=-
-CMDS='"td enum pe_machine { IMAGE_FILE_MACHINE_IA64=0x200, IMAGE_FILE_MACHINE_I386=0x14c };"
-t-pe_machine
-t~?pe_machine
-'
-EXPECT='0
-'
-run_test
-
-NAME='t pf'
-BROKEN=1
-FILE=-
-CMDS='t uint16_t
-'
-EXPECT='w
-'
-run_test
-
-NAME='struct'
+NAME='tb'
 BROKEN=
 FILE=-
 CMDS='
-"td struct a{int a;int b;};"
-t~?
+"td enum pe_machine { IMAGE_FILE_MACHINE_IA64=0x200, IMAGE_FILE_MACHINE_I386=0x14c };"
+tb pe_machine IMAGE_FILE_MACHINE_I386
 '
-EXPECT='30
+EXPECT='0x14c
+'
+run_test
+
+NAME='te'
+BROKEN=
+FILE=-
+CMDS='
+"td enum pe_machine { IMAGE_FILE_MACHINE_IA64=0x200, IMAGE_FILE_MACHINE_I386=0x14c };"
+te pe_machine 0x14c
+'
+EXPECT='IMAGE_FILE_MACHINE_I386
+'
+run_test
+
+NAME='td struct'
+BROKEN=
+FILE=-
+CMDS='
+"td struct test_struct{int x;int y;};"
+t~?test_struct
+'
+EXPECT='4
 '
 run_test
 
@@ -224,11 +299,11 @@ run_test
 
 NAME='tl, tf test on structure'
 FILE=-
-CMDS='"td typedef struct name { char name[10]; }"
+CMDS='"td typedef struct name { char name[10]; } name"
 s 100
 w Carlos
 s 0
-wx 0x00000064
+wx 0x64
 tl name @ 0x0
 tf 0x0
 '
@@ -237,3 +312,4 @@ name : (*0x64) 0x00000000 = Carlos
 }
 '
 run_test
+

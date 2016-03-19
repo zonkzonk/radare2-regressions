@@ -224,11 +224,11 @@ run_test
 
 NAME='tl, tf test on structure'
 FILE=-
-CMDS='"td typedef struct name { char name[10]; }"
+CMDS='"td typedef struct name { char name[10]; } name"
 s 100
 w Carlos
 s 0
-wx 0x00000064
+wx 0x64
 tl name @ 0x0
 tf 0x0
 '

@@ -32,7 +32,7 @@ run_test
 NAME='laddr 0'
 FILE=../../bins/elf/hello-linux-x86_64
 ARGS=
-CMDS="!rabin2 -G 0 -e ${R2_FILE}"
+CMDS='!rabin2 -G 0 -e ${R2_FILE}'
 EXPECT='[Entrypoints]
 vaddr=0x00400410 paddr=0x00000410 baddr=0x00400000 laddr=0x00000000 type=program
 
@@ -43,7 +43,7 @@ run_test
 NAME='laddr 0 && baddr 0'
 FILE=../../bins/elf/hello-linux-x86_64
 ARGS=
-CMDS="!rabin2 -G 0 -B 0 -e ${R2_FILE}"
+CMDS='!rabin2 -G 0 -B 0 -e ${R2_FILE}'
 EXPECT='[Entrypoints]
 vaddr=0x00000410 paddr=0x00000410 baddr=0x00000000 laddr=0x00000000 type=program
 
@@ -81,7 +81,7 @@ NAME='rabin2 -s file pe'
 BROKEN=
 FILE=../../bins/pe/a.exe
 ARGS=
-CMDS="!rabin2 -s ${R2_FILE}|wc -l|awk '{print \$1}'"
+CMDS='!rabin2 -s ${R2_FILE}|wc -l|awk "{print \$1}"'
 EXPECT='23
 '
 run_test
@@ -90,7 +90,7 @@ NAME='rabin2 -s file elf'
 BROKEN=
 FILE=../../bins/elf/x86-helloworld-gcc
 ARGS=
-CMDS="!rabin2 -s ${R2_FILE}|wc -l|awk '{print \$1}'"
+CMDS='!rabin2 -s ${R2_FILE}|wc -l|awk "{print \$1}"'
 EXPECT='36
 '
 run_test
@@ -99,7 +99,7 @@ NAME='rabin2 -z pe'
 BROKEN=
 FILE=../../bins/pe/a.exe
 ARGS=
-CMDS="!rabin2 -z ${R2_FILE}|wc -l|awk '{print \$1}'"
+CMDS='!rabin2 -z ${R2_FILE}|wc -l|awk "{print \$1}"'
 EXPECT='4
 '
 run_test
@@ -108,7 +108,7 @@ NAME='rabin2 -z elf'
 BROKEN=
 FILE=../../bins/elf/x86-helloworld-gcc
 ARGS=
-CMDS="!rabin2 -z ${R2_FILE}|wc -l|awk '{print \$1}'"
+CMDS='!rabin2 -z ${R2_FILE}|wc -l|awk "{print \$1}"'
 EXPECT='1
 '
 run_test
@@ -116,7 +116,7 @@ run_test
 NAME='rabin2 -G 0x1000 -rs fatmach0'
 FILE=../../bins/mach0/fatmach0-3true
 ARGS=
-CMDS="!rabin2 -G 0x1000 -rs ${R2_FILE}|grep 'f ' | wc -l|awk '{print \$1}'"
+CMDS='!rabin2 -G 0x1000 -rs ${R2_FILE}|grep "f " | wc -l|awk "{print \$1}"'
 EXPECT='3
 '
 run_test
@@ -124,7 +124,7 @@ run_test
 NAME='rabin2 -G 0x1300 -rs fatmach0'
 FILE=../../bins/mach0/fatmach0-3true
 ARGS=
-CMDS="!rabin2 -G 0x1300 -rs ${R2_FILE}|wc -l|awk '{print \$1}'"
+CMDS='!rabin2 -G 0x1300 -rs ${R2_FILE}|wc -l|awk "{print \$1}"'
 EXPECT='1
 '
 run_test
@@ -132,7 +132,7 @@ run_test
 NAME='rabin2 -G 0x1000 -e fatmach0'
 FILE=../../bins/mach0/fatmach0-3true
 ARGS=
-CMDS="!rabin2 -G 0x1000 -e ${R2_FILE}"
+CMDS='!rabin2 -G 0x1000 -e ${R2_FILE}'
 EXPECT='[Entrypoints]
 vaddr=0x100000ef8 paddr=0x00001ef8 baddr=0x100000000 laddr=0x00001000 type=program
 
@@ -144,7 +144,7 @@ NAME='rabin2 -e fatmach0'
 BROKEN=1
 FILE=../../bins/mach0/fatmach0-3true
 ARGS=
-CMDS="!rabin2 -e ${R2_FILE}"
+CMDS='!rabin2 -e ${R2_FILE}'
 EXPECT='[Entrypoints]
 vaddr=0x100000ef8 paddr=0x00001ef8 baddr=0x100000000 laddr=0x00001000 type=program
 
@@ -155,7 +155,7 @@ run_test
 NAME='rabin2 -G 0x5000 -e fatmach0'
 FILE=../../bins/mach0/fatmach0-3true
 ARGS=
-CMDS="!rabin2 -G 0x5000 -e ${R2_FILE}"
+CMDS='!rabin2 -G 0x5000 -e ${R2_FILE}'
 EXPECT='[Entrypoints]
 vaddr=0x00001f44 paddr=0x00005f44 baddr=0x00001000 laddr=0x00005000 type=program
 
@@ -167,7 +167,7 @@ NAME='rabin2 -a x86 -b 32 -e fatmach0'
 BROKEN=1
 FILE=../../bins/mach0/fatmach0-3true
 ARGS=
-CMDS="!rabin2 -a x86 -b 32 -e ${R2_FILE}"
+CMDS='!rabin2 -a x86 -b 32 -e ${R2_FILE}'
 EXPECT='[Entrypoints]
 vaddr=0x00001f44 paddr=0x00005f44 baddr=0x00001000 laddr=0x00005000 type=program
 
@@ -178,7 +178,7 @@ run_test
 NAME='rabin2 -B 0x2000000 -G 0x1000 -e fatmach0'
 FILE=../../bins/mach0/fatmach0-3true
 ARGS=
-CMDS="!rabin2 -B 0x2000000 -G 0x1000 -e ${R2_FILE}"
+CMDS='!rabin2 -B 0x2000000 -G 0x1000 -e ${R2_FILE}'
 EXPECT='[Entrypoints]
 vaddr=0x02000ef8 paddr=0x00001ef8 baddr=0x02000000 laddr=0x00001000 type=program
 
@@ -190,7 +190,7 @@ NAME='TODO: test on pie fatmach0'
 FILE=../../bins/mach0/fatmach-pie
 BROKEN=1
 ARGS=
-CMDS="!rabin2 -B 0x2000000 -G 0x1000 -e ${R2_FILE}"
+CMDS='!rabin2 -B 0x2000000 -G 0x1000 -e ${R2_FILE}'
 EXPECT='???'
 run_test
 
@@ -198,7 +198,7 @@ run_test
 NAME='rabin2 -B 0x2000000 -e arm64'
 FILE=../../bins/mach0/hello-ios-arm64
 ARGS=
-CMDS="!rabin2 -B 0x2000000 -e ${R2_FILE}"
+CMDS='!rabin2 -B 0x2000000 -e ${R2_FILE}'
 EXPECT='[Entrypoints]
 vaddr=0x02007f34 paddr=0x00007f34 baddr=0x02000000 laddr=0x00000000 type=program
 
@@ -209,7 +209,7 @@ run_test
 NAME='rabin2 -B 0x2000000 -e arm64'
 FILE=../../bins/mach0/hello-ios-arm64
 ARGS=
-CMDS="!rabin2 -B 0x2000000 -e ${R2_FILE}"
+CMDS='!rabin2 -B 0x2000000 -e ${R2_FILE}'
 EXPECT='[Entrypoints]
 vaddr=0x02007f34 paddr=0x00007f34 baddr=0x02000000 laddr=0x00000000 type=program
 
@@ -222,7 +222,7 @@ run_test
 NAME='rabin2 -a x86 -b 32 -i fatmach0'
 FILE=../../bins/mach0/fatmach0-3true
 ARGS=
-CMDS="!rabin2 -a x86 -b 32 -i ${R2_FILE}"
+CMDS='!rabin2 -a x86 -b 32 -i ${R2_FILE}'
 EXPECT='[Imports]
 ordinal=000 plt=0x00001f94 bind=NONE type=FUNC name=exit
 ordinal=001 plt=0x00000000 bind=NONE type=FUNC name=dyld_stub_binder
@@ -234,7 +234,7 @@ run_test
 NAME='rabin2 -G 0x5000 -i fatmach0'
 FILE=../../bins/mach0/fatmach0-3true
 ARGS=
-CMDS="!rabin2 -G 0x5000 -i ${R2_FILE}"
+CMDS='!rabin2 -G 0x5000 -i ${R2_FILE}'
 EXPECT='[Imports]
 ordinal=000 plt=0x00001f94 bind=NONE type=FUNC name=exit
 ordinal=001 plt=0x00000000 bind=NONE type=FUNC name=dyld_stub_binder

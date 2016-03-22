@@ -14,14 +14,16 @@ EXPECT="|Usage: t # cparse types commands
 | t- <name>          Delete types by its name
 | t-*                Remove all types
 | tb <enum> <value>  Show matching enum bitfield for given number
+| te                 List all loaded enums
 | te <enum> <value>  Show name for given enum number
 | td <string>        Load types from string
-| tf <addr>          View linked type at given address
+| tf                 List all loaded functions signitures
+| tk <sdb-query>     Perform sdb query
 | tl[?]              Show/Link type to an address
 | to -               Open cfg.editor to load types
 | to <path>          Load types from C header file
-| tk <sdb-query>     Perform sdb query
-| ts <k>=<v>         Set fields at curseek linked type
+| ts                 print loaded struct types
+| tu                 print loaded union types
 "
 run_test
 
@@ -69,20 +71,87 @@ BROKEN=
 FILE=-
 CMDS='"td struct three_elements{int x; char y; float z;}"
 t-three_elements
-t~?three_elements
+ts~?
 '
 EXPECT='0
 '
 run_test
 
-NAME='t-typedef'
-BROKEN=
+Name='t-union'
+FILE=-
+CMDS='td union x{int x; int y; int z;}"
+tk*
+t-x
+'
+Expect='unsigned int=type
+unsigned char=type
+unsigned short=type
+int=type
+long=type
+void *=type
+char=type
+char *=type
+const char*=type
+uint8_t=type
+uint16_t=type
+uint32_t=type
+uint64_t=type
+type.unsigned int=i
+type.unsigned char=b
+type.unsigned short=w
+type.int=d
+type.long=x
+type.void *=p
+type.char=b
+type.char *=*z
+type.const char*=*z
+type.uint8_t=b
+type.uint16_t=w
+type.uint32_t=d
+type.uint64_t=q
+x=union
+union.x=x,y,z
+union.x.x=int,0,0
+union.x.y=int,0,0
+union.x.z=int,0,0
+
+unsigned int=type
+unsigned char=type
+unsigned short=type
+int=type
+long=type
+void *=type
+char=type
+char *=type
+const char*=type
+uint8_t=type
+uint16_t=type
+uint32_t=type
+uint64_t=type
+type.unsigned int=i
+type.unsigned char=b
+type.unsigned short=w
+type.int=d
+type.long=x
+type.void *=p
+type.char=b
+type.char *=*z
+type.const char*=*z
+type.uint8_t=b
+type.uint16_t=w
+type.uint32_t=d
+type.uint64_t=q
+
+'
+NAME='typedef'
+BROKEN=1
 FILE=-
 CMDS='"td typedef int Abracadabra"
-t-pe_machine
-t~?pe_machine
+t-Abracadabra
+t~?Abracadabra
 '
-EXPECT='0
+EXPECT='
+TODO
 '
 run_test
 
@@ -123,7 +192,7 @@ BROKEN=
 FILE=-
 CMDS='
 "td struct test_struct{int x;int y;};"
-t~?test_struct
+ts~?test_struct
 '
 EXPECT='1
 '
@@ -134,12 +203,12 @@ BROKEN=
 FILE=-
 CMDS='
 "td enum v { t=0x123, p=0x321 };"
-t~?
+te~?
 tk v
 tk v.t
 tk v.p
 '
-EXPECT='14
+EXPECT='1
 enum
 
 0x123
@@ -155,11 +224,11 @@ NAME='enum64'
 FILE=-
 CMDS='
 "td enum v { t=0x8000000000000001, p=0x8000000000000008 };"
-t~?
+te~?
 tk v.t
 tk v.p
 '
-EXPECT='14
+EXPECT='1
 0x8000000000000001
 
 0x8000000000000008
@@ -172,6 +241,7 @@ FILES=-
 CMDS='
 to ../bins/other/error.h
 t
+ts
 t addr
 '
 EXPECT_ERR='../bins/other/error.h:1: warning: #error this should be treated as warning
@@ -189,10 +259,10 @@ uint8_t
 uint16_t
 uint32_t
 uint64_t
-struct name
-struct date
-struct addr
-struct dox
+name
+date
+addr
+dox
 pf *z*zi street city zip 
 '
 run_test
@@ -202,6 +272,7 @@ FILE=-
 CMDS='
 to ../bins/other/test.h
 t
+ts
 t addr
 '
 EXPECT='unsigned int
@@ -217,16 +288,49 @@ uint8_t
 uint16_t
 uint32_t
 uint64_t
-struct name
-struct date
-struct addr
-struct dox
+name
+date
+addr
+dox
 pf *z*zi street city zip 
 '
 run_test
 
+NAME="t*"
+FILE=-
+CMDS="t*
+"
+EXPECT='tk unsigned int = type 
+tk unsigned char = type 
+tk unsigned short = type 
+tk int = type 
+tk long = type 
+tk void * = type 
+tk char = type 
+tk char * = type 
+tk const char* = type 
+tk uint8_t = type 
+tk uint16_t = type 
+tk uint32_t = type 
+tk uint64_t = type 
+tk type.unsigned int = i 
+tk type.unsigned char = b 
+tk type.unsigned short = w 
+tk type.int = d 
+tk type.long = x 
+tk type.void * = p 
+tk type.char = b 
+tk type.char * = *z 
+tk type.const char* = *z 
+tk type.uint8_t = b 
+tk type.uint16_t = w 
+tk type.uint32_t = d 
+tk type.uint64_t = q 
+'
+run_test
 
 NAME='tl, tf test on structure'
+BROKEN=1
 FILE=-
 CMDS='"td typedef struct name { char name[10]; } name"
 s 100
@@ -242,3 +346,11 @@ name : (*0x64) 0x00000000 = Carlos
 '
 run_test
 
+NAME='unions'
+FILE=-
+CMDS='"td union x{float a;int b}"
+tu
+'
+EXPECT='x
+'
+run_test

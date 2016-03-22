@@ -1,25 +1,57 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
-NAME="${PLUGIN}: m68k"
-BROKEN=1
+NAME="${PLUGIN}: m68k filter"
 CMDS='e asm.arch=m68k
 e asm.bits=32
 wx 33fc010000a10000
-e asm.arch=m68k
-pi 1
-e asm.arch=m68k.cs
 pi 1
 f foo.bar = 0xa10000
-e asm.arch=m68k
-pi 1
-e asm.arch=m68k.cs
 pi 1
 '
 EXPECT='move.w 0x100, 0xa10000.l
-move.w 0x100, 0xa10000.l
-move.w 0x100, foo.bar
 move.w 0x100, foo.bar
 '
-
 run_test
+
+NAME="${PLUGIN}: m68k filter2"
+CMDS='e asm.arch=m68k
+e asm.bits=32
+wx 33fc010000a10000
+pi 1
+f foo.bar = 0x100
+pi 1
+'
+EXPECT='move.w 0x100, 0xa10000.l
+move.w foo.bar, 0xa10000.l
+'
+run_test
+
+NAME="${PLUGIN}: m68k.cs filter"
+BROKEN=1
+CMDS='e asm.arch=m68k.cs
+e asm.bits=32
+wx 33fc010000a10000
+pi 1
+f foo.bar = 0xa10000
+pi 1
+'
+EXPECT='move.w 0x100, 0xa10000.l
+move.w 0x100, foo.bar
+'
+run_test
+
+NAME="${PLUGIN}: m68k.cs filter2"
+BROKEN=1
+CMDS='e asm.arch=m68k.cs
+e asm.bits=32
+wx 33fc010000a10000
+pi 1
+f foo.bar = 0x100
+pi 1
+'
+EXPECT='move.w 0x100, 0xa10000.l
+move.w foo.bar, 0xa10000.l
+'
+run_test
+

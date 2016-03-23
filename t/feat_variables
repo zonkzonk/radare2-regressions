@@ -1,7 +1,28 @@
 #!/bin/sh
-# GPL 3+ - Copyright (C) 2012  pancake, Edd Barrett, Simon Ruderich
+# GPL 3+ - Copyright (C) 2012-2016  pancake, Edd Barrett, Simon Ruderich
 
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
+
+NAME=hello-arm32
+FILE=../bins/elf/hello-arm32
+CMDS='?v $M
+?v $s
+'
+EXPECT='0x10000
+0x90c
+'
+run_test
+
+NAME=hello-arm32
+FILE=../bins/elf/hello-arm32
+ARGS="-B 0x4000"
+CMDS='?v $M
+?v $s
+'
+EXPECT='0x4000
+0x90c
+'
+run_test
 
 NAME='$B (fcn-begin)'
 FILE=malloc://1024

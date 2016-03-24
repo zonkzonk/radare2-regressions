@@ -6,6 +6,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 
 NAME='udis pae 31ed'
+ARGS="-a x86 -b 32"
 FILE=-
 BROKEN=1
 CMDS='
@@ -19,6 +20,7 @@ run_test
 
 
 NAME='capstone pae 31ed'
+ARGS="-a x86 -b 32"
 FILE=-
 BROKEN=
 CMDS='
@@ -31,6 +33,7 @@ run_test
 
 
 NAME='pae 40'
+ARGS="-a x86 -b 32"
 FILE=-
 BROKEN=
 CMDS='
@@ -43,6 +46,7 @@ run_test
 
 
 NAME='pae 48'
+ARGS="-a x86 -b 32"
 FILE=-
 BROKEN=
 CMDS='

@@ -140,3 +140,20 @@ EXPECT='afa 8 ImageHandle blah @ 0x10002d8d
 afv 0 blahblah typeR @ 0x10002d8d
 '
 run_test
+
+
+NAME='Types and link in project file'
+FILE=-
+BROKEN=
+ARGS=
+CMDS='e dir.projects = /tmp/
+tk zoby  =  type
+tl char @ 0x0
+Ps types > /dev/null
+Pc types~?link
+Pc types~?zoby
+'
+EXPECT='1
+1
+'
+run_test

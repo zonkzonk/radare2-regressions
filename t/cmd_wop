@@ -1,0 +1,24 @@
+#!/bin/sh
+# GPL 3+ - Copyright (C) 2016 Maijin
+[ -e tests.sh ] && . ./tests.sh || . ../tests.sh
+
+NAME='wopD 0x10 @ 0'
+FILE=-
+ARGS=
+BROKEN=
+CMDS='wopD 0x10 @ 0
+p8 0x10
+'
+EXPECT='41414142414143414144414145414146
+'
+run_test
+
+NAME='wopO 0x41417641'
+FILE=-
+ARGS=
+BROKEN=
+CMDS='wopO 0x41417641
+'
+EXPECT='140
+'
+run_test

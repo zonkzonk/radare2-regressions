@@ -109,6 +109,18 @@ EXPECT='call32a r7
 '
 run_test
 
+NAME="ebc: [CALL.4]"
+FILE=malloc://32
+CMDS='
+e asm.arch=ebc
+e asm.bits=64
+wx 832f01000010
+pi 1
+'
+EXPECT='call32exa @r7(+1, +0)
+'
+run_test
+
 # --------------------------
 # RET instruction
 

@@ -310,7 +310,7 @@ e asm.bits=64
 wx 63f787240010
 pi 1
 '
-EXPECT='movdd r7, @r7(+3, +2337)
+EXPECT='movdd r7, @r7(+7, +584)
 '
 run_test
 

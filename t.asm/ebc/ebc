@@ -188,6 +188,19 @@ EXPECT='neg64 r7, r7
 '
 run_test
 
+# NOT instruction
+NAME="ebc: [NOT]"
+FILE=malloc://32
+CMDS='
+e asm.arch=ebc
+e asm.bits=64
+wx 0a77
+pi 1
+'
+EXPECT='not32 r7, r7
+'
+run_test
+
 # --------------------------
 # ADD instruction
 

@@ -1,0 +1,13 @@
+#!/bin/sh
+# GPL 3+ - Copyright (C) 2016 Maijin
+[ -e tests.sh ] && . ./tests.sh || . ../tests.sh
+
+NAME='im'
+FILE=../bins/nes/Pong.nes
+ARGS=
+BROKEN=
+CMDS='im~?SRAM
+'
+EXPECT='1
+'
+run_test

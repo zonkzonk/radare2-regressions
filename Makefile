@@ -64,7 +64,7 @@ asm.z80:
 	@sh run_tests.sh t.asm/z80
 asm.pic18c:
 	@sh run_tests.sh t.asm/pic18c
-anal: anal.arm anal.avr anal.java anal.mips anal.x86 anal.others
+anal: anal.arm anal.avr anal.java anal.mips anal.x86 anal.others anal.6502
 anal.arm:
 	@sh run_tests.sh t.anal/arm
 anal.avr:
@@ -77,6 +77,8 @@ anal.x86:
 	@sh run_tests.sh t.anal/x86
 anal.others:
 	@sh run_tests.sh t.anal/others_anal
+anal.6502:
+	@sh run_tests.sh t.anal/6502
 
 esil:
 	@sh run_tests.sh t.esil

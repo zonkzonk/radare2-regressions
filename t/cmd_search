@@ -171,3 +171,58 @@ EXPECT='  0x00000000           1b000000  divu zero, zero, zero
 
 '
 run_test
+
+NAME='/m search from/to'
+FILE='../bins/pe/standard.exe'
+ARGS=
+BROKEN=
+CMDS='
+s 0
+e search.from = 0
+e search.to = 0x10
+/m
+'
+EXPECT='0x00000000 1 PE  for MS Windows Intel 80386 32-bit
+'
+run_test
+
+NAME='/m search from/to'
+FILE='../bins/pe/standard.exe'
+ARGS=
+BROKEN=1
+CMDS='
+s 0x1000
+e search.from = 0
+e search.to = 0x10
+/m
+'
+EXPECT='0x00000000 1 PE  for MS Windows Intel 80386 32-bit
+'
+run_test
+
+NAME='/m search seek'
+FILE='../bins/pe/standard.exe'
+ARGS=
+BROKEN=
+CMDS='
+s 0x1000
+/x 9090cd80
+s
+'
+EXPECT='0x1000
+'
+run_test
+
+
+NAME='/m search seek'
+FILE='../bins/pe/standard.exe'
+ARGS=
+BROKEN=1
+CMDS='
+s 0x1000
+/m
+s
+'
+EXPECT='0x1000
+'
+run_test

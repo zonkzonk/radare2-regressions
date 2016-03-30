@@ -95,7 +95,7 @@ run_test
 # Test that jumps / calls used mapped address if used (Case 2 - mapped)
 #
 
-# here the function has size 32, because it just finishes at the 
+# here the function has size 32, because it just finishes at the
 # unconditional jump. The point here is to check the CALL XREF
 
 NAME="mips LE correct relative jump reference if mapped from command line."
@@ -126,7 +126,7 @@ EXPECT='(fcn) fcn.80100000 32
 ; CALL XREF from 0x80100000 (unk)
 0x80100020      0800e003   jr ra
 0x80100024      00000000   nop
-0x80100000  32  1  fcn.80100000
+0x80100000  32    1     fcn.80100000
 '
 run_test
 

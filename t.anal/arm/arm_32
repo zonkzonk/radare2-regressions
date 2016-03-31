@@ -70,3 +70,21 @@ EXPECT='ptr: 0x0000008c
 ptr: 0x0000008c
 '
 run_test
+
+NAME="arm32 bxeq lr"
+BROKEN=
+FILE=malloc://512
+CMDS="
+e asm.arch=arm
+e asm.bits=32
+wx 021081e0 1eff2f01 0020a0e3 1eff2fe1
+af
+pd 4
+"
+EXPECT="/ (fcn) fcn.00000000 16
+|           0x00000000      021081e0       add r1, r1, r2
+|           0x00000004      1eff2f01       bxeq lr
+|           0x00000008      0020a0e3       mov r2, 0
+\           0x0000000c      1eff2fe1       bx lr
+"
+run_test

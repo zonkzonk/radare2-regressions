@@ -31,7 +31,7 @@ CMDS='
 af @@ sym*
 afl~weak
 '
-EXPECT='0x00010304  28    2     sym.call_weak_fn
+EXPECT='0x00010304  28    1     sym.call_weak_fn
 '
 run_test
 
@@ -42,7 +42,7 @@ CMDS='
 aa
 afl~?
 '
-EXPECT='16
+EXPECT='15
 '
 run_test
 
@@ -53,6 +53,6 @@ CMDS='
 af @@ sym.*
 afl~?
 '
-EXPECT='16
+EXPECT='15
 '
 run_test

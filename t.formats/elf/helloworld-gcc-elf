@@ -106,8 +106,8 @@ EXPECT='0    1 . strings
 2    4 . relocs
 3    3 . imports
 4   76 . sections
-5   13 . functions
-27
+5    9 . functions
+23
 '
 run_test
 

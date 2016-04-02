@@ -24,7 +24,6 @@ size: 1
 type: nop
 esil: ,
 stack: null
-cond: 0
 family: cpu
 90
 11

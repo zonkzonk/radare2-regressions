@@ -99,13 +99,15 @@ NAME='flags spaces after analysis'
 FILE=../../bins/elf/x86-helloworld-gcc
 CMDS='e anal.hasnext=true
 aa;fs *;fs
+afl~?
 '
 EXPECT='0    1 . strings
 1   32 . symbols
 2    4 . relocs
 3    3 . imports
 4   76 . sections
-5    7 . functions
+5    9 . functions
+23
 '
 run_test
 

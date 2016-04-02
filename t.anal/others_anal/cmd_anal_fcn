@@ -51,7 +51,7 @@ wx 6a00 4889e5 ff25f8120000 ff25f8120000ffe0c3
 af
 afl~[1]
 '
-EXPECT='20
+EXPECT='11
 '
 IGNORE_ERR=1
 run_test

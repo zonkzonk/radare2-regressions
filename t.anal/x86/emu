@@ -69,3 +69,25 @@ EXPECT='HINSTANCE:hInstance : 0x00177ff4 = 0x00000000
      int:nBufferMax : 0x00178000 = 31
 '
 run_test
+
+NAME='Linux fcnsign test'
+BROKEN=
+FILE=../../bins/elf/ls-linux64
+ARGS=
+CMDS='
+e asm.arch=x86
+e asm.bits=64
+e asm.os=linux
+e asm.emu=true
+e asm.emuwrite=true
+e asm.bytes=0
+e asm.cmtcol=20
+e asm.lines=false
+aa
+aeim
+s 0x00003cb8-0x30
+pd 20~^var
+'
+EXPECT='var : 0x00177ff0 = .<
+'
+run_test

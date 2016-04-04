@@ -19,7 +19,7 @@ run_test
 
 NAME='ELF: Spurious relocations'
 FILE=../../bins/elf/spurious-relocs
-BROKEN=1
+BROKEN=
 ARGS=''
 CMDS="ir~vaddr=0x0000003a"
 EXPECT=''

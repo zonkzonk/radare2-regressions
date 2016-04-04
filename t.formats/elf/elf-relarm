@@ -8,13 +8,13 @@ CMDS="ir*~?
 ir*~!1"
 EXPECT='11
 fs relocs
-f reloc.r0_52 @ 0x00000034
-f reloc.r2_60 @ 0x0000003c
-f reloc.r3_64 @ 0x00000040
-f reloc.r4_68 @ 0x00000044
-f reloc.r0_76 @ 0x0000004c
-f reloc.r2_84 @ 0x00000054
-f reloc.r3_88 @ 0x00000058
-f reloc.r4_92 @ 0x0000005c
+f reloc.r0_52 @ 0x08000034
+f reloc.r2_60 @ 0x0800003c
+f reloc.r3_64 @ 0x08000040
+f reloc.r4_68 @ 0x08000044
+f reloc.r0_76 @ 0x0800004c
+f reloc.r2_84 @ 0x08000054
+f reloc.r3_88 @ 0x08000058
+f reloc.r4_92 @ 0x0800005c
 '
 run_test

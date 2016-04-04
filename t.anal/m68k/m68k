@@ -41,3 +41,29 @@ EXPECT='jump: 0x00000002
 '
 run_test
 
+
+NAME='jsr.l should not terminate function'
+BROKEN=
+FILE=malloc://1024
+ARGS=
+CMDS='e asm.arch=m68k
+wx 80004eb90000100080004e75
+af
+afl~[1]
+'
+EXPECT='12
+'
+run_test
+
+NAME='jsr.w should not terminate function'
+BROKEN=
+FILE=malloc://1024
+ARGS=
+CMDS='e asm.arch=m68k
+wx 80004eb8100080004e75
+af
+afl~[1]
+'
+EXPECT='10
+'
+run_test

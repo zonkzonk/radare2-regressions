@@ -36,8 +36,8 @@ lsyms    true
 relocs   true
 binsz    5632
 compiled Wed Apr 23 23:56:24 2014
-hdr_cksum0x00005ee2
-cmp_cksum0x00005ee2
+hdr.csum 0x00005ee2
+cmp.csum 0x00005ee2
 crc32    0x00005ee2
 crc32c   0x00005ee2
 '
@@ -78,8 +78,8 @@ lsyms    false
 relocs   true
 binsz    28369
 compiled Fri Dec 12 01:11:54 2014
-hdr_cksum0x000079a3
-cmp_cksum0x000079a3
+hdr.csum 0x000079a3
+cmp.csum 0x000079a3
 crc32    0x000079a3
 crc32c   0x000079a3
 '
@@ -120,8 +120,8 @@ lsyms    false
 relocs   true
 binsz    216569
 compiled Wed Feb 12 22:16:24 2014
-hdr_cksum0x0003881f
-cmp_cksum0x0003881f
+hdr.csum 0x0003881f
+cmp.csum 0x0003881f
 crc32    0x0003881f
 crc32c   0x0003881f
 '

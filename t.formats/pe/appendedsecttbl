@@ -8,3 +8,14 @@ CMDS="q!"
 EXPECT=''
 IGNORE_ERR=1
 run_test
+
+IGNORE_ERR=
+NAME='PE: corkami appendedsecttbl.exe - entrypoint'
+FILE=../../bins/pe/appendedsecttbl.exe
+CMDS='
+s
+'
+EXPECT='0x401000
+'
+IGNORE_ERR=1
+run_test

@@ -9,12 +9,23 @@ IGNORE_ERR=1
 run_test
 
 NAME='PE: corkami 65535sects.exe - sections list'
-FILE=../../bins/pe/96emptysections.exe
+FILE=../../bins/pe/65535sects.exe
 BROKEN=1
 ARGS='-n'
 CMDS="!rabin2 -pS ${FILE}"
 FILTER='grep sections'
 EXPECT='65535 sections
+'
+IGNORE_ERR=1
+run_test
+
+IGNORE_ERR=
+NAME='PE: corkami 65535sects.exe - entrypoint'
+FILE=../../bins/pe/65535sects.exe
+CMDS='
+s
+'
+EXPECT='0x291120
 '
 IGNORE_ERR=1
 run_test

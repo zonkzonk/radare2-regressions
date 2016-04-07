@@ -19,3 +19,13 @@ EXPECT_ERR=""
 EXPECT='pic      true
 '
 run_test
+
+NAME='PE: corkami aslr.dll - entrypoint'
+FILE=../../bins/pe/aslr.dll
+CMDS='
+s
+'
+EXPECT='0x1001000
+'
+IGNORE_ERR=1
+run_test

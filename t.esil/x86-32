@@ -26,3 +26,63 @@ EXPECT='0x00107ffc
 '
 run_test
 
+NAME='movsb 1 byte x86-32'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aer esp=0x00108000
+aeim 0x10000000 10 source
+wx 12 @ 0x10000000
+aeim 0x20000000 10 destination
+aer edi=0x20000000
+aer esi=0x10000000
+.aer*
+"wx a4"
+2aes
+.aer*
+aer?edi
+aer?esi
+pv @0x20000000
+'
+EXPECT='0x20000001
+0x10000001
+0x12
+'
+run_test
+
+NAME='rep movsb string x86-32'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aer esp=0x00108000
+aeim 0x10000000 10 source
+wx 1234567890 @ 0x10000000
+aeim 0x20000000 10 destination
+aer edi=0x20000000
+aer esi=0x10000000
+aer ecx=10
+.aer*
+"wx f3a4"
+aes
+.aer*
+aer?edi
+aer?esi
+pv @0x20000000
+aer?ecx
+'
+EXPECT='0x2000000a
+0x1000000a
+0x78563412
+0x00000000
+'
+run_test

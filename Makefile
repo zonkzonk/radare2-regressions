@@ -1,5 +1,15 @@
-# XXX
-VERSION=0.10.0
+VERSION=0.10.2
+DESTDIR?=/
+PREFIX?=/usr/local
+BINDIR=$(DESTDIR)/$(PREFIX)/bin
+PWD=$(shell pwd)
+PKG=radare2-regressions
+TAR=tar -cvf
+TAREXT=tar.xz
+CZ=xz -f
+
+-include config.mk
+
 
 PULLADDR=https://github.com/radare/radare2-regressions.git
 
@@ -139,8 +149,20 @@ broken:
 clean:
 	rm -rf tmp
 
+symstall:
+	chmod +x r2-v r2r
+	ln -fs $(PWD)/r2-v $(BINDIR)/r2-v
+	ln -fs $(PWD)/r2r $(BINDIR)/r2r
+
 install:
-	ln -fs `pwd`/r2-v /usr/bin/r2-v
+	sed -e 's,@R2RDIR@,$(PWD),g' < $(PWD)/r2-v > $(BINDIR)/r2-v
+	sed -e 's,@R2RDIR@,$(PWD),g' < $(PWD)/r2r > $(BINDIR)/r2r
+	chmod +x $(BINDIR)/r2-v
+	chmod +x $(BINDIR)/r2r
+
+uninstall:
+	rm -f $(BINDIR)/r2r
+	rm -f $(BINDIR)/r2-v
 
 unit_tests:
 	@make -C ./unit all
@@ -157,11 +179,6 @@ untested:
 
 allbins:
 	find bins -type f
-
-PKG=radare2-regressions
-TAR=tar -cvf
-TAREXT=tar.xz
-CZ=xz -f
 
 dist:
 	git clone . $(PKG)-$(VERSION)

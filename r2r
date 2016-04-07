@@ -1,0 +1,65 @@
+#!/bin/sh
+
+R2RDIR="@R2RDIR@"
+
+cd "${R2RDIR}"
+
+KW="$1"
+KX="$2"
+
+control_c() {
+	echo "^C"
+	exit 1
+}
+
+trap control_c 2
+
+usage() {
+	echo "Usage: r2r [-s] [keyword]"
+}
+
+case "$KW" in
+-h)
+	usage
+	exit 0
+	;;
+-s)
+	if [ -n "$KX" ]; then
+		find t* | grep "$KX"
+		exit 0
+	else
+		usage
+		exit 1
+	fi
+	;;
+esac
+
+if [ -n "$KW" ]; then
+	if [ -n "$KX" ]; then
+		TESTS=`find t* | grep "$KW" | grep "$KX"`
+	else
+		TESTS=`find t* | grep "$KW"`
+	fi
+	echo
+	echo "$TESTS"
+	echo
+	DIRS=""
+	for a in ${TESTS} ; do
+		SKIP=0
+		if [ -d "$a" ]; then
+			DIRS="${DIRS} $a"
+		else
+			for b in ${DIRS} ; do
+				if [ -n "`echo $a | grep ^$b`" ]; then
+					echo "Skip $a"
+					SKIP=1
+					break
+				fi
+			done
+		fi
+		[ "${SKIP}" = 0 ] && sh run_tests.sh "$a"
+	done
+else
+	usage
+	exit 1
+fi

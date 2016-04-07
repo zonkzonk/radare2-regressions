@@ -13,7 +13,7 @@ FILE=../../bins/pe/ctxt.dll
 CMDS='
 s
 '
-EXPECT='0x401000
+EXPECT='0x1001000
 '
 IGNORE_ERR=1
 run_test

@@ -8,3 +8,13 @@ CMDS="q!"
 EXPECT=''
 IGNORE_ERR=1
 run_test
+
+NAME='PE: corkami bottomsecttbl.exe - entrypoint'
+FILE=../../bins/pe/bottomsecttbl.exe
+CMDS='
+s
+'
+EXPECT='0x401000
+'
+IGNORE_ERR=1
+run_test

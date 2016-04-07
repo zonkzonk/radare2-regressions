@@ -7,3 +7,13 @@ ARGS=''
 CMDS="q!"
 EXPECT=''
 run_test
+
+NAME='PE: corkami compiled.exe - entrypoint'
+FILE=../../bins/pe/compiled.exe
+CMDS='
+s
+'
+EXPECT='0x4001000
+'
+IGNORE_ERR=1
+run_test

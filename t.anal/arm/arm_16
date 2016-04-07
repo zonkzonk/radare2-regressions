@@ -36,3 +36,17 @@ dr r0
 EXPECT='0x00000012
 '
 run_test
+
+NAME="bx ip eof"
+FILE=malloc://32
+CMDS="
+e asm.arch=arm
+e asm.bits=16
+wx dff804c0 fc446047 18e0 0200
+af
+afi~size[1]
+"
+EXPECT='8
+'
+
+run_test

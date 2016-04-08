@@ -13,6 +13,7 @@ blksz    0x0
 mode     -r--
 block    0x100
 format   pe
+havecode true
 pic      false
 canary   false
 nx       false
@@ -55,6 +56,7 @@ blksz    0x0
 mode     -r--
 block    0x100
 format   pe
+havecode true
 pic      false
 canary   false
 nx       false
@@ -97,6 +99,7 @@ blksz    0x0
 mode     -r--
 block    0x100
 format   pe
+havecode true
 pic      false
 canary   false
 nx       false
@@ -126,4 +129,3 @@ crc32    0x0003881f
 crc32c   0x0003881f
 '
 run_test
-

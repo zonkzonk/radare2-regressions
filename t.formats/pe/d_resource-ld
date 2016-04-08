@@ -11,7 +11,7 @@ run_test
 
 NAME='PE: corkami d_resource-ld.exe - entrypoint'
 FILE=../../bins/pe/d_resource-ld.exe
-BROKEN=1
+BROKEN=
 CMDS='
 s
 '

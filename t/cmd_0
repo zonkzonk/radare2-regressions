@@ -14,7 +14,7 @@ run_test
 NAME='p=b 0'
 FILE=../bins/elf/hello-arm32
 ARGS=
-BROKEN=1
+BROKEN=
 CMDS='p=b 0
 '
 EXPECT=''
@@ -23,7 +23,7 @@ run_test
 NAME='p=d 0'
 FILE=../bins/elf/hello-arm32
 ARGS=
-BROKEN=1
+BROKEN=
 CMDS='p=d 0
 '
 EXPECT=''
@@ -32,7 +32,7 @@ run_test
 NAME='p=e 0'
 FILE=../bins/elf/hello-arm32
 ARGS=
-BROKEN=1
+BROKEN=
 CMDS='p=e 0
 '
 EXPECT=''
@@ -41,7 +41,7 @@ run_test
 NAME='p=p 0'
 FILE=../bins/elf/hello-arm32
 ARGS=
-BROKEN=1
+BROKEN=
 CMDS='p=p 0
 '
 EXPECT=''
@@ -469,7 +469,7 @@ run_test
 NAME='pid 0'
 FILE=../bins/elf/hello-arm32
 ARGS=
-BROKEN=1
+BROKEN=
 CMDS='pid 0
 '
 EXPECT=''
@@ -478,7 +478,7 @@ run_test
 NAME='pie 0'
 FILE=../bins/elf/hello-arm32
 ARGS=
-BROKEN=1
+BROKEN=
 CMDS='pie 0
 '
 EXPECT=''
@@ -496,7 +496,7 @@ run_test
 NAME='pId 0'
 FILE=../bins/elf/hello-arm32
 ARGS=
-BROKEN=1
+BROKEN=
 CMDS='pId 0
 '
 EXPECT=''
@@ -532,7 +532,7 @@ run_test
 NAME='prg 0'
 FILE=../bins/elf/hello-arm32
 ARGS=
-BROKEN=1
+BROKEN=
 CMDS='prg 0
 '
 EXPECT=''

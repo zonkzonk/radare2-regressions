@@ -28,7 +28,7 @@ move.w foo.bar, 0xa10000.l
 run_test
 
 NAME="${PLUGIN}: m68k.cs filter"
-BROKEN=1
+BROKEN=
 CMDS='e asm.arch=m68k.cs
 e asm.bits=32
 wx 33fc010000a10000
@@ -42,7 +42,7 @@ move.w 0x100, foo.bar
 run_test
 
 NAME="${PLUGIN}: m68k.cs filter2"
-BROKEN=1
+BROKEN=
 CMDS='e asm.arch=m68k.cs
 e asm.bits=32
 wx 33fc010000a10000

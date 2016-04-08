@@ -10,7 +10,7 @@ run_test
 
 NAME='PE: corkami bigSoRD.exe - entrypoint'
 FILE=../../bins/pe/bigSoRD.exe
-BROKEN=1
+BROKEN=
 CMDS='
 s
 '

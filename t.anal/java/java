@@ -190,6 +190,7 @@ blksz    0x0
 mode     -r--
 block    0x100
 format   java
+havecode true
 pic      false
 canary   false
 nx       false
@@ -359,7 +360,7 @@ NAME="java m_info s"
 FILE='zip://../../bins/java/example.zip::0'
 ARGS=''
 CMDS='
-s 0x312 
+s 0x312
 java m_info s'
 EXPECT='Method Summary Information:
   File Offset: 0x00000299

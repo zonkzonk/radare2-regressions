@@ -40,6 +40,7 @@ blksz    0x0
 mode     -r--
 block    0x100
 format   java
+havecode true
 pic      false
 canary   false
 nx       false
@@ -72,7 +73,7 @@ binsz    1024
 | 0x00000309      03             iconst_0
 | 0x0000030a      3e             istore_3
 | 0x0000030b      b20017         getstatic java/lang/System/out Ljava/io/PrintStream;
-| 0x0000030e      bb001d         new java/lang/StringBuilder 
+| 0x0000030e      bb001d         new java/lang/StringBuilder
 | 0x00000311      59             dup
 | 0x00000312      121f           ldc "Attempting print "
 | 0x00000314      b70021         invokespecial java/lang/StringBuilder/<init>(Ljava/lang/String;)V

@@ -35,6 +35,7 @@ format   any
 [Imports]
 
 0 imports
+havecode true
 pic      false
 canary   false
 nx       false
@@ -109,6 +110,7 @@ e cfg.bigendian=false
 e asm.bits=${BIT_SIZE}
 e asm.dwarf=false
 e asm.pcalign=0
+havecode true
 pic      false
 canary   false
 nx       false
@@ -144,6 +146,7 @@ blksz    0x0
 mode     -r--
 block    0x100
 format   elf
+havecode true
 pic      false
 canary   false
 nx       true
@@ -241,7 +244,8 @@ NAME='iI (file x86)'
 FILE=../bins/elf/x86-helloworld-gcc
 ARGS=
 CMDS="iI"
-EXPECT='pic      false
+EXPECT='havecode true
+pic      false
 canary   false
 nx       true
 crypto   false

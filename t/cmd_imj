@@ -1,0 +1,13 @@
+#!/bin/sh
+
+[ -e tests.sh ] && . ./tests.sh || . ../tests.sh
+
+NAME='imj'
+FILE=../bins/nes/Pong.nes
+ARGS=
+BROKEN=
+CMDS='imj~?SRAM
+'
+EXPECT='1
+'
+run_test

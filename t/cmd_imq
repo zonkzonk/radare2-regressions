@@ -1,0 +1,14 @@
+#!/bin/sh
+
+[ -e tests.sh ] && . ./tests.sh || . ../tests.sh
+
+NAME='imq'
+FILE=../bins/nes/Pong.nes
+ARGS=
+BROKEN=
+#0x00006000 is the address of "SRAM" in Pong.nes
+CMDS='imq~?0x00006000
+'
+EXPECT='1
+'
+run_test

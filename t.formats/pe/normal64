@@ -41,3 +41,14 @@ EXPECT='class    PE32+
 '
 
 run_test
+
+NAME='PE: corkami imports'
+FILE=../../bins/pe/normal64.exe
+ARGS=''
+CMDS="iiq"
+
+EXPECT='kernel32.dll_ExitProcess
+msvcrt.dll_printf
+'
+
+run_test

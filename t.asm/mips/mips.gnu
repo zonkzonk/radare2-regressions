@@ -24,6 +24,7 @@ run_test
 test_vector "${PLUGIN}" "ADD.S" 00000046 'add.s $f0, $f0, $f0'
 test_vector "${PLUGIN}" "ADDI" 00000020 "addi zero, zero, 0"
 test_vector "${PLUGIN}" "ADDIU" 00000025 "addiu zero, t0, 0"
+test_vector "${PLUGIN}" "ADDIU -offset" e7ff0025 "addiu zero, t0, -25"
 test_vector "${PLUGIN}" "ANDI" 00000030 "andi zero, zero, 0x0"
 test_vector "${PLUGIN}" "B" 00000010 "b 0x00000008"
 test_vector "${PLUGIN}" "BC0F" 00000041 "bc0f 0x00000008"

@@ -536,9 +536,9 @@ EXPECT='hello world
 run_test
 
 NAME='rahash2 -E blowfish'
-CMDS="!rahash2 -S key -E blowfish -s hello' world\n' | rahash2 -S key -E blowfish -s -"
-BROKEN=1
-EXPECT='hello world
+CMDS="!rahash2 -S key -E blowfish -s hello' world 123\n' | rax2 -S"
+BROKEN=
+EXPECT='6ceced43fb2a72c9aa9447d193b00763
 '
 
 run_test

@@ -29,7 +29,6 @@ run_test
 test_vector "${PLUGIN}" "ADD.S" 00000046 'add.s f0, f0, f0'
 test_vector "${PLUGIN}" "ADDI" 00000020 "addi zero, zero, 0"
 test_vector "${PLUGIN}" "ADDIU" 00000025 "addiu zero, t0, 0"
-test_vector "${PLUGIN}" "ADDIU -offset" e7ff0025 "addiu zero, t0, -0x19"
 test_vector "${PLUGIN}" "ANDI" 00000030 "andi zero, zero, 0"
 test_vector "${PLUGIN}" "B" 00000010 "b 8"
 test_vector "${PLUGIN}" "BC0F" 00000041 "bc0f 8"
@@ -38,7 +37,7 @@ test_vector "${PLUGIN}" "BC2F" 00000049 'bc2f 8'
 test_vector "${PLUGIN}" "BC3F" 0000004d 'bc3f 8'
 test_vector "${PLUGIN}" "BEQ" 11111011 "beq t0, s0, 0x444c"
 test_vector "${PLUGIN}" "BEQL" 0050b853 "beql sp, t8, 0x14008"
-test_vector "${PLUGIN}" "BEQZL" 00000050 'beqzl zero, 8'
+test_vector "${PLUGIN}" "BEQZL" 00000050 'beqzl zero, 8' "br"
 test_vector "${PLUGIN}" "BEZQ" 00000011 "beqz t0, 8"
 test_vector "${PLUGIN}" "BGEZ" 02004104 "bgez v0, 0x10"
 test_vector "${PLUGIN}" "BGEZL" 4800c305 "bgezl t6, 0x128"
@@ -53,7 +52,7 @@ test_vector "${PLUGIN}" "BLTZL" 4400c206 "bltzl s6, 0x118"
 test_vector "${PLUGIN}" "BNE" 01111015 "bne t0, s0, 0x440c"
 test_vector "${PLUGIN}" "BNEL" 00d01056 "bnel s0, s0, -0xbff8"
 test_vector "${PLUGIN}" "BNEZ" 00000014 "bnez zero, 8"
-test_vector "${PLUGIN}" "BNEZL" 00000055 'bnezl t0, 8'
+test_vector "${PLUGIN}" "BNEZL" 00000055 'bnezl t0, 8' "br"
 test_vector "${PLUGIN}" "CACHE" 000000bc 'cache 0, (zero)'
 test_vector "${PLUGIN}" "J" 00000008 "j 0"
 test_vector "${PLUGIN}" "JAL" 0000000c "jal 0"
@@ -62,14 +61,14 @@ test_vector "${PLUGIN}" "JALX" 01000074 'jalx 4'
 test_vector "${PLUGIN}" "LB" 00000080 'lb zero, (zero)'
 test_vector "${PLUGIN}" "LBU" 00000090 'lbu zero, (zero)'
 test_vector "${PLUGIN}" "LDC1" 000000d4 'ldc1 f0, (zero)'
-test_vector "${PLUGIN}" "LDC2" 000000d8 'ldc2 0, (zero)'
+test_vector "${PLUGIN}" "LDC2" 000000d8 'ldc2 0, (zero)' br
 test_vector "${PLUGIN}" "LH" 00000084 'lh zero, (zero)'
 test_vector "${PLUGIN}" "LHU" 00000094 'lhu zero, (zero)'
 test_vector "${PLUGIN}" "LL" 000000c0 'll zero, (zero)'
 test_vector "${PLUGIN}" "LUI" 0000003c "lui zero, 0"
 test_vector "${PLUGIN}" "LW" 0000008c 'lw zero, (zero)'
 test_vector "${PLUGIN}" "LWC1" 000000c4 'lwc1 f0, (zero)'
-test_vector "${PLUGIN}" "LWC2" 000000c8 'lwc2 0, (zero)'
+test_vector "${PLUGIN}" "LWC2" 000000c8 'lwc2 0, (zero)' br
 test_vector "${PLUGIN}" "LWL" 00000088 'lwl zero, (zero)'
 test_vector "${PLUGIN}" "LWR" 00000098 'lwr zero, (zero)'
 test_vector "${PLUGIN}" "MFC1" 00000044 'mfc1 zero, f0'
@@ -78,13 +77,13 @@ test_vector "${PLUGIN}" "ORI" 00000035 "ori zero, t0, 0"
 test_vector "${PLUGIN}" "SB" 000000a0 'sb zero, (zero)'
 test_vector "${PLUGIN}" "SC" 000000e0 'sc zero, (zero)'
 test_vector "${PLUGIN}" "SDC1" 000000f4 'sdc1 f0, (zero)'
-test_vector "${PLUGIN}" "SDC2" 000000f8 'sdc2 0, (zero)'
+test_vector "${PLUGIN}" "SDC2" 000000f8 'sdc2 0, (zero)' br
 test_vector "${PLUGIN}" "SH" 000000a4 'sh zero, (zero)'
 test_vector "${PLUGIN}" "SLTI" 00000028 "slti zero, zero, 0"
 test_vector "${PLUGIN}" "SLTIU" 0000002c "sltiu zero, zero, 0"
 test_vector "${PLUGIN}" "SW" 000000ac 'sw zero, (zero)'
 test_vector "${PLUGIN}" "SWC1" 000000e4 'swc1 f0, (zero)'
-test_vector "${PLUGIN}" "SWC2" 000000e8 'swc2 0, (zero)'
+test_vector "${PLUGIN}" "SWC2" 000000e8 'swc2 0, (zero)' br
 test_vector "${PLUGIN}" "SWL" 000000a8 'swl zero, (zero)'
 test_vector "${PLUGIN}" "SWR" 000000b8 'swr zero, (zero)'
 test_vector "${PLUGIN}" "XORI" 00000038 "xori zero, zero, 0"
@@ -102,7 +101,7 @@ test_vector "${PLUGIN}" "LDR" 0000006c 'ldr zero, (zero)'
 test_vector "${PLUGIN}" "LLD" 000000d0 'lld zero, (zero)'
 test_vector "${PLUGIN}" "LWU" 0000009c 'lwu zero, (zero)'
 test_vector "${PLUGIN}" "SCD" 000000f0 'scd zero, (zero)'
-test_vector "${PLUGIN}" "SD" 000000fc 'sd zero, (zero)'
+test_vector "${PLUGIN}" "SD" 000000fc 'sd zero, (zero)' "br"
 test_vector "${PLUGIN}" "SDL" 000000b0 'sdl zero, (zero)'
 test_vector "${PLUGIN}" "SDR" 000000b4 'sdr zero, (zero)'
 

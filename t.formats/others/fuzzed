@@ -7,7 +7,7 @@ fuzz_test_aaq() {
   BROKEN=
   FILE=$1
   ARGS=
-  CMDS='aa ; q'
+  CMDS='aaa ; q'
   EXPECT=''
   run_test
 }

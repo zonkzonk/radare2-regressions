@@ -14,6 +14,7 @@ blksz    0x0
 mode     -r--
 block    0x100
 format   smd
+havecode true
 pic      false
 canary   false
 nx       false
@@ -24,6 +25,8 @@ arch     m68k
 bits     16
 machine  Sega Megadrive
 os       smd
+minopsz  2
+maxopsz  10
 endian   little
 stripped false
 static   true

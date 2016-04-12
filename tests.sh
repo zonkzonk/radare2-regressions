@@ -37,7 +37,7 @@ die() {
 }
 
 # Check for diff in system
-diff --help 2>&1 | grep -q GNU
+diff --help 2>&1 | grep -q gnu
 if [ "$?" = 0 ]; then
 	DIFF="diff --strip-trailing-cr"
 else

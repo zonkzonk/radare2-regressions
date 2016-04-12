@@ -4,6 +4,14 @@ R2RDIR="@R2RDIR@"
 
 if [ "${R2RDIR}" != "@""R2RDIR@" ]; then
 	cd "${R2RDIR}"
+else
+	while [ ! -x r2r ]; do
+		cd ..
+		if [ "`pwd`" = / ]; then
+			echo "Cannot find radare2-regressions/"
+			exit 1
+		fi
+	done
 fi
 
 KW="$1"
@@ -36,11 +44,13 @@ case "$KW" in
 	;;
 esac
 
+export VERBOSE=1
+
 if [ -n "$KW" ]; then
 	if [ -n "$KX" ]; then
-		TESTS=`find t* | grep "$KW" | grep "$KX"`
+		TESTS=`find t* | grep "$KW" | grep "$KX" | grep -v '/\.'`
 	else
-		TESTS=`find t* | grep "$KW"`
+		TESTS=`find t* | grep "$KW" | grep -v '/\.'`
 	fi
 	echo
 	echo "$TESTS"

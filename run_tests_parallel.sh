@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Copyright (C) 2011-2013  pancake <pancake@nopcode.org>
+# Copyright (C) 2011-2016  pancake <pancake@nopcode.org>
 # Copyright (C) 2011-2012  Edd Barrett <vext01@gmail.com>
 # Copyright (C) 2012       Simon Ruderich <simon@ruderich.org>
 #
@@ -18,11 +18,11 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 lock() {
-	while ! ln -s . lock 2>/dev/null ; do :; done
+  while ! ln -s . lock 2>/dev/null ; do :; done
 }
 
 unlock() {
-    rm -f lock
+  rm -f lock
 }
 
 # Statistics.
@@ -37,25 +37,25 @@ TESTS_FIXED=0
 R2_SOURCED=1
 
 control_c() {
-	echo
-	exit 1
+  echo
+  exit 1
 }
 trap control_c 2
 
 if [ "$1" = "-j" ]; then
-	shift
-	THREADS=$1
-	shift
+  shift
+  THREADS=$1
+  shift
 else
-	THREADS=8
+  THREADS=8
 fi
 
 . ./tests.sh
 
 radare2 -v
 if [ $? != 0 ]; then
-    echo "Cannot find radare2"
-    exit 1
+  echo "Cannot find radare2"
+  exit 1
 fi
 
 NTH=0

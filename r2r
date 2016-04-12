@@ -1,12 +1,17 @@
 #!/bin/sh
+#
+# r2r entrypoint for the regressions testsuite
+
+# TODO: bisect with -b
 
 R2RDIR="@R2RDIR@"
+TESTRUNNER="run_tests.sh"
 
 if [ "${R2RDIR}" != "@""R2RDIR@" ]; then
 	cd "${R2RDIR}"
 else
-	DIR=$(readlink $0)
-	[ -n "${DIR}" ] && cd $(dirname $DIR)
+	DIR=`readlink $0`
+	[ -n "${DIR}" ] && cd `dirname $DIR`
 	while [ ! -x r2r ]; do
 		cd ..
 		if [ "`pwd`" = / ]; then
@@ -27,13 +32,34 @@ control_c() {
 trap control_c 2
 
 usage() {
-	echo "Usage: r2r [-s] [keyword]"
+	echo "Usage: r2r ([-s|-p|-P]) [keyword]"
+	echo "  -s    search only. do not run any test"
+	echo "  -p    run test files in parallel"
+	echo "  -P    run every single test in parallel"
+	echo "  -v    show version"
 }
 
 case "$KW" in
+-v)
+	echo "0.10.2"
+	exit 0
+	;;
 -h)
 	usage
 	exit 0
+	;;
+-P)
+	export HYPERPARALLEL=1
+	TESTRUNNER="run_tests_parallel.sh"
+	shift
+	KW=$1
+	KX="$2"
+	;;
+-p)
+	TESTRUNNER="run_tests_parallel.sh"
+	shift
+	KW=$1
+	KX="$2"
 	;;
 -s)
 	if [ -n "$KX" ]; then
@@ -50,9 +76,9 @@ export VERBOSE=1
 
 if [ -n "$KW" ]; then
 	if [ -n "$KX" ]; then
-		TESTS=`find t* | grep "$KW" | grep "$KX" | grep -v '/\.'`
+		TESTS=`find t* | grep -- "$KW" | grep -- "$KX" | grep -v '/\.'`
 	else
-		TESTS=`find t* | grep "$KW" | grep -v '/\.'`
+		TESTS=`find t* | grep -- "$KW" | grep -v '/\.'`
 	fi
 	echo
 	echo "$TESTS"
@@ -71,7 +97,7 @@ if [ -n "$KW" ]; then
 				fi
 			done
 		fi
-		[ "${SKIP}" = 0 ] && sh run_tests.sh "$a"
+		[ "${SKIP}" = 0 ] && ./${TESTRUNNER} "$a"
 	done
 else
 	usage

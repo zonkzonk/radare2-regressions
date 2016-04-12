@@ -43,7 +43,7 @@ if [ "$?" = 0 ]; then
 else
 	gdiff --help 2>&1 | grep -q GNU
 	if [ "$?" = 0 ]; then
-		DIFF="diff --strip-trailing-cr"
+		DIFF="gdiff --strip-trailing-cr"
 	else
 		type diff > /dev/null 2>&1
 		if [ $? = 0 ]; then

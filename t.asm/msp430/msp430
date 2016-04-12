@@ -5,14 +5,16 @@ test_msp430() {
 NAME="msp430:${2}"
 FILE=malloc://8
 ARGS="-w -a msp430"
-CMDS='wx'${1}'
-pi 1
-'
+CMDS="wx $1;pi 1"
 EXPECT="${2}
 "
 BROKEN=${3}
 run_test
 }
+
+test_msp430 e2d32100 'bis.b #2, &0x0021'
+test_msp430 e2c32600 'bic.b #2, &0x0026'
+test_msp430 e2c22e00 'bic.b #4, &0x002e'
 
 test_msp430 3041 "ret"
 

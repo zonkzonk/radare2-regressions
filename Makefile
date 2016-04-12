@@ -8,6 +8,9 @@ TAR=tar -cvf
 TAREXT=tar.xz
 CZ=xz -f
 
+TDIRS=$(shell ls -d t*| grep -v tmp) bins
+LIBDIR=$(DESTDIR)/$(PREFIX)/lib
+
 -include config.mk
 
 
@@ -154,15 +157,22 @@ symstall:
 	ln -fs $(PWD)/r2-v $(BINDIR)/r2-v
 	ln -fs $(PWD)/r2r $(BINDIR)/r2r
 
+#sed -e 's,@R2RDIR@,$(PWD),g' < $(PWD)/r2-v > $(BINDIR)/r2-v
+#sed -e 's,@R2RDIR@,$(PWD),g' < $(PWD)/r2r > $(BINDIR)/r2r
 install:
-	sed -e 's,@R2RDIR@,$(PWD),g' < $(PWD)/r2-v > $(BINDIR)/r2-v
-	sed -e 's,@R2RDIR@,$(PWD),g' < $(PWD)/r2r > $(BINDIR)/r2r
+	mkdir -p $(BINDIR)
+	sed -e 's,@R2RDIR@,$(LIBDIR)/radare2-regressions,g' < $(PWD)/r2-v > $(BINDIR)/r2-v
+	sed -e 's,@R2RDIR@,$(LIBDIR)/radare2-regressions,g' < $(PWD)/r2r > $(BINDIR)/r2r
 	chmod +x $(BINDIR)/r2-v
 	chmod +x $(BINDIR)/r2r
+	mkdir -p $(LIBDIR)/radare2-regressions
+	cp -rf $(TDIRS) $(LIBDIR)/radare2-regressions
+	cp -rf *.sh $(LIBDIR)/radare2-regressions
 
 uninstall:
 	rm -f $(BINDIR)/r2r
 	rm -f $(BINDIR)/r2-v
+	rm -rf $(LIBDIR)/radare2-regressions
 
 unit_tests:
 	@make -C ./unit all

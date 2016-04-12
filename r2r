@@ -2,7 +2,9 @@
 
 R2RDIR="@R2RDIR@"
 
-cd "${R2RDIR}"
+if [ "${R2RDIR}" != "@""R2RDIR@" ]; then
+	cd "${R2RDIR}"
+fi
 
 KW="$1"
 KX="$2"

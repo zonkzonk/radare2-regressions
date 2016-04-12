@@ -1,6 +1,6 @@
 #!/do/not/execute
 
-# Copyright (C) 2011-2015  pancake<nopcode.org>
+# Copyright (C) 2011-2016  pancake<nopcode.org>
 # Copyright (C) 2011-2012  Edd Barrett <vext01@gmail.com>
 # Copyright (C) 2012       Simon Ruderich <simon@ruderich.org>
 #
@@ -23,6 +23,7 @@ export R2_NOPLUGINS=1
 
 GREP="$1"
 GREP=""
+DIFF=""
 SKIP=0
 cd `dirname $0` 2>/dev/null
 
@@ -34,6 +35,25 @@ die() {
     echo "$1"
     exit 1
 }
+
+# Check for diff in system
+diff --help 2>&1 | grep -q GNU
+if [ "$?" = 0 ]; then
+	DIFF="diff --strip-trailing-cr"
+else
+	gdiff --help 2>&1 | grep -q GNU
+	if [ "$?" = 0 ]; then
+		DIFF="diff --strip-trailing-cr"
+	else
+		type diff > /dev/null 2>&1
+		if [ $? = 0 ]; then
+			echo "Cannot find GNU diff"
+			DIFF="diff"
+		else
+			echo "Cannot find any diff in your system. wtf"
+		fi
+	fi
+fi
 
 printdiff() {
     if [ -n "${VERBOSE}" ]; then
@@ -216,7 +236,7 @@ run_test() {
     if [ "${IGNORE_ERR}" = 1 ]; then
         ERR_CODE=0
     else
-        diff --strip-trailing-cr "${TMP_ERR}" "${TMP_EXR}" >/dev/null
+        ${DIFF} "${TMP_ERR}" "${TMP_EXR}" >/dev/null
         ERR_CODE=$?
         if [ "${NOT_EXPECT}" = 1 ]; then
             if [ "${ERR_CODE}" = 0 ]; then
@@ -252,7 +272,7 @@ run_test() {
         printdiff
         if [ -n "${VERBOSE}" ]; then
             print_label Diff:
-            diff -u "${TMP_EXP}" "${TMP_OUT}"
+            ${DIFF} -u "${TMP_EXP}" "${TMP_OUT}"
             echo
         fi
     elif [ ${ERR_CODE} -ne 0 ]; then

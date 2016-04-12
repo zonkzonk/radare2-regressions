@@ -2,6 +2,55 @@
 # GPL 3+ - Copyright (C) 2015  pancake
 
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+NAME='afA + pdf'
+FILE=../../bins/elf/fast
+ARGS=
+BROKEN=1
+CMDS='s sym.fastcaslled
+af+ 0x804841b 0x3b sym.fastcaslled
+afC fastcall
+afA 0 var_a int
+afA 1 var_b int
+afA 0x8 var_c int
+afA 0xc var_d int
+pd 1
+s 0x0804843b
+pd 1
+'
+EXPECT="/ (fcn) sym.fastcaslled 59
+|           ; arg int var_a @ ecx
+|           ; arg int var_b @ edx
+|           ; arg int var_c @ ebp+0x8
+|           ; arg int var_d @ ebp+0xc
+|           0x0804841b      55             push ebp
+|           0x0804843b      ff7508         push dword [ebp + var_c]
+"
+run_test
+
+NAME='anal  vars afA,afA*,afAj'
+FILE=../../bins/elf/fast
+ARGS=
+CMDS='s sym.fastcaslled
+af+ 0x804841b 0x3b sym.fastcaslled
+afA 0 a int
+afA 1 b int
+afA 0x8 c int
+afA 0xc d int
+afA
+afA*
+afAj
+'
+EXPECT='arg int a @ ecx
+arg int b @ edx
+arg int c @ ebp+0x8
+arg int d @ ebp+0xc
+afA 0 a int @ 0x804841b
+afA 1 b int @ 0x804841b
+afA 8 c int @ 0x804841b
+afA 12 d int @ 0x804841b
+[{"name":"a","kind":"arg","type":"int","ref":"ecx"},{"name":"b","kind":"arg","type":"int","ref":"edx"},{"name":"c","kind":"arg","type":"int","ref":"ebp+0x8"},{"name":"d","kind":"arg","type":"int","ref":"ebp+0xc"}]
+'
+run_test
 
 NAME='anal vars crash'
 FILE=-

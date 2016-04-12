@@ -5,6 +5,8 @@ R2RDIR="@R2RDIR@"
 if [ "${R2RDIR}" != "@""R2RDIR@" ]; then
 	cd "${R2RDIR}"
 else
+	DIR=$(readlink $0)
+	[ -n "${DIR}" ] && cd $(dirname $DIR)
 	while [ ! -x r2r ]; do
 		cd ..
 		if [ "`pwd`" = / ]; then

@@ -95,30 +95,28 @@ EXPECT='0x00000000-0x00000004 sha1: d033e22ae348aeb5660fc2140aec35850c4da997
 run_test
 
 
-NAME='rahash2 -D -s "YWRtaW4="'
-CMDS='!rahash2 -D -s "YWRtaW4="'
+NAME='rahash2 -D base64 -s "YWRtaW4="'
+CMDS='!rahash2 -D base64 -s "YWRtaW4="'
 BROKEN=
 EXPECT='admin'
 
 run_test
 
-NAME='rahash2 -d -s "admin"'
-CMDS='!rahash2 -d -s "admin"'
+NAME='rahash2 -E base64 -s "admin"'
+CMDS='!rahash2 -E base64 -s "admin"'
 BROKEN=
-EXPECT='YWRtaW4=
-'
+EXPECT='YWRtaW4='
 
 run_test
 
-NAME='rahash2 -d -x "61646d696e"'
-CMDS='!rahash2 -d -x "61646d696e"'
+NAME='rahash2 -E base64 -x "61646d696e"'
+CMDS='!rahash2 -E base64 -x "61646d696e"'
 BROKEN=
-EXPECT='YWRtaW4=
-'
+EXPECT='YWRtaW4='
 
 run_test
 
-NAME='rahash2 -a md5 -d -x "61646d696e"'
+NAME='rahash2 -a md5 -x "61646d696e"'
 CMDS='!rahash2 -a md5 -x "61646d696e"'
 BROKEN=
 EXPECT='0x00000000-0x00000004 md5: 21232f297a57a5a743894a0e4a801fc3
@@ -422,21 +420,21 @@ EXPECT_ERR='rahash2: Option -c incompatible with -b and -B options.
 run_test
 
 NAME='rahash2 -c with base64 encoding'
-CMDS='!rahash2 -d -s "admin" -c 21232f297a57a5a743894a0e4a801f'
+CMDS='!rahash2 -E base64 -s "admin" -c 21232f297a57a5a743894a0e4a801f'
 BROKEN=
 EXPECT=''
 IGNORE_ERR=0
-EXPECT_ERR='rahash2: Option -c incompatible with -d or -D options.
+EXPECT_ERR='rahash2: Option -c incompatible with -E base64, -E base91, -D base64 or -D base91 options.
 '
 
 run_test
 
 NAME='rahash2 -c with base64 decoding'
-CMDS='!rahash2 -D -s "admin" -c 21232f297a57a5a743894a0e4a801f'
+CMDS='!rahash2 -D base64 -s "admin" -c 21232f297a57a5a743894a0e4a801f'
 BROKEN=
 EXPECT=''
 IGNORE_ERR=0
-EXPECT_ERR='rahash2: Option -c incompatible with -d or -D options.
+EXPECT_ERR='rahash2: Option -c incompatible with -E base64, -E base91, -D base64 or -D base91 options.
 '
 
 run_test
@@ -543,10 +541,25 @@ EXPECT='6ceced43fb2a72c9aa9447d193b00763
 
 run_test
 
+NAME='rahash2 -D blowfish'
+CMDS="!rahash2 -S key -E blowfish -s hello' world 123\n' | rahash2 -S key -D blowfish -s -"
+BROKEN=
+EXPECT='hello world 123
+'
+
+run_test
+
 NAME='rahash2 -E aes-ecb'
 CMDS='!rahash2 -E aes-ecb -S "11111111111111111111111111111111" -s "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA") <(echo -en "\xff\x6f\xb5\xd9\x27\x6d\xe8\x38\x8e\x4b\x82\xa7\x73\xd0\xb5\x21\xff\x6f\xb5\xd9\x27\x6d\xe8\x38\x8e\x4b\x82\xa7\x73\xd0\xb5\x21\xff\x6f\xb5\xd9\x27\x6d\xe8\x38\x8e\x4b\x82\xa7\x73\xd0\xb5\x21\xff\x6f\xb5\xd9\x27\x6d\xe8\x38\x8e\x4b\x82\xa7\x73\xd0\xb5\x21")"'
 BROKEN=
 EXPECT=''
+
+run_test
+
+NAME='rahash2 -D aes-ecb'
+CMDS='!rahash2 -E aes-ecb -S "11111111111111111111111111111111" -s "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" | rahash2 -D aes-ecb -S "11111111111111111111111111111111" -s -'
+BROKEN=
+EXPECT='AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
 
 run_test
 
@@ -579,5 +592,34 @@ CMDS='!echo -en "\x62\xda\x92\x12" | rahash2 -E ror -S 04 -s - | rax2 -S'
 BROKEN=1
 EXPECT='060d0901
 '
+
+run_test
+
+NAME='rahash2 -E base91'
+CMDS='!rahash2 -E base91 -s "hello world\n"'
+BROKEN=
+EXPECT='TPwJh>Io2Tv!^aB'
+
+run_test
+
+NAME='rahash2 -D base91'
+CMDS='!rahash2 -E base91 -s "hello world" | rahash2 -D base91 -s -'
+BROKEN=
+EXPECT='hello world'
+
+run_test
+
+NAME='rahash2 -E rc2'
+CMDS='!rahash2 -E rc2 -S key -s "helloworld123456" | rax2 -S '
+BROKEN=1
+EXPECT='a9c85c7650456d8f5f369704ad1e339f
+'
+
+run_test
+
+NAME='rahash2 -D rc2'
+CMDS='!rahash2 -E rc2 -S key -s "helloworld123456" | rahash2 -D rc2 -S key -s -'
+BROKEN=1
+EXPECT='helloworld123456'
 
 run_test

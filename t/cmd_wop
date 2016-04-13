@@ -26,7 +26,7 @@ run_test
 NAME='woE woD rc4'
 FILE=-
 ARGS=
-BROKEN=1
+BROKEN=
 CMDS='w helloworld
 woE rc4 key
 woD rc4 key
@@ -39,7 +39,7 @@ run_test
 NAME='woE woD xor'
 FILE=-
 ARGS=
-BROKEN=1
+BROKEN=
 CMDS='w helloworld
 woE xor key
 woD xor key
@@ -52,7 +52,7 @@ run_test
 NAME='woE woD blowfish'
 FILE=-
 ARGS=
-BROKEN=1
+BROKEN=
 CMDS='w helloworld
 woE blowfish key
 woD blowfish key
@@ -65,7 +65,7 @@ run_test
 NAME='woE woD aes-ecb'
 FILE=-
 ARGS=
-BROKEN=1
+BROKEN=
 CMDS='w helloworld
 woE aes-ecb key
 woD aes-ecb key

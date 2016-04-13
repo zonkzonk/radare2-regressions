@@ -611,7 +611,7 @@ run_test
 
 NAME='rahash2 -E rc2'
 CMDS='!rahash2 -E rc2 -S key -s "helloworld123456" | rax2 -S '
-BROKEN=1
+BROKEN=
 EXPECT='a9c85c7650456d8f5f369704ad1e339f
 '
 
@@ -619,7 +619,7 @@ run_test
 
 NAME='rahash2 -D rc2'
 CMDS='!rahash2 -E rc2 -S key -s "helloworld123456" | rahash2 -D rc2 -S key -s -'
-BROKEN=1
+BROKEN=
 EXPECT='helloworld123456'
 
 run_test

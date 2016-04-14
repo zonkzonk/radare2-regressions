@@ -87,7 +87,7 @@ EXPECT='0x2000000a
 '
 run_test
 
-NAME='lodsb x86-32'
+NAME='lodsb ++ x86-32'
 FILE=-
 ARGS=
 CMDS='
@@ -101,8 +101,8 @@ aeim 0x10000000 10 source
 wx 12 @ 0x10000000
 aer esi=0x10000000
 .aer*
-"wx ac"
-1aes
+"wx fcac"
+2aes
 .aer*
 aer?esi
 aer?al
@@ -112,7 +112,32 @@ EXPECT='0x10000001
 '
 run_test
 
-NAME='lodsw x86-32'
+NAME='lodsb -- x86-32'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aer esp=0x00108000
+aeim 0x10000000 10 source
+wx 12 @ 0x10000000
+aer esi=0x10000000
+.aer*
+"wx fdac"
+2aes
+.aer*
+aer?esi
+aer?al
+'
+EXPECT='0x0fffffff
+0x00000012
+'
+run_test
+
+NAME='lodsw ++ x86-32'
 FILE=-
 ARGS=
 CMDS='
@@ -126,8 +151,8 @@ aeim 0x10000000 10 source
 wx 3412 @ 0x10000000
 aer esi=0x10000000
 .aer*
-"wx 66ad"
-1aes
+"wx fc66ad"
+2aes
 .aer*
 aer?esi
 aer?ax
@@ -137,7 +162,32 @@ EXPECT='0x10000002
 '
 run_test
 
-NAME='lodsd x86-32'
+NAME='lodsw -- x86-32'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aer esp=0x00108000
+aeim 0x10000000 10 source
+wx 3412 @ 0x10000000
+aer esi=0x10000000
+.aer*
+"wx fd66ad"
+2aes
+.aer*
+aer?esi
+aer?ax
+'
+EXPECT='0x0ffffffe
+0x00001234
+'
+run_test
+
+NAME='lodsd ++ x86-32'
 FILE=-
 ARGS=
 CMDS='
@@ -151,8 +201,8 @@ aeim 0x10000000 10 source
 wx 563412 @ 0x10000000
 aer esi=0x10000000
 .aer*
-"wx ad"
-1aes
+"wx fcad"
+2aes
 .aer*
 aer?esi
 aer?eax
@@ -162,8 +212,32 @@ EXPECT='0x10000004
 '
 run_test
 
+NAME='lodsd -- x86-32'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aer esp=0x00108000
+aeim 0x10000000 10 source
+wx 563412 @ 0x10000000
+aer esi=0x10000000
+.aer*
+"wx fdad"
+2aes
+.aer*
+aer?esi
+aer?eax
+'
+EXPECT='0x0ffffffc
+0x00123456
+'
+run_test
 
-NAME='stosb x86-32'
+NAME='stosb ++ x86-32'
 FILE=-
 ARGS=
 CMDS='
@@ -177,8 +251,8 @@ aeim 0x10000000 10 source
 aer al=0x12
 aer edi=0x10000000
 .aer*
-"wx aa"
-1aes
+"wx fcaa"
+2aes
 .aer*
 aer?edi
 pv @0x10000000
@@ -188,7 +262,32 @@ EXPECT='0x10000001
 '
 run_test
 
-NAME='stosw x86-32'
+NAME='stosb -- x86-32'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aer esp=0x00108000
+aeim 0x10000000 10 source
+aer al=0x12
+aer edi=0x10000000
+.aer*
+"wx fdaa"
+2aes
+.aer*
+aer?edi
+pv @0x10000000
+'
+EXPECT='0x0fffffff
+0x12
+'
+run_test
+
+NAME='stosw ++ x86-32'
 FILE=-
 ARGS=
 CMDS='
@@ -202,8 +301,8 @@ aeim 0x10000000 10 source
 aer ax = 0x1234
 aer edi=0x10000000
 .aer*
-"wx 66ab"
-1aes
+"wx fc66ab"
+2aes
 .aer*
 aer?edi
 pv @0x10000000
@@ -213,7 +312,32 @@ EXPECT='0x10000002
 '
 run_test
 
-NAME='stosd x86-32'
+NAME='stosw -- x86-32'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aer esp=0x00108000
+aeim 0x10000000 10 source
+aer ax = 0x1234
+aer edi=0x10000000
+.aer*
+"wx fd66ab"
+2aes
+.aer*
+aer?edi
+pv @0x10000000
+'
+EXPECT='0x0ffffffe
+0x1234
+'
+run_test
+
+NAME='stosd ++ x86-32'
 FILE=-
 ARGS=
 CMDS='
@@ -227,13 +351,266 @@ aeim 0x10000000 10 source
 aer eax = 0x123456
 aer edi=0x10000000
 .aer*
-"wx ab"
-1aes
+"wx fcab"
+2aes
 .aer*
 aer?edi
 pv @0x10000000
 '
 EXPECT='0x10000004
 0x123456
+'
+run_test
+
+NAME='stosd -- x86-32'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aer esp=0x00108000
+aeim 0x10000000 10 source
+aer eax = 0x123456
+aer edi=0x10000000
+.aer*
+"wx fdab"
+2aes
+.aer*
+aer?edi
+pv @0x10000000
+'
+EXPECT='0x0ffffffc
+0x123456
+'
+run_test
+
+NAME='shr 9 >> 1 x86-32'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aer esp=0x00108000
+aeim 0x10000000 10 source
+aer eax = 9
+aer edi=0x10000000
+.aer*
+"wx d1e8"
+1aes
+.aer*
+aer?eax
+aer?cf
+'
+EXPECT='0x00000004
+0x00000001
+'
+run_test
+
+NAME='shr 0x1b >> 1 x86-32'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aer esp=0x00108000
+aeim 0x10000000 10 source
+aer eax = 0x1b
+aer edi=0x10000000
+.aer*
+"wx d1e8"
+1aes
+.aer*
+aer?eax
+aer?cf
+'
+EXPECT='0x0000000d
+0x00000001
+'
+run_test
+
+NAME='shr 5 >> 2 x86-32'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aer esp=0x00108000
+aeim 0x10000000 10 source
+aer eax = 5
+aer edi=0x10000000
+.aer*
+"wx c1e802"
+1aes
+.aer*
+aer?eax
+aer?cf
+'
+EXPECT='0x00000001
+0x00000000
+'
+run_test
+
+NAME='add byte cf,zf check  x86-32'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aer esp=0x00108000
+aer dl = 0x80
+.aer*
+"wx 00d2"
+1aes
+.aer*
+aer?dl
+aer?cf
+aer?zf
+'
+EXPECT='0x00000000
+0x00000001
+0x00000001
+'
+run_test
+
+NAME='add word cf,zf check  x86-32'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aer esp=0x00108000
+aer dx = 0x8000
+.aer*
+"wx 6601d2"
+1aes
+.aer*
+aer?dx
+aer?cf
+aer?zf
+'
+EXPECT='0x00000000
+0x00000001
+0x00000001
+'
+run_test
+
+NAME='add dword cf,zf check  x86-32'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aer esp=0x00108000
+aer edx = 0x80000000
+.aer*
+"wx 01d2"
+1aes
+.aer*
+aer?edx
+aer?cf
+aer?zf
+'
+EXPECT='0x00000000
+0x00000001
+0x00000001
+'
+run_test
+
+NAME='adc byte cf,zf check  x86-32'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aer cf=1
+aer esp=0x00108000
+aer dl = 0x80
+.aer*
+"wx 10d2"
+1aes
+.aer*
+aer?dl
+aer?cf
+aer?zf
+'
+EXPECT='0x00000001
+0x00000001
+0x00000000
+'
+run_test
+
+NAME='adc word cf,zf check  x86-32'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aer cf=1
+aer esp=0x00108000
+aer dx = 0x8000
+.aer*
+"wx 6611d2"
+1aes
+.aer*
+aer?dx
+aer?cf
+aer?zf
+'
+EXPECT='0x00000001
+0x00000001
+0x00000000
+'
+run_test
+
+NAME='adc dword cf,zf check  x86-32'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aer cf=1
+aer esp=0x00108000
+aer edx = 0x80000000
+.aer*
+"wx 11d2"
+1aes
+.aer*
+aer?edx
+aer?cf
+aer?zf
+'
+EXPECT='0x00000001
+0x00000001
+0x00000000
 '
 run_test

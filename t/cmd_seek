@@ -85,7 +85,7 @@ s
 s main+.foo
 s
 '
-EXPECT='0x400506
-0x400506
+EXPECT='0x40050a
+0x40050a
 '
 run_test

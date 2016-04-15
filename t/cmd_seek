@@ -76,7 +76,7 @@ run_test
 NAME='seek local flag'
 FILE=../bins/elf/main
 ARGS=
-BROKEN=1
+BROKEN=
 CMDS='
 af@main
 f.foo@main+4

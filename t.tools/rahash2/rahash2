@@ -549,17 +549,98 @@ EXPECT='hello world 123
 
 run_test
 
-NAME='rahash2 -E aes-ecb'
+NAME='rahash2 -E aes-ecb 128 bit'
 CMDS='!rahash2 -E aes-ecb -S "11111111111111111111111111111111" -s "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA") <(echo -en "\xff\x6f\xb5\xd9\x27\x6d\xe8\x38\x8e\x4b\x82\xa7\x73\xd0\xb5\x21\xff\x6f\xb5\xd9\x27\x6d\xe8\x38\x8e\x4b\x82\xa7\x73\xd0\xb5\x21\xff\x6f\xb5\xd9\x27\x6d\xe8\x38\x8e\x4b\x82\xa7\x73\xd0\xb5\x21\xff\x6f\xb5\xd9\x27\x6d\xe8\x38\x8e\x4b\x82\xa7\x73\xd0\xb5\x21")"'
 BROKEN=
 EXPECT=''
 
 run_test
 
-NAME='rahash2 -D aes-ecb'
+NAME='rahash2 -D aes-ecb 128 bit'
 CMDS='!rahash2 -E aes-ecb -S "11111111111111111111111111111111" -s "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" | rahash2 -D aes-ecb -S "11111111111111111111111111111111" -s -'
 BROKEN=
 EXPECT='AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+
+run_test
+
+NAME='rahash2 -E aes-ecb 192 bit'
+CMDS='!rahash2 -E aes-ecb -S 8e73b0f7da0e6452c810f32b809079e562f8ead2522c6b7b -x "6bc1bee22e409f96e93d7e117393172a" | rax2 -S'
+BROKEN=
+EXPECT='bd334f1d6e45f25ff712a214571fa5cc
+'
+
+run_test
+
+NAME='rahash2 -D aes-ecb 192 bit'
+CMDS='!rahash2 -E aes-ecb -S 8e73b0f7da0e6452c810f32b809079e562f8ead2522c6b7b -x "6bc1bee22e409f96e93d7e117393172a" | rahash2 -D aes-ecb -S 8e73b0f7da0e6452c810f32b809079e562f8ead2522c6b7b -s - | rax2 -S'
+BROKEN=
+EXPECT='6bc1bee22e409f96e93d7e117393172a
+'
+
+run_test
+
+NAME='rahash2 -E aes-ecb 256 bit'
+CMDS='!rahash2 -E aes-ecb -S 603deb1015ca71be2b73aef0857d77811f352c073b6108d72d9810a30914dff4 -x "6bc1bee22e409f96e93d7e117393172a" | rax2 -S'
+BROKEN=
+EXPECT='f3eed1bdb5d2a03c064b5a7e3db181f8
+'
+
+run_test
+
+NAME='rahash2 -D aes-ecb 256 bit'
+CMDS='!rahash2 -E aes-ecb -S 603deb1015ca71be2b73aef0857d77811f352c073b6108d72d9810a30914dff4 -x "6bc1bee22e409f96e93d7e117393172a" | rahash2 -D aes-ecb -S 603deb1015ca71be2b73aef0857d77811f352c073b6108d72d9810a30914dff4 -s - | rax2 -S'
+BROKEN=
+EXPECT='6bc1bee22e409f96e93d7e117393172a
+'
+
+run_test
+
+NAME='rahash2 -E aes-cbc 128 bit'
+CMDS='!rahash2 -E aes-cbc -S "2b7e151628aed2a6abf7158809cf4f3c" -I "7649ABAC8119B246CEE98E9B12E9197D"  -x "ae2d8a571e03ac9c9eb76fac45af8e51" | rax2 -S'
+BROKEN=
+EXPECT='5086cb9b507219ee95db113a917678b2
+'
+
+run_test
+
+
+NAME='rahash2 -D aes-cbc 128 bit'
+CMDS='!rahash2 -E aes-cbc -S "2b7e151628aed2a6abf7158809cf4f3c" -I "7649ABAC8119B246CEE98E9B12E9197D"  -x "ae2d8a571e03ac9c9eb76fac45af8e51" | rahash2 -D aes-cbc -S "2b7e151628aed2a6abf7158809cf4f3c" -I "7649ABAC8119B246CEE98E9B12E9197D" -s - | rax2 -S'
+BROKEN=
+EXPECT='ae2d8a571e03ac9c9eb76fac45af8e51
+'
+
+run_test
+
+NAME='rahash2 -E aes-cbc 192 bit'
+CMDS='!rahash2 -E aes-cbc -S 8e73b0f7da0e6452c810f32b809079e562f8ead2522c6b7b -x "6bc1bee22e409f96e93d7e117393172a" -I "000102030405060708090A0B0C0D0E0F" | rax2 -S'
+BROKEN=
+EXPECT='4f021db243bc633d7178183a9fa071e8
+'
+
+run_test
+
+NAME='rahash2 -D aes-cbc 192 bit'
+CMDS='!rahash2 -E aes-cbc -S 8e73b0f7da0e6452c810f32b809079e562f8ead2522c6b7b -x "6bc1bee22e409f96e93d7e117393172a" -I "000102030405060708090A0B0C0D0E0F" | rahash2 -D aes-cbc -S 8e73b0f7da0e6452c810f32b809079e562f8ead2522c6b7b -I "000102030405060708090A0B0C0D0E0F" -s - | rax2 -S'
+BROKEN=
+EXPECT='6bc1bee22e409f96e93d7e117393172a
+'
+
+run_test
+
+NAME='rahash2 -E aes-cbc 256 bit'
+CMDS='!rahash2 -E aes-cbc -S 603deb1015ca71be2b73aef0857d77811f352c073b6108d72d9810a30914dff4 -x "f69f2445df4f9b17ad2b417be66c3710" -I "39F23369A9D9BACFA530E26304231461" | rax2 -S'
+BROKEN=
+EXPECT='b2eb05e2c39be9fcda6c19078c6a9d1b
+'
+
+run_test
+
+NAME='rahash2 -D aes-cbc 256 bit'
+CMDS='!rahash2 -E aes-cbc -S 603deb1015ca71be2b73aef0857d77811f352c073b6108d72d9810a30914dff4 -x "f69f2445df4f9b17ad2b417be66c3710" -I "39F23369A9D9BACFA530E26304231461" | rahash2 -D aes-cbc -S 603deb1015ca71be2b73aef0857d77811f352c073b6108d72d9810a30914dff4 -I "39F23369A9D9BACFA530E26304231461" -s - | rax2 -S'
+BROKEN=
+EXPECT='f69f2445df4f9b17ad2b417be66c3710
+'
 
 run_test
 
@@ -580,16 +661,16 @@ EXPECT='hello world
 run_test
 
 NAME='rahash2 -E rol'
-CMDS='!echo -en "\x31\xed\x49\x89" | rahash2 -E rol -S 03 -s - | rax2 -S'
-BROKEN=1
+CMDS='!rahash2 -E rol -S 03 -x "31ed4989" | rax2 -S'
+BROKEN=
 EXPECT='88684848
 '
 
 run_test
 
 NAME='rahash2 -E ror'
-CMDS='!echo -en "\x62\xda\x92\x12" | rahash2 -E ror -S 04 -s - | rax2 -S'
-BROKEN=1
+CMDS='!rahash2 -E ror -S 04 -x "62da9212" | rax2 -S'
+BROKEN=
 EXPECT='060d0901
 '
 

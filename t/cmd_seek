@@ -72,3 +72,20 @@ EXPECT='0x100000000
 0x1000025a3
 '
 run_test
+
+NAME='seek local flag'
+FILE=../bins/elf/main
+ARGS=
+BROKEN=1
+CMDS='
+af@main
+f.foo@main+4
+s main+.foo
+s
+s main+.foo
+s
+'
+EXPECT='0x400506
+0x400506
+'
+run_test

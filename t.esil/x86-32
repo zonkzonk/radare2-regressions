@@ -824,3 +824,55 @@ EXPECT='0x00000001
 0x00000000
 '
 run_test
+
+NAME='dec byte [edi] check zf x86-32'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aer cf=1
+aer esp=0x00108000
+aeim 0x20000000 10 mem
+aer edi = 0x20000000
+wx 01 @ 0x20000000
+.aer*
+"wx fe0f"
+1aes
+.aer*
+aer?zf
+pv @ 0x20000000
+'
+EXPECT='0x00000001
+0x0
+'
+run_test
+
+NAME='dec byte [edi] check sf x86-32'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aer cf=1
+aer esp=0x00108000
+aeim 0x20000000 10 mem
+aer edi = 0x20000000
+wx 00 @ 0x20000000
+.aer*
+"wx fe0f"
+1aes
+.aer*
+aer?sf
+pv @ 0x20000000
+'
+EXPECT='0x00000001
+0xff
+'
+run_test

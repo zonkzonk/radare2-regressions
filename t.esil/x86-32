@@ -55,6 +55,25 @@ EXPECT='0x20000001
 '
 run_test
 
+NAME='mov eax, 1 x86-32'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+.aer*
+"wx b801000000"
+1aes
+.aer*
+aer?eax
+'
+EXPECT='0x00000001
+'
+run_test
+
 NAME='rep movsb string x86-32'
 FILE=-
 ARGS=
@@ -83,6 +102,105 @@ aer?ecx
 EXPECT='0x2000000a
 0x1000000a
 0x78563412
+0x00000000
+'
+run_test
+
+NAME='mov byte [0x20000000], 0x64 x86-32'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aer esp=0x00108000
+wx 1234567890 @ 0x10000000
+aeim 0x20000000 10 destination
+.aer*
+"wx c6050000002064"
+aes
+.aer*
+pv @0x20000000
+'
+EXPECT='0x64
+'
+run_test
+
+NAME='mov eax, [esp + 4] x86-32'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aeim 0x20000000 10 destination
+aer esp=0x20000000
+wx 3713 @ 0x20000004
+.aer*
+"wx 8b442404"
+aes
+.aer*
+aer?eax
+'
+EXPECT='0x00001337
+'
+run_test
+
+NAME='mov [esp + 4], eax x86-32'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aeim 0x20000000 10 destination
+aer esp=0x20000000
+aer eax=0x1337
+.aer*
+"wx 89442404"
+aes
+.aer*
+pv @ 0x20000004
+'
+EXPECT='0x1337
+'
+run_test
+
+NAME='rep movsb 0x1000 randombytes x86-32'
+BROKEN=1
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aer esp=0x00108000
+aeim 0x10000000 0x1000 source
+aeim 0x20000000 0x1000 destination
+wr 0x1000 @ 0x10000000
+aer edi=0x20000000
+aer esi=0x10000000
+aer ecx=0x1000
+.aer*
+"wx f3a4"
+aes
+.aer*
+s 0x10000000
+cX 0x20000000
+aer?edi
+aer?esi
+aer?ecx
+'
+EXPECT='0x20001000
+0x10001000
 0x00000000
 '
 run_test
@@ -387,7 +505,7 @@ EXPECT='0x0ffffffc
 '
 run_test
 
-NAME='shr 9 >> 1 x86-32'
+NAME='shr eax(9) >> 1 x86-32'
 FILE=-
 ARGS=
 CMDS='
@@ -412,7 +530,7 @@ EXPECT='0x00000004
 '
 run_test
 
-NAME='shr 0x1b >> 1 x86-32'
+NAME='shr eax(0x1b) >> 1 x86-32'
 FILE=-
 ARGS=
 CMDS='
@@ -437,7 +555,7 @@ EXPECT='0x0000000d
 '
 run_test
 
-NAME='shr 5 >> 2 x86-32'
+NAME='shr eax(5) >> 2 x86-32'
 FILE=-
 ARGS=
 CMDS='
@@ -459,6 +577,98 @@ aer?cf
 '
 EXPECT='0x00000001
 0x00000000
+'
+run_test
+
+NAME='shr byte [esp + 4], 2 x86-32'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aeim 0x10000000 10 source
+aer esp=0x10000000
+wx 05 @ 0x10000004
+.aer*
+"wx c06c240402"
+1aes
+.aer*
+pv @ 0x10000004
+aer?cf
+'
+EXPECT='0x1
+0x00000000
+'
+run_test
+
+NAME='add byte [esp + 4], 0xa x86-32'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aeim 0x20000000 10 destination
+aer esp=0x20000000
+wx ff @ 0x20000004
+.aer*
+"wx 804424040a"
+aes
+.aer*
+pv @ 0x20000004
+aer?cf
+'
+EXPECT='0x9
+0x00000001
+'
+run_test
+
+NAME='add eax, [esp + 4] x86-32'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aeim 0x20000000 10 destination
+aer esp=0x20000000
+wx 3713 @ 0x20000004
+.aer*
+"wx 03442404"
+aes
+.aer*
+aer?eax
+'
+EXPECT='0x00001337
+'
+run_test
+
+NAME='add dword [0x20000000], eax x86-32'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aeim 0x20000000 10 destination
+aer esp=0x20000000
+aer eax=0x1337
+.aer*
+"wx 010500000020"
+aes
+.aer*
+pv @ 0x20000000
+'
+EXPECT='0x1337
 '
 run_test
 

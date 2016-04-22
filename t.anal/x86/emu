@@ -17,8 +17,8 @@ e asm.lines=false
 pd 20~write,exit
 '
 EXPECT='Hello, world!
- 0x00000018      int 0x80; 4 = write (1, "Hello, world!..", 14)
- 0x00000020      int 0x80; 1 = exit (1)
+ 0x00000014      int 0x80; 4 = write (1, "Hello, world!.", 14)
+ 0x0000001b      int 0x80; 1 = exit (1)
 '
 run_test
 

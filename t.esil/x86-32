@@ -930,3 +930,71 @@ EXPECT='0x00000000
 0x1
 '
 run_test
+
+NAME='adc [esi + 0x14], ecx x86-32'
+
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aeim 0x20000000 130 destination
+aer cf = 1
+aer ecx = 0x10
+aer esi=0x20000000
+wx 3713 @ 0x20000014
+.aer*
+"wx 114e14"
+aes
+.aer*
+pv @ 0x20000014
+'
+EXPECT='0x1348
+'
+run_test
+
+NAME='pushal(pushad in intel documentation) x86_32'
+
+FILE=-
+BROKEN=1
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aer eax=0x1
+aer ecx=0x2
+aer edx=0x3
+aer ebx=0x4
+aer esp=0x00108000
+aer ebp=0x5
+aer esi=0x6
+aer edi=0x7
+.aer*
+"wx 60"
+aes
+.aer*
+pv @ 0x00107ffc
+pv @ 0x00107ff8
+pv @ 0x00107ff4
+pv @ 0x00107ff0
+pv @ 0x00107fec
+pv @ 0x00107fe8
+pv @ 0x00107fe4
+pv @ 0x00107fe0
+'
+EXPECT='0x1
+0x2
+0x3
+0x4
+0x00108000
+0x5
+0x6
+0x7
+'
+run_test

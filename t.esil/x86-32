@@ -959,7 +959,6 @@ run_test
 NAME='pushal(pushad in intel documentation) x86_32'
 
 FILE=-
-BROKEN=1
 ARGS=
 CMDS='
 e esil.debug=true
@@ -967,14 +966,14 @@ e asm.arch=x86
 e asm.bits=32
 aei
 aeim
-aer eax=0x1
-aer ecx=0x2
-aer edx=0x3
-aer ebx=0x4
+aer eax=0x11111111
+aer ecx=0x22222222
+aer edx=0x33333333
+aer ebx=0x44444444
 aer esp=0x00108000
-aer ebp=0x5
-aer esi=0x6
-aer edi=0x7
+aer ebp=0x55555555
+aer esi=0x66666666
+aer edi=0x77777777
 .aer*
 "wx 60"
 aes
@@ -988,13 +987,66 @@ pv @ 0x00107fe8
 pv @ 0x00107fe4
 pv @ 0x00107fe0
 '
-EXPECT='0x1
-0x2
-0x3
-0x4
+EXPECT='0x11111111
+0x22222222
+0x33333333
+0x44444444
+0x108000
+0x55555555
+0x66666666
+0x77777777
+'
+run_test
+
+NAME='popal(popad in intel documentation) x86_32'
+
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim
+aer eax=0x11111111
+aer ecx=0x22222222
+aer edx=0x33333333
+aer ebx=0x44444444
+aer esp=0x00108000
+aer ebp=0x55555555
+aer esi=0x66666666
+aer edi=0x77777777
+.aer*
+"wx 6061"
+aes
+.aer*
+aer eax=0x00000000
+aer ecx=0x00000000
+aer edx=0x00000000
+aer ebx=0x00000000
+aer ebp=0x00000000
+aer esi=0x00000000
+aer edi=0x00000000
+.aer*
+aes
+.aer*
+aer?eax
+aer?ecx
+aer?edx
+aer?ebx
+aer?esp
+aer?ebp
+aer?esi
+aer?edi
+.aer*
+'
+EXPECT='0x11111111
+0x22222222
+0x33333333
+0x44444444
 0x00108000
-0x5
-0x6
-0x7
+0x55555555
+0x66666666
+0x77777777
 '
 run_test

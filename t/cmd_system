@@ -87,5 +87,14 @@ CMDS='
 EXPECT='test
 test
 '
+run_test
 
+NAME='%ENV=33 !echo "$ENV"'
+BROKEN=
+CMDS='
+%ENV=World
+!echo $ENV
+'
+EXPECT='World
+'
 run_test

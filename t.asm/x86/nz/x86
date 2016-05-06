@@ -138,6 +138,7 @@ test_vector "mov ebx, 1" bb01000000
 test_vector "mov ebx, [eax]" 8b18
 test_vector "mov ebx, eax" 89c3
 test_vector "mov ecx, 1" b901000000
+test_vector "mov esi, [esi + 8]" 8b7608
 test_vector "pop ds" 1f
 test_vector "pop dword [eax+4]" 8f4004
 test_vector "pop dword [eax]" 8f00

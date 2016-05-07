@@ -85,3 +85,34 @@ trap: 0
 trap-code: 0
 '
 run_test
+
+
+# FLOATING POINT
+
+NAME='float div 1.0 / 1.0'
+FILE=-
+CMDS='"ae Fx3ff0000000000000,Fx3ff0000000000000,/"'
+EXPECT='0x3ff0000000000000
+'
+run_test
+
+NAME='float mul 1.0 * 1.0'
+FILE=-
+CMDS='"ae Fx3ff0000000000000,Fx3ff0000000000000,*"'
+EXPECT='0x3ff0000000000000
+'
+run_test
+
+NAME='float add 1.0 + 1.0'
+FILE=-
+CMDS='"ae Fx3ff0000000000000,Fx3ff0000000000000,+"'
+EXPECT='0x4000000000000000
+'
+run_test
+
+NAME='float sub 1.0 - 1.0'
+FILE=-
+CMDS='"ae Fx3ff0000000000000,Fx3ff0000000000000,-"'
+EXPECT='0x0
+'
+run_test

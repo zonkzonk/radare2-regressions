@@ -122,7 +122,9 @@ test_vector "mov eax, 0x8049000" b800900408
 test_vector "mov eax, 1" b801000000
 test_vector "mov eax, 3" b803000000
 test_vector "mov eax, [eax+4]" 8b4004
-test_vector "mov eax, [eax+1337]" 8b8039050000 "br"
+test_vector "mov eax, [eax-4]" 8b40fc
+test_vector "mov eax, [eax+1337]" 8b8039050000
+test_vector "mov eax, [eax-1337]" 8b80c7faffff
 test_vector "mov eax, [eax]" 8b00
 test_vector "mov eax, [ebp]" 8b4500
 test_vector "mov eax, [ebx]" 8b03

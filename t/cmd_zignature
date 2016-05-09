@@ -52,6 +52,6 @@ e anal.hasnext=0
 aac
 axt 0x805b030
 '
-EXPECT='C 0x8049adb call sign.sys.b.sym.fmt.Println in fcn.08049a6c
+EXPECT='call 0x8049adb call sign.sys.b.sym.fmt.Println in fcn.08049a6c
 '
 run_test

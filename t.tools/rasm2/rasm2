@@ -228,3 +228,15 @@ BROKEN=
 EXPECT='4,pc,+,2,r3,<<,+,[4],pc,=
 '
 run_test
+
+NAME='rasm2 endian test 1'
+CMDS="!rasm2 -e -a arm -b 32 -d 0ad0a0e1"
+EXPECT='beq 0xff42838c
+'
+run_test
+
+NAME='rasm2 endian test 2'
+CMDS="!rasm2  -a arm -b 32 -d fff0a0e3 -e"
+EXPECT='invalid
+'
+run_test

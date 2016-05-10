@@ -178,12 +178,14 @@ run_test_real() {
     # Valgrind to detect memory corruption.
     if [ -n "${VALGRIND}" ]; then
       if [ -z ${VALGRIND_DIR+x} ]; then
-        VALGRIND_DIR="${PD}"
+        VALGRIND_REPORT=${TMP_VAL}
+      else
+        VALGRIND_REPORT=${VALGRIND_DIR}/${TEST_NAME}
       fi
       if [ -n "${VALGRIND_XML}" ]; then
-        R2CMD="${VALGRIND} --xml=yes --xml-file=${VALGRIND_DIR}/${TMP_VAL}.memcheck"
+        R2CMD="${VALGRIND} --xml=yes --xml-file=${VALGRIND_REPORT}.memcheck"
       else
-        R2CMD="valgrind --error-exitcode=47 --log-file=${VALGRIND_DIR}/${TMP_VAL}"
+        R2CMD="valgrind --error-exitcode=47 --log-file=${VALGRIND_REPORT}"
       fi
     fi
     R2CMD="${R2CMD} ${R2ARGS}"

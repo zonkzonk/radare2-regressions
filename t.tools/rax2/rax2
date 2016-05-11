@@ -123,8 +123,8 @@ CMDS='!rax2 -b 01000101 01110110'
 EXPECT='Ev'
 run_test
 
-NAME='rax2 -K 33+3'
-CMDS='!rax2 -K 33+3'
+NAME='rax2 -k 33+3'
+CMDS='!rax2 -k 33+3'
 EXPECT='36
 '
 run_test

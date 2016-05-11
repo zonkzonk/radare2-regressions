@@ -99,3 +99,13 @@ EXPECT='0x00178000 0x00000000 sb
 '
 
 run_test
+
+NAME='thumb emulation arm issue'
+FILE=../bins/mach0/FileDP
+CMDS='e asm.bits=16
+aes
+e asm.bits'
+EXPECT='16
+'
+
+run_test

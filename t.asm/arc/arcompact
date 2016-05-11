@@ -150,7 +150,6 @@ run_test
 # BL instruction
 NAME="arcompact: [BL]] - jump check"
 FILE=malloc://512
-BROKEN=1
 CMDS='
 e asm.arch=arc
 e asm.bits=16
@@ -177,9 +176,8 @@ run_test
 
 # -------------------------------
 # BRLT instruction
-BROKEN=1
 NAME="arcompact: [BRLT]"
-FILE=malloc://1024
+FILE=malloc://2048
 CMDS='
 e asm.arch=arc
 e asm.bits=16
@@ -187,15 +185,14 @@ wx 2b0d1210 @ 0x4e2
 s 0x4e2
 pi 1
 '
-EXPECT='brlt r13, 0, 0x50a
+EXPECT='brlt r13, 0,0x0000050a
 '
 run_test
 
 # -------------------------------
 # BREQ instruction
 NAME="arcompact: [BREQ]"
-FILE=malloc://1024
-BROKEN=1
+FILE=malloc://2048
 CMDS='
 e asm.arch=arc
 e asm.bits=16
@@ -203,7 +200,23 @@ wx 450f1010 @ 0x4f2
 s 0x4f2
 pi 1
 '
-EXPECT='breq r15, 0, 0x534
+EXPECT='breq r15, 0,0x00000534
+'
+run_test
+
+# -------------------------------
+# BEQ instruction
+NAME="arcompact: [BEQ]"
+FILE=malloc://2048
+BROKEN=1
+CMDS='
+e asm.arch=arc
+e asm.bits=16
+wx 2a000100 @ 0x0
+s 0x0
+pi 1
+'
+EXPECT='beq 0x0000002a
 '
 run_test
 
@@ -351,21 +364,19 @@ run_test
 # NOP instruction
 NAME="arcompact: [NOP]"
 FILE=malloc://32
-BROKEN=1
 CMDS='
 e asm.arch=arc
 e asm.bits=16
 wx 4a260070
 pi 1
 '
-EXPECT='nop
+EXPECT='nop 
 '
 run_test
 
 # -------------------------------
 # NOP_S instruction
 NAME="arcompact: [NOP_S]"
-BROKEN=1
 FILE=malloc://32
 CMDS='
 e asm.arch=arc
@@ -373,7 +384,7 @@ e asm.bits=16
 wx e078
 pi 1
 '
-EXPECT='nop_s
+EXPECT='nop_s 
 '
 run_test
 
@@ -449,14 +460,13 @@ run_test
 # SWI instruction
 NAME="arcompact: [SWI]"
 FILE=malloc://512
-BROKEN=1
 CMDS='
 e asm.arch=arc
 e asm.bits=16
 wx 6f223f00
 pi 1
 '
-EXPECT='swi
+EXPECT='swi 
 '
 run_test
 # -------------------------------
@@ -556,7 +566,6 @@ run_test
 
 NAME="ARCompact ISA instruction length"
 FILE=malloc://512
-BROKEN=1
 CMDS='
 e asm.arch=arc
 e asm.bits=16

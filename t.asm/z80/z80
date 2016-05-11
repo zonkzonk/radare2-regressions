@@ -5,7 +5,7 @@ test_z80() {
 NAME="z80:${2}"
 FILE=malloc://8
 ARGS="-w -a z80"
-CMDS='wx'${1}'
+CMDS='wx '${1}'
 pi 1
 '
 EXPECT="${2}

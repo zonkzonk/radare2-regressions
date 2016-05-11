@@ -6,7 +6,7 @@ test_pic18c() {
 NAME="pic18c:${2}"
 FILE=malloc://8
 ARGS="-w -a pic18c"
-CMDS='wx'${1}'
+CMDS='wx '${1}'
 pi 1
 '
 EXPECT="${2}

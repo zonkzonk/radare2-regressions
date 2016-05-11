@@ -135,23 +135,35 @@ run_test
 NAME='rahash2 -L'
 CMDS='!rahash2 -L'
 BROKEN=
-EXPECT='md5
-sha1
-sha256
-sha384
-sha512
-crc16
-crc32
-md4
-xor
-xorpair
-parity
-entropy
-hamdist
-pcprint
-mod255
-xxhash
-adler32
+EXPECT='  md5
+  sha1
+  sha256
+  sha384
+  sha512
+  crc16
+  crc32
+  md4
+  xor
+  xorpair
+  parity
+  entropy
+  hamdist
+  pcprint
+  mod255
+  xxhash
+  adler32
+  base64
+  base91
+  punycode
+  rc2
+  rc4
+  rc6
+  aes-ecb
+  aes-cbc
+  ror
+  rol
+  rot
+  blowfish
 '
 
 run_test

@@ -9,7 +9,6 @@ ARGS=
 CMDS='wx 0f84010a
 e asm.arch=mips
 e asm.bits=32
-wx 
 e cfg.bigendian=false
 pi 1
 e cfg.bigendian=true

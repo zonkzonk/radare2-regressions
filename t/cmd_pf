@@ -737,3 +737,19 @@ EXPECT="0x00000000 = [ 'S', 'W', 'A', 'G' ]
 0x00000000 = [ 'S', 'W', 'A', 'G' ]
 "
 run_test
+
+NAME='print n-times a format'
+FILE=malloc://1024
+BROKEN=1
+CMDS='
+wx 71776572747975696f706173646667686a6b6c7a786376626e6d71776572747975696f706173646667686a6b6c7a786376626e6d
+pf.plop ip int ptr
+pf {2}plop @ 0
+'
+EXPECT="int : 0x00000000 = 1919252337
+ptr : 0x00000004 = (qword) 0x7361706f69757974
+
+int : 0x0000000c = 1751606884
+ptr : 0x00000010 = (qword) 0x627663787a6c6b6a
+"
+run_test

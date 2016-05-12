@@ -128,6 +128,18 @@ EXPECT='010203
 '
 run_test
 
+## "wxf" - write hex pairs from file
+
+NAME='wxf'
+FILE=malloc://1024
+ARGS=
+CMDS='
+wxf ../files/hexpairs
+p8 4
+'
+EXPECT='de4db33f
+'
+run_test
 
 ## "wo" - write in block with operation
 

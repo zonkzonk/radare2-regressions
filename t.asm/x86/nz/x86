@@ -134,7 +134,11 @@ test_vector "mov eax, [esp]" 8b0424
 test_vector "mov eax, eax" 89c0
 test_vector "mov eax, ebx" 89d8
 test_vector "mov eax, esp" 89e0
-test_vector "mov eax,[eax*4+32]" 8b048520000000 "br"
+test_vector "mov eax,[eax*4+32]" 8b048520000000 
+test_vector "mov eax,[eax*4-32]" 8b0485e0ffffff
+test_vector "mov eax,[eax*4+332]" 8b04854c010000
+test_vector "mov eax,[eax*4-332]" 8b0485b4feffff
+test_vector "mov eax,[ecx*8+64]" 8b04cd40000000
 test_vector "mov eax,[eax+ebx*4+32]" 8b449820 "br"
 test_vector "mov ebx, 1" bb01000000
 test_vector "mov ebx, [eax]" 8b18

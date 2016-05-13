@@ -10,8 +10,7 @@ fi
 CMDS='
 e asm.arch='${1}'
 e asm.bits=32
-wa '${4}'
-pi 1
+pad `pa '${4}'`
 '
 EXPECT="${4}
 "

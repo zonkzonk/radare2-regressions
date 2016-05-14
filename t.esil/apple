@@ -50,6 +50,7 @@ EXPECT='0x0000290c sym._main
 0x00002a64 sym.imp.objc_msgSend
 0x00002a90 sym.imp.objc_msgSend
 0x00002aa4 sym.imp.NSLog
+0x00002aa8 sym._main+0x1d0
 0x00002ab0 str.File_Not_Found
 0x00002ab4 sym.imp.puts
 0x000029d8 sym._main
@@ -70,6 +71,7 @@ EXPECT='0x0000290c sym._main
 0x00002cec sym.imp.objc_msgSend
 0x00002d04 sym.imp.NSLog
 0x00002d50 sym.imp.objc_msgSend
+0x00002d7c sym._main+0x4a4;
 0x00002d84 "/.."
 0x00002d88 sym.imp.puts
 0x00002abc sym._main

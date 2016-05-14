@@ -16,7 +16,7 @@ aggk~nodes.title1.h
 '
 EXPECT='agraph.nodes=title1
 agraph.nodes.title1.body=base64:Ym9keTE=
-agraph.nodes.title1.w=0x12
+agraph.nodes.title1.w=0x16
 agraph.nodes.title1.h=0x4
 '
 run_test
@@ -77,7 +77,7 @@ aggk~nodes.title1.w=
 '
 EXPECT='agraph.nodes=title1
 agraph.nodes.title1.body=base64:Ym9keTE=
-agraph.nodes.title1.w=0x12
+agraph.nodes.title1.w=0x16
 '
 run_test
 
@@ -145,10 +145,10 @@ ARGS=
 CMDS='agn title1 body1
 agg'
 EXPECT='
-=----------------=
-|  title1        |
-| body1          |
-=----------------=
+=--------------------=
+|  title1            |
+| body1              |
+=--------------------=
 '
 run_test
 
@@ -178,13 +178,13 @@ ARGS=
 CMDS='agn 0x0 base64:cHVzaCBlYnAKbW92IGVicCwgZXNwCnBvcCBlYnAKcmV0
 agg'
 EXPECT='
-=----------------=
-|  0x0           |
-| push ebp       |
-| mov ebp, esp   |
-| pop ebp        |
-| ret            |
-=----------------=
+=--------------------=
+|  0x0               |
+| push ebp           |
+| mov ebp, esp       |
+| pop ebp            |
+| ret                |
+=--------------------=
 '
 run_test
 
@@ -199,7 +199,7 @@ aggk~agraph.h=
 '
 EXPECT='agraph.w=0
 agraph.h=0
-agraph.w=18
+agraph.w=22
 agraph.h=4
 '
 run_test
@@ -225,7 +225,7 @@ FILE=-
 ARGS=
 CMDS='agn title1 body1
 age title1 title1
-aggk~agraph.w=0x12
+aggk~agraph.w=0x16
 aggk~agraph.h=0x4
 '
 EXPECT=''
@@ -239,10 +239,10 @@ e graph.title=This is the graph title
 agg
 '
 EXPECT='This is the graph title
-=----------------=
-|  title1        |
-| body1          |
-=----------------=
+=--------------------=
+|  title1            |
+| body1              |
+=--------------------=
 '
 run_test
 
@@ -274,10 +274,10 @@ agg
 k='`'
 EXPECT="
 .-----.
-| =----------------=
-| |  title1        |
-| | body1          |
-| =----------------=
+| =--------------------=
+| |  title1            |
+| | body1              |
+| =--------------------=
 $k-----'
 "
 run_test

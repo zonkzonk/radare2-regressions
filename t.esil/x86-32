@@ -1079,3 +1079,71 @@ EXPECT='0x11111111
 0x00108000
 '
 run_test
+
+NAME='pushd followed by popfd x86-32'
+FILE=-
+BROKEN=
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=x86
+e asm.bits=32
+aei
+aeim 0 0x2000
+.aer*
+"wx 9c9d"
+aer cf = 1
+aer pf = 1
+aer af = 1
+aer zf = 1
+aer sf = 1
+aer tf = 1
+aer if = 1
+aer df = 1
+aer of = 1
+aer nt = 1
+aer rf = 1
+aer vm = 1
+.aer*
+aes
+aer cf = 0
+aer pf = 0
+aer af = 0
+aer zf = 0
+aer sf = 0
+aer tf = 0
+aer if = 0
+aer df = 0
+aer of = 0
+aer nt = 0
+aer rf = 0
+aer vm = 0
+aes
+.aer*
+aer?cf
+aer?pf
+aer?af
+aer?zf
+aer?sf
+aer?tf
+aer?if
+aer?df
+aer?of
+aer?nt
+aer?rf
+aer?vm
+'
+EXPECT='0x00000001
+0x00000001
+0x00000001
+0x00000001
+0x00000001
+0x00000001
+0x00000001
+0x00000001
+0x00000001
+0x00000001
+0x00000001
+0x00000001
+'
+run_test

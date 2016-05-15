@@ -5,11 +5,12 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 # "!" - run commands (via system)
 
-NAME='dbg.dcu+step'
+NAME='dbg.dc+ds.swstep'
 FILE=../../bins/elf/elf-nx
 ARGS=-d
 BROKEN=
 CMDS='e scr.color=0
+e dbg.swstep=true
 s 0
 db entry0
 dc
@@ -25,3 +26,62 @@ EXPECT='0x080482d0
 IGNORE_ERR=1
 run_test
 
+# Covers https://github.com/radare/radare2/issues/4560
+NAME='dbg.dc+ds.swstep2'
+FILE=../../bins/elf/x86-helloworld-gcc
+ARGS=-d
+BROKEN=
+CMDS='e scr.color=0
+e dbg.swstep=true
+db sym.main
+dc
+dr PC
+ds
+dr PC
+dk 9
+'
+EXPECT='0x08048400
+0x08048401
+'
+IGNORE_ERR=1
+run_test
+
+NAME='dbg.dc+ds.hwstep'
+FILE=../../bins/elf/elf-nx
+ARGS=-d
+BROKEN=
+CMDS='e scr.color=0
+e dbg.swstep=false
+s 0
+db entry0
+dc
+db-entry0
+dr PC
+ds
+dr PC
+dk 9
+'
+EXPECT='0x080482d0
+0x080482d2
+'
+IGNORE_ERR=1
+run_test
+
+NAME='dbg.dc+ds.hwstep2'
+FILE=../../bins/elf/x86-helloworld-gcc
+ARGS=-d
+BROKEN=
+CMDS='e scr.color=0
+e dbg.swstep=false
+db sym.main
+dc
+dr PC
+ds
+dr PC
+dk 9
+'
+EXPECT='0x08048400
+0x08048401
+'
+IGNORE_ERR=1
+run_test

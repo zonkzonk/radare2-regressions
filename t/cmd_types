@@ -8,22 +8,23 @@ NAME='t?'
 FILE=-
 CMDS='t?'
 EXPECT="|Usage: t # cparse types commands
-| t                  List all loaded types
-| t <type>           Show type in 'pf' syntax
-| t*                 List types info in r2 commands
-| t- <name>          Delete types by its name
-| t-*                Remove all types
-| tb <enum> <value>  Show matching enum bitfield for given number
-| te                 List all loaded enums
-| te <enum> <value>  Show name for given enum number
-| td <string>        Load types from string
-| tf                 List all loaded functions signitures
-| tk <sdb-query>     Perform sdb query
-| tl[?]              Show/Link type to an address
-| to -               Open cfg.editor to load types
-| to <path>          Load types from C header file
-| ts                 print loaded struct types
-| tu                 print loaded union types
+| t                    List all loaded types
+| t <type>             Show type in 'pf' syntax
+| t*                   List types info in r2 commands
+| t- <name>            Delete types by its name
+| t-*                  Remove all types
+| tb <enum> <value>    Show matching enum bitfield for given number
+| te                   List all loaded enums
+| te <enum> <value>    Show name for given enum number
+| td <string>          Load types from string
+| tf                   List all loaded functions signatures
+| tk <sdb-query>       Perform sdb query
+| tl[?]                Show/Link type to an address
+| to -                 Open cfg.editor to load types
+| to <path>            Load types from C header file
+| tp <type> <address>  cast data at <adress> to <type> and print it
+| ts                   print loaded struct types
+| tu                   print loaded union types
 "
 run_test
 
@@ -33,8 +34,10 @@ CMDS='t'
 EXPECT='unsigned int
 unsigned char
 unsigned short
+short
 int
 long
+long long
 void *
 char
 char *
@@ -249,8 +252,10 @@ EXPECT_ERR='../bins/other/error.h:1: warning: #error this should be treated as w
 EXPECT='unsigned int
 unsigned char
 unsigned short
+short
 int
 long
+long long
 void *
 char
 char *
@@ -278,8 +283,10 @@ t addr
 EXPECT='unsigned int
 unsigned char
 unsigned short
+short
 int
 long
+long long
 void *
 char
 char *
@@ -303,8 +310,10 @@ CMDS="t*
 EXPECT='tk unsigned int = type 
 tk unsigned char = type 
 tk unsigned short = type 
+tk short = type 
 tk int = type 
 tk long = type 
+tk long long = type 
 tk void * = type 
 tk char = type 
 tk char * = type 
@@ -316,8 +325,10 @@ tk uint64_t = type
 tk type.unsigned int = i 
 tk type.unsigned char = b 
 tk type.unsigned short = w 
+tk type.short = w 
 tk type.int = d 
 tk type.long = x 
+tk type.long long = q 
 tk type.void * = p 
 tk type.char = b 
 tk type.char * = *z 

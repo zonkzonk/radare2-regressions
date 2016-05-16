@@ -1,5 +1,23 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
+
+NAME="ARM32 bb 0 size"
+BROKEN=
+FILE=malloc://32
+CMDS="wx ff0000e2010050e30000001affffffea70009de594008de5e4139fe500f09ee5
+e asm.arch=arm
+e asm.bits=32
+af
+# .a2f
+#pdf
+afb
+"
+EXPECT='0x00000000 0x0000000c 00:0000 12 j 0x00000010 f 0x0000000c
+0x0000000c 0x00000010 00:0000 4 j 0x00000010
+0x00000010 0x00000020 00:0000 16
+'
+run_test
+
 NAME="ldr code analysis"
 FILE=malloc://32
 CMDS="

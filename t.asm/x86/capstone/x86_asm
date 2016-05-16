@@ -1,6 +1,8 @@
 #!/bin/sh
 for a in . .. ../.. ../../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh; done
 
+
+# unset R2_NOPLUGINS
 test_vector() {
 NAME="${1}: [${2}]"
 FILE=malloc://32
@@ -17,7 +19,7 @@ EXPECT="${4}
 run_test
 }
 
-PLUGIN=x86.cs
+PLUGIN=x86
 
 test_vector "${PLUGIN}" "OUT" e784 "out 0x84, eax" "br"
 test_vector "${PLUGIN}" "IN" e58c "in eax, 0x8c" "br"
@@ -589,3 +591,5 @@ test_vector "${PLUGIN}" "SUBSS XMM0, DWORD [EAX]" f30f5c00 "subss xmm0, dword [e
 test_vector "${PLUGIN}" "MULSS XMM0, DWORD [EAX]" f30f5900 "mulss xmm0, dword [eax]" "br"
 test_vector "${PLUGIN}" "DIVSS XMM0, DWORD [EAX]" f30f5e00 "divss xmm0, dword [eax]" "br"
 test_vector "${PLUGIN}" "LZCNT EAX, DWORD [EAX]" f30fbd00 "lzcnt eax, dword [eax]" "br"
+
+# export R2_NOPLUGINS=1

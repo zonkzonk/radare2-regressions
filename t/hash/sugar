@@ -4,9 +4,9 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 IGNORE_ERR=1
 BROKEN=
 CMDS='
-#md5@s:hello
-#md5 @ s:hello
-#md5@x:01020304
+ph md5@s:hello
+ph md5 @ s:hello
+ph md5@x:01020304
 '
 EXPECT='5d41402abc4b2a76b9719d911017c592
 5d41402abc4b2a76b9719d911017c592

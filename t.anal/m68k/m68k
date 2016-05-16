@@ -49,7 +49,7 @@ ARGS=
 CMDS='e asm.arch=m68k
 wx 80004eb90000100080004e75
 af
-afl~[1]
+afl~[2]
 '
 EXPECT='12
 '
@@ -62,7 +62,7 @@ ARGS=
 CMDS='e asm.arch=m68k
 wx 80004eb8100080004e75
 af
-afl~[1]
+afl~[2]
 '
 EXPECT='10
 '

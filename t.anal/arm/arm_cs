@@ -70,7 +70,7 @@ wx 1f2003d5d0d8065800021fd61f2003d5
 e anal.nopskip=false
 e anal.afterjmp=false
 af
-afl~[1]
+afl~[2]
 '
 EXPECT='12
 '
@@ -86,7 +86,7 @@ wx 1f2003d5d0d8065800021fd61f2003d5
 e anal.nopskip=false
 e anal.afterjmp=true
 af
-afl~[1]
+afl~[2]
 '
 EXPECT='12
 '
@@ -102,7 +102,7 @@ wx 1f2003d5d0d8065800021fd61f2003d5
 e anal.nopskip=true
 e anal.afterjmp=false
 af
-afl~[1]
+afl~[2]
 '
 EXPECT='8
 '

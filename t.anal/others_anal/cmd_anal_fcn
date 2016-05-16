@@ -12,7 +12,7 @@ e asm.arch=x86
 e asm.bits=32
 wx 6a00 4889e5 c3
 af
-afl~[1]
+afl~[2]
 '
 EXPECT='6
 '
@@ -30,7 +30,7 @@ e anal.eobjmp=true
 e asm.bits=32
 wx 6a00 4889e5 ff25f8120000 ff25f8120000ffe0c3
 af
-afl~[1]
+afl~[2]
 '
 EXPECT='11
 '
@@ -49,7 +49,7 @@ e anal.eobjmp=false
 e asm.bits=32
 wx 6a00 4889e5 ff25f8120000 ff25f8120000ffe0c3
 af
-afl~[1]
+afl~[2]
 '
 EXPECT='11
 '
@@ -202,8 +202,8 @@ ARGS=
 CMDS='e anal.hasnext=0
 aF
 afl'
-EXPECT='0x00001f50  47    1     sym._foo
-0x00001f80  41    1     sym._main
+EXPECT='0x00001f50    1 47           sym._foo
+0x00001f80    1 41           sym._main
 '
 run_test
 
@@ -227,9 +227,9 @@ CMDS='s 0x1000
 aap
 afl
 '
-EXPECT='0x00001f00  73    4     sym._bar
-0x00001f50  47    1     sym._foo
-0x00001f80  41    1     sym._main
+EXPECT='0x00001f00    4 73           sym._bar
+0x00001f50    1 47           sym._foo
+0x00001f80    1 41           sym._main
 '
 run_test
 

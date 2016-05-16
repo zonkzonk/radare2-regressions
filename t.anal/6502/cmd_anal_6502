@@ -9,7 +9,7 @@ ARGS=
 CMDS='e asm.arch=6502
 wx c904c90460
 af
-afl~[1]
+afl~[2]
 '
 EXPECT='5
 '

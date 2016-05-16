@@ -10,7 +10,7 @@ IGNORE_ERR=1
 run_test
 
 NAME='PE: corkami d_nonnull-ld - entrypoint'
-FILE=../../bins/pe/d_nonnull-ld
+FILE=../../bins/pe/d_nonnull-ld.exe
 BROKEN=1
 CMDS='
 s

@@ -11,7 +11,7 @@ Cd 3
 pd 2
 '
 EXPECT='            0x00000000 hex length=3 delta=0
-0x00000000  3930 39                                  909             
+0x00000000  3930 39                                  909
                                                                        ; [0x1d:4]=0
             0x00000003      3039           xor byte [ecx], bh
 '
@@ -29,7 +29,7 @@ s 1
 pd 2
 '
 EXPECT='            0x00000001 hex length=3 delta=1
-0x00000001  30 39                                    09             
+0x00000001  30 39                                    09
                                                                        ; [0x1d:4]=0
             0x00000003      3039           xor byte [ecx], bh
 '
@@ -132,7 +132,7 @@ EXPECT='            0x00000000 format x {
 run_test
 
 NAME="arm1.bin dword pointers with Cd"
-FILE=../../bins/elf/arm1.bin
+FILE=../bins/elf/arm1.bin
 ARGS=
 CMDS='s 0xdb98
 Cd 4[3]

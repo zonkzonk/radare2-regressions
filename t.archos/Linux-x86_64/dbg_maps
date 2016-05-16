@@ -3,7 +3,7 @@
 
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
-NAME='dbg.maps'
+NAME='dbg.maps.count/'
 FILE=../../bins/elf/elf-nx
 ARGS=-d
 BROKEN=
@@ -14,17 +14,17 @@ EXPECT='4
 IGNORE_ERR=1
 run_test
 
-NAME='dbg.maps'
+NAME='dbg.maps.count'
 FILE=../../bins/elf/elf-nx
 ARGS=-d
 CMDS='dm~?
 dk 9'
-EXPECT='7
+EXPECT='6
 '
 IGNORE_ERR=1
 run_test
 
-NAME='dbg.modules'
+NAME='dbg.modules.count'
 FILE=../../bins/elf/elf-nx
 ARGS=-d
 BROKEN=
@@ -34,7 +34,7 @@ EXPECT='2
 IGNORE_ERR=1
 run_test
 
-NAME='dbg.curmod'
+NAME='dbg.curmod.count'
 FILE=../../bins/elf/elf-nx
 ARGS=-d
 BROKEN=

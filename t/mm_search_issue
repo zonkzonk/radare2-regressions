@@ -1,7 +1,7 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
-FILE=../../bins/elf/test_hex_search_issues
+FILE=../bins/elf/test_hex_search_issues
 BROKEN=1
 IGNORE_ERR=1
 CMDS='/x 0100000000000000000000ff

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-[ -e ./tests.sh ] && . ./tests.sh || . ../../tests.sh
+[ -e ./tests.sh ] && . ./tests.sh || . ../tests.sh
 
 NAME='env FOO'
 CMDS='env FOO=BAR

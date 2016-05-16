@@ -2,7 +2,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh && break ; done
 
 NAME='map sections correctly'
-FILE=../../bins/dex/Hello.dex
+FILE=../bins/dex/Hello.dex
 BROKEN=1
 ARGS='-n -m 0xf0000000'
 CMDS='e io.va=true
@@ -34,7 +34,7 @@ run_test
 
 NAME='map sections correctly'
 BROKEN=1
-FILE=../../bins/dex/Hello.dex
+FILE=../bins/dex/Hello.dex
 ARGS='-n -m 0xf0000000'
 CMDS='e io.va=true
 S 0xf000022f 0x0 0x100 0x100 test_section r
@@ -63,7 +63,7 @@ EXPECT_ERR=''
 run_test
 
 NAME='sectonly true/false'
-FILE=../../bins/pe/normal.exe
+FILE=../bins/pe/normal.exe
 BROKEN=
 ARGS=''
 CMDS='e io.va=true

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-[ -e ./tests.sh ] && . ./tests.sh || . ../../tests.sh
+[ -e ./tests.sh ] && . ./tests.sh || . ../tests.sh
 
 NAME='ahi 2 + endian'
 CMDS='

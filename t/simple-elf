@@ -1,7 +1,7 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh && break ; done
 
-FILE=../../bins/elf/x86-simple
+FILE=../bins/elf/x86-simple
 CMDS='
 p8 10 @ 0x8048065
 '
@@ -12,7 +12,7 @@ EXPECT_ERR=''
 run_test
 
 NAME='display mapped flag in sections list'
-FILE=../../bins/elf/x86-simple
+FILE=../bins/elf/x86-simple
 CMDS='S
 '
 EXPECT='[00] * 0x00000060 -r-x va=0x08048060 sz=0x0012 vsz=0x0012 .text

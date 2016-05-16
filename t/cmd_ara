@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # TODO. add test for aras
-[ -e ./tests.sh ] && . ./tests.sh || . ../../tests.sh
+[ -e ./tests.sh ] && . ./tests.sh || . ../tests.sh
 
 NAME='ara swap'
 CMDS='e asm.arch=x86
@@ -66,4 +66,3 @@ EXPECT='14
 7
 '
 run_test
-

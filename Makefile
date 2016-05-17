@@ -20,7 +20,7 @@ do:
 	-git pull ${PULLADDR}
 	@sh run_tests.sh
 
-all: commands formats tools io asm anal esil tools archos endian
+all: commands formats tools io asm anal esil tools archos
 
 archos:
 	@$(MAKE) -C t.archos
@@ -147,8 +147,6 @@ rasm2:
 	@sh run_tests.sh t.tools/rasm2
 rax2:
 	@sh run_tests.sh t.tools/rax2
-endian:
-	@sh run_tests.sh t/endian
 
 broken:
 	grep BROKEN=1 t -r -l

@@ -178,4 +178,17 @@ FILTER='sed "s/.*\(\<1024\>\).*\(\<a_piece_of_ls_saved_to_PWD\>\)$/\1 \2/"'
 run_test
 rm -f a_piece_of_ls_saved_to_PWD
 
-
+NAME='wx 0x should behave as wv'
+FILE=malloc://1024
+BROKEN=1
+ARGS=
+CMDS='e cfg.bigendian=false
+wx 0x1234
+p8 2
+wx 0x12345678
+p8 4
+'
+EXPECT='3412
+78563412
+'
+run_test

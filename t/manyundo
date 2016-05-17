@@ -2,6 +2,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 FILE=malloc://1024
+BROKEN=1
 CMDS='
 s*
 # Force a wraparound in the undo/redo buffer.

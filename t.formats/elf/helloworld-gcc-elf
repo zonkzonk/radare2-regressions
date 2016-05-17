@@ -197,7 +197,7 @@ run_test
 
 NAME='pc C'
 FILE=../../bins/elf/x86-helloworld-gcc
-CMDS='pc C
+CMDS='pc
 '
 EXPECT='#define _BUFFER_SIZE 256
 unsigned char buffer[256] = {

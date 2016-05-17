@@ -11,7 +11,7 @@ Cd 3
 pd 2
 '
 EXPECT='            0x00000000 hex length=3 delta=0
-0x00000000  3930 39                                  909
+0x00000000  3930 39                                  909             
                                                                        ; [0x1d:4]=0
             0x00000003      3039           xor byte [ecx], bh
 '
@@ -138,7 +138,7 @@ CMDS='s 0xdb98
 Cd 4[3]
 pd 3
 '
-EXPECT='    ;-- $d_61:
+EXPECT='            ;-- $d_61:
             0x0000db98 .dword 0x00085038 ; obj.main_arena
             0x0000db9c .dword 0x000844ac ; obj.check_action
             0x0000dba0 .dword 0x000663c4 ; str.free__:_invalid_pointer

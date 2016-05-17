@@ -30,38 +30,25 @@ e asm.emustr=true
 af
 pdsf
 '
-EXPECT='0x0000290c sym._main
-0x00002920 "alloc"
+EXPECT='0x00002920 "alloc"
 0x00002928 sym.imp.objc_msgSend
 0x0000293c "init"
 0x00002940 sym.imp.objc_msgSend
 0x0000294c "X..."
-0x0000294c sym._main
 0x0000295c sym.imp.objc_msgSend
 0x00002970 sym.imp.objc_msgSend
 0x0000299c sym.imp.puts
-0x00002988 sym._main
 0x000029c8 sym.imp.strcmp
-0x000029e0 sym._main
-0x000029ec sym._main
 0x00002a1c sym.imp.objc_msgSend
-0x00002a30 sym._main
 0x00002a38 sym.imp.objc_msgSend
 0x00002a64 sym.imp.objc_msgSend
 0x00002a90 sym.imp.objc_msgSend
 0x00002aa4 sym.imp.NSLog
-0x00002aa8 sym._main+0x1d0
 0x00002ab0 str.File_Not_Found
 0x00002ab4 sym.imp.puts
-0x000029d8 sym._main
-0x00002ac4 sym._main
-0x00002ad0 sym._main
 0x00002b00 sym.imp.objc_msgSend
-0x00002b10 sym._main
 0x00002b1c sym.imp.objc_msgSend
 0x00002b48 sym.imp.objc_msgSend
-0x00002b18 sym._main
-0x00002b5c sym._main
 0x00002b64 sym.imp.objc_msgSend
 0x00002ba4 sym.imp.objc_msgSend
 0x00002c00 sym.imp.objc_msgSend
@@ -71,15 +58,13 @@ EXPECT='0x0000290c sym._main
 0x00002cec sym.imp.objc_msgSend
 0x00002d04 sym.imp.NSLog
 0x00002d50 sym.imp.objc_msgSend
-0x00002d7c sym._main+0x4a4;
 0x00002d84 "/.."
 0x00002d88 sym.imp.puts
-0x00002abc sym._main
-0x00002da0 sym._main
 0x00002dac sym.imp.objc_msgSend
-0x000029ac sym._main
 '
 run_test
+
+exit 0
 
 NAME='sectonly esil stack'
 FILE=../bins/mach0/FileDP

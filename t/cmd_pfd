@@ -29,7 +29,7 @@ label="test|{0x0|E|var0|<var0>elf_type.ET_HIPROC}"];
 run_test
 
 NAME='pfd.test i var0'
-CMDS='wx 0x100
+CMDS='wv4 0x100
 pfd.test i var0
 pfd.test
 '
@@ -41,7 +41,7 @@ label="test|{0x0|i|var0|<var0>256}"];
 run_test
 
 NAME='pfd.test w var0'
-CMDS='wx 0x1234
+CMDS='wv2 0x1234
 pfd.test w var0
 pfd.test
 '
@@ -53,7 +53,7 @@ label="test|{0x0|w|var0|<var0>0x1234}"];
 run_test
 
 NAME='pfd.test x var0'
-CMDS='wx 0x12345678
+CMDS='wv4 0x12345678
 pfd.test x var0
 pfd.test
 '

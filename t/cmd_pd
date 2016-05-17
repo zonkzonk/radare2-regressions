@@ -292,6 +292,6 @@ e asm.relsub=true
 pd 1
 '
 EXPECT=' 0x00400000      488d05020000.  lea rax, [rip + 2]
- 0x00400000      488d05020000.  lea rax, [0x400009]
+ 0x00400000      488d05020000.  lea rax, 0x00400009
 '
 run_test

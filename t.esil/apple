@@ -64,8 +64,6 @@ EXPECT='0x00002920 "alloc"
 '
 run_test
 
-exit 0
-
 NAME='sectonly esil stack'
 FILE=../bins/mach0/FileDP
 CMDS='s main

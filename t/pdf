@@ -27,11 +27,11 @@ e anal.eobjmp=false
 e anal.nopskip=true # if set to true it fucks the test
 aa # full analysis fuckups main
 pd 1 @main'
-EXPECT='/ (fcn) sym.main 44
-|           ; arg int arg_31_4     @ rbp+0xfc
-|           ; DATA XREF from 0x0040045d (sym.main)
-|           ;-- main:
-|           0x0040052d      55             push rbp                    ; dwarftest.c:4
+EXPECT='            ;-- main:
+/ (fcn) sym.main 44
+|           ; arg int arg_fch @ rbp+0xfc
+|           ; DATA XREF from 0x0040045d (entry0)
+|           0x0040052d      55             push rbp                    ; dwarftest.c:4  
 '
 run_test
 
@@ -91,22 +91,22 @@ e anal.eobjmp=false
 e anal.nopskip=true
 af@main
 pdf@main'
-EXPECT='/ (fcn) sym.main 44
-|           ; arg int arg_31_4     @ rbp+0xfc
-|           ;-- main:
-|           0x0040052d      55             push rbp                    ; dwarftest.c:4 { ; dwarftest.c:4
+EXPECT='            ;-- main:
+/ (fcn) sym.main 44
+|           ; arg int arg_fch @ rbp+0xfc
+|           0x0040052d      55             push rbp                    ; dwarftest.c:4 { ; dwarftest.c:4  
 |           0x0040052e      4889e5         mov rbp, rsp
 |           0x00400531      4883ec10       sub rsp, 0x10
-|           0x00400535      c745fc000000.  mov dword [rbp-0x4], 0x0    ; dwarftest.c:7  for (i = 0; i < 5; i++) { ; [0xfc:4]=0 ; dwarftest.c:7
+|           0x00400535      c745fc000000.  mov dword [rbp-0x4], 0x0    ; dwarftest.c:7  for (i = 0; i < 5; i++) { ; [0xfc:4]=0 ; dwarftest.c:7  
 |       ,=< 0x0040053c      eb0e           jmp 0x40054c
-|      .--> 0x0040053e      bfe4054000     mov edi, str.dwarftest      ; dwarftest.c:8   printf ("dwarftest\n"); ; "dwarftest" @ 0x4005e4 ; dwarftest.c:8
+|      .--> 0x0040053e      bfe4054000     mov edi, str.dwarftest      ; dwarftest.c:8   printf ("dwarftest\n"); ; "dwarftest" @ 0x4005e4 ; dwarftest.c:8  
 |      ||   0x00400543      e8c8feffff     call sym.imp.puts
-|      ||   0x00400548      8345fc01       add dword [rbp-0x4], 0x1    ; dwarftest.c:7  for (i = 0; i < 5; i++) { ; dwarftest.c:7
+|      ||   0x00400548      8345fc01       add dword [rbp-0x4], 0x1    ; dwarftest.c:7  for (i = 0; i < 5; i++) { ; dwarftest.c:7  
 |      ||   ; JMP XREF from 0x0040053c (sym.main)
-|      |`-> 0x0040054c      837dfc04       cmp dword [rbp-0x4], 0x4    ; [0xfc:4]=0 ; dwarftest.c:7
+|      |`-> 0x0040054c      837dfc04       cmp dword [rbp-0x4], 0x4    ; [0xfc:4]=0 ; dwarftest.c:7  
 |      `==< 0x00400550      7eec           jle 0x40053e
-|           0x00400552      b800000000     mov eax, 0x0                ; dwarftest.c:11  return 0; ; dwarftest.c:11
-|           0x00400557      c9             leave                       ; dwarftest.c:12 } ; dwarftest.c:12
+|           0x00400552      b800000000     mov eax, 0x0                ; dwarftest.c:11  return 0; ; dwarftest.c:11  
+|           0x00400557      c9             leave                       ; dwarftest.c:12 } ; dwarftest.c:12  
 \           0x00400558      c3             ret
 '
 run_test
@@ -125,22 +125,22 @@ e anal.eobjmp=false
 e anal.nopskip=true
 af@main
 pdf@main'
-EXPECT='/ (fcn) sym.main 44
-|           ; arg int arg_31_4     @ rbp+0xfc
-|           ;-- main:
-|           0x0040052d      55             push rbp                    ; dwarftest.c:4 { ; dwarftest.c:4
+EXPECT='            ;-- main:
+/ (fcn) sym.main 44
+|           ; arg int arg_fch @ rbp+0xfc
+|           0x0040052d      55             push rbp                    ; dwarftest.c:4 { ; dwarftest.c:4  
 |           0x0040052e      4889e5         mov rbp, rsp
 |           0x00400531      4883ec10       sub rsp, 0x10
-|           0x00400535      c745fc000000.  mov dword [rbp-0x4], 0x0    ; dwarftest.c:7  for (i = 0; i < 5; i++) { ; [0xfc:4]=0 ; dwarftest.c:7
+|           0x00400535      c745fc000000.  mov dword [rbp-0x4], 0x0    ; dwarftest.c:7  for (i = 0; i < 5; i++) { ; [0xfc:4]=0 ; dwarftest.c:7  
 |       ,=< 0x0040053c      eb0e           jmp 0x40054c
-|      .--> 0x0040053e      bfe4054000     mov edi, str.dwarftest      ; dwarftest.c:8   printf ("dwarftest\n"); ; "dwarftest" @ 0x4005e4 ; dwarftest.c:8
+|      .--> 0x0040053e      bfe4054000     mov edi, str.dwarftest      ; dwarftest.c:8   printf ("dwarftest\n"); ; "dwarftest" @ 0x4005e4 ; dwarftest.c:8  
 |      ||   0x00400543      e8c8feffff     call sym.imp.puts
-|      ||   0x00400548      8345fc01       add dword [rbp-0x4], 0x1    ; dwarftest.c:7  for (i = 0; i < 5; i++) { ; dwarftest.c:7
+|      ||   0x00400548      8345fc01       add dword [rbp-0x4], 0x1    ; dwarftest.c:7  for (i = 0; i < 5; i++) { ; dwarftest.c:7  
 |      ||   ; JMP XREF from 0x0040053c (sym.main)
-|      |`-> 0x0040054c      837dfc04       cmp dword [rbp-0x4], 0x4    ; [0xfc:4]=0 ; dwarftest.c:7
+|      |`-> 0x0040054c      837dfc04       cmp dword [rbp-0x4], 0x4    ; [0xfc:4]=0 ; dwarftest.c:7  
 |      `==< 0x00400550      7eec           jle 0x40053e
-|           0x00400552      b800000000     mov eax, 0x0                ; dwarftest.c:11  return 0; ; dwarftest.c:11
-|           0x00400557      c9             leave                       ; dwarftest.c:12 } ; dwarftest.c:12
+|           0x00400552      b800000000     mov eax, 0x0                ; dwarftest.c:11  return 0; ; dwarftest.c:11  
+|           0x00400557      c9             leave                       ; dwarftest.c:12 } ; dwarftest.c:12  
 \           0x00400558      c3             ret
 '
 run_test

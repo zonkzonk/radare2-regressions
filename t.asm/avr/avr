@@ -135,7 +135,7 @@ test_vector "${PLUGIN}" "adiw r24, 0x01" 0196 2
 test_vector "${PLUGIN}" "andi r24, 0xef" 8f7e 2
 test_vector "${PLUGIN}" "bld r14, 1" e1f8 2
 test_vector "${PLUGIN}" "brcc 0x4" 08f4 2
-test_vector "${PLUGIN}" "cli " f894 2
+test_vector "${PLUGIN}" "cli" f894 2
 test_vector "${PLUGIN}" "clr r15" ff24 2
 test_vector "${PLUGIN}" "call 0x2016" 0e940b10 4
 
@@ -203,13 +203,13 @@ test_vector "${PLUGIN}" "push r29" df93 2
 test_vector "${PLUGIN}" "rcall 0x4" 01d0 2
 test_vector "${PLUGIN}" "rjmp 0x4" 01c0 2
 test_vector "${PLUGIN}" "pop r28" cf91 2
-test_vector "${PLUGIN}" "ret " 0895 2
-test_vector "${PLUGIN}" "reti " 1895 2
+test_vector "${PLUGIN}" "ret" 0895 2
+test_vector "${PLUGIN}" "reti" 1895 2
 test_vector "${PLUGIN}" "rol r25" 991f 2
 test_vector "${PLUGIN}" "sbc r19, r25" 390b 2
 test_vector "${PLUGIN}" "sbci r19, 0xff" 3f4f 2
 test_vector "${PLUGIN}" "sbiw r24, 0x01" 0197 2
-test_vector "${PLUGIN}" "sei " 7894 2
+test_vector "${PLUGIN}" "sei" 7894 2
 test_vector "${PLUGIN}" "ser r24" 8fef 2
 test_vector "${PLUGIN}" "std Z+0, r1" 1082 2
 test_vector "${PLUGIN}" "std Z+1, r1" 1182 2
@@ -223,8 +223,7 @@ s 0x2d0
 wx 9093c007
 ao 1~jump
 '
-EXPECT='jump: 0x00000000
-'
+EXPECT=''
 run_test
 
 test_vector "${PLUGIN}" "sub r18, r24" 281b 2

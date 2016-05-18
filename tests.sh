@@ -155,7 +155,7 @@ run_test_real() {
   fi
 
   mkdir -p ${PD} || exit 1
-  TMP_DIR=`mktemp -d "${PD}/${TEST_NAME}-XXXXXX"`
+  TMP_DIR="`mktemp -d "${PD}/${TEST_NAME}-XXXXXX"`"
   if [ $? != 0 ]; then
     echo "Please set R2RWD path to something different than /tmp/r2-regressions"
     exit 1
@@ -169,6 +169,7 @@ run_test_real() {
   TMP_VAL="${TMP_DIR}/val" # valgrind output
   TMP_BIN="${TMP_DIR}/bin" # the binary used
 
+  : > "${TMP_OUT}"
   echo -n "$FILE" > "${TMP_BIN}"
   cat > "$TMP_NAM" << __EOF__
 $TEST_NAME / $NAME

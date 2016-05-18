@@ -149,21 +149,30 @@ run_test_real() {
 
   # Verbose mode is always used if only a single test is run.
   if [ -z "${R2_SOURCED}" ]; then
-    VERBOSE=1
+    if [ -z "${QUIET}" ]; then
+      VERBOSE=1
+    fi
   fi
 
-  mkdir -p ${PD}
-  TMP_RAD=`mktemp "${PD}/${TEST_NAME}-rad.XXXXXX"`
+  mkdir -p ${PD} || exit 1
+  TMP_DIR=`mktemp -d "${PD}/${TEST_NAME}-XXXXXX"`
   if [ $? != 0 ]; then
     echo "Please set R2RWD path to something different than /tmp/r2-regressions"
     exit 1
   fi
-  TMP_OUT=`mktemp "${PD}/${TEST_NAME}-out.XXXXXX"`
-  TMP_ERR=`mktemp "${PD}/${TEST_NAME}-err.XXXXXX"`
-  TMP_EXR=`mktemp "${PD}/${TEST_NAME}-exr.XXXXXX"` # expected error
-  TMP_VAL=`mktemp "${PD}/${TEST_NAME}-val.XXXXXX"`
-  TMP_EXP=`mktemp "${PD}/${TEST_NAME}-exp.XXXXXX"`
+  TMP_NAM="${TMP_DIR}/nam" # test name ($NAME)
+  TMP_RAD="${TMP_DIR}/rad" # test radare script
+  TMP_OUT="${TMP_DIR}/out" # stdout
+  TMP_EXP="${TMP_DIR}/exp" # expected output
+  TMP_ERR="${TMP_DIR}/err" # stderr
+  TMP_EXR="${TMP_DIR}/exr" # expected error
+  TMP_VAL="${TMP_DIR}/val" # valgrind output
+  TMP_BIN="${TMP_DIR}/bin" # the binary used
 
+  echo -n "$FILE" > "${TMP_BIN}"
+  cat > "$TMP_NAM" << __EOF__
+$TEST_NAME / $NAME
+__EOF__
   if [ -n "${SHELLCMD}" ]; then
     R2CMD="$SHELLCMD"
   else
@@ -299,9 +308,13 @@ run_test_real() {
   else
     test_success
   fi
-  rm -f "${TMP_RAD}" "${TMP_OUT}" \
-        "${TMP_ERR}" "${TMP_VAL}" \
-        "${TMP_EXP}" "${TMP_EXR}"
+
+  # remove the temporary output
+  if [ "$KEEP_TMP" = "yes" ]; then
+    echo "Temporary files saved in ${TMP_DIR}"
+  else
+    rm -rf "${TMP_DIR}"
+  fi
 
   # Reset most variables in case the next test script doesn't set them.
   if [ "${REVERSERC}" = '1' ]; then

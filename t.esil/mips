@@ -841,6 +841,37 @@ EXPECT='0x000492cc
 '
 run_test
 
+NAME="mul s0, a0, v0"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=mips
+e asm.bits=32
+wx 02808270
+ar > /dev/null
+ar a0=21
+ar v0=12
+aes
+ar s0
+ar hi
+ar lo
+ar > /dev/null
+ar a0=0x44556677
+ar v0=0x00112233
+aeip
+aes
+ar s0
+ar hi
+ar lo
+'
+EXPECT='0x000000fc
+0x00000000
+0x000000fc
+0xc28637b5
+0x000492cc
+0xffffffffc28637b5
+'
+run_test
+
 NAME="mflo v0"
 FILE=malloc://0x200
 CMDS='

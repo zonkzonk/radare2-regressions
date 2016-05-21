@@ -213,7 +213,7 @@ FILE=../bins/elf/arm1.bin
 ARGS=
 CMDS='s 0xdb98
 Cd 4[3]
-ahi 8
+ahi 10
 pd 3
 '
 EXPECT='            ;-- $d_61:

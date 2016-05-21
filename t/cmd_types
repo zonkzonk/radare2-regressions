@@ -340,20 +340,20 @@ tk type.uint64_t = q
 '
 run_test
 
-NAME='tl, tf test on structure'
-BROKEN=1
+NAME='tp'
+BROKEN=
 FILE=-
-CMDS='"td typedef struct name { char name[10]; } name"
+CMDS='"td struct person { int age; char name[10]; }"
 s 100
 w Carlos
 s 0
+wx 13000000
+s +4
 wx 0x64
-tl name @ 0x0
-tf 0x0
+tp person @ 0x0
 '
-EXPECT='struct name {
-name : (*0x64) 0x00000000 = Carlos
-}
+EXPECT=' age : 0x00000000 = 19
+name : (*0x64) 0x00000004 = Carlos
 '
 run_test
 

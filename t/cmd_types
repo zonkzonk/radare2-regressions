@@ -6,25 +6,8 @@
 
 NAME='t?'
 FILE=-
-CMDS='t?'
-EXPECT="|Usage: t # cparse types commands
-| t                    List all loaded types
-| t <type>             Show type in 'pf' syntax
-| t*                   List types info in r2 commands
-| t- <name>            Delete types by its name
-| t-*                  Remove all types
-| tb <enum> <value>    Show matching enum bitfield for given number
-| te                   List all loaded enums
-| te <enum> <value>    Show name for given enum number
-| td <string>          Load types from string
-| tf                   List all loaded functions signatures
-| tk <sdb-query>       Perform sdb query
-| tl[?]                Show/Link type to an address
-| to -                 Open cfg.editor to load types
-| to <path>            Load types from C header file
-| tp <type> <address>  cast data at <adress> to <type> and print it
-| ts                   print loaded struct types
-| tu                   print loaded union types
+CMDS='t?~?Usage'
+EXPECT="1
 "
 run_test
 

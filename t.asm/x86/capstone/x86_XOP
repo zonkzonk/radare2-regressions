@@ -18,7 +18,7 @@ EXPECT="${4}
 run_test
 }
 
-PLUGIN=x86.cs
+PLUGIN=x86
 
 test_vector "${PLUGIN}" "VPMADCSSWD XMM0, XMM0, XMM0, XMM0" 8fe878a6c000 "vpmadcsswd xmm0, xmm0, xmm0, xmm0"
 test_vector "${PLUGIN}" "VFRCZPD XMM0, XMM0" 8fe97881c0 "vfrczpd xmm0, xmm0"
@@ -61,7 +61,7 @@ test_vector "${PLUGIN}" "VPCOMUD XMM0, XMM0, XMM0, 0" 8fe878eec000 "vpcomud xmm0
 test_vector "${PLUGIN}" "VPCOMUQ XMM0, XMM0, XMM0, 0" 8fe878efc000 "vpcomuq xmm0, xmm0, xmm0, 0" "br"
 test_vector "${PLUGIN}" "VPCOMUW XMM0, XMM0, XMM0, 0" 8fe878edc000 "vpcomuw xmm0, xmm0, xmm0, 0" "br"
 test_vector "${PLUGIN}" "VPCOMW XMM0, XMM0, XMM0, 0" 8fe878cdc000 "vpcomw xmm0, xmm0, xmm0, 0" "br"
-test_vector "${PLUGIN}" "VPMACSDDXMM0, XMM0, XMM0, XMM0" 8fe8789ec000 "vpmacsdd xmm0, xmm0, xmm0, xmm0" 
+test_vector "${PLUGIN}" "VPMACSDDXMM0, XMM0, XMM0, XMM0" 8fe8789ec000 "vpmacsdd xmm0, xmm0, xmm0, xmm0"
 test_vector "${PLUGIN}" "VPMACSDQH XMM0, XMM0, XMM0, XMM0" 8fe8789fc000 "vpmacsdqh xmm0, xmm0, xmm0, xmm0"
 test_vector "${PLUGIN}" "VPMACSDQL XMM0, XMM0, XMM0, XMM0" 8fe87897c000 "vpmacsdql xmm0, xmm0, xmm0, xmm0"
 test_vector "${PLUGIN}" "VPMACSSDD XMM0, XMM0, XMM0, XMM0" 8fe8788ec000 "vpmacssdd xmm0, xmm0, xmm0, xmm0"

@@ -18,7 +18,7 @@ EXPECT="${4}
 run_test
 }
 
-PLUGIN=x86.cs
+PLUGIN=x86
 
 test_vector "${PLUGIN}" "OUT" e784 "out 0x84, eax"
 test_vector "${PLUGIN}" "IN" e58c "in eax, 0x8c"

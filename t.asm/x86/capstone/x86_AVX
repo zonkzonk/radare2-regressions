@@ -18,7 +18,7 @@ EXPECT="${4}
 run_test
 }
 
-PLUGIN=x86.cs
+PLUGIN=x86
 
 test_vector "${PLUGIN}" "VADDPD YMM0, YMM0, YMM0" c5fd58c0 "vaddpd ymm0, ymm0, ymm0"
 test_vector "${PLUGIN}" "AESDEC XMM0, XMM0" 660f38dec0 "aesdec xmm0, xmm0"
@@ -34,7 +34,7 @@ test_vector "${PLUGIN}" "VAESENCLAST XMM0, XMM0, XMM0" c4e279ddc0 "vaesenclast x
 test_vector "${PLUGIN}" "VAESIMC XMM0, XMM0" c4e279dbc0 "vaesimc xmm0, xmm0"
 test_vector "${PLUGIN}" "VAESKEYGENASSIST XMM0, XMM0, 0X0" c4e379dfc000 "vaeskeygenassist xmm0, xmm0, 0"
 test_vector "${PLUGIN}" "VEXTRACTF128 XMM0, YMM0, 0X0" c4e37d19c000 "vextractf128 xmm0, ymm0, 0"
-test_vector "${PLUGIN}" "VBROADCASTF128 YMM0, XMMWORD [0]" c4e27d1a0500000000 "vbroadcastf128 ymm0, xmmword [0]" 
+test_vector "${PLUGIN}" "VBROADCASTF128 YMM0, XMMWORD [0]" c4e27d1a0500000000 "vbroadcastf128 ymm0, xmmword [0]"
 test_vector "${PLUGIN}" "VBROADCASTSD YMM0, QWORD [0]" c4e27d190500000000 "vbroadcastsd ymm0, qword [0]"
 test_vector "${PLUGIN}" "VINSERTF128 YMM0, YMM0, XMM0, 0X0" c4e37d18c000 "vinsertf128 ymm0, ymm0, xmm0, 0"
 test_vector "${PLUGIN}" "VPERM2F128 YMM0, YMM0, YMM0, 0X0" c4e37d06c000 "vperm2f128 ymm0, ymm0, ymm0, 0"

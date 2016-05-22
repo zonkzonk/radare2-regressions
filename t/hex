@@ -107,8 +107,8 @@ run_test
 NAME="overlapped matches"
 FILE=malloc://1024
 IGNORE_ERR=1
-BROKEN=1
-CMDS='w AAAA @ 0x100
+CMDS='e search.overlap=true
+w AAAA @ 0x100
 /x 4141'
 EXPECT='0x00000100 hit0_0 4141
 0x00000101 hit0_1 4141
@@ -116,12 +116,22 @@ EXPECT='0x00000100 hit0_0 4141
 '
 run_test
 
+NAME="non-overlapped matches"
+FILE=malloc://1024
+IGNORE_ERR=1
+CMDS='e search.overlap=false
+w AAAA @ 0x100
+/x 4141'
+EXPECT='0x00000100 hit0_0 4141
+0x00000102 hit0_1 4141
+'
+run_test
+
 NAME="any-match with small block size"
 FILE=malloc://1024
 IGNORE_ERR=1
-BROKEN=1
 CMDS='w ABCD @ 0x100
-b 4
+b 2
 /x .1.2.3.4'
 EXPECT='0x00000100 hit0_0 41424344
 '

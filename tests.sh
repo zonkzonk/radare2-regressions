@@ -168,6 +168,8 @@ run_test_real() {
   TMP_EXR="${TMP_DIR}/exr" # expected error
   TMP_VAL="${TMP_DIR}/val" # valgrind output
   TMP_BIN="${TMP_DIR}/bin" # the binary used
+  TMP_ODF="${TMP_DIR}/odf" # output diff
+  TMP_EDF="${TMP_DIR}/edf" # err diff
 
   : > "${TMP_OUT}"
   echo -n "$FILE" > "${TMP_BIN}"
@@ -247,9 +249,10 @@ __EOF__
     fi
   fi
 
-  # Check if the output matched.
-  diff --strip-trailing-cr "${TMP_OUT}" "${TMP_EXP}" >/dev/null
-  OUT_CODE=$?
+  # Check if the output matched. (default to yes)
+  ${DIFF} -u "${TMP_OUT}" "${TMP_EXP}" > "${TMP_ODF}"
+  OUT_CODE=0
+  [ -s "${TMP_ODF}" ] && OUT_CODE=1
   if [ "${NOT_EXPECT}" = 1 ]; then
     if [ "${OUT_CODE}" = 0 ]; then
       OUT_CODE=1
@@ -260,8 +263,9 @@ __EOF__
   if [ "${IGNORE_ERR}" = 1 ]; then
     ERR_CODE=0
   else
-    ${DIFF} "${TMP_ERR}" "${TMP_EXR}" >/dev/null
-    ERR_CODE=$?
+    ${DIFF} -u "${TMP_ERR}" "${TMP_EXR}" > "${TMP_EDF}"
+    ERR_CODE=0
+    [ -s "${TMP_EDF}" ] && ERR_CODE=1
     if [ "${NOT_EXPECT}" = 1 ]; then
       if [ "${ERR_CODE}" = 0 ]; then
         ERR_CODE=1
@@ -296,14 +300,26 @@ __EOF__
     printdiff
     if [ -n "${VERBOSE}" ]; then
       print_label Diff:
-      ${DIFF} -u "${TMP_EXP}" "${TMP_OUT}"
+      if grep ^Binary "${TMP_ODF}"; then
+        r2 -nqfcx "${TMP_EXP}" > "${TMP_DIR}/xhd"  # expected hexdump
+        r2 -nqfcx "${TMP_OUT}" > "${TMP_DIR}/ohd"  # output hexdump
+        ${DIFF} -u "${TMP_DIR}/xhd" "${TMP_DIR}/ohd"
+      else
+        cat "${TMP_ODF}"
+      fi
       echo
     fi
   elif [ ${ERR_CODE} -ne 0 ]; then
     test_failed "err"
     printdiff
     if [ -n "${VERBOSE}" ]; then
-      diff -u "${TMP_EXR}" "${TMP_ERR}"
+      if grep ^Binary "${TMP_EDF}"; then
+        r2 -nqfcx "${TMP_EXR}" > "${TMP_DIR}/xhr"  # expected err hexdump
+        r2 -nqfcx "${TMP_ERR}" > "${TMP_DIR}/ehd"  # err output hexdump
+        ${DIFF} -u "${TMP_DIR}/xhr" "${TMP_DIR}/ehd"
+      else
+        cat "${TMP_EDF}"
+      fi
       echo
     fi
   else

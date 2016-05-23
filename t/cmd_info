@@ -681,6 +681,44 @@ EXPECT='vaddr=0x004005c4 paddr=0x000005c4 ordinal=000 sz=12 len=11 section=.roda
 '
 run_test
 
+
+NAME='izq (file x86_64)'
+FILE=../bins/elf/hello-linux-x86_64
+ARGS=
+CMDS="izq"
+EXPECT='0x4005c4 12 11 Hello World
+'
+run_test
+
+
+NAME='izqq (file x86_64)'
+FILE=../bins/elf/hello-linux-x86_64
+ARGS=
+CMDS="izqq"
+EXPECT='Hello World
+'
+run_test
+
+
+NAME='izzq (file x86_64)'
+FILE=../bins/elf/hello-linux-x86_64
+ARGS=
+CMDS="izzq~puts"
+EXPECT="0x4002fa 5 4 puts
+0x15b 18 17 puts@@GLIBC_2.2.5
+"
+run_test
+
+
+NAME='izzqq (file x86_64)'
+FILE=../bins/elf/hello-linux-x86_64
+ARGS=
+CMDS="izzqq~puts"
+EXPECT='puts
+puts@@GLIBC_2.2.5
+'
+run_test
+
 NAME='i (no rbin - file x86_64)'
 FILE=../bins/elf/hello-linux-x86_64
 ARGS="-n"

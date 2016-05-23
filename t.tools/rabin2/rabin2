@@ -242,3 +242,12 @@ ordinal=001 plt=0x00000000 bind=NONE type=FUNC name=dyld_stub_binder
 2 imports
 '
 run_test
+
+
+NAME='rabin2 -qqz'
+FILE=../../bins/elf/hello-linux-x86_64
+ARGS=
+CMDS='!rabin2 -qqz ${R2_FILE}'
+EXPECT='Hello World
+'
+run_test

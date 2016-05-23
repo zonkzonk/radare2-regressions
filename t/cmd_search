@@ -261,3 +261,55 @@ EXPECT='0x0805ae90 hit0_0 653b2530000000724b53b834e7150883ec
 0x0805b030 hit0_1 653b2530000000724b53b834e7150883ec
 '
 run_test
+
+NAME='search range hex'
+FILE='malloc://1024'
+ARGS=
+CMDS='
+w ABCD @ 0x100
+b 0x100
+e search.from = 0x50
+e search.to = 0x150
+/x 41424344
+'
+EXPECT='0x00000100 hit0_0 41424344
+'
+run_test
+
+NAME='search range hex'
+FILE='malloc://1024'
+ARGS=
+BROKEN=1
+CMDS='
+w ABCD @ 0x100
+b 0x100
+e search.from = 0x50
+e search.to = 0x90
+/ ABCD
+'
+EXPECT=''
+run_test
+
+NAME='search range hex (@..)'
+FILE='malloc://1024'
+ARGS=
+CMDS='
+w ABCD @ 0x100
+b 0x100
+/x 41424344 @..0x50 0x150
+'
+EXPECT='0x00000100 hit0_0 41424344
+'
+run_test
+
+NAME='search range hex (@..)'
+FILE='malloc://1024'
+ARGS=
+BROKEN=1
+CMDS='
+w ABCD @ 0x100
+b 0x100
+/x 41424344 @..0x50 0x90
+'
+EXPECT=''
+run_test

@@ -2,6 +2,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 # Search r2 in path
+OIFS=$IFS
 IFS=:
 for A in ${PATH} ; do
 	if [ -x "$A/r2" ] ; then
@@ -9,6 +10,7 @@ for A in ${PATH} ; do
 		break
 	fi
 done
+IFS=$OIFS
 
 NAME="stdin eof"
 # Seems broken on some platforms.. strange

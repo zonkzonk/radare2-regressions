@@ -279,13 +279,52 @@ run_test
 NAME='search range hex'
 FILE='malloc://1024'
 ARGS=
-BROKEN=1
 CMDS='
 w ABCD @ 0x100
 b 0x100
 e search.from = 0x50
 e search.to = 0x90
-/ ABCD
+/x 41424344
+'
+EXPECT=''
+run_test
+
+NAME='search range hex'
+FILE='malloc://1024'
+ARGS=
+CMDS='
+w ABCD @ 0x100
+b 0x100
+e search.from = 0x100
+e search.to = 0x104
+/x 41424344
+'
+EXPECT='0x00000100 hit0_0 41424344
+'
+run_test
+
+NAME='search range hex'
+FILE='malloc://1024'
+ARGS=
+CMDS='
+w ABCD @ 0x100
+b 0x100
+e search.from = 0x101
+e search.to = 0x104
+/x 41424344
+'
+EXPECT=''
+run_test
+
+NAME='search range hex'
+FILE='malloc://1024'
+ARGS=
+CMDS='
+w ABCD @ 0x100
+b 0x100
+e search.from = 0x100
+e search.to = 0x103
+/x 41424344
 '
 EXPECT=''
 run_test
@@ -305,11 +344,62 @@ run_test
 NAME='search range hex (@..)'
 FILE='malloc://1024'
 ARGS=
-BROKEN=1
 CMDS='
 w ABCD @ 0x100
 b 0x100
 /x 41424344 @..0x50 0x90
 '
+EXPECT=''
+run_test
+
+NAME="backward search hex"
+FILE=malloc://1024
+CMDS='w ABCD @ 0x100
+e search.from = 0x50
+e search.to = 0x150
+b 0x100
+/bx 41424344'
+EXPECT='0x00000100 hit0_0 41424344
+'
+run_test
+
+NAME="backward search hex"
+FILE=malloc://1024
+CMDS='w ABCD @ 0x100
+e search.from = 0x110
+e search.to = 0x150
+b 0x100
+/bx 41424344'
+EXPECT=''
+run_test
+
+NAME="backward search hex"
+FILE=malloc://1024
+CMDS='w ABCD @ 0x100
+e search.from = 0x100
+e search.to = 0x104
+b 0x100
+/bx 41424344'
+EXPECT='0x00000100 hit0_0 41424344
+'
+run_test
+
+NAME="backward search hex"
+FILE=malloc://1024
+CMDS='w ABCD @ 0x100
+e search.from = 0x100
+e search.to = 0x103
+b 0x100
+/bx 41424344'
+EXPECT=''
+run_test
+
+NAME="backward search hex"
+FILE=malloc://1024
+CMDS='w ABCD @ 0x100
+e search.from = 0x101
+e search.to = 0x104
+b 0x100
+/bx 41424344'
 EXPECT=''
 run_test

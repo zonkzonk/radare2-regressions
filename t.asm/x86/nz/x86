@@ -173,13 +173,19 @@ test_vector "push fs" 0fa0
 test_vector "ret" c3
 test_vector "shl edx, 5" c1f205 # wbs (correct: c1e205)
 test_vector "sub [ebx], eax" 2903
-test_vector "sub dword [eax+4], 666" 8168049a020000 "br"
+test_vector "sub dword [eax+4], 666" 8168049a020000 
+test_vector "sub dword [eax+666], 666" 81a89a0200009a020000
 test_vector "sub dword [eax], 1" 832801
 test_vector "sub dword [eax], 666" 81289a020000
+test_vector "sub dword [eax+4], -666" 81680466fdffff
 test_vector "sub dword [ebp+4], 1" 836d0401
+test_vector "sub dword [ebp+555], 1" 83ad2b02000001
+test_vector "sub dword [ebp+555], 7357" 81ad2b020000bd1c0000
+test_vector "sub dword [ebp-555], 7357" 81add5fdffffbd1c0000
 test_vector "sub dword [ebx], 1" 832b01
 test_vector "sub eax, 3" 83e803
 test_vector "sub eax, 666" 2d9a020000
+test_vector "sub eax, -666" 2d66fdffff
 test_vector "sub eax, eax" 29c0
 test_vector "sub eax, ebx" 29d8
 test_vector "sub ebx, -3" 83ebfd

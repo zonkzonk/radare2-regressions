@@ -24,13 +24,13 @@ EXPECT='0x4000
 '
 run_test
 
-NAME='$B (fcn-begin)'
+NAME='$FB (fcn-begin)'
 FILE=malloc://1024
 ARGS=
 CMDS='s 42
 af
 s 44
-s $B
+s $FB
 s'
 EXPECT='0x2a
 '

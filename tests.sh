@@ -250,7 +250,7 @@ __EOF__
   fi
 
   # Check if the output matched. (default to yes)
-  ${DIFF} -u "${TMP_OUT}" "${TMP_EXP}" > "${TMP_ODF}"
+  ${DIFF} -u "${TMP_EXP}" "${TMP_OUT}" > "${TMP_ODF}"
   OUT_CODE=0
   [ -s "${TMP_ODF}" ] && OUT_CODE=1
   if [ "${NOT_EXPECT}" = 1 ]; then
@@ -263,7 +263,7 @@ __EOF__
   if [ "${IGNORE_ERR}" = 1 ]; then
     ERR_CODE=0
   else
-    ${DIFF} -u "${TMP_ERR}" "${TMP_EXR}" > "${TMP_EDF}"
+    ${DIFF} -u "${TMP_EXR}" "${TMP_ERR}" > "${TMP_EDF}"
     ERR_CODE=0
     [ -s "${TMP_EDF}" ] && ERR_CODE=1
     if [ "${NOT_EXPECT}" = 1 ]; then

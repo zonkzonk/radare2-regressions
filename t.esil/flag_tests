@@ -97,3 +97,51 @@ EXPECT='0x00000001
 0x00000001
 '
 run_test
+
+NAME='signed compare check. a > b [2 > 1]'
+FILE=-
+ARGS=
+CMDS='
+e asm.arch = x86
+e asm.bits = 64
+"ae 2,eax,=,1,ebx,=,ebx,eax,>,$o,of,=,$s,sf,=,$c31,cf,=,$z,zf,=,sf,of,^,zf,|,!,=="
+'
+EXPECT='0x1
+'
+run_test
+
+NAME='signed compare check. a < b [2 < 1]'
+FILE=-
+ARGS=
+CMDS='
+e asm.arch = x86
+e asm.bits = 64
+"ae 2,eax,=,1,ebx,=,ebx,eax,<,$o,of,=,$s,sf,=,$c31,cf,=,$z,zf,=,sf,of,!=,=="
+'
+EXPECT='0x1
+'
+run_test
+
+NAME='unsigned compare check. a < b [-1 < 1]'
+FILE=-
+ARGS=
+CMDS='
+e asm.arch = x86
+e asm.bits = 64
+"ae -1,eax,=,1,ebx,=,ebx,eax,<,$o,of,=,$s,sf,=,$c31,cf,=,$z,zf,=,cf,zf,|,!,=="
+'
+EXPECT='0x0
+'
+run_test
+
+NAME='unsigned compare check. a > b [-1 > 1]'
+FILE=-
+ARGS=
+CMDS='
+e asm.arch = x86
+e asm.bits = 64
+"ae -1,eax,=,1,ebx,=,ebx,eax,>,$o,of,=,$s,sf,=,$c31,cf,=,$z,zf,=,cf,=="
+'
+EXPECT='0x0
+'
+run_test

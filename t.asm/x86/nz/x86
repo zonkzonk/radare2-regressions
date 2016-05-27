@@ -101,22 +101,32 @@ test_vector "mov [ebp+4], eax" 894504
 test_vector "mov [ebp+4], ebx" 895d04
 test_vector "mov [ebp+4], ecx" 894d04
 test_vector "mov [ebx+2], ebx" 895b02
+test_vector "mov [esp+2], ebx" 895c2402
+test_vector "mov [esp-2], ebx" 895c24fe
+test_vector "mov [ebx+454], ebx" 899bc6010000
+test_vector "mov [esp+454], ebx" 899c24c6010000
+test_vector "mov [ebx-2], ecx" 894bfe
+test_vector "mov [ebx-552], edx" 8993d8fdffff
+test_vector "mov [esp-12], eax" 894424f4
 test_vector "mov [ebx+eax], eax" 890403
 test_vector "mov [ebx], eax" 8903
-test_vector "mov dword [eax+16], 0x6f77206f" c780100000006f20776f # sbs: c740106f20776f
+test_vector "mov dword [eax+16], 0x6f77206f" c740106f20776f
 test_vector "mov dword [eax+450], 0x6f77206f" c780c20100006f20776f
-test_vector "mov dword [eax+4], 1" c7800400000001000000 # sbs: c7400401000000
-test_vector "mov dword [eax+4], 3" c7800400000003000000 # sbs: c7400403000000
-test_vector "mov dword [eax+4], 666" c780040000009a020000 # sbs: c740049a020000
+test_vector "mov dword [eax+4], 1"  c7400401000000
+test_vector "mov dword [eax+4], 3"  c7400403000000
+test_vector "mov dword [eax+4], 666"  c740049a020000
 test_vector "mov dword [eax], 0x6f77206f" c7006f20776f
 test_vector "mov dword [eax], 3" c70003000000
 test_vector "mov dword [eax], 666" c7009a020000
-test_vector "mov dword [ebp+16], 0x6f77206f" c785100000006f20776f # c745106f20776f
+test_vector "mov dword [ebp+16], 0x6f77206f" c745106f20776f
 test_vector "mov dword [ebp+450], 0x6f77206f" c785c20100006f20776f
-test_vector "mov dword [ebp+4], 1" c7850400000001000000 # sbs: c7450401000000
-test_vector "mov dword [ebp-12], 1" c785f4ffffff01000000 # sbs: c745f401000000
-test_vector "mov dword [esi+4], 33" c7860400000021000000 # sbs: c7460421000000
-test_vector "mov dword [esp+4], 1" c784240400000001000000 # sbs: c744240401000000
+test_vector "mov dword [ebp+4], 1"  c7450401000000
+test_vector "mov dword [ebp-12], 1"  c745f401000000
+test_vector "mov dword [ebp-312], 3" c785c8feffff03000000
+test_vector "mov dword [eax-512], 421" c78000feffffa5010000
+test_vector "mov dword [esp-312], 321" c78424c8feffff41010000
+test_vector "mov dword [esi+4], 33"  c7460421000000
+test_vector "mov dword [esp+4], 1"  c744240401000000
 test_vector "mov dword [esp], 3" c7042403000000
 test_vector "mov eax, 0x8049000" b800900408
 test_vector "mov eax, 1" b801000000

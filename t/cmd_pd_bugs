@@ -1,5 +1,4 @@
 #!/bin/sh
-
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 NAME='pd call sym bug'
@@ -52,4 +51,3 @@ e asm.comments=0
 EXPECT="|           0x00005f16      e835ffffff     call fcn.eip
 "
 run_test
-

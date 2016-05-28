@@ -1,7 +1,4 @@
 #!/bin/sh
-
-# GPL 3+ - Copyright (C) 2014  neuschaefer
-
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 ## "." - interpret commands from various sources

@@ -1,5 +1,4 @@
 #!/bin/sh
-
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 NAME='egg: darwin-x86-64 syscall close '

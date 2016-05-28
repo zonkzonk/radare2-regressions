@@ -1,7 +1,5 @@
 #!/bin/sh
-
 # GPL 3+ - Copyright (C) 2011-2013  pancake, Edd Barrett, Simon Ruderich
-
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 ## "wa" - write opcode
@@ -204,4 +202,3 @@ EXPECT='0x00000008 = aaaaaaaaaa
 '
 FILTER='sed "s/^fd	[0-9][0-9]*/fd	42/"'
 run_test
-

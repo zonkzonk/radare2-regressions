@@ -1,5 +1,4 @@
 #!/bin/sh
-
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 #TODO FIX tests
@@ -121,4 +120,3 @@ EXPECT="0x00000000 00 0019 |''''|
 "
 
 run_test
-

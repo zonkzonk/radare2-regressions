@@ -1,7 +1,5 @@
 #!/bin/sh
-
 # GPL 3+ - Copyright (C) 2011-2016  pancake, Edd Barrett, Simon Ruderich
-
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 # ?vi asumes 64bit values by default

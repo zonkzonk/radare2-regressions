@@ -1,11 +1,10 @@
 #!/bin/sh
-
 # GPL 3+ - Copyright (C) 2011-2012  pancake, Edd Barrett, Simon Ruderich
+[ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 # NOTE: && and ; and " are problematic with repeaters. must review
 #       should we remove &&?
 
-[ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 NAME='3p8'
 FILE=-

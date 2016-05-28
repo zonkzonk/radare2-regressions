@@ -1,7 +1,6 @@
 #!/bin/sh
 # GPL 3+ - Copyright (C) 2014  Maijin
-for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
-
+[ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 NAME='r '
 BROKEN=

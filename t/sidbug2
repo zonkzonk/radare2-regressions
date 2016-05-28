@@ -1,5 +1,5 @@
 #!/bin/sh
-for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+[ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 FILE=-
 IGNORE_ERR=1

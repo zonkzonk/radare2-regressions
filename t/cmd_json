@@ -1,7 +1,4 @@
 #!/bin/sh
-
-# GPL 3+ - Copyright (C) 2012  pancake
-
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 NAME='test pDj missing newline issue'
@@ -15,4 +12,3 @@ EXPECT='[{"offset":0,"fcn_addr":0,"fcn_last":0,"size":4,"opcode":"add rdi, 0x68"
 
 '
 run_test
-

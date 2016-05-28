@@ -1,5 +1,4 @@
 #!/bin/sh
-
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 NAME='sandbox disable'

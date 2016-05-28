@@ -1,6 +1,5 @@
 #!/bin/sh
 # GPL 3+ - Copyright (C) 2012-2014  pancake
-
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 NAME='base64 encode'

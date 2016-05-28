@@ -1,7 +1,5 @@
 #!/bin/sh
-
 # GPL 3+ - Copyright (C) 2011-2012  pancake, Edd Barrett, Simon Ruderich
-
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 NAME='t?'
@@ -251,7 +249,7 @@ name
 date
 addr
 dox
-pf *z*zi street city zip 
+pf *z*zi street city zip
 '
 run_test
 
@@ -282,7 +280,7 @@ name
 date
 addr
 dox
-pf *z*zi street city zip 
+pf *z*zi street city zip
 '
 run_test
 
@@ -290,36 +288,36 @@ NAME="t*"
 FILE=-
 CMDS="t*
 "
-EXPECT='tk unsigned int = type 
-tk unsigned char = type 
-tk unsigned short = type 
-tk short = type 
-tk int = type 
-tk long = type 
-tk long long = type 
-tk void * = type 
-tk char = type 
-tk char * = type 
-tk const char* = type 
-tk uint8_t = type 
-tk uint16_t = type 
-tk uint32_t = type 
-tk uint64_t = type 
-tk type.unsigned int = i 
-tk type.unsigned char = b 
-tk type.unsigned short = w 
-tk type.short = w 
-tk type.int = d 
-tk type.long = x 
-tk type.long long = q 
-tk type.void * = p 
-tk type.char = b 
-tk type.char * = *z 
-tk type.const char* = *z 
-tk type.uint8_t = b 
-tk type.uint16_t = w 
-tk type.uint32_t = d 
-tk type.uint64_t = q 
+EXPECT='tk unsigned int = type
+tk unsigned char = type
+tk unsigned short = type
+tk short = type
+tk int = type
+tk long = type
+tk long long = type
+tk void * = type
+tk char = type
+tk char * = type
+tk const char* = type
+tk uint8_t = type
+tk uint16_t = type
+tk uint32_t = type
+tk uint64_t = type
+tk type.unsigned int = i
+tk type.unsigned char = b
+tk type.unsigned short = w
+tk type.short = w
+tk type.int = d
+tk type.long = x
+tk type.long long = q
+tk type.void * = p
+tk type.char = b
+tk type.char * = *z
+tk type.const char* = *z
+tk type.uint8_t = b
+tk type.uint16_t = w
+tk type.uint32_t = d
+tk type.uint64_t = q
 '
 run_test
 

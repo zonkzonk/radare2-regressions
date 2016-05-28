@@ -1,8 +1,6 @@
 #!/bin/sh
-
 # GPL 3+ - Copyright (C) 2014  pancake
-
-for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+[ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 NAME='unified diff and patch'
 BROKEN=
@@ -20,4 +18,3 @@ EXPECT='  0x00000000 00000000000000000000000000000000 ................ |
   0x00000010 00000000000000000000000000000000 ................ |
 '
 run_test
-

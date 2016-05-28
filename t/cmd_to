@@ -8,6 +8,6 @@ ARGS=
 BROKEN=
 CMDS='to ../bins/headers/s1.h; to ../bins/headers/s2.h; t S1
 '
-EXPECT='pf ddd x test z 
+EXPECT='pf ddd x test z
 '
 run_test

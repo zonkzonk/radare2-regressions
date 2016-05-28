@@ -1,4 +1,5 @@
-for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+#!/bin/sh
+[ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 # TODO: Add tests for mach0, PE, ...
 # TODO: check symbols too

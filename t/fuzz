@@ -1,7 +1,7 @@
 #!/bin/sh
 # LGPL - Copyright (C) 2015 pancake
+[ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
-for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 NAME="dwarf crash"
 BROKEN=
 FILE=../bins/fuzzed/03ff966ecc14f670bafc7b4e560e7c05

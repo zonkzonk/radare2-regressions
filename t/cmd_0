@@ -1,10 +1,9 @@
 #!/bin/sh
 # GPL 3+ - Copyright (C) 2016 Maijin
+[ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 # TODO: use malloc:// instead of hello-arm32 (speedup!)
 # TODO: contents should be != 00
-
-[ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 NAME='p= 0'
 FILE=../bins/elf/hello-arm32

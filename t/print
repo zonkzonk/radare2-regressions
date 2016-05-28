@@ -1,6 +1,5 @@
 #!/bin/sh
-
-for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+[ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 NAME='endian tests: pv4'
 FILE=-
@@ -57,4 +56,3 @@ EXPECT="0x4030201
 0x1020304
 "
 run_test
-

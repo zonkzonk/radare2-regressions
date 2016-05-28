@@ -1,7 +1,5 @@
 #!/bin/sh
-
 # LGPL 3+ - Copyright (C) 2014 pancake
-
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 NAME='condition 33??'

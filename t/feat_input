@@ -1,7 +1,5 @@
 #!/bin/sh
-
 # GPL 3+ - Copyright (C) 2011-2012  pancake, Edd Barrett, Simon Ruderich
-
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 ## "Test suite test".
@@ -108,4 +106,3 @@ CMDS='
 EXPECT='bar
 '
 run_test
-

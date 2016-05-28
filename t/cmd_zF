@@ -1,7 +1,5 @@
 #!/bin/sh
-
 # LGPL 3+ - Copyright (C) 2015-2016 maijin
-
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 NAME='aa ; zF libc.sig'

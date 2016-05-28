@@ -15,27 +15,8 @@ EXPECT=''
 run_test
 }
 
-fuzz_test() {
-NAME="fuzzed elf $1"
-IGNORE_ERR=1
-BROKEN=
-FILE=../../bins/elf/zzufed/$1
-ARGS=
-CMDS='aa ; q'
-EXPECT=''
-run_test
-}
-
-
-for FILE in $(ls ../../bins/elf/); do 
+for FILE in $(ls ../../bins/elf/); do
 	if [ -f ../../bins/elf/$FILE ]; then
     	analysis_test $FILE
-    fi
-done
-
-
-for FILE in $(ls ../../bins/elf/zzufed/); do 
-	if [ -f ../../bins/elf/zzufed/$FILE ]; then
-    	fuzz_test $FILE
     fi
 done

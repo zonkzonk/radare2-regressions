@@ -1,6 +1,7 @@
 .*.swp
 *.un~
 *.o
+*.tmp
 .DS_Store
 
 /stats.csv

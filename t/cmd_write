@@ -176,6 +176,22 @@ FILTER='sed "s/.*\(\<1024\>\).*\(\<a_piece_of_ls_saved_to_PWD\>\)$/\1 \2/"'
 run_test
 rm -f a_piece_of_ls_saved_to_PWD
 
+NAME='endian tests: wv'
+FILE=-
+BROKEN=1
+CMDS="e cfg.bigendian=false
+e asm.bits=32
+wv4 3
+p8 4
+e cfg.bigendian=true
+wv4 3
+p8 4
+"
+EXPECT="03000000
+00000003
+"
+run_test
+
 NAME='wx 0x should behave as wv'
 FILE=malloc://1024
 BROKEN=1

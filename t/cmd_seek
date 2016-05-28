@@ -89,3 +89,18 @@ EXPECT='0x40050a
 0x40050a
 '
 run_test
+
+NAME='Redodups'
+FILE=malloc://512
+ARGS=
+CMDS='
+s $$
+s $$
+s $$
+s $$
+s*~?
+'
+EXPECT='1
+'
+
+run_test

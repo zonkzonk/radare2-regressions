@@ -132,7 +132,7 @@ format.xbe:
 format.zimg:
 	@sh run_tests.sh t.formats/zimg
 
-tools: rabin2 radiff2 ragg2 ragg2-cc rahash2 rasm2 rax2
+tools: rabin2 radiff2 ragg2 ragg2-cc rahash2 rasm2 rax2 r2
 rabin2:
 	@sh run_tests.sh t.tools/rabin2
 radiff2:
@@ -147,6 +147,8 @@ rasm2:
 	@sh run_tests.sh t.tools/rasm2
 rax2:
 	@sh run_tests.sh t.tools/rax2
+r2:
+	@sh run_tests.sh t.tools/r2
 
 broken:
 	grep BROKEN=1 t -r -l

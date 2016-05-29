@@ -274,3 +274,44 @@ ae rsp,[8],rax,=
 EXPECT='0xffffffffffffffff
 '
 run_test
+
+NAME='movsxd rax, dword [rdx + rax*4]'
+FILE=-
+ARGS=
+CMDS='
+e asm.arch=x86
+e asm.bits=64
+"wx 48630482"
+ao~esil
+'
+EXPECT='esil: rax,4,*,rdx,+,[4],rax,=
+'
+run_test
+
+NAME='lea rax, [rdi + r13*8]'
+FILE=-
+ARGS=
+CMDS='
+e asm.arch=x86
+e asm.bits=64
+"wx 4a8d04ef"
+ao~esil,opcode
+'
+EXPECT='opcode: lea rax, [rdi + r13*8]
+esil: r13,8,*,rdi,+,rax,=
+'
+run_test
+
+NAME='lea rbx, [rax + rdx]'
+FILE=-
+ARGS=
+CMDS='
+e asm.arch=x86
+e asm.bits=64
+"wx 488d1c10"
+ao~opcode,esil
+'
+EXPECT='opcode: lea rbx, [rax + rdx]
+esil: rdx,rax,+,rbx,=
+'
+run_test

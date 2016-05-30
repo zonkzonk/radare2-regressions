@@ -23,7 +23,7 @@ af+ 0000:0000 22 fcn1
 f .loop1 @ 0000:0009
 pd 1 @ 0000:000d
 '
-EXPECT='|           0000:000d     e2fa   loop 9  ; fcn1.loop1
+EXPECT='|           0000:000d     e2fa   loop 9 ; fcn1.loop1
 '
 run_test
 

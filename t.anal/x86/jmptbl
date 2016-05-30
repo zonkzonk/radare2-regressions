@@ -247,3 +247,14 @@ EXPECT='0x00402cb6 0x00402d2c 00:0000 118 j 0x00402d57 f 0x00402d2c
 0x0040388e 0x0040389d 00:0000 15
 '
 run_test
+
+# This output is WIP, but its used as a sign of "it works"
+FILE=../../bins/mach0/ls-osx-x86_64
+CMDS='e anal.jmptbl=true
+af
+
+'
+EXPECT='pxt. 0x100001519 @ 0x100001cb8
+pxt. 0x100001b2d @ 0x1000055d0
+'
+run_test

@@ -274,7 +274,7 @@ CMDS='
 wx 90909090909090909090 ; s 10 ; pc - 10
 '
 EXPECT='#define _BUFFER_SIZE 10
-unsigned char buffer[10] = {
+unsigned uint8 buffer[10] = {
   0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, };
 '
 

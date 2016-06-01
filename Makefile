@@ -102,7 +102,7 @@ anal.m68k:
 esil:
 	@sh run_tests.sh t.esil
 
-formats: format.dex format.elf format.firmware format.java format.mach0 format.mangling format.msil format.mz format.omf format.others format.pdb format.pe format.xbe format.zimg
+formats: format.dex format.elf format.firmware format.java format.mach0 format.mangling format.msil format.omf format.others format.pdb format.pe format.xbe format.zimg
 format.dex:
 	@sh run_tests.sh t.formats/dex
 format.elf:
@@ -117,8 +117,6 @@ format.mangling:
 	@sh run_tests.sh t.formats/mangling
 format.msil:
 	@sh run_tests.sh t.formats/msil
-format.mz:
-	@sh run_tests.sh t.formats/mz
 format.omf:
 	@sh run_tests.sh t.formats/omf
 format.others:

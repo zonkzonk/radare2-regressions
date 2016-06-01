@@ -334,7 +334,7 @@ wx 0x64
 tp person @ 0x0
 '
 EXPECT=' age : 0x00000000 = 19
-name : (*0x64) 0x00000004 = Carlos
+name : (*0x64)0x00000004 = Carlos
 '
 run_test
 

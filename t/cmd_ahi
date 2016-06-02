@@ -216,6 +216,19 @@ EXPECT='ahi 10 @ 0x404879
 '
 run_test
 
+NAME='ah.'
+FILE=malloc://16
+CMDS='
+ahi 10 @ 0x8
+s 0x8
+ah.
+'
+EXPECT=' 0x00000008 - 0x00000008
+ immbase=10
+
+'
+run_test
+
 NAME='64bit ahi 10'
 FILE=-
 ARGS="-m 0x100001000"

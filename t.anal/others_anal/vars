@@ -13,41 +13,41 @@ afCa
 pdf
 '
 EXPECT='/ (fcn) fcn.00000000 89
-|           ; var int arg_4h @ esp+0x4
-|           ; var int arg_8h @ esp+0x8
-|           ; var int arg_ch @ esp+0xc
-|           ; var int arg_14h @ esp+0x14
-|           ; var int arg_18h @ esp+0x18
-|           ; var int arg_1ch @ esp+0x1c
-|           ; var int arg_20h @ esp+0x20
-|           ; var int arg_28h @ esp+0x28
-|           ; var int arg_2ch @ esp+0x2c
+|           ; var int local_4h @ esp+0x4
+|           ; var int local_8h @ esp+0x8
+|           ; var int local_ch @ esp+0xc
+|           ; var int local_14h @ esp+0x14
+|           ; var int local_18h @ esp+0x18
+|           ; var int local_1ch @ esp+0x1c
+|           ; arg int arg_20h @ esp+0x20
+|           ; arg int arg_28h @ esp+0x28
+|           ; arg int arg_2ch @ esp+0x2c
 |           0x00000000      83ec10         sub esp, 0x10
-|           0x00000003      8b442418       mov eax, dword [esp + arg_18h]
+|           0x00000003      8b442418       mov eax, dword [esp + local_18h]
 |           0x00000007      99             cdq
-|           0x00000008      f77c241c       idiv dword [esp + arg_1ch]
-|           0x0000000c      8b442414       mov eax, dword [esp + arg_14h]
+|           0x00000008      f77c241c       idiv dword [esp + local_1ch]
+|           0x0000000c      8b442414       mov eax, dword [esp + local_14h]
 |           0x00000010      01d0           add eax, edx
-|           0x00000012      8944240c       mov dword [esp + arg_ch], eax
+|           0x00000012      8944240c       mov dword [esp + local_ch], eax
 |           0x00000016      8b442420       mov eax, dword [esp + arg_20h]
 |           0x0000001a      99             cdq
 |           0x0000001b      f77c2428       idiv dword [esp + arg_28h]
-|           0x0000001f      8b44240c       mov eax, dword [esp + arg_ch]
+|           0x0000001f      8b44240c       mov eax, dword [esp + local_ch]
 |           0x00000023      01d0           add eax, edx
-|           0x00000025      89442408       mov dword [esp + arg_8h], eax
-|           0x00000029      8b542414       mov edx, dword [esp + arg_14h]
-|           0x0000002d      8b44240c       mov eax, dword [esp + arg_ch]
+|           0x00000025      89442408       mov dword [esp + local_8h], eax
+|           0x00000029      8b542414       mov edx, dword [esp + local_14h]
+|           0x0000002d      8b44240c       mov eax, dword [esp + local_ch]
 |           0x00000031      8d0c02         lea ecx, [edx + eax]
 |           0x00000034      8b44242c       mov eax, dword [esp + arg_2ch]
 |           0x00000038      99             cdq
 |           0x00000039      f7f9           idiv ecx
-|           0x0000003b      8b442408       mov eax, dword [esp + arg_8h]
+|           0x0000003b      8b442408       mov eax, dword [esp + local_8h]
 |           0x0000003f      01d0           add eax, edx
-|           0x00000041      89442404       mov dword [esp + arg_4h], eax
-|           0x00000045      8b54240c       mov edx, dword [esp + arg_ch]
-|           0x00000049      8b442408       mov eax, dword [esp + arg_8h]
+|           0x00000041      89442404       mov dword [esp + local_4h], eax
+|           0x00000045      8b54240c       mov edx, dword [esp + local_ch]
+|           0x00000049      8b442408       mov eax, dword [esp + local_8h]
 |           0x0000004d      01c2           add edx, eax
-|           0x0000004f      8b442404       mov eax, dword [esp + arg_4h]
+|           0x0000004f      8b442404       mov eax, dword [esp + local_4h]
 |           0x00000053      01d0           add eax, edx
 |           0x00000055      83c410         add esp, 0x10
 \           0x00000058      c3             ret
@@ -57,6 +57,7 @@ run_test
 NAME='afCa for fastcall with no esp vars'
 FILE=../../bins/elf/fast
 ARGS=
+BROKEN=true
 CMDS='aa
 s sym.fastcaslled
 afC fastcall
@@ -68,12 +69,12 @@ EXPECT='fastcall
 / (fcn) sym.fastcaslled 59
 |           ; arg int arg_ecx @ ecx
 |           ; arg int arg_edx @ edx
+|           ; var int local_20h @ ebp-0x20
+|           ; var int local_1ch @ ebp-0x1c
+|           ; var int local_10h @ ebp-0x10
+|           ; var int local_ch @ ebp-0xc
 |           ; arg int arg_8h @ ebp+0x8
 |           ; arg int arg_ch @ ebp+0xc
-|           ; var int local_ch @ ebp-0xc
-|           ; var int local_10h @ ebp-0x10
-|           ; var int local_1ch @ ebp-0x1c
-|           ; var int local_20h @ ebp-0x20
 |           ; CALL XREF from 0x080484c7 (sym.main)
 |           0x0804841b      55             push ebp
 |           0x0804841c      89e5           mov ebp, esp
@@ -109,12 +110,12 @@ pdf
 '
 EXPECT='cdecl
 / (fcn) sym.nonfastcaslled 51
+|           ; var int local_10h @ ebp-0x10
+|           ; var int local_ch @ ebp-0xc
 |           ; arg int arg_8h @ ebp+0x8
 |           ; arg int arg_ch @ ebp+0xc
 |           ; arg int arg_10h @ ebp+0x10
 |           ; arg int arg_14h @ ebp+0x14
-|           ; var int local_ch @ ebp-0xc
-|           ; var int local_10h @ ebp-0x10
 |           ; CALL XREF from 0x080484db (sym.main)
 |           0x08048456      55             push ebp
 |           0x08048457      89e5           mov ebp, esp
@@ -137,51 +138,6 @@ EXPECT='cdecl
 \           0x08048488      c3             ret
 '
 run_test
-NAME='afA + pdf'
-FILE=../../bins/elf/fast
-ARGS=
-CMDS='s sym.fastcaslled
-af+ 0x804841b 0x3b sym.fastcaslled
-afC fastcall
-afA 0 var_a int
-afA 1 var_b int
-afA 0x8 var_c int
-afA 0xc var_d int
-pd 1
-'
-EXPECT="/ (fcn) sym.fastcaslled 59
-|           ; arg int var_a @ ecx
-|           ; arg int var_b @ edx
-|           ; arg int var_c @ ebp+0x8
-|           ; arg int var_d @ ebp+0xc
-|           0x0804841b      55             push ebp
-"
-run_test
-
-NAME='anal  vars afA,afA*,afAj'
-FILE=../../bins/elf/fast
-ARGS=
-CMDS='s sym.fastcaslled
-af+ 0x804841b 0x3b sym.fastcaslled
-afA 0 a int
-afA 1 b int
-afA 0x8 c int
-afA 0xc d int
-afA
-afA*
-afAj
-'
-EXPECT='arg int a @ ecx
-arg int b @ edx
-arg int c @ ebp+0x8
-arg int d @ ebp+0xc
-afA 0 a int @ 0x804841b
-afA 1 b int @ 0x804841b
-afA 8 c int @ 0x804841b
-afA 12 d int @ 0x804841b
-[{"name":"a","kind":"arg","type":"int","ref":"ecx"},{"name":"b","kind":"arg","type":"int","ref":"edx"},{"name":"c","kind":"arg","type":"int","ref":"ebp+0x8"},{"name":"d","kind":"arg","type":"int","ref":"ebp+0xc"}]
-'
-run_test
 
 NAME='anal vars crash'
 FILE=-
@@ -197,10 +153,15 @@ NAME='anal vars crash 2'
 FILE=-
 ARGS=
 CMDS='wx 554889e5534881ec3810000048830c24004881c42010000064488b042528000000488945e831c04885ff4889fb909090909090c3 @ 10
-af @ 10
+aa
 afvn old_1 new_1
+afan local_18h my_local
+pd 1
 '
-EXPECT=""
+EXPECT="/ (fcn) fcn.00000000 62
+|           ; var int my_local @ rbp-0x18
+|           0x00000000      0000           add byte [rax], al
+"
 run_test
 
 
@@ -267,40 +228,19 @@ EXPECT="0
 "
 run_test
 
-NAME='afa-IDX'
-FILE=../../bins/efi/bootia32.efi
-BROKEN=
-ARGS=
-CMDS='af
-afa 8 ImageHandle blah @ 0x10002d8d
-afa-0x8
-afa~?ImageHandle
-'
-EXPECT="0
-"
-run_test
 
 NAME='afv & afvn'
 FILE=../../bins/efi/bootia32.efi
 BROKEN=
 ARGS=
 CMDS='af
-afvn local_0 blah
+afv esi myreg int @ 0x10002d8d
+afv~?myreg
+afvn myreg blah
 afv~?blah
 '
 EXPECT="1
-"
-run_test
-
-NAME='afv & afvn'
-FILE=../../bins/efi/bootia32.efi
-BROKEN=
-ARGS=
-CMDS='af
-afvn local_0 blah
-afvj~?blah
-'
-EXPECT="1
+1
 "
 run_test
 
@@ -309,9 +249,9 @@ FILE=../../bins/efi/bootia32.efi
 BROKEN=
 ARGS=
 CMDS='af
-afv 0 blah typeR @ 0x10002d8d
-afv*~?blah
-afv*~?typeR
+afv esi myreg int @ 0x10002d8d
+afv*~?myreg
+afv*~?int
 '
 EXPECT="1
 1
@@ -323,22 +263,9 @@ FILE=../../bins/efi/bootia32.efi
 BROKEN=
 ARGS=
 CMDS='af
-afv 0 blah typeR @ 0x10002d8d
-afv-blah
-afv~?blah
-'
-EXPECT="0
-"
-run_test
-
-NAME='afv-idx'
-FILE=../../bins/efi/bootia32.efi
-BROKEN=
-ARGS=
-CMDS='af
-afv 0 blah typeR @ 0x10002d8d
-afv-0
-afv~?blah
+afv esi myreg int @ 0x10002d8d
+afv-myreg
+afv~?myreg
 '
 EXPECT="0
 "
@@ -365,7 +292,7 @@ NAME='anal vars count'
 FILE=../../bins/mach0/ls-osx-x86_64
 ARGS=
 CMDS='af
-afv~?
+afa~?
 '
 EXPECT="14
 "
@@ -375,8 +302,8 @@ NAME='anal vars retype'
 FILE=../../bins/mach0/ls-osx-x86_64
 ARGS=
 CMDS='af
-afvt local_30h char
-afv~l_30h
+afat local_30h char
+afa~l_30h
 '
 EXPECT="var char local_30h @ rbp-0x30
 "
@@ -386,8 +313,8 @@ NAME='anal vars rename'
 FILE=../../bins/mach0/ls-osx-x86_64
 ARGS=
 CMDS='af
-afvn local_30h newname
-afv~newname
+afan local_30h newname
+afa~newname
 '
 EXPECT="var int newname @ rbp-0x30
 "

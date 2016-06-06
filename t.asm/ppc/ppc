@@ -28,3 +28,13 @@ EXPECT='
 entry0
 '
 run_test
+
+NAME='ppc-elf relocs'
+FILE=../../bins/elf/elf-ppc-execstack
+ARGS=
+CMDS='s 0x10001500
+pi 1
+'
+EXPECT='b sym.imp.__libc_start_main
+'
+run_test

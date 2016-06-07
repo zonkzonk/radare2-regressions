@@ -132,6 +132,9 @@ test_vector "mov dword [esp], 3" c7042403000000
 test_vector "mov eax, 0x8049000" b800900408
 test_vector "mov eax, 1" b801000000
 test_vector "mov eax, 3" b803000000
+test_vector "mov eax, 300" b82c010000
+test_vector "mov ebx, -3" bbfdffffff
+test_vector "mov ecx, -432" b950feffff
 test_vector "mov eax, [eax+4]" 8b4004
 test_vector "mov eax, [eax-4]" 8b40fc
 test_vector "mov eax, [eax+1337]" 8b8039050000

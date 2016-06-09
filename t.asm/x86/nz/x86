@@ -247,8 +247,8 @@ test_vector "pop rax" 58
 test_vector "mov rax, 33" 48c7c021000000 # sbs: b821000000
 test_vector "add rax, rcx" 4801c8
 test_vector "add rax, 44" 4883c02c
-test_vector "add rax, r8" 4c01c0
-test_vector "add rbx, r15" 4c01fb
+test_vector "add rax, r8" 4c01c0 br
+test_vector "add r15, rbx" 4901df br
 test_vector "sub rax, rbx" 4829d8
 test_vector "sub rax, 44" 4883e82c
 test_vector "cmp rax, rbx" 4839d8

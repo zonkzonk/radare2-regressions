@@ -88,9 +88,9 @@ bool test_r_list_sort(void) {
 	// Sort.
 	r_list_sort (list, (RListComparator)strcmp);
 	// Check that the list is actually sorted.
-	mu_assert_streq (list->head->data, "AAAA", "first value in sorted list");
-	mu_assert_streq (list->head->n->data, "BBBB", "second value in sorted list");
-	mu_assert_streq (list->head->n->n->data, "CCCC", "third value in sorted list");
+	mu_assert_streq ((char*)list->head->data, "AAAA", "first value in sorted list");
+	mu_assert_streq ((char*)list->head->n->data, "BBBB", "second value in sorted list");
+	mu_assert_streq ((char*)list->head->n->n->data, "CCCC", "third value in sorted list");
 	r_list_free (list);
 	mu_end;
 }

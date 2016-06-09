@@ -236,8 +236,8 @@ test_vector "mov rbx, rax" 4889c3
 test_vector "mov rsi, rbx" 4889de
 test_vector "mov [rsi], rbx" 48891e
 test_vector "mov edx, [rbp-4]" 8b55fc
-test_vector "mov rax, 0x1122334455667788" 48b88877665544332211
-test_vector "mov rcx, -0x1122334455667788" 48b9788899aabbccddee
+test_vector "mov rax, 0x1122334455667788" 48b88877665544332211 "br"
+test_vector "mov rcx, -0x1122334455667788" 48b9788899aabbccddee "br"
 test_vector "xor rax, rax" 4831c0
 test_vector "xor [rax], rax" 483100
 test_vector "xor [rsi], rbx" 48311e

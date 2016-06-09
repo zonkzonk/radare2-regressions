@@ -17,13 +17,12 @@ bool test_r_str_replace_char(void) {
 	mu_end;
 }
 
-int all_tests() {
+bool all_tests() {
 	mu_run_test(test_r_str_replace_char_once);
 	mu_run_test(test_r_str_replace_char);
 	return tests_passed != tests_run;
 }
 
 int main(int argc, char **argv) {
-	all_tests();
-	return 0;
+	return all_tests();
 }

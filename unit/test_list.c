@@ -102,7 +102,7 @@ int all_tests() {
 	mu_run_test(test_r_list_free);
 	mu_run_test(test_r_list_del_n);
 	mu_run_test(test_r_list_sort);
-	return 0;
+	return tests_passed != tests_run;
 }
 
 int main(int argc, char **argv) {

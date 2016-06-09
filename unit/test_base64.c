@@ -22,6 +22,5 @@ int all_tests() {
 }
 
 int main(int argc, char **argv) {
-	all_tests();
-	return 0;
+	return all_tests();
 }

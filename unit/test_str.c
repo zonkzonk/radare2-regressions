@@ -68,6 +68,8 @@ bool test_r_str_rwx_i(void) {
 	mu_end;
 }
 
+//TODO find a way to test r_str_home.
+
 bool test_r_str_bool(void) {
 	const char* one = r_str_bool(1);
 	const char* zero = r_str_bool(0);
@@ -80,7 +82,39 @@ bool test_r_str_bool(void) {
 	mu_end;
 }
 
-//TODO find a way to test r_str_home.
+bool test_r_str_case(void) {
+	char* str1_mixedcase = strdup ("mIxEdCaSe");
+	char* str2_mixedcase = strdup ("mIxEdCaSe");
+	r_str_case (str1_mixedcase, true /*upcase*/);
+	r_str_case (str2_mixedcase, false /*downcase*/);
+	mu_assert_streq (str1_mixedcase, "MIXEDCASE", "upcase");
+	mu_assert_streq (str2_mixedcase, "mixedcase", "downcase");
+	char* non_alphanum_1 = strdup ("c00lstring!");
+	char* non_alphanum_2 = strdup ("c00lstrinG!");
+	r_str_case (non_alphanum_1, true /*upcase*/);
+	r_str_case (non_alphanum_2, false /*downcase*/);
+	mu_assert_streq (non_alphanum_1, "C00LSTRING!", "upcase, nonalpanum");
+	mu_assert_streq (non_alphanum_2, "c00lstring!", "downcase, nonalpanum");
+	free (str1_mixedcase);
+	free (str2_mixedcase);
+	free (non_alphanum_1);
+	free (non_alphanum_2);
+	mu_end;
+}
+
+//TODO test r_str_hash64, r_str_hash
+//TODO test r_str_delta (WTF!)
+
+bool test_r_str_split(void) {
+	char* hi = strdup ("hello world");
+	mu_assert_eq (r_str_split (hi, ' '), 1, "split on space");
+	char* hello = hi;
+	char* world = hi + 6;
+	mu_assert_streq (hello, "hello", "first string in split");
+	mu_assert_streq (world, "world", "second string in split");
+	free (hi);
+	mu_end;
+}
 
 bool all_tests() {
 	mu_run_test(test_r_str_replace_char_once);
@@ -89,6 +123,8 @@ bool all_tests() {
 	mu_run_test(test_r_str_rwx);
 	mu_run_test(test_r_str_rwx_i);
 	mu_run_test(test_r_str_bool);
+	mu_run_test(test_r_str_case);
+	mu_run_test(test_r_str_split);
 	return tests_passed != tests_run;
 }
 

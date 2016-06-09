@@ -10,7 +10,7 @@ if [ "${5}" = "br" ]; then
 	BROKEN=1
 fi
 CMDS='
-e asm.arch='${1}'
+e asm.assembler='${1}'
 e asm.bits=32
 pad `pa '${4}'`
 '
@@ -19,7 +19,7 @@ EXPECT="${4}
 run_test
 }
 
-PLUGIN=x86
+PLUGIN=x86.nz
 
 test_vector "${PLUGIN}" "OUT" e784 "out 0x84, eax" "br"
 test_vector "${PLUGIN}" "IN" e58c "in eax, 0x8c" "br"

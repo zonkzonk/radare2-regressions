@@ -14,9 +14,11 @@ Directory Hierarchy
  * t.formats/:   Test scripts covering detection of binaries within radare2
  * t.archos/:    Platform specific test scripts
  * t/:           Test scripts (presently uncategorised)
+ * unit/:        Unit tests (written in C, using minunit).
  * bins/:        Sample binaries.
  * test.sh:      Test driver script sourced by tests (not to be run manually).
  * run_tests.sh: Run tests for the core features.
+ * run_unit.sh:  Run unit tests for the library functions.
 
 Requirements
 ------------

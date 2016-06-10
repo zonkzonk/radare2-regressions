@@ -116,6 +116,19 @@ bool test_r_str_split(void) {
 	mu_end;
 }
 
+bool test_r_str_tokenize(void) {
+	//XXX r_str_word0 doesn't work on "hello      world" to
+	// tokenize into ["hello", "world"]
+	char* hi = strdup ("hello world");
+	mu_assert_eq (r_str_word_set0 (hi), 1, "tokenize hello world");
+	const char* hello = r_str_word_get0 (hi, 0);
+	const char* world = r_str_word_get0 (hi, 1);
+	mu_assert_streq (hello, "hello", "first string in split");
+	mu_assert_streq (world, "world", "second string in split");
+	free (hi);
+	mu_end;
+}
+
 bool all_tests() {
 	mu_run_test(test_r_str_replace_char_once);
 	mu_run_test(test_r_str_replace_char);
@@ -125,6 +138,7 @@ bool all_tests() {
 	mu_run_test(test_r_str_bool);
 	mu_run_test(test_r_str_case);
 	mu_run_test(test_r_str_split);
+	mu_run_test(test_r_str_tokenize);
 	return tests_passed != tests_run;
 }
 

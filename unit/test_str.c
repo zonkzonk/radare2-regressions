@@ -155,6 +155,21 @@ bool test_r_str_lchr(void) {
 	mu_end;
 }
 
+bool test_r_sub_str_lchr(void) {
+	const char* test = "raddddare2d";
+	const char* out = r_sub_str_lchr (test, 1, 8, 'd');
+	mu_assert_streq (out, "dare2d", "pointer to last d in range in radddddare2d");
+	mu_end;
+}
+
+bool test_r_sub_str_rchr(void) {
+	const char* test = "raddddare2d";
+	const char* out = r_sub_str_rchr (test, 1, 8, 'd');
+	mu_assert_streq (out, "ddddare2d", "pointer to first d in range in radddddare2d");
+	mu_end;
+	mu_end;
+}
+
 bool all_tests() {
 	mu_run_test(test_r_str_replace_char_once);
 	mu_run_test(test_r_str_replace_char);
@@ -169,6 +184,8 @@ bool all_tests() {
 	mu_run_test(test_r_str_word_count);
 	mu_run_test(test_r_str_ichr);
 	mu_run_test(test_r_str_lchr);
+	mu_run_test(test_r_sub_str_lchr);
+	mu_run_test(test_r_sub_str_rchr);
 	return tests_passed != tests_run;
 }
 

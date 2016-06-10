@@ -228,7 +228,7 @@ run_test
 
 NAME='rasm2 esil output # ldrls pc, [pc, r3, lsl 2]'
 CMDS="!rasm2 -a arm -b32 -E 03f19f97"
-BROKEN=
+BROKEN=1
 EXPECT='2,2,4,$$,+,>>,<<,2,r3,<<,+,[4],pc,=
 '
 run_test

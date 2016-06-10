@@ -236,8 +236,10 @@ test_vector "mov rbx, rax" 4889c3
 test_vector "mov rsi, rbx" 4889de
 test_vector "mov [rsi], rbx" 48891e
 test_vector "mov edx, [rbp-4]" 8b55fc
-test_vector "mov rax, 0x1122334455667788" 48b88877665544332211 "br"
-test_vector "mov rcx, -0x1122334455667788" 48b9788899aabbccddee "br"
+test_vector "mov rax, 0x1122334455667788" 48b88877665544332211
+test_vector "mov rcx, -0x1122334455667788" 48b9788899aabbccddee
+test_vector "mov rax, 0x112233445566778899" 00
+test_vector "mov rcx, -0x112233445566778899" 00
 test_vector "xor rax, rax" 4831c0
 test_vector "xor [rax], rax" 483100
 test_vector "xor [rsi], rbx" 48311e
@@ -247,8 +249,9 @@ test_vector "pop rax" 58
 test_vector "mov rax, 33" 48c7c021000000 # sbs: b821000000
 test_vector "add rax, rcx" 4801c8
 test_vector "add rax, 44" 4883c02c
-test_vector "add rax, r8" 4c01c0 br
-test_vector "add r15, rbx" 4901df br
+test_vector "add rax, r8" 4c01c0 "br"
+test_vector "add r15, rbx" 4901df "br"
+test_vector "add r13, r15" 4d01f5 "br"
 test_vector "sub rax, rbx" 4829d8
 test_vector "sub rax, 44" 4883e82c
 test_vector "cmp rax, rbx" 4839d8

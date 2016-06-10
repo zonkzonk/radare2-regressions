@@ -129,6 +129,32 @@ bool test_r_str_tokenize(void) {
 	mu_end;
 }
 
+bool test_r_str_char_count(void) {
+	mu_assert_eq (r_str_char_count ("poop", 'p'), 2, "number of p in poop");
+	mu_end;
+}
+
+bool test_r_str_word_count(void) {
+	mu_assert_eq (r_str_word_count ("let's test\nradare2 \t libraries!"), 4,
+				"words in a string");
+	mu_end;
+}
+
+bool test_r_str_ichr(void) {
+	char* test = "rrrrrradare2";
+	char* out = r_str_ichr (test, 'r');
+	mu_assert_streq (out, "adare2",
+			"string after the first non-r character in rrrrrradare2");
+	mu_end;
+}
+
+bool test_r_str_lchr(void) {
+	const char* test = "radare2";
+	const char* out = r_str_lchr (test, 'r');
+	mu_assert_streq (out, "re2", "pointer to last r in radare2");
+	mu_end;
+}
+
 bool all_tests() {
 	mu_run_test(test_r_str_replace_char_once);
 	mu_run_test(test_r_str_replace_char);
@@ -139,6 +165,10 @@ bool all_tests() {
 	mu_run_test(test_r_str_case);
 	mu_run_test(test_r_str_split);
 	mu_run_test(test_r_str_tokenize);
+	mu_run_test(test_r_str_char_count);
+	mu_run_test(test_r_str_word_count);
+	mu_run_test(test_r_str_ichr);
+	mu_run_test(test_r_str_lchr);
 	return tests_passed != tests_run;
 }
 

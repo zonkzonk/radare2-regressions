@@ -34,12 +34,14 @@ if [ -n "`as --version 2> /dev/null | grep GNU`" ]; then
 	# GNU GAS is broken and swaps parameters in test opcode
 
 	NAME='Rasm2 #1167 3'
+BROKEN=1
 	CMDS="!rasm2 -s att -a x86.as -b 64 'test %rbx, %rax' "
 	EXPECT='4885d8
 '
 	run_test
 
 	NAME='Rasm2 #1167 4'
+BROKEN=1
 	CMDS="!rasm2 -s intel -a x86.as -b 64 'test rax, rbx' "
 	EXPECT='4885d8
 '
@@ -47,6 +49,7 @@ if [ -n "`as --version 2> /dev/null | grep GNU`" ]; then
 else
 	# broken for gcc (swap args)
 	NAME='Rasm2 #1167 3'
+BROKEN=1
 	CMDS="!rasm2 -s att -a x86.as -b 64 'test %rbx, %rax' "
 	EXPECT='4885c3
 '
@@ -54,6 +57,7 @@ else
 
 	# broken for gcc (swap args)
 	NAME='Rasm2 #1167 4'
+BROKEN=1
 	CMDS="!rasm2 -s intel -a x86.as -b 64 'test rax, rbx' "
 	EXPECT='4885c3
 '
@@ -225,7 +229,7 @@ run_test
 NAME='rasm2 esil output # ldrls pc, [pc, r3, lsl 2]'
 CMDS="!rasm2 -a arm -b32 -E 03f19f97"
 BROKEN=
-EXPECT='4,pc,+,2,r3,<<,+,[4],pc,=
+EXPECT='2,2,4,$$,+,>>,<<,2,r3,<<,+,[4],pc,=
 '
 run_test
 

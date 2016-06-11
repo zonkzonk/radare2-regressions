@@ -191,3 +191,10 @@ ARGS="-a arm -b 16"
 CMDS="pa blx 0xF4002AF4 @ 0xF40006E4"
 EXPECT='02F006EA'
 run_test
+
+NAME="${PLUGIN}: arm-thumb-mclass"
+BROKEN=1
+ARGS="-a arm -b 16"
+CMDS="pa b lr"
+EXPECT=''
+run_test

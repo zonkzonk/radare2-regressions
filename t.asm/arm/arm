@@ -197,4 +197,5 @@ BROKEN=1
 ARGS="-a arm -b 16"
 CMDS="pa b lr"
 EXPECT=''
+EXPECT_ERR='Invalid-instruction'
 run_test

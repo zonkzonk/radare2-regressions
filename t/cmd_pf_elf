@@ -57,6 +57,7 @@ run_test
 
 NAME='64: Elf section header size'
 FILE=malloc://1024
+BROKEN=1
 ARGS=
 CMDS='pfo elf64
 pfs.elf_shdr
@@ -102,6 +103,7 @@ run_test
 
 NAME='64: Multiple section headers'
 FILE=malloc://1024
+BROKEN=1
 ARGS=
 CMDS='pfo elf64
 pf [2]? (elf_shdr)sections

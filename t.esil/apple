@@ -93,5 +93,37 @@ aes
 e asm.bits'
 EXPECT='16
 '
+run_test
 
+NAME='string refs: thumb'
+FILE=../bins/mach0/test-thumb
+CMDS='af
+e asm.emu=true
+e asm.emustr=true
+pdf~?string
+'
+EXPECT='7
+'
+run_test
+
+NAME='string refs: arm32'
+FILE=../bins/mach0/test-arm32
+CMDS='af
+e asm.emu=true
+e asm.emustr=true
+pdf~?string
+'
+EXPECT='7
+'
+run_test
+
+NAME='string refs: arm64'
+FILE=../bins/mach0/test-arm64
+CMDS='af
+e asm.emu=true
+e asm.emustr=true
+pdf~?string
+'
+EXPECT='7
+'
 run_test

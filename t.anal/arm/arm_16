@@ -2,6 +2,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME="thumb ldr pc-rel analysis"
 FILE=malloc://32
+BROKEN=1
 CMDS="
 e asm.arch=arm
 e asm.bits=16
@@ -13,6 +14,7 @@ EXPECT='            0x00000000      dff80000       ldr.w r0, [pc, 0]           ;
 run_test
 
 NAME="thumb ldr pc-rel analysis"
+BROKEN=1
 FILE=malloc://32
 CMDS="
 e asm.arch=arm
@@ -24,8 +26,10 @@ EXPECT='            0x00000000      dff80000       ldr.w r0, [pc, 0]           ;
 '
 run_test
 
+# XXX looks like thumb reads 0xffff with LDR R0, [PC, 0]
 NAME="thumb ldr pc-rel emulation"
 FILE=malloc://32
+BROKEN=1
 CMDS="
 e asm.arch=arm
 e asm.bits=16

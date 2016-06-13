@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
@@ -27,17 +27,17 @@ ptr: 0x00000028
 refptr: 4
 size: 4
 type: load
-esil: 4,pc,+,32,+,[4],ip,=
+esil: 8,$$,+,32,+,[4],ip,=
 stack: null
 family: cpu
 address: 0x4
 opcode: ldr ip, [sl, ip]
 prefix: 0
 bytes: 0cc09ae7
-refptr: 4
+refptr: 0
 size: 4
 type: load
-esil: sl,0,+,[4],ip,=
+esil: 0,sl,+,[4],ip,=
 stack: null
 family: cpu
 '

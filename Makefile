@@ -30,6 +30,8 @@ dbg.linux:
 commands:
 	@sh run_tests.sh
 
+java: asm.java anal.java format.java
+
 tools:
 	@sh run_tests.sh t.tools
 

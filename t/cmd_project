@@ -159,7 +159,7 @@ run_test
 
 NAME='Breakpoints in project file'
 FILE=../bins/elf/main
-BROKEN=
+BROKEN=1
 ARGS=
 CMDS='e dbg.bpinmaps = false
 e dir.projects = /tmp/

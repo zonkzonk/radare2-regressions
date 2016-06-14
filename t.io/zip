@@ -20,3 +20,30 @@ EXPECT="0x000002af
 0x000003ab
 "
 run_test
+
+NAME="io-zip entrypoints for c.class"
+BROKEN=
+FILE=zip://../bins/java/example.zip::0
+CMDS=ieq
+EXPECT="0x000002af
+0x000002da
+0x00000312
+0x000003ab
+"
+run_test
+
+NAME="io-zip hello.apk"
+BROKEN=
+FILE=apk://../bins/dex/Hello.apk
+CMDS=ieq
+EXPECT="0x000001c0
+"
+run_test
+
+NAME="io-zip hello.apk"
+BROKEN=
+FILE=zip://../bins/dex/Hello.apk
+CMDS=ieq
+EXPECT="0 classes.dex
+"
+run_test

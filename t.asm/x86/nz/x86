@@ -267,12 +267,12 @@ test_vector "cmp rbx, rax" 4839c3
 test_vector "cmp rdx, rsi" 4839f2
 test_vector "test rdx, rsi" 4885f2
 test_vector "test rax, rbx" 4885d8
-test_vector "mov rax, [rax]" 488b00 "br"
-test_vector "mov rax, [rax+0]" 488b4000 "br" # sbs: 488d00
-test_vector "mov rax, [rax-0]" 488b4000 "br" # sbs: 488b00
-test_vector "mov rax, [rax-1]" 488b40ff "br"
-test_vector "mov rax, [rax+1]" 488b4001 "br"
-test_vector "mov rax,[rip]" 488b0500000000 "br"
+test_vector "mov rax, [rax]" 488b00
+test_vector "mov rax, [rax+0]" 488b4000 # sbs: 488d00
+test_vector "mov rax, [rax-0]" 488b4000 # sbs: 488b00
+test_vector "mov rax, [rax-1]" 488b40ff
+test_vector "mov rax, [rax+1]" 488b4001
+test_vector "mov rax,[rip]" 488b0500000000
 test_vector "mov rax,[rip+0]" 488b0500000000 "br"
 test_vector "mov rax,[rip-0]" 488b0500000000 "br"
 test_vector "mov rax,[rip+10]" 488b050a000000 "br"

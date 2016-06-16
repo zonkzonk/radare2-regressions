@@ -210,7 +210,11 @@ __EOF__
   printf "%s\n" "${CMDS}" > ${TMP_RAD}
   printf "%s" "${EXPECT}" > ${TMP_EXP}
   printf "%s" "${EXPECT_ERR}" > ${TMP_EXR}
-  eval "${R2CMD}"
+  if [ -n "${TIMEOUT}" ]; then
+    eval "rarun2 timeout=${TIMEOUT} -- ${R2CMD}"
+  else
+    eval "${R2CMD}"
+  fi
   CODE=$?
   if [ -n "${IGNORE_RC}" ]; then
     CODE=0

@@ -12,18 +12,6 @@ fuzz_test_aaq() {
   run_test
 }
 
-fuzz_test_aacq() {
-  NAME="Other Fuzz aac ; q $1"
-  IGNORE_ERR=1
-  BROKEN=
-  FILE=$1
-  ARGS=
-  CMDS='aac ; q'
-  EXPECT=''
-  run_test
-}
-
 for f in ../../bins/fuzzed/* ; do
   fuzz_test_aaq "$f"
-  fuzz_test_aacq "$f"
 done

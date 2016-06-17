@@ -127,3 +127,19 @@ pdf~?string
 EXPECT='7
 '
 run_test
+
+NAME='arm32: thumb'
+FILE=../bins/mach0/arm32-ofp.lzh
+CMDS='pd 2~?push
+'
+EXPECT='1
+'
+run_test
+
+NAME='thumb: arm32'
+FILE=../bins/mach0/arm16-ofp.lzh
+CMDS='pd 2~?push
+'
+EXPECT='1
+'
+run_test

@@ -7,6 +7,6 @@ all: $(OBJECTS)
 $(OBJECTS):%:%.c
 	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
 clean:
-	rm -f test_list test_base64 test_str test_hashtable
+	rm -f $(OBJECTS)
 
 .PHONY: all $(OBJECTS)

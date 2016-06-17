@@ -1,4 +1,4 @@
-all: test_list test_base64 test_str
+all: test_list test_base64 test_str test_hashtable
 
 LDFLAGS=-lr_util
 
@@ -11,7 +11,10 @@ test_base64:
 test_str:
 	$(CC) -g -I$(LIBR_INCLUDE) test_str.c -o test_str -L$(LIBR_UTIL) $(LDFLAGS)
 
-clean:
-	rm test_list test_base64 test_str
+test_hashtable:
+	$(CC) -g -I$(LIBR_INCLUDE) test_hashtable.c -o test_hashtable -L$(LIBR_UTIL) $(LDFLAGS)
 
-.PHONY: all test_list test_base64 test_str
+clean:
+	rm test_list test_base64 test_str test_hashtable
+
+.PHONY: all test_list test_base64 test_str test_hashtable

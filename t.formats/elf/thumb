@@ -35,6 +35,7 @@ run_test
 
 NAME='thumb disasm'
 FILE=../../bins/elf/thumb
+BROKEN=1
 ARGS=
 CMDS='pi 1@ sym.main
 '
@@ -45,6 +46,7 @@ run_test
 NAME='arm disasm entry0'
 FILE=../../bins/elf/thumb
 ARGS=
+BROKEN=1
 CMDS='pi 1@ sym.main
 '
 EXPECT='push {r7, lr}

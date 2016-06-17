@@ -2,3 +2,4 @@ test_base64
 test_list
 test_str
 test_unit
+test_hashtable

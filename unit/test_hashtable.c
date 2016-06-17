@@ -46,9 +46,30 @@ bool test_r_hashtable_removal_lookup(void) {
 	mu_end;
 }
 
+bool test_r_hashtable_insert_collision(void) {
+	RHashTable* ht = r_hashtable_new ();
+	char* test1_key = "AAAA";
+	char* test1_data = "1111";
+	char* test1_data_2 = "2222";
+	char* data_lookup;
+	// First insert AAAA.
+	mu_assert_eq (r_hashtable_insert (ht, r_str_hash (test1_key), test1_data),
+			true, "insert without collision");
+	//XXX: THIS BEHAVIOR IS BROKEN! This should fail (return false) on failure.
+	mu_assert_eq (r_hashtable_insert (ht, r_str_hash (test1_key), test1_data_2),
+			1, "insert collision!");
+	// Check we can look it up. Should be the first one because the second
+	// failed to add.
+	data_lookup = r_hashtable_lookup (ht, r_str_hash (test1_key));
+	mu_assert_streq (data_lookup, test1_data, "AAAA key value lookup");
+	r_hashtable_free (ht);
+	mu_end;
+}
+
 int all_tests() {
 	mu_run_test(test_r_hashtable_insert_lookup);
 	mu_run_test(test_r_hashtable_removal_lookup);
+	mu_run_test(test_r_hashtable_insert_collision);
 	return tests_passed != tests_run;
 }
 

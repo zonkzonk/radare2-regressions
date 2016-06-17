@@ -1,20 +1,12 @@
-all: test_list test_base64 test_str test_hashtable
+OBJECTS = test_list test_base64 test_str test_hashtable
+LDFLAGS += $(shell pkg-config r_util --libs)
+CFLAGS += $(shell pkg-config r_util --cflags)
 
-LDFLAGS=-lr_util
+all: $(OBJECTS)
 
-test_list:
-	$(CC) -g -I$(LIBR_INCLUDE) test_list.c -o test_list -L$(LIBR_UTIL) $(LDFLAGS)
-
-test_base64:
-	$(CC) -g -I$(LIBR_INCLUDE) test_base64.c -o test_base64 -L$(LIBR_UTIL) $(LDFLAGS)
-
-test_str:
-	$(CC) -g -I$(LIBR_INCLUDE) test_str.c -o test_str -L$(LIBR_UTIL) $(LDFLAGS)
-
-test_hashtable:
-	$(CC) -g -I$(LIBR_INCLUDE) test_hashtable.c -o test_hashtable -L$(LIBR_UTIL) $(LDFLAGS)
-
+$(OBJECTS):%:%.c
+	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
 clean:
-	rm test_list test_base64 test_str test_hashtable
+	rm -f test_list test_base64 test_str test_hashtable
 
-.PHONY: all test_list test_base64 test_str test_hashtable
+.PHONY: all $(OBJECTS)

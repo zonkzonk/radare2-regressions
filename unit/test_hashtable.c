@@ -3,19 +3,19 @@
 
 bool test_r_hashtable_insert_lookup(void) {
 	RHashTable* ht = r_hashtable_new ();
-	char* test1_key = "AAAA";
-	char* test2_key = "BBBB";
-	char* test3_key = "CCCC";
-	char* test1_data = "1111";
-	char* test2_data = "2222";
-	char* test3_data = "3333";
-	char* data_lookup;
+	const char* test1_key = "AAAA";
+	const char* test2_key = "BBBB";
+	const char* test3_key = "CCCC";
+	const char* test1_data = "1111";
+	const char* test2_data = "2222";
+	const char* test3_data = "3333";
+	const char* data_lookup;
 	mu_assert ("insert first key-value",
-			r_hashtable_insert (ht, r_str_hash (test1_key), test1_data));
+			r_hashtable_insert (ht, r_str_hash (test1_key), (void*)test1_data));
 	mu_assert ("insert second key-value",
-			r_hashtable_insert (ht, r_str_hash (test2_key), test2_data));
+			r_hashtable_insert (ht, r_str_hash (test2_key), (void*)test2_data));
 	mu_assert ("insert third key-value",
-			r_hashtable_insert (ht, r_str_hash (test3_key), test3_data));
+			r_hashtable_insert (ht, r_str_hash (test3_key), (void*)test3_data));
 	data_lookup = r_hashtable_lookup (ht, r_str_hash (test1_key));
 	mu_assert_streq (data_lookup, test1_data, "AAAA key value lookup");
 	data_lookup = r_hashtable_lookup (ht, r_str_hash (test2_key));
@@ -28,12 +28,12 @@ bool test_r_hashtable_insert_lookup(void) {
 
 bool test_r_hashtable_removal_lookup(void) {
 	RHashTable* ht = r_hashtable_new ();
-	char* test1_key = "AAAA";
-	char* test1_data = "1111";
-	char* data_lookup;
+	const char* test1_key = "AAAA";
+	const char* test1_data = "1111";
+	const char* data_lookup;
 	// First insert AAAA.
 	mu_assert ("insert first key-value",
-			r_hashtable_insert (ht, r_str_hash (test1_key), test1_data));
+			r_hashtable_insert (ht, r_str_hash (test1_key), (void*)test1_data));
 	// Check we can look it up.
 	data_lookup = r_hashtable_lookup (ht, r_str_hash (test1_key));
 	mu_assert_streq (data_lookup, test1_data, "AAAA key value lookup");
@@ -48,15 +48,17 @@ bool test_r_hashtable_removal_lookup(void) {
 
 bool test_r_hashtable_insert_collision(void) {
 	RHashTable* ht = r_hashtable_new ();
-	char* test1_key = "AAAA";
-	char* test1_data = "1111";
-	char* test1_data_2 = "2222";
-	char* data_lookup;
+	const char* test1_key = "AAAA";
+	const char* test1_data = "1111";
+	const char* test1_data_2 = "2222";
+	const char* data_lookup;
 	// First insert AAAA.
-	mu_assert_eq (r_hashtable_insert (ht, r_str_hash (test1_key), test1_data),
+	mu_assert_eq (r_hashtable_insert (ht, r_str_hash (test1_key),
+				(void*)test1_data),
 			true, "insert without collision");
 	//XXX: THIS BEHAVIOR IS BROKEN! This should fail (return false) on failure.
-	mu_assert_eq (r_hashtable_insert (ht, r_str_hash (test1_key), test1_data_2),
+	mu_assert_eq (r_hashtable_insert (ht, r_str_hash (test1_key),
+				(void*)test1_data_2),
 			1, "insert collision!");
 	// Check we can look it up. Should be the first one because the second
 	// failed to add.

@@ -19,17 +19,27 @@
 #define MU_PASSED 1
 #define MU_ERR 0
 
+#define MU_TEST_UNBROKEN 0
+#define MU_TEST_BROKEN 1
+
 #define mu_assert(message, test) do { \
 		if (!(test)) { \
 						mu_fail(message); \
+						mu_test_status = MU_TEST_UNBROKEN; \
 					} \
 		} while (0)
 
-#define mu_perror(message) printf(TBOLD TRED "ERR\nFail at line %d: " TRESET "%s\n\n", __LINE__, message);
+#define mu_perror(message) do { \
+		if (mu_test_status != MU_TEST_BROKEN) { \
+			printf(TBOLD TRED "ERR\nFail at line %d: " TRESET "%s\n\n", __LINE__, message); \
+		} else { \
+			printf(TBOLD TYELLOW "BROKEN\nFail at line %d: " TRESET "%s\n\n", __LINE__, message); \
+		} \
+	} while (0)
 
 #define mu_psyserror(message) do { perror(message); mu_perror(message); } while (0)
 
-#define mu_fail(message) do { mu_perror(message); return MU_ERR; } while(0)
+#define mu_fail(message) do { mu_perror(message); if (mu_test_status != MU_TEST_BROKEN) return MU_ERR; } while(0)
 
 #define mu_ignore do { printf(TYELLOW "IGN\n" TRESET); return MU_PASSED; } while(0)
 
@@ -68,3 +78,4 @@
 #define mu_cleanup_sysfail(label, message) do { mu_psyserror(message); retval = MU_ERR; goto label; } while(0)
 int tests_run = 0;
 int tests_passed = 0;
+int mu_test_status = MU_TEST_UNBROKEN;

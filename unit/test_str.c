@@ -47,7 +47,8 @@ bool test_r_str_rwx(void) {
 	mu_assert_eq (mx, 17, "mx");
 	mu_assert_eq (none, 0, "no permissions");
 	//XXX this test fails because the underlying behavior is wrong
-	//mu_assert_eq (number, 0, "large input number string");
+	mu_test_status = MU_TEST_BROKEN; // Only for this next assert.
+	mu_assert_eq (number, 0, "large input number string");
 	mu_end;
 }
 
@@ -64,7 +65,8 @@ bool test_r_str_rwx_i(void) {
 	mu_assert_streq (rx, "-r-x", "rx = 5 mode");
 	mu_assert_streq (mx, "m--x", "mx = 17 mode");
 	//XXX this test fails because the underlying behavior is wrong!
-	//mu_assert_streq (invalid_mode, "----", "invalid permissions mode");
+	mu_test_status = MU_TEST_BROKEN; // Only for this next assert.
+	mu_assert_streq (invalid_mode, "----", "invalid permissions mode");
 	mu_end;
 }
 

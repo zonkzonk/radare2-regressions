@@ -57,9 +57,10 @@ bool test_r_hashtable_insert_collision(void) {
 				(void*)test1_data),
 			true, "insert without collision");
 	//XXX: THIS BEHAVIOR IS BROKEN! This should fail (return false) on failure.
+	mu_test_status = MU_TEST_BROKEN; // Only for this assertion.
 	mu_assert_eq (r_hashtable_insert (ht, r_str_hash (test1_key),
 				(void*)test1_data_2),
-			1, "insert collision!");
+			false, "insert collision!");
 	// Check we can look it up. Should be the first one because the second
 	// failed to add.
 	data_lookup = r_hashtable_lookup (ht, r_str_hash (test1_key));

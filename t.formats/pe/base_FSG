@@ -12,7 +12,7 @@ run_test
 NAME='PE: FSG 2.0- open'
 FILE=../../bins/pe/base_FSG.exe
 ARGS=''
-BROKEN=1
+BROKEN=
 CMDS='e asm.functions = false
 e asm.comments = false
 e asm.bytes = false
@@ -20,6 +20,6 @@ e asm.offset = false
 e asm.calls = false
 s entry0
 pi 1'
-EXPECT='xchg dword [rip + 0x446494], esp
+EXPECT='xchg dword [0x446494], esp
 '
 run_test

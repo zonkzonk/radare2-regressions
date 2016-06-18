@@ -57,7 +57,7 @@ run_test
 
 NAME='64: Elf section header size'
 FILE=malloc://1024
-BROKEN=1
+BROKEN=
 ARGS=
 CMDS='pfo elf64
 pfs.elf_shdr
@@ -73,7 +73,7 @@ ARGS=
 CMDS='pfo elf32
 pf [2]? (elf_shdr)sections
 '
-EXPECT='          sections : 
+EXPECT='          sections :
 [
           struct<elf_shdr>
                        name : 0x00000000 = 0x00000000
@@ -103,12 +103,12 @@ run_test
 
 NAME='64: Multiple section headers'
 FILE=malloc://1024
-BROKEN=1
+BROKEN=
 ARGS=
 CMDS='pfo elf64
 pf [2]? (elf_shdr)sections
 '
-EXPECT='          sections : 
+EXPECT='          sections :
 [
           struct<elf_shdr>
                        name : 0x00000000 = 0x00000000

@@ -11,7 +11,7 @@ run_test
 
 NAME='PE: corkami d_nonnull-ld - entrypoint'
 FILE=../../bins/pe/d_nonnull-ld.exe
-BROKEN=1
+BROKEN=
 CMDS='
 s
 '

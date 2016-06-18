@@ -10,28 +10,18 @@ run_test
 
 NAME='PE: corkami CoST.exe - entrypoint VA'
 FILE=../../bins/pe/CoST.exe
-BROKEN=1
-ARGS='-n'
-CMDS="!rabin2 -eq ${FILE}"
-EXPECT='
-'
-run_test
+CMDS="ie"
+EXPECT='[Entrypoints]
+vaddr=0x7efd0000 paddr=0x00000000 baddr=0x7efd0000 laddr=0x00000000 type=program
+vaddr=0x7efd0148 paddr=0x00000148 baddr=0x7efd0000 laddr=0x00000000 type=tls
 
-NAME='PE: corkami CoST.exe - entrypoint PA'
-FILE=../../bins/pe/CoST.exe
-BROKEN=1
-ARGS='-n'
-CMDS="!rabin2 -peq ${FILE}"
-EXPECT='
+2 entrypoints
 '
 run_test
 
 NAME='PE: corkami CoST.exe - sections list'
 FILE=../../bins/pe/CoST.exe
-ARGS='-n'
-CMDS="!rabin2 -S ${FILE}"
-EXPECT='[Sections]
-
-0 sections
+CMDS="S"
+EXPECT='[00] * 0x00000000 mrwx va=0x7efd0000 sz=0x516a vsz=0x516a blob
 '
 run_test

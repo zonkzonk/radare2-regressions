@@ -1,10 +1,14 @@
 #!/bin/sh
 
+# To run with kcov
+# export KCOV="kcov /path/to/output"
+# kcov output will be placed in the /path/to/output/index.html
+
 echo "test base64"
-./unit/test_base64
+${KCOV} ./unit/test_base64
 echo "test list"
-./unit/test_list
+${KCOV} ./unit/test_list
 echo "test str"
-./unit/test_str
+${KCOV} ./unit/test_str
 echo "test hashtable"
-./unit/test_hashtable
+${KCOV} ./unit/test_hashtable

@@ -1,9 +1,27 @@
 #include <r_util.h>
 #include "minunit.h"
 
-bool test_r_base64_decode(void) {
+bool test_r_base64_decode_dyn(void) {
 	char* hello = (char*)r_base64_decode_dyn ("aGVsbG8=", -1);
 	mu_assert_streq(hello, "hello", "base64_decode_dyn");
+	free (hello);
+	mu_end;
+}
+
+bool test_r_base64_decode(void) {
+	char* hello = malloc (50);
+	int status = r_base64_decode (hello, "aGVsbG8=", -1);
+	mu_assert_eq (status, strlen("hello"), "valid base64 decoding");
+	mu_assert_streq(hello, "hello", "base64 decoding");
+	free (hello);
+	mu_end;
+}
+
+bool test_r_base64_decode_invalid(void) {
+	char* hello = malloc (50);
+	int status = r_base64_decode (hello, "\x01\x02\x03\x04\x00", -1);
+	// Returns the length of the decoded string, 0 == invalid input.
+	mu_assert_eq(status, 0, "invalid base64 decoding");
 	free (hello);
 	mu_end;
 }
@@ -24,7 +42,9 @@ int test_r_base64_encode(void) {
 }
 
 int all_tests() {
+	mu_run_test(test_r_base64_decode_dyn);
 	mu_run_test(test_r_base64_decode);
+	mu_run_test(test_r_base64_decode_invalid);
 	mu_run_test(test_r_base64_encode_dyn);
 	mu_run_test(test_r_base64_encode);
 	return tests_passed != tests_run;

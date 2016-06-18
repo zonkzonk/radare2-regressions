@@ -56,13 +56,13 @@
 #define mu_sysfail(message) do { perror(message); mu_fail(message); } while(0)
 
 #define mu_assert_eq(actual, expected, message) do { \
-		char _meqstr[200]; \
+		char _meqstr[2048]; \
 		sprintf(_meqstr, "%s: expected %d, got %d.", message, expected, actual); \
 		mu_assert(_meqstr, (expected) == (actual)); \
 } while(0)
 
 #define mu_assert_streq(actual, expected, message) do { \
-		char _meqstr[200]; \
+		char _meqstr[2048]; \
 		sprintf(_meqstr, "%s: expected %s, got %s.", message, expected, actual); \
 		mu_assert(_meqstr, strcmp((expected), (actual)) == 0); \
 } while(0)

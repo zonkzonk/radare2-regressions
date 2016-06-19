@@ -73,7 +73,7 @@ ARGS=
 CMDS='pfo elf32
 pf [2]? (elf_shdr)sections
 '
-EXPECT='          sections :
+EXPECT='          sections : 
 [
           struct<elf_shdr>
                        name : 0x00000000 = 0x00000000
@@ -108,7 +108,7 @@ ARGS=
 CMDS='pfo elf64
 pf [2]? (elf_shdr)sections
 '
-EXPECT='          sections :
+EXPECT='          sections : 
 [
           struct<elf_shdr>
                        name : 0x00000000 = 0x00000000

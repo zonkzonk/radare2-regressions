@@ -16,3 +16,5 @@ echo "test debruijn"
 ${KCOV} ./unit/test_debruijn
 echo "test queue"
 ${KCOV} ./unit/test_queue
+echo "test bitmap"
+${KCOV} ./unit/test_bitmap

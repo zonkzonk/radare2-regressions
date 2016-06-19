@@ -1,10 +1,8 @@
 #include <r_util.h>
 #include "minunit.h"
 
-static const char* debruijn_charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
-
 bool test_r_debruijn_pattern(void) {
-	char* pattern = r_debruijn_pattern (256, 0, debruijn_charset);
+	char* pattern = r_debruijn_pattern (256, 0, NULL /*default charset*/);
 	mu_assert_eq ((int)strlen(pattern), 256, "pattern length");
 	mu_assert_streq (pattern, "AAABAACAADAAEAAFAAGAAHAAIAAJAAKAALAAMAANAAOAAPAAQAARAASAATAAUAAVAAWAAXAAYAAZAAaAAbAAcAAdAAeAAfAAgAAhAAiAAjAAkAAlAAmAAnAAoAApAAqAArAAsAAtAAuAAvAAwAAxAAyAAzAA1AA2AA3AA4AA5AA6AA7AA8AA9AA0ABBABCABDABEABFABGABHABIABJABKABLABMABNABOABPABQABRABSABTABUABVABWABXABY", "pattern of 256 length");
 	free (pattern);

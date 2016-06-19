@@ -5,7 +5,7 @@ static const char* debruijn_charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmno
 
 bool test_r_debruijn_pattern(void) {
 	char* pattern = r_debruijn_pattern (256, 0, debruijn_charset);
-	mu_assert_eq (256, strlen(pattern), "pattern length");
+	mu_assert_eq (strlen(pattern), 256, "pattern length");
 	mu_assert_streq (pattern, "AAABAACAADAAEAAFAAGAAHAAIAAJAAKAALAAMAANAAOAAPAAQAARAASAATAAUAAVAAWAAXAAYAAZAAaAAbAAcAAdAAeAAfAAgAAhAAiAAjAAkAAlAAmAAnAAoAApAAqAArAAsAAtAAuAAvAAwAAxAAyAAzAA1AA2AA3AA4AA5AA6AA7AA8AA9AA0ABBABCABDABEABFABGABHABIABJABKABLABMABNABOABPABQABRABSABTABUABVABWABXABY", "pattern of 256 length");
 	free (pattern);
 	mu_end;
@@ -14,7 +14,9 @@ bool test_r_debruijn_pattern(void) {
 bool test_r_debruijn_offset(void) {
 	// From ropasaurusrex.
 	ut64 offset = 0x41417641;
-	mu_assert_eq (r_debruijn_offset (offset, 1 /*little endian*/), 140, "debruijn offset");
+	mu_assert_eq (r_debruijn_offset (offset, 1 /*little endian*/), 140, "debruijn offset - little endian");
+	offset = 0x41764141;
+	mu_assert_eq (r_debruijn_offset (offset, 0 /*big endian*/), 140, "debruijn offset - big endian");
 	mu_end;
 }
 

@@ -14,3 +14,5 @@ echo "test hashtable"
 ${KCOV} ./unit/test_hashtable
 echo "test debruijn"
 ${KCOV} ./unit/test_debruijn
+echo "test queue"
+${KCOV} ./unit/test_queue

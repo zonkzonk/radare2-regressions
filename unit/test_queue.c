@@ -22,8 +22,17 @@ bool test_r_queue_add_remove(void) {
 	mu_end;
 }
 
+bool test_r_queue_zero_size(void) {
+	// Create queue with max size 0.
+	RQueue* queue = r_queue_new (0);
+	mu_assert_eq ((int)(intptr_t)queue, (int)(intptr_t)NULL,
+			"Create queue of size zero.");
+	mu_end;
+}
+
 int all_tests() {
 	mu_run_test(test_r_queue_add_remove);
+	mu_run_test(test_r_queue_zero_size);
 	return tests_passed != tests_run;
 }
 

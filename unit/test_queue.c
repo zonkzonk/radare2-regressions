@@ -19,6 +19,7 @@ bool test_r_queue_add_remove(void) {
 	}
 	j = (int)(intptr_t)r_queue_dequeue (queue);
 	mu_assert_eq (j, (int)(intptr_t)NULL, "Empty queue dequeue.");
+	r_queue_free (queue);
 	mu_end;
 }
 

@@ -7,3 +7,13 @@ ARGS=''
 CMDS="q!"
 EXPECT=''
 run_test
+
+NAME='PE: corkami d_nonnull.dll - entrypoint'
+FILE=../../bins/pe/d_nonnull.dll
+CMDS='
+s
+'
+EXPECT='0x2121
+'
+IGNORE_ERR=1
+run_test

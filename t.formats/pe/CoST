@@ -25,3 +25,14 @@ CMDS="S"
 EXPECT='[00] * 0x00000000 mrwx va=0x7efd0000 sz=0x516a vsz=0x516a blob
 '
 run_test
+
+
+NAME='PE: corkami CoST.exe - pi 1'
+FILE=../../bins/pe/CoST.exe
+CMDS='e asm.filter=false
+pi 1
+'
+EXPECT='dec ebp
+'
+IGNORE_ERR=1
+run_test

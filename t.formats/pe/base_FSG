@@ -9,7 +9,7 @@ EXPECT=''
 run_test
 
 
-NAME='PE: FSG 2.0- open'
+NAME='PE: FSG 2.0- pi 1'
 FILE=../../bins/pe/base_FSG.exe
 ARGS=''
 BROKEN=

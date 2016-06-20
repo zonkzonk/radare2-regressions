@@ -18,3 +18,13 @@ EXPECT='0x401000
 '
 IGNORE_ERR=1
 run_test
+
+NAME='PE: corkami bigsec.exe - pi 1'
+FILE=../../bins/pe/bigsec.exe
+CMDS='
+pi 1
+'
+EXPECT='mov edi, 0x103ff000
+'
+IGNORE_ERR=1
+run_test

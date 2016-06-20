@@ -18,3 +18,13 @@ EXPECT='0x20010000
 '
 IGNORE_ERR=1
 run_test
+
+NAME='PE: corkami bigalign.exe - pi 1'
+FILE=../../bins/pe/bigalign.exe
+CMDS='
+pi 1
+'
+EXPECT='push 0x20010018
+'
+IGNORE_ERR=1
+run_test

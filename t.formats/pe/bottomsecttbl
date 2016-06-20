@@ -18,3 +18,13 @@ EXPECT='0x401000
 '
 IGNORE_ERR=1
 run_test
+
+NAME='PE: corkami bottomsecttbl.exe - pi 1'
+FILE=../../bins/pe/bottomsecttbl.exe
+CMDS='e asm.filter=false
+pi 1
+'
+EXPECT='push 0x401018
+'
+IGNORE_ERR=1
+run_test

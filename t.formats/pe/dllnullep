@@ -9,16 +9,14 @@ CMDS="q!"
 EXPECT=''
 run_test
 
-NAME='PE: dllnullEP - entrypoint'
+NAME='PE: corkami dllnullep.dll - entrypoint'
 FILE=../../bins/pe/dllnullep.dll
-BROKEN=1
-IGNORE_ERR=1
-ARGS='-n'
-CMDS="!rabin2 -eq ${FILE} "
-
-EXPECT='0x00000000
+CMDS='
+s
 '
-
+EXPECT='0x1000000
+'
+IGNORE_ERR=1
 run_test
 
 

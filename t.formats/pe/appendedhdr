@@ -19,3 +19,13 @@ EXPECT='0x401000
 '
 IGNORE_ERR=1
 run_test
+
+NAME='PE: corkami appendedhdr.exe - pi 1'
+FILE=../../bins/pe/appendedhdr.exe
+CMDS='
+pi 1
+'
+EXPECT='push 0x401018
+'
+IGNORE_ERR=1
+run_test

@@ -18,3 +18,13 @@ EXPECT='0x7efd1000
 '
 IGNORE_ERR=1
 run_test
+
+NAME='PE: corkami bigib.exe - pi 1'
+FILE=../../bins/pe/bigib.exe
+CMDS='
+pi 1
+'
+EXPECT='push 0x7efd1018
+'
+IGNORE_ERR=1
+run_test

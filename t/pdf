@@ -20,15 +20,12 @@ IGNORE_ERR=1
 ARGS=
 BROKEN=
 CMDS='e asm.dwarf=true
-e asm.arch=x86.udis
-e asm.varsub=false
-e anal.eobjmp=false
 e anal.nopskip=true # if set to true it fucks the test
 aa # full analysis fuckups main
 pd 1 @main'
 EXPECT='            ;-- main:
 / (fcn) sym.main 44
-|           ; arg int arg_fch @ rbp+0xfc
+|           ; var int local_4h @ rbp-0x4
 |           ; DATA XREF from 0x0040045d (entry0)
 |           0x0040052d      55             push rbp                    ; dwarftest.c:4
 '

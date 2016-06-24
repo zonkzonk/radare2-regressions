@@ -234,6 +234,7 @@ test_vector "${PLUGIN}" "extractps eax, xmm0, 0" 660f3a17c000 "br"
 test_vector "${PLUGIN}" "extrq xmm0, 0x0, 0x0" 660f78c00000 "br"
 test_vector "${PLUGIN}" "extrq xmm0, xmm0" 660f7900 "br"
 test_vector "${PLUGIN}" "femms" 0f0e "br"
+test_vector "${PLUGIN}" "fsincos" d9fb
 test_vector "${PLUGIN}" "fxrstor [eax]" 0fae08 "br"
 test_vector "${PLUGIN}" "fxsave [eax]" 0fae00 "br"
 test_vector "${PLUGIN}" "getsec" 0f37h "br"

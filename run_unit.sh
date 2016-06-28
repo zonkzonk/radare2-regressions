@@ -4,17 +4,8 @@
 # export KCOV="kcov /path/to/output"
 # kcov output will be placed in the /path/to/output/index.html
 
-echo "test base64"
-${KCOV} ./unit/test_base64
-echo "test list"
-${KCOV} ./unit/test_list
-echo "test str"
-${KCOV} ./unit/test_str
-echo "test hashtable"
-${KCOV} ./unit/test_hashtable
-echo "test debruijn"
-${KCOV} ./unit/test_debruijn
-echo "test queue"
-${KCOV} ./unit/test_queue
-echo "test bitmap"
-${KCOV} ./unit/test_bitmap
+for i in $(find ./unit -name 'test_*' -type f -perm +111); do
+	filename=$(basename "$i")
+	echo "$filename"
+	${KCOV} $i
+done

@@ -1,5 +1,4 @@
-OBJECTS = test_list test_base64 test_str test_hashtable test_debruijn test_queue
-OBJECTS += test_bitmap
+OBJECTS = $(patsubst %.c,%,$(wildcard *.c))
 LDFLAGS += $(shell pkg-config --libs r_util)
 CFLAGS += $(shell pkg-config --cflags r_util) -g
 

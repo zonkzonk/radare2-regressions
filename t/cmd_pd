@@ -198,6 +198,21 @@ EXPECT='0x00000000                   90  nop
 '
 run_test
 
+NAME='pdj -1'
+FILE=malloc://1024
+BROKEN=
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+wx 56687cd3400090
+aaa
+s 6
+pdj -1
+'
+EXPECT='[{"offset":1,"fcn_addr":0,"fcn_last":1016,"size":5,"opcode":"push 0x40d37c","bytes":"687cd34000","family":"cpu","type":"push","type_num":13,"type2_num":0}]
+
+'
+run_test
 
 NAME='pdfline'
 FILE=malloc://1024

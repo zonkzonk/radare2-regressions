@@ -143,8 +143,8 @@ NAME='anal vars crash'
 FILE=-
 ARGS=
 CMDS='af
-afv-*
-afv-*
+afvr-*
+afvr-*
 '
 EXPECT=""
 run_test
@@ -154,8 +154,8 @@ FILE=-
 ARGS=
 CMDS='wx 554889e5534881ec3810000048830c24004881c42010000064488b042528000000488945e831c04885ff4889fb909090909090c3 @ 10
 aa
-afvn old_1 new_1
-afan local_18h my_local
+afvrn old_1 new_1
+afvbn local_18h my_local
 pd 1
 '
 EXPECT="/ (fcn) fcn.00000000 62
@@ -165,134 +165,134 @@ EXPECT="/ (fcn) fcn.00000000 62
 run_test
 
 
-NAME='afa & afan'
+NAME='afvb & afvbn'
 FILE=../../bins/efi/bootia32.efi
 ARGS=
 CMDS='af
-afan arg_8h ImageHandle
-afan arg_ch SystemTable
-afa~?ImageHandle
-afa~?SystemTable
+afvbn arg_8h ImageHandle
+afvbn arg_ch SystemTable
+afvb~?ImageHandle
+afvb~?SystemTable
 '
 EXPECT="1
 1
 "
 run_test
 
-NAME='afa* & afan'
+NAME='afvb* & afvbn'
 FILE=../../bins/efi/bootia32.efi
 ARGS=
 CMDS='af
-afan arg_8h ImageHandle
-afan arg_ch SystemTable
-afa*~?ImageHandle
-afa*~?SystemTable
+afvbn arg_8h ImageHandle
+afvbn arg_ch SystemTable
+afvb*~?ImageHandle
+afvb*~?SystemTable
 '
 EXPECT="1
 1
 "
 run_test
 
-NAME='afa idx... & afan'
+NAME='afvb idx... & afvbn'
 FILE=../../bins/efi/bootia32.efi
 ARGS=
 CMDS='af
-afa 8 ImageHandle blah @ 0x10002d8d
-afa*~ImageHandle
+afvb 8 ImageHandle blah @ 0x10002d8d
+afvb*~ImageHandle
 '
-EXPECT="afa 8 ImageHandle blah @ 0x10002d8d
+EXPECT="afvb 8 ImageHandle blah @ 0x10002d8d
 "
 run_test
 
-NAME='afaj'
+NAME='afvbj'
 FILE=../../bins/efi/bootia32.efi
 ARGS=
 CMDS='af
-afa 8 ImageHandle blah @ 0x10002d8d
-afaj~?ImageHandle
+afvb 8 ImageHandle blah @ 0x10002d8d
+afvbj~?ImageHandle
 '
 EXPECT="1
 "
 run_test
 
-NAME='afa-ArgName'
+NAME='afvb-ArgName'
 FILE=../../bins/efi/bootia32.efi
 BROKEN=
 ARGS=
 CMDS='af
-afa 8 ImageHandle blah @ 0x10002d8d
-afa-ImageHandle
-afa~?ImageHandle
+afvb 8 ImageHandle blah @ 0x10002d8d
+afvb-ImageHandle
+afvb~?ImageHandle
 '
 EXPECT="0
 "
 run_test
 
 
-NAME='afv & afvn'
+NAME='afvr & afvrn'
 FILE=../../bins/efi/bootia32.efi
 BROKEN=
 ARGS=
 CMDS='af
-afv esi myreg int @ 0x10002d8d
-afv~?myreg
-afvn myreg blah
-afv~?blah
+afvr esi myreg int @ 0x10002d8d
+afvr~?myreg
+afvrn myreg blah
+afvr~?blah
 '
 EXPECT="1
 1
 "
 run_test
 
-NAME='afv idx & afv*'
+NAME='afvr idx & afvr*'
 FILE=../../bins/efi/bootia32.efi
 BROKEN=
 ARGS=
 CMDS='af
-afv esi myreg int @ 0x10002d8d
-afv*~?myreg
-afv*~?int
+afvr esi myreg int @ 0x10002d8d
+afvr*~?myreg
+afvr*~?int
 '
 EXPECT="1
 1
 "
 run_test
 
-NAME='afv-name'
+NAME='afvr-name'
 FILE=../../bins/efi/bootia32.efi
 BROKEN=
 ARGS=
 CMDS='af
-afv esi myreg int @ 0x10002d8d
-afv-myreg
-afv~?myreg
+afvr esi myreg int @ 0x10002d8d
+afvr-myreg
+afvr~?myreg
 '
 EXPECT="0
 "
 run_test
 
-NAME='afa-* afv-*'
+NAME='afvb-* afvr-*'
 FILE=../../bins/efi/bootia32.efi
 ARGS=
 BROKEN=
 CMDS='af
-afa-*
-afv-*
-afa~?
-afv~?
+afvb-*
+afvr-*
+afvb~?
+afvr~?
 '
 EXPECT="0
 0
 "
 run_test
 
-#TODO AFAG AFAS AFVG AFVS
+#TODO sfvbg afvbs afvrg afvrs
 
 NAME='anal vars count'
 FILE=../../bins/mach0/ls-osx-x86_64
 ARGS=
 CMDS='af
-afa~?
+afvb~?
 '
 EXPECT="14
 "
@@ -302,8 +302,8 @@ NAME='anal vars retype'
 FILE=../../bins/mach0/ls-osx-x86_64
 ARGS=
 CMDS='af
-afat local_30h char
-afa~l_30h
+afvbt local_30h char
+afvb~l_30h
 '
 EXPECT="var char local_30h @ rbp-0x30
 "
@@ -313,8 +313,8 @@ NAME='anal vars rename'
 FILE=../../bins/mach0/ls-osx-x86_64
 ARGS=
 CMDS='af
-afan local_30h newname
-afa~newname
+afvbn local_30h newname
+afvb~newname
 '
 EXPECT="var int newname @ rbp-0x30
 "
@@ -324,8 +324,8 @@ NAME='vars commenting'
 FILE=malloc://1024
 ARGS=
 CMDS='af
-afa 8 local_8h int
-Ca 0x8 comment
+afvb 8 local_8h int
+Cvb 0x8 comment
 pd1~comment
 '
 EXPECT="|           ; arg int local_8h @ rbp+0x8    ; comment

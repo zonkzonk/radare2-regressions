@@ -128,15 +128,15 @@ BROKEN=
 ARGS=
 CMDS='e dir.projects = /tmp/
 af
-afv edi blahblah typeR @ 0x10002d8d
-afa 8 ImageHandle blah @ 0x10002d8d
+afvr edi blahblah typeR @ 0x10002d8d
+afvb 8 ImageHandle blah @ 0x10002d8d
 Ps var > /dev/null
 Pc var~ImageHandle
 Pc var~blahblah
 rm /tmp/var
 '
-EXPECT='afa 8 ImageHandle blah @ 0x10002d8d
-afv edi blahblah typeR @ 0x10002d8d
+EXPECT='afvb 8 ImageHandle blah @ 0x10002d8d
+afvr edi blahblah typeR @ 0x10002d8d
 '
 run_test
 

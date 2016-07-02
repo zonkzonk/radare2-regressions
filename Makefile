@@ -153,6 +153,9 @@ r2:
 keystone:
 	@sh run_tests.sh t.extras/keystone
 
+swf:
+		@sh run_tests.sh t.extras/swf
+
 broken:
 	grep BROKEN=1 t -r -l
 

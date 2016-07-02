@@ -33,6 +33,7 @@ FILE=malloc://1024
 CMDS="
 wx f0cf @ 0x14e
 e asm.arch=avr
+s 0x14e
 ao 1 @ 0x14e ~jump[1]
 "
 EXPECT='0x00000130

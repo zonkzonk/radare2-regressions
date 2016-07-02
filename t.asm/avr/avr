@@ -183,16 +183,16 @@ test_vector "${PLUGIN}" "cpi r24, 0xf5" 853f 2
 test_vector "${PLUGIN}" "cpc r25, r18" 9207 2
 test_vector "${PLUGIN}" "dec r0" 0a94 2
 test_vector "${PLUGIN}" "eor r24, r25" 8927 2
-test_vector "${PLUGIN}" "elpm r0, Z+" 0790 2
+test_vector "${PLUGIN}" "elpm r0, z+" 0790 2
 test_vector "${PLUGIN}" "in r28, 0x3d" cdb7 2
 test_vector "${PLUGIN}" "inc r14" e394 2
 test_vector "${PLUGIN}" "jmp 0x246" 0c942301 4
 test_vector "${PLUGIN}" "jmp 0x20246" 0d942301 4
 test_vector "${PLUGIN}" "jmp 0x2c0246" bc942301 4
 test_vector "${PLUGIN}" "jmp 0x400246" 0c952301 4
-test_vector "${PLUGIN}" "ld r24, Z" 8081 2
+test_vector "${PLUGIN}" "ld r24, z" 8081 2
 test_vector "${PLUGIN}" "ldi r25, 0x07" 97e0 2
-test_vector "${PLUGIN}" "ldd r9, Z+1" 9180 2
+test_vector "${PLUGIN}" "ldd r9, z+1" 9180 2
 test_vector "${PLUGIN}" "lds r24, 0x102" 80910201 4
 test_vector "${PLUGIN}" "lsl r24" 880f 2
 test_vector "${PLUGIN}" "mov r0, r31" 0f2e 2
@@ -211,8 +211,8 @@ test_vector "${PLUGIN}" "sbci r19, 0xff" 3f4f 2
 test_vector "${PLUGIN}" "sbiw r24, 0x01" 0197 2
 test_vector "${PLUGIN}" "sei" 7894 2
 test_vector "${PLUGIN}" "ser r24" 8fef 2
-test_vector "${PLUGIN}" "std Z+0, r1" 1082 2
-test_vector "${PLUGIN}" "std Z+1, r1" 1182 2
+test_vector "${PLUGIN}" "std z+0, r1" 1082 2
+test_vector "${PLUGIN}" "std z+1, r1" 1182 2
 test_vector "${PLUGIN}" "sts 0x7c0, r25" 9093c007 4
 
 NAME="${PLUGIN} DISasm: [sts] - jump check"

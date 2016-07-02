@@ -150,6 +150,9 @@ rax2:
 r2:
 	@sh run_tests.sh t.tools/r2
 
+keystone:
+	@sh run_tests.sh t.extras/keystone
+
 broken:
 	grep BROKEN=1 t -r -l
 

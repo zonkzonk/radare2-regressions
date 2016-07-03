@@ -9,6 +9,7 @@ EXPECT='type     EXEC (Executable file)
 file     ../../bins/pe/a.exe
 fd       7
 size     0x1600
+iorw     false
 blksz    0x0
 mode     -r--
 block    0x100
@@ -52,6 +53,7 @@ EXPECT='type     EXEC (Executable file)
 file     ../../bins/pe/a2.exe
 fd       7
 size     0x6ed1
+iorw     false
 blksz    0x0
 mode     -r--
 block    0x100
@@ -95,6 +97,7 @@ EXPECT='type     EXEC (Executable file)
 file     ../../bins/pe/base.exe
 fd       7
 size     0x34df9
+iorw     false
 blksz    0x0
 mode     -r--
 block    0x100

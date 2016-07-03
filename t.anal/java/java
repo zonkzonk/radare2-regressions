@@ -186,6 +186,7 @@ EXPECT='type     JAVA CLASS
 file     malloc://1023
 fd       42
 size     0x3ff
+iorw     false
 blksz    0x0
 mode     -r--
 block    0x100

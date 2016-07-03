@@ -26,8 +26,9 @@ iz*
 EXPECT="file     malloc://1025
 fd       42
 size     0x401
+iorw     true
 blksz    0x0
-mode     -r--
+mode     -rwx
 block    0x100
 format   any
 [Imports]
@@ -100,8 +101,9 @@ iI*
 EXPECT="file     malloc://1024
 fd       42
 size     0x400
+iorw     true
 blksz    0x0
-mode     -r--
+mode     -rwx
 block    0x100
 format   any
 e cfg.bigendian=false
@@ -140,6 +142,7 @@ CMDS="i~!fd"
 EXPECT='type     EXEC (Executable file)
 file     ../bins/elf/x86-helloworld-gcc
 size     0x1323
+iorw     false
 blksz    0x0
 mode     -r--
 block    0x100
@@ -219,8 +222,9 @@ EXPECT='type     JAVA CLASS
 file     malloc://1024
 fd       42
 size     0x400
+iorw     true
 blksz    0x0
-mode     -r--
+mode     -rwx
 block    0x100
 format   java
 havecode true
@@ -512,6 +516,7 @@ CMDS="i~!fd"
 EXPECT='type     EXEC (Executable file)
 file     ../bins/elf/hello-linux-x86_64
 size     0x1a36
+iorw     false
 blksz    0x0
 mode     -r--
 block    0x100
@@ -828,6 +833,7 @@ CMDS="i"
 EXPECT='file     ../bins/elf/hello-linux-x86_64
 fd       42
 size     0x1a36
+iorw     false
 blksz    0x0
 mode     -r--
 block    0x100

@@ -36,7 +36,7 @@ CMDS='
 wx 666f6f00
 /! ff
 '
-EXPECT='0x00000000 hit0_0 "fo"
+EXPECT='0x00000000 hit0_0 "foo"
 '
 run_test
 

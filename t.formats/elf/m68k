@@ -1,0 +1,32 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+NAME='ELF: m68k.elf'
+FILE=../../bins/elf/busybox.m68k
+CMDS="f sym.init = 0x80001a30
+f sym.fini = 0x800019b0
+f sub.exit = 0x80001450
+pi 20
+"
+EXPECT='suba.l a6, a6
+move.l (sp)+, d0
+movea.l sp, a0
+pea (sp)
+pea (a1)
+pea sym.init
+pea sym.fini
+pea (a0)
+move.l d0, -(sp)
+pea 0x800963de.l
+bsr.l sub.exit
+illegal
+link.w a6, 0
+move.l -0x7fea4ee4, d0
+subi.l -0x7fea4ee7, d0
+moveq 0x6, d1
+cmp.l d0, d1
+bcc.b 0x80000df6
+lea 0.l, a0
+tst.l a0
+'
+run_test

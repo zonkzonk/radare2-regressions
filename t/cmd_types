@@ -1,6 +1,39 @@
 #!/bin/sh
 # GPL 3+ - Copyright (C) 2011-2012  pancake, Edd Barrett, Simon Ruderich
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
+NAME='typelinks'
+FILE=malloc://1024
+ARGS=-w
+CMDS="wx 41574156415541544989f4555389fd4881eca8030000488b3e64488b042528000000488984249803000031c0e82fb30000488d35d54e0100bf0600000 
+e asm.comments=false
+aa
+tl char 
+s +8
+tl int
+s -8
+pd 7
+"
+EXPECT="(char)
+0x00000000 = 0x41
+|           0x00000001      57             push rdi
+|           0x00000002      4156           push r14
+|           0x00000004      4155           push r13
+|           0x00000006      4154           push r12
+[0x00000000]> pd 10
+(char)
+0x00000000 = 0x41
+|           0x00000001      57             push rdi
+|           0x00000002      4156           push r14
+|           0x00000004      4155           push r13
+|           0x00000006      4154           push r12
+(int)
+0x00000008 = 1442089289
+|           0x0000000e      fd             std
+|           0x0000000f      4881eca80300.  sub rsp, 0x3a8
+|           0x00000016      488b3e         mov rdi, qword [rsi]
+|           0x00000019      64488b042528.  mov rax, qword fs:[0x28]
+"
+run_test
 
 NAME='t?'
 FILE=-
@@ -27,6 +60,10 @@ uint8_t
 uint16_t
 uint32_t
 uint64_t
+int8_t
+int16_t
+int32_t
+int64_t
 '
 run_test
 
@@ -245,6 +282,10 @@ uint8_t
 uint16_t
 uint32_t
 uint64_t
+int8_t
+int16_t
+int32_t
+int64_t
 name
 date
 addr
@@ -276,6 +317,10 @@ uint8_t
 uint16_t
 uint32_t
 uint64_t
+int8_t
+int16_t
+int32_t
+int64_t
 name
 date
 addr
@@ -303,6 +348,10 @@ tk uint8_t = type
 tk uint16_t = type
 tk uint32_t = type
 tk uint64_t = type
+tk int8_t = type
+tk int16_t = type
+tk int32_t = type
+tk int64_t = type
 tk type.unsigned int = i
 tk type.unsigned char = b
 tk type.unsigned short = w
@@ -315,9 +364,28 @@ tk type.char = b
 tk type.char * = *z
 tk type.const char* = *z
 tk type.uint8_t = b
-tk type.uint16_t = w
-tk type.uint32_t = d
-tk type.uint64_t = q
+tk type.int16_t = w
+tk type.int32_t = d
+tk type.int64_t = q
+tk type.unsigned int.size = 32
+tk type.unsigned char.size = 8
+tk type.unsigned short.size = 16
+tk type.short.size = 16
+tk type.int.size = 32
+tk type.long.size = 64
+tk type.long long.size = 64
+tk type.void *.size = 64
+tk type.char.size = 8
+tk type.char *.size = 64
+tk type.const char*.size = 64
+tk type.uint8_t.size = 8
+tk type.uint16_t.size = 16
+tk type.uint32_t.size = 32
+tk type.uint64_t.size = 64
+tk type.int8_t.size = 8
+tk type.int16_t.size = 16
+tk type.int32_t.size = 32
+tk type.int64_t.size = 64
 '
 run_test
 

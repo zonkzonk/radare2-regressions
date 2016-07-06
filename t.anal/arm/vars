@@ -7,7 +7,7 @@ BROKEN=
 FILE=../../bins/elf/armcall
 CMDS='
 afr@main
-afCa@sym.call
+afva@sym.call
 pdf@sym.call
 '
 EXPECT='            ;-- $a_10:
@@ -34,7 +34,7 @@ BROKEN=
 FILE=../../bins/elf/armcall
 CMDS='
 af@main
-afCa@main
+afva@main
 pdf@main
 '
 EXPECT='            ;-- main:

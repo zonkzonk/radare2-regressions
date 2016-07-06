@@ -8,7 +8,7 @@ CMDS='
 aa
 s sym.fastcaslled
 afC fastcall
-afCa
+afva
 pdf~arg,local
 '
 EXPECT='|           ; var int local_20h @ ebp-0x20

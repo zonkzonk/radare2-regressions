@@ -40,8 +40,6 @@ binsz    5632
 compiled Wed Apr 23 23:56:24 2014
 hdr.csum 0x00005ee2
 cmp.csum 0x00005ee2
-crc32    0x00005ee2
-crc32c   0x00005ee2
 '
 run_test
 
@@ -84,8 +82,6 @@ binsz    28369
 compiled Fri Dec 12 01:11:54 2014
 hdr.csum 0x000079a3
 cmp.csum 0x000079a3
-crc32    0x000079a3
-crc32c   0x000079a3
 '
 run_test
 
@@ -128,7 +124,5 @@ binsz    216569
 compiled Wed Feb 12 22:16:24 2014
 hdr.csum 0x0003881f
 cmp.csum 0x0003881f
-crc32    0x0003881f
-crc32c   0x0003881f
 '
 run_test

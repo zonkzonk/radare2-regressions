@@ -51,7 +51,7 @@ pv @0x20000000
 '
 EXPECT='0x20000001
 0x10000001
-0x12
+0x00000012
 '
 run_test
 
@@ -124,7 +124,7 @@ aes
 .aer*
 pv @0x20000000
 '
-EXPECT='0x64
+EXPECT='0x00000064
 '
 run_test
 
@@ -168,7 +168,7 @@ aes
 .aer*
 pv @ 0x20000004
 '
-EXPECT='0x1337
+EXPECT='0x00001337
 '
 run_test
 
@@ -376,7 +376,7 @@ aer?edi
 pv @0x10000000
 '
 EXPECT='0x10000001
-0x12
+0x00000012
 '
 run_test
 
@@ -401,7 +401,7 @@ aer?edi
 pv @0x10000000
 '
 EXPECT='0x0fffffff
-0x12
+0x00000012
 '
 run_test
 
@@ -426,7 +426,7 @@ aer?edi
 pv @0x10000000
 '
 EXPECT='0x10000002
-0x1234
+0x00001234
 '
 run_test
 
@@ -451,7 +451,7 @@ aer?edi
 pv @0x10000000
 '
 EXPECT='0x0ffffffe
-0x1234
+0x00001234
 '
 run_test
 
@@ -476,7 +476,7 @@ aer?edi
 pv @0x10000000
 '
 EXPECT='0x10000004
-0x123456
+0x00123456
 '
 run_test
 
@@ -501,7 +501,7 @@ aer?edi
 pv @0x10000000
 '
 EXPECT='0x0ffffffc
-0x123456
+0x00123456
 '
 run_test
 
@@ -599,7 +599,7 @@ wx 05 @ 0x10000004
 pv @ 0x10000004
 aer?cf
 '
-EXPECT='0x1
+EXPECT='0x00000001
 0x00000000
 '
 run_test
@@ -623,7 +623,7 @@ aes
 pv @ 0x20000004
 aer?cf
 '
-EXPECT='0x9
+EXPECT='0x00000009
 0x00000001
 '
 run_test
@@ -668,7 +668,7 @@ aes
 .aer*
 pv @ 0x20000000
 '
-EXPECT='0x1337
+EXPECT='0x00001337
 '
 run_test
 
@@ -847,7 +847,7 @@ aer?zf
 pv @ 0x20000000
 '
 EXPECT='0x00000001
-0x0
+0x00000000
 '
 run_test
 
@@ -873,7 +873,7 @@ aer?sf
 pv @ 0x20000000
 '
 EXPECT='0x00000001
-0xff
+0x000000ff
 '
 run_test
 
@@ -901,7 +901,7 @@ pv @ 0x20000000
 '
 EXPECT='0x00000001
 0x00000000
-0x0
+0x00000000
 '
 run_test
 
@@ -927,7 +927,7 @@ aer?sf
 pv @ 0x20000000
 '
 EXPECT='0x00000000
-0x1
+0x00000001
 '
 run_test
 
@@ -952,7 +952,7 @@ aes
 .aer*
 pv @ 0x20000014
 '
-EXPECT='0x1348
+EXPECT='0x00001348
 '
 run_test
 
@@ -991,7 +991,7 @@ EXPECT='0x11111111
 0x22222222
 0x33333333
 0x44444444
-0x108000
+0x00108000
 0x55555555
 0x66666666
 0x77777777

@@ -51,3 +51,170 @@ ao 1 @ 0x15e~jump[1]
 EXPECT='0x00006824
 '
 run_test
+
+NAME="avr rjmp - relative jump forward"
+BROKEN=
+FILE=malloc://8192
+CMDS="
+wx 00c0 01c0 02c0 03c0 7ec0 7fc0 80c0 81c0 @ 0x00
+wx fec0 ffc0 00c1 01c1 7ec1 7fc1 80c1 81c1 @ 0x10
+wx fec1 ffc1 00c2 01c2 7ec2 7fc2 80c2 81c2 @ 0x20
+wx fec2 ffc2 00c3 01c3 7ec3 7fc3 80c3 81c3 @ 0x30
+wx fec3 ffc3 00c4 01c4 7ec4 7fc4 80c4 81c4 @ 0x40
+wx fec4 ffc4 00c5 01c5 7ec5 7fc5 80c5 81c5 @ 0x50
+wx fec5 ffc5 00c6 01c6 7ec6 7fc6 80c6 81c6 @ 0x60
+wx fec6 ffc6 00c7 01c7 7ec7 7fc7 80c7 81c7 @ 0x70
+wx fec7 ffc7 @ 0x80
+e asm.arch=avr
+aoe 66 @ 0x0
+"
+EXPECT='0x0 2,PC,=
+0x2 6,PC,=
+0x4 10,PC,=
+0x6 14,PC,=
+0x8 262,PC,=
+0xa 266,PC,=
+0xc 270,PC,=
+0xe 274,PC,=
+0x10 526,PC,=
+0x12 530,PC,=
+0x14 534,PC,=
+0x16 538,PC,=
+0x18 790,PC,=
+0x1a 794,PC,=
+0x1c 798,PC,=
+0x1e 802,PC,=
+0x20 1054,PC,=
+0x22 1058,PC,=
+0x24 1062,PC,=
+0x26 1066,PC,=
+0x28 1318,PC,=
+0x2a 1322,PC,=
+0x2c 1326,PC,=
+0x2e 1330,PC,=
+0x30 1582,PC,=
+0x32 1586,PC,=
+0x34 1590,PC,=
+0x36 1594,PC,=
+0x38 1846,PC,=
+0x3a 1850,PC,=
+0x3c 1854,PC,=
+0x3e 1858,PC,=
+0x40 2110,PC,=
+0x42 2114,PC,=
+0x44 2118,PC,=
+0x46 2122,PC,=
+0x48 2374,PC,=
+0x4a 2378,PC,=
+0x4c 2382,PC,=
+0x4e 2386,PC,=
+0x50 2638,PC,=
+0x52 2642,PC,=
+0x54 2646,PC,=
+0x56 2650,PC,=
+0x58 2902,PC,=
+0x5a 2906,PC,=
+0x5c 2910,PC,=
+0x5e 2914,PC,=
+0x60 3166,PC,=
+0x62 3170,PC,=
+0x64 3174,PC,=
+0x66 3178,PC,=
+0x68 3430,PC,=
+0x6a 3434,PC,=
+0x6c 3438,PC,=
+0x6e 3442,PC,=
+0x70 3694,PC,=
+0x72 3698,PC,=
+0x74 3702,PC,=
+0x76 3706,PC,=
+0x78 3958,PC,=
+0x7a 3962,PC,=
+0x7c 3966,PC,=
+0x7e 3970,PC,=
+0x80 4222,PC,=
+0x82 4226,PC,=
+'
+run_test
+
+NAME="avr rjmp - relative jump backward"
+BROKEN=
+FILE=malloc://8192
+CMDS="
+wx 00c8 01c8 7ec8 7fc8 80c8 81c8 fec8 ffc8 @ 0x1000
+wx 00c9 01c9 7ec9 7fc9 80c9 81c9 fec9 ffc9 @ 0x1010
+wx 00ca 01ca 7eca 7fca 80ca 81ca feca ffca @ 0x1020
+wx 00cb 01cb 7ecb 7fcb 80cb 81cb fecb ffcb @ 0x1030
+wx 00cc 01cc 7ecc 7fcc 80cc 81cc fecc ffcc @ 0x1040
+wx 00cd 01cd 7ecd 7fcd 80cd 81cd fecd ffcd @ 0x1050
+wx 00ce 01ce 7ece 7fce 80ce 81ce fece ffce @ 0x1060
+wx 00cf 01cf 7ecf 7fcf 80cf 81cf fecf ffcf @ 0x1070
+e asm.arch=avr
+aoe 64 @ 0x1000
+"
+EXPECT='0x1000 2,PC,=
+0x1002 6,PC,=
+0x1004 258,PC,=
+0x1006 262,PC,=
+0x1008 266,PC,=
+0x100a 270,PC,=
+0x100c 522,PC,=
+0x100e 526,PC,=
+0x1010 530,PC,=
+0x1012 534,PC,=
+0x1014 786,PC,=
+0x1016 790,PC,=
+0x1018 794,PC,=
+0x101a 798,PC,=
+0x101c 1050,PC,=
+0x101e 1054,PC,=
+0x1020 1058,PC,=
+0x1022 1062,PC,=
+0x1024 1314,PC,=
+0x1026 1318,PC,=
+0x1028 1322,PC,=
+0x102a 1326,PC,=
+0x102c 1578,PC,=
+0x102e 1582,PC,=
+0x1030 1586,PC,=
+0x1032 1590,PC,=
+0x1034 1842,PC,=
+0x1036 1846,PC,=
+0x1038 1850,PC,=
+0x103a 1854,PC,=
+0x103c 2106,PC,=
+0x103e 2110,PC,=
+0x1040 2114,PC,=
+0x1042 2118,PC,=
+0x1044 2370,PC,=
+0x1046 2374,PC,=
+0x1048 2378,PC,=
+0x104a 2482,PC,=
+0x104c 2634,PC,=
+0x104e 2638,PC,=
+0x1050 2642,PC,=
+0x1052 2646,PC,=
+0x1054 2898,PC,=
+0x1056 2902,PC,=
+0x1058 2906,PC,=
+0x105a 2910,PC,=
+0x105c 3162,PC,=
+0x105e 3166,PC,=
+0x1060 3170,PC,=
+0x1062 3174,PC,=
+0x1064 3426,PC,=
+0x1066 3430,PC,=
+0x1068 3434,PC,=
+0x106a 3438,PC,=
+0x106c 3690,PC,=
+0x106e 3694,PC,=
+0x1070 3698,PC,=
+0x1072 3702,PC,=
+0x1074 3954,PC,=
+0x1076 3958,PC,=
+0x1078 3962,PC,=
+0x107a 3966,PC,=
+0x107c 4218,PC,=
+0x107e 4222,PC,=
+'
+run_test

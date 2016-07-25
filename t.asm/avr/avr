@@ -6,8 +6,8 @@ test_vector() {
 NAME="${1} DISasm: [${3} => ${2} ]"
 FILE=malloc://32
 if [ "${5}" = "br" ]; then
-		BROKEN=1
-	fi
+	BROKEN=1
+fi
 CMDS='
 e asm.arch='${1}'
 wx '${3}'

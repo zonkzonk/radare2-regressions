@@ -13,3 +13,20 @@ EXPECT='C 0x00000328 jmp fcn.0000029e
 '
 run_test
 
+NAME="avr functions"
+FILE=-
+CMDS="
+e asm.arch=avr
+wx 1895
+ao 1~fam[1]
+af
+afi~type[1]
+afi~name[1]
+"
+EXPECT='priv
+int
+int.00000000
+'
+run_test
+
+

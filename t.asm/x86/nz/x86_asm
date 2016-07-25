@@ -455,11 +455,12 @@ test_vector "${PLUGIN}" "movd xmm0, dword [eax]" 660f6e00 "br"
 test_vector "${PLUGIN}" "mov eax, 0" b800000000 
 test_vector "${PLUGIN}" "mov eax, 0x8049000" b800900408 
 test_vector "${PLUGIN}" "mov eax, 1" b801000000 
-test_vector "${PLUGIN}" "mov [eax+2], ebx" 899802000000 
+test_vector "${PLUGIN}" "mov [eax+2], ebx" 895802 
+test_vector "${PLUGIN}" "mov [eax+345], ebx" 899859010000
 test_vector "${PLUGIN}" "mov eax, 300" b82c010000 
 test_vector "${PLUGIN}" "mov eax, 3" b803000000 
-test_vector "${PLUGIN}" "mov [eax+4], eax" 898004000000 
-test_vector "${PLUGIN}" "mov [eax+4], ecx" 898804000000 
+test_vector "${PLUGIN}" "mov [eax+4], eax" 894004 
+test_vector "${PLUGIN}" "mov [eax+4], ecx" 894804
 test_vector "${PLUGIN}" "mov eax, cr0" 0f20 "br"
 test_vector "${PLUGIN}" "mov eax, dr0" 0f21 "br"
 test_vector "${PLUGIN}" "mov eax, dword [0]" 8b0500000000 
@@ -497,8 +498,8 @@ test_vector "${PLUGIN}" "mov [ebp+4], eax" 898504000000
 test_vector "${PLUGIN}" "mov [ebp+4], ebx" 899d04000000 
 test_vector "${PLUGIN}" "mov [ebp+4], ecx" 898d04000000
 test_vector "${PLUGIN}" "mov ebx, 0" bb00000000 
-test_vector "${PLUGIN}" "mov [ebx+2], ebx" 899b02000000
-test_vector "${PLUGIN}" "mov [ebx-2], ecx" 898bfeffffff 
+test_vector "${PLUGIN}" "mov [ebx+2], ebx" 895b02
+test_vector "${PLUGIN}" "mov [ebx-2], ecx" 894bfe
 test_vector "${PLUGIN}" "mov ebx, -3" bbfdffffff 
 test_vector "${PLUGIN}" "mov [ebx+454], ebx" 899bc6010000 
 test_vector "${PLUGIN}" "mov [ebx-552], edx" 8993d8fdffff 
@@ -514,9 +515,10 @@ test_vector "${PLUGIN}" "mov edx, 0" ba00000000
 test_vector "${PLUGIN}" "mov esi, 0" be00000000 
 test_vector "${PLUGIN}" "mov esi, [esi + 8]" 8bb608000000 
 test_vector "${PLUGIN}" "mov esp, 0" bc00000000 
-test_vector "${PLUGIN}" "mov [esp-12], eax" 898424f4ffffff
-test_vector "${PLUGIN}" "mov [esp+2], ebx" 899c2402000000
-test_vector "${PLUGIN}" "mov [esp-2], ebx" 899c24feffffff
+test_vector "${PLUGIN}" "mov [esp-12], eax" 894424f4
+test_vector "${PLUGIN}" "mov [esp+2], ebx" 895c2402
+test_vector "${PLUGIN}" "mov [esp-2], ebx" 895c24fe
+test_vector "${PLUGIN}" "mov [esp-233], ebx" 899c2417ffffff
 test_vector "${PLUGIN}" "mov [esp+454], ebx" 899c24c6010000 
 test_vector "${PLUGIN}" "mov es, word [eax]" 8e00 "br"
 test_vector "${PLUGIN}" "movhlps xmm0, xmm0" 0f12 "br"

@@ -166,14 +166,10 @@ run_test
 
 
 NAME='call-convention'
-FILE=malloc://1024
+FILE=../../bins/elf/x86-simple
 CMDS='
-e anal.hasnext=0
-e anal.eobjmp=false
-e asm.arch=x86
-e asm.bits=32
-wx 5589e583ec0c8b45088945fcc745f800000000c745f4000000008b45f43b45fc0f8d1b0000008b45f48b4df801c1894df88b45f405010000008945f4e9d9ffffff8b45f883c40c5dc3
-af
+aa
+s entry0
 afC stdcall
 afi~call-convention
 '

@@ -1,12 +1,6 @@
 #include <r_util.h>
 #include "minunit.h"
 
-
-void chk(const char *s, const char *g, int o) {
-	int r = r_str_glob (s, g);
-	printf ("%d %d   %s (%s)\n", r, o, s, g);
-}
-
 bool test_r_glob(void) {
 	mu_assert_eq (r_str_glob ("foo.c", "*.c"), 1, "foo.c -> *.c -> 1");
 	mu_assert_eq (r_str_glob ("foo.c", "*.d"), 0, "foo.c -> *.d -> 0");

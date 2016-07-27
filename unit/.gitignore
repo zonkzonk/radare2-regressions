@@ -7,3 +7,4 @@ test_debruijn
 test_queue
 test_bitmap
 test_stack
+test_glob

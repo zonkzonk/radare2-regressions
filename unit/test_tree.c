@@ -1,8 +1,9 @@
 #include <r_util.h>
+#include "minunit.h"
 
 void sum_node(RTreeNode *n, RTreeVisitor *vis) {
-	int cur = (int)vis->data;
-	vis->data = (void *)(size_t)(cur + (int)n->data);
+	int cur = (int)(intptr_t)vis->data;
+	vis->data = (void *)(intptr_t)(cur + (int)(intptr_t)n->data);
 }
 
 void add_to_list(RTreeNode *n, RTreeVisitor *vis) {
@@ -10,35 +11,18 @@ void add_to_list(RTreeNode *n, RTreeVisitor *vis) {
 	r_list_append(res, n->data);
 }
 
-void check_list(RList *act, RList *exp, char *descr) {
-	RListIter *ita = r_list_iterator(act);
-	RListIter *ite = r_list_iterator(exp);
+#define check_list(act, exp, descr) do { \
+		RListIter *ita = r_list_iterator(act); \
+		RListIter *ite = r_list_iterator(exp); \
+		while (r_list_iter_next(ita) && r_list_iter_next(ite)) { \
+			int a = (int)(intptr_t)r_list_iter_get(ita); \
+			int e = (int)(intptr_t)r_list_iter_get(ite); \
+			mu_assert_eq (a, e, descr); \
+		} \
+		mu_assert ("lists must have same elements", (!ita && !ite)); \
+	} while (0)
 
-	while (r_list_iter_next(ita) && r_list_iter_next(ite)) {
-		int a = (int)r_list_iter_get(ita);
-		int e = (int)r_list_iter_get(ite);
-
-		if (a != e) {
-			printf("[-][%s] test failed (actual: %d; expected: %d)\n", descr, a, e);
-		}
-	}
-
-	if (!ita && !ite) {
-		printf("[+][%s] test passed (lists have same elements)\n", descr);
-	} else {
-		printf("[-][%s] test failed (one list shorter or different)\n", descr);
-	}
-}
-
-void check (int n, int exp, char *descr) {
-	if (n == exp) {
-		printf("[+][%s] test passed (actual: %d; expected: %d)\n", descr, n, exp);
-	} else {
-		printf("[-][%s] test failed (actual: %d; expected: %d)\n", descr, n, exp);
-	}
-}
-
-int main(int argc, char **argv) {
+bool test_r_tree() {
 	RTreeVisitor calc = { 0 };
 	RTreeVisitor lister = { 0 };
 	RTree *t = r_tree_new();
@@ -48,14 +32,14 @@ int main(int argc, char **argv) {
 
 	r_tree_add_node (t, NULL, (void *)1);
 	r_tree_bfs(t, &calc);
-	check((int)calc.data, 1, "calc.data.root");
+	mu_assert_eq(1, (int)(intptr_t)calc.data, "calc.data.root");
 
 	r_tree_add_node(t, t->root, (void *)2);
 	RTreeNode *s = r_tree_add_node(t, t->root, (void *)3);
 	RTreeNode *u = r_tree_add_node(t, t->root, (void *)4);
 	calc.data = (void *)0;
 	r_tree_bfs(t, &calc);
-	check((int)calc.data, 10, "calc.data.childs");
+	mu_assert_eq(10, (int)(intptr_t)calc.data, "calc.data.childs");
 
 	r_tree_add_node(t, s, (void *)5);
 	r_tree_add_node(t, s, (void *)10);
@@ -113,5 +97,14 @@ int main(int argc, char **argv) {
 	r_list_free((RList *)lister.data);
 
 	r_tree_free(t);
-	return 0;
+	mu_end;
+}
+
+int all_tests() {
+	mu_run_test(test_r_tree);
+	return tests_passed != tests_run;
+}
+
+int main(int argc, char **argv) {
+	return all_tests();
 }

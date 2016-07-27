@@ -8,3 +8,4 @@ test_queue
 test_bitmap
 test_stack
 test_glob
+test_tree

@@ -331,3 +331,16 @@ pd1~comment
 EXPECT="|           ; arg int local_8h @ rbp+0x8    ; comment
 "
 run_test
+
+NAME='vars display in debugger'
+FILE=../../bins/elf/fast
+ARGS=
+CMDS='aa
+s 0x0804843b
+afvbd arg_ch
+afvbd local_10h
+'
+EXPECT="pf d @ebp+0xc
+pf d @ebp-0x10
+"
+run_test

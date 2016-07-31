@@ -129,7 +129,21 @@ CMDS='!rahash2 -a md5 -x "61646d696e" -s "admin"'
 BROKEN=
 EXPECT_ERR='Hashstring already defined
 '
+run_test
 
+NAME='rahash2 -a luhn -s "5105105105105100"'
+CMDS='!rahash2 -a luhn -s "5105105105105100"'
+BROKEN=
+EXPECT='0x00000000-0x0000000f luhn: 00
+'
+
+run_test
+
+NAME='rahash2 -a luhn -s "4408041234567890"'
+CMDS='!rahash2 -a luhn -s "4408041234567890"'
+BROKEN=
+EXPECT='0x00000000-0x0000000f luhn: 07
+'
 run_test
 
 NAME='rahash2 -L'
@@ -155,6 +169,7 @@ EXPECT='  md5
   base64
   base91
   punycode
+  luhn
   rc2
   rc4
   rc6

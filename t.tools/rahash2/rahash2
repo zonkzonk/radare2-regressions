@@ -179,6 +179,7 @@ EXPECT='  md5
   rol
   rot
   blowfish
+  cps2
 '
 
 run_test

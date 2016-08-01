@@ -59,7 +59,7 @@ EXPECT='0x00002920 "alloc"
 0x00002cec sym.imp.objc_msgSend
 0x00002d04 sym.imp.NSLog
 0x00002d50 sym.imp.objc_msgSend
-0x00002d84 "/.."
+0x00002d84 "Directory Not found "
 0x00002d88 sym.imp.puts
 0x00002dac sym.imp.objc_msgSend
 '

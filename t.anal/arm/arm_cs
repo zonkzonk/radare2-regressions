@@ -27,7 +27,7 @@ ptr: 0x00000028
 refptr: 4
 size: 4
 type: load
-esil: 8,$$,+,32,+,[4],ip,=
+esil: 2,2,8,$$,+,>>,<<,32,+,[4],ip,=
 stack: null
 family: cpu
 address: 0x4

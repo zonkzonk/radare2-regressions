@@ -59,3 +59,28 @@ afi~size
 EXPECT=' size: 19
 '
 run_test
+
+NAME='ao 4~bytes'
+CMDS='e asm.arch=x86
+e asm.bits=32
+e anal.hasnext=0
+wx 554889e5415741564155
+ao 3~bytes
+'
+EXPECT='bytes: 55
+bytes: 48
+bytes: 89e5
+'
+run_test
+
+NAME='af fwd-jmp'
+BROKEN=1
+CMDS='e asm.arch=x86
+e asm.bits=32
+wx 558bec6800304000e86300000083c404eb0d6808304000e85400000083c4046814304000e84700000083c40433c05dc3
+af
+afb
+'
+EXPECT='
+'
+run_test

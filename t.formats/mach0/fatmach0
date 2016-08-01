@@ -1,5 +1,5 @@
 #!/bin/sh
-# LGPLv3 - Copyright (C) 2014  pancake
+# LGPLv3 - Copyright (C) 2014-2016  pancake
 
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 

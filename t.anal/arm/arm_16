@@ -2,7 +2,6 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME="thumb ldr pc-rel analysis"
 FILE=malloc://32
-BROKEN=1
 CMDS="
 e asm.arch=arm
 e asm.bits=16
@@ -13,23 +12,8 @@ EXPECT='            0x00000000      dff80000       ldr.w r0, [pc, 0]           ;
 '
 run_test
 
-NAME="thumb ldr pc-rel analysis"
-BROKEN=1
-FILE=malloc://32
-CMDS="
-e asm.arch=arm
-e asm.bits=16
-wx dff80000 12000000 34000000
-pd 1
-"
-EXPECT='            0x00000000      dff80000       ldr.w r0, [pc, 0]           ; [0x4:4]=18 ; 4
-'
-run_test
-
-# XXX looks like thumb reads 0xffff with LDR R0, [PC, 0]
 NAME="thumb ldr pc-rel emulation"
 FILE=malloc://32
-BROKEN=1
 CMDS="
 e asm.arch=arm
 e asm.bits=16
@@ -53,4 +37,36 @@ afi~size[1]
 EXPECT='8
 '
 
+run_test
+
+NAME="thumb ldr pc-rel analysis"
+FILE=malloc://32
+CMDS="
+e asm.arch=arm
+e asm.bits=16
+wx 0149 014a 014b 0000 1111 2222 3333 4444 5555 6666
+pd 3
+"
+EXPECT='            0x00000000      0149           ldr r1, [pc, 4]             ; [0x8:4]=0x22221111 ; 8
+            0x00000002      014a           ldr r2, [pc, 4]             ; [0x8:4]=0x22221111 ; 8
+            0x00000004      014b           ldr r3, [pc, 4]             ; [0xc:4]=0x44443333 ; 12
+'
+run_test
+
+NAME="thumb ldr+add pc-rel analysis"
+FILE=malloc://32
+CMDS="
+e asm.arch=arm
+e asm.bits=16
+e asm.emu=1
+wx 0249 024a 024b 7944 7a44 7b44 1111 2222 3333 4444 5555 6666 7777
+pd 6
+"
+EXPECT='            0x00000000      0249           ldr r1, [pc, 8]             ; [0xc:4]=0x22221111 ; 12; r1=0x22221111 -> 0xffffff00
+            0x00000002      024a           ldr r2, [pc, 8]             ; [0xc:4]=0x22221111 ; 12; r2=0x22221111 -> 0xffffff00
+            0x00000004      024b           ldr r3, [pc, 8]             ; [0x10:4]=0x44443333 ; 16; r3=0x44443333 -> 0xffffff00
+            0x00000006      7944           add r1, pc                 ; r1=0x2222111b -> 0xffffff00
+            0x00000008      7a44           add r2, pc                 ; r2=0x2222111d -> 0xffffff00
+            0x0000000a      7b44           add r3, pc                 ; r3=0x44443341 -> 0xffffff00
+'
 run_test

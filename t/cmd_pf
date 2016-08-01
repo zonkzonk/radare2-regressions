@@ -1,5 +1,5 @@
 #!/bin/sh
-# GPL 3+ - Copyright (C) 2014-2015
+# GPL 3+ - Copyright (C) 2014-2016
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 NAME='seteq'
@@ -10,6 +10,24 @@ pf.foo
 '
 EXPECT="foo : 0x00000000 = 0x00000000
 bar : 0x00000004 = 0
+"
+run_test
+
+NAME='float'
+FILE=malloc://1024
+ARGS=
+CMDS='
+wx 00007a45457a0000
+e cfg.bigendian=0
+pf ff
+wx 00007a45457a0000
+e cfg.bigendian=1
+pf ff
+'
+EXPECT="0x00000000 = 4000.000000
+0x00000004 = 0.000000
+0x00000000 = 0.000000
+0x00000004 = 4000.000000
 "
 run_test
 

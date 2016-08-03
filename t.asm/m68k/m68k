@@ -87,3 +87,15 @@ pi 1
 EXPECT='bpl.l 0x80
 '
 run_test
+
+NAME="${PLUGIN}: m68k symbolic labels"
+BROKEN=
+FILE=../../bins/smd/LiquidSpaceDodgerV3.bin
+CMDS='e asm.arch=m68k
+s 0x21a
+f sym.z80BusReq @ 0x00a11100
+pi 1
+'
+EXPECT='move.w section.header, sym.z80BusReq
+'
+run_test

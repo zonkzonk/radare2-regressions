@@ -19,7 +19,7 @@ ARGS=
 BROKEN=
 CMDS='wopO 0x41417641
 '
-EXPECT='139
+EXPECT='140
 '
 run_test
 

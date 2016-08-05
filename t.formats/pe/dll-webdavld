@@ -23,7 +23,7 @@ FILE=../../bins/pe/dll-webdavld.exe
 CMDS='e asm.filter=false
 pi 1
 '
-EXPECT='+call dword [0x4010a0]
+EXPECT='call dword [0x4010a0]
 '
 IGNORE_ERR=1
 run_test

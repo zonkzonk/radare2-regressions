@@ -11,8 +11,8 @@ BROKEN=
 IGNORE_ERR=1
 CMDS="ic"
 EXPECT='0x00000174 class 0 Hello
-0x00000194 method 0 method.LHello;.method.<init>
-0x000001b0 method 1 method.LHello;.method.main
+0x00000194 method 0 LHello_.method.<init>
+0x000001b0 method 1 LHello_.method.main
 '
 run_test
 

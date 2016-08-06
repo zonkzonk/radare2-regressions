@@ -25,3 +25,30 @@ CMDS="icq"
 EXPECT='0x00000174 Hello
 '
 run_test
+
+NAME='DEX HelloWorld symbols, fields and statics'
+FILE=../../bins/dex/HelloWorld.dex
+ARGS=''
+BROKEN=
+IGNORE_ERR=1
+CMDS="isq"
+EXPECT='0x00000160 0 LHello_.static.0_localVar2
+0x00000160 0 LHello_.field.0_localVar
+0x00000238 0 LHello_.method.<init>
+0x0000025c 0 LHello_.method.main
+0x00000280 0 LHello_.method.foo
+0x00000160 0 LWorld_.field.0_worldVar
+0x00000162 0 LWorld_.field.1_worldVar2
+0x000002f4 0 LWorld_.method.<init>
+0x00000308 0 LWorld_.method.foo
+0x00000160 0 LHello_.static.0_localVar2
+0x00000160 0 LHello_.field.0_localVar
+0x00000238 0 LHello_.method.<init>
+0x0000025c 0 LHello_.method.main
+0x00000280 0 LHello_.method.foo
+0x00000160 0 LWorld_.field.0_worldVar
+0x00000162 0 LWorld_.field.1_worldVar2
+0x000002f4 0 LWorld_.method.<init>
+0x00000308 0 LWorld_.method.foo
+'
+run_test

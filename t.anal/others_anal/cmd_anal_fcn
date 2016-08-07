@@ -2,6 +2,18 @@
 # GPL 3+ - Copyright (C) 2012  pancake, Edd Barrett, Simon Ruderich
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
+NAME='sym is not fcn'
+FILE=../../bins/mach0/mach0-i386
+BROKEN=
+IGNORE_ERR=1
+ARGS=
+CMDS='
+aa > /dev/null
+afl~sym.__mh_execute_header[0]
+'
+EXPECT=''
+run_test
+
 NAME='af x86-32'
 FILE=malloc://1024
 ARGS=
@@ -151,22 +163,9 @@ run_test
 IGNORE_ERR=0
 
 
-NAME='sym is not fcn'
-FILE=../../bins/mach0/mach0-i386
-BROKEN=
-IGNORE_ERR=1
-ARGS=
-CMDS='
-aa > /dev/null
-afl~sym.__mh_execute_header[0]
-'
-EXPECT='0x00001000
-'
-run_test
-
-
 NAME='call-convention'
 FILE=../../bins/elf/x86-simple
+IGNORE_ERR=1
 CMDS='
 aa
 s entry0

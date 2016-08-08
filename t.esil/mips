@@ -582,9 +582,10 @@ CMDS='
 e asm.arch=mips
 e asm.bits=32
 ar > /dev/null
-ar v0=0x00000000
-wx aabbccdd00004384
+ar v0=0x00000004
 s 4
+wx aabbccdd00004384
+s 8
 aes
 ar v1
 '
@@ -598,9 +599,10 @@ CMDS='
 e asm.arch=mips
 e asm.bits=32
 ar > /dev/null
-ar v0=0x00000002
-wx aabbccddfeff4384
+ar v0=0x00000006
 s 4
+wx aabbccddfeff4384
+s 8
 aes
 ar v1
 '
@@ -630,9 +632,10 @@ CMDS='
 e asm.arch=mips
 e asm.bits=32
 ar > /dev/null
-ar v0=0x00000000
+ar v0=0x00000004
+s 4
 wx aabbccdd112233440000438c
-s 8
+s +8
 aes
 ar v1
 '
@@ -646,9 +649,10 @@ CMDS='
 e asm.arch=mips
 e asm.bits=32
 ar > /dev/null
-ar v0=0x00000004
+ar v0=0x00000008
+s 0x4
 wx aabbccdd11223344fcff438c
-s 8
+s +8
 aes
 ar v1
 '
@@ -679,11 +683,11 @@ e asm.arch=mips
 e asm.bits=32
 ar > /dev/null
 ar v0=0x11aa22bb
-ar v1=0
+ar v1=0x10
 s 4
 wx 000062ac
 aes
-p8 4 @ 0
+p8 4 @ 0x10
 '
 EXPECT='bb22aa11
 '
@@ -696,11 +700,11 @@ e asm.arch=mips
 e asm.bits=32
 ar > /dev/null
 ar v0=0x11aa22bb
-ar v1=4
+ar v1=0x14
 s 4
 wx fcff62ac
 aes
-p8 4 @ 0
+p8 4 @ 0x10
 '
 EXPECT='bb22aa11
 '
@@ -713,11 +717,11 @@ e asm.arch=mips
 e asm.bits=32
 ar > /dev/null
 ar v0=0x11aa22bb
-ar v1=0
+ar v1=0x10
 wx 00000000000062a4
 s 4
 aes
-p8 4 @ 0
+p8 4 @ 0x10
 '
 EXPECT='bb220000
 '
@@ -730,13 +734,13 @@ e asm.arch=mips
 e asm.bits=32
 ar > /dev/null
 ar v0=0x11aa22bb
-ar v1=0
+ar v1=0x10
 wx 00000000020062a4
 s 4
 aes
-p8 5 @ 0
+p8 4 @ 0x12
 '
-EXPECT='0000bb2202
+EXPECT='bb220000
 '
 run_test
 
@@ -747,11 +751,11 @@ e asm.arch=mips
 e asm.bits=32
 ar > /dev/null
 ar v0=0x11aa22bb
-ar v1=0
+ar v1=0x10
 wx 00000000000062a0
 s 4
 aes
-p8 4 @ 0
+p8 4 @ 0x10
 '
 EXPECT='bb000000
 '

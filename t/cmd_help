@@ -199,11 +199,9 @@ FILTER="sed 's/^0x[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]*$/0xrandomnr/g;
              s/^0x[a-f]$/0xlargerrandom/g'"
 run_test
 
-
 ## "?v" - hex value of math expr
-
 NAME='?v'
-FILE=malloc://1024
+FILE=--
 ARGS=
 CMDS='
 ?v 1024
@@ -215,7 +213,7 @@ EXPECT='0x400
 run_test
 
 NAME="?v 'A'"
-FILE=malloc://1024
+FILE=--
 ARGS=
 CMDS="?v 'A'
 "
@@ -224,7 +222,7 @@ EXPECT='0x41
 run_test
 
 NAME="?v 'A'+3"
-FILE=malloc://1024
+FILE=--
 ARGS=
 CMDS="?v 'A'+3
 "
@@ -233,7 +231,7 @@ EXPECT='0x44
 run_test
 
 NAME="?v 3+'A'-3"
-FILE=malloc://1024
+FILE=--
 ARGS=
 CMDS="?v 3+'A'-3
 "
@@ -242,7 +240,7 @@ EXPECT='0x41
 run_test
 
 NAME="?v 33^'A'"
-FILE=malloc://1024
+FILE=--
 ARGS=
 CMDS="?v 32^'A'
 "
@@ -251,7 +249,7 @@ EXPECT='0x61
 run_test
 
 NAME="? 1;?v"
-FILE=malloc://1024
+FILE=--
 ARGS=
 CMDS="? 1;?v"
 EXPECT='1 0x1 01 1 0000:0001 1 00000001 1.0 1.000000f 1.000000
@@ -260,7 +258,7 @@ EXPECT='1 0x1 01 1 0000:0001 1 00000001 1.0 1.000000f 1.000000
 run_test
 
 NAME="? 0;?v"
-FILE=malloc://1024
+FILE=--
 ARGS=
 CMDS="? 0;?v"
 EXPECT='0 0x0 00 0 0000:0000 0 00000000 0.0 0.000000f 0.000000
@@ -269,7 +267,7 @@ EXPECT='0 0x0 00 0 0000:0000 0 00000000 0.0 0.000000f 0.000000
 run_test
 
 NAME="? -1"
-FILE=malloc://1024
+FILE=--
 ARGS=
 CMDS="? -1"
 EXPECT='-1 0xffffffffffffffff 01777777777777777777777 17179869184.0G fffff000:0fff -1 1111111111111111111111111111111111111111111111111111111111111111 -1.0 -1.000000f -1.000000
@@ -277,7 +275,7 @@ EXPECT='-1 0xffffffffffffffff 01777777777777777777777 17179869184.0G fffff000:0f
 run_test
 
 NAME="? 2*1.5"
-FILE=malloc://1024
+FILE=--
 ARGS=
 CMDS="? 2*1.5"
 EXPECT='2 0x2 02 2 0000:0002 2 00000010 3.0 3.000000f 3.000000

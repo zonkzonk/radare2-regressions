@@ -553,6 +553,7 @@ EXPECT=' 0x8060b4f8      00000000   nop
 run_test
 
 NAME="mips big endian strings, calls, etc. analysis"
+BROKEN=1
 FILE=../../bins/elf/mipsbe-ip
 CMDS="s 0x00402088
 pd 10

@@ -154,8 +154,8 @@ FILE=-
 ARGS=
 CMDS='wx 554889e5534881ec3810000048830c24004881c42010000064488b042528000000488945e831c04885ff4889fb909090909090c3 @ 10
 aa
-afvrn old_1 new_1
-afvbn local_18h my_local
+afvn old_1 new_1
+afvn local_18h my_local
 pd 1
 '
 EXPECT="/ (fcn) fcn.00000000 62
@@ -165,12 +165,12 @@ EXPECT="/ (fcn) fcn.00000000 62
 run_test
 
 
-NAME='afvb & afvbn'
+NAME='afvb & afvn'
 FILE=../../bins/efi/bootia32.efi
 ARGS=
 CMDS='af
-afvbn arg_8h ImageHandle
-afvbn arg_ch SystemTable
+afvn arg_8h ImageHandle
+afvn arg_ch SystemTable
 afvb~?ImageHandle
 afvb~?SystemTable
 '
@@ -179,12 +179,12 @@ EXPECT="1
 "
 run_test
 
-NAME='afvb* & afvbn'
+NAME='afvb* & afvn'
 FILE=../../bins/efi/bootia32.efi
 ARGS=
 CMDS='af
-afvbn arg_8h ImageHandle
-afvbn arg_ch SystemTable
+afvn arg_8h ImageHandle
+afvn arg_ch SystemTable
 afvb*~?ImageHandle
 afvb*~?SystemTable
 '
@@ -193,7 +193,7 @@ EXPECT="1
 "
 run_test
 
-NAME='afvb idx... & afvbn'
+NAME='afvb idx... & afvn'
 FILE=../../bins/efi/bootia32.efi
 ARGS=
 CMDS='af
@@ -229,14 +229,14 @@ EXPECT="0
 run_test
 
 
-NAME='afvr & afvrn'
+NAME='afvr & afvn'
 FILE=../../bins/efi/bootia32.efi
 BROKEN=
 ARGS=
 CMDS='af
 afvr esi myreg int @ 0x10002d8d
 afvr~?myreg
-afvrn myreg blah
+afvn myreg blah
 afvr~?blah
 '
 EXPECT="1
@@ -313,7 +313,7 @@ NAME='anal vars rename'
 FILE=../../bins/mach0/ls-osx-x86_64
 ARGS=
 CMDS='af
-afvbn local_30h newname
+afvn local_30h newname
 afvb~newname
 '
 EXPECT="var int newname @ rbp-0x30

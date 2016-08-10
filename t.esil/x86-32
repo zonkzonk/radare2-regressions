@@ -1147,3 +1147,22 @@ EXPECT='0x00000001
 0x00000001
 '
 run_test
+
+NAME='tmctf re100'
+FILE=../bins/other/tmctf_re100
+BROKEN=
+ARGS="-a x86 -b 32"
+CMDS='
+e io.cache = true
+s 0x278
+aei
+aeim
+aeip
+13aes
+*(ebp+0x8) = 0x09
+aesu 0x460
+ps @ ebp - 0x24
+'
+EXPECT='TMCTF{datalosswontstopus}
+'
+run_test

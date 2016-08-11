@@ -96,6 +96,6 @@ s 0x21a
 f sym.z80BusReq @ 0x00a11100
 pi 1
 '
-EXPECT='move.w section.header, sym.z80BusReq
+EXPECT='move.w 0x100, sym.z80BusReq
 '
 run_test

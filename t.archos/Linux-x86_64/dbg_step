@@ -54,3 +54,15 @@ EXPECT='0 0x0 00 0 0000:0000 0 00000000 0.0 0.000000f 0.000000
 0
 '
 run_test
+
+NAME='ds on jmp reg'
+FILE=../../bins/elf/x86-jmpeax
+ARGS='-b 32 -a x86 -d'
+BROKEN=1
+CMDS='dcu main
+5ds
+dr eip
+'
+EXPECT='0x080483d0
+'
+run_test

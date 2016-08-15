@@ -166,10 +166,6 @@ EXPECT='  md5
   mod255
   xxhash
   adler32
-  base64
-  base91
-  punycode
-  luhn
   rc2
   rc4
   rc6

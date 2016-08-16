@@ -104,3 +104,23 @@ EXPECT='1
 '
 
 run_test
+
+NAME='seek backwards'
+FILE='malloc://0x4000'
+CMDS='
+s 0
+b 64
+wb 38
+s 64
+wb deadbeef
+s-32
+px
+'
+EXPECT='- offset -   0 1  2 3  4 5  6 7  8 9  A B  C D  E F  0123456789ABCDEF
+0x00000020  3838 3838 3838 3838 3838 3838 3838 3838  8888888888888888
+0x00000030  3838 3838 3838 3838 3838 3838 3838 3838  8888888888888888
+0x00000040  dead beef dead beef dead beef dead beef  ................
+0x00000050  dead beef dead beef dead beef dead beef  ................
+'
+EXPECT_ERR=''
+run_test

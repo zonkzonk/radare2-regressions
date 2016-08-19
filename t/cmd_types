@@ -45,7 +45,6 @@ long long
 void *
 char
 char *
-const char*
 uint8_t
 uint16_t
 uint32_t
@@ -102,7 +101,6 @@ long=type
 void *=type
 char=type
 char *=type
-const char*=type
 uint8_t=type
 uint16_t=type
 uint32_t=type
@@ -115,7 +113,6 @@ type.long=x
 type.void *=p
 type.char=c
 type.char *=*z
-type.const char*=*z
 type.uint8_t=b
 type.uint16_t=w
 type.uint32_t=d
@@ -134,7 +131,6 @@ long=type
 void *=type
 char=type
 char *=type
-const char*=type
 uint8_t=type
 uint16_t=type
 uint32_t=type
@@ -147,7 +143,6 @@ type.long=x
 type.void *=p
 type.char=b
 type.char *=*z
-type.const char*=*z
 type.uint8_t=b
 type.uint16_t=w
 type.uint32_t=d
@@ -267,7 +262,6 @@ long long
 void *
 char
 char *
-const char*
 uint8_t
 uint16_t
 uint32_t
@@ -302,7 +296,6 @@ long long
 void *
 char
 char *
-const char*
 uint8_t
 uint16_t
 uint32_t
@@ -324,62 +317,59 @@ FILE=-
 CMDS="t*
 "
 EXPECT='tk unsigned int = type
-tk unsigned char = type
-tk unsigned short = type
-tk short = type
-tk int = type
-tk long = type
-tk long long = type
-tk void * = type
-tk char = type
-tk char * = type
-tk const char* = type
-tk uint8_t = type
-tk uint16_t = type
-tk uint32_t = type
-tk uint64_t = type
-tk int8_t = type
-tk int16_t = type
-tk int32_t = type
-tk int64_t = type
 tk type.unsigned int = i
-tk type.unsigned char = b
-tk type.unsigned short = w
-tk type.short = w
-tk type.int = d
-tk type.long = x
-tk type.long long = q
-tk type.void * = p
-tk type.char = c
-tk type.char * = *z
-tk type.const char* = *z
-tk type.uint8_t = b
-tk type.uint16_t = w
-tk type.uint32_t = d
-tk type.uint64_t = q
-tk type.int8_t = b
-tk type.int16_t = w
-tk type.int32_t = d
-tk type.int64_t = q
 tk type.unsigned int.size = 32
+tk unsigned char = type
+tk type.unsigned char = b
 tk type.unsigned char.size = 8
+tk unsigned short = type
+tk type.unsigned short = w
 tk type.unsigned short.size = 16
+tk short = type
+tk type.short = w
 tk type.short.size = 16
+tk int = type
+tk type.int = d
 tk type.int.size = 32
+tk long = type
+tk type.long = x
 tk type.long.size = 64
+tk long long = type
+tk type.long long = q
 tk type.long long.size = 64
-tk type.void *.size = 64
+tk void * = type
+tk type.void * = p
+tk char = type
+tk type.char = c
 tk type.char.size = 8
-tk type.char *.size = 64
-tk type.const char*.size = 64
+tk char * = type
+tk type.char * = *z
+tk uint8_t = type
+tk type.uint8_t = b
 tk type.uint8_t.size = 8
+tk uint16_t = type
+tk type.uint16_t = w
 tk type.uint16_t.size = 16
+tk uint32_t = type
+tk type.uint32_t = d
 tk type.uint32_t.size = 32
+tk uint64_t = type
+tk type.uint64_t = q
 tk type.uint64_t.size = 64
+tk int8_t = type
+tk type.int8_t = b
 tk type.int8_t.size = 8
+tk int16_t = type
+tk type.int16_t = w
 tk type.int16_t.size = 16
+tk int32_t = type
+tk type.int32_t = d
 tk type.int32_t.size = 32
+tk int64_t = type
+tk type.int64_t = q
 tk type.int64_t.size = 64
+tk type.void *.size = 64
+tk type.char *.size = 64
 '
 run_test
 

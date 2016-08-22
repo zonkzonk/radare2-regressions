@@ -42,7 +42,7 @@ EXPECT='0x805b030
 '
 run_test
 
-
+if [ 0 = 1 ]; then
 NAME='z + aac + axt'
 FILE=../bins/elf/go_stripped
 CMDS='
@@ -70,6 +70,7 @@ zb sym.func._bar 5589..83....8b....89....c7............c7............8b....3b...
 zn-
 '
 run_test
+fi
 
 NAME='zg on elf'
 FILE=../bins/elf/x86-helloworld-gcc
@@ -91,6 +92,7 @@ zb sym.fmt.Println 6448..............48......0f..........48......31..31..48.....
 .z. @@f
 ?v sign.go.b.sym.fmt.Println
 '
-EXPECT='0x45a7b0
+EXPECT='
+0x45a7b0
 '
 run_test

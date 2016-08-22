@@ -454,7 +454,7 @@ FILE=malloc://256
 ARGS=
 CMDS='e asm.bits=32
 pf.plop wi word int
-pf.troll bciwqfdoxs:S.[4]z[2]B[4]E? byte char int word quad float hexa octal hex strp skip4 wstrp skip1 str bitfield enum (plop)struct
+pf.troll bciwqfdoxs:S.[4]z[2]B[4]E? byte char int word quad float hexa octal hex strp wstrp str bitfield enum (plop)struct
 pfs.troll
 '
 EXPECT="65 bytes
@@ -756,17 +756,20 @@ run_test
 
 NAME='print n-times a format'
 FILE=malloc://1024
-BROKEN=1
+BROKEN=
 CMDS='
 wx 71776572747975696f706173646667686a6b6c7a786376626e6d71776572747975696f706173646667686a6b6c7a786376626e6d
 pf.plop ip int ptr
-pf {2}plop @ 0
+pf {2}? (plop)structname @ 0
 '
-EXPECT="int : 0x00000000 = 1919252337
-ptr : 0x00000004 = (qword)0x7361706f69757974
-
-int : 0x0000000c = 1751606884
-ptr : 0x00000010 = (qword)0x627663787a6c6b6a
+EXPECT="      structname : 
+          struct<plop>
+      int : 0x00000000 = 1919252337
+      ptr : 0x00000004 = (qword)0x7361706f69757974
+      structname : 
+          struct<plop>
+      int : 0x0000000c = 1751606884
+      ptr : 0x00000010 = (qword)0x627663787a6c6b6a
 "
 run_test
 
@@ -783,5 +786,57 @@ c : 0x00000008 = 185207048
 d : 0x00000010 = (qword)0x1716151413121110
 e : 0x00000018 = 454695192
 f : 0x0000001c = 522067228
+"
+run_test
+
+NAME='print anonymous nested struct'
+FILE=malloc://1024
+CMDS='
+wx 71776572747975696f706173646667686a6b6c7a786376626e6d71776572747975696f706173646667686a6b6c7a786376626e6d
+pf.dsf ii a b
+pf.abc ic...?i a b "(pf i?i a (dsf)b c)c" d
+pf.def ic...*?i a b "(pf i?i a (dsf)b c)c" d
+pf.abc
+pf.def
+'
+EXPECT="                   a : 0x00000000 = 1919252337
+                   b : 0x00000004 = 't'
+                   c : 
+          struct<i?i a (dsf)b c>
+           a : 0x00000008 = 1935765615
+           b : 
+                struct<dsf>
+            a : 0x0000000c = 1751606884
+            b : 0x00000010 = 2053925738
+           c : 0x00000014 = 1651925880
+                   d : 0x00000018 = 2003922286
+                   a : 0x00000000 = 1919252337
+                   b : 0x00000004 = 't'
+                   c : (*0x7361706f)
+    struct<i?i a (dsf)b c>
+     a : 0x7361706f = 4294967295
+     b : 
+          struct<dsf>
+      a : 0x73617073 = 4294967295
+      b : 0x73617077 = 4294967295
+     c : 0x7361707b = 4294967295
+                   d : 0x00000010 = 2053925738
+"
+run_test
+
+NAME='print signed and unsigned values'
+FILE=malloc://1024
+CMDS='
+wx 71776572747975696f706173646667686a6b6c7a786376626e6d71776572747975696f706173646667686a6b6c7a786376626e6d
+pf N8..N4.N2:N1..n8..n4n2n1 a b c d e f
+'
+EXPECT="a : 0x00000000 = 7599113487299999601
+b : 0x0000000a = 1717859169
+c : 0x0000000f = 27240
+d : 0x00000015 = 99
+e : 0x00000018 = 8751745756008901998
+f : 0x00000022 = 1935765615
+0x00000026 = 26212
+0x00000028 = 103
 "
 run_test

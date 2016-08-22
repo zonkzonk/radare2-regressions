@@ -1,0 +1,44 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+NAME="No function"
+FILE=malloc://0x50
+CMDS='aftm
+'
+IGNORE_ERR=0
+EXPECT_ERR='cant find function here
+'
+run_test
+
+NAME="Basic type Matching"
+FILE=../../bins/elf/x86-helloworld-gcc
+CMDS="s sym.main
+aa
+aei
+aeim
+td int puts(char *s);
+aftm
+pdf~char * s?
+"
+EXPECT='1
+'
+run_test
+
+NAME="call not function"
+FILE=../../bins/pe/crackme0x00.exe
+CMDS='aa
+s sym._main
+aei
+aeim
+td int strcmp(char *s1, char *s2);
+tk func.strcmp.cc=stdcall
+aftm
+s 0x00401368
+pd 1~char * s1?
+s 0x00401370
+pd 1~char * s2?
+'
+EXPECT="1
+1
+"
+run_test

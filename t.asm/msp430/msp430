@@ -117,3 +117,5 @@ test_msp430 82930300 "tst &0x0003"
 test_msp430 0a93 "tst r10"
 
 test_msp430 85930300 "tst 0x3(r5)"
+
+test_msp430 1312 "push #1"

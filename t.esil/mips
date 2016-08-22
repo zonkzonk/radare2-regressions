@@ -102,7 +102,7 @@ wx fbff4520
 aes
 ar a1
 '
-EXPECT='0x00000000
+EXPECT='0x00000001
 '
 run_test
 

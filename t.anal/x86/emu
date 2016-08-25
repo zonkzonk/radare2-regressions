@@ -39,7 +39,7 @@ aeim
 s 0x00402ade
 pd 4~format
 '
-EXPECT='format : 0x00177ffc = 0x00177ffc -> 0x00402bd2   - RT_MANIFEST resource located
+EXPECT=' format : 0x00177ffc = 0x00177ffc -> 0x00402bd2   - RT_MANIFEST resource located
 '
 run_test
 
@@ -63,15 +63,15 @@ pd 10~UINT
 pd 10~LPTSTR
 pd 10~int
 '
-EXPECT='HINSTANCE:hInstance : 0x00177ff4 = 0x00000000
-           UINT:uID : 0x00177ff8 = 0x00000096
-    LPTSTR:lpBuffer : 0x00177ffc = 0x00177ffc -> 0x00402bfd 
-     int:nBufferMax : 0x00178000 = 31
+EXPECT=' HINSTANCE:hInstance : 0x00177ff4 = 0x00000000
+            UINT:uID : 0x00177ff8 = 0x00000096
+     LPTSTR:lpBuffer : 0x00177ffc = 0x00177ffc -> 0x00402bfd 
+      int:nBufferMax : 0x00178000 = 31
 '
 run_test
 
 NAME='Linux fcnsign test'
-BROKEN=
+BROKEN=1
 FILE=../../bins/elf/ls-linux64
 ARGS=
 CMDS='

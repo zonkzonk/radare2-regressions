@@ -8,8 +8,8 @@ ARGS=
 CMDS='pf.foo xd foo bar
 pf.foo
 '
-EXPECT="foo : 0x00000000 = 0x00000000
-bar : 0x00000004 = 0
+EXPECT=" foo : 0x00000000 = 0x00000000
+ bar : 0x00000004 = 0
 "
 run_test
 
@@ -38,8 +38,8 @@ ARGS=
 CMDS='pf.foo=xd foo bar
 pf.foo
 '
-EXPECT="foo : 0x00000000 = 0x00000000
-bar : 0x00000004 = 0
+EXPECT=" foo : 0x00000000 = 0x00000000
+ bar : 0x00000004 = 0
 "
 run_test
 
@@ -49,11 +49,11 @@ ARGS=
 CMDS='wx 00007a452a4b9a0200002a
 pf fcbiC foo bar fool beer plop
 '
-EXPECT=" foo : 0x00000000 = 4000.000000
- bar : 0x00000004 = '*'
-fool : 0x00000005 = 0x4b
-beer : 0x00000006 = 666
-plop : 0x0000000a = 42
+EXPECT="  foo : 0x00000000 = 4000.000000
+  bar : 0x00000004 = '*'
+ fool : 0x00000005 = 0x4b
+ beer : 0x00000006 = 666
+ plop : 0x0000000a = 42
 "
 run_test
 
@@ -63,8 +63,8 @@ ARGS=
 CMDS='wx efbeadde002a0000adde
 pf qw bigWord beef
 '
-EXPECT="bigWord : 0x00000000 = (qword)0x00002a00deadbeef
-   beef : 0x00000008 = 0xdead
+EXPECT=" bigWord : 0x00000000 = (qword)0x00002a00deadbeef
+    beef : 0x00000008 = 0xdead
 "
 run_test
 
@@ -81,10 +81,10 @@ pf.plop.ulebtest[2]=42 @ 0x14
 pf.plop @ 0x14
 pfj.plop @ 0x14
 '
-EXPECT='ulebtest : 0x00000000 = 624485
-ulebtest : 0x00000014 = [ 608101, 4750, 37, 0 ]
+EXPECT=' ulebtest : 0x00000000 = 624485
+ ulebtest : 0x00000014 = [ 608101, 4750, 37, 0 ]
 "wx 2a" @ 0x00000019
-ulebtest : 0x00000014 = [ 608101, 4750, 42, 0 ]
+ ulebtest : 0x00000014 = [ 608101, 4750, 42, 0 ]
 [{"name":"ulebtest","type":"u","offset":20,"value":[ "608101", "4750", "42", "0" ]}]
 '
 run_test
@@ -119,9 +119,9 @@ e asm.bits=32 # pointer size
 pf.plop *z*i*w nb name blob
 pf.plop
 '
-EXPECT="  nb : (*0x30)0x00000000 = TROLL
-name : (*0x20)0x00000004 = 42
-blob : (*0x40)0x00000008 = 0x0fa0
+EXPECT="   nb : (*0x30)0x00000000 = TROLL
+ name : (*0x20)0x00000004 = 42
+ blob : (*0x40)0x00000008 = 0x0fa0
 "
 run_test
 
@@ -146,8 +146,8 @@ ARGS=
 CMDS='wx deadbeef00000000adde
 pf eqew bigWord beef
 '
-EXPECT="bigWord : 0x00000000 = (qword)0xdeadbeef00000000
-   beef : 0x00000008 = 0xdead
+EXPECT=" bigWord : 0x00000000 = (qword)0xdeadbeef00000000
+    beef : 0x00000008 = 0xdead
 "
 run_test
 
@@ -160,8 +160,8 @@ wx a00f @0x04
 e asm.bits=32
 pf *zi Pouet Plop
 '
-EXPECT="Pouet : (*0x30)0x00000000 = TROLL
- Plop : 0x00000004 = 4000
+EXPECT=" Pouet : (*0x30)0x00000000 = TROLL
+  Plop : 0x00000004 = 4000
 "
 run_test
 
@@ -172,8 +172,8 @@ BROKEN=
 CMDS='wx 321ED92D90DF5254
 pf tt troll plop
 '
-EXPECT="troll : 0x00000000 = Tue May 17 19:42:42 1994
- plop : 0x00000004 = Fri Oct 31 01:02:08 2014
+EXPECT=" troll : 0x00000000 = Tue May 17 19:42:42 1994
+  plop : 0x00000004 = Fri Oct 31 01:02:08 2014
 "
 run_test
 
@@ -184,8 +184,8 @@ CMDS='wx a00f00004b
 pf.troll ic lol cat
 pf.troll
 '
-EXPECT="lol : 0x00000000 = 4000
-cat : 0x00000004 = 'K'
+EXPECT=" lol : 0x00000000 = 4000
+ cat : 0x00000004 = 'K'
 "
 run_test
 
@@ -197,12 +197,12 @@ pf.troll 2ic nb plop
 pf.troll
 '
 EXPECT="0x00000000 [0] {
-    nb : 0x00000000 = 4000
-  plop : 0x00000004 = 'K'
+     nb : 0x00000000 = 4000
+   plop : 0x00000004 = 'K'
 }
 0x00000005 [1] {
-    nb : 0x00000005 = 42
-  plop : 0x00000009 = 'L'
+     nb : 0x00000005 = 42
+   plop : 0x00000009 = 'L'
 }
 "
 run_test
@@ -217,9 +217,9 @@ pf.troll izi hu swagg plop
 .pf.troll.plop=4000
 pf.troll
 '
-EXPECT="   hu : 0x00000000 = 42
-swagg : 0x00000004 = B*A AABLABLA
- plop : 0x00000011 = 4000
+EXPECT="    hu : 0x00000000 = 42
+ swagg : 0x00000004 = B*A AABLABLA
+  plop : 0x00000011 = 4000
 "
 run_test
 
@@ -233,10 +233,10 @@ pf.troll
 .pf.troll.plop=42
 pf.troll
 '
-EXPECT="swagg : 0x00000000 = BLABLABLABLA
- plop : 0x0000001a = 4000
-swagg : 0x00000000 = BWA AA
- plop : 0x0000000e = 42
+EXPECT=" swagg : 0x00000000 = BLABLABLABLA
+  plop : 0x0000001a = 4000
+ swagg : 0x00000000 = BWA AA
+  plop : 0x0000000e = 42
 "
 run_test
 
@@ -312,8 +312,8 @@ CMDS='e asm.bits=32
 wv 0x2a
 pf 0iw integer word
 '
-EXPECT="integer : 0x00000000 = 42
-   word : 0x00000000 = 0x002a
+EXPECT=" integer : 0x00000000 = 42
+    word : 0x00000000 = 0x002a
 "
 run_test
 
@@ -331,16 +331,16 @@ pf.troll iw integer word
 pf.plop i??i firstInt (troll)One (troll)Two secondInt
 pf.plop
 '
-EXPECT=" firstInt : 0x00000000 = 42
-      One : 
+EXPECT="  firstInt : 0x00000000 = 42
+       One : 
                 struct<troll>
-       integer : 0x00000004 = 4000
-          word : 0x00000008 = 0x002a
-      Two : 
+         integer : 0x00000004 = 4000
+            word : 0x00000008 = 0x002a
+       Two : 
                 struct<troll>
-       integer : 0x0000000a = 16
-          word : 0x0000000e = 0xbeef
-secondInt : 0x00000010 = 32
+         integer : 0x0000000a = 16
+            word : 0x0000000e = 0xbeef
+ secondInt : 0x00000010 = 32
 "
 run_test
 
@@ -354,17 +354,17 @@ pf.troll iw*? integer word (troll)Bah
 pf.plop i?w firstInt (troll)Boh plop
 pf.plop
 '
-EXPECT="firstInt : 0x00000000 = 42
-     Boh : 
+EXPECT=" firstInt : 0x00000000 = 42
+      Boh : 
                 struct<troll>
-       integer : 0x00000004 = 4000
-          word : 0x00000008 = 0x3412
-           Bah : (*0x10)
-                struct<troll>
-       integer : 0x00000010 = 42
-          word : 0x00000014 = 0x002a
-           Bah : (*0x0) NULL
-    plop : 0x0000000e = 0x1664
+         integer : 0x00000004 = 4000
+            word : 0x00000008 = 0x3412
+             Bah : (*0x10)
+                      struct<troll>
+                 integer : 0x00000010 = 42
+                    word : 0x00000014 = 0x002a
+                     Bah : (*0x0) NULL
+     plop : 0x0000000e = 0x1664
 "
 run_test
 
@@ -378,16 +378,16 @@ pf.union 0i?w integer (struct)swagg word
 pf.plop i?w firstInt (union)Boh plop
 pf.plop
 '
-EXPECT="firstInt : 0x00000000 = 42
-     Boh : 
+EXPECT=" firstInt : 0x00000000 = 42
+      Boh : 
                  union<union>
-       integer : 0x00000004 = 4000
-         swagg : 
+         integer : 0x00000004 = 4000
+           swagg : 
                       struct<struct>
-             first : 0x00000004 = 0x00000fa0
-            second : 0x00000008 = 0x000020a0
-          word : 0x00000004 = 0x0fa0
-    plop : 0x0000000c = 0x7201
+                first : 0x00000004 = 0x00000fa0
+               second : 0x00000008 = 0x000020a0
+            word : 0x00000004 = 0x0fa0
+     plop : 0x0000000c = 0x7201
 "
 run_test
 
@@ -403,26 +403,26 @@ pf.plop i?w first (troll)Boh bwa
 pf.gobelin ww?x blah meh (plop)Buh foo
 pf.gobelin
 '
-EXPECT="blah : 0x00000000 = 0x1234
- meh : 0x00000002 = 0x6789
- Buh : 
+EXPECT=" blah : 0x00000000 = 0x1234
+  meh : 0x00000002 = 0x6789
+  Buh : 
                 struct<plop>
-     first : 0x00000004 = 666
-       Boh : 
+       first : 0x00000004 = 666
+         Boh : 
                       struct<troll>
-              integer : 0x00000008 = 4000
-                 word : 0x0000000c = 0x002a
-                  Bah : (*0x30)
-                      struct<troll>
-              integer : 0x00000030 = 20
-                 word : 0x00000034 = 0x1664
-                  Bah : (*0x20)
-                      struct<troll>
-              integer : 0x00000020 = 1664
-                 word : 0x00000024 = 0x4000
-                  Bah : (*0x0) NULL
-       bwa : 0x00000012 = 0x4214
- foo : 0x00000014 = 0x00001664
+                 integer : 0x00000008 = 4000
+                    word : 0x0000000c = 0x002a
+                     Bah : (*0x30)
+                            struct<troll>
+                         integer : 0x00000030 = 20
+                            word : 0x00000034 = 0x1664
+                             Bah : (*0x20)
+                                  struct<troll>
+                                 integer : 0x00000020 = 1664
+                                    word : 0x00000024 = 0x4000
+                                     Bah : (*0x0) NULL
+         bwa : 0x00000012 = 0x4214
+  foo : 0x00000014 = 0x00001664
 "
 run_test
 
@@ -482,12 +482,12 @@ CMDS='
 wx 71776572747975696f706173646667686a6b6c7a786376626e6d71776572747975696f706173646667686a6b6c7a786376626e6d
 pf N8..N4.N2:N1..n8..n4n2n1 a b c d e f
 '
-EXPECT="a : 0x00000000 = 7599113487299999601
-b : 0x0000000a = 1717859169
-c : 0x0000000f = 27240
-d : 0x00000015 = 99
-e : 0x00000018 = 8751745756008901998
-f : 0x00000022 = 1935765615
+EXPECT=" a : 0x00000000 = 7599113487299999601
+ b : 0x0000000a = 1717859169
+ c : 0x0000000f = 27240
+ d : 0x00000015 = 99
+ e : 0x00000018 = 8751745756008901998
+ f : 0x00000022 = 1935765615
 0x00000026 = 26212
 0x00000028 = 103
 "
@@ -520,12 +520,12 @@ pf {2}? (plop)structname @ 0
 '
 EXPECT=" structname : 
                 struct<plop>
-   int : 0x00000000 = 1919252337
-   ptr : 0x00000004 = (qword)0x7361706f69757974
+     int : 0x00000000 = 1919252337
+     ptr : 0x00000004 = (qword)0x7361706f69757974
  structname : 
                 struct<plop>
-   int : 0x0000000c = 1751606884
-   ptr : 0x00000010 = (qword)0x627663787a6c6b6a
+     int : 0x0000000c = 1751606884
+     ptr : 0x00000010 = (qword)0x627663787a6c6b6a
 "
 run_test
 
@@ -536,12 +536,12 @@ wx 000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f
 pf.abc ic...i:pii a b c d e f
 pf.abc
 '
-EXPECT="a : 0x00000000 = 50462976
-b : 0x00000004 = '.'
-c : 0x00000008 = 185207048
-d : 0x00000010 = (qword)0x1716151413121110
-e : 0x00000018 = 454695192
-f : 0x0000001c = 522067228
+EXPECT=" a : 0x00000000 = 50462976
+ b : 0x00000004 = '.'
+ c : 0x00000008 = 185207048
+ d : 0x00000010 = (qword)0x1716151413121110
+ e : 0x00000018 = 454695192
+ f : 0x0000001c = 522067228
 "
 run_test
 
@@ -555,114 +555,115 @@ CMDS='e asm.bits=32
 s 0x80
 pf.pe_nt_image_headers32
 '
-EXPECT="                                 signature : 0x00000080 = PE
-                                fileHeader : 
-          struct<pe_image_file_header>
-                                  machine : 0x00000084 =  machine (enum) = 0x14c ; IMAGE_FILE_MACHINE_I386
-                         numberOfSections : 0x00000086 = 0x0004
-                            timeDateStamp : 0x00000088 = Thu Sep 11 18:21:46 2014
-                     pointerToSymbolTable : 0x0000008c = 0x00000000
-                          numberOfSymbols : 0x00000090 = 0x00000000
-                     sizeOfOptionalHeader : 0x00000094 = 0x00e0
-                          characteristics : 0x00000096 =  characteristics (bitfield) = 0x00000102 : IMAGE_FILE_EXECUTABLE_IMAGE | IMAGE_FILE_32BIT_MACHINE
-                            optionalHeader : 
-          struct<pe_image_optional_header32>
-                                          magic : 0x00000098 =  magic (enum) = 0x10b ; IMAGE_NT_OPTIONAL_HDR32_MAGIC
-                             majorLinkerVersion : 0x0000009a = 0x0b
-                             minorLinkerVersion : 0x0000009b = 0x00
-                                     sizeOfCode : 0x0000009c = 0x00003000
-                          sizeOfInitializedData : 0x000000a0 = 0x00003400
-                        sizeOfUninitializedData : 0x000000a4 = 0x00000000
-                            addressOfEntryPoint : 0x000000a8 = 0x00004f3e
-                                     baseOfCode : 0x000000ac = 0x00002000
-                                     baseOfData : 0x000000b0 = 0x00006000
-                                      imageBase : 0x000000b4 = 0x00400000
-                               sectionAlignment : 0x000000b8 = 0x00002000
-                                  fileAlignment : 0x000000bc = 0x00000200
-                    majorOperatingSystemVersion : 0x000000c0 = 0x0004
-                    minorOperatingSystemVersion : 0x000000c2 = 0x0000
-                              majorImageVersion : 0x000000c4 = 0x0000
-                              minorImageVersion : 0x000000c6 = 0x0000
-                          majorSubsystemVersion : 0x000000c8 = 0x0006
-                          minorSubsystemVersion : 0x000000ca = 0x0000
-                              win32VersionValue : 0x000000cc = 0x00000000
-                                    sizeOfImage : 0x000000d0 = 0x0000e000
-                                  sizeOfHeaders : 0x000000d4 = 0x00000400
-                                       checkSum : 0x000000d8 = 0x00000000
-                                      subsystem : 0x000000dc =  subsystem (enum) = 0x2 ; IMAGE_SUBSYSTEM_WINDOWS_GUI
-                             dllCharacteristics : 0x000000de =  dllCharacteristics (bitfield) = 0x00008560 : IMAGE_DLLCHARACTERISTICS_HIGH_ENTROPY_VA | IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE | IMAGE_DLLCHARACTERISTICS_NX_COMPAT | IMAGE_DLLCHARACTERISTICS_NO_SEH | IMAGE_DLLCHARACTERISTICS_TERMINAL_SERVER_AWARE
-                             sizeOfStackReserve : 0x000000e0 = 0x00100000
-                              sizeOfStackCommit : 0x000000e4 = 0x00001000
-                              sizeOfHeapReserve : 0x000000e8 = 0x00100000
-                               sizeOfHeapCommit : 0x000000ec = 0x00001000
-                                    loaderFlags : 0x000000f0 = 0x00000000
-                            numberOfRvaAndSizes : 0x000000f4 = 0x00000010
-                                  dataDirectory : 
+EXPECT="      signature : 0x00000080 = PE
+     fileHeader : 
+                struct<pe_image_file_header>
+                                   machine : 0x00000084 =  machine (enum) = 0x14c ; IMAGE_FILE_MACHINE_I386
+                          numberOfSections : 0x00000086 = 0x0004
+                             timeDateStamp : 0x00000088 = Thu Sep 11 18:21:46 2014
+                      pointerToSymbolTable : 0x0000008c = 0x00000000
+                           numberOfSymbols : 0x00000090 = 0x00000000
+                      sizeOfOptionalHeader : 0x00000094 = 0x00e0
+                           characteristics : 0x00000096 =  characteristics (bitfield) = 0x00000102 : IMAGE_FILE_EXECUTABLE_IMAGE | IMAGE_FILE_32BIT_MACHINE
+ optionalHeader : 
+                struct<pe_image_optional_header32>
+                                                   magic : 0x00000098 =  magic (enum) = 0x10b ; IMAGE_NT_OPTIONAL_HDR32_MAGIC
+                                      majorLinkerVersion : 0x0000009a = 0x0b
+                                      minorLinkerVersion : 0x0000009b = 0x00
+                                              sizeOfCode : 0x0000009c = 0x00003000
+                                   sizeOfInitializedData : 0x000000a0 = 0x00003400
+                                 sizeOfUninitializedData : 0x000000a4 = 0x00000000
+                                     addressOfEntryPoint : 0x000000a8 = 0x00004f3e
+                                              baseOfCode : 0x000000ac = 0x00002000
+                                              baseOfData : 0x000000b0 = 0x00006000
+                                               imageBase : 0x000000b4 = 0x00400000
+                                        sectionAlignment : 0x000000b8 = 0x00002000
+                                           fileAlignment : 0x000000bc = 0x00000200
+                             majorOperatingSystemVersion : 0x000000c0 = 0x0004
+                             minorOperatingSystemVersion : 0x000000c2 = 0x0000
+                                       majorImageVersion : 0x000000c4 = 0x0000
+                                       minorImageVersion : 0x000000c6 = 0x0000
+                                   majorSubsystemVersion : 0x000000c8 = 0x0006
+                                   minorSubsystemVersion : 0x000000ca = 0x0000
+                                       win32VersionValue : 0x000000cc = 0x00000000
+                                             sizeOfImage : 0x000000d0 = 0x0000e000
+                                           sizeOfHeaders : 0x000000d4 = 0x00000400
+                                                checkSum : 0x000000d8 = 0x00000000
+                                               subsystem : 0x000000dc =  subsystem (enum) = 0x2 ; IMAGE_SUBSYSTEM_WINDOWS_GUI
+                                      dllCharacteristics : 0x000000de =  dllCharacteristics (bitfield) = 0x00008560 : IMAGE_DLLCHARACTERISTICS_HIGH_ENTROPY_VA | IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE | IMAGE_DLLCHARACTERISTICS_NX_COMPAT | IMAGE_DLLCHARACTERISTICS_NO_SEH | IMAGE_DLLCHARACTERISTICS_TERMINAL_SERVER_AWARE
+                                      sizeOfStackReserve : 0x000000e0 = 0x00100000
+                                       sizeOfStackCommit : 0x000000e4 = 0x00001000
+                                       sizeOfHeapReserve : 0x000000e8 = 0x00100000
+                                        sizeOfHeapCommit : 0x000000ec = 0x00001000
+                                             loaderFlags : 0x000000f0 = 0x00000000
+                                     numberOfRvaAndSizes : 0x000000f4 = 0x00000010
+                                           dataDirectory : 
 [
-                struct<pe_image_data_directory>
-            virtualAddress : 0x000000f8 = 0x00000000
-                      size : 0x000000fc = 0x00000000
+                      struct<pe_image_data_directory>
+                               virtualAddress : 0x000000f8 = 0x00000000
+                                         size : 0x000000fc = 0x00000000
 ,
-                struct<pe_image_data_directory>
-            virtualAddress : 0x00000100 = 0x00004ef0
-                      size : 0x00000104 = 0x0000004b
+                      struct<pe_image_data_directory>
+                               virtualAddress : 0x00000100 = 0x00004ef0
+                                         size : 0x00000104 = 0x0000004b
 ,
-                struct<pe_image_data_directory>
-            virtualAddress : 0x00000108 = 0x00008000
-                      size : 0x0000010c = 0x00002e40
+                      struct<pe_image_data_directory>
+                               virtualAddress : 0x00000108 = 0x00008000
+                                         size : 0x0000010c = 0x00002e40
 ,
-                struct<pe_image_data_directory>
-            virtualAddress : 0x00000110 = 0x00000000
-                      size : 0x00000114 = 0x00000000
+                      struct<pe_image_data_directory>
+                               virtualAddress : 0x00000110 = 0x00000000
+                                         size : 0x00000114 = 0x00000000
 ,
-                struct<pe_image_data_directory>
-            virtualAddress : 0x00000118 = 0x00000000
-                      size : 0x0000011c = 0x00000000
+                      struct<pe_image_data_directory>
+                               virtualAddress : 0x00000118 = 0x00000000
+                                         size : 0x0000011c = 0x00000000
 ,
-                struct<pe_image_data_directory>
-            virtualAddress : 0x00000120 = 0x0000c000
-                      size : 0x00000124 = 0x0000000c
+                      struct<pe_image_data_directory>
+                               virtualAddress : 0x00000120 = 0x0000c000
+                                         size : 0x00000124 = 0x0000000c
 ,
-                struct<pe_image_data_directory>
-            virtualAddress : 0x00000128 = 0x00006000
-                      size : 0x0000012c = 0x0000001c
+                      struct<pe_image_data_directory>
+                               virtualAddress : 0x00000128 = 0x00006000
+                                         size : 0x0000012c = 0x0000001c
 ,
-                struct<pe_image_data_directory>
-            virtualAddress : 0x00000130 = 0x00000000
-                      size : 0x00000134 = 0x00000000
+                      struct<pe_image_data_directory>
+                               virtualAddress : 0x00000130 = 0x00000000
+                                         size : 0x00000134 = 0x00000000
 ,
-                struct<pe_image_data_directory>
-            virtualAddress : 0x00000138 = 0x00000000
-                      size : 0x0000013c = 0x00000000
+                      struct<pe_image_data_directory>
+                               virtualAddress : 0x00000138 = 0x00000000
+                                         size : 0x0000013c = 0x00000000
 ,
-                struct<pe_image_data_directory>
-            virtualAddress : 0x00000140 = 0x00000000
-                      size : 0x00000144 = 0x00000000
+                      struct<pe_image_data_directory>
+                               virtualAddress : 0x00000140 = 0x00000000
+                                         size : 0x00000144 = 0x00000000
 ,
-                struct<pe_image_data_directory>
-            virtualAddress : 0x00000148 = 0x00000000
-                      size : 0x0000014c = 0x00000000
+                      struct<pe_image_data_directory>
+                               virtualAddress : 0x00000148 = 0x00000000
+                                         size : 0x0000014c = 0x00000000
 ,
-                struct<pe_image_data_directory>
-            virtualAddress : 0x00000150 = 0x00000000
-                      size : 0x00000154 = 0x00000000
+                      struct<pe_image_data_directory>
+                               virtualAddress : 0x00000150 = 0x00000000
+                                         size : 0x00000154 = 0x00000000
 ,
-                struct<pe_image_data_directory>
-            virtualAddress : 0x00000158 = 0x00002000
-                      size : 0x0000015c = 0x00000008
+                      struct<pe_image_data_directory>
+                               virtualAddress : 0x00000158 = 0x00002000
+                                         size : 0x0000015c = 0x00000008
 ,
-                struct<pe_image_data_directory>
-            virtualAddress : 0x00000160 = 0x00000000
-                      size : 0x00000164 = 0x00000000
+                      struct<pe_image_data_directory>
+                               virtualAddress : 0x00000160 = 0x00000000
+                                         size : 0x00000164 = 0x00000000
 ,
-                struct<pe_image_data_directory>
-            virtualAddress : 0x00000168 = 0x00002008
-                      size : 0x0000016c = 0x00000048
+                      struct<pe_image_data_directory>
+                               virtualAddress : 0x00000168 = 0x00002008
+                                         size : 0x0000016c = 0x00000048
 ,
-                struct<pe_image_data_directory>
-            virtualAddress : 0x00000170 = 0x00000000
-                      size : 0x00000174 = 0x00000000
-]"
+                      struct<pe_image_data_directory>
+                               virtualAddress : 0x00000170 = 0x00000000
+                                         size : 0x00000174 = 0x00000000
+]
+"
 run_test
 
 NAME='Variable length array'

@@ -73,32 +73,33 @@ ARGS=
 CMDS='pfo elf32
 pf [2]? (elf_shdr)sections
 '
-EXPECT='          sections : 
+EXPECT=' sections : 
 [
-          struct<elf_shdr>
-                       name : 0x00000000 = 0x00000000
-                       type : 0x00000004 =  type (enum) = 0x0 ; SHT_NULL
-                      flags : 0x00000008 =  flags (enum) = 0x0 ; SF32_None
-                       addr : 0x0000000c = 0x00000000
-                     offset : 0x00000010 = 0x00000000
-                       size : 0x00000014 = 0x00000000
-                       link : 0x00000018 = 0x00000000
-                       info : 0x0000001c = 0x00000000
-                  addralign : 0x00000020 = 0x00000000
-                    entsize : 0x00000024 = 0x00000000
+                struct<elf_shdr>
+                name : 0x00000000 = 0x00000000
+                type : 0x00000004 =  type (enum) = 0x0 ; SHT_NULL
+               flags : 0x00000008 =  flags (enum) = 0x0 ; SF32_None
+                addr : 0x0000000c = 0x00000000
+              offset : 0x00000010 = 0x00000000
+                size : 0x00000014 = 0x00000000
+                link : 0x00000018 = 0x00000000
+                info : 0x0000001c = 0x00000000
+           addralign : 0x00000020 = 0x00000000
+             entsize : 0x00000024 = 0x00000000
 ,
-          struct<elf_shdr>
-                       name : 0x00000028 = 0x00000000
-                       type : 0x0000002c =  type (enum) = 0x0 ; SHT_NULL
-                      flags : 0x00000030 =  flags (enum) = 0x0 ; SF32_None
-                       addr : 0x00000034 = 0x00000000
-                     offset : 0x00000038 = 0x00000000
-                       size : 0x0000003c = 0x00000000
-                       link : 0x00000040 = 0x00000000
-                       info : 0x00000044 = 0x00000000
-                  addralign : 0x00000048 = 0x00000000
-                    entsize : 0x0000004c = 0x00000000
-]'
+                struct<elf_shdr>
+                name : 0x00000028 = 0x00000000
+                type : 0x0000002c =  type (enum) = 0x0 ; SHT_NULL
+               flags : 0x00000030 =  flags (enum) = 0x0 ; SF32_None
+                addr : 0x00000034 = 0x00000000
+              offset : 0x00000038 = 0x00000000
+                size : 0x0000003c = 0x00000000
+                link : 0x00000040 = 0x00000000
+                info : 0x00000044 = 0x00000000
+           addralign : 0x00000048 = 0x00000000
+             entsize : 0x0000004c = 0x00000000
+]
+'
 run_test
 
 NAME='64: Multiple section headers'
@@ -108,30 +109,31 @@ ARGS=
 CMDS='pfo elf64
 pf [2]? (elf_shdr)sections
 '
-EXPECT='          sections : 
+EXPECT=' sections : 
 [
-          struct<elf_shdr>
-                       name : 0x00000000 = 0x00000000
-                       type : 0x00000004 =  type (enum) = 0x0 ; SHT_NULL
-                      flags : 0x00000008 =  flags (enum) = 0x0 ; SF64_None
-                       addr : 0x00000010 = (qword)0x0000000000000000
-                     offset : 0x00000018 = (qword)0x0000000000000000
-                       size : 0x00000020 = (qword)0x0000000000000000
-                       link : 0x00000028 = 0x00000000
-                       info : 0x0000002c = 0x00000000
-                  addralign : 0x00000030 = (qword)0x0000000000000000
-                    entsize : 0x00000038 = (qword)0x0000000000000000
+                struct<elf_shdr>
+                name : 0x00000000 = 0x00000000
+                type : 0x00000004 =  type (enum) = 0x0 ; SHT_NULL
+               flags : 0x00000008 =  flags (enum) = 0x0 ; SF64_None
+                addr : 0x00000010 = (qword)0x0000000000000000
+              offset : 0x00000018 = (qword)0x0000000000000000
+                size : 0x00000020 = (qword)0x0000000000000000
+                link : 0x00000028 = 0x00000000
+                info : 0x0000002c = 0x00000000
+           addralign : 0x00000030 = (qword)0x0000000000000000
+             entsize : 0x00000038 = (qword)0x0000000000000000
 ,
-          struct<elf_shdr>
-                       name : 0x00000040 = 0x00000000
-                       type : 0x00000044 =  type (enum) = 0x0 ; SHT_NULL
-                      flags : 0x00000048 =  flags (enum) = 0x0 ; SF64_None
-                       addr : 0x00000050 = (qword)0x0000000000000000
-                     offset : 0x00000058 = (qword)0x0000000000000000
-                       size : 0x00000060 = (qword)0x0000000000000000
-                       link : 0x00000068 = 0x00000000
-                       info : 0x0000006c = 0x00000000
-                  addralign : 0x00000070 = (qword)0x0000000000000000
-                    entsize : 0x00000078 = (qword)0x0000000000000000
-]'
+                struct<elf_shdr>
+                name : 0x00000040 = 0x00000000
+                type : 0x00000044 =  type (enum) = 0x0 ; SHT_NULL
+               flags : 0x00000048 =  flags (enum) = 0x0 ; SF64_None
+                addr : 0x00000050 = (qword)0x0000000000000000
+              offset : 0x00000058 = (qword)0x0000000000000000
+                size : 0x00000060 = (qword)0x0000000000000000
+                link : 0x00000068 = 0x00000000
+                info : 0x0000006c = 0x00000000
+           addralign : 0x00000070 = (qword)0x0000000000000000
+             entsize : 0x00000078 = (qword)0x0000000000000000
+]
+'
 run_test

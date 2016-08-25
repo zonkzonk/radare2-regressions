@@ -5,7 +5,7 @@
 NAME='PE JSON test'
 FILE=../bins/pe/ch22.exe
 ARGS=-nn
-BROKEN=
+BROKEN=1
 CMDS='e asm.bits=32
 s 0x80
 pfj.pe_nt_image_headers32
@@ -45,14 +45,14 @@ pf.gobelin ww?x blah meh (plop)Buh foo
 pf.gobelin.Buh.first
 pf.gobelin.Buh.Boh.word
 '
-EXPECT=" Buh : 
+EXPECT="  Buh : 
                 struct<plop>
-     first : 0x00000004 = 666
- Buh : 
+       first : 0x00000004 = 666
+  Buh : 
                 struct<plop>
-       Boh : 
+         Boh : 
                       struct<troll>
-                 word : 0x0000000c = 0x002a
+                    word : 0x0000000c = 0x002a
 "
 run_test
 
@@ -70,15 +70,17 @@ pf.troll.str[1].two
 EXPECT=" str : 
 [
                 struct<plop>
-       one : 0x00000010 = 4000
-       two : 0x00000014 = 0xdead
-     three : 0x00000016 = (qword)0x0000000000000000
-      four : 0x0000001e = 0x0000
-] str : 
+         one : 0x00000010 = 4000
+         two : 0x00000014 = 0xdead
+       three : 0x00000016 = (qword)0x0000000000000000
+        four : 0x0000001e = 0x0000
+]
+ str : 
 [
                 struct<plop>
-       two : 0x00000014 = 0xdead
-]"
+         two : 0x00000014 = 0xdead
+]
+"
 run_test
 
 NAME='Complex request with specific array element and specific field'
@@ -90,8 +92,8 @@ s 0x80
 pf.pe_dos_header.e_res[2]
 pf.pe_dos_header.e_res2[8]
 '
-EXPECT='     e_res : 0x000000a0 = [ 0x3400 ]
-    e_res2 : 0x000000b8 = [ 0x2000 ]
+EXPECT='      e_res : 0x000000a0 = [ 0x3400 ]
+     e_res2 : 0x000000b8 = [ 0x2000 ]
 '
 run_test
 
@@ -113,62 +115,62 @@ pf.gobelin
 '
 EXPECT="wv4 42 @ 0x00000004
 wx adde @ 0x00000024
-blah : 0x00000000 = 0x1234
- meh : 0x00000002 = 0x6789
- Buh : 
+ blah : 0x00000000 = 0x1234
+  meh : 0x00000002 = 0x6789
+  Buh : 
                 struct<plop>
-     first : 0x00000004 = 42
-       Boh : 
+       first : 0x00000004 = 42
+         Boh : 
                       struct<troll>
-              integer : 0x00000008 = 4000
-                 word : 0x0000000c = 0x002a
-                  Bah : (*0x30)
-                      struct<troll>
-              integer : 0x00000030 = 20
-                 word : 0x00000034 = 0x1664
-                  Bah : (*0x20)
-                      struct<troll>
-              integer : 0x00000020 = 1664
-                 word : 0x00000024 = 0xdead
-                  Bah : (*0x0) NULL
-       bwa : 0x00000012 = 0x4214
- foo : 0x00000014 = 0x00001664
+                 integer : 0x00000008 = 4000
+                    word : 0x0000000c = 0x002a
+                     Bah : (*0x30)
+                            struct<troll>
+                         integer : 0x00000030 = 20
+                            word : 0x00000034 = 0x1664
+                             Bah : (*0x20)
+                                  struct<troll>
+                                 integer : 0x00000020 = 1664
+                                    word : 0x00000024 = 0xdead
+                                     Bah : (*0x0) NULL
+         bwa : 0x00000012 = 0x4214
+  foo : 0x00000014 = 0x00001664
 "
 run_test
 
 
 NAME='print anonymous nested struct'
 FILE=malloc://1024
-BROKEN=1
+BROKEN=
 CMDS='
 wx 71776572747975696f706173646667686a6b6c7a786376626e6d71776572747975696f706173646667686a6b6c7a786376626e6d
 pf.dsf ii a b
-pf.abc ic...?i a b "(pf i?i a (dsf)b c)c" d
-pf.def ic...*?i a b "(pf i?i a (dsf)b c)c" d
+pf.abc ic...?i a b (pf i?i a (dsf)b c)c d
+pf.def ic...*?i a b (pf i?i a (dsf)b c)c d
 pf.abc
 pf.def
 '
 EXPECT=" a : 0x00000000 = 1919252337
  b : 0x00000004 = 't'
  c : 
-    struct<i?i a (dsf)b c>
-           a : 0x00000008 = 1935765615
-           b : 
-                struct<dsf>
-    a : 0x0000000c = 1751606884
-    b : 0x00000010 = 2053925738
-    c : 0x00000014 = 1651925880
-                   d : 0x00000018 = 2003922286
-                   a : 0x00000000 = 1919252337
-                   b : 0x00000004 = 't'
-                   c : (*0x7361706f)
-           struct<i?i a (dsf)b c>
-     a : 0x7361706f = 4294967295
-     b : 
-          struct<dsf>
- a : 0x73617073 = 4294967295
- b : 0x73617077 = 4294967295
- c : 0x7361707b = 4294967295
+                struct<i?i a (dsf)b c>
+   a : 0x00000008 = 1935765615
+   b : 
+                      struct<dsf>
+     a : 0x0000000c = 1751606884
+     b : 0x00000010 = 2053925738
+   c : 0x00000014 = 1651925880
+ d : 0x00000018 = 2003922286
+ a : 0x00000000 = 1919252337
+ b : 0x00000004 = 't'
+ c : (*0x7361706f)
+                struct<i?i a (dsf)b c>
+   a : 0x7361706f = 4294967295
+   b : 
+                      struct<dsf>
+     a : 0x73617073 = 4294967295
+     b : 0x73617077 = 4294967295
+   c : 0x7361707b = 4294967295
  d : 0x00000010 = 2053925738
 "
 run_test

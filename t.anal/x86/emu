@@ -71,7 +71,7 @@ EXPECT=' HINSTANCE:hInstance : 0x00177ff4 = 0x00000000
 run_test
 
 NAME='Linux fcnsign test'
-BROKEN=1
+BROKEN=
 FILE=../../bins/elf/ls-linux64
 ARGS=
 CMDS='
@@ -86,8 +86,8 @@ e asm.lines=false
 aa
 aeim
 s 0x00003cb8-0x30
-pd 20~^var
+pd 20~var
 '
-EXPECT='var : 0x00177ff0 = .<
+EXPECT=' var : 0x00177ff0 = .<
 '
 run_test

@@ -11,8 +11,8 @@ BROKEN=
 IGNORE_ERR=1
 CMDS="ic"
 EXPECT='0x00000174 class 0 Hello
-0x00000194 method 0 LHello_.method.<init>
-0x000001b0 method 1 LHello_.method.main
+0x00000194 method 0 LHello.method.<init>
+0x000001b0 method 1 LHello.method.main
 '
 run_test
 
@@ -32,23 +32,23 @@ ARGS=''
 BROKEN=
 IGNORE_ERR=1
 CMDS="isq"
-EXPECT='0x00000160 0 LHello_.static.0_localVar2
-0x00000160 0 LHello_.field.0_localVar
-0x00000238 0 LHello_.method.<init>
-0x0000025c 0 LHello_.method.main
-0x00000280 0 LHello_.method.foo
-0x00000160 0 LWorld_.field.0_worldVar
-0x00000162 0 LWorld_.field.1_worldVar2
-0x000002f4 0 LWorld_.method.<init>
-0x00000308 0 LWorld_.method.foo
-0x00000160 0 LHello_.static.0_localVar2
-0x00000160 0 LHello_.field.0_localVar
-0x00000238 0 LHello_.method.<init>
-0x0000025c 0 LHello_.method.main
-0x00000280 0 LHello_.method.foo
-0x00000160 0 LWorld_.field.0_worldVar
-0x00000162 0 LWorld_.field.1_worldVar2
-0x000002f4 0 LWorld_.method.<init>
-0x00000308 0 LWorld_.method.foo
+EXPECT='0x00000168 0 LHello.sfield_0_localVar2
+0x00000160 0 LHello.ifield_0_localVar
+0x00000238 0 LHello.method.<init>
+0x0000025c 0 LHello.method.main
+0x00000280 0 LHello.method.foo
+0x00000170 0 LWorld.ifield_0_worldVar
+0x00000178 0 LWorld.ifield_1_worldVar2
+0x000002f4 0 LWorld.method.<init>
+0x00000308 0 LWorld.method.foo
+0x00000168 0 LHello.sfield_0_localVar2
+0x00000160 0 LHello.ifield_0_localVar
+0x00000238 0 LHello.method.<init>
+0x0000025c 0 LHello.method.main
+0x00000280 0 LHello.method.foo
+0x00000170 0 LWorld.ifield_0_worldVar
+0x00000178 0 LWorld.ifield_1_worldVar2
+0x000002f4 0 LWorld.method.<init>
+0x00000308 0 LWorld.method.foo
 '
 run_test

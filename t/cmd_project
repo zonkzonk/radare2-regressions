@@ -170,3 +170,18 @@ Pc breakpoints~?0x1234567
 EXPECT='1
 '
 run_test
+
+NAME='Visual Marks in project file'
+FILE=../bins/elf/main
+BROKEN=
+ARGS=
+CMDS='fV 49 0x400410
+fV 50 0x400412
+Ps vmarks > /dev/null
+Pc vmarks~fV 
+Pd vmarks > /dev/null
+'
+EXPECT='fV 49 0x400410
+fV 50 0x400412
+'
+run_test

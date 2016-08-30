@@ -60,3 +60,14 @@ s
 EXPECT='0x10
 '
 run_test
+
+NAME='visual intermediate'
+BROKEN=1
+FILE=../bins/elf/main
+CMDS='Vpjjjjdi
+d
+qah*
+'
+EXPECT='ahi 10 @ 0x400419
+'
+run_test

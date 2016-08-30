@@ -792,3 +792,19 @@ EXPECT='02132435465768798a9bacbdcedfe0f1
 '
 
 run_test
+
+NAME='rahash2 -E cps2'
+CMDS='!rahash2 -E cps2 -S "0x942a5702 0x05ac140e" -x 000000000000033244d31b9deba90ac1 | rax2 -S'
+BROKEN=
+EXPECT='d5642832bc24ac560000fe020000fe02
+'
+
+run_test
+
+NAME='rahash2 -D cps2'
+CMDS='!rahash2 -D cps2 -S "0x942a5702 0x05ac140e" -x d5642832bc24ac560000fe020000fe02 | rax2 -S'
+BROKEN=
+EXPECT='000000000000033244d31b9deba90ac1
+'
+
+run_test

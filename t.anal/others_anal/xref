@@ -49,6 +49,34 @@ EXPECT='data 0x804843c mov dword [esp], str.Password: in sym.main
 '
 run_test
 
+NAME="axt capstone x86: IOLI7 aa"
+BROKEN=
+FILE=../../bins/elf/ioli/crackme0x07
+IGNORE_ERR=1
+ARGS=
+CMDS='
+aaa
+axt @ sym.imp.exit'
+EXPECT='call 0x804853d call sym.imp.exit in sub.printf_524
+call 0x80485ab call sym.imp.exit in sub.sscanf_542
+call 0x804866f call sym.imp.exit in sub.strlen_5b9
+'
+run_test
+
+NAME="axt capstone x86: IOLI7 aa"
+BROKEN=
+FILE=../../bins/elf/ioli/crackme0x07
+IGNORE_ERR=1
+ARGS=
+CMDS='
+aaaa
+axt @ sym.imp.exit'
+EXPECT='call 0x804853d call sym.imp.exit in sub.printf_524
+call 0x80485ab call sym.imp.exit in sub.sscanf_542
+call 0x804866f call sym.imp.exit in sub.strlen_5b9
+'
+run_test
+
 NAME="axt udis86: IOLI0"
 BROKEN=
 FILE=../../bins/elf/ioli/crackme0x00

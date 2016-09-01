@@ -1,7 +1,29 @@
 #!/bin/sh
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
+NAME='rasm2 -e'
+NAME='Rasm2 arm asm/dis endian'
+CMDS="!rasm2 -a arm -b32 'mov r0, 3'
+!rasm2 -a arm -b32 -e 'mov r0, 3'
+!rasm2 -a arm -b32 -d 0300a0e3
+!rasm2 -a arm -b32 -e -d e3a00003
+"
+EXPECT='0300a0e3
+e3a00003
+mov r0, 3
+mov r0, 3
+'
+run_test
 
+NAME='rasm2 -a -e'
+NAME='Rasm2'
+CMDS="!rasm2 -a arm -b32 'mov r0, 3'"
+EXPECT='0300a0e3
+'
+run_test
+
+
+NAME='Rasm2'
 NAME='Rasm2'
 CMDS="!rasm2 -a x86 -b 64 -d '5589e583ec2083f8000f8507000000b800000000eb05b80100000083c4205dc3' "
 EXPECT='push rbp

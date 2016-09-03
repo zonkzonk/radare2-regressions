@@ -44,3 +44,13 @@ CMDS="is*~d_41"
 EXPECT='f sym._d_41 0 0x00000ae0
 '
 run_test
+
+NAME='ELF: phdr override'
+FILE=../../bins/elf/phdr-override
+BROKEN=
+CMDS="iiq"
+EXPECT='system
+__libc_start_main
+__gmon_start__
+'
+run_test

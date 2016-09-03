@@ -42,3 +42,19 @@ EXPECT="1
 1
 "
 run_test
+
+NAME="Wrong calling convention"
+FILE=../../bins/pe/crackme0x00.exe
+CMDS="s entry0
+af
+tk CRTStartup=func
+tk func.CRTStartup.args=1
+tk func.CRTStartup.arg0= int,who_cares
+tk func.CRTStartup.cc=THE_CC_THAT_NEVER_EXISTED
+tk func.CRTStartup.ret=eax
+aei
+aeim
+aftm
+"
+EXPECT=""
+run_test

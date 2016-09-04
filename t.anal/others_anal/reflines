@@ -3,6 +3,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 NAME="reflines offset"
 FILE=malloc://1023
 CMDS='e asm.bits=32
+e asm.leahints=false
 e asm.cpu=x86
 e asm.linesup=false
 e asm.arch=x86
@@ -64,6 +65,7 @@ run_test
 NAME="reflines offset (ascii)"
 FILE=malloc://1023
 CMDS='e asm.bits=32
+e asm.leahints=false
 e asm.cpu=x86
 e anal.cpu=x86
 e asm.arch=x86
@@ -123,6 +125,7 @@ run_test
 NAME="reflines offset 2 (ascii)"
 FILE=../../bins/elf/ls-alxchk
 CMDS='e asm.bytes=false
+e asm.leahints=false
 e scr.utf8=false
 e scr.color=false
 s $S
@@ -168,6 +171,7 @@ run_test
 NAME="reflines offset 3 (ascii)"
 FILE=../../bins/elf/ls-alxchk
 CMDS='e asm.bytes=false
+e asm.leahints=false
 e scr.utf8=false
 e scr.color=false
 s $S
@@ -206,6 +210,7 @@ run_test
 NAME="reflines offset 3 (ascii + wide)"
 FILE=../../bins/elf/ls-alxchk
 CMDS='e asm.bytes=false
+e asm.leahints=false
 e scr.utf8=false
 e scr.color=false
 e asm.lineswide=true
@@ -246,6 +251,7 @@ NAME="reflines offset 3 (ascii + wide)"
 FILE=../../bins/elf/ls-alxchk
 BROKEN=
 CMDS='e asm.bytes=false
+e asm.leahints=false
 e scr.utf8=false
 e scr.color=false
 e asm.lineswide=true

@@ -8,6 +8,7 @@ NAME='serial relsub'
 FILE=../../bins/elf/serial
 ARGS=
 CMDS='s 0x00400b35
+e asm.leahints=false
 e asm.bytes=false
 e asm.lines=false
 e asm.relsub=true

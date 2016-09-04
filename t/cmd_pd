@@ -297,6 +297,7 @@ FILE=malloc://1024
 ARGS="-m 0x400000"
 BROKEN=
 CMDS='e asm.arch=x86
+e asm.leahints=false
 e asm.bits=64
 wx 488d0502000000
 e asm.lines=false

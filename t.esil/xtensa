@@ -93,14 +93,15 @@ run_test
 # .org 0x10
 # test1: _ret
 # .org 0x20
-# test2: _ret
+# test2: _movi a0, 0x30
+# _callx0 a0
 
 NAME="call0 ABI"
 FILE=malloc://0x200
 CMDS='
 e asm.arch=xtensa
 e asm.bits=32
-wx c5000022a020c002000000000000000080000000000000000000000000000000800000
+wx c5000022a020c00200000000000000008000000000000000000000000000000002a030c00000
 aes
 ar~pc
 ar~a0
@@ -110,12 +111,18 @@ ar~a2
 aes
 ar~pc
 ar~a0
+aes
+aes
+ar~pc
+ar~a0
 '
 EXPECT='pc = 0x00000010
 a0 = 0x00000003
 a2 = 0x00000020
 pc = 0x00000020
 a0 = 0x00000009
+pc = 0x00000030
+a0 = 0x00000026
 '
 run_test
 

@@ -53,6 +53,7 @@ int8_t
 int16_t
 int32_t
 int64_t
+uid_t
 '
 run_test
 
@@ -270,11 +271,12 @@ int8_t
 int16_t
 int32_t
 int64_t
+uid_t
 name
 date
 addr
 dox
-pf *z*zi street city zip
+pf [127]z[40]zi street city zip
 '
 run_test
 
@@ -304,11 +306,12 @@ int8_t
 int16_t
 int32_t
 int64_t
+uid_t
 name
 date
 addr
 dox
-pf *z*zi street city zip
+pf [127]z[40]zi street city zip
 '
 run_test
 
@@ -368,25 +371,25 @@ tk type.int32_t.size = 32
 tk int64_t = type
 tk type.int64_t = q
 tk type.int64_t.size = 64
+tk uid_t = type
+tk type.uid_t = i
 tk type.void *.size = 64
 tk type.char *.size = 64
 '
 run_test
 
 NAME='tp'
-BROKEN=
+BROKEN=0
 FILE=-
 CMDS='"td struct person { int age; char name[10]; }"
-s 100
+s 4
 w Carlos
 s 0
-wx 13000000
-s +4
-wx 0x64
+wx 13
 tp person @ 0x0
 '
-EXPECT=' age : 0x00000000 = 19
-name : (*0x64)0x00000004 = Carlos
+EXPECT='  age : 0x00000000 = 19
+ name : 0x00000004 = Carlos
 '
 run_test
 

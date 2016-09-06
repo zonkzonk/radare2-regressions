@@ -233,6 +233,7 @@ NAME='64bit ahi 10'
 FILE=-
 ARGS="-m 0x100001000"
 CMDS='
+e asm.relsub=false
 e asm.leahints=false
 e asm.arch=x86
 e asm.bits=64

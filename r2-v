@@ -155,8 +155,8 @@ use)
 	;;
 ''|-h|help|-?)
 	echo "Usage: r2-v [cmd] ([arg])      - Radare2 Version Manager"
-	echo "  init   initialize r2-v repository"
-	echo "  cur    show current commit"
+	echo "  init                 initialize r2-v repository"
+	echo "  cur                  show current commit"
 	echo "  head                 show last commit"
 	echo "  ls                   list all build"
 	echo "  log                  show log history with marks and notes"

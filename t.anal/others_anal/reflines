@@ -171,7 +171,8 @@ run_test
 
 NAME="reflines offset 3 (ascii)"
 FILE=../../bins/elf/ls-alxchk
-CMDS='e asm.bytes=false
+CMDS='e asm.relsub=false
+e asm.bytes=false
 e asm.leahints=false
 e scr.utf8=false
 e scr.color=false
@@ -210,7 +211,8 @@ run_test
 
 NAME="reflines offset 3 (ascii + wide)"
 FILE=../../bins/elf/ls-alxchk
-CMDS='e asm.bytes=false
+CMDS='e asm.relsub=false
+e asm.bytes=false
 e asm.leahints=false
 e scr.utf8=false
 e scr.color=false
@@ -251,7 +253,8 @@ run_test
 NAME="reflines offset 3 (ascii + wide)"
 FILE=../../bins/elf/ls-alxchk
 BROKEN=
-CMDS='e asm.bytes=false
+CMDS='e asm.relsub=false
+e asm.bytes=false
 e asm.leahints=false
 e scr.utf8=false
 e scr.color=false

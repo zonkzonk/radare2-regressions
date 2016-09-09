@@ -51,3 +51,18 @@ e asm.comments=0
 EXPECT="|           0x00005f16      e835ffffff     call fcn.eip
 "
 run_test
+
+
+NAME='lea edx bug segfault for x86 32bit #5710@radare2'
+FILE=malloc://128
+ARGS=
+CMDS='
+e asm.arch=x86
+e asm.bits=32
+e asm.lines=false
+e asm.comments=false
+pd@x:8d15d0830408
+'
+EXPECT=" 0x00000000      8d15d0830408   lea edx, [0x80483d0]
+"
+run_test

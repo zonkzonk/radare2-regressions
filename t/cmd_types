@@ -379,7 +379,7 @@ tk type.char *.size = 64
 run_test
 
 NAME='tp'
-BROKEN=0
+BROKEN=
 FILE=-
 CMDS='"td struct person { int age; char name[10]; }"
 s 4

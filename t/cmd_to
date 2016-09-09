@@ -15,7 +15,7 @@ run_test
 NAME='to arrays'
 FILE=-
 ARGS=
-BROKEN=1
+BROKEN=
 CMDS='
 to ../bins/headers/s3.h
 t S1
@@ -25,8 +25,7 @@ tk struct.S1.x
 tk struct.S1.y
 tk struct.S1.z
 '
-EXPECT='
-pf [3]d[4]d x y z
+EXPECT='pf [3]d[4]dd x y z
 struct
 
 x,y,z

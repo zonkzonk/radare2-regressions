@@ -58,3 +58,17 @@ aftm
 "
 EXPECT=""
 run_test
+
+NAME="Wrong calling convention"
+FILE=../../bins/mach0/ls-osx-x86_64
+CMDS="s entry0
+aaa
+afta
+CC. @ 0x100001413
+CC. @ 0x10000145b
+CC. @ 0x100001460
+"
+EXPECT="int category
+int fd
+unsigned long request"
+run_test

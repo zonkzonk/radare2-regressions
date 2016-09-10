@@ -70,5 +70,6 @@ CC. @ 0x100001460
 "
 EXPECT="int category
 int fd
-unsigned long request"
+unsigned long request
+"
 run_test

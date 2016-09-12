@@ -68,7 +68,13 @@ run_test
 # .org 0x00
 # test: .word 0xaabbccdd
 # .org 0x14
+# ; load 4 times because l32r size is 3 bytes
+# ; and target address is a 4-byte aligned
+# ; this ensures correct offset calculation in esil
 # _l32r a2, test
+# _l32r a3, test
+# _l32r a4, test
+# _l32r a5, test
 
 NAME="load relative"
 FILE=malloc://0x200
@@ -78,11 +84,18 @@ e asm.bits=32
 s 0
 wx ddccbbaa
 s 0x14
-wx 21fbff
+wx 21fbff31faff41f9ff51f8ff
+f8ff
 aes
-ar~a2
+aes
+aes
+aes
+ar~a2,a3,a4,a5
 '
 EXPECT='a2 = 0xaabbccdd
+a3 = 0xaabbccdd
+a4 = 0xaabbccdd
+a5 = 0xaabbccdd
 '
 run_test
 

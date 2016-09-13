@@ -302,7 +302,7 @@ NAME='anal vars retype'
 FILE=../../bins/mach0/ls-osx-x86_64
 ARGS=
 CMDS='af
-afvbt local_30h char
+afvt local_30h char
 afvb~l_30h
 '
 EXPECT="var char local_30h @ rbp-0x30
@@ -337,8 +337,8 @@ FILE=../../bins/elf/fast
 ARGS=
 CMDS='aa
 s 0x0804843b
-afvbd arg_ch
-afvbd local_10h
+afvd arg_ch
+afvd local_10h
 '
 EXPECT="pf d @ebp+0xc
 pf d @ebp-0x10

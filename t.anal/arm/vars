@@ -6,7 +6,7 @@ NAME="ELF ARM: function arg"
 BROKEN=
 FILE=../../bins/elf/armcall
 CMDS='
-e asm.calls
+e asm.calls=false
 afr@main
 afva@sym.call
 pdf@sym.call
@@ -34,7 +34,7 @@ NAME="ELF ARM: function args"
 BROKEN=
 FILE=../../bins/elf/armcall
 CMDS='
-e asm.calls
+e asm.calls=false
 af@main
 afva@main
 pdf@main
@@ -62,7 +62,7 @@ run_test
 NAME="ELF ARM: aav"
 BROKEN=
 FILE=../../bins/elf/armcall
-CMDS='
+CMDS='e asm.calls=false
 aav
 pd 3 @ 0x00010328
 '

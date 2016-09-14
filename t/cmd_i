@@ -208,6 +208,7 @@ BROKEN=
 FILE=malloc://1024
 ARGS=
 CMDS='
+e asm.calls=false
 e asm.comments=false
 e asm.cmtflgrefs=false
 e scr.color=false

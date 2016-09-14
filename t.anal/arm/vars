@@ -79,7 +79,7 @@ NAME="ELF ARM: vars"
 BROKEN=
 FILE=../../bins/elf/arm-ls
 CMDS='
-e asm.calls=true
+e asm.calls=false
 s main
 af
 pd 1~local?

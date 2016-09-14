@@ -106,6 +106,7 @@ NAME="arm32 bxeq lr"
 BROKEN=
 FILE=malloc://512
 CMDS="
+e asm.calls=false
 e asm.arch=arm
 e asm.bits=32
 wx 021081e0 1eff2f01 0020a0e3 1eff2fe1

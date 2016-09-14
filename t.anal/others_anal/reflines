@@ -2,7 +2,8 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME="reflines offset"
 FILE=malloc://1023
-CMDS='e asm.bits=32
+CMDS='e asm.calls=false
+e asm.bits=32
 e asm.leahints=false
 e asm.cpu=x86
 e asm.linesup=false
@@ -64,7 +65,8 @@ run_test
 
 NAME="reflines offset (ascii)"
 FILE=malloc://1023
-CMDS='e asm.bits=32
+CMDS='e asm.calls=false
+e asm.bits=32
 e asm.leahints=false
 e asm.cpu=x86
 e anal.cpu=x86

@@ -6,6 +6,7 @@ NAME="ELF ARM: function arg"
 BROKEN=
 FILE=../../bins/elf/armcall
 CMDS='
+e asm.calls
 afr@main
 afva@sym.call
 pdf@sym.call
@@ -33,6 +34,7 @@ NAME="ELF ARM: function args"
 BROKEN=
 FILE=../../bins/elf/armcall
 CMDS='
+e asm.calls
 af@main
 afva@main
 pdf@main
@@ -77,6 +79,7 @@ NAME="ELF ARM: vars"
 BROKEN=
 FILE=../../bins/elf/arm-ls
 CMDS='
+e asm.calls=true
 s main
 af
 pd 1~local?

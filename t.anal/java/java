@@ -167,6 +167,7 @@ run_test
 NAME="af java multiple classes loaded via malloc and ib"
 FILE=malloc://1023
 CMDS='
+e asm.calls=false
 e asm.comments=false
 e asm.cmtflgrefs=false
 e scr.color=false

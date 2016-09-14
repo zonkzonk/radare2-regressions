@@ -193,6 +193,7 @@ BROKEN=
 FILE=../bins/elf/main
 ARGS=
 CMDS='e bin.baddr=0x00
+e asm.calls=false
 ib
 pi 1
 ?p

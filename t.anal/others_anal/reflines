@@ -193,7 +193,7 @@ EXPECT='|           0x00003ca6      cmp eax, 2
 |     |||   0x00003cb9      call sym.imp.abort
 |     |||   ; JMP XREF from 0x00003cb7 (main)
 |     `---> 0x00003cbe      mov edi, 1
-|      ||   0x00003cc3      call sym.imp.isatty
+|      ||   0x00003cc3      call sym.imp.isatty                       ; int isatty(int fd);
 |      ||   0x00003cc8      test eax, eax
 |     ,===< 0x00003cca      je 0x4c2e
 |     |||   0x00003cd0      mov dword [rip + 0x1d626], 2               ; [0x21300:4]=-1
@@ -234,7 +234,7 @@ EXPECT='|           0x00003ca6      cmp eax, 2
 |  | | |    0x00003cb9      call sym.imp.abort
 |  | | |    ; JMP XREF from 0x00003cb7 (main)
 |  `------> 0x00003cbe      mov edi, 1
-|    | |    0x00003cc3      call sym.imp.isatty
+|    | |    0x00003cc3      call sym.imp.isatty                       ; int isatty(int fd);
 |    | |    0x00003cc8      test eax, eax
 |  ,======< 0x00003cca      je 0x4c2e
 |  | | |    0x00003cd0      mov dword [rip + 0x1d626], 2               ; [0x21300:4]=-1
@@ -275,7 +275,7 @@ EXPECT='|           0x00003ca6      cmp eax, 2
 |  | | |    0x00003cb9      call sym.imp.abort
 |  | | |    ; JMP XREF from 0x00003cb7 (main)
 |  `------> 0x00003cbe      mov edi, 1
-|    | |    0x00003cc3      call sym.imp.isatty
+|    | |    0x00003cc3      call sym.imp.isatty                       ; int isatty(int fd);
 |    | |    0x00003cc8      test eax, eax
 |  ,======< 0x00003cca      je 0x4c2e
 |  | | |    0x00003cd0      mov dword [rip + 0x1d626], 2               ; [0x21300:4]=-1

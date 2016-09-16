@@ -530,10 +530,11 @@ print_report() {
 
 save_stats(){
   cd $R
+  STATS=`mktemp`
   V=`radare2 -v 2>/dev/null| grep ^rada| awk '{print $5}'`
-  touch stats.csv
-  grep -v "^$V" stats.csv > .stats.csv
-  echo "$V,${TESTS_SUCCESS},${TESTS_FIXED},${TESTS_BROKEN},${TESTS_FAILED},${TESTS_FATAL},${FAILED}" >> .stats.csv
-  sort .stats.csv > stats.csv
-  rm -f .stats.csv
+  grep -v "^$V" "${STATS}" > "${STATS}.tmp"
+  echo "$V,${TESTS_SUCCESS},${TESTS_FIXED},${TESTS_BROKEN},${TESTS_FAILED},${TESTS_FATAL},${FAILED}" >> "${STATS}.tmp"
+  sort "${STATS}.tmp" > "${STATS}"
+  cp -f "${STATS}" stats.csv 2> /dev/null
+  rm -f "${STATS}.tmp" "${STATS}"
 }

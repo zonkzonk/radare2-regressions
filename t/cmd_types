@@ -217,11 +217,8 @@ tk v.p
 '
 EXPECT='1
 enum
-
 0x123
-
 0x321
-
 '
 run_test
 
@@ -237,9 +234,7 @@ tk v.p
 '
 EXPECT='1
 0x8000000000000001
-
 0x8000000000000008
-
 '
 run_test
 
@@ -373,8 +368,82 @@ tk type.int64_t = q
 tk type.int64_t.size = 64
 tk uid_t = type
 tk type.uid_t = i
+tk type.uid_t.size = 64
+tk getenv = func
+tk func.getenv.args = 1
+tk func.getenv.arg.0 = const char *,name
+tk func.getenv.ret = char *
+tk getopt = func
+tk func.getopt.args = 3
+tk func.getopt.arg.0 = int,argc
+tk func.getopt.arg.1 = const char **,argv
+tk func.getopt.arg.2 = const char *,optstring
+tk func.getopt.ret = int
+tk getuid = func
+tk func.getuid.args = 0
+tk func.getuid.ret = uid_t
+tk ioctl = func
+tk func.ioctl.args = 2
+tk func.ioctl.arg.0 = int,fd
+tk func.ioctl.arg.1 = unsigned long,request
+tk func.ioctl.ret = int
+tk isatty = func
+tk func.isatty.args = 1
+tk func.isatty.arg.0 = int,fd
+tk func.isatty.ret = int
+tk setlocale = func
+tk func.setlocale.args = 2
+tk func.setlocale.arg.0 = int,category
+tk func.setlocale.arg.1 = const char *,locale
+tk func.setlocale.ret = char *
+tk __asset_fail = func
+tk func.__assert_fail.args = 4
+tk func.__assert_fail.arg.0 = const char *,assertion
+tk func.__assert_fail.arg.1 = const char *,file
+tk func.__assert_fail.arg.2 = unsigned int,line
+tk func.__assert_fail.arg.3 = const char *,function
+tk func.__assert_fail.noreturn = true
+tk func.__assert_fail.ret = void
+tk _exit = func
+tk func._exit.args = 1
+tk func._exit.arg.0 = int,status
+tk func._exit.noreturn = true
+tk func._exit.ret = void
+tk _Exit = func
+tk func._Exit.args = 1
+tk func._Exit.arg.0 = int,status
+tk func._Exit.noreturn = true
+tk fun._Exit.ret = void
+tk __libc_init = func
+tk func.__libc_init.args = 3
+tk func.__libc_init.arg.0 = int,argc
+tk func.__libc_init.arg.1 = char **,argv
+tk func.__libc_init.arg.2 = char **,envp
+tk func.__libc_init.noreturn = true
+tk func.__libc_init.ret = void
+tk abort = func
+tk func.abort.args = 0
+tk func.abort.noreturn = true
+tk func.abort.ret = void
+tk exit = func
+tk func.exit.args = 1
+tk func.exit.arg.0 = int,status
+tk func.exit.noreturn = true
+tk fun.exit.ret = void
 tk type.void *.size = 64
 tk type.char *.size = 64
+tk func.getenv.cc = amd64
+tk func.getopt.cc = amd64
+tk func.getuid.cc = amd64
+tk func.ioctl.cc = amd64
+tk func.isatty.cc = amd64
+tk func.setlocale.cc = amd64
+tk func.__assert_fail.cc = amd64
+tk func._exit.cc = amd64
+tk func._Exit.cc = amd64
+tk func.__libc_init.cc = amd64
+tk func.abort.cc = amd64
+tk func.exit.cc = amd64
 '
 run_test
 

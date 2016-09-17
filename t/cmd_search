@@ -92,6 +92,36 @@ EXPECT='0x00000000 hit0_0 83c408
 '
 run_test
 
+NAME='/a search from/to (seek 0)'
+FILE='../bins/elf/ioli/crackme0x00'
+ARGS=
+BROKEN=1
+CMDS='
+s 0
+e search.from = 0
+e search.to = 0x00000050
+/a xor al, 0x80
+'
+EXPECT='0x0000003c hit0_0 3480
+0x00000040 hit0_1 3480
+'
+run_test
+
+NAME='/a search from/to (seek beyond data)'
+FILE='../bins/elf/ioli/crackme0x00'
+ARGS=
+BROKEN=1
+CMDS='
+s 0x1000
+e search.from = 0
+e search.to = 0x00000050
+/a xor al, 0x80
+'
+EXPECT='0x0000003c hit0_0 3480
+0x00000040 hit0_1 3480
+'
+run_test
+
 NAME='/A search'
 FILE='malloc://1024'
 ARGS=
@@ -101,6 +131,36 @@ CMDS='e asm.bits=32
 /A ret
 '
 EXPECT='0x00000005 - 1 ret
+'
+run_test
+
+NAME='/A search from/to (seek 0)'
+FILE='../bins/elf/ioli/crackme0x00'
+ARGS=
+BROKEN=
+CMDS='
+s 0
+e search.from = 0
+e search.to = 0x00000050
+/A xor
+'
+EXPECT='0x0000003c - 2 xor
+0x00000040 - 2 xor
+'
+run_test
+
+NAME='/A search from/to (seek beyond data)'
+FILE='../bins/elf/ioli/crackme0x00'
+ARGS=
+BROKEN=
+CMDS='
+s 0x1000
+e search.from = 0
+e search.to = 0x00000050
+/A xor
+'
+EXPECT='0x0000003c - 2 xor
+0x00000040 - 2 xor
 '
 run_test
 

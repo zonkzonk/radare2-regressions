@@ -10,7 +10,7 @@ s main
 afvb*
 "td struct S1 { int a; int b; int c; char d[256]; short e; }"
 afvn local_110h s1
-afvbt s1 S1
+afvt s1 S1
 afvb*
 '
 EXPECT='afvb -288 local_120h int @ 0x4004a6
@@ -32,7 +32,7 @@ s main
 "td struct S1 { int a; int b; int c; char d[256]; short e; }"
 afvn local_110h s1
 pd 4 @ 0x004004be~[2-6]
-afvbt s1 S1
+afvt s1 S1
 pd 4 @ 0x004004be~[2-6]
 '
 EXPECT='mov dword [rbp - s1]
@@ -52,7 +52,7 @@ CMDS='aaa
 s main
 "td struct S1 { int a; int b; int c; char d[256]; short e; }"
 afvn local_110h s1
-afvbt s1 S1
+afvt s1 S1
 pd 4 @ 0x004004be~[2-6]
 "td struct S1 { int x; int y; int c; char d[256]; short e; }"
 pd 4 @ 0x004004be~[2-6]

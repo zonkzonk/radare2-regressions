@@ -77,6 +77,22 @@ call 0x804866f call sym.imp.exit in sub.strlen_5b9
 '
 run_test
 
+NAME="axt respect relsub"
+BROKEN=1
+FILE=../../bins/pe/ibknoreloc64.exe
+IGNORE_ERR=1
+ARGS=
+CMDS='aaa
+e asm.relsub=false
+axt @ sym.imp.msvcrt.dll_printf
+e asm.relsub=true
+axt @ sym.imp.msvcrt.dll_printf
+'
+EXPECT='call 0xffffffffffff100a call qword [rip + 0xd8] in entry0
+call 0xffffffffffff100a call qword [sym.imp.msvcrt.dll_printf] in entry0
+'
+run_test
+
 NAME="axt udis86: IOLI0"
 BROKEN=
 FILE=../../bins/elf/ioli/crackme0x00

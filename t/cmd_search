@@ -16,6 +16,34 @@ EXPECT='0x00000000 hit0_0 "foo\\u0000"
 '
 run_test
 
+NAME='/ search from/to (seek 0)'
+FILE='../bins/elf/ioli/crackme0x00'
+ARGS=
+BROKEN=
+CMDS='
+s 0
+e search.from = 0
+e search.to = 0x00000050
+/ ELF
+'
+EXPECT='0x00000001 hit0_0 "ELF"
+'
+run_test
+
+NAME='/ search from/to (seek beyond data)'
+FILE='../bins/elf/ioli/crackme0x00'
+ARGS=
+BROKEN=
+CMDS='
+s 0x1000
+e search.from = 0
+e search.to = 0x00000050
+/ ELF
+'
+EXPECT='0x00000001 hit0_0 "ELF"
+'
+run_test
+
 NAME='/j search'
 FILE='malloc://1024'
 ARGS=

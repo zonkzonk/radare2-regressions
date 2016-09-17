@@ -545,8 +545,6 @@ EXPECT=" a : 0x00000000 = 50462976
 "
 run_test
 
-exit 0
-
 NAME='PE test'
 FILE=../bins/pe/ch22.exe
 ARGS=-nn

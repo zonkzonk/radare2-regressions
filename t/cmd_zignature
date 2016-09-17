@@ -89,7 +89,6 @@ zb sym.print 5548....48......48......48......48....bf........b8........e8.......
 .z. @@fcn*
 ?v sign.sys.b.sym.print
 '
-EXPECT='
-0x400536
+EXPECT='0x400536
 '
 run_test

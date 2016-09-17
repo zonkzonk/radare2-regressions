@@ -556,7 +556,7 @@ pf.pe_nt_image_headers32
 EXPECT="      signature : 0x00000080 = PE
      fileHeader : 
                 struct<pe_image_file_header>
-                                   machine : 0x00000084 =  machine (enum) = 0x14c ; IMAGE_FILE_MACHINE_I386
+                                   machine : 0x00000084 = machine (enum pe_machine) = 0x14c ; IMAGE_FILE_MACHINE_I386
                           numberOfSections : 0x00000086 = 0x0004
                              timeDateStamp : 0x00000088 = Thu Sep 11 18:21:46 2014
                       pointerToSymbolTable : 0x0000008c = 0x00000000
@@ -565,7 +565,7 @@ EXPECT="      signature : 0x00000080 = PE
                            characteristics : 0x00000096 =  characteristics (bitfield) = 0x00000102 : IMAGE_FILE_EXECUTABLE_IMAGE | IMAGE_FILE_32BIT_MACHINE
  optionalHeader : 
                 struct<pe_image_optional_header32>
-                                                   magic : 0x00000098 =  magic (enum) = 0x10b ; IMAGE_NT_OPTIONAL_HDR32_MAGIC
+                                                   magic : 0x00000098 = magic (enum pe_magic) = 0x10b ; IMAGE_NT_OPTIONAL_HDR32_MAGIC
                                       majorLinkerVersion : 0x0000009a = 0x0b
                                       minorLinkerVersion : 0x0000009b = 0x00
                                               sizeOfCode : 0x0000009c = 0x00003000
@@ -587,7 +587,7 @@ EXPECT="      signature : 0x00000080 = PE
                                              sizeOfImage : 0x000000d0 = 0x0000e000
                                            sizeOfHeaders : 0x000000d4 = 0x00000400
                                                 checkSum : 0x000000d8 = 0x00000000
-                                               subsystem : 0x000000dc =  subsystem (enum) = 0x2 ; IMAGE_SUBSYSTEM_WINDOWS_GUI
+                                               subsystem : 0x000000dc = subsystem (enum pe_subsystem) = 0x2 ; IMAGE_SUBSYSTEM_WINDOWS_GUI
                                       dllCharacteristics : 0x000000de =  dllCharacteristics (bitfield) = 0x00008560 : IMAGE_DLLCHARACTERISTICS_HIGH_ENTROPY_VA | IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE | IMAGE_DLLCHARACTERISTICS_NX_COMPAT | IMAGE_DLLCHARACTERISTICS_NO_SEH | IMAGE_DLLCHARACTERISTICS_TERMINAL_SERVER_AWARE
                                       sizeOfStackReserve : 0x000000e0 = 0x00100000
                                        sizeOfStackCommit : 0x000000e4 = 0x00001000

@@ -25,6 +25,7 @@ aa # full analysis fuckups main
 pd 1 @main'
 EXPECT='            ;-- main:
 / (fcn) sym.main 44
+|   sym.main ();
 |           ; var int local_4h @ rbp-0x4
 |           ; DATA XREF from 0x0040045d (entry0)
 |           0x0040052d      55             push rbp                    ; dwarftest.c:4
@@ -89,6 +90,7 @@ af@main
 pdf@main'
 EXPECT='            ;-- main:
 / (fcn) sym.main 44
+|   sym.main (int arg_fch);
 |           ; arg int arg_fch @ rbp+0xfc
 |           0x0040052d      55             push rbp                    ; dwarftest.c:4 { ; dwarftest.c:4
 |           0x0040052e      4889e5         mov rbp, rsp
@@ -123,6 +125,7 @@ af@main
 pdf@main'
 EXPECT='            ;-- main:
 / (fcn) sym.main 44
+|   sym.main (int arg_fch);
 |           ; arg int arg_fch @ rbp+0xfc
 |           0x0040052d      55             push rbp                    ; dwarftest.c:4 { ; dwarftest.c:4
 |           0x0040052e      4889e5         mov rbp, rsp

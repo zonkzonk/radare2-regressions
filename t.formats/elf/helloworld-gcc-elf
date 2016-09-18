@@ -3,6 +3,14 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh && break ; done
 
 NAME='x86 - init_array detection'
 FILE=../../bins/elf/x86-helloworld-gcc
+CMDS='aa;afl~0x080482e0[3]
+'
+EXPECT='loc.imp.__gmon_start__
+'
+run_test
+
+NAME='x86 - init_array detection'
+FILE=../../bins/elf/x86-helloworld-gcc
 CMDS='S~init_array
 '
 EXPECT='[17] . 0x0000059c -rw- va=0x0804959c sz=0x0004 vsz=0x0004 .init_array
@@ -106,7 +114,7 @@ EXPECT='0    1 . strings
 2   78 . sections
 3    4 . relocs
 4    3 . imports
-5    9 . functions
+5    7 . functions
 19
 '
 run_test

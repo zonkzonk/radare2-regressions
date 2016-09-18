@@ -72,12 +72,12 @@ run_test
 
 NAME='zg on elf'
 FILE=../bins/elf/x86-helloworld-gcc
+BROKEN=
 CMDS='
 aaa
-zg x86~main
+zg x86~?main
 '
-EXPECT='zb sym.imp.__libc_start_main ff..........68........e9........
-zb sym.main 5589..83....83....c7............e8........b8........c9c3
+EXPECT='2
 '
 run_test
 
@@ -90,5 +90,17 @@ zb sym.print 5548....48......48......48......48....bf........b8........e8.......
 ?v sign.sys.b.sym.print
 '
 EXPECT='0x400536
+'
+run_test
+
+NAME='fs reset'
+FILE=../bins/elf/zigs_stripped
+CMDS='
+fs strings
+zb sym.print 5548....48......48......48......48....bf........b8........e8........90c9c3
+.z. @@fcn*
+fs~* strings
+'
+EXPECT='0    1 * strings
 '
 run_test

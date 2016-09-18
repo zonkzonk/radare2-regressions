@@ -1,0 +1,27 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+test_vector() {
+NAME="${1}: [${2}]"
+FILE=malloc://32
+if [ "${5}" = "br" ]; then
+		BROKEN=1
+	fi
+CMDS='
+e asm.arch='${1}'
+e asm.bits=64
+wx '${3}'
+pi 1
+'
+EXPECT="${4}
+"
+run_test
+}
+
+PLUGIN=arm
+
+test_vector "${PLUGIN}" "msr sp_el0, x3" 034118d5 "msr sp_el0, x3"
+test_vector "${PLUGIN}" "msr SP_EL0, x3" 034118d5 "msr sp_el0, x3"
+test_vector "${PLUGIN}" "msr 0xc208, x3" 034118d5 "msr sp_el0, x3"
+test_vector "${PLUGIN}" "mrs x3, SP_EL0" 034138d5 "mrs x3, sp_el0"
+test_vector "${PLUGIN}" "nop" 1f2003d5 nop

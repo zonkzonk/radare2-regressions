@@ -77,7 +77,7 @@ CMDS='
 aaa
 zg x86~?main
 '
-EXPECT='2
+EXPECT='1
 '
 run_test
 

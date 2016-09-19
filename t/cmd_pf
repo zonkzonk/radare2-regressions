@@ -600,63 +600,63 @@ EXPECT="      signature : 0x00000080 = PE
                       struct<pe_image_data_directory>
                                virtualAddress : 0x000000f8 = 0x00000000
                                          size : 0x000000fc = 0x00000000
-,
+
                       struct<pe_image_data_directory>
                                virtualAddress : 0x00000100 = 0x00004ef0
                                          size : 0x00000104 = 0x0000004b
-,
+
                       struct<pe_image_data_directory>
                                virtualAddress : 0x00000108 = 0x00008000
                                          size : 0x0000010c = 0x00002e40
-,
+
                       struct<pe_image_data_directory>
                                virtualAddress : 0x00000110 = 0x00000000
                                          size : 0x00000114 = 0x00000000
-,
+
                       struct<pe_image_data_directory>
                                virtualAddress : 0x00000118 = 0x00000000
                                          size : 0x0000011c = 0x00000000
-,
+
                       struct<pe_image_data_directory>
                                virtualAddress : 0x00000120 = 0x0000c000
                                          size : 0x00000124 = 0x0000000c
-,
+
                       struct<pe_image_data_directory>
                                virtualAddress : 0x00000128 = 0x00006000
                                          size : 0x0000012c = 0x0000001c
-,
+
                       struct<pe_image_data_directory>
                                virtualAddress : 0x00000130 = 0x00000000
                                          size : 0x00000134 = 0x00000000
-,
+
                       struct<pe_image_data_directory>
                                virtualAddress : 0x00000138 = 0x00000000
                                          size : 0x0000013c = 0x00000000
-,
+
                       struct<pe_image_data_directory>
                                virtualAddress : 0x00000140 = 0x00000000
                                          size : 0x00000144 = 0x00000000
-,
+
                       struct<pe_image_data_directory>
                                virtualAddress : 0x00000148 = 0x00000000
                                          size : 0x0000014c = 0x00000000
-,
+
                       struct<pe_image_data_directory>
                                virtualAddress : 0x00000150 = 0x00000000
                                          size : 0x00000154 = 0x00000000
-,
+
                       struct<pe_image_data_directory>
                                virtualAddress : 0x00000158 = 0x00002000
                                          size : 0x0000015c = 0x00000008
-,
+
                       struct<pe_image_data_directory>
                                virtualAddress : 0x00000160 = 0x00000000
                                          size : 0x00000164 = 0x00000000
-,
+
                       struct<pe_image_data_directory>
                                virtualAddress : 0x00000168 = 0x00002008
                                          size : 0x0000016c = 0x00000048
-,
+
                       struct<pe_image_data_directory>
                                virtualAddress : 0x00000170 = 0x00000000
                                          size : 0x00000174 = 0x00000000

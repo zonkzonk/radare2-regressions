@@ -1,0 +1,27 @@
+#!/bin/sh
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+BROKEN=
+NAME='tiny coff'
+FILE=../../bins/coff/coff.obj
+ARGS=''
+CMDS="S;is;ir"
+EXPECT='[00] * 0x00000064 mr-x va=0x00000064 sz=0x0027 vsz=0x0027 .text
+[01] . 0x0000008b mrw- va=0x0000008b sz=0x001c vsz=0x001c .data
+[Symbols]
+vaddr=0x00000064 paddr=0x00000064 ord=000 fwd=NONE sz=4 bind= type=EXTERNAL name=MessageBoxA
+vaddr=0x00000064 paddr=0x00000064 ord=000 fwd=NONE sz=4 bind= type=EXTERNAL name=ExitProcess
+vaddr=0x0000008b paddr=0x0000008b ord=000 fwd=NONE sz=4 bind= type=STATIC name=.text
+vaddr=0x0000008b paddr=0x0000008b ord=000 fwd=NONE sz=4 bind= type=EXTERNAL name=main
+vaddr=0x00000000 paddr=0x00000000 ord=000 fwd=NONE sz=4 bind= type=STATIC name=.data
+
+5 symbols
+[Relocations]
+vaddr=0x0000006d paddr=0x0000006d type=UNKNOWN .data
+vaddr=0x00000074 paddr=0x00000074 type=UNKNOWN .data
+vaddr=0x00000080 paddr=0x00000080 type=UNKNOWN MessageBoxA
+vaddr=0x00000087 paddr=0x00000087 type=UNKNOWN ExitProcess
+
+4 relocations
+'
+run_test

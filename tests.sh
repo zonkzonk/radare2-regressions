@@ -31,6 +31,9 @@ cd `dirname $0` 2>/dev/null
 export LANG=C
 export LC_CTYPE=C
 
+# current workaround for timezone
+export TZ=GMT
+
 die() {
   echo "$1"
   exit 1

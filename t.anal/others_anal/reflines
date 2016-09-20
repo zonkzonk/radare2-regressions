@@ -190,7 +190,7 @@ EXPECT='|           0x00003ca6      cmp eax, 2
 |      ||   0x00003cb4      sub eax, 1
 |     ,===< 0x00003cb7      je 0x3cbe
 |     |||   ; JMP XREF from 0x000058bc (main)
-|     |||   0x00003cb9      call sym.imp.abort
+|     |||   0x00003cb9      call sym.imp.abort                        ; void abort(void);
 |     |||   ; JMP XREF from 0x00003cb7 (main)
 |     `---> 0x00003cbe      mov edi, 1
 |      ||   0x00003cc3      call sym.imp.isatty                       ; int isatty(int fd);
@@ -203,7 +203,7 @@ EXPECT='|           0x00003ca6      cmp eax, 2
 |    ||`--> 0x00003ce3      mov esi, 5
 |    || |   0x00003ce8      xor edi, edi
 |    || |   0x00003cea      mov dword [rip + 0x1d60c], 0               ; [0x21300:4]=-1
-|    || |   0x00003cf4      call fcn.00012740
+|    || |   0x00003cf4      call sub.__stack_chk_fail_740
 |    || |   ; JMP XREF from 0x00004602 (main)
 |    || |   ; JMP XREF from 0x00004c38 (main)
 |    || |   ; JMP XREF from 0x00003ce1 (main)
@@ -231,7 +231,7 @@ EXPECT='|           0x00003ca6      cmp eax, 2
 |    | |    0x00003cb4      sub eax, 1
 |  ,======< 0x00003cb7      je 0x3cbe
 |  | | |    ; JMP XREF from 0x000058bc (main)
-|  | | |    0x00003cb9      call sym.imp.abort
+|  | | |    0x00003cb9      call sym.imp.abort                        ; void abort(void);
 |  | | |    ; JMP XREF from 0x00003cb7 (main)
 |  `------> 0x00003cbe      mov edi, 1
 |    | |    0x00003cc3      call sym.imp.isatty                       ; int isatty(int fd);
@@ -244,7 +244,7 @@ EXPECT='|           0x00003ca6      cmp eax, 2
 |  | `----> 0x00003ce3      mov esi, 5
 |  |   |    0x00003ce8      xor edi, edi
 |  |   |    0x00003cea      mov dword [rip + 0x1d60c], 0               ; [0x21300:4]=-1
-|  |   |    0x00003cf4      call fcn.00012740
+|  |   |    0x00003cf4      call sub.__stack_chk_fail_740
 |  |   |    ; JMP XREF from 0x00004602 (main)
 |  |   |    ; JMP XREF from 0x00004c38 (main)
 |  |   |    ; JMP XREF from 0x00003ce1 (main)
@@ -272,7 +272,7 @@ EXPECT='|           0x00003ca6      cmp eax, 2
 |    | |    0x00003cb4      sub eax, 1
 |  ,======< 0x00003cb7      je 0x3cbe
 |  | | |    ; JMP XREF from 0x000058bc (main)
-|  | | |    0x00003cb9      call sym.imp.abort
+|  | | |    0x00003cb9      call sym.imp.abort                        ; void abort(void);
 |  | | |    ; JMP XREF from 0x00003cb7 (main)
 |  `------> 0x00003cbe      mov edi, 1
 |    | |    0x00003cc3      call sym.imp.isatty                       ; int isatty(int fd);
@@ -285,7 +285,7 @@ EXPECT='|           0x00003ca6      cmp eax, 2
 |  | `----> 0x00003ce3      mov esi, 5
 |  |   |    0x00003ce8      xor edi, edi
 |  |   |    0x00003cea      mov dword [rip + 0x1d60c], 0               ; [0x21300:4]=-1
-|  |   |    0x00003cf4      call fcn.00012740
+|  |   |    0x00003cf4      call sub.__stack_chk_fail_740
 |  |   |    ; JMP XREF from 0x00004602 (main)
 |  |   |    ; JMP XREF from 0x00004c38 (main)
 |  |   |    ; JMP XREF from 0x00003ce1 (main)

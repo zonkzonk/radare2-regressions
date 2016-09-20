@@ -4,7 +4,8 @@
 NAME="an symbol"
 FILE=../bins/elf/hello-objc-linux
 BROKEN=
-CMDS='an sym.imp.__libc_start_main
+CMDS='an-*
+an sym.imp.__libc_start_main
 af
 afi~size
 '
@@ -16,7 +17,8 @@ run_test
 NAME="an 0x08048550"
 FILE=../bins/elf/hello-objc-linux
 BROKEN=
-CMDS='an 0x08048550
+CMDS='an-*
+an 0x08048550
 af
 afi~size
 '
@@ -28,7 +30,7 @@ run_test
 NAME="an 0x00048550"
 FILE=../bins/elf/hello-objc-linux
 BROKEN=
-CMDS='an 0x00048550
+CMDS='an-*
 af
 afi~size
 '
@@ -41,6 +43,7 @@ NAME="without noreturn"
 FILE=../bins/elf/hello-objc-linux
 BROKEN=
 CMDS='
+an-*
 af
 afi~size
 '
@@ -68,3 +71,31 @@ afi~size
 '
 EXPECT=''
 run_test
+
+NAME="noreturn real test"
+FILE=../bins/elf/noreturn
+CMDS="aa
+s main
+pdf
+"
+EXPECT='            ;-- main:
+/ (fcn) sym.main 41
+|   sym.main ();
+|           ; var int local_4h @ rbp-0x4
+|           ; DATA XREF from 0x0040048d (entry0)
+|           0x00400566      55             push rbp
+|           0x00400567      4889e5         mov rbp, rsp
+|           0x0040056a      4883ec10       sub rsp, 0x10
+|           0x0040056e      837dfc00       cmp dword [rbp - local_4h], 0
+|       ,=< 0x00400572      740a           je 0x40057e
+|       |   0x00400574      bf00000000     mov edi, 0
+|       |   0x00400579      e8d2feffff     call sym.imp.exit          ; void exit(int status);
+|       `-> 0x0040057e      bf20064000     mov edi, str.hello          ; "hello" @ 0x400620
+|           0x00400583      e8a8feffff     call sym.imp.puts
+|           0x00400588      b800000000     mov eax, 0
+|           0x0040058d      c9             leave
+\           0x0040058e      c3             ret
+'
+run_test
+
+

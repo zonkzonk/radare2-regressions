@@ -105,7 +105,7 @@ run_test
 
 NAME='flags spaces after analysis'
 FILE=../../bins/elf/x86-helloworld-gcc
-CMDS='e anal.hasnext=true
+CMDS='
 aa;fs *;fs
 afl~?
 '
@@ -114,8 +114,8 @@ EXPECT='0    1 . strings
 2   78 . sections
 3    4 . relocs
 4    3 . imports
-5    8 . functions
-19
+5    0 . functions
+14
 '
 run_test
 

@@ -58,7 +58,7 @@ run_test
 NAME='ds on jmp reg'
 FILE=../../bins/elf/x86-jmpeax
 ARGS='-b 32 -a x86 -d'
-BROKEN=1
+BROKEN=
 CMDS='dcu main
 5ds
 dr eip

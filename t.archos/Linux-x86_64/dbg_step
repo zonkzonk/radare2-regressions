@@ -31,11 +31,11 @@ run_test
 NAME='dbg.symbols'
 FILE=/bin/ls
 ARGS=-d
-BROKEN=1
-CMDS='is~?
-?!?e zerosyms
+BROKEN=
+CMDS='id~?
+dk 9
 '
-EXPECT='
+EXPECT='0
 '
 run_test
 
@@ -163,5 +163,57 @@ dr rip
 EXPECT='0x00400549
 0x0040054e
 Hello world
+'
+run_test
+
+NAME='dbg.dsu'
+FILE=../../bins/elf/calls_x64
+ARGS='-a x86 -d'
+BROKEN=
+CMDS='dcu main
+dsu 0x400546
+dr rip
+'
+EXPECT='0x00400546
+Hello world
+'
+run_test
+
+NAME='dbg.dsui'
+FILE=../../bins/elf/calls_x64
+ARGS='-a x86 -d'
+BROKEN=
+CMDS='dcu main
+dsui mov eax
+dr rip
+'
+EXPECT='0x00400524
+Hello world
+'
+run_test
+
+NAME='dbg.dsei'
+FILE=../../bins/elf/calls_x64
+ARGS='-a x86 -d'
+BROKEN=
+CMDS='dcu main
+aei
+dsue 0,eax,==
+dr rip
+'
+EXPECT='0x00400529
+Hello world
+'
+run_test
+
+NAME='dbg.dss'
+FILE=../../bins/elf/calls_x64
+ARGS='-a x86 -d'
+BROKEN=
+CMDS='dcu main
+4dss
+dr rip
+'
+EXPECT='0x00400582
 '
 run_test

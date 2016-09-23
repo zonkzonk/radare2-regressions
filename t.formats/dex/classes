@@ -35,12 +35,12 @@ IGNORE_ERR=1
 CMDS="isq"
 EXPECT='0x00000168 0 LHello.sfield_localVar2:I
 0x00000160 0 LHello.ifield_localVar:I
-0x00000238 0 LHello.method.<init>()V
-0x0000025c 0 LHello.method.main([Ljava/lang/String;)V
+0x00000238 20 LHello.method.<init>()V
+0x0000025c 34 LHello.method.main([Ljava/lang/String;)V
 0x00000290 0 LHello.method.foo(I)V
 0x00000170 0 LWorld.ifield_worldVar:I
 0x00000178 0 LWorld.ifield_worldVar2:I
-0x000002f4 0 LWorld.method.<init>()V
+0x000002f4 20 LWorld.method.<init>()V
 0x00000318 0 LWorld.method.foo(I)V
 '
 run_test

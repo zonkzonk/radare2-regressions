@@ -31,7 +31,7 @@ EXPECT='0x00000001 hit0_0 "ELF"
 run_test
 
 NAME='/ search from/to (seek beyond data)'
-FILE='../bins/elfs/ioli/crackme0x00'
+FILE='../bins/elf/ioli/crackme0x00'
 ARGS=
 BROKEN=
 CMDS='

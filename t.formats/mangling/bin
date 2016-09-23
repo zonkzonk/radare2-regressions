@@ -66,7 +66,7 @@ run_test
 NAME='bin.demangle=true and symbol'
 BROKEN=
 ARGS='-e bin.demangle=true'
-FILE=../../bins/elf/hello-linux-i386nold
+FILE=../../bins/elf/analysis/hello-linux-i386nold
 CMDS="pi 1 @ 0x08048230"
 EXPECT='call sym.imp.puts
 '

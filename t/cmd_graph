@@ -129,7 +129,7 @@ run_test
 
 NAME='get graph of a function'
 BROKEN=1
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/analysis/hello-linux-x86_64
 ARGS=
 CMDS='af
 aggk $$~nodes='

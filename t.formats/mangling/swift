@@ -2,7 +2,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='elf swift'
-FILE=../../bins/elf/hello-swift
+FILE=../../bins/elf/analysis/hello-swift
 BROKEN=
 ARGS=
 CMDS='i~lang[1]'
@@ -11,7 +11,7 @@ EXPECT='swift
 run_test
 
 NAME='elf swift demangle (requires swift-demangle program)'
-FILE=../../bins/elf/hello-swift
+FILE=../../bins/elf/analysis/hello-swift
 BROKEN=1
 ARGS=
 CMDS='isq~0x004009e0'

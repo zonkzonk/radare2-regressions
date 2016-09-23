@@ -48,7 +48,7 @@ EXPECT="0x00000000 00 00ff |'__________________________________________________|
 run_test
 
 NAME='p=d'
-FILE='../bins/elf/analysis/arm1.bin'
+FILE='../bins/elf/arm1.bin'
 BROKEN=1
 ARGS=-n
 CMDS='p=d 10 2560@0'
@@ -61,7 +61,7 @@ range: 234  0xea
 run_test
 
 NAME='p=e 5'
-FILE='../bins/elf/analysis/arm1.bin'
+FILE='../bins/elf/arm1.bin'
 CMDS='p=e 5@0'
 EXPECT="0x00000000 00 00c3 |''''''''''''''''''''''''''''''''''''''|
 0x0001bec1 01 00c4 |                                       |
@@ -73,7 +73,7 @@ EXPECT="0x00000000 00 00c3 |''''''''''''''''''''''''''''''''''''''|
 run_test
 
 NAME='p=e 5 0x100'
-FILE='../bins/elf/analysis/arm1.bin'
+FILE='../bins/elf/arm1.bin'
 ARGS=-n
 CMDS='p=e 5 0x100'
 EXPECT="0x00000000 00 0080 |''''''''''''''''''''''___|
@@ -87,7 +87,7 @@ run_test
 
 NAME='p=e 5 0x100 1'
 ARGS=-n
-FILE='../bins/elf/analysis/arm1.bin'
+FILE='../bins/elf/arm1.bin'
 CMDS='p=e 5 0x100 1'
 EXPECT="0x00000000 00 006c |'''''''''''''''''''''|__
 0x00000033 01 007b |                      ___|
@@ -99,7 +99,7 @@ EXPECT="0x00000000 00 006c |'''''''''''''''''''''|__
 run_test
 
 NAME='p=p 5'
-FILE='../bins/elf/analysis/arm1.bin'
+FILE='../bins/elf/arm1.bin'
 ARGS=-n
 CMDS='p=p 5@0'
 EXPECT="0x00000000 00 0032 |''''''''''|
@@ -112,7 +112,7 @@ EXPECT="0x00000000 00 0032 |''''''''''|
 run_test
 
 NAME='p=p 5 0x100'
-FILE='../bins/elf/analysis/arm1.bin'
+FILE='../bins/elf/arm1.bin'
 ARGS=-n
 CMDS='p=p 5 0x100'
 EXPECT="0x00000000 00 0032 |'''''____|
@@ -125,7 +125,7 @@ EXPECT="0x00000000 00 0032 |'''''____|
 run_test
 
 NAME='p=p 5 0x100 1'
-FILE='../bins/elf/analysis/arm1.bin'
+FILE='../bins/elf/arm1.bin'
 ARGS=-n
 CMDS='p=p 5 0x100 1'
 EXPECT="0x00000000 00 0019 |''''|

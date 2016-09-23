@@ -17,7 +17,7 @@ EXPECT='0x00000000 hit0_0 "foo\\u0000"
 run_test
 
 NAME='/ search from/to (seek 0)'
-FILE='../bins/elf/analysis/ioli/crackme0x00'
+FILE='../bins/elf/ioli/crackme0x00'
 ARGS=
 BROKEN=
 CMDS='
@@ -31,7 +31,7 @@ EXPECT='0x00000001 hit0_0 "ELF"
 run_test
 
 NAME='/ search from/to (seek beyond data)'
-FILE='../bins/elf/analysis/ioli/crackme0x00'
+FILE='../bins/elfs/ioli/crackme0x00'
 ARGS=
 BROKEN=
 CMDS='
@@ -121,7 +121,7 @@ EXPECT='0x00000000 hit0_0 83c408
 run_test
 
 NAME='/a search from/to (seek 0)'
-FILE='../bins/elf/analysis/ioli/crackme0x00'
+FILE='../bins/elf/ioli/crackme0x00'
 ARGS=
 BROKEN=1
 CMDS='
@@ -136,7 +136,7 @@ EXPECT='0x0000003c hit0_0 3480
 run_test
 
 NAME='/a search from/to (seek beyond data)'
-FILE='../bins/elf/analysis/ioli/crackme0x00'
+FILE='../bins/elf/ioli/crackme0x00'
 ARGS=
 BROKEN=1
 CMDS='
@@ -163,7 +163,7 @@ EXPECT='0x00000005 - 1 ret
 run_test
 
 NAME='/A search from/to (seek 0)'
-FILE='../bins/elf/analysis/ioli/crackme0x00'
+FILE='../bins/elf/ioli/crackme0x00'
 ARGS=
 BROKEN=
 CMDS='
@@ -178,7 +178,7 @@ EXPECT='0x0000003c - 2 xor
 run_test
 
 NAME='/A search from/to (seek beyond data)'
-FILE='../bins/elf/analysis/ioli/crackme0x00'
+FILE='../bins/elf/ioli/crackme0x00'
 ARGS=
 BROKEN=
 CMDS='

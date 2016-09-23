@@ -22,7 +22,7 @@ run_test
 
 NAME='iphone-arm-esil pdsf'
 FILE=../bins/mach0/FileDP
-BROKEN=
+BROKEN=1
 CMDS='s main
 e io.sectonly=true
 e asm.emu=true

@@ -41,12 +41,12 @@ test_vector "${PLUGIN}" "return-wide v0" 1000
 test_vector "${PLUGIN}" "return-object v0" 1100
 test_vector "${PLUGIN}" "const/4 v1, 0x2" 1221
 test_vector "${PLUGIN}" "const/16 v0, 0x0a" 13000A00 #const/16 v0, #int 10
-test_vector "${PLUGIN}" "const v0, 0x00bc614e" 14004E61BC00 br #const v0, #12345678 // #00BC614E
-test_vector "${PLUGIN}" "const/high16 v0, 0x41200000" 15002041 br # const/high16 v0, #float 10.0 // #41200000
+test_vector "${PLUGIN}" "const v0, 0x00bc614e ; 0.000000f" 14004E61BC00 #const v0, #12345678 // #00BC614E
+test_vector "${PLUGIN}" "const/high16 v0, 0x41200000 ; 16672s" 15002041
 test_vector "${PLUGIN}" "const-wide/16 v0, 0000" 16000000
-test_vector "${PLUGIN}" "const-wide/32 v2, 0x00bc614e" 17024e61bc00 br
-test_vector "${PLUGIN}" "const-wide v2, 0x002bdc545d6b4b87" 1802874b6b5d54dc2b00 br
-test_vector "${PLUGIN}" "const-wide/high16 v0, 0x41200000" 19002440 br
+test_vector "${PLUGIN}" "const-wide/32 v2:v3, 0x00bc614e ; 12345678l" 17024e61bc00 # const-wide/32 v2:v3, 0xBC614E
+test_vector "${PLUGIN}" "const-wide v2:v3, 0x2bdc545d6b4b87" 1802874b6b5d54dc2b00 # const-wide  v2:v3, 0x2BDC545D6B4B87
+test_vector "${PLUGIN}" "const-wide/high16 v0:v1, 0x40240000 ; 16420s" 19002440 #const-wide/high16 v0:v1, 0x4024000000000000
 test_vector "${PLUGIN}" "const-string v8, string+0" 1A080000
 test_vector "${PLUGIN}" "const-string/jumbo v8, string+0" 1B080000
 test_vector "${PLUGIN}" "const-class v0, class+1" 1C000100
@@ -61,9 +61,11 @@ test_vector "${PLUGIN}" "filled-new-array {v0, v0}, class+1" 242001000000
 test_vector "${PLUGIN}" "filled-new-array/range {v19..v21}, class+6" 250306001300
 test_vector "${PLUGIN}" "fill-array-data v6, 0x00000025" 260625000000
 test_vector "${PLUGIN}" "throw v0" 2700
-test_vector "${PLUGIN}" "check-cast v4, class+1" 28F0 br # goto 0005 // -0010
-test_vector "${PLUGIN}" "check-cast v4, class+1" 29000FFE br # goto/16 002f // -01f1
-test_vector "${PLUGIN}" "check-cast v4, class+1" 2A000FFE br # goto/32 002f // -01f1
+test_vector "${PLUGIN}" "check-cast v3, class+2" 1F030200
+test_vector "${PLUGIN}" "check-cast v5, class+256" 1F050001
+test_vector "${PLUGIN}" "goto 0xffffffffffffffe0" 28F0 # goto 0005 // -0010
+test_vector "${PLUGIN}" "goto/16 0xfffffffffffffc1e" 29000FFE # goto/16 002f // -01f1
+test_vector "${PLUGIN}" "goto/32 0x0001fc1e" 2A000FFE # goto/32 002f // -01f1
 test_vector "${PLUGIN}" "packed-switch v2, 0x0000000c" 2B020C000000
 test_vector "${PLUGIN}" "sparse-switch v2, 0x0000000c" 2C020c000000
 test_vector "${PLUGIN}" "cmpl-float v0, v6, v7" 2D000607
@@ -71,18 +73,18 @@ test_vector "${PLUGIN}" "cmpg-float v0, v6, v7" 2E000607
 test_vector "${PLUGIN}" "cmpl-double v25, v6, v8" 2F190608
 test_vector "${PLUGIN}" "cmpg-double v0, v8, v10" 3000080A
 test_vector "${PLUGIN}" "cmp-long v0, v2, v4" 31000204
-test_vector "${PLUGIN}" "if-eq v3, v11, 0x0" 32b30000
-test_vector "${PLUGIN}" "if-ne v3, v10, 0x0" 33A30000
-test_vector "${PLUGIN}" "if-lt v2, v3, 0x0" 34320000
-test_vector "${PLUGIN}" "if-ge v0, v1, 0x0" 35100000
-test_vector "${PLUGIN}" "if-gt v0, v1, 0x0" 36100000
-test_vector "${PLUGIN}" "if-le v6, v5, 0x0" 37560000
-test_vector "${PLUGIN}" "if-eqz v2, 0x0" 38020000 br
-test_vector "${PLUGIN}" "if-nez v2, 0x0" 39020000 br
-test_vector "${PLUGIN}" "if-ltz v0, 0x0" 3A000000 br
-test_vector "${PLUGIN}" "if-gez v0, 0x0" 3B000000 br
-test_vector "${PLUGIN}" "if-gtz v0, 0x0" 3C000000 br
-test_vector "${PLUGIN}" "if-lez v0, 0x0" 3D000000 br
+test_vector "${PLUGIN}" "if-eq v3, v11, 0x00000000" 32b30000
+test_vector "${PLUGIN}" "if-ne v3, v10, 0x00000000" 33A30000
+test_vector "${PLUGIN}" "if-lt v2, v3, 0x00000000" 34320000
+test_vector "${PLUGIN}" "if-ge v0, v1, 0x00000000" 35100000
+test_vector "${PLUGIN}" "if-gt v0, v1, 0x00000000" 36100000
+test_vector "${PLUGIN}" "if-le v6, v5, 0x00000000" 37560000
+test_vector "${PLUGIN}" "if-eqz v2, 0x00000000" 38020000
+test_vector "${PLUGIN}" "if-nez v2, 0x00000000" 39020000
+test_vector "${PLUGIN}" "if-ltz v0, 0x00000000" 3A000000
+test_vector "${PLUGIN}" "if-gez v0, 0x00000000" 3B000000
+test_vector "${PLUGIN}" "if-gtz v0, 0x00000000" 3C000000
+test_vector "${PLUGIN}" "if-lez v0, 0x00000000" 3D000000
 test_vector "${PLUGIN}" "aget v7, v3, v6" 44070306
 test_vector "${PLUGIN}" "aget-wide v5, v1, v4" 45050104
 test_vector "${PLUGIN}" "aget-object v2, v2, v0" 46020200
@@ -125,16 +127,16 @@ test_vector "${PLUGIN}" "sput-boolean v0, field+3" 6A000300
 test_vector "${PLUGIN}" "sput-byte v0, field+2" 6B000200
 test_vector "${PLUGIN}" "sput-char v1, field+7" 6C010700
 test_vector "${PLUGIN}" "sput-short v0, field+11" 6D000B00
-test_vector "${PLUGIN}" "invoke-virtual {v4, v0, v1, v2, v3}, method+6" 6E5306000421 br
+test_vector "${PLUGIN}" "invoke-virtual {v4, v0, v1, v2, v3}, method+6" 6E5306000421
 test_vector "${PLUGIN}" "invoke-super {v1}, method+422" 6F10A6010100
 test_vector "${PLUGIN}" "invoke-direct {v1}, method+8" 701008000100
 test_vector "${PLUGIN}" "invoke-static {v4}, method+52" 711034000400
 test_vector "${PLUGIN}" "invoke-interface {v1, v3, v4, v5}, method+545" 724021023154
 test_vector "${PLUGIN}" "invoke-virtual/range {v19..v21}, method+6" 740306001300
-test_vector "${PLUGIN}" "invoke-super {v1}, method+422" 7501A6010100 br
+test_vector "${PLUGIN}" "invoke-super {v1}, method+422" 7501A6010100 br # quite wrong, refact
 test_vector "${PLUGIN}" "invoke-direct/range {v19..v21}, method+58" 76033A001300
 test_vector "${PLUGIN}" "invoke-static/range {v19..v21}, method+58" 77033A001300
-test_vector "${PLUGIN}" "invoke-interface {v1..v4}, method+545" 784021020100 br
+test_vector "${PLUGIN}" "invoke-interface {v1..v4}, method+545" 784021020100 br # quite wrong, refact
 test_vector "${PLUGIN}" "neg-int v1, v0" 7B01
 test_vector "${PLUGIN}" "not-int v1, v0" 7C01
 test_vector "${PLUGIN}" "neg-long v2, v0" 7D02
@@ -221,7 +223,7 @@ test_vector "${PLUGIN}" "mul-double/2addr v0, v2" CD20
 test_vector "${PLUGIN}" "div-double/2addr v0, v2" CE20
 test_vector "${PLUGIN}" "rem-double/2addr v0, v2" CF20
 test_vector "${PLUGIN}" "add-int/lit16 v1, v0, 0x4d2" D001D204
-test_vector "${PLUGIN}" "sub-int/lit16 v1, v0, 0x4d2" D101D204 br
+test_vector "${PLUGIN}" "rsub-int v1, v0, 0x4d2" D101D204
 test_vector "${PLUGIN}" "mul-int/lit16 v1, v0, 0x4d2" D201D204
 test_vector "${PLUGIN}" "div-int/lit16 v1, v0, 0x4d2" D301D204
 test_vector "${PLUGIN}" "rem-int/lit16 v1, v0, 0x4d2" D401D204
@@ -229,7 +231,7 @@ test_vector "${PLUGIN}" "and-int/lit16 v1, v0, 0x4d2" D501D204
 test_vector "${PLUGIN}" "or-int/lit16 v1, v0, 0x4d2" D601D204
 test_vector "${PLUGIN}" "xor-int/lit16 v1, v0, 0x4d2" D701D204
 test_vector "${PLUGIN}" "add-int/lit8 v0, v2, 0x1" D8000201
-test_vector "${PLUGIN}" "sub-int/lit8 v0, v2, 0x1" D9000201 br
+test_vector "${PLUGIN}" "rsub-int/lit8 v0, v2, 0x1" D9000201
 test_vector "${PLUGIN}" "mul-int/lit8 v0, v0, 0x2" DA000002
 test_vector "${PLUGIN}" "div-int/lit8 v0, v2, 0x3" DB000203
 test_vector "${PLUGIN}" "rem-int/lit8 v0, v2, 0x3" DC000203
@@ -239,7 +241,7 @@ test_vector "${PLUGIN}" "xor-int/lit8 v0, v2, 0x3" DF000203
 test_vector "${PLUGIN}" "shl-int/lit8 v1, v0, 0x1" E0010001
 test_vector "${PLUGIN}" "shr-int/lit8 v1, v0, 0x1" E1010001
 test_vector "${PLUGIN}" "ushr-int/lit8 v1, v0, 0x1" E2010001
-test_vector "${PLUGIN}" "+execute-inline {v1, v0}, method+3" EE2003000100 br
+test_vector "${PLUGIN}" "+execute-inline {v1, v0}, method+3" EE2003000100 br # insecure instruction only for ODEX files
 test_vector "${PLUGIN}" "+invoke-object-init-range {v0}, method+2294" F010F6080000
 test_vector "${PLUGIN}" "+iget-quick v1, v2, [obj+0010]" F2211000
 test_vector "${PLUGIN}" "+iget-wide-quick v4, v6, [obj+0130]" F3643001

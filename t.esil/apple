@@ -22,7 +22,7 @@ run_test
 
 NAME='iphone-arm-esil pdsf'
 FILE=../bins/mach0/FileDP
-BROKEN=1
+BROKEN=
 CMDS='s main
 e io.sectonly=true
 e asm.emu=true
@@ -31,38 +31,51 @@ af
 pdsf
 '
 EXPECT='0x00002920 "alloc"
-0x00002928 sym.imp.objc_msgSend
+0x00002928 bl sym.imp.objc_msgSend    
 0x0000293c "init"
-0x00002940 sym.imp.objc_msgSend
+0x00002940 bl sym.imp.objc_msgSend    
 0x0000294c "X..."
-0x0000295c sym.imp.objc_msgSend
-0x00002970 sym.imp.objc_msgSend
+0x0000295c bl sym.imp.objc_msgSend    
+0x00002970 bl sym.imp.objc_msgSend    
+0x00002988  b 0x29b0                   
 0x00002998 "Usage: FileDP [-f/-d] [Full path to file/directory] "
-0x0000299c sym.imp.puts
-0x000029c8 sym.imp.strcmp
-0x00002a1c sym.imp.objc_msgSend
-0x00002a38 sym.imp.objc_msgSend
-0x00002a64 sym.imp.objc_msgSend
-0x00002a90 sym.imp.objc_msgSend
-0x00002aa4 sym.imp.NSLog
+0x0000299c bl sym.imp.puts            
+0x000029ac  b 0x2db8                   
+0x000029c8 bl sym.imp.strcmp          
+0x000029d8  b 0x2ac0                   
+0x00002a1c bl sym.imp.objc_msgSend    
+0x00002a38 bl sym.imp.objc_msgSend    
+0x00002a48  b 0x2a4c                   
+0x00002a64 bl sym.imp.objc_msgSend    
+0x00002a90 bl sym.imp.objc_msgSend    
+0x00002aa4 bl sym.imp.NSLog           
+0x00002aa8  b 0x2abc                   
 0x00002ab0 "File Not Found "
-0x00002ab4 sym.imp.puts
-0x00002b00 sym.imp.objc_msgSend
-0x00002b1c sym.imp.objc_msgSend
-0x00002b48 sym.imp.objc_msgSend
-0x00002b64 sym.imp.objc_msgSend
-0x00002ba4 sym.imp.objc_msgSend
-0x00002c00 sym.imp.objc_msgSend
-0x00002c54 sym.imp.objc_enumerationMutation;
-0x00002ca0 sym.imp.objc_msgSend
-0x00002cc0 sym.imp.objc_msgSend
-0x00002cec sym.imp.objc_msgSend
+0x00002ab4 bl sym.imp.puts            
+0x00002abc  b 0x2d90                   
+0x00002b00 bl sym.imp.objc_msgSend    
+0x00002b1c bl sym.imp.objc_msgSend    
+0x00002b28  b 0x2b2c                   
+0x00002b48 bl sym.imp.objc_msgSend    
+0x00002b64 bl sym.imp.objc_msgSend    
+0x00002b74  b 0x2b78                   
+0x00002ba4 bl sym.imp.objc_msgSend    
+0x00002c00 bl sym.imp.objc_msgSend    
+0x00002c18  b 0x2d74                   
+0x00002c44  b 0x2c58                   
+0x00002c54 bl sym.imp.objc_enumerationMutation
+0x00002ca0 bl sym.imp.objc_msgSend    
+0x00002cc0 bl sym.imp.objc_msgSend    
+0x00002cec bl sym.imp.objc_msgSend    
 0x00002cfc str.cstr.file_name_is:_____protection_class:__
-0x00002d04 sym.imp.NSLog
-0x00002d50 sym.imp.objc_msgSend
+0x00002d04 bl sym.imp.NSLog           
+0x00002d50 bl sym.imp.objc_msgSend    
+0x00002d70  b 0x2d7c                   
+0x00002d7c  b 0x2d90                   
 0x00002d84 "Directory Not found "
-0x00002d88 sym.imp.puts
-0x00002dac sym.imp.objc_msgSend
+0x00002d88 bl sym.imp.puts            
+0x00002dac bl sym.imp.objc_msgSend    
+0x00002dcc bx lr                      
 '
 run_test
 

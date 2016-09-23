@@ -2,7 +2,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='ELF: long symbol names'
-FILE=../../bins/elf/longsym
+FILE=../../bins/elf/analysis/longsym
 ARGS=''
 CMDS='?l `isq~pata`;?vi'
 EXPECT='194
@@ -10,7 +10,7 @@ EXPECT='194
 run_test
 
 NAME='ELF: simple.elf - code'
-FILE=../../bins/elf/simple.elf
+FILE=../../bins/elf/analysis/simple.elf
 ARGS=''
 CMDS="e asm.filter=false
 pid 4 @ entry0"
@@ -23,7 +23,7 @@ EXPECT='0x08000060    section..text:
 run_test
 
 NAME='ELF: asm.midflags + local symbols'
-FILE=../../bins/elf/example.elf
+FILE=../../bins/elf/analysis/example.elf
 ARGS=''
 CMDS="pd 3 @ 0x356"
 EXPECT='            ;-- $d_62:
@@ -34,7 +34,7 @@ EXPECT='            ;-- $d_62:
 run_test
 
 NAME='ELF: asm.midflags2 + local symbols'
-FILE=../../bins/elf/example.elf
+FILE=../../bins/elf/analysis/example.elf
 ARGS=''
 CMDS="e asm.midflags=0
 pd 3 @ 0x356"
@@ -45,7 +45,7 @@ EXPECT='            0x00000356      00f033f9       bl sym.app_uart_get
 run_test
 
 NAME='ELF: local symbols'
-FILE=../../bins/elf/example.elf
+FILE=../../bins/elf/analysis/example.elf
 BROKEN=
 ARGS=''
 CMDS="is*~d_41"
@@ -54,7 +54,7 @@ EXPECT='f sym._d_41 0 0x00000ae0
 run_test
 
 NAME='ELF: phdr override'
-FILE=../../bins/elf/phdr-override
+FILE=../../bins/elf/analysis/phdr-override
 BROKEN=
 CMDS="iiq"
 EXPECT='system

@@ -9,7 +9,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 # test debugger command execution...
 
 NAME='dbg.cmdbps'
-FILE=../../bins/elf/elf-nx
+FILE=../../bins/elf/analysis/elf-nx
 ARGS=-d
 BROKEN=
 CMDS='e scr.color=0

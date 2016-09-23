@@ -13,7 +13,7 @@ EXPECT='1
 '
 run_test
 
-FILE=../bins/elf/main
+FILE=../bins/elf/analysis/main
 NAME="#3829 remove comment where another meta is already defined "
 CMDS='CCu lol @ str.Hello_World
 CC- @ str.Hello_World
@@ -118,7 +118,7 @@ EXPECT='            0x00000000      90             nop                         ;
 '
 run_test
 
-FILE=../bins/elf/main
+FILE=../bins/elf/analysis/main
 NAME="cmtrefs"
 CMDS='
 aaa

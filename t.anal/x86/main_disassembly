@@ -6,7 +6,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='Main in disassembly'
 BROKEN=
-FILE=../../bins/elf/ls2
+FILE=../../bins/elf/analysis/ls2
 ARGS=
 CMDS='
 aa

@@ -4,7 +4,7 @@ PLUGIN=mips
 
 NAME="mips hello ref anal"
 BROKEN=
-FILE=../../bins/elf/mips-hello
+FILE=../../bins/elf/analysis/mips-hello
 CMDS="
 s sym.main
 aac
@@ -17,7 +17,7 @@ run_test
 NAME="mips hello ref anal"
 BROKEN=
 ARGS="-e bin.strings=false -e anal.strings=true"
-FILE=../../bins/elf/mips.elf
+FILE=../../bins/elf/analysis/mips.elf
 CMDS="
 s entry0
 aae
@@ -31,7 +31,7 @@ run_test
 NAME="mips hello ref anal subtract"
 BROKEN=
 ARGS="-e bin.strings=false -e anal.strings=true"
-FILE=../../bins/elf/busybox-mips
+FILE=../../bins/elf/analysis/busybox-mips
 CMDS="
 aae @entry0
 pd 1 @0x00406228

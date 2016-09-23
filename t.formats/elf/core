@@ -3,7 +3,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 # probably wrong
 NAME='ELF: core sections'
-FILE=../../bins/elf/core.1159
+FILE=../../bins/elf/analysis/core.1159
 ARGS=''
 CMDS="iS~?"
 EXPECT='20
@@ -11,7 +11,7 @@ EXPECT='20
 run_test
 
 NAME='ELF: core sections with reg name'
-FILE=../../bins/elf/core.1159
+FILE=../../bins/elf/analysis/core.1159
 ARGS=''
 BROKEN=1
 CMDS="iS~?reg;iS"

@@ -2,7 +2,7 @@
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 NAME='search all rop gadgets'
-FILE=../bins/elf/x86-helloworld-phdr
+FILE=../bins/elf/analysis/x86-helloworld-phdr
 ARGS=-n
 CMDS='e asm.nbytes=8
 /R
@@ -34,7 +34,7 @@ EXPECT='  0x000000b4               cd80  int 0x80
 run_test
 
 NAME='search rop gadgets with a regexp'
-FILE=../bins/elf/x86-helloworld-phdr
+FILE=../bins/elf/analysis/x86-helloworld-phdr
 ARGS=-n
 CMDS='e asm.bits=32
 /R/ mov e[abcd]x
@@ -55,7 +55,7 @@ EXPECT='  0x000000b4               cd80  int 0x80
 run_test
 
 NAME='search rop gadgets and show them linearly'
-FILE=../bins/elf/x86-helloworld-phdr
+FILE=../bins/elf/analysis/x86-helloworld-phdr
 ARGS=-n
 CMDS='/Rl
 '
@@ -67,7 +67,7 @@ EXPECT='0x000000b4: int 0x80; mov eax, 1; mov ecx, 0; int 0x80; ret;
 run_test
 
 NAME='search rop gadgets with filter'
-FILE=../bins/elf/x86-helloworld-phdr
+FILE=../bins/elf/analysis/x86-helloworld-phdr
 ARGS=-n
 CMDS='/R ecx
 '
@@ -88,7 +88,7 @@ run_test
 
 
 NAME='search rop gadgets with filter and output JSON'
-FILE=../bins/elf/x86-helloworld-phdr
+FILE=../bins/elf/analysis/x86-helloworld-phdr
 ARGS=-n
 CMDS='/Rj ecx'
 EXPECT='[{"opcodes":[{"offset":180,"size":2,"opcode":"int 0x80","type":"swi"},{"offset":182,"size":5,"opcode":"mov eax, 1","type":"mov"},{"offset":187,"size":5,"opcode":"mov ecx, 0","type":"mov"},{"offset":192,"size":2,"opcode":"int 0x80","type":"swi"},{"offset":194,"size":1,"opcode":"ret","type":"ret"}],"retaddr":194,"size":15},{"opcodes":[{"offset":183,"size":2,"opcode":"add dword [rax], eax","type":"add"},{"offset":185,"size":2,"opcode":"add byte [rax], al","type":"add"},{"offset":187,"size":5,"opcode":"mov ecx, 0","type":"mov"},{"offset":192,"size":2,"opcode":"int 0x80","type":"swi"},{"offset":194,"size":1,"opcode":"ret","type":"ret"}],"retaddr":194,"size":12}]
@@ -96,7 +96,7 @@ EXPECT='[{"opcodes":[{"offset":180,"size":2,"opcode":"int 0x80","type":"swi"},{"
 '
 run_test
 NAME='search rop gadgets with a regex of the form (a|b)'
-FILE=../bins/elf/x86-helloworld-phdr
+FILE=../bins/elf/analysis/x86-helloworld-phdr
 ARGS="-n"
 CMDS='e asm.bits=32
 "/R/ (ecx|eax)"
@@ -129,7 +129,7 @@ run_test
 
 
 NAME='search rop gadgets with another end gadget as part of it.'
-FILE=../bins/elf/unoriginal
+FILE=../bins/elf/analysis/unoriginal
 ARGS=
 CMDS='e asm.bits=32
 e rop.len=15
@@ -152,7 +152,7 @@ EXPECT='  0x08048350               fff4  push esp
 run_test
 
 NAME='search rop with sequence.'
-FILE=../bins/elf/x86-helloworld-gcc
+FILE=../bins/elf/analysis/x86-helloworld-gcc
 ARGS=
 CMDS='"/R push esi;push ebx"
 '
@@ -166,7 +166,7 @@ EXPECT='  0x08048421                 57  push edi
 run_test
 
 NAME='search rop with regex sequence.'
-FILE=../bins/elf/x86-helloworld-gcc
+FILE=../bins/elf/analysis/x86-helloworld-gcc
 ARGS=
 CMDS='"/R/ push esi;push ebx"
 '

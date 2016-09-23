@@ -6,7 +6,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 # "!" - run commands (via system)
 
 NAME='dbg.dc+ds.swstep'
-FILE=../../bins/elf/elf-nx
+FILE=../../bins/elf/analysis/elf-nx
 ARGS=-d
 BROKEN=
 CMDS='e scr.color=0
@@ -30,7 +30,7 @@ run_test
 
 # Covers https://github.com/radare/radare2/issues/4560
 NAME='dbg.dc+ds.swstep2'
-FILE=../../bins/elf/x86-helloworld-gcc
+FILE=../../bins/elf/analysis/x86-helloworld-gcc
 ARGS=-d
 BROKEN=
 CMDS='e scr.color=0
@@ -51,7 +51,7 @@ IGNORE_ERR=1
 run_test
 
 NAME='dbg.dc+ds.hwstep'
-FILE=../../bins/elf/elf-nx
+FILE=../../bins/elf/analysis/elf-nx
 ARGS=-d
 BROKEN=
 CMDS='e scr.color=0
@@ -74,7 +74,7 @@ IGNORE_ERR=1
 run_test
 
 NAME='dbg.dc+ds.hwstep2'
-FILE=../../bins/elf/x86-helloworld-gcc
+FILE=../../bins/elf/analysis/x86-helloworld-gcc
 ARGS=-d
 BROKEN=
 CMDS='e scr.color=0
@@ -95,7 +95,7 @@ IGNORE_ERR=1
 run_test
 
 NAME='dbg.dcC+ds.swstep1'
-FILE=../../bins/elf/tiny-crackme-vm-x86_64
+FILE=../../bins/elf/analysis/tiny-crackme-vm-x86_64
 ARGS=-d
 BROKEN=
 CMDS='e scr.color=0
@@ -116,7 +116,7 @@ Loop 1
 run_test
 
 NAME='dbg.dcC+ds.swstep2'
-FILE=../../bins/elf/tiny-crackme-vm-x86_64
+FILE=../../bins/elf/analysis/tiny-crackme-vm-x86_64
 ARGS=-d
 BROKEN=
 CMDS='e scr.color=0
@@ -136,7 +136,7 @@ EXPECT='0x000031c0
 run_test
 
 NAME='dbg.dcC+ds.swstep3'
-FILE=../../bins/elf/tiny-crackme-vm-x86_64
+FILE=../../bins/elf/analysis/tiny-crackme-vm-x86_64
 ARGS=-d
 BROKEN=
 CMDS='e scr.color=0

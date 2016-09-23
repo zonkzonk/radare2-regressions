@@ -56,7 +56,7 @@ EXPECT='0 0x0 00 0 0000:0000 0 00000000 0.0 0.000000f 0.000000
 run_test
 
 NAME='ds on jmp reg'
-FILE=../../bins/elf/x86-jmpeax
+FILE=../../bins/elf/analysis/x86-jmpeax
 ARGS='-b 32 -a x86 -d'
 BROKEN=
 CMDS='dcu main
@@ -68,7 +68,7 @@ EXPECT='0x080483d0
 run_test
 
 NAME='ds on calls and jumps'
-FILE=../../bins/elf/calls_x64
+FILE=../../bins/elf/analysis/calls_x64
 ARGS='-a x86 -d'
 BROKEN=
 CMDS='dcu main
@@ -103,7 +103,7 @@ Hello world
 run_test
 
 NAME='dso on call 1'
-FILE=../../bins/elf/calls_x64
+FILE=../../bins/elf/analysis/calls_x64
 ARGS='-a x86 -d'
 BROKEN=
 CMDS='dcu main
@@ -119,7 +119,7 @@ Hello world
 run_test
 
 NAME='dso on call 2'
-FILE=../../bins/elf/calls_x64
+FILE=../../bins/elf/analysis/calls_x64
 ARGS='-a x86 -d'
 BROKEN=
 CMDS='dcu main
@@ -135,7 +135,7 @@ Hello world
 run_test
 
 NAME='dso on call 3'
-FILE=../../bins/elf/calls_x64
+FILE=../../bins/elf/analysis/calls_x64
 ARGS='-a x86 -d'
 BROKEN=
 CMDS='dcu main
@@ -151,7 +151,7 @@ Hello world
 run_test
 
 NAME='dso on call 4'
-FILE=../../bins/elf/calls_x64
+FILE=../../bins/elf/analysis/calls_x64
 ARGS='-a x86 -d'
 BROKEN=
 CMDS='dcu main
@@ -167,7 +167,7 @@ Hello world
 run_test
 
 NAME='dbg.dsu'
-FILE=../../bins/elf/calls_x64
+FILE=../../bins/elf/analysis/calls_x64
 ARGS='-a x86 -d'
 BROKEN=
 CMDS='dcu main
@@ -180,7 +180,7 @@ Hello world
 run_test
 
 NAME='dbg.dsui'
-FILE=../../bins/elf/calls_x64
+FILE=../../bins/elf/analysis/calls_x64
 ARGS='-a x86 -d'
 BROKEN=
 CMDS='dcu main
@@ -193,7 +193,7 @@ Hello world
 run_test
 
 NAME='dbg.dsei'
-FILE=../../bins/elf/calls_x64
+FILE=../../bins/elf/analysis/calls_x64
 ARGS='-a x86 -d'
 BROKEN=
 CMDS='dcu main
@@ -207,7 +207,7 @@ Hello world
 run_test
 
 NAME='dbg.dss'
-FILE=../../bins/elf/calls_x64
+FILE=../../bins/elf/analysis/calls_x64
 ARGS='-a x86 -d'
 BROKEN=
 CMDS='dcu main

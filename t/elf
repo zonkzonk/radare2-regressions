@@ -2,7 +2,7 @@
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 NAME='search escaped string'
-FILE=../bins/elf/x86-helloworld-gcc
+FILE=../bins/elf/analysis/x86-helloworld-gcc
 CMDS='/ \x90\x66~[0]
 '
 EXPECT_ERR='Searching 2 bytes from 0x08048000 to 0x0804a59c: 90 06
@@ -25,7 +25,7 @@ EXPECT='0x08048323
 run_test
 
 NAME='search in va'
-FILE=../bins/elf/x86-helloworld-gcc
+FILE=../bins/elf/analysis/x86-helloworld-gcc
 CMDS='/x 9066~[0]
 '
 EXPECT_ERR='Searching 2 bytes from 0x08048000 to 0x0804a59c: 90 06

@@ -2,7 +2,7 @@
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 NAME="an symbol"
-FILE=../bins/elf/hello-objc-linux
+FILE=../bins/elf/analysis/hello-objc-linux
 BROKEN=
 CMDS='an-*
 an sym.imp.__libc_start_main
@@ -15,7 +15,7 @@ EXITCODE=0
 run_test
 
 NAME="an 0x08048550"
-FILE=../bins/elf/hello-objc-linux
+FILE=../bins/elf/analysis/hello-objc-linux
 BROKEN=
 CMDS='an-*
 an 0x08048550
@@ -28,7 +28,7 @@ EXITCODE=0
 run_test
 
 NAME="an 0x00048550"
-FILE=../bins/elf/hello-objc-linux
+FILE=../bins/elf/analysis/hello-objc-linux
 BROKEN=
 CMDS='an-*
 af
@@ -40,7 +40,7 @@ EXITCODE=0
 run_test
 
 NAME="without noreturn"
-FILE=../bins/elf/hello-objc-linux
+FILE=../bins/elf/analysis/hello-objc-linux
 BROKEN=
 CMDS='
 an-*
@@ -53,7 +53,7 @@ EXITCODE=0
 run_test
 
 NAME="no no return"
-FILE=../bins/elf/hello-objc-linux
+FILE=../bins/elf/analysis/hello-objc-linux
 BROKEN=
 CMDS='af
 af-
@@ -64,7 +64,7 @@ EXITCODE=0
 run_test
 
 NAME="no no return 2"
-FILE=../bins/elf/hello-objc-linux
+FILE=../bins/elf/analysis/hello-objc-linux
 CMDS='af
 af-*
 afi~size
@@ -73,7 +73,7 @@ EXPECT=''
 run_test
 
 NAME="noreturn real test"
-FILE=../bins/elf/noreturn
+FILE=../bins/elf/analysis/noreturn
 CMDS="aa
 s main
 pdf

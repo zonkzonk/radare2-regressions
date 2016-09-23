@@ -6,7 +6,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME="io.baddr"
 BROKEN=
-FILE=../bins/elf/pie
+FILE=../bins/elf/analysis/pie
 CMDS='
 ?v entry0
 '
@@ -17,7 +17,7 @@ run_test
 NAME="io.baddr"
 BROKEN=
 ARGS="-B 0xf00000"
-FILE=../bins/elf/pie
+FILE=../bins/elf/analysis/pie
 CMDS='
 ?v entry0
 '
@@ -27,14 +27,14 @@ run_test
 
 NAME="io.baddr"
 BROKEN=
-FILE=../bins/elf/pie
+FILE=../bins/elf/analysis/pie
 CMDS='!rabin2 -B 0xf00000 -re ${R2_FILE} | grep 0x'
 EXPECT='f entry0 1 @ 0x00f00450
 '
 run_test
 
 NAME="io.baddr entry0 data"
-FILE=../bins/elf/pie
+FILE=../bins/elf/analysis/pie
 CMDS='
 ie~paddr[3]
 ie~vaddr[1]
@@ -47,7 +47,7 @@ EXPECT='0x00000450
 run_test
 
 NAME="io.baddr -B entry0 data"
-FILE=../bins/elf/pie
+FILE=../bins/elf/analysis/pie
 ARGS="-B 0x100000"
 CMDS='p8 10 @ 0x00100450
 '
@@ -73,7 +73,7 @@ run_test
 
 NAME="io.baddr"
 BROKEN=
-FILE=../bins/elf/pie
+FILE=../bins/elf/analysis/pie
 ARGS='-B 0xf00000'
 CMDS='!rabin2 -B 0xf00000 -re ${R2_FILE} | grep 0x
 p8 10 @ 0x00f00450'
@@ -83,7 +83,7 @@ EXPECT='f entry0 1 @ 0x00f00450
 run_test
 
 NAME="e bin.baddr"
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/analysis/hello-linux-x86_64
 ARGS=''
 CMDS='?v `e bin.baddr`
 '
@@ -92,7 +92,7 @@ EXPECT='0x400000
 run_test
 
 NAME="e bin.baddr changed"
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/analysis/hello-linux-x86_64
 ARGS='-B 0xf00000'
 CMDS='?v `e bin.baddr`
 '
@@ -101,7 +101,7 @@ EXPECT='0xf00000
 run_test
 
 NAME="bin.baddr and anal"
-FILE=../bins/elf/pie
+FILE=../bins/elf/analysis/pie
 ARGS='-B 0xf00000'
 CMDS='aaa
 afl

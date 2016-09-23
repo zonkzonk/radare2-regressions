@@ -4,7 +4,7 @@
 
 
 NAME='structure variable delete shadowed'
-FILE='../bins/elf/main_structure'
+FILE='../bins/elf/analysis/main_structure'
 CMDS='aaa
 s main
 afvb*
@@ -26,7 +26,7 @@ afvb -272 s1 S1 @ 0x4004a6
 run_test
 
 NAME='structure offset in disassembly'
-FILE='../bins/elf/main_structure'
+FILE='../bins/elf/analysis/main_structure'
 CMDS='aaa
 s main
 "td struct S1 { int a; int b; int c; char d[256]; short e; }"
@@ -47,7 +47,7 @@ lea rax [rbp - s1.a]
 run_test
 
 NAME='structure field rename reflects immediately'
-FILE='../bins/elf/main_structure'
+FILE='../bins/elf/analysis/main_structure'
 CMDS='aaa
 s main
 "td struct S1 { int a; int b; int c; char d[256]; short e; }"

@@ -17,7 +17,7 @@ run_test
 
 
 NAME='e asm.os'
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/analysis/hello-linux-x86_64
 CMDS='e asm.os=?
 '
 EXPECT='ios
@@ -33,7 +33,7 @@ windows
 run_test
 
 NAME='e asm.cpu'
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/analysis/hello-linux-x86_64
 CMDS='e asm.arch=mips
 e asm.cpu=?
 '

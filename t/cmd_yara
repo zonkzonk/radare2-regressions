@@ -39,7 +39,7 @@ EXPECT_ERR='Rules cleared
 run_test
 
 NAME='yara add and scan'
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/analysis/hello-linux-x86_64
 CMDS='
 yara2 add ../files/test_yara.rules
 yara2 scan
@@ -65,7 +65,7 @@ test_rule
 run_test
 
 NAME='yara add duplicate then original'
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/analysis/hello-linux-x86_64
 CMDS='
 yara2 add ../files/test_yara.rules
 yara2 add ../files/test_yara.rules

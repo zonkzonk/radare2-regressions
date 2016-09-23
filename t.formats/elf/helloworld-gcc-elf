@@ -2,7 +2,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh && break ; done
 
 NAME='x86 - init_array detection'
-FILE=../../bins/elf/x86-helloworld-gcc
+FILE=../../bins/elf/analysis/x86-helloworld-gcc
 CMDS='aa;afl~0x080482e0[3]
 '
 EXPECT='loc.imp.__gmon_start__
@@ -10,7 +10,7 @@ EXPECT='loc.imp.__gmon_start__
 run_test
 
 NAME='x86 - init_array detection'
-FILE=../../bins/elf/x86-helloworld-gcc
+FILE=../../bins/elf/analysis/x86-helloworld-gcc
 CMDS='S~init_array
 '
 EXPECT='[17] . 0x0000059c -rw- va=0x0804959c sz=0x0004 vsz=0x0004 .init_array
@@ -19,7 +19,7 @@ run_test
 
 NAME='metadata'
 BROKEN=
-FILE=../../bins/elf/x86-helloworld-gcc
+FILE=../../bins/elf/analysis/x86-helloworld-gcc
 CMDS='CC
 '
 EXPECT='0x080484b0 string[13] "Hello_world_"
@@ -56,7 +56,7 @@ run_test
 
 NAME='base64 metadata commands'
 BROKEN=
-FILE=../../bins/elf/x86-helloworld-gcc
+FILE=../../bins/elf/analysis/x86-helloworld-gcc
 CMDS='C*
 '
 EXPECT='Cs 13 @ 0x080484b0 # Hello_world_
@@ -92,7 +92,7 @@ CCu base64:WzM4XSB2YT0weDA4MDQ4MDAwIHBhPTB4MDAwMDAwMDAgc3o9NTIgdnN6PTUyIHJ3eD1tL
 run_test
 
 NAME='flags spaces'
-FILE=../../bins/elf/x86-helloworld-gcc
+FILE=../../bins/elf/analysis/x86-helloworld-gcc
 CMDS='fs
 '
 EXPECT='0    1 . strings
@@ -104,7 +104,7 @@ EXPECT='0    1 . strings
 run_test
 
 NAME='flags spaces after analysis'
-FILE=../../bins/elf/x86-helloworld-gcc
+FILE=../../bins/elf/analysis/x86-helloworld-gcc
 CMDS='
 aa;fs *;fs
 afl~?
@@ -120,7 +120,7 @@ EXPECT='0    1 . strings
 run_test
 
 NAME='flags spaces after analysis'
-FILE=../../bins/elf/x86-helloworld-gcc
+FILE=../../bins/elf/analysis/x86-helloworld-gcc
 CMDS='s entry0+4; af;fs *;fs
 '
 EXPECT='0    1 . strings
@@ -133,7 +133,7 @@ EXPECT='0    1 . strings
 run_test
 
 NAME='pb 4'
-FILE=../../bins/elf/x86-helloworld-gcc
+FILE=../../bins/elf/analysis/x86-helloworld-gcc
 CMDS='pb 4
 '
 EXPECT='0011
@@ -141,7 +141,7 @@ EXPECT='0011
 run_test
 
 NAME='pxW 10'
-FILE=../../bins/elf/x86-helloworld-gcc
+FILE=../../bins/elf/analysis/x86-helloworld-gcc
 CMDS='pxW 10
 '
 EXPECT='0x08048300 0x895eed31 
@@ -153,7 +153,7 @@ NAME='p-'
 # this test is subject to fail in many situations. it's too generalistic, needs
 # to be splitted down into something more unitary to identify what's wrong
 #BROKEN=0
-FILE=../../bins/elf/x86-helloworld-gcc
+FILE=../../bins/elf/analysis/x86-helloworld-gcc
 CMDS='p-
 '
 EXPECT='0x8048000 [f.f...........f.f.ff...f..f.ff.fff^..f..f.f.f.f.f....fff.f.......f.........................................................................................................................................................................................ff...] 0x80496b8
@@ -161,7 +161,7 @@ EXPECT='0x8048000 [f.f...........f.f.ff...f..f.ff.fff^..f..f.f.f.f.f....fff.f...
 run_test
 
 NAME='pu 10'
-FILE=../../bins/elf/x86-helloworld-gcc
+FILE=../../bins/elf/analysis/x86-helloworld-gcc
 CMDS='pu 10
 '
 EXPECT='%31%ed%5e%89%e1%83%e4%f0%50%54
@@ -169,7 +169,7 @@ EXPECT='%31%ed%5e%89%e1%83%e4%f0%50%54
 run_test
 
 NAME='pdn 10'
-FILE=../../bins/elf/x86-helloworld-gcc
+FILE=../../bins/elf/analysis/x86-helloworld-gcc
 CMDS='e scr.color = 0
 pDi 10
 '
@@ -184,7 +184,7 @@ EXPECT='0x08048300    sym._start:
 run_test
 
 NAME='pi 12'
-FILE=../../bins/elf/x86-helloworld-gcc
+FILE=../../bins/elf/analysis/x86-helloworld-gcc
 CMDS='pi 12
 '
 EXPECT='xor ebp, ebp
@@ -204,7 +204,7 @@ run_test
 
 
 NAME='pc C'
-FILE=../../bins/elf/x86-helloworld-gcc
+FILE=../../bins/elf/analysis/x86-helloworld-gcc
 CMDS='pc
 '
 EXPECT='#define _BUFFER_SIZE 256
@@ -237,7 +237,7 @@ run_test
 
 
 NAME='flags (total)'
-FILE=../../bins/elf/x86-helloworld-gcc
+FILE=../../bins/elf/analysis/x86-helloworld-gcc
 CMDS='f~?
 '
 EXPECT='118
@@ -245,7 +245,7 @@ EXPECT='118
 run_test
 
 NAME='flags'
-FILE=../../bins/elf/x86-helloworld-gcc
+FILE=../../bins/elf/analysis/x86-helloworld-gcc
 CMDS='f
 '
 EXPECT='0x080484b0 13 str.Hello_world_
@@ -371,7 +371,7 @@ run_test
 
 # that ?e is a hack to workaround the missing trailing newline in pdj
 NAME='x86 - pdj 10'
-FILE=../../bins/elf/x86-helloworld-gcc
+FILE=../../bins/elf/analysis/x86-helloworld-gcc
 CMDS='pdj 10
 ?e
 '

@@ -8,15 +8,15 @@ analysis_test() {
 NAME="elf $1"
 IGNORE_ERR=1
 BROKEN=
-FILE=../../bins/elf/$1
+FILE=../../bins/elf/analysis/$1
 ARGS=
-CMDS='aa ; q'
+CMDS='aaa ; q'
 EXPECT=''
 run_test
 }
 
-for FILE in $(ls ../../bins/elf/); do
-	if [ -f ../../bins/elf/$FILE ]; then
+for FILE in $(ls ../../bins/elf/analysis); do
+	if [ -f ../../bins/elf/analysis/$FILE ]; then
     	analysis_test $FILE
     fi
 done

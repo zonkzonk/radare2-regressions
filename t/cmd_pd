@@ -120,7 +120,7 @@ EXPECT="            0x00000000      c6852fffffff.  mov byte [ebp - 0xd1], 0x61 ;
 run_test
 
 NAME='String capstone'
-FILE=../bins/elf/main
+FILE=../bins/elf/analysis/main
 ARGS=
 CMDS='
 e asm.arch = x86
@@ -135,7 +135,7 @@ EXPECT='|           0x0040050a      bfc4054000     mov edi, str.Hello_World    ;
 run_test
 
 NAME='String udis86'
-FILE=../bins/elf/main
+FILE=../bins/elf/analysis/main
 ARGS=
 CMDS='e asm.arch = x86.udis
 e asm.arch=x86

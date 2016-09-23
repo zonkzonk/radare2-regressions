@@ -2,7 +2,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='ELF: riscv64: entrypoint'
-FILE=../../bins/elf/guess-number-riscv64
+FILE=../../bins/elf/analysis/guess-number-riscv64
 ARGS=''
 CMDS='ie'
 EXPECT='[Entrypoints]
@@ -13,7 +13,7 @@ vaddr=0x00010000 paddr=0x00001000 baddr=0x00010000 laddr=0x00000000 type=program
 run_test
 
 NAME='ELF: riscv64: symbols'
-FILE=../../bins/elf/guess-number-riscv64
+FILE=../../bins/elf/analysis/guess-number-riscv64
 ARGS=''
 CMDS='is'
 EXPECT='[Symbols]
@@ -314,12 +314,12 @@ vaddr=0x0001705c paddr=0x0000805c ord=382 fwd=NONE sz=36 bind=GLOBAL type=FUNC n
 run_test
 
 NAME='ELF: riscv64: file format'
-FILE=../../bins/elf/guess-number-riscv64
+FILE=../../bins/elf/analysis/guess-number-riscv64
 FILTER='sed "s/^fd.*//g"'
 ARGS=''
 CMDS='if'
 EXPECT='type     EXEC (Executable file)
-file     ../../bins/elf/guess-number-riscv64
+file     ../../bins/elf/analysis/guess-number-riscv64
 
 size     0x9d5a8
 iorw     false
@@ -353,7 +353,7 @@ binsz    643108
 run_test
 
 NAME='ELF: riscv64: main analysis'
-FILE=../../bins/elf/guess-number-riscv64
+FILE=../../bins/elf/analysis/guess-number-riscv64
 ARGS=''
 CMDS='e asm.calls=false;s sym.main;af;pdf'
 EXPECT='/ (fcn) sym.main 140
@@ -396,7 +396,7 @@ EXPECT='/ (fcn) sym.main 140
 run_test
 
 NAME='ELF: riscv64: full analysis'
-FILE=../../bins/elf/guess-number-riscv64
+FILE=../../bins/elf/analysis/guess-number-riscv64
 ARGS='-A'
 CMDS='e asm.calls=false;s sym.main;pdf'
 EXPECT='/ (fcn) sym.main 140

@@ -18,7 +18,7 @@ EXPECT='0x7fffff8000b54000
 run_test
 
 NAME='seek math (symbol addition)'
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/analysis/hello-linux-x86_64
 ARGS=
 CMDS='
 s sym._start + 8
@@ -74,7 +74,7 @@ EXPECT='0x100000000
 run_test
 
 NAME='seek local flag'
-FILE=../bins/elf/main
+FILE=../bins/elf/analysis/main
 ARGS=
 BROKEN=
 CMDS='

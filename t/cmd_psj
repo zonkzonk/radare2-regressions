@@ -27,7 +27,7 @@ EXPECT='{"string":"\\u00e9\\u00bb\\u0091\\u00e5\\u00ae\\u00a2","offset":0,"secti
 run_test
 
 NAME="psj wide"
-FILE=../bins/elf/x86-helloworld-gcc
+FILE=../bins/elf/analysis/x86-helloworld-gcc
 CMDS='
 s 0x08049600
 psj 4
@@ -41,7 +41,7 @@ run_test
 
 
 NAME="psj ascii 2"
-FILE=../bins/elf/hello-android-arm
+FILE=../bins/elf/analysis/hello-android-arm
 CMDS='
 s 0x00008358
 psj 11

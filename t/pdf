@@ -8,7 +8,7 @@ if [ $? -eq 1 ]; then
 	echo "Failed to create directory in /tmp/r2-regressions/dwarf"
 fi
 
-cp -f ../bins/elf/dwarftest /tmp/r2-regressions/dwarftest
+cp -f ../bins/elf/analysis/dwarftest /tmp/r2-regressions/dwarftest
 cp -f ../bins/src/dwarftest.c /tmp/r2-regressions/dwarftest.c
 
 #run_test

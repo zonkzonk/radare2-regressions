@@ -41,7 +41,7 @@ EXPECT='2
 run_test
 
 NAME='oob 10'
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/analysis/hello-linux-x86_64
 ARGS=
 CMDS='10oob
 pi 1
@@ -52,7 +52,7 @@ IGNORE_ERR=1
 run_test
 
 NAME='oo+ 10'
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/analysis/hello-linux-x86_64
 ARGS=
 CMDS='10oo+
 pi 1
@@ -108,7 +108,7 @@ b32ae931000000000200
 run_test
 
 NAME='oob bin.baddr = 0'
-FILE=../bins/elf/main
+FILE=../bins/elf/analysis/main
 ARGS=-n
 CMDS='e bin.baddr = 0
 oob

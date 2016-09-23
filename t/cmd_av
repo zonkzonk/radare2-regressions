@@ -2,7 +2,7 @@
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 NAME='av list virtual table'
-FILE=../bins/elf/elf-virtualtable
+FILE=../bins/elf/analysis/elf-virtualtable
 CMDS='
 aaa
 av

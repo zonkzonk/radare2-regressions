@@ -5,7 +5,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='thumb entry0'
-FILE=../../bins/elf/thumb
+FILE=../../bins/elf/analysis/thumb
 ARGS=
 CMDS='?v entry0
 '
@@ -14,7 +14,7 @@ EXPECT='0x82f0
 run_test
 
 NAME='thumb main'
-FILE=../../bins/elf/thumb
+FILE=../../bins/elf/analysis/thumb
 ARGS=
 CMDS='?v sym.main
 '
@@ -23,7 +23,7 @@ EXPECT='0x8424
 run_test
 
 NAME='thumb sym'
-FILE=../../bins/elf/thumb
+FILE=../../bins/elf/analysis/thumb
 ARGS=
 CMDS='is~=main[1]
 is~=main[3]
@@ -34,7 +34,7 @@ EXPECT='0x00008424
 run_test
 
 NAME='thumb disasm'
-FILE=../../bins/elf/thumb
+FILE=../../bins/elf/analysis/thumb
 ARGS=
 CMDS='pi 1@ sym.main
 '
@@ -44,7 +44,7 @@ run_test
 
 
 NAME='thumb disasm 2'
-FILE=../../bins/elf/thumb
+FILE=../../bins/elf/analysis/thumb
 ARGS=
 CMDS='pi 7@ sym.main
 '
@@ -60,7 +60,7 @@ run_test
 
 
 NAME='mix arm and thumb'
-FILE=../../bins/elf/thumb
+FILE=../../bins/elf/analysis/thumb
 ARGS=
 CMDS='pi 14@ sym.main
 '
@@ -84,7 +84,7 @@ run_test
 
 
 NAME='arm disasm entry0'
-FILE=../../bins/elf/thumb
+FILE=../../bins/elf/analysis/thumb
 ARGS=
 CMDS='pi 1@ sym.main
 '
@@ -93,7 +93,7 @@ EXPECT='push {r7, lr}
 run_test
 
 NAME='thumb anal expand'
-FILE=../../bins/elf/thumb
+FILE=../../bins/elf/analysis/thumb
 ARGS=
 CMDS='pi 2@sym.main
 af@sym.main
@@ -109,7 +109,7 @@ run_test
 
 
 NAME='arm at entry libsimplejni.so'
-FILE=../../bins/elf/libsimplejni.so
+FILE=../../bins/elf/analysis/libsimplejni.so
 ARGS=
 CMDS='pi 7@entry0
 '
@@ -125,7 +125,7 @@ run_test
 
 
 NAME='thumb at sym.JNI_OnLoad'
-FILE=../../bins/elf/libsimplejni.so
+FILE=../../bins/elf/analysis/libsimplejni.so
 ARGS=
 CMDS='pi 6@sym.JNI_OnLoad
 '

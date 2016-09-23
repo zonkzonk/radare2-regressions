@@ -164,7 +164,7 @@ IGNORE_ERR=0
 
 
 NAME='call-convention'
-FILE=../../bins/elf/x86-simple
+FILE=../../bins/elf/analysis/x86-simple
 IGNORE_ERR=1
 CMDS='
 aa
@@ -269,7 +269,7 @@ EXPECT='[0x00000000]> VV @ fcn.test (nodes 1 edges 0 zoom 100%) BB-NORM mouse:ca
 run_test
 
 NAME='af-*'
-FILE=../../bins/elf/main
+FILE=../../bins/elf/analysis/main
 ARGS=
 CMDS='
 aa

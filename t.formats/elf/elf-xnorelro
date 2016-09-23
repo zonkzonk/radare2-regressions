@@ -2,7 +2,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='PE: corkami elf-xnorelro - relro disabled'
-FILE=../../bins/elf/elf-xnorelro
+FILE=../../bins/elf/analysis/elf-xnorelro
 ARGS=''
 CMDS="ik~relro"
 
@@ -12,7 +12,7 @@ run_test
 
 
 NAME='PE: corkami elf-nx -  nx disabled'
-FILE=../../bins/elf/elf-xnorelro
+FILE=../../bins/elf/analysis/elf-xnorelro
 ARGS=''
 CMDS="iI~^nx"
 

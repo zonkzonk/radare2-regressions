@@ -125,7 +125,7 @@ EXPECT='/ (fcn) fcn.00000000 1015
 run_test
 
 NAME="reflines offset 2 (ascii)"
-FILE=../../bins/elf/ls-alxchk
+FILE=../../bins/elf/analysis/ls-alxchk
 CMDS='e asm.relsub=false
 e asm.bytes=false
 e asm.leahints=false
@@ -172,7 +172,7 @@ EXPECT='|       ,=< 0x000113bd      je 0x1144e
 run_test
 
 NAME="reflines offset 3 (ascii)"
-FILE=../../bins/elf/ls-alxchk
+FILE=../../bins/elf/analysis/ls-alxchk
 CMDS='e asm.relsub=false
 e asm.bytes=false
 e asm.leahints=false
@@ -212,7 +212,7 @@ EXPECT='|           0x00003ca6      cmp eax, 2
 run_test
 
 NAME="reflines offset 3 (ascii + wide)"
-FILE=../../bins/elf/ls-alxchk
+FILE=../../bins/elf/analysis/ls-alxchk
 CMDS='e asm.relsub=false
 e asm.bytes=false
 e asm.leahints=false
@@ -253,7 +253,7 @@ EXPECT='|           0x00003ca6      cmp eax, 2
 run_test
 
 NAME="reflines offset 3 (ascii + wide)"
-FILE=../../bins/elf/ls-alxchk
+FILE=../../bins/elf/analysis/ls-alxchk
 BROKEN=
 CMDS='e asm.relsub=false
 e asm.bytes=false

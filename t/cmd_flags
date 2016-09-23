@@ -28,7 +28,7 @@ EXPECT=''
 run_test
 
 NAME='fs *'
-FILE=../bins/elf/main
+FILE=../bins/elf/analysis/main
 BROKEN=
 CMDS='fs *
 fs~?*
@@ -54,7 +54,7 @@ EXPECT='0x00000000 1 flag_in_fs1
 run_test
 
 NAME='fs test_flagspace'
-FILE=../bins/elf/main
+FILE=../bins/elf/analysis/main
 BROKEN=
 CMDS='fs test_flagspace
 fs~?test_flagspace
@@ -64,7 +64,7 @@ EXPECT='1
 run_test
 
 NAME='fs-test_flagspace'
-FILE=../bins/elf/main
+FILE=../bins/elf/analysis/main
 BROKEN=
 CMDS='fs test_flagspace
 fs-test_flagspace
@@ -75,7 +75,7 @@ EXPECT='0
 run_test
 
 NAME='fs-test_flagspace'
-FILE=../bins/elf/main
+FILE=../bins/elf/analysis/main
 BROKEN=
 CMDS='fs-*
 fs~?0
@@ -99,7 +99,7 @@ run_test
 
 
 NAME='fsm'
-FILE=../bins/elf/main
+FILE=../bins/elf/analysis/main
 BROKEN=
 CMDS='fs-*
 fs test
@@ -111,7 +111,7 @@ EXPECT='0    1 * test
 run_test
 
 NAME='fsr'
-FILE=../bins/elf/main
+FILE=../bins/elf/analysis/main
 BROKEN=
 CMDS='fs-*
 fs test
@@ -276,7 +276,7 @@ EXPECT=''
 run_test
 
 NAME='f.'
-FILE=../bins/elf/main
+FILE=../bins/elf/analysis/main
 BROKEN=
 CMDS='aaa
 f.blah
@@ -289,7 +289,7 @@ EXPECT='0x00400410 blah   [entry0 + 0]
 run_test
 
 NAME='f. display'
-FILE=../bins/elf/main
+FILE=../bins/elf/analysis/main
 BROKEN=
 CMDS='aaa
 e asm.arch=x86
@@ -383,7 +383,7 @@ EXPECT='101
 run_test
 
 NAME='rename flags from bin'
-FILE='../bins/elf/main'
+FILE='../bins/elf/analysis/main'
 CMDS='f~sym.__libc_csu_init
 fr sym.__libc_csu_init newname
 f~sym.__libc_csu_init

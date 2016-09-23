@@ -4,7 +4,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME="ELF ARM: function names"
 BROKEN=
-FILE=../../bins/elf/arm_32_flags0
+FILE=../../bins/elf/analysis/arm_32_flags0
 CMDS='
 aa
 afl~abort
@@ -15,7 +15,7 @@ run_test
 
 NAME="ELF ARM: function names 2"
 BROKEN=
-FILE=../../bins/elf/arm_32_flags0
+FILE=../../bins/elf/analysis/arm_32_flags0
 CMDS='
 aa
 afl~weak
@@ -26,7 +26,7 @@ run_test
 
 NAME="ELF ARM: function names 2"
 BROKEN=
-FILE=../../bins/elf/arm_32_flags0
+FILE=../../bins/elf/analysis/arm_32_flags0
 CMDS='
 af @@ sym*
 afl~weak
@@ -37,7 +37,7 @@ run_test
 
 NAME="ELF ARM: aa"
 BROKEN=
-FILE=../../bins/elf/arm_32_flags0
+FILE=../../bins/elf/analysis/arm_32_flags0
 CMDS='
 aa
 afl~?
@@ -48,7 +48,7 @@ run_test
 
 NAME="ELF ARM: af @@ sym.*"
 BROKEN=
-FILE=../../bins/elf/arm_32_flags0
+FILE=../../bins/elf/analysis/arm_32_flags0
 CMDS='
 af @@ sym.*
 afl~?

@@ -11,7 +11,7 @@ EXPECT_ERR='cant find function here
 run_test
 
 NAME="Basic type Matching"
-FILE=../../bins/elf/x86-helloworld-gcc
+FILE=../../bins/elf/analysis/x86-helloworld-gcc
 CMDS="s sym.main
 aa
 aei

@@ -2,7 +2,7 @@
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 NAME='pc hello-linux-x86_64'
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/analysis/hello-linux-x86_64
 CMDS='
 pc
 '
@@ -36,7 +36,7 @@ const uint8_t buffer[256] = {
 run_test
 
 NAME='pc* hello-linux-x86_64'
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/analysis/hello-linux-x86_64
 CMDS='
 pc*
 '
@@ -62,7 +62,7 @@ s-256
 run_test
 
 NAME='pch hello-linux-x86_64'
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/analysis/hello-linux-x86_64
 CMDS='
 pch
 '
@@ -89,7 +89,7 @@ const uint16_t buffer[128] = {
 run_test
 
 NAME='pcw hello-linux-x86_64'
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/analysis/hello-linux-x86_64
 CMDS='
 pcw
 '
@@ -112,7 +112,7 @@ const uint32_t buffer[64] = {
 run_test
 
 NAME='pcd hello-linux-x86_64'
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/analysis/hello-linux-x86_64
 CMDS='
 pcd
 '
@@ -135,7 +135,7 @@ const uint64_t buffer[32] = {
 run_test
 
 NAME='pca hello-linux-x86_64'
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/analysis/hello-linux-x86_64
 CMDS='
 pca
 '
@@ -178,7 +178,7 @@ EXPECT='shellcode:
 run_test
 
 NAME='pcs hello-linux-x86_64'
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/analysis/hello-linux-x86_64
 CMDS='
 pcs
 '
@@ -188,7 +188,7 @@ EXPECT='"\x31\xed\x49\x89\xd1\x5e\x48\x89\xe2\x48\x83\xe4\xf0\x50\x54\x49\xc7\xc
 run_test
 
 NAME='pcS hello-linux-x86_64'
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/analysis/hello-linux-x86_64
 CMDS='
 pcS
 '
@@ -213,7 +213,7 @@ printf "\277\304\005\100\000\350\326\376\377\377\270\000\000\000\000\135" >> bin
 run_test
 
 NAME='pcJ hello-linux-x86_64'
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/analysis/hello-linux-x86_64
 CMDS='
 pcJ
 '
@@ -223,7 +223,7 @@ EXPECT="var buffer = new Buffer(\"Me1JidFeSIniSIPk8FBUScfAsAVAAEjHwSAFQABIx8f8BE
 run_test
 
 NAME='pcj hello-linux-x86_64'
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/analysis/hello-linux-x86_64
 CMDS='
 pcj
 '
@@ -233,7 +233,7 @@ EXPECT='[49,237,73,137,209,94,72,137,226,72,131,228,240,80,84,73,199,192,176,5,6
 run_test
 
 NAME='pcp hello-linux-x86_64'
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/analysis/hello-linux-x86_64
 CMDS='
 pcp
 '

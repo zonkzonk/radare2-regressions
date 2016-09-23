@@ -105,7 +105,7 @@ run_test
 
 
 NAME='elf_overlapped'
-FILE=../../bins/elf/elf_overlapped
+FILE=../../bins/elf/analysis/elf_overlapped
 CMDS='is;s 0x00400508; pi 1
 '
 EXPECT='[Symbols]

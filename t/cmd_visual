@@ -63,7 +63,7 @@ run_test
 
 NAME='visual intermediate'
 BROKEN=1
-FILE=../bins/elf/main
+FILE=../bins/elf/analysis/analysis/main
 CMDS='Vpjjjjdi
 d
 qah*

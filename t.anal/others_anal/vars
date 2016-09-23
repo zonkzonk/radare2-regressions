@@ -56,7 +56,7 @@ EXPECT='/ (fcn) fcn.00000000 89
 run_test
 
 NAME='afva for fastcall with no esp vars'
-FILE=../../bins/elf/fast
+FILE=../../bins/elf/analysis/fast
 ARGS=
 BROKEN=true
 CMDS='aa
@@ -101,7 +101,7 @@ EXPECT='fastcall
 '
 run_test
 NAME='afva for cdecl/stdcall with no esp vars'
-FILE=../../bins/elf/fast
+FILE=../../bins/elf/analysis/fast
 ARGS=
 CMDS='e asm.calls=false
 aa
@@ -336,7 +336,7 @@ EXPECT="|           ; arg int local_8h @ rbp+0x8    ; comment
 run_test
 
 NAME='vars display in debugger'
-FILE=../../bins/elf/fast
+FILE=../../bins/elf/analysis/fast
 ARGS=
 CMDS='aa
 s 0x0804843b

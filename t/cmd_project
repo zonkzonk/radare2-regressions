@@ -106,7 +106,7 @@ EXPECT='%4c%e2%fc
 run_test
 
 NAME='asm.emu in project'
-FILE=../bins/elf/simpleARM.elf
+FILE=../bins/elf/analysis/simpleARM.elf
 BROKEN=
 ARGS=
 CMDS='e asm.flags = false
@@ -158,7 +158,7 @@ EXPECT='1
 run_test
 
 NAME='Breakpoints in project file'
-FILE=../bins/elf/main
+FILE=../bins/elf/analysis/main
 BROKEN=1
 ARGS=
 CMDS='e dbg.bpinmaps = false
@@ -172,7 +172,7 @@ EXPECT='1
 run_test
 
 NAME='Visual Marks in project file'
-FILE=../bins/elf/main
+FILE=../bins/elf/analysis/main
 BROKEN=
 ARGS=
 CMDS='fV 49 0x400410

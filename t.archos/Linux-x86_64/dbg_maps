@@ -4,7 +4,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='dbg.maps.count/'
-FILE=../../bins/elf/elf-nx
+FILE=../../bins/elf/analysis/elf-nx
 ARGS=-d
 BROKEN=
 CMDS='dm~?/
@@ -15,7 +15,7 @@ IGNORE_ERR=1
 run_test
 
 NAME='dbg.maps.count'
-FILE=../../bins/elf/elf-nx
+FILE=../../bins/elf/analysis/elf-nx
 ARGS=-d
 CMDS='dm~?
 dk 9'
@@ -25,7 +25,7 @@ IGNORE_ERR=1
 run_test
 
 NAME='dbg.modules.count'
-FILE=../../bins/elf/elf-nx
+FILE=../../bins/elf/analysis/elf-nx
 ARGS=-d
 BROKEN=
 CMDS='dmm~?'
@@ -35,7 +35,7 @@ IGNORE_ERR=1
 run_test
 
 NAME='dbg.curmod.count'
-FILE=../../bins/elf/elf-nx
+FILE=../../bins/elf/analysis/elf-nx
 ARGS=-d
 BROKEN=
 CMDS='dmm.~?'

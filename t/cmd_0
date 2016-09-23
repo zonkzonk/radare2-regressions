@@ -6,7 +6,7 @@
 # TODO: contents should be != 00
 
 NAME='p= 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='p= 0
 '
@@ -14,7 +14,7 @@ EXPECT=''
 run_test
 
 NAME='p=b 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='p=b 0
 '
@@ -22,7 +22,7 @@ EXPECT=''
 run_test
 
 NAME='p=d 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='p=d 0
 '
@@ -30,7 +30,7 @@ EXPECT=''
 run_test
 
 NAME='p=e 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='p=e 0
 '
@@ -38,7 +38,7 @@ EXPECT=''
 run_test
 
 NAME='p=p 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='p=p 0
 '
@@ -46,7 +46,7 @@ EXPECT=''
 run_test
 
 NAME='p2 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='p2 0
 '
@@ -54,7 +54,7 @@ EXPECT=''
 run_test
 
 NAME='p3 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='p3 0
 '
@@ -63,7 +63,7 @@ EXPECT='
 run_test
 
 NAME='p8 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='p8 0
 '
@@ -71,7 +71,7 @@ EXPECT=''
 run_test
 
 NAME='pb 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pb 0
 '
@@ -79,7 +79,7 @@ EXPECT=''
 run_test
 
 NAME='pB 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pB 0
 '
@@ -87,7 +87,7 @@ EXPECT=''
 run_test
 
 NAME='px 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='px 0
 '
@@ -95,7 +95,7 @@ EXPECT=''
 run_test
 
 NAME='px/ 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='px/ 0
 '
@@ -103,7 +103,7 @@ EXPECT=''
 run_test
 
 NAME='pxa 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pxa 0
 '
@@ -111,7 +111,7 @@ EXPECT=''
 run_test
 
 NAME='pxA 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pxA 0
 '
@@ -119,7 +119,7 @@ EXPECT=''
 run_test
 
 NAME='pxb 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pxb 0
 '
@@ -127,7 +127,7 @@ EXPECT=''
 run_test
 
 NAME='pxd1 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pxd1 0
 '
@@ -135,7 +135,7 @@ EXPECT=''
 run_test
 
 NAME='pxd2 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pxd2 0
 '
@@ -143,7 +143,7 @@ EXPECT=''
 run_test
 
 NAME='pxd4 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pxd4 0
 '
@@ -151,7 +151,7 @@ EXPECT=''
 run_test
 
 NAME='pxe 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pxe 0
 '
@@ -159,7 +159,7 @@ EXPECT=''
 run_test
 
 NAME='pxh 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pxh 0
 '
@@ -167,7 +167,7 @@ EXPECT=''
 run_test
 
 NAME='pxH 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pxH 0
 '
@@ -175,7 +175,7 @@ EXPECT=''
 run_test
 
 NAME='pxl 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pxl 0
 '
@@ -183,7 +183,7 @@ EXPECT=''
 run_test
 
 NAME='pxo 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pxo 0
 '
@@ -191,7 +191,7 @@ EXPECT=''
 run_test
 
 NAME='pxq 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pxq 0
 '
@@ -199,7 +199,7 @@ EXPECT=''
 run_test
 
 NAME='pxQ 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pxQ 0
 '
@@ -207,7 +207,7 @@ EXPECT=''
 run_test
 
 NAME='pxr 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pxr 0
 '
@@ -215,7 +215,7 @@ EXPECT=''
 run_test
 
 NAME='pxs 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pxs 0
 '
@@ -223,7 +223,7 @@ EXPECT=''
 run_test
 
 NAME='pxw 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pxw 0
 '
@@ -231,7 +231,7 @@ EXPECT=''
 run_test
 
 NAME='pxW 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pxW 0
 '
@@ -239,7 +239,7 @@ EXPECT=''
 run_test
 
 NAME='pc 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pc 0
 '
@@ -247,7 +247,7 @@ EXPECT=''
 run_test
 
 NAME='pc* 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pc* 0
 '
@@ -255,7 +255,7 @@ EXPECT=''
 run_test
 
 NAME='pcw 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pcw 0
 '
@@ -263,7 +263,7 @@ EXPECT=''
 run_test
 
 NAME='pcd 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pcd 0
 '
@@ -271,7 +271,7 @@ EXPECT=''
 run_test
 
 NAME='pca 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pca 0
 '
@@ -279,7 +279,7 @@ EXPECT=''
 run_test
 
 NAME='pcs 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pcs 0
 '
@@ -287,7 +287,7 @@ EXPECT=''
 run_test
 
 NAME='pcS 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pcS 0
 '
@@ -295,7 +295,7 @@ EXPECT=''
 run_test
 
 NAME='pcJ 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pcJ 0
 '
@@ -303,7 +303,7 @@ EXPECT=''
 run_test
 
 NAME='pcp 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pcp 0
 '
@@ -311,7 +311,7 @@ EXPECT=''
 run_test
 
 NAME='pd 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pd 0
 '
@@ -319,7 +319,7 @@ EXPECT=''
 run_test
 
 NAME='pD 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pD 0
 '
@@ -327,7 +327,7 @@ EXPECT=''
 run_test
 
 NAME='pda 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pda 0
 '
@@ -335,7 +335,7 @@ EXPECT=''
 run_test
 
 NAME='pdc 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='aa
 pdc 0
@@ -344,7 +344,7 @@ EXPECT=''
 run_test
 
 NAME='pdc 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='aa
 pdc 0
@@ -353,7 +353,7 @@ EXPECT=''
 run_test
 
 NAME='pdj 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pdj 0
 '
@@ -361,7 +361,7 @@ EXPECT=''
 run_test
 
 NAME='pdr 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='aa
 pdr 0
@@ -370,7 +370,7 @@ EXPECT=''
 run_test
 
 NAME='pdf 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='aa
 pdf 0
@@ -379,7 +379,7 @@ EXPECT=''
 run_test
 
 NAME='pdi 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pdi 0
 '
@@ -387,7 +387,7 @@ EXPECT=''
 run_test
 
 NAME='pdl 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pdl 0
 '
@@ -395,7 +395,7 @@ EXPECT=''
 run_test
 
 NAME='pds 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pds 0
 '
@@ -403,7 +403,7 @@ EXPECT=''
 run_test
 
 NAME='pdt 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pdt 0
 '
@@ -411,7 +411,7 @@ EXPECT=''
 run_test
 
 NAME='pi 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pi 0
 '
@@ -419,7 +419,7 @@ EXPECT=''
 run_test
 
 NAME='pid 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pid 0
 '
@@ -427,7 +427,7 @@ EXPECT=''
 run_test
 
 NAME='pie 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pie 0
 '
@@ -435,7 +435,7 @@ EXPECT=''
 run_test
 
 NAME='pI 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pI 0
 '
@@ -443,7 +443,7 @@ EXPECT=''
 run_test
 
 NAME='pId 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pId 0
 '
@@ -451,7 +451,7 @@ EXPECT=''
 run_test
 
 NAME='pr 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pr 0
 '
@@ -459,7 +459,7 @@ EXPECT=''
 run_test
 
 NAME='prx 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='prx 0
 '
@@ -467,7 +467,7 @@ EXPECT=''
 run_test
 
 NAME='prl 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='prl 0
 '
@@ -475,7 +475,7 @@ EXPECT=''
 run_test
 
 NAME='prg 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='prg 0
 '
@@ -483,7 +483,7 @@ EXPECT=''
 run_test
 
 NAME='pk 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pk 0
 '
@@ -491,7 +491,7 @@ EXPECT=''
 run_test
 
 NAME='pK 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pK 0
 '
@@ -499,7 +499,7 @@ EXPECT=''
 run_test
 
 NAME='ps 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='ps 0
 '
@@ -508,7 +508,7 @@ EXPECT='
 run_test
 
 NAME='psi 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='psi 0
 '
@@ -516,7 +516,7 @@ EXPECT=''
 run_test
 
 NAME='psb 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='psb 0
 '
@@ -524,7 +524,7 @@ EXPECT=''
 run_test
 
 NAME='psx 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='psx 0
 '
@@ -532,7 +532,7 @@ EXPECT=''
 run_test
 
 NAME='psz 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='psz 0
 '
@@ -540,7 +540,7 @@ EXPECT=''
 run_test
 
 NAME='psp 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='psp 0
 '
@@ -548,7 +548,7 @@ EXPECT=''
 run_test
 
 NAME='psu 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='psu 0
 '
@@ -556,7 +556,7 @@ EXPECT=''
 run_test
 
 NAME='psw 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='psw 0
 '
@@ -564,7 +564,7 @@ EXPECT=''
 run_test
 
 NAME='pu 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pu 0
 '
@@ -572,7 +572,7 @@ EXPECT=''
 run_test
 
 NAME='puw 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='puw 0
 '
@@ -580,7 +580,7 @@ EXPECT=''
 run_test
 
 NAME='pz 0'
-FILE=../bins/elf/hello-arm32
+FILE=../bins/elf/analysis/hello-arm32
 ARGS=
 CMDS='pz 0
 '

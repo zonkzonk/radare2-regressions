@@ -37,7 +37,7 @@ sub sp, 8
 run_test
 
 NAME='call fcn eip'
-FILE=../bins/elf/ls-alxchk
+FILE=../bins/elf/analysis/ls-alxchk
 BROKEN=1
 ARGS=
 CMDS='

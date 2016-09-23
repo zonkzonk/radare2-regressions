@@ -4,7 +4,7 @@
 
 NAME='pxw cfg.bigendian=true (elf64)'
 BROKEN=
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/analysis/hello-linux-x86_64
 ARGS=
 CMDS='e cfg.bigendian=true
 pxw 16'
@@ -14,7 +14,7 @@ run_test
 
 NAME='pxw cfg.bigendian=false (elf64)'
 BROKEN=
-FILE=../bins/elf/hello-linux-x86_64
+FILE=../bins/elf/analysis/hello-linux-x86_64
 ARGS=
 CMDS='e cfg.bigendian=false
 pxw 16'

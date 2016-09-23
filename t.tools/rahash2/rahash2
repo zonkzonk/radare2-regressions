@@ -2,59 +2,59 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='rahash2 -a md5'
-CMDS='!rahash2 -a md5 ../../bins/elf/hello-linux-x86_64'
+CMDS='!rahash2 -a md5 ../../bins/elf/analysis/hello-linux-x86_64'
 BROKEN=
-EXPECT='../../bins/elf/hello-linux-x86_64: 0x00000000-0x00001a35 md5: c957bd5bd6204470256bc15248ccafd4
+EXPECT='../../bins/elf/analysis/hello-linux-x86_64: 0x00000000-0x00001a35 md5: c957bd5bd6204470256bc15248ccafd4
 '
 
 run_test
 
 NAME='rahash2 -a sha1'
-CMDS='!rahash2 -a sha1 ../../bins/elf/hello-linux-x86_64'
+CMDS='!rahash2 -a sha1 ../../bins/elf/analysis/hello-linux-x86_64'
 BROKEN=
-EXPECT='../../bins/elf/hello-linux-x86_64: 0x00000000-0x00001a35 sha1: 687c82d13cb27f0600d8e57edc784282c1732f56
+EXPECT='../../bins/elf/analysis/hello-linux-x86_64: 0x00000000-0x00001a35 sha1: 687c82d13cb27f0600d8e57edc784282c1732f56
 '
 
 run_test
 
 NAME='rahash2 -a sha256'
-CMDS='!rahash2 -a sha256 ../../bins/elf/hello-linux-x86_64'
+CMDS='!rahash2 -a sha256 ../../bins/elf/analysis/hello-linux-x86_64'
 BROKEN=
-EXPECT='../../bins/elf/hello-linux-x86_64: 0x00000000-0x00001a35 sha256: 7bdbf25324af1946ec0b16dbf928875a588a786f7c279cd115729c5a3a297a55
+EXPECT='../../bins/elf/analysis/hello-linux-x86_64: 0x00000000-0x00001a35 sha256: 7bdbf25324af1946ec0b16dbf928875a588a786f7c279cd115729c5a3a297a55
 '
 
 run_test
 
 NAME='rahash2 -a sha384'
-CMDS='!rahash2 -a sha384 ../../bins/elf/hello-linux-x86_64'
-EXPECT='../../bins/elf/hello-linux-x86_64: 0x00000000-0x00001a35 sha384: a6fed224b0b5892ab44839b5ae6a12e54fb3393b5f1e1ca174fb5a0032c994f1c492c5b3a090518d8a60875223977ba4
+CMDS='!rahash2 -a sha384 ../../bins/elf/analysis/hello-linux-x86_64'
+EXPECT='../../bins/elf/analysis/hello-linux-x86_64: 0x00000000-0x00001a35 sha384: a6fed224b0b5892ab44839b5ae6a12e54fb3393b5f1e1ca174fb5a0032c994f1c492c5b3a090518d8a60875223977ba4
 '
 
 run_test
 
 NAME='rahash2 -a sha512'
-CMDS='!rahash2 -a sha512 ../../bins/elf/hello-linux-x86_64'
-EXPECT='../../bins/elf/hello-linux-x86_64: 0x00000000-0x00001a35 sha512: 2640b1ff96870fb78a3d8ae6b51595ca86c37e25443b2e8c5441e77d11cdb3830ece8d791561c22788d37d7f22c99cdabf8f798826c0ff441901e6157890fee6
+CMDS='!rahash2 -a sha512 ../../bins/elf/analysis/hello-linux-x86_64'
+EXPECT='../../bins/elf/analysis/hello-linux-x86_64: 0x00000000-0x00001a35 sha512: 2640b1ff96870fb78a3d8ae6b51595ca86c37e25443b2e8c5441e77d11cdb3830ece8d791561c22788d37d7f22c99cdabf8f798826c0ff441901e6157890fee6
 '
 
 run_test
 
 NAME='rahash2 -a md5,sha1,sha256 -r'
-CMDS='!rahash2 -a md5,sha1,sha256 -r ../../bins/elf/hello-linux-x86_64'
+CMDS='!rahash2 -a md5,sha1,sha256 -r ../../bins/elf/analysis/hello-linux-x86_64'
 BROKEN=
-EXPECT='../../bins/elf/hello-linux-x86_64: e file.md5=c957bd5bd6204470256bc15248ccafd4
-../../bins/elf/hello-linux-x86_64: e file.sha1=687c82d13cb27f0600d8e57edc784282c1732f56
-../../bins/elf/hello-linux-x86_64: e file.sha256=7bdbf25324af1946ec0b16dbf928875a588a786f7c279cd115729c5a3a297a55
+EXPECT='../../bins/elf/analysis/hello-linux-x86_64: e file.md5=c957bd5bd6204470256bc15248ccafd4
+../../bins/elf/analysis/hello-linux-x86_64: e file.sha1=687c82d13cb27f0600d8e57edc784282c1732f56
+../../bins/elf/analysis/hello-linux-x86_64: e file.sha256=7bdbf25324af1946ec0b16dbf928875a588a786f7c279cd115729c5a3a297a55
 '
 
 run_test
 
 NAME='rahash2 -b10 -a md5,sha1,sha256 -r'
-CMDS='!rahash2 -b10 -a md5,sha1,sha256 -r ../../bins/elf/hello-linux-x86_64'
+CMDS='!rahash2 -b10 -a md5,sha1,sha256 -r ../../bins/elf/analysis/hello-linux-x86_64'
 BROKEN=
-EXPECT='../../bins/elf/hello-linux-x86_64: e file.md5=c957bd5bd6204470256bc15248ccafd4
-../../bins/elf/hello-linux-x86_64: e file.sha1=687c82d13cb27f0600d8e57edc784282c1732f56
-../../bins/elf/hello-linux-x86_64: e file.sha256=7bdbf25324af1946ec0b16dbf928875a588a786f7c279cd115729c5a3a297a55
+EXPECT='../../bins/elf/analysis/hello-linux-x86_64: e file.md5=c957bd5bd6204470256bc15248ccafd4
+../../bins/elf/analysis/hello-linux-x86_64: e file.sha1=687c82d13cb27f0600d8e57edc784282c1732f56
+../../bins/elf/analysis/hello-linux-x86_64: e file.sha256=7bdbf25324af1946ec0b16dbf928875a588a786f7c279cd115729c5a3a297a55
 '
 
 run_test

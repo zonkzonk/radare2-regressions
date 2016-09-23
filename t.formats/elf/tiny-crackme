@@ -2,7 +2,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='ELF: tiny-crackme'
-FILE=../../bins/elf/tiny-crackme
+FILE=../../bins/elf/analysis/tiny-crackme
 ARGS='-A'
 CMDS="q!"
 IGNORE_ERR=1

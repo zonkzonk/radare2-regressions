@@ -2,7 +2,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='ELF: mips.elf'
-FILE=../../bins/elf/mips.elf
+FILE=../../bins/elf/analysis/mips.elf
 ARGS='-A'
 CMDS="?v entry0"
 EXPECT='0x400ab0
@@ -11,7 +11,7 @@ run_test
 
 
 NAME='ELF: mipsbe-ubusd'
-FILE=../../bins/elf/mipsbe-ubusd
+FILE=../../bins/elf/analysis/mipsbe-ubusd
 ARGS=''
 CMDS="
 af
@@ -41,7 +41,7 @@ nop
 run_test
 
 NAME='ELF: mipsbe-busybox'
-FILE=../../bins/elf/mipsbe-busybox
+FILE=../../bins/elf/analysis/mipsbe-busybox
 ARGS=''
 CMDS="
 af

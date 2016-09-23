@@ -5,7 +5,7 @@ PLUGIN=mips
 NAME="mips hello pseudo move instruction"
 BROKEN=
 ARGS="-e bin.strings=false -e anal.strings=false"
-FILE=../../bins/elf/mips-hello
+FILE=../../bins/elf/analysis/mips-hello
 CMDS="
 pd 1 @main+0x18
 e asm.pseudo=true

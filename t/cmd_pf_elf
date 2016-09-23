@@ -139,7 +139,7 @@ EXPECT=' sections :
 run_test
 
 NAME='Issue 5640 pfj produce wrong json'
-FILE=../bins/elf/main
+FILE=../bins/elf/analysis/main
 BROKEN=
 ARGS=-nn
 CMDS='pfj {1}? (elf_phdr) @ 0x0000000000000040

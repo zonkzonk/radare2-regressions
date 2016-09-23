@@ -11,7 +11,7 @@ EXPECT='0
 run_test
 
 NAME='no flags'
-FILE=../bins/elf/elf-relro
+FILE=../bins/elf/analysis/elf-relro
 BROKEN=
 CMDS='f patata
 fs *

@@ -4,7 +4,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME="sections list"
-FILE=../../bins/elf/main_wrong_sect
+FILE=../../bins/elf/analysis/main_wrong_sect
 ARGS=
 CMDS='iS
 '
@@ -61,7 +61,7 @@ idx=44 vaddr=0x00400000 paddr=0x00000000 sz=64 vsz=64 perm=m-rw- name=ehdr
 run_test
 
 NAME="section text start (not mapped)"
-FILE=../../bins/elf/main_wrong_sect
+FILE=../../bins/elf/analysis/main_wrong_sect
 ARGS=
 CMDS='?v section..text
 '
@@ -71,7 +71,7 @@ EXPECT='0x410570
 run_test
 
 NAME="only phdrs mapped"
-FILE=../../bins/elf/main_wrong_sect
+FILE=../../bins/elf/analysis/main_wrong_sect
 ARGS=
 CMDS='p8 10 @ section..text
 '

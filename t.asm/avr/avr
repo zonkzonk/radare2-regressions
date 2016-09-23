@@ -233,7 +233,7 @@ test_vector "${PLUGIN}" "tst r24" 8823 2
 # the next two is broken
 NAME="${PLUGIN} DISasm: negative baddr"
 BROKEN=1
-FILE=../../bins/elf/bugurtos-avr.elf
+FILE=../../bins/elf/analysis/bugurtos-avr.elf
 ARGS=
 CMDS='s 0x506
 pd 2~!1

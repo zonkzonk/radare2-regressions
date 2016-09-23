@@ -4,7 +4,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='reference to like mov [0x400000], 0x1234'
 BROKEN=
-FILE=../../bins/elf/reference.out
+FILE=../../bins/elf/analysis/reference.out
 ARGS=
 CMDS='
 aaa

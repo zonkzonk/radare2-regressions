@@ -325,11 +325,48 @@ test_vector "${PLUGIN}" "jo 2" 0f80fcffffff
 test_vector "${PLUGIN}" "jo 6" 0f8000000000 
 test_vector "${PLUGIN}" "jp 2" 0f8afcffffff 
 test_vector "${PLUGIN}" "jp 6" 0f8a00000000 
+test_vector "${PLUGIN}" "jpo 599" 0f8b51020000
 test_vector "${PLUGIN}" "js 2" 0f88fcffffff 
 test_vector "${PLUGIN}" "js 6" 0f8800000000 
 test_vector "${PLUGIN}" "jz 6" 0f8400000000
-test_vector "${PLUGIN}" "jz short 2" 7400 "br"
-test_vector "${PLUGIN}" "jnz short 2" 7500 "br"
+test_vector "${PLUGIN}" "jz short 2" 7400 
+test_vector "${PLUGIN}" "jnz short 6" 7504
+test_vector "${PLUGIN}" "jz short 5" 7403 
+test_vector "${PLUGIN}" "jnz short -2" 75fc
+test_vector "${PLUGIN}" "jz short -52" 74ca 
+test_vector "${PLUGIN}" "jnz short 23" 7515
+test_vector "${PLUGIN}" "jo short 32" 701e 
+test_vector "${PLUGIN}" "jo short -62" 70c0 
+test_vector "${PLUGIN}" "jno short 52" 7132 
+test_vector "${PLUGIN}" "jno short -33" 71dd 
+test_vector "${PLUGIN}" "js short 43" 7829 
+test_vector "${PLUGIN}" "js short -73" 78b5 
+test_vector "${PLUGIN}" "jns short -41" 79d5 
+test_vector "${PLUGIN}" "jns short 63" 793d 
+test_vector "${PLUGIN}" "je short 24" 7416 
+test_vector "${PLUGIN}" "jne SHORT 84" 7552 
+test_vector "${PLUGIN}" "jb short 23" 7215 
+test_vector "${PLUGIN}" "jnae short 65" 723f
+test_vector "${PLUGIN}" "jc SHORT 37" 7223
+test_vector "${PLUGIN}" "jnb short 97" 735f
+test_vector "${PLUGIN}" "jae short 10" 7308
+test_vector "${PLUGIN}" "jnc short 0" 73fe
+test_vector "${PLUGIN}" "jbe short -12" 76f2
+test_vector "${PLUGIN}" "jna short 24" 7616
+test_vector "${PLUGIN}" "ja short 86" 7754
+test_vector "${PLUGIN}" "jnbe short 31" 771d
+test_vector "${PLUGIN}" "jl short 16" 7c0e
+test_vector "${PLUGIN}" "jnge short -40" 7cd6
+test_vector "${PLUGIN}" "jge short 52" 7d32
+test_vector "${PLUGIN}" "jnl short 76" 7d4a 
+test_vector "${PLUGIN}" "jle short 54" 7e34 
+test_vector "${PLUGIN}" "jng short -80" 7eae 
+test_vector "${PLUGIN}" "jg short 56" 7f36 
+test_vector "${PLUGIN}" "jnle short 2" 7f00 
+test_vector "${PLUGIN}" "jp short -7" 7af7 
+test_vector "${PLUGIN}" "jpe short 22" 7a14
+test_vector "${PLUGIN}" "jnp short 64" 7b3e
+test_vector "${PLUGIN}" "jpo short 88" 7b56
 test_vector "${PLUGIN}" "lahf" 9e "br"
 test_vector "${PLUGIN}" "lar eax, word [eax]" 0f02 "br"
 test_vector "${PLUGIN}" "lcall 0, 0" 9a "br"

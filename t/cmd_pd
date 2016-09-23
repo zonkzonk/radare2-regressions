@@ -326,3 +326,18 @@ EXPECT=' 0x00400000      488d05020000.  lea rax, [rip + 2]
  0x00400000      488d05020000.  lea rax, 0x00400009
 '
 run_test
+
+
+NAME='pd wide string'
+FILE='../bins/pe/c.exe'
+ARGS=
+BROKEN=
+CMDS='e io.cache=true
+s 0x403000
+wx 4d00 5900 5200 4500 5300 0000
+s 0x00401334
+pd 1~MYRES?
+'
+EXPECT='1
+'
+run_test

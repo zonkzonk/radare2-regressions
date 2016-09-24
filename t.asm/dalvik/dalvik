@@ -41,12 +41,12 @@ test_vector "${PLUGIN}" "return-wide v0" 1000
 test_vector "${PLUGIN}" "return-object v0" 1100
 test_vector "${PLUGIN}" "const/4 v1, 0x2" 1221
 test_vector "${PLUGIN}" "const/16 v0, 0x0a" 13000A00 #const/16 v0, #int 10
-test_vector "${PLUGIN}" "const v0, 0x00bc614e ; 0.000000f" 14004E61BC00 #const v0, #12345678 // #00BC614E
-test_vector "${PLUGIN}" "const/high16 v0, 0x41200000 ; 16672s" 15002041
+test_vector "${PLUGIN}" "const v0, 0x00bc614e" 14004E61BC00 #const v0, #12345678 // #00BC614E
+test_vector "${PLUGIN}" "const/high16 v0, 0x41200000" 15002041
 test_vector "${PLUGIN}" "const-wide/16 v0, 0000" 16000000
-test_vector "${PLUGIN}" "const-wide/32 v2:v3, 0x00bc614e ; 12345678l" 17024e61bc00 # const-wide/32 v2:v3, 0xBC614E
+test_vector "${PLUGIN}" "const-wide/32 v2:v3, 0x00bc614e" 17024e61bc00 # const-wide/32 v2:v3, 0xBC614E
 test_vector "${PLUGIN}" "const-wide v2:v3, 0x2bdc545d6b4b87" 1802874b6b5d54dc2b00 # const-wide  v2:v3, 0x2BDC545D6B4B87
-test_vector "${PLUGIN}" "const-wide/high16 v0:v1, 0x40240000 ; 16420s" 19002440 #const-wide/high16 v0:v1, 0x4024000000000000
+test_vector "${PLUGIN}" "const-wide/high16 v0:v1, 0x40240000" 19002440 #const-wide/high16 v0:v1, 0x4024000000000000
 test_vector "${PLUGIN}" "const-string v8, string+0" 1A080000
 test_vector "${PLUGIN}" "const-string/jumbo v8, string+0" 1B080000
 test_vector "${PLUGIN}" "const-class v0, class+1" 1C000100

@@ -5,8 +5,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME="axt udis86"
 BROKEN=
-FILE=../../bins/elf/main
-IGNORE_ERR=1
+FILE=../../bins/elf/analysis/main
 ARGS=
 CMDS='e asm.arch = x86.udis
 e anal.arch = x86.udis
@@ -20,8 +19,7 @@ run_test
 
 NAME="axt capstone x86"
 BROKEN=
-FILE=../../bins/elf/main
-IGNORE_ERR=1
+FILE=../../bins/elf/analysis/main
 ARGS=
 CMDS='e asm.arch = x86
 e anal.arch = x86
@@ -37,7 +35,6 @@ run_test
 NAME="axt capstone x86: IOLI0"
 BROKEN=
 FILE=../../bins/elf/ioli/crackme0x00
-IGNORE_ERR=1
 ARGS=
 CMDS='e asm.arch = x86
 e anal.arch = x86
@@ -52,7 +49,6 @@ run_test
 NAME="axt capstone x86: IOLI7 aa"
 BROKEN=
 FILE=../../bins/elf/ioli/crackme0x07
-IGNORE_ERR=1
 ARGS=
 CMDS='
 aaa
@@ -66,7 +62,6 @@ run_test
 NAME="axt capstone x86: IOLI7 aa"
 BROKEN=
 FILE=../../bins/elf/ioli/crackme0x07
-IGNORE_ERR=1
 ARGS=
 CMDS='
 aaaa
@@ -80,7 +75,6 @@ run_test
 NAME="axt respect relsub"
 BROKEN=
 FILE=../../bins/pe/ibknoreloc64.exe
-IGNORE_ERR=1
 ARGS=
 CMDS='aaa
 e asm.relsub=false
@@ -88,8 +82,8 @@ axt @ sym.imp.msvcrt.dll_printf
 e asm.relsub=true
 axt @ sym.imp.msvcrt.dll_printf
 '
-EXPECT='data 0xffffffffffff100a call qword [rip + 0xd8] in sym.imp.kernel32.dll_ExitProcess
-data 0xffffffffffff100a call qword [sym.imp.msvcrt.dll_printf] in sym.imp.kernel32.dll_ExitProcess
+EXPECT='data 0xffffffffffff100a call qword [rip + 0xd8] in entry0
+data 0xffffffffffff100a call qword [sym.imp.msvcrt.dll_printf] in entry0
 '
 run_test
 

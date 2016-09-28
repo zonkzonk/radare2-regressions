@@ -81,13 +81,15 @@ asm.pic18c:
 	@sh run_tests.sh t.asm/pic18c
 asm.m68k:
 	@sh run_tests.sh t.asm/m68k
-anal: anal.arc anal.arm anal.avr anal.java anal.mips anal.x86 anal.others anal.6502 anal.m68k
+anal: anal.arc anal.arm anal.avr anal.dalvik anal.java anal.mips anal.x86 anal.others anal.6502 anal.m68k
 anal.arc:
 	@sh run_tests.sh t.anal/arc
 anal.arm:
 	@sh run_tests.sh t.anal/arm
 anal.avr:
 	@sh run_tests.sh t.anal/avr
+anal.dalvik:
+	@sh run_tests.sh t.anal/dalvik	
 anal.java:
 	@sh run_tests.sh t.anal/java
 anal.mips:

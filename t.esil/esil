@@ -224,5 +224,45 @@ EXPECT='6667686900000000
 '
 run_test
 
+NAME='rol'
+FILE=-
+ARGS=
+CMDS='e asm.bits=32
+e asm.arch=x86
+aei
+ar eax=0x80000010
+"ae 0x1,eax,<<<,eax,="
+ar eax
+'
+EXPECT='0x00000021
+'
+run_test
 
+NAME='ror'
+FILE=-
+ARGS=
+CMDS='e asm.bits=32
+e asm.arch=x86
+aei
+ar eax=0x02000001
+"ae 0x1,eax,>>>,eax,="
+ar eax
+'
+EXPECT='0x81000000
+'
+run_test
 
+NAME='or-mem-dst'
+FILE=-
+ARGS=
+CMDS='e asm.bits=32
+e asm.arch=x86
+aei
+ar eax=0x0000000b
+"ae 0xf,eax,=[4]"
+"ae 0xf0,eax,|=[4]"
+"ae eax,[4]"
+'
+EXPECT='0xff
+'
+run_test

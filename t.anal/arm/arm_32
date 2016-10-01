@@ -98,7 +98,7 @@ ao~^ptr
 ao@2~^ptr
 "
 EXPECT='ptr: 0x0000008c
-ptr: 0x0000008c
+ptr: 0x0000008e
 '
 run_test
 

@@ -3,7 +3,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='syscall emu'
-BROKEN=
+BROKEN=1
 FILE=../../bins/elf/analysis/hello.raw
 ARGS=
 CMDS='

@@ -46,16 +46,15 @@ EXPECT='"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x8
 '
 run_test
 
-name="ragg2 -k linux -i exec  -a x86 -b32 -p n3n3"
-cmds="!ragg2 -k linux -i exec  -a x86 -b32 -p n3n3"
-expect='90909031c050682f2f7368682f62696e89e3505389e199b00bcd80909090
+NAME='ragg2 -k linux -i exec  -a x86 -b32 -p n3N3'
+CMDS='!ragg2 -k linux -i exec  -a x86 -b32 -p n3N3'
+EXPECT='90909031c050682f2f7368682f62696e89e3505389e199b00bcd80909090
 '
 run_test
 
 
-name="ragg2 -p n80 -w 79:c3 -x"
-cmds="!ragg2 -p n80 -w 79:c3 -x"
-expect='
-'
+NAME="ragg2 -p n80 -w 79:c3 -x"
+CMDS="!ragg2 -p n80 -w 79:c3 -x"
+EXPECT=''
 run_test
 

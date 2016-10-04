@@ -237,7 +237,7 @@ test_vector "${PLUGIN}" "femms" 0f0e "br"
 test_vector "${PLUGIN}" "fsincos" d9fb
 test_vector "${PLUGIN}" "fxrstor [eax]" 0fae08 "br"
 test_vector "${PLUGIN}" "fxsave [eax]" 0fae00 "br"
-test_vector "${PLUGIN}" "getsec" 0f37h "br"
+test_vector "${PLUGIN}" "getsec" 0f37 "br"
 test_vector "${PLUGIN}" "haddpd xmm0, xmmword [eax]" 660f7c00 "br"
 test_vector "${PLUGIN}" "haddps xmm0, xmmword [eax]" f20f7c00 "br"
 test_vector "${PLUGIN}" "hlt" f4

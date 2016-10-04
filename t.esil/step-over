@@ -1,0 +1,46 @@
+#!/bin/sh
+
+# GPL 3+ - Copyright (C) 2015  pancake
+
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+NAME='AVR: aeso on call'
+FILE=malloc://1024
+ARGS=
+CMDS="
+e asm.arch=avr
+e asm.bits=8
+!rasm2 -a avr -b 8 -B -O /tmp/step-over-avr 'cli; ldi r16, 8; out 0x3e, r16; ldi r16, 0x5f; out 0x3d, r16; call 0x10; sleep; ret'
+wf /tmp/step-over-avr @0
+aeim 0x00010400 0xffff avr_sram
+6aeso
+dr pc
+dr pc = 0
+7aes
+dr pc
+"
+EXPECT='0x0000000e
+0x0000000e
+'
+run_test
+
+NAME='x86: aeso on call'
+FILE=malloc://1024
+ARGS=
+CMDS="
+e asm.arch=x86
+e asm.bits=32
+!rasm2 -a x86 -b 32 -B -O /tmp/step-over-x86 'cli; mov sp, 0xffff; mov ss, 0x0000; call 0xe; hlt; ret'
+wf /tmp/step-over-x86 @0
+aeim 0x00000000 0xffff avr_sram
+4aeso
+dr ip
+dr ip = 0
+5aes
+dr ip
+"
+EXPECT='0x0000000d
+0x0000000d
+'
+run_test
+

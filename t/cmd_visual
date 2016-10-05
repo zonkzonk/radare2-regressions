@@ -61,9 +61,10 @@ EXPECT='0x10
 '
 run_test
 
+# XXX: cant run much stuff in batch visual mode
 NAME='visual intermediate'
 BROKEN=1
-FILE=../bins/elf/analysis/analysis/main
+FILE=../bins/elf/analysis/main
 CMDS='Vpjjjjdi
 d
 qah*

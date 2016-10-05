@@ -97,7 +97,7 @@ bool test_r_list_sort(void) {
 }
 
 
-bool test_r_list_merge_sort(void) {
+bool test_r_list_sort2(void) {
 	RList* list = r_list_new ();
 	char* test1 = "AAAA";
 	char* test2 = "BBBB";
@@ -107,7 +107,7 @@ bool test_r_list_merge_sort(void) {
 	r_list_append (list, (void*)test2);
 	r_list_append (list, (void*)test1);
 	// Sort.
-	r_list_merge_sort (list, (RListComparator)strcmp);
+	r_list_sort (list, (RListComparator)strcmp);
 	// Check that the list is actually sorted.
 	mu_assert_streq ((char*)list->head->data, "AAAA", "first value in sorted list");
 	mu_assert_streq ((char*)list->head->n->data, "BBBB", "second value in sorted list");
@@ -120,10 +120,10 @@ bool test_r_list_merge_sort(void) {
 static int cmp_range(const void *a, const void *b) {
 	int ra = *(int *)a;
 	int rb = *(int *)b;
-	return ra < rb? -1 : 1;
+	return ra > rb;
 }
 
-bool test_r_list_merge_sort2(void) {
+bool test_r_list_sort3(void) {
 	RList* list = r_list_new ();
 	int test1 = 33508;
 	int test2 = 33480;
@@ -133,7 +133,7 @@ bool test_r_list_merge_sort2(void) {
 	r_list_append (list, (void*)&test3);
 	r_list_append (list, (void*)&test2);
 	// Sort.
-	r_list_merge_sort (list, (RListComparator)cmp_range);
+	r_list_sort (list, (RListComparator)cmp_range);
 	// Check that the list is actually sorted.
 	mu_assert_eq (*(int*)list->head->data, 33480, "first value in sorted list");
 	mu_assert_eq (*(int*)list->head->n->data, 33508, "second value in sorted list");
@@ -202,7 +202,7 @@ bool test_r_list_length(void) {
 }
 
 
-bool test_r_list_mergesort(void) {
+bool test_r_list_sort4(void) {
 	RList* list = r_list_new ();
 	char* test1 = "AAAA";
 	char* test2 = "BBBB";
@@ -225,7 +225,7 @@ bool test_r_list_mergesort(void) {
 		r_list_append (list, (void*)ins_tests_odd[i]);
 	}
 	// Sort.
-	r_list_merge_sort (list, (RListComparator)strcmp);
+	r_list_sort (list, (RListComparator)strcmp);
 
 	// Check that the list (odd-length) is actually sorted.
 	RListIter *next = list->head;
@@ -251,7 +251,7 @@ bool test_r_list_mergesort(void) {
 		printf("l -> %s\n", data);
 	}
 	// Sort
-	r_list_merge_sort (list, (RListComparator)strcmp);
+	r_list_sort (list, (RListComparator)strcmp);
 	printf("after sorting 2 \n");
 	r_list_foreach (list, next, data) {
 		printf("l -> %s\n", data);
@@ -275,9 +275,9 @@ int all_tests() {
 	mu_run_test(test_r_list_free);
 	mu_run_test(test_r_list_del_n);
 	mu_run_test(test_r_list_sort);
-	mu_run_test(test_r_list_merge_sort);
-	mu_run_test(test_r_list_merge_sort2);
-	mu_run_test(test_r_list_mergesort);
+	mu_run_test(test_r_list_sort2);
+	mu_run_test(test_r_list_sort3);
+	mu_run_test(test_r_list_sort4);
 	mu_run_test(test_r_list_length);
 	return tests_passed != tests_run;
 }

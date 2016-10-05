@@ -1,5 +1,6 @@
 #include <r_list.h>
 #include "minunit.h"
+#define BUF_LENGTH 100
 
 bool test_r_list_size(void) {
 	// Test that r_list adding and deleting works correctly.
@@ -95,6 +96,118 @@ bool test_r_list_sort(void) {
 	mu_end;
 }
 
+
+bool test_r_list_merge_sort(void) {
+	RList* list = r_list_new ();
+	char* test1 = "AAAA";
+	char* test2 = "BBBB";
+	char* test3 = "CCCC";
+	// Put in not sorted order.
+	r_list_append (list, (void*)test3);
+	r_list_append (list, (void*)test2);
+	r_list_append (list, (void*)test1);
+	// Sort.
+	r_list_merge_sort (list, (RListComparator)strcmp);
+	// Check that the list is actually sorted.
+	mu_assert_streq ((char*)list->head->data, "AAAA", "first value in sorted list");
+	mu_assert_streq ((char*)list->head->n->data, "BBBB", "second value in sorted list");
+	mu_assert_streq ((char*)list->head->n->n->data, "CCCC", "third value in sorted list");
+	r_list_free (list);
+	mu_end;
+}
+
+
+static int cmp_range(const void *a, const void *b) {
+	int ra = *(int *)a;
+	int rb = *(int *)b;
+	return ra < rb? -1 : 1;
+}
+
+bool test_r_list_merge_sort2(void) {
+	RList* list = r_list_new ();
+	int test1 = 33508;
+	int test2 = 33480;
+	int test3 = 33964;
+	// Put in not sorted order.
+	r_list_append (list, (void*)&test1);
+	r_list_append (list, (void*)&test3);
+	r_list_append (list, (void*)&test2);
+	// Sort.
+	r_list_merge_sort (list, (RListComparator)cmp_range);
+	// Check that the list is actually sorted.
+	mu_assert_eq (*(int*)list->head->data, 33480, "first value in sorted list");
+	mu_assert_eq (*(int*)list->head->n->data, 33508, "second value in sorted list");
+	mu_assert_eq (*(int*)list->head->n->n->data, 33964, "third value in sorted list");
+	r_list_free (list);
+	mu_end;
+}
+
+bool test_r_list_mergesort(void) {
+	RList* list = r_list_new ();
+	char* test1 = "AAAA";
+	char* test2 = "BBBB";
+	char* test3 = "CCCC";
+	char* test4 = "DDDD";
+	char* test5 = "EEEE";
+	char* test6_later = "FFFF";
+	char* test7 = "GGGG";
+	char* test8 = "HHHH";
+	char* test9 = "IIII";
+	char* test10 = "JJJJ";
+	char* ins_tests_odd[] = {test10, test1, test3, test7, test5, test9, test2,
+		test4, test8};
+	char* exp_tests_odd[] = {test1, test2, test3, test4, test5, test7,
+		test8, test9, test10};
+	int i;
+
+	// Put in not sorted order.
+	for (i = 0; i < R_ARRAY_SIZE (ins_tests_odd); ++i) {
+		r_list_append (list, (void*)ins_tests_odd[i]);
+	}
+	// Sort.
+	r_list_merge_sort (list, (RListComparator)strcmp);
+
+	// Check that the list (odd-length) is actually sorted.
+	RListIter *next = list->head;
+	for (i = 0; i < R_ARRAY_SIZE (exp_tests_odd); ++i) {
+		char buf[BUF_LENGTH];
+		snprintf(buf, BUF_LENGTH, "%d-th value in sorted list", i);
+		mu_assert_streq ((char*)next->data, exp_tests_odd[i], buf);
+		next = next->n;
+	}
+
+	char *data;
+	printf("after sorted 1 \n");
+	r_list_foreach (list, next, data) {
+		printf("l -> %s\n", data);
+	}
+
+	char* exp_tests_even[] = {test1, test2, test3, test4, test5,
+		test6_later, test7, test8, test9, test10};
+	// Add test6 to make the length even
+	r_list_append (list, (void*)test6_later);
+	printf("after adding FFFF \n");
+	r_list_foreach (list, next, data) {
+		printf("l -> %s\n", data);
+	}
+	// Sort
+	r_list_merge_sort (list, (RListComparator)strcmp);
+	printf("after sorting 2 \n");
+	r_list_foreach (list, next, data) {
+		printf("l -> %s\n", data);
+	}
+	// Check that the list (even-length) is actually sorted.
+	next = list->head;
+	for (i = 0; i < R_ARRAY_SIZE (exp_tests_even); ++i) {
+		char buf[BUF_LENGTH];
+		snprintf(buf, BUF_LENGTH, "%d-th value in sorted list", i);
+		mu_assert_streq ((char*)next->data, exp_tests_even[i], buf);
+		next = next->n;
+	}
+	r_list_free (list);
+	mu_end;
+}
+
 int all_tests() {
 	mu_run_test(test_r_list_size);
 	mu_run_test(test_r_list_values);
@@ -102,6 +215,9 @@ int all_tests() {
 	mu_run_test(test_r_list_free);
 	mu_run_test(test_r_list_del_n);
 	mu_run_test(test_r_list_sort);
+	mu_run_test(test_r_list_merge_sort);
+	mu_run_test(test_r_list_merge_sort2);
+	mu_run_test(test_r_list_mergesort);
 	return tests_passed != tests_run;
 }
 

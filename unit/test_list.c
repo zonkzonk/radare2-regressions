@@ -142,6 +142,66 @@ bool test_r_list_merge_sort2(void) {
 	mu_end;
 }
 
+
+bool test_r_list_length(void) {
+	RList* list = r_list_new ();
+	RList* list2 = r_list_new ();
+	RListIter *iter;
+	void *v;
+	int count = 0;
+	int test1 = 33508;
+	int test2 = 33480;
+	int test3 = 33964;
+	// Put in not sorted order.
+	r_list_append (list, (void*)&test1);
+	r_list_append (list, (void*)&test3);
+	r_list_append (list, (void*)&test2);
+	iter = list->head;
+	while (iter) {
+		count++;
+		iter = iter->n;
+	}	
+	mu_assert_eq (list->length, 3, "First length check");
+
+	r_list_delete_data (list, (void*)&test1);
+	mu_assert_eq (list->length, 2, "Second length check");
+
+	r_list_append (list, (void*)&test1);
+	mu_assert_eq (list->length, 3, "Third length check");
+
+	v = r_list_pop (list);
+	mu_assert_eq (list->length, 2, "Fourth length check");
+
+	v = r_list_pop_head (list);
+	mu_assert_eq (list->length, 1, "Fifth length check");
+
+	r_list_insert (list, 2, (void*)&test2);
+	mu_assert_eq (list->length, 2, "Sixth length check");
+
+	r_list_prepend (list, (void*)&test3);
+	mu_assert_eq (list->length, 3, "Seventh length check");
+
+	r_list_del_n (list, 2);
+	mu_assert_eq (list->length, 2, "Eighth length check");
+
+	r_list_append (list2, (void*)&test1);
+	r_list_append (list2, (void*)&test3);
+	r_list_append (list2, (void*)&test2);
+	r_list_join (list, list2);
+	mu_assert_eq (list->length, 5, "Ninth length check");
+	iter = list->head;
+	count = 0;
+	while (iter) {
+		count++;
+		iter = iter->n;
+	}	
+	mu_assert_eq (list->length, count, "Tenth length check");
+	r_list_free (list);
+	r_list_free (list2);
+	mu_end;
+}
+
+
 bool test_r_list_mergesort(void) {
 	RList* list = r_list_new ();
 	char* test1 = "AAAA";
@@ -218,6 +278,7 @@ int all_tests() {
 	mu_run_test(test_r_list_merge_sort);
 	mu_run_test(test_r_list_merge_sort2);
 	mu_run_test(test_r_list_mergesort);
+	mu_run_test(test_r_list_length);
 	return tests_passed != tests_run;
 }
 

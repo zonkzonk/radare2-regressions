@@ -78,8 +78,8 @@ run_test
 NAME='ELF: Candypop, main detection'
 FILE=../../bins/elf/analysis/candypop
 ARGS='-A'
-CMDS="? main"
-EXPECT='4661 0x1235 011065 4.6K 0000:0235 4661 0001001000110101 4661.0 4661.000000f 4661.000000
+CMDS="? main~?0x1235"
+EXPECT='1
 '
 run_test
 

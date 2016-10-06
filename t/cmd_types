@@ -316,7 +316,7 @@ CMDS="t-*
 tk a=b
 t*
 "
-EXPECT='tk a = b
+EXPECT='tk a=b
 '
 run_test
 

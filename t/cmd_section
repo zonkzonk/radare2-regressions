@@ -1,0 +1,15 @@
+#!/bin/sh
+[ -e tests.sh ] && . ./tests.sh || . ../tests.sh
+
+NAME='section remove 1'
+FILE=../bins/elf/analysis/ls-alxchk
+CMDS='
+S-22
+S~.init_array
+S-.@section..init
+S~.init
+S-.
+S~.text
+'
+EXPECT=''
+run_test

@@ -17,8 +17,8 @@ NAME="io/neg 2"
 BROKEN=
 FILE=-
 CMDS='s- 1000
-? $o
+? $o~?0x0
 '
-EXPECT='0 0x0 00 0 0000:0000 0 00000000 0.0 0.000000f 0.000000
+EXPECT='1
 '
 run_test

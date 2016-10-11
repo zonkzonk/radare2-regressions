@@ -8,6 +8,7 @@ FILE=malloc://1024
 CMDS="
 wx 61f0 @ 0x136
 e asm.arch=avr
+e asm.cpu=ATmega8
 pi 1 @ 0x136
 ao 1 @ 0x136 ~jump[1]
 "
@@ -23,6 +24,7 @@ FILE=malloc://1024
 CMDS="
 wx e1f7 @ 0x14a
 e asm.arch=avr
+e asm.cpu=ATmega8
 ao 1 @ 0x14a ~jump[1]
 "
 EXPECT='0x00000144
@@ -35,6 +37,7 @@ FILE=malloc://1024
 CMDS="
 wx f0cf @ 0x14e
 e asm.arch=avr
+e asm.cpu=ATmega8
 s 0x14e
 ao 1 @ 0x14e ~jump[1]
 "
@@ -48,6 +51,7 @@ FILE=malloc://1024
 CMDS="
 wx 0c941234 @ 0x15e
 e asm.arch=avr
+e asm.cpu=ATmega8
 ao 1 @ 0x15e~jump[1]
 "
 EXPECT='0x00006824
@@ -79,14 +83,15 @@ BROKEN=
 FILE=malloc://8192
 ARGS="-a avr"
 CMDS="
+e asm.cpu=ATmega640
 wx 00c8 01c8 7ec8 7fc8 80c8 81c8
 aoe 4
 pi 4
 "
-EXPECT='0x0 -4094,pc,=
-0x2 -4090,pc,=
-0x4 -3838,pc,=
-0x6 -3834,pc,=
+EXPECT='0x0 61442,pc,=
+0x2 61446,pc,=
+0x4 61698,pc,=
+0x6 61702,pc,=
 rjmp 0xfffff002
 rjmp 0xfffff006
 rjmp 0xfffff102
@@ -108,6 +113,7 @@ wxs fec5 ffc5 00c6 01c6 7ec6 7fc6 80c6 81c6
 wxs fec6 ffc6 00c7 01c7 7ec7 7fc7 80c7 81c7
 wxs fec7 ffc7
 e asm.arch=avr
+e asm.cpu=ATmega640
 aoe 66 @ 0
 "
 EXPECT='0x0 2,pc,=
@@ -192,6 +198,7 @@ wx 00cd 01cd 7ecd 7fcd 80cd 81cd fecd ffcd @ 0x1050
 wx 00ce 01ce 7ece 7fce 80ce 81ce fece ffce @ 0x1060
 wx 00cf 01cf 7ecf 7fcf 80cf 81cf fecf ffcf @ 0x1070
 e asm.arch=avr
+e asm.cpu=ATmega640
 aoe 64 @ 0x1000
 "
 EXPECT='0x1000 2,pc,=

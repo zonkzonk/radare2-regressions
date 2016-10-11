@@ -2,9 +2,10 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 HELLO=../../bins/dex/Hello.dex
+HELLOWORLD=../../bins/dex/HelloWorld.dex
 HELLOSLACK=../../bins/dex/HelloSlack.dex
 
-NAME='DEX classes'
+NAME='DEX Hello.dex classes'
 FILE=${HELLO}
 ARGS=''
 BROKEN=
@@ -17,7 +18,7 @@ EXPECT='0x00000174 class 0 LHello
 '
 run_test
 
-NAME='DEX classes quiet'
+NAME='DEX Hello.dex classes quiet'
 FILE=${HELLO}
 ARGS=''
 BROKEN=
@@ -27,8 +28,8 @@ EXPECT='0x00000174 LHello
 '
 run_test
 
-NAME='DEX HelloWorld symbols, fields and statics'
-FILE=../../bins/dex/HelloWorld.dex
+NAME='DEX HelloWorld.dex symbols, fields and statics'
+FILE=${HELLOWORLD}
 ARGS=''
 BROKEN=
 IGNORE_ERR=1
@@ -42,11 +43,18 @@ EXPECT='0x00000168 0 LHello.sfield_localVar2:I
 0x00000178 0 LWorld.ifield_worldVar2:I
 0x000002f4 20 LWorld.method.<init>()V
 0x00000318 0 LWorld.method.foo(I)V
+0x000000b9 0 imp.Ljava/io/PrintStream.method.println(Ljava/lang/String;)V
+0x000000c1 0 imp.Ljava/lang/Integer.method.<init>(I)V
+0x000000c9 0 imp.Ljava/lang/Integer.method.toString()Ljava/lang/String;
+0x000000d1 0 imp.Ljava/lang/Object.method.<init>()V
+0x000000d9 0 imp.Ljava/lang/StringBuilder.method.<init>()V
+0x000000e1 0 imp.Ljava/lang/StringBuilder.method.append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+0x000000e9 0 imp.Ljava/lang/StringBuilder.method.toString()Ljava/lang/String;
 '
 run_test
 
-NAME='DEX HelloWorld flags'
-FILE=../../bins/dex/HelloWorld.dex
+NAME='DEX HelloWorld.dex flags'
+FILE=${HELLOWORLD}
 ARGS=''
 BROKEN=
 IGNORE_ERR=1
@@ -86,7 +94,7 @@ EXPECT='0x00000372 6 str._init_
 0x00000228 0 section_end.constpool
 0x00000228 224 section.code
 0x00000308 0 section_end.code
-0x00000478 316 section.data
+0x000003d1 483 section.data
 0x000005b4 0 section_end.data
 0x00000168 0 sym.LHello.sfield_localVar2:I
 0x00000160 0 sym.LHello.ifield_localVar:I
@@ -97,7 +105,50 @@ EXPECT='0x00000372 6 str._init_
 0x00000178 0 sym.LWorld.ifield_worldVar2:I
 0x000002f4 20 sym.LWorld.method._init___V
 0x00000318 0 sym.LWorld.method.foo_I_V
+0x000000b9 0 sym.imp.Ljava_io_PrintStream.method.println_Ljava_lang_String__V
+0x000000c1 0 sym.imp.Ljava_lang_Integer.method._init__I_V
+0x000000c9 0 sym.imp.Ljava_lang_Integer.method.toString__Ljava_lang_String_
+0x000000d1 0 sym.imp.Ljava_lang_Object.method._init___V
+0x000000d9 0 sym.imp.Ljava_lang_StringBuilder.method._init___V
+0x000000e1 0 sym.imp.Ljava_lang_StringBuilder.method.append_Ljava_lang_String__Ljava_lang_StringBuilder_
+0x000000e9 0 sym.imp.Ljava_lang_StringBuilder.method.toString__Ljava_lang_String_
 0x000001e9 1 class.LHello
 0x000001ea 1 class.LWorld
+'
+run_test
+
+NAME='DEX HelloWorld.dex imports'
+FILE=${HELLOWORLD}
+ARGS=''
+BROKEN=
+IGNORE_ERR=1
+CMDS="ii"
+EXPECT='[Imports]
+ordinal=000 plt=0x000000b9 bind=NONE type=FUNC name=Ljava/io/PrintStream.method.println(Ljava/lang/String;)V
+ordinal=001 plt=0x000000c1 bind=NONE type=FUNC name=Ljava/lang/Integer.method.<init>(I)V
+ordinal=002 plt=0x000000c9 bind=NONE type=FUNC name=Ljava/lang/Integer.method.toString()Ljava/lang/String;
+ordinal=003 plt=0x000000d1 bind=NONE type=FUNC name=Ljava/lang/Object.method.<init>()V
+ordinal=004 plt=0x000000d9 bind=NONE type=FUNC name=Ljava/lang/StringBuilder.method.<init>()V
+ordinal=005 plt=0x000000e1 bind=NONE type=FUNC name=Ljava/lang/StringBuilder.method.append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ordinal=006 plt=0x000000e9 bind=NONE type=FUNC name=Ljava/lang/StringBuilder.method.toString()Ljava/lang/String;
+
+7 imports
+'
+run_test
+
+NAME='DEX HelloWorld.dex exports'
+FILE=${HELLOWORLD}
+ARGS=''
+BROKEN=
+IGNORE_ERR=1
+CMDS="iE"
+EXPECT='[Exports]
+vaddr=0x00000238 paddr=0x00000238 ord=002 fwd= sz=20 bind=GLOBAL type=FUNC name=LHello.method.<init>()V
+vaddr=0x0000025c paddr=0x0000025c ord=003 fwd= sz=34 bind=GLOBAL type=FUNC name=LHello.method.main([Ljava/lang/String;)V
+vaddr=0x00000290 paddr=0x00000290 ord=004 fwd= sz=0 bind=GLOBAL type=METH name=LHello.method.foo(I)V
+vaddr=0x000002f4 paddr=0x000002f4 ord=007 fwd= sz=20 bind=GLOBAL type=FUNC name=LWorld.method.<init>()V
+vaddr=0x00000318 paddr=0x00000318 ord=008 fwd= sz=0 bind=GLOBAL type=METH name=LWorld.method.foo(I)V
+
+5 exports
 '
 run_test

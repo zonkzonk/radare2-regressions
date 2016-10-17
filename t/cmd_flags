@@ -31,6 +31,16 @@ NAME='fs *'
 FILE=../bins/elf/analysis/main
 BROKEN=
 CMDS='fs *
+fs~?^*
+'
+EXPECT='0
+'
+run_test
+
+NAME='fs *'
+FILE=../bins/elf/analysis/main
+BROKEN=
+CMDS='fs *
 fs~?*
 '
 EXPECT='0

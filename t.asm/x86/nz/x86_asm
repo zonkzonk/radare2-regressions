@@ -870,6 +870,8 @@ test_vector "${PLUGIN}" "push dword [esi+4]" ff7604
 test_vector "${PLUGIN}" "push dword [esi]" ff36
 test_vector "${PLUGIN}" "push dword [esp+4]" ff742404
 test_vector "${PLUGIN}" "push dword [esp]" ff3424
+test_vector "${PLUGIN}" "push [esp+4]" ff742404
+test_vector "${PLUGIN}" "push [esp]" ff3424
 test_vector "${PLUGIN}" "push eax" 50
 test_vector "${PLUGIN}" "push ebp" 55
 test_vector "${PLUGIN}" "push ebx" 53

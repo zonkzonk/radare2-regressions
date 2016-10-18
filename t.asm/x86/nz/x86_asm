@@ -9,9 +9,20 @@ if [ "${4}" = "br" ]; then
 fi
 CMDS='!rasm2 -a '${1}' -b '${BITS}' "'${2}'"
 '
+if [ "${IGNORE_ERR}" = 1 ]; then
 EXPECT="${3}
 "
+else
+EXPECT_ERR="${3}
+"
+fi
 run_test
+}
+
+test_invalid() {
+IGNORE_ERR=0
+test_vector "${1}" "${2}" "Cannot assemble '${2}' at line 3
+invalid" "${3}"
 }
 
 PLUGIN=x86.nz
@@ -490,6 +501,7 @@ test_vector "${PLUGIN}" "mov dword [esp+4], 1" c744240401000000
 test_vector "${PLUGIN}" "mov dword fs:[eax], eax" 648900 "br" 
 test_vector "${PLUGIN}" "mov dword gs:[eax], eax" 658900 "br" 
 test_vector "${PLUGIN}" "mov dword ss:[eax], eax" 368900 "br" 
+test_vector "${PLUGIN}" "mov eax, dword fs:[1]" 648b042501000000 "br"
 test_vector "${PLUGIN}" "movd xmm0, dword [eax]" 660f6e00 "br"
 test_vector "${PLUGIN}" "mov eax, 0" b800000000 
 test_vector "${PLUGIN}" "mov eax, 0x8049000" b800900408 
@@ -527,6 +539,7 @@ test_vector "${PLUGIN}" "mov [eax], ebx" 8918
 test_vector "${PLUGIN}" "mov eax, ebx" 89d8 
 test_vector "${PLUGIN}" "mov eax, [ebx]" 8b03 
 test_vector "${PLUGIN}" "mov eax,[ecx*8+64]" 8b04cd40000000 
+test_vector "${PLUGIN}" "mov [ecx*8+64], eax" 8904CD40000000 "br"
 test_vector "${PLUGIN}" "mov [eax+ecx], eax" 890408 
 test_vector "${PLUGIN}" "mov eax, [esi]" 8b06 
 test_vector "${PLUGIN}" "mov eax, [esp+4]" 8b842404000000 
@@ -1186,6 +1199,13 @@ test_vector "${PLUGIN}" "xorps xmm0, xmmword [eax]" 0f5700 "br"
 test_vector "${PLUGIN}" "xrstor [eax]" 0fae28 "br"
 test_vector "${PLUGIN}" "xsave [eax]" 0fae20 "br"
 test_vector "${PLUGIN}" "xsetbv" 0f01d1
+
+test_invalid "${PLUGIN}" "mov eax, eip"
+test_invalid "${PLUGIN}" "mov eax, ax" "br"
+test_invalid "${PLUGIN}" "mov [eax*6], 1" "br"
+test_invalid "${PLUGIN}" "mov [1], [2]" "br"
+test_invalid "${PLUGIN}" "mov [0x1122334455667788],eax" "br"
+test_invalid "${PLUGIN}" "mov fs:[1],[ds:1]" "br"
 
 BITS=64
 test_vector "${PLUGIN}" "add r13, r15" 4d01fd 

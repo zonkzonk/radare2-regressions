@@ -158,7 +158,7 @@ CMDS='e asm.bits=32
 "wa add esp,8;pop ebx; pop ebp; ret"
 /A ret
 '
-EXPECT='0x00000005 - 1 ret
+EXPECT='0x00000005 1 ret
 '
 run_test
 
@@ -172,8 +172,8 @@ e search.from = 0
 e search.to = 0x00000050
 /A xor
 '
-EXPECT='0x0000003c - 2 xor
-0x00000040 - 2 xor
+EXPECT='0x0000003c 2 xor al, 0x80
+0x00000040 2 xor al, 0x80
 '
 run_test
 
@@ -187,8 +187,8 @@ e search.from = 0
 e search.to = 0x00000050
 /A xor
 '
-EXPECT='0x0000003c - 2 xor
-0x00000040 - 2 xor
+EXPECT='0x0000003c 2 xor al, 0x80
+0x00000040 2 xor al, 0x80
 '
 run_test
 

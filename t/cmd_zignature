@@ -110,7 +110,7 @@ FILE=../bins/elf/analysis/zigs_stripped
 CMDS='
 aa
 zb sym.print 5548....48......48......48......48....bf........b8........e8........90c9c3
-.z. @@fcn*
+.z. @@ fcn*
 ?v sign.sys.b.sym.print
 '
 EXPECT='0x400536
@@ -122,7 +122,7 @@ FILE=../bins/elf/analysis/zigs_stripped
 CMDS='
 fs strings
 zb sym.print 5548....48......48......48......48....bf........b8........e8........90c9c3
-.z. @@fcn*
+.z. @@ fcn*
 fs~* strings
 '
 EXPECT='0    1 * strings

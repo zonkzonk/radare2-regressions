@@ -38,7 +38,7 @@ Ps testafF > /dev/null
 Pc testafF~afF
 rm /tmp/testafF
 '
-EXPECT='/ (fcn) fcn.test
+EXPECT='- (fcn) fcn.test
 \           0x00000000 (42 byte folded function)
 afF @ 0x00000000
 '

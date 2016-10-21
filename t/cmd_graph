@@ -142,12 +142,13 @@ FILE=-
 ARGS=
 CMDS='agn title1 body1
 agg'
-EXPECT='
-=--------------------=
+k='`'
+EXPECT="
+.--------------------.
 |  title1            |
 | body1              |
-=--------------------=
-'
+$k--------------------'
+"
 run_test
 
 NAME='agf one'
@@ -159,16 +160,17 @@ e asm.calls=false
 "wa push ebp;mov ebp,esp;pop ebp;ret"
 af
 agf'
-EXPECT='[0x00000000]> VV @ fcn.00000000 (nodes 1 edges 0 zoom 100%) BB-NORM mouse:canvas-y movements-speed:5
-=----------------------=
+k='`'
+EXPECT="[0x00000000]> VV @ fcn.00000000 (nodes 1 edges 0 zoom 100%) BB-NORM mouse:canvas-y movements-speed:5
+.----------------------.
 |  0x0 ;[a]            |
 | (fcn) fcn.00000000 5 |
 | push ebp             |
 | mov ebp, esp         |
 | pop ebp              |
 | ret                  |
-=----------------------=
-'
+$k----------------------'
+"
 run_test
 
 NAME='agg one'
@@ -176,15 +178,16 @@ FILE=-
 ARGS=
 CMDS='agn 0x0 base64:cHVzaCBlYnAKbW92IGVicCwgZXNwCnBvcCBlYnAKcmV0
 agg'
-EXPECT='
-=--------------------=
+k='`'
+EXPECT="
+.--------------------.
 |  0x0               |
 | push ebp           |
 | mov ebp, esp       |
 | pop ebp            |
 | ret                |
-=--------------------=
-'
+$k--------------------'
+"
 run_test
 
 NAME='graph size'
@@ -233,16 +236,17 @@ run_test
 NAME='graph title'
 FILE=-
 ARGS=
+k='`'
 CMDS='agn title1 body1
 e graph.title=This is the graph title
 agg
 '
-EXPECT='This is the graph title
-=--------------------=
+EXPECT="This is the graph title
+.--------------------.
 |  title1            |
 | body1              |
-=--------------------=
-'
+$k--------------------'
+"
 run_test
 
 NAME='print r2 commands to create graph'
@@ -273,10 +277,10 @@ agg
 k='`'
 EXPECT="
 .-----.
-| =--------------------=
+| .--------------------.
 | |  title1            |
 | | body1              |
-| =--------------------=
+| $k--------------------'
 $k-----'
 "
 run_test

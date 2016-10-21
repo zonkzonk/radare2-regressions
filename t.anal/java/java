@@ -249,7 +249,7 @@ binsz    1023
  0x000001b0      1b             iload_1
  0x000001b1      ac             ireturn
   ;-- entry2:
-/ (fcn) sym.radare_test_cases_loops.simple_for_loop_multi_return 43
+- (fcn) sym.radare_test_cases_loops.simple_for_loop_multi_return 43
 | 0x000001f1      46             fstore_3
 | 0x000001f2      00             nop
 | 0x000001f3      1000           bipush 0
@@ -280,8 +280,8 @@ binsz    1023
 | 0x00000218      01             aconst_null
 | 0x00000219      fc             UNDEFINED
 | 0x0000021a      00             nop
-\ 0x0000021b      24             fload_2
-/ (fcn) sym.radare_test_cases_challenge.simple_case_stmt_4val 72
+=< 0x0000021b      24             fload_2
+- (fcn) sym.radare_test_cases_challenge.simple_case_stmt_4val 72
 | 0x0000016a      03             iconst_0
 | 0x0000016b      3b             istore_0
 | 0x0000016c      03             iconst_0
@@ -310,7 +310,7 @@ binsz    1023
 | 0x000001ab      100a           bipush 10
 | 0x000001ad      a1ffc4         if_icmplt section_end.attrs._init_
 | 0x000001b0      1b             iload_1
-\ 0x000001b1      ac             ireturn
+=< 0x000001b1      ac             ireturn
 '
 FILTER='sed "s/^fd       [0-9][0-9]*/fd       42/"'
 run_test

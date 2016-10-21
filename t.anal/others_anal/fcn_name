@@ -11,7 +11,7 @@ ARGS=
 CMDS='s 0x0040042c
 af
 pd 1~sym.call_gmon_start:0'
-EXPECT='/ (fcn) sym.call_gmon_start 23
+EXPECT='- (fcn) sym.call_gmon_start 23
 '
 run_test
 
@@ -27,7 +27,7 @@ af
 afi~name
 pd 1~sym.call_gmon_start:0'
 EXPECT=' name: sym.call_gmon_start
-/ (fcn) sym.call_gmon_start 23
+- (fcn) sym.call_gmon_start 23
 '
 run_test
 

@@ -190,6 +190,37 @@ EXPECT='            0x00000000      90             nop
 '
 run_test
 
+NAME='pD -9 @ 0x0040050f'
+FILE=../bins/elf/analysis/main
+CMDS='
+e asm.arch=x86
+e asm.bits=64
+pD -9 @ 0x0040050f
+'
+EXPECT='            ;-- main:
+            ;-- main:
+            0x00400506      55             push rbp
+            0x00400507      4889e5         mov rbp, rsp
+            0x0040050a      bfc4054000     mov edi, str.Hello_World    ; "Hello World" @ 0x4005c4
+'
+
+run_test
+
+NAME='pd -3 @ 0x0040050f'
+FILE=../bins/elf/analysis/main
+CMDS='
+e asm.arch=x86
+e asm.bits=64
+pd -3 @ 0x0040050f
+'
+EXPECT='            ;-- main:
+            ;-- main:
+            0x00400506      55             push rbp
+            0x00400507      4889e5         mov rbp, rsp
+            0x0040050a      bfc4054000     mov edi, str.Hello_World    ; "Hello World" @ 0x4005c4
+'
+
+run_test
 
 NAME='pda 10'
 FILE=malloc://1024
@@ -224,6 +255,30 @@ s 6
 pdj -1
 '
 EXPECT='[{"offset":1,"fcn_addr":0,"fcn_last":1016,"size":5,"opcode":"push 0x40d37c","bytes":"687cd34000","family":"cpu","type":"push","type_num":13,"type2_num":0}]
+
+'
+run_test
+
+NAME='pdj 3 @ main'
+FILE=../bins/elf/analysis/main
+CMDS='
+e asm.arch=x86
+e asm.bits=64
+pdj 3 @ main
+'
+EXPECT='[{"offset":4195590,"fcn_addr":0,"fcn_last":0,"size":1,"opcode":"push rbp","bytes":"55","family":"cpu","type":"upush","type_num":12,"type2_num":0,"flags":["main","sym.main"]},{"offset":4195591,"fcn_addr":0,"fcn_last":0,"size":3,"opcode":"mov rbp, rsp","bytes":"4889e5","family":"cpu","type":"mov","type_num":9,"type2_num":0},{"offset":4195594,"fcn_addr":0,"fcn_last":0,"size":5,"opcode":"mov edi, 0x4005c4","bytes":"bfc4054000","family":"cpu","type":"mov","type_num":9,"type2_num":0}]
+
+'
+run_test
+
+NAME='pdj -3 @ 0x0040050f'
+FILE=../bins/elf/analysis/main
+CMDS='
+e asm.arch=x86
+e asm.bits=64
+pdj -3 @ 0x0040050f
+'
+EXPECT='[{"offset":4195590,"fcn_addr":0,"fcn_last":0,"size":1,"opcode":"push rbp","bytes":"55","family":"cpu","type":"upush","type_num":12,"type2_num":0,"flags":["main","sym.main"]},{"offset":4195591,"fcn_addr":0,"fcn_last":0,"size":3,"opcode":"mov rbp, rsp","bytes":"4889e5","family":"cpu","type":"mov","type_num":9,"type2_num":0},{"offset":4195594,"fcn_addr":0,"fcn_last":0,"size":5,"opcode":"mov edi, 0x4005c4","bytes":"bfc4054000","family":"cpu","type":"mov","type_num":9,"type2_num":0}]
 
 '
 run_test

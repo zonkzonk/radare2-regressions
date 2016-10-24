@@ -55,13 +55,13 @@ aei
 aeim
 aer sp=0x00108000
 aer r1=0x10
-aer cpsr=0x80000000
+aer cpsr=0x40000000
 .aer*
 "wa cmp r1, #0x10"
 aes
 aer?cpsr
 '
-EXPECT='0x80000000
+EXPECT='0x40000000
 '
 run_test
 
@@ -83,7 +83,7 @@ aer cpsr=0x00000000
 aes
 aer?cpsr
 '
-EXPECT='0x80000000
+EXPECT='0x40000000
 '
 run_test
 

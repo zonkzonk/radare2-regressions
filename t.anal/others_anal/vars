@@ -13,7 +13,7 @@ aa
 afva
 pdf
 '
-EXPECT='- (fcn) fcn.00000000 89
+EXPECT='/ (fcn) fcn.00000000 89
 |           ; var int local_4h @ esp+0x4
 |           ; var int local_8h @ esp+0x8
 |           ; var int local_ch @ esp+0xc
@@ -51,7 +51,7 @@ EXPECT='- (fcn) fcn.00000000 89
 |           0x0000004f      8b442404       mov eax, dword [esp + local_4h]
 |           0x00000053      01d0           add eax, edx
 |           0x00000055      83c410         add esp, 0x10
-=<           0x00000058      c3             ret
+\           0x00000058      c3             ret
 '
 run_test
 
@@ -67,7 +67,7 @@ afva
 pdf
 '
 EXPECT='fastcall
-- (fcn) sym.fastcaslled 59
+/ (fcn) sym.fastcaslled 59
 |           ; arg int arg_ecx @ ecx
 |           ; arg int arg_edx @ edx
 |           ; var int local_20h @ ebp-0x20
@@ -97,7 +97,7 @@ EXPECT='fastcall
 |           0x0804844e      83c410         add esp, 0x10
 |           0x08048451      90             nop
 |           0x08048452      c9             leave
-=<           0x08048453      c20800         ret 8
+\           0x08048453      c20800         ret 8
 '
 run_test
 NAME='afva for cdecl/stdcall with no esp vars'
@@ -111,7 +111,7 @@ afva
 pdf
 '
 EXPECT='cdecl
-- (fcn) sym.nonfastcaslled 51
+/ (fcn) sym.nonfastcaslled 51
 |           ; var int local_10h @ ebp-0x10
 |           ; var int local_ch @ ebp-0xc
 |           ; arg int arg_8h @ ebp+0x8
@@ -137,7 +137,7 @@ EXPECT='cdecl
 |           0x08048483      83c410         add esp, 0x10
 |           0x08048486      90             nop
 |           0x08048487      c9             leave
-=<           0x08048488      c3             ret
+\           0x08048488      c3             ret
 '
 run_test
 
@@ -161,7 +161,7 @@ afvn old_1 new_1
 afvn local_18h my_local
 pd 1
 '
-EXPECT="- (fcn) fcn.00000000 62
+EXPECT="/ (fcn) fcn.00000000 62
 |           ; var int my_local @ rbp-0x18
 |           0x00000000      0000           add byte [rax], al
 "

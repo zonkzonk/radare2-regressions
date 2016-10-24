@@ -251,7 +251,7 @@ lsyms    true
 relocs   false
 binsz    1024
   ;-- entry1:
-- (fcn) sym.TestVariableSwitchUp.TestMultipleVariable 37
+/ (fcn) sym.TestVariableSwitchUp.TestMultipleVariable 37
 | 0x000002fd      1064           bipush 100
 | 0x000002ff      b8000f         invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
 | 0x00000302      4b             astore_0
@@ -270,7 +270,7 @@ binsz    1024
 | 0x00000318      b60024         invokevirtual java/lang/StringBuilder/append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 | 0x0000031b      b60028         invokevirtual java/lang/StringBuilder/toString()Ljava/lang/String;
 | 0x0000031e      b6002c         invokevirtual java/io/PrintStream/print(Ljava/lang/String;)V
-=< 0x00000321      b1             return
+\ 0x00000321      b1             return
 '
 FILTER='sed "s/^fd       [0-9][0-9]*/fd       42/"'
 run_test

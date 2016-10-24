@@ -15,7 +15,7 @@ e asm.cmtcol=0
 af; pdf
 '
 EXPECT='            ;-- entry1:
-- (fcn) sym.Conditionals.check_if 58
+/ (fcn) sym.Conditionals.check_if 58
 |           0x000001cb      1a             iload_0
 |           0x000001cc      100a           bipush 10
 |           0x000001ce      60             iadd
@@ -42,7 +42,7 @@ EXPECT='            ;-- entry1:
 |       |   0x000001fc      b20010         getstatic java/lang/System/out Ljava/io/PrintStream;
 |       |   0x000001ff      1216           ldc "X is 20"
 |       |   0x00000201      b60018         invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
-=<       `-> 0x00000204      b1             return
+\       `-> 0x00000204      b1             return
 '
 run_test
 
@@ -62,7 +62,7 @@ e asm.cmtcol=0
 af; pdf
 '
 EXPECT='            ;-- entry1:
-- (fcn) sym.Conditionals.check_if 58
+/ (fcn) sym.Conditionals.check_if 58
 |           0x000001cb      1a             iload_0
 |           0x000001cc      100a           bipush 10
 |           0x000001ce      60             iadd
@@ -89,7 +89,7 @@ EXPECT='            ;-- entry1:
 |       |   0x000001fc      b20010         getstatic java/lang/System/out Ljava/io/PrintStream;
 |       |   0x000001ff      1216           ldc "X is 20"
 |       |   0x00000201      b60018         invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
-=<       `-> 0x00000204      b1             return
+\       `-> 0x00000204      b1             return
 '
 run_test
 
@@ -106,7 +106,7 @@ s sym.Conditionals.check_if
 e asm.cmtcol=0
 af; afF 1; pdf
 '
-EXPECT='- (fcn) sym.Conditionals.check_if
+EXPECT='/ (fcn) sym.Conditionals.check_if
 \           0x000001cb (58 byte folded function)
 '
 run_test

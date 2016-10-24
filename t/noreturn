@@ -79,7 +79,7 @@ s main
 pdf
 "
 EXPECT='            ;-- main:
-- (fcn) sym.main 41
+/ (fcn) sym.main 41
 |   sym.main ();
 |           ; var int local_4h @ rbp-0x4
 |           ; DATA XREF from 0x0040048d (entry0)
@@ -94,7 +94,7 @@ EXPECT='            ;-- main:
 |           0x00400583      e8a8feffff     call sym.imp.puts
 |           0x00400588      b800000000     mov eax, 0
 |           0x0040058d      c9             leave
-=<           0x0040058e      c3             ret
+\           0x0040058e      c3             ret
 '
 run_test
 

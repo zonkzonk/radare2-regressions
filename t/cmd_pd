@@ -295,7 +295,7 @@ af
 pdf~jmp[0]
 afi~size[1]
 '
-EXPECT='<
+EXPECT='\
 6
 '
 run_test

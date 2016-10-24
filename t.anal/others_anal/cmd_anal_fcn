@@ -241,7 +241,7 @@ af test
 afF
 pd 1 @ fcn.test
 '
-EXPECT='- (fcn) fcn.test
+EXPECT='/ (fcn) fcn.test
 \           0x00000000 (6 byte folded function)
 '
 run_test

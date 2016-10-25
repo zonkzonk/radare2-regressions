@@ -9,7 +9,7 @@ CMDS="e asm.arch=avr
 aaa
 /c call 0x4ec
 "
-EXPECT='0x000003e2   # 4: call 0x4ec
+EXPECT='0x000003e2   # 4: call fcn.000004ec
 '
 run_test
 
@@ -20,7 +20,7 @@ CMDS="e asm.arch=avr
 aaa
 /c call 0x4ec
 "
-EXPECT='0x000003e2   # 4: call 0x4ec
+EXPECT='0x000003e2   # 4: call fcn.000004ec
 '
 run_test
 

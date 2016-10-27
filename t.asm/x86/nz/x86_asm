@@ -611,7 +611,7 @@ test_vector "${PLUGIN}" "movupd xmm0, xmmword [eax]" 660f1000 "br"
 test_vector "${PLUGIN}" "movupd xmmword [eax], xmm0" 660f1100 "br"
 test_vector "${PLUGIN}" "movups xmm0, xmmword [eax]" 0f10 "br"
 test_vector "${PLUGIN}" "movups xmmword [eax], xmm0" 0f11 "br"
-test_vector "${PLUGIN}" "mov word [eax], es" 8c00 "br"
+test_vector "${PLUGIN}" "mov word [eax], es" 8c00
 test_vector "${PLUGIN}" "movzx eax, byte [eax]" 0fb600 "br"
 test_vector "${PLUGIN}" "movzx eax, word [eax]" 0fb700 "br"
 test_vector "${PLUGIN}" "mpsadbw xmm0, xmm0, 0" 660f3a42c000 "br"
@@ -1015,11 +1015,11 @@ test_vector "${PLUGIN}" "sysexit" 0f35
 test_vector "${PLUGIN}" "sysret" 0f07
 test_vector "${PLUGIN}" "test al, 0" a800 "br"
 test_vector "${PLUGIN}" "test byte [eax], 0" f60000
-test_vector "${PLUGIN}" "test byte [eax], al" 8400 "br"
-test_vector "${PLUGIN}" "test dword [eax], 0" f70000000000 "br"
+test_vector "${PLUGIN}" "test byte [eax], al" 8400
+test_vector "${PLUGIN}" "test dword [eax], 0" f70000000000
 test_vector "${PLUGIN}" "test dword [eax], 0" f70000 "br"
 test_vector "${PLUGIN}" "test dword [eax], 0" f70800 "br"
-test_vector "${PLUGIN}" "test dword [eax], eax" 8500 "br"
+test_vector "${PLUGIN}" "test dword [eax], eax" 8500
 test_vector "${PLUGIN}" "test eax, 0" a900000000 "br"
 test_vector "${PLUGIN}" "test eax, ebx" 85d8
 test_vector "${PLUGIN}" "test edx, esi" 85f2
@@ -1203,7 +1203,7 @@ test_vector "${PLUGIN}" "xsetbv" 0f01d1
 test_invalid "${PLUGIN}" "mov eax, eip"
 test_invalid "${PLUGIN}" "mov eax, ax" "br"
 test_invalid "${PLUGIN}" "mov [eax*6], 1" "br"
-test_invalid "${PLUGIN}" "mov [1], [2]" "br"
+test_invalid "${PLUGIN}" "mov [1], [2]" 
 test_invalid "${PLUGIN}" "mov [0x1122334455667788],eax" "br"
 test_invalid "${PLUGIN}" "mov fs:[1],[ds:1]" "br"
 

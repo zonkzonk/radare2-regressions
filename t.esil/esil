@@ -145,7 +145,7 @@ EXPECT='ihgf
 run_test
 
 NAME='esil poke some (32-bits ARM big endian)'
-FILE=-
+FILE=
 ARGS="-a arm -b 32"
 BROKEN=1
 CMDS='e cfg.bigendian=true
@@ -163,7 +163,7 @@ run_test
 NAME='esil poke some (64-bits ARM big endian)'
 FILE=-
 ARGS="-a arm -b 64"
-BROKEN=1
+BROKEN=
 CMDS='e cfg.bigendian=true
 aeim
 e io.cache=true
@@ -179,7 +179,7 @@ run_test
 NAME='esil poke some (32-bits ARM little endian)'
 FILE=-
 ARGS="-a arm -b 32"
-BROKEN=1
+BROKEN=
 CMDS='e cfg.bigendian=false
 aeim
 e io.cache=true
@@ -195,7 +195,7 @@ run_test
 NAME='esil poke some (64-bits ARM little endian)'
 FILE=-
 ARGS="-a arm -b 64"
-BROKEN=1
+BROKEN=
 CMDS='e cfg.bigendian=false
 aeim
 e io.cache=true
@@ -211,7 +211,7 @@ run_test
 NAME='esil poke some (count too long)'
 FILE=-
 ARGS="-a arm -b 64"
-BROKEN=1
+BROKEN=
 CMDS='e cfg.bigendian=false
 aeim
 e io.cache=true

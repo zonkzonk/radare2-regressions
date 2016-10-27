@@ -10,7 +10,7 @@ run_test
 
 NAME='PE: corkami 65535sects.exe - sections list'
 FILE=../../bins/pe/65535sects.exe
-BROKEN=1
+BROKEN=
 ARGS='-n'
 CMDS="!rabin2 -pS ${FILE}"
 FILTER='grep sections'

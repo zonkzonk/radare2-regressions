@@ -156,8 +156,8 @@ keystone:
 swf:
 		@sh run_tests.sh t.extras/swf
 
-m68k-extra:
-	@sh run_tests t.extras/m68k
+m68k-extras:
+	@sh run_tests.sh t.extras/m68k
 
 broken:
 	grep BROKEN=1 t -r -l

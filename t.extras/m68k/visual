@@ -2,6 +2,8 @@
 # GPL 3+ - Copyright (C) 2016 sqaxomonophonen
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
+unset R2_NOPLUGINS
+
 NAME='backwards seek'
 BROKEN=
 FILE=malloc://1024

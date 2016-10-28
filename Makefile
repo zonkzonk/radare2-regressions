@@ -100,8 +100,6 @@ anal.others:
 	@sh run_tests.sh t.anal/others_anal
 anal.6502:
 	@sh run_tests.sh t.anal/6502
-anal.m68k:
-	@sh run_tests.sh t.anal/m68k
 
 esil:
 	@sh run_tests.sh t.esil
@@ -157,6 +155,9 @@ keystone:
 
 swf:
 		@sh run_tests.sh t.extras/swf
+
+m68k-extra:
+	@sh run_tests t.extras/m68k
 
 broken:
 	grep BROKEN=1 t -r -l

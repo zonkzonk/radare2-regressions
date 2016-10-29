@@ -50,7 +50,7 @@ ARGS=
 CMDS='e dir.projects = /tmp/
 CC "Some other test" @ 0x00404890
 Ps testexp > /dev/null
-cat /tmp/testexp/rc | grep base
+cat /tmp/testexp/rc | grep base64
 rmdir -p /tmp/testexp
 '
 EXPECT='CCu base64:IlNvbWUgb3RoZXIgdGVzdCI= @ 0x00404890

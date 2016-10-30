@@ -138,7 +138,7 @@ pd 28
 '
 EXPECT='|       ,=< 0x000113bd      je 0x1144e
 |       |   0x000113c3      mov esi, 0x2f                              ; '"'/'"'
-|       |   0x000113c8      call sym.imp.strrchr
+|       |   0x000113c8      call sym.imp.strrchr                      ; char*strrchr(char *s, int c);
 |       |   0x000113cd      test rax, rax
 |      ,==< 0x000113d0      je 0x11424
 |      ||   0x000113d2      lea rdx, [rax + 1]                         ; 0x1

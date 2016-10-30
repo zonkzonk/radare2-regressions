@@ -89,7 +89,7 @@ anal.arm:
 anal.avr:
 	@sh run_tests.sh t.anal/avr
 anal.dalvik:
-	@sh run_tests.sh t.anal/dalvik	
+	@sh run_tests.sh t.anal/dalvik
 anal.java:
 	@sh run_tests.sh t.anal/java
 anal.mips:
@@ -154,10 +154,13 @@ keystone:
 	@sh run_tests.sh t.extras/keystone
 
 swf:
-		@sh run_tests.sh t.extras/swf
+	@sh run_tests.sh t.extras/swf
 
 m68k-extras:
 	@sh run_tests.sh t.extras/m68k
+
+extras.mdmp:
+	@sh run_tests.sh t.extras/mdmp
 
 broken:
 	grep BROKEN=1 t -r -l

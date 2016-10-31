@@ -28,6 +28,7 @@ NAME="Dalvik HelloWorld func xref"
 BROKEN=
 FILE=${HELLOWORLD}
 CMDS="aa; axt @ sym.LHello.method._init___V"
-EXPECT='call 0x26e invoke-direct {v0}, LHello.<init>()V ; 0x0 in entry0
+EXPECT='call 0x26e invoke-direct {v0} in entry0
+data 0x26a new-instance v0 in entry0
 '
 run_test

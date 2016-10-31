@@ -35,8 +35,6 @@ sw t0, 0x10(sp)
 sw v0, 0x14(sp)
 jal sym.imp.__uClibc_main
 sw sp, 0x18(sp)
-b 0x4010e8
-nop
 '
 run_test
 
@@ -65,7 +63,5 @@ sw t0, 0x10(sp)
 sw v0, 0x14(sp)
 jal sym.imp.__uClibc_main
 sw sp, 0x18(sp)
-b 0x404e18
-nop
 '
 run_test

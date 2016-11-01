@@ -22,7 +22,7 @@ EXPECT=' 0x00000014      int 0x80; 4 = write (1, "Hello, world!.", 14)
 run_test
 
 NAME='Windows Function EMU printf'
-BROKEN=
+BROKEN=1
 FILE=../../bins/pe/standard.exe
 ARGS=
 CMDS='
@@ -43,7 +43,7 @@ EXPECT=' format : 0x00177ffc = 0x00177ffc -> 0x00402bd2   - RT_MANIFEST resource
 run_test
 
 NAME='Windows Function EMU LoadStringA'
-BROKEN=
+BROKEN=1
 FILE=../../bins/pe/standard.exe
 ARGS=
 CMDS='
@@ -70,7 +70,7 @@ EXPECT=' HINSTANCE:hInstance : 0x00177ff4 = 0x00000000
 run_test
 
 NAME='Linux fcnsign test'
-BROKEN=
+BROKEN=1
 FILE=../../bins/elf/analysis/ls-linux64
 ARGS=
 CMDS='

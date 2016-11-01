@@ -54,6 +54,7 @@ int16_t
 int32_t
 int64_t
 uid_t
+size_t
 '
 run_test
 
@@ -267,6 +268,7 @@ int16_t
 int32_t
 int64_t
 uid_t
+size_t
 name
 date
 addr
@@ -302,6 +304,7 @@ int16_t
 int32_t
 int64_t
 uid_t
+size_t
 name
 date
 addr

@@ -1,11 +1,11 @@
 #!/bin/sh
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
-NAME="an symbol"
+NAME="tn symbol"
 FILE=../bins/elf/analysis/hello-objc-linux
 BROKEN=
-CMDS='an-*
-an sym.imp.__libc_start_main
+CMDS='tn-*
+tn sym.imp.__libc_start_main
 af
 afi~size
 '
@@ -14,11 +14,11 @@ EXPECT=' size: 33
 EXITCODE=0
 run_test
 
-NAME="an 0x08048550"
+NAME="tn 0x08048550"
 FILE=../bins/elf/analysis/hello-objc-linux
 BROKEN=
-CMDS='an-*
-an 0x08048550
+CMDS='tn-*
+tn 0x08048550
 af
 afi~size
 '
@@ -27,10 +27,10 @@ EXPECT=' size: 33
 EXITCODE=0
 run_test
 
-NAME="an 0x00048550"
+NAME="tn 0x00048550"
 FILE=../bins/elf/analysis/hello-objc-linux
 BROKEN=
-CMDS='an-*
+CMDS='tn-*
 af
 afi~size
 '
@@ -43,7 +43,7 @@ NAME="without noreturn"
 FILE=../bins/elf/analysis/hello-objc-linux
 BROKEN=
 CMDS='
-an-*
+tn-*
 af
 afi~size
 '
@@ -99,3 +99,15 @@ EXPECT='            ;-- main:
 run_test
 
 
+NAME="noreturn address"
+FILE=-
+CMDS='e asm.arch=x86
+e asm.bits=32
+"wa call 0x10;ret"
+tna 0x10
+af
+pif
+'
+EXPECT='call 0x10
+'
+run_test

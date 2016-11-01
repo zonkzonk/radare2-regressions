@@ -3,7 +3,6 @@
 
 NAME='ah- offset'
 FILE=-
-BROKEN=1
 CMDS='
 ahi 10 @ 0
 ahi 8 @ 16
@@ -14,21 +13,15 @@ ah- 0x10
 ah
 '
 EXPECT="before:
- 0x00000000 - 0x00000000
- immbase=10
-
- 0x00000010 - 0x00000010
- immbase=8
-
+ 0x00000000 - 0x00000000 => immbase=10
+ 0x00000010 - 0x00000010 => immbase=8
 after:
- 0x00000000 - 0x00000000
- immbase=10
+ 0x00000000 - 0x00000000 => immbase=10
 "
 run_test
 
 NAME='ah-offset'
 FILE=-
-BROKEN=1
 CMDS='
 ahi 10 @ 0
 ahi 8 @ 16
@@ -39,21 +32,15 @@ ah-0x10
 ah
 '
 EXPECT="before:
- 0x00000000 - 0x00000000
- immbase=10
-
- 0x00000010 - 0x00000010
- immbase=8
-
+ 0x00000000 - 0x00000000 => immbase=10
+ 0x00000010 - 0x00000010 => immbase=8
 after:
- 0x00000000 - 0x00000000
- immbase=10
+ 0x00000000 - 0x00000000 => immbase=10
 "
 run_test
  
 NAME='ah*'
 FILE=-
-BROKEN=1
 CMDS='
 ahi 10 @ 0
 ahi 8 @ 16

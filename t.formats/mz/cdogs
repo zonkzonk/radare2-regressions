@@ -17,7 +17,6 @@ s
 '
 EXPECT='0x41c
 '
-BROKEN=1
 IGNORE_ERR=1
 run_test
 
@@ -28,6 +27,5 @@ pi 1
 '
 EXPECT='jmp 0x4c5
 '
-BROKEN=1
 IGNORE_ERR=1
 run_test

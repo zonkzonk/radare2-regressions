@@ -22,6 +22,7 @@ ldr ip, [sl, ip]
 address: 0x0
 opcode: ldr ip, [pc, 0x20]
 prefix: 0
+id: 75
 bytes: 20c09fe5
 ptr: 0x00000028
 refptr: 4
@@ -33,6 +34,7 @@ family: cpu
 address: 0x4
 opcode: ldr ip, [sl, ip]
 prefix: 0
+id: 75
 bytes: 0cc09ae7
 refptr: 0
 size: 4

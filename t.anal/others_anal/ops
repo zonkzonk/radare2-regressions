@@ -33,6 +33,7 @@ EXPECT='[
 	{
 		"opcode": "xor eax, eax",
 		"prefix": 0,
+		"id": 334,
 		"addr": 0,
 		"bytes": "31c0",
 		"size": 2,

@@ -2,10 +2,18 @@
 # GPL 3+ - Copyright (C) 2011-2012  pancake, Edd Barrett, Simon Ruderich
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
+NAME='oi-'
+FILE=malloc://1024
+ARGS=
+#CMDS='o-`o~[1]`;o'
+CMDS='oi-'
+EXPECT=
+run_test
+
 NAME='o-'
 FILE=malloc://1024
 ARGS=
-CMDS='o-`o~[1]`;o'
+CMDS='o-`o~[2]`;o'
 EXPECT=
 run_test
 

@@ -223,9 +223,7 @@ ahi 10 @ 0x8
 s 0x8
 ah.
 '
-EXPECT=' 0x00000008 - 0x00000008
- immbase=10
-
+EXPECT=' 0x00000008 - 0x00000008 => immbase=10
 '
 run_test
 

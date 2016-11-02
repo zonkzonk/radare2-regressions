@@ -11,8 +11,8 @@ pi 1
 e cfg.bigendian=true
 pi 1
 '
-EXPECT="mov eax, 'A\\x0dC'
-mov eax, 'C\\x0dA'
+EXPECT="mov eax, 'C\\x0dA'
+mov eax, 'A\\x0dC'
 "
 run_test
 
@@ -26,8 +26,8 @@ pi 1
 e cfg.bigendian=true
 pi 1
 '
-EXPECT="mov eax, 'ABC'
-mov eax, 'CBA'
+EXPECT="mov eax, 'CBA'
+mov eax, 'ABC'
 "
 run_test
 
@@ -257,5 +257,16 @@ pi 1
 '
 EXPECT="mov dword [rsp + 0x68], 0x6c896552
 mov dword [rsp + 0x68], 'Read'
+"
+run_test
+
+
+NAME='ahi s 2'
+CMDS='wx b868584d56
+e asm.bits=64
+ahi s
+pi 1
+'
+EXPECT="mov eax, 'VMXh'
 "
 run_test

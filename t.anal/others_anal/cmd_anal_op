@@ -1,5 +1,5 @@
 #!/bin/sh
-# GPL 3+ - Copyright (C) 2013-2015  pancake
+# GPL 3+ - Copyright (C) 2013-2016 - pancake
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='af x86-32'
@@ -14,10 +14,11 @@ ao 1
 p8 1
 ao 1~?
 '
-EXPECT='10
+EXPECT='11
 address: 0x0
 opcode: nop
 prefix: 0
+id: 494
 bytes: 90
 refptr: 0
 size: 1
@@ -26,7 +27,7 @@ esil: ,
 stack: null
 family: cpu
 90
-10
+11
 '
 run_test
 

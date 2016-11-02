@@ -3,8 +3,8 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='MZ: corkami ddriving.exe - open'
 FILE=../../bins/mz/ddriving.exe
-ARGS='-A'
-CMDS="q!"
+ARGS=''
+CMDS="q"
 EXPECT=''
 run_test
 
@@ -15,7 +15,6 @@ s
 '
 EXPECT='0x254
 '
-BROKEN=1
 run_test
 
 NAME='MZ: corkami ddriving.exe - pi 1'
@@ -25,5 +24,4 @@ pi 1
 '
 EXPECT='push cs
 '
-BROKEN=1
 run_test

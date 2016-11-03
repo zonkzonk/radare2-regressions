@@ -16,3 +16,13 @@ mrs r0, PRIMASK
 '
 
 run_test
+
+NAME="${PLUGIN}: arm-thumb-bad-branch"
+FILE=malloc://32
+CMDS='!rasm2 -a arm -b 16 "b gh"
+'
+EXPECT_ERR="Cannot assemble 'b gh' at line 3
+invalid
+"
+run_test
+

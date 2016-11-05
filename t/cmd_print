@@ -203,54 +203,69 @@ jg 0x14
 '
 run_test
 
-NAME='pi -3 @ 3'
-FILE=malloc://512
+NAME='pi -5 @ 0x0040050f'
+FILE=../bins/elf/analysis/main
 ARGS=
-BROKEN=1
 CMDS='
 e asm.arch=x86
 e asm.bits=64
-wx b8010000004839ca7f00
-pi -3 @ 10
+pi -5 @ 0x0040050f
 '
-EXPECT='add byte [rax], al
-cmp rdx, rcx
-jg 0xa
+EXPECT='pop rbp
+jmp sym.register_tm_clones
+push rbp
+mov rbp, rsp
+mov edi, str.Hello_World
 '
 run_test
 
-NAME='pij -3 @ 3'
-FILE=malloc://512
+NAME='pi -5 @ 0x0040050f (anal)'
+FILE=../bins/elf/analysis/main
 ARGS=
-BROKEN=1
 CMDS='
 e asm.arch=x86
 e asm.bits=64
-wx b8010000004839ca7f00
-pij -3 @ 10
+aaa
+pi -5 @ 0x0040050f
 '
-EXPECT='[{"offset":3,"fcn_addr":0,"fcn_last":0,"size":2,"opcode":"add byte [rax], al","bytes":"0000","type":"add","type_num":17,"type2_num":0},{"offset":5,"fcn_addr":0,"fcn_last":0,"size":3,"opcode":"cmp rdx, rcx","bytes":"4839ca","type":"cmp","type_num":15,"type2_num":0},{"offset":8,"fcn_addr":0,"fcn_last":0,"size":2,"opcode":"jg 0xa","bytes":"7f00","type":"cjmp","type_num":2147483649,"type2_num":0,"jump":10,"fail":10}]
+EXPECT='pop rbp
+jmp sym.register_tm_clones
+push rbp
+mov rbp, rsp
+mov edi, str.Hello_World
 '
+
+run_test
+
+
+NAME='pij -5 @ 0x0040050f'
+FILE=../bins/elf/analysis/main
+ARGS=
+CMDS='
+e asm.arch=x86
+e asm.bits=64
+pij -3 @ 0x0040050f
+'
+EXPECT='[{"offset":4195590,"fcn_addr":0,"fcn_last":0,"size":1,"opcode":"push rbp","bytes":"55","family":"cpu","type":"upush","type_num":12,"type2_num":0,"flags":["main","sym.main"]},{"offset":4195591,"fcn_addr":0,"fcn_last":0,"size":3,"opcode":"mov rbp, rsp","bytes":"4889e5","family":"cpu","type":"mov","type_num":9,"type2_num":0},{"offset":4195594,"fcn_addr":0,"fcn_last":0,"size":5,"opcode":"mov edi, 0x4005c4","bytes":"bfc4054000","family":"cpu","type":"mov","type_num":9,"type2_num":0}]
+'
+
 run_test
 
 
 
-NAME='pi -10'
-FILE=malloc://1024
-BROKEN=1
+NAME='pi -5'
+FILE=../bins/elf/analysis/main
 CMDS='
-wx 90909090909090909090 ; s 10 ; pi -10
+e asm.arch=x86
+e asm.bits=64
+s 0x0040050f
+pi -5
 '
-EXPECT='nop
-nop
-nop
-nop
-nop
-nop
-nop
-nop
-nop
-nop
+EXPECT='pop rbp
+jmp sym.register_tm_clones
+push rbp
+mov rbp, rsp
+mov edi, str.Hello_World
 '
 
 run_test

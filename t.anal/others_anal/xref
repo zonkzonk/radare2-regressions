@@ -167,3 +167,37 @@ EXPECT='call 0x401a1d call fcn.00401270 in unknown function
 
 
 run_test
+
+NAME="axf string ref udis86"
+BROKEN=1
+FILE=../../bins/elf/ioli/crackme0x03
+ARGS=
+CMDS='e asm.arch = x86.udis
+e anal.arch = x86.udis
+e scr.color = false
+e scr.wheel = false
+aa
+axt str.Sdvvzrug_RN______
+axf 0x804848a
+'
+EXPECT='data 0x804848a mov dword [esp], str.Sdvvzrug_RN______ in sym.test
+d 0x804848a mov dword [esp], str.Sdvvzrug_RN______
+'
+run_test
+
+NAME="axf string ref capstone x86"
+BROKEN=1
+FILE=../../bins/elf/ioli/crackme0x03
+ARGS=
+CMDS='e asm.arch = x86
+e anal.arch = x86
+e scr.color = false
+e scr.wheel = false
+aa
+axt str.Sdvvzrug_RN______
+axf 0x804848a
+'
+EXPECT='data 0x804848a mov dword [esp], str.Sdvvzrug_RN______ in sym.test
+d 0x804848a mov dword [esp], str.Sdvvzrug_RN______
+'
+run_test

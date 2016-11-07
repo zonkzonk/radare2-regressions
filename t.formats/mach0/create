@@ -39,7 +39,8 @@ CMDS='rm /tmp/tiny32.mach0
 ls -l /tmp/tiny32.mach0~[3]
 rm /tmp/tiny32.mach0
 '
-EXPECT='233
+# EXPECT='233
+EXPECT='4097
 '
 run_test
 

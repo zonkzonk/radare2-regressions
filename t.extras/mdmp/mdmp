@@ -3,14 +3,16 @@
 # GPL 3+ - Copyright (C) 2013-2016  pancake, Alex Kornitzer
 
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
-F=../../bins/mdmp/calc.dmp
+F0=../../bins/mdmp/calc.dmp
+F1=../../bins/mdmp/hello.dmp
+F2=../../bins/mdmp/hello64.dmp
 
 unset R2_NOPLUGINS
 
 # Functional Tests
 
 NAME="${PLUGIN}: open"
-FILE=$F
+FILE=$F0
 ARGS=
 CMDS='i~format
 '
@@ -20,7 +22,7 @@ run_test
 
 
 NAME="${PLUGIN}: info"
-FILE=$F
+FILE=$F0
 ARGS=
 CMDS='iI
 '
@@ -51,17 +53,17 @@ run_test
 
 
 NAME="${PLUGIN}: sections"
-FILE=$F
+FILE=$F0
 ARGS=
 CMDS='iS~calc
 '
-EXPECT='idx=09 vaddr=0xfffe0000 paddr=0x00000000 sz=929792 vsz=929792 perm=m-rwx name=C:_Windows_System32_calc.exe
+EXPECT='idx=09 vaddr=0xfffe0000 paddr=0x00000000 sz=929792 vsz=929792 perm=m---- name=C:_Windows_System32_calc.exe
 '
 run_test
 
 
 NAME="${PLUGIN}: resolve vaddr to paddr"
-FILE=$F
+FILE=$F0
 ARGS=
 CMDS='px@0x03a7ff08
 '
@@ -85,17 +87,279 @@ EXPECT='- offset -   0 1  2 3  4 5  6 7  8 9  A B  C D  E F  0123456789ABCDEF
 '
 run_test
 
-# TODO: This should work if we expect functionality similar to WinDgb.
-# Currently this can be achieved by carving the bin, correcting/adjusting the
-# header and then running PE analysis on it.
-NAME="${PLUGIN}: entrypoints"
-IGNORE_ERR=1
-FILE=$F
-BROKEN=1
+
+NAME="${PLUGIN}: entrypoints nomem .dmp"
+FILE=$F0
 ARGS=
-CMDS='ie~addr
+CMDS='ie
 '
-EXPECT='vaddr=0xffffb9b8 paddr=0x0001afb8 baddr=0xfffe0000 laddr=0x00000000 type=program
+EXPECT='[Entrypoints]
+
+0 entrypoints
+'
+run_test
+
+
+NAME="${PLUGIN}: 32bit - libraries count"
+FILE=$F1
+ARGS=
+CMDS='il~libraries
+'
+EXPECT='[Linked libraries]
+9 libraries
+'
+run_test
+
+
+NAME="${PLUGIN}: 32bit - libraries resolving"
+FILE=$F1
+ARGS=
+CMDS='il~kernel32.dll
+'
+EXPECT='[0] - kernel32.dll
+'
+run_test
+
+
+NAME="${PLUGIN}: 32bit - entrypoints count"
+FILE=$F1
+ARGS=
+CMDS='ie~entrypoints
+'
+EXPECT='7 entrypoints
+'
+run_test
+
+
+NAME="${PLUGIN}: 32bit - entrypoints resolving"
+FILE=$F1
+ARGS=
+CMDS='ie~0x004012c0
+'
+EXPECT='vaddr=0x004012c0 paddr=0x000140c6 baddr=0x00000000 laddr=0x00000000 type=program
+'
+run_test
+
+
+# NOTE: Will break if pdb parsing is implemented, therefore not a regression
+NAME="${PLUGIN}: 32bit - symbols count"
+FILE=$F1
+ARGS=
+CMDS='is~symbols
+'
+EXPECT='2660 symbols
+'
+run_test
+
+
+NAME="${PLUGIN}: 32bit - symbols resolving 1"
+FILE=$F1
+ARGS=
+CMDS='is~imp.KERNEL32.dll_DeleteCriticalSection
+'
+EXPECT='vaddr=0x0040e150 paddr=0x00020f56 ord=001 fwd= sz=0 bind=NONE type=FUNC name=imp.KERNEL32.dll_DeleteCriticalSection
+'
+run_test
+
+
+NAME="${PLUGIN}: 32bit - symbols resolving 2"
+FILE=$F1
+ARGS=
+CMDS='is~ntdll.dll_RtlDeleteCriticalSection
+'
+EXPECT='vaddr=0x777438f0 paddr=0x000ea6f6 ord=746 fwd=NONE sz=0 bind=GLOBAL type=FUNC name=ntdll.dll_RtlDeleteCriticalSection
+'
+run_test
+
+
+NAME="${PLUGIN}: 32bit - imports count"
+FILE=$F1
+ARGS=
+CMDS='ii~imports
+'
+EXPECT='616 imports
+'
+run_test
+
+
+NAME="${PLUGIN}: 32bit - imports resolving"
+FILE=$F1
+ARGS=
+CMDS='ii~KERNEL32.dll_ExitProcess
+'
+EXPECT='ordinal=003 plt=0x0040e158 bind=NONE type=FUNC name=KERNEL32.dll_ExitProcess
+'
+run_test
+
+
+NAME="${PLUGIN}: 32bit - exports count"
+FILE=$F1
+ARGS=
+CMDS='iE~exports
+'
+EXPECT='2044 exports
+'
+run_test
+
+
+NAME="${PLUGIN}: 32bit - exports resolving"
+FILE=$F1
+ARGS=
+CMDS='iE~ntdll.dll_Ordinal_1
+'
+EXPECT='vaddr=0x77802620 paddr=0x001a9426 ord=1992 fwd=NONE sz=0 bind=GLOBAL type=FUNC name=ntdll.dll_Ordinal_1
+'
+run_test
+
+
+NAME="${PLUGIN}: 32bit - relocs count"
+FILE=$F1
+ARGS=
+CMDS='ir~relocations
+'
+EXPECT='616 relocations
+'
+run_test
+
+
+NAME="${PLUGIN}: 32bit - relocs resolving"
+FILE=$F1
+ARGS=
+CMDS='ir~msvcrt.dll__strdup
+'
+EXPECT='vaddr=0x0040e1b0 paddr=0x00020fb6 type=SET_32 msvcrt.dll__strdup
+'
+run_test
+
+
+NAME="${PLUGIN}: 64bit - libraries count"
+FILE=$F2
+ARGS=
+CMDS='il~libraries
+'
+EXPECT='[Linked libraries]
+49 libraries
+'
+run_test
+
+
+NAME="${PLUGIN}: 64bit - libraries resolving"
+FILE=$F2
+ARGS=
+CMDS='il~kernel32.dll
+'
+EXPECT='[0] - kernel32.dll
+'
+run_test
+
+
+NAME="${PLUGIN}: 64bit - entrypoints count"
+FILE=$F2
+ARGS=
+CMDS='ie~entrypoints
+'
+EXPECT='5 entrypoints
+'
+run_test
+
+
+NAME="${PLUGIN}: 64bit - entrypoints"
+FILE=$F2
+ARGS=
+CMDS='ie~0x00401500
+'
+EXPECT='vaddr=0x00401500 paddr=0x00093c0b baddr=0x00000000 laddr=0x00000000 type=program
+'
+run_test
+
+
+# NOTE: Will break if pdb parsing is implemented, therefore not a regression
+NAME="${PLUGIN}: 64bit - symbols count"
+FILE=$F2
+ARGS=
+CMDS='is~symbols
+'
+EXPECT='6824 symbols
+'
+run_test
+
+
+NAME="${PLUGIN}: 64bit - symbols resolving 1"
+FILE=$F2
+ARGS=
+CMDS='is~imp.KERNEL32.dll_DeleteCriticalSection
+'
+EXPECT='vaddr=0x004081fc paddr=0x0009a907 ord=001 fwd= sz=0 bind=NONE type=FUNC name=imp.KERNEL32.dll_DeleteCriticalSection
+'
+run_test
+
+
+NAME="${PLUGIN}: 64bit - symbols resolving 2"
+FILE=$F2
+ARGS=
+CMDS='is~ntdll.dll_A_SHAFinal
+'
+EXPECT='vaddr=0x77728bf0 paddr=0x001eb2fb ord=008 fwd=NONE sz=0 bind=GLOBAL type=FUNC name=ntdll.dll_A_SHAFinal
+'
+run_test
+
+
+NAME="${PLUGIN}: 64bit - imports count"
+FILE=$F2
+ARGS=
+CMDS='ii~imports
+'
+EXPECT='1509 imports
+'
+run_test
+
+
+NAME="${PLUGIN}: 64bit - imports resolving"
+FILE=$F2
+ARGS=
+CMDS='ii~KERNEL32.dll_GetCurrentProcessId
+'
+EXPECT='ordinal=004 plt=0x00408214 bind=NONE type=FUNC name=KERNEL32.dll_GetCurrentProcessId
+'
+run_test
+
+
+NAME="${PLUGIN}: 64bit - exports count"
+FILE=$F2
+ARGS=
+CMDS='iE~exports
+'
+EXPECT='5315 exports
+'
+run_test
+
+
+NAME="${PLUGIN}: 64bit - exports resolving"
+FILE=$F2
+ARGS=
+CMDS='iE~ntdll.dll_CsrVerifyRegion
+'
+EXPECT='vaddr=0x777d24b0 paddr=0x00294bbb ord=038 fwd=NONE sz=0 bind=GLOBAL type=FUNC name=ntdll.dll_CsrVerifyRegion
+'
+run_test
+
+
+NAME="${PLUGIN}: 64bit - relocs count"
+FILE=$F2
+ARGS=
+CMDS='ir~relocations
+'
+EXPECT='1509 relocations
+'
+run_test
+
+
+NAME="${PLUGIN}: 64bit - relocs resolving"
+FILE=$F2
+ARGS=
+CMDS='ir~KERNEL32.dll_DeleteCriticalSection
+'
+EXPECT='vaddr=0x004081fc paddr=0x0009a907 type=SET_64 KERNEL32.dll_DeleteCriticalSection
 '
 run_test
 
@@ -104,7 +368,7 @@ run_test
 NAME="${PLUGIN}: reload file"
 IGNORE_ERR=1
 BROKEN=
-FILE=$F
+FILE=$F0
 ARGS=
 CMDS='ib
 ?e ok

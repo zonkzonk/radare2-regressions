@@ -52,7 +52,7 @@ EXPECT='bpl.w 0x80
 run_test
 
 NAME="${PLUGIN}: m68k 32bit negative branch"
-BROKEN=
+BROKEN=1
 CMDS='e asm.arch=m68k
 s 0x100
 wx 6affffffff7e

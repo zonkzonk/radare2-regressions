@@ -15,6 +15,14 @@ EXPECT='visible
 '
 run_test
 
+NAME='f command with space'
+CMDS='f  foobar=0x1000
+f
+'
+EXPECT='0x00001000 1 foobar
+'
+run_test
+
 NAME='no flags'
 CMDS='f
 '

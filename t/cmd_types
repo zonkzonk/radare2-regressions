@@ -25,6 +25,31 @@ EXPECT="            0x00000000      4157           push r15
 "
 run_test
 
+NAME='typelinks 2'
+FILE=-
+CMDS="wx 48656c6c341248656c6c6f00000000000000000048656c6c6f0000000000000000009090
+tk WORD=type
+tk type.WORD=w
+tk type.WORD.size=16
+tk VbHeader=struct
+tk struct.VbHeader=szVbMagic,wRuntimeBuild,szLangDll,szSecLangDll
+tk struct.VbHeader.szVbMagic=char,0,4
+tk struct.VbHeader.wRuntimeBuild=WORD,4,0
+tk struct.VbHeader.szLangDll=char,6,14
+tk struct.VbHeader.szSecLangDll=char,20,14
+tl VbHeader @ 0x00
+pd 3
+"
+EXPECT="(VbHeader)
+     szVbMagic : 0x00000000 = Hell
+ wRuntimeBuild : 0x00000004 = 0x1234
+     szLangDll : 0x00000006 = Hello
+  szSecLangDll : 0x00000014 = Hello
+            0x00000022      90             nop
+            0x00000023      90             nop
+"
+run_test
+
 NAME='t?'
 FILE=-
 CMDS='t?~?Usage'

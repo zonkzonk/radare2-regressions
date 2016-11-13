@@ -43,8 +43,8 @@ mrs r0, PRIMASK
 run_test
 
 # Assembly tests
-test_vector "${PLUGIN}" "ldr r0, [r1]" 0868
-test_vector "${PLUGIN}" "ldr r1, [r3]" 1968
+test_vector "${PLUGIN}" "ldr r0, [r1]" 0868 br
+test_vector "${PLUGIN}" "ldr r1, [r3]" 1968 br
 test_vector "${PLUGIN}" "ldr r0, [r0, 0x74]" 406f "br"
 test_vector "${PLUGIN}" "ldr r0, [r0, 0x7]" d0f80700 "br"
 test_vector "${PLUGIN}" "ldr r1, [r2, 0x124]" d2f82411 "br"

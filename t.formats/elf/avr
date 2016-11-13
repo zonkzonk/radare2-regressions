@@ -9,7 +9,7 @@ FILE=../../bins/elf/analysis/bugurtos-avr.elf
 ARGS=
 CMDS='ie~addr
 '
-EXPECT='vaddr=0x00000000 paddr=0x00000074 baddr=0x00000000 laddr=0x00000000 type=program
+EXPECT='vaddr=0x00000000 paddr=0x00000074 baddr=0x00000000 laddr=0x00000000 haddr=0x00000018 type=program
 '
 run_test
 

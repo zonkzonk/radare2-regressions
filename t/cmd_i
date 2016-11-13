@@ -280,7 +280,7 @@ FILE=../bins/elf/analysis/x86-helloworld-gcc
 ARGS=
 CMDS="ie"
 EXPECT='[Entrypoints]
-vaddr=0x08048300 paddr=0x00000300 baddr=0x08048000 laddr=0x00000000 type=program
+vaddr=0x08048300 paddr=0x00000300 baddr=0x08048000 laddr=0x00000000 haddr=0x00000018 type=program
 
 1 entrypoints
 '
@@ -290,7 +290,7 @@ NAME='iej (file x86)'
 FILE=../bins/elf/analysis/x86-helloworld-gcc
 ARGS=
 CMDS="iej"
-EXPECT='[{"vaddr":134513408,"paddr":768,"baddr":134512640,"laddr":0,"type":"program"}]
+EXPECT='[{"vaddr":134513408,"paddr":768,"baddr":134512640,"laddr":0,"haddr":24,"type":"program"}]
 '
 run_test
 
@@ -569,7 +569,7 @@ FILE=../bins/elf/analysis/hello-linux-x86_64
 ARGS=
 CMDS="ie"
 EXPECT='[Entrypoints]
-vaddr=0x00400410 paddr=0x00000410 baddr=0x00400000 laddr=0x00000000 type=program
+vaddr=0x00400410 paddr=0x00000410 baddr=0x00400000 laddr=0x00000000 haddr=0x00000018 type=program
 
 1 entrypoints
 '

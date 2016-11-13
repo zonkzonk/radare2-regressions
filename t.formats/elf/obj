@@ -10,7 +10,7 @@ BROKEN=1
 ARGS=
 CMDS='ie~addr
 '
-EXPECT='vaddr=0x00000000 paddr=0x00000040 baddr=0x00000000 laddr=0x00000000 type=program
+EXPECT='vaddr=0x00000000 paddr=0x00000040 baddr=0x00000000 laddr=0x00000000 haddr=0x00000018 type=program
 '
 run_test
 
@@ -20,7 +20,7 @@ BROKEN=1
 ARGS="-B 0x200000"
 CMDS='ie~addr
 '
-EXPECT='vaddr=0x00200000 paddr=0x00000040 baddr=0x00200000 laddr=0x00000000 type=program
+EXPECT='vaddr=0x00200000 paddr=0x00000040 baddr=0x00200000 laddr=0x00000000 haddr=0x00000018 type=program
 '
 run_test
 

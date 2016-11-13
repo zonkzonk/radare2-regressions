@@ -5,7 +5,7 @@ NAME='ELF: entrypoint'
 FILE=../../bins/elf/analysis/pie
 ARGS=''
 CMDS="ie~addr"
-EXPECT='vaddr=0x00000450 paddr=0x00000450 baddr=0x00000000 laddr=0x00000000 type=program
+EXPECT='vaddr=0x00000450 paddr=0x00000450 baddr=0x00000000 laddr=0x00000000 haddr=0x00000018 type=program
 '
 run_test
 
@@ -13,7 +13,7 @@ NAME='ELF: entrypoint with baddr'
 FILE=../../bins/elf/analysis/pie
 ARGS='-B 0x300000'
 CMDS="ie~addr"
-EXPECT='vaddr=0x00300450 paddr=0x00000450 baddr=0x00300000 laddr=0x00000000 type=program
+EXPECT='vaddr=0x00300450 paddr=0x00000450 baddr=0x00300000 laddr=0x00000000 haddr=0x00000018 type=program
 '
 run_test
 
@@ -21,7 +21,7 @@ NAME='ELF: rabin2 entrypoint with baddr'
 FILE=-
 ARGS=''
 CMDS="!rabin2 -e -B 0x300000 ../../bins/elf/analysis/pie | grep baddr"
-EXPECT='vaddr=0x00300450 paddr=0x00000450 baddr=0x00300000 laddr=0x00000000 type=program
+EXPECT='vaddr=0x00300450 paddr=0x00000450 baddr=0x00300000 laddr=0x00000000 haddr=0x00000018 type=program
 '
 run_test
 

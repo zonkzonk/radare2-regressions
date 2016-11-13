@@ -12,7 +12,7 @@ EXPECT='ffffffff
 run_test
 
 NAME="io ff based on seek"
-BROKEN=1
+BROKEN=
 FILE=../bins/pe/b.exe
 CMDS='
 s 0x0040200b

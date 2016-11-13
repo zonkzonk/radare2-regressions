@@ -193,7 +193,7 @@ EXPECT='02F006EA'
 run_test
 
 NAME="${PLUGIN}: arm-thumb-mclass"
-BROKEN=1
+BROKEN=
 ARGS="-a arm -b 16"
 CMDS="pa b lr"
 EXPECT=''

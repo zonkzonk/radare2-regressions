@@ -36,7 +36,7 @@ run_test
 
 NAME='pB -10'
 FILE=malloc://1024
-BROKEN=1
+BROKEN=
 CMDS='
 wx 90909090909090909090 ; s 10 ; pB -10
 '

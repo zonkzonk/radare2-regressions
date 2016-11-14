@@ -150,8 +150,8 @@ Ps types > /dev/null
 Pc types~?link
 Pc types~?zoby
 '
-EXPECT='1
-10
+EXPECT='10
+1
 '
 run_test
 

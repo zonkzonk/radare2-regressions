@@ -14,8 +14,8 @@ ARGS=''
 CMDS="ie"
 
 EXPECT='[Entrypoints]
-vaddr=0x00401000 paddr=0x00000200 baddr=0x00400000 laddr=0x00000000 type=program
-vaddr=0x00401000 paddr=0x00000200 baddr=0x00400000 laddr=0x00000000 type=tls
+vaddr=0x00401000 paddr=0x00000200 baddr=0x00400000 laddr=0x00000000 haddr=0x00000068 type=program
+vaddr=0x00401000 paddr=0x00000200 baddr=0x00400000 laddr=0x00000000 haddr=0x00000384 type=tls
 
 2 entrypoints
 '

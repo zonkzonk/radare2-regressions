@@ -22,7 +22,7 @@ FILE=../../bins/pe/nosectionW7.exe
 CMDS="ie"
 EXPECT_ERR=""
 EXPECT='[Entrypoints]
-vaddr=0x00400138 paddr=0x00000138 baddr=0x00400000 laddr=0x00000000 type=program
+vaddr=0x00400138 paddr=0x00000138 baddr=0x00400000 laddr=0x00000000 haddr=0x00000068 type=program
 
 1 entrypoints
 '

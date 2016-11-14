@@ -11,7 +11,7 @@ FILE=$F
 ARGS=
 CMDS='ie~addr
 '
-EXPECT='vaddr=0x00401280 paddr=0x00000680 baddr=0x00400000 laddr=0x00000000 type=program
+EXPECT='vaddr=0x00401280 paddr=0x00000680 baddr=0x00400000 laddr=0x00000000 haddr=0x000000a8 type=program
 '
 run_test
 

@@ -78,7 +78,7 @@ BROKEN=
 FILE=../../bins/mach0/fatmach0-3true
 ARGS='-n'
 CMDS="!rabin2 -a x86 -b 32 -e ${FILE} | grep paddr="
-EXPECT='vaddr=0x00001f44 paddr=0x00005f44 baddr=0x00001000 laddr=0x00000000 type=program
+EXPECT='vaddr=0x00001f44 paddr=0x00005f44 baddr=0x00001000 laddr=0x00000000 haddr=0x00000420 type=program
 '
 run_test
 

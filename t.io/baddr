@@ -30,6 +30,7 @@ BROKEN=
 FILE=../bins/elf/analysis/pie
 CMDS='!rabin2 -B 0xf00000 -re ${R2_FILE} | grep 0x'
 EXPECT='f entry0 1 @ 0x00f00450
+f entry0_haddr 1 @ 0x00000018
 '
 run_test
 
@@ -78,6 +79,7 @@ ARGS='-B 0xf00000'
 CMDS='!rabin2 -B 0xf00000 -re ${R2_FILE} | grep 0x
 p8 10 @ 0x00f00450'
 EXPECT='f entry0 1 @ 0x00f00450
+f entry0_haddr 1 @ 0x00000018
 31ed5e89e183e4f05054
 '
 run_test

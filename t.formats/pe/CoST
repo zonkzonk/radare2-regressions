@@ -12,8 +12,8 @@ NAME='PE: corkami CoST.exe - entrypoint VA'
 FILE=../../bins/pe/CoST.exe
 CMDS="ie"
 EXPECT='[Entrypoints]
-vaddr=0x7efd0000 paddr=0x00000000 baddr=0x7efd0000 laddr=0x00000000 type=program
-vaddr=0x7efd0148 paddr=0x00000148 baddr=0x7efd0000 laddr=0x00000000 type=tls
+vaddr=0x7efd0000 paddr=0x00000000 baddr=0x7efd0000 laddr=0x00000000 haddr=0x0000506c type=program
+vaddr=0x7efd0148 paddr=0x00000148 baddr=0x7efd0000 laddr=0x00000000 haddr=0x000001cc type=tls
 
 2 entrypoints
 '

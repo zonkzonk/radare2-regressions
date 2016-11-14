@@ -16,7 +16,7 @@ FILE=../../bins/omf/hello_world
 ARGS=''
 BROKEN=
 CMDS="ie~addr"
-EXPECT='vaddr=0x00001000 paddr=0x00000073 baddr=0x00001000 laddr=0x00000000 type=program
+EXPECT='vaddr=0x00001000 paddr=0x00000073 baddr=0x00001000 laddr=0x00000000 haddr=-1 type=program
 '
 run_test
 
@@ -62,7 +62,7 @@ FILE=../../bins/omf/hello_world32
 ARGS=''
 BROKEN=
 CMDS="ie~addr"
-EXPECT='vaddr=0x00001000 paddr=0x00000074 baddr=0x00001000 laddr=0x00000000 type=program
+EXPECT='vaddr=0x00001000 paddr=0x00000074 baddr=0x00001000 laddr=0x00000000 haddr=-1 type=program
 '
 run_test
 

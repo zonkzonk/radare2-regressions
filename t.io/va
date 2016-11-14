@@ -4,7 +4,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 # TODO: check symbols too
 
 NAME="io/va-entry0 linux-arm"
-BROKEN=
+BROKEN=1
 FILE=../bins/elf/analysis/hello-android-arm
 CMDS='
 ie*~0x[4]

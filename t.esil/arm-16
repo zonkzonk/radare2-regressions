@@ -15,7 +15,7 @@ aei
 aeim
 aer sp=0x00108000
 .aer*
-"wa cmp r1, #0x10"
+wa cmp r1, 16
 aes
 aer?cpsr
 '
@@ -36,7 +36,7 @@ aeim
 aer sp=0x00108000
 aer cpsr=0xffffffff
 .aer*
-"wa cmp r1, #0x10"
+wa cmp r1, 16
 aes
 aer?cpsr
 '
@@ -57,7 +57,7 @@ aer sp=0x00108000
 aer r1=0x10
 aer cpsr=0x40000000
 .aer*
-"wa cmp r1, #0x10"
+wa cmp r1, 16
 aes
 aer?cpsr
 '
@@ -79,7 +79,7 @@ aer sp=0x00108000
 aer r1=0x10
 aer cpsr=0x00000000
 .aer*
-"wa cmp r1, #0x10"
+wa cmp r1, 16
 aes
 aer?cpsr
 '

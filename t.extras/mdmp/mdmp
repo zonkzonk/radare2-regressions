@@ -106,7 +106,7 @@ ARGS=
 CMDS='il~libraries
 '
 EXPECT='[Linked libraries]
-9 libraries
+57 libraries
 '
 run_test
 
@@ -116,7 +116,7 @@ FILE=$F1
 ARGS=
 CMDS='il~kernel32.dll
 '
-EXPECT='[0] - kernel32.dll
+EXPECT='[0x00400000] - kernel32.dll
 '
 run_test
 
@@ -126,7 +126,7 @@ FILE=$F1
 ARGS=
 CMDS='ie~entrypoints
 '
-EXPECT='7 entrypoints
+EXPECT='11 entrypoints
 '
 run_test
 
@@ -134,9 +134,9 @@ run_test
 NAME="${PLUGIN}: 32bit - entrypoints resolving"
 FILE=$F1
 ARGS=
-CMDS='ie~0x004012c0
+CMDS='ie~0x004014e0
 '
-EXPECT='vaddr=0x004012c0 paddr=0x000140c6 baddr=0x00000000 laddr=0x00000000 type=program
+EXPECT='vaddr=0x004014e0 paddr=0x000990b2 baddr=0x00000000 laddr=0x00000000 type=program
 '
 run_test
 
@@ -147,7 +147,7 @@ FILE=$F1
 ARGS=
 CMDS='is~symbols
 '
-EXPECT='2660 symbols
+EXPECT='7466 symbols
 '
 run_test
 
@@ -155,9 +155,9 @@ run_test
 NAME="${PLUGIN}: 32bit - symbols resolving 1"
 FILE=$F1
 ARGS=
-CMDS='is~imp.KERNEL32.dll_DeleteCriticalSection
+CMDS='is~imp.KERNEL32.dll_DeleteCriticalSection:0
 '
-EXPECT='vaddr=0x0040e150 paddr=0x00020f56 ord=001 fwd= sz=0 bind=NONE type=FUNC name=imp.KERNEL32.dll_DeleteCriticalSection
+EXPECT='vaddr=0x00406108 paddr=0x0009dcda ord=001 fwd= sz=0 bind=NONE type=FUNC name=imp.KERNEL32.dll_DeleteCriticalSection
 '
 run_test
 
@@ -165,9 +165,9 @@ run_test
 NAME="${PLUGIN}: 32bit - symbols resolving 2"
 FILE=$F1
 ARGS=
-CMDS='is~ntdll.dll_RtlDeleteCriticalSection
+CMDS='is~ntdll.dll_RtlDeleteCriticalSection:0
 '
-EXPECT='vaddr=0x777438f0 paddr=0x000ea6f6 ord=746 fwd=NONE sz=0 bind=GLOBAL type=FUNC name=ntdll.dll_RtlDeleteCriticalSection
+EXPECT='vaddr=0x76fb05a4 paddr=0x001c2176 ord=358 fwd= sz=0 bind=NONE type=FUNC name=imp.ntdll.dll_RtlDeleteCriticalSection
 '
 run_test
 
@@ -177,7 +177,7 @@ FILE=$F1
 ARGS=
 CMDS='ii~imports
 '
-EXPECT='616 imports
+EXPECT='2028 imports
 '
 run_test
 
@@ -185,9 +185,9 @@ run_test
 NAME="${PLUGIN}: 32bit - imports resolving"
 FILE=$F1
 ARGS=
-CMDS='ii~KERNEL32.dll_ExitProcess
+CMDS='ii~KERNEL32.dll_TerminateProcess
 '
-EXPECT='ordinal=003 plt=0x0040e158 bind=NONE type=FUNC name=KERNEL32.dll_ExitProcess
+EXPECT='ordinal=017 plt=0x00406148 bind=NONE type=FUNC name=KERNEL32.dll_TerminateProcess
 '
 run_test
 
@@ -197,7 +197,7 @@ FILE=$F1
 ARGS=
 CMDS='iE~exports
 '
-EXPECT='2044 exports
+EXPECT='5438 exports
 '
 run_test
 
@@ -207,7 +207,7 @@ FILE=$F1
 ARGS=
 CMDS='iE~ntdll.dll_Ordinal_1
 '
-EXPECT='vaddr=0x77802620 paddr=0x001a9426 ord=1992 fwd=NONE sz=0 bind=GLOBAL type=FUNC name=ntdll.dll_Ordinal_1
+EXPECT='vaddr=0x77802620 paddr=0x0041f1f2 ord=1992 fwd=NONE sz=0 bind=GLOBAL type=FUNC name=ntdll.dll_Ordinal_1
 '
 run_test
 
@@ -217,7 +217,7 @@ FILE=$F1
 ARGS=
 CMDS='ir~relocations
 '
-EXPECT='616 relocations
+EXPECT='2028 relocations
 '
 run_test
 
@@ -225,9 +225,31 @@ run_test
 NAME="${PLUGIN}: 32bit - relocs resolving"
 FILE=$F1
 ARGS=
-CMDS='ir~msvcrt.dll__strdup
+CMDS='ir~msvcrt.dll___dllonexit
 '
-EXPECT='vaddr=0x0040e1b0 paddr=0x00020fb6 type=SET_32 msvcrt.dll__strdup
+EXPECT='vaddr=0x00406160 paddr=0x0009dd32 type=SET_32 msvcrt.dll___dllonexit
+'
+run_test
+
+
+NAME="${PLUGIN}: 32bit - relocs following"
+FILE=$F1
+ARGS=
+CMDS='pd 12 @[0x004061cc]
+'
+EXPECT='            ;-- msvcrt.dll_vfprintf:
+            0x773e7430      8bff           mov edi, edi
+            0x773e7432      55             push rbp
+            0x773e7433      8bec           mov ebp, esp
+            0x773e7435      ff7510         push qword [rbp + 0x10]
+            0x773e7438      6a00           push 0
+            0x773e743a      ff750c         push qword [rbp + 0xc]
+            0x773e743d      ff7508         push qword [rbp + 8]
+            0x773e7440      68fdcc3777     push 0x7737ccfd
+            0x773e7445      e800feffff     call 0x773e724a
+            0x773e744a      83c414         add esp, 0x14
+            0x773e744d      5d             pop rbp
+            0x773e744e      c3             ret
 '
 run_test
 
@@ -248,7 +270,7 @@ FILE=$F2
 ARGS=
 CMDS='il~kernel32.dll
 '
-EXPECT='[0] - kernel32.dll
+EXPECT='[0x00400000] - kernel32.dll
 '
 run_test
 
@@ -268,7 +290,7 @@ FILE=$F2
 ARGS=
 CMDS='ie~0x00401500
 '
-EXPECT='vaddr=0x00401500 paddr=0x00093c0b baddr=0x00000000 laddr=0x00000000 type=program
+EXPECT='vaddr=0x00401500 paddr=0x0009418f baddr=0x00000000 laddr=0x00000000 type=program
 '
 run_test
 
@@ -289,7 +311,7 @@ FILE=$F2
 ARGS=
 CMDS='is~imp.KERNEL32.dll_DeleteCriticalSection
 '
-EXPECT='vaddr=0x004081fc paddr=0x0009a907 ord=001 fwd= sz=0 bind=NONE type=FUNC name=imp.KERNEL32.dll_DeleteCriticalSection
+EXPECT='vaddr=0x004081fc paddr=0x0009ae8b ord=001 fwd= sz=0 bind=NONE type=FUNC name=imp.KERNEL32.dll_DeleteCriticalSection
 '
 run_test
 
@@ -299,7 +321,7 @@ FILE=$F2
 ARGS=
 CMDS='is~ntdll.dll_A_SHAFinal
 '
-EXPECT='vaddr=0x77728bf0 paddr=0x001eb2fb ord=008 fwd=NONE sz=0 bind=GLOBAL type=FUNC name=ntdll.dll_A_SHAFinal
+EXPECT='vaddr=0x77728bf0 paddr=0x001eb87f ord=008 fwd=NONE sz=0 bind=GLOBAL type=FUNC name=ntdll.dll_A_SHAFinal
 '
 run_test
 
@@ -339,7 +361,7 @@ FILE=$F2
 ARGS=
 CMDS='iE~ntdll.dll_CsrVerifyRegion
 '
-EXPECT='vaddr=0x777d24b0 paddr=0x00294bbb ord=038 fwd=NONE sz=0 bind=GLOBAL type=FUNC name=ntdll.dll_CsrVerifyRegion
+EXPECT='vaddr=0x777d24b0 paddr=0x0029513f ord=038 fwd=NONE sz=0 bind=GLOBAL type=FUNC name=ntdll.dll_CsrVerifyRegion
 '
 run_test
 
@@ -359,9 +381,29 @@ FILE=$F2
 ARGS=
 CMDS='ir~KERNEL32.dll_DeleteCriticalSection
 '
-EXPECT='vaddr=0x004081fc paddr=0x0009a907 type=SET_64 KERNEL32.dll_DeleteCriticalSection
+EXPECT='vaddr=0x004081fc paddr=0x0009ae8b type=SET_64 KERNEL32.dll_DeleteCriticalSection
 '
 run_test
+
+
+NAME="${PLUGIN}: 64bit - relocs following"
+FILE=$F2
+ARGS=
+CMDS='pd 9 @[0x004083ac]
+'
+EXPECT="            ;-- msvcrt.dll_vfprintf:
+            0x7fefdb0a1a4      4883ec38       sub rsp, 0x38            ; '8'
+            0x7fefdb0a1a8      4c89442420     mov qword [rsp + 0x20], r8
+            0x7fefdb0a1ad      4c8bc2         mov r8, rdx
+            0x7fefdb0a1b0      488bd1         mov rdx, rcx
+            0x7fefdb0a1b3      488d0dea7ffa.  lea rcx, 0x7fefdab21a4   ; 0x7fefdab21a4
+            0x7fefdb0a1ba      4533c9         xor r9d, r9d
+            0x7fefdb0a1bd      e87efdffff     call 0x7fefdb09f40
+            0x7fefdb0a1c2      4883c438       add rsp, 0x38            ; '8'
+            0x7fefdb0a1c6      c3             ret
+"
+run_test
+
 
 # Bug tests
 

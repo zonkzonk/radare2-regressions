@@ -52,6 +52,14 @@ test_vector "${PLUGIN}" "blx lr" f047
 test_vector "${PLUGIN}" "mov fp, r1" 8b46
 test_vector "${PLUGIN}" "mov r9, r1" 8946
 test_vector "${PLUGIN}" "mov r4, r1" 0c46
+test_vector "${PLUGIN}" "add sp, 0x10" 04b0
+test_vector "${PLUGIN}" "add sp, 0x16" 0df1160d
+test_vector "${PLUGIN}" "add ip, 0x26" 0cf1260c
+test_vector "${PLUGIN}" "add r7, 0xaa" 07f1aa07
+test_vector "${PLUGIN}" "sub sp, 0x30" 8cb0
+test_vector "${PLUGIN}" "sub ip, 0x33" acf1330c
+test_vector "${PLUGIN}" "sub r4, 0x69" a4f16904
+test_vector "${PLUGIN}" "sub r8, 0xf9" a8f1f908
 
 # Expected to fail
 test_invalid "${PLUGIN}" "b gh"

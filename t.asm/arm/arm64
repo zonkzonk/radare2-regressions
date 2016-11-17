@@ -25,3 +25,8 @@ test_vector "${PLUGIN}" "msr SP_EL0, x3" 034118d5 "msr sp_el0, x3"
 test_vector "${PLUGIN}" "msr 0xc208, x3" 034118d5 "msr sp_el0, x3"
 test_vector "${PLUGIN}" "mrs x3, SP_EL0" 034138d5 "mrs x3, sp_el0"
 test_vector "${PLUGIN}" "nop" 1f2003d5 nop
+test_vector "${PLUGIN}" "b 0x7fffff8" feffff15 "b 0x7fffff8"
+test_vector "${PLUGIN}" "b 0x8" 02000014 "b 0x8"
+test_vector "${PLUGIN}" "b 0xff4" fd030014 "b 0xff4"
+test_vector "${PLUGIN}" "b 0x7efd4" b44f0014:wx "b 0x7efd4"
+

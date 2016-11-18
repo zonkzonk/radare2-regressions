@@ -2,7 +2,7 @@
 # GPL 3+ - Copyright (C) 2012  pancake, Edd Barrett, Simon Ruderich
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
-NAME='af jmp after ret'
+NAME='a2f jmp after ret'
 BROKEN=
 FILE=malloc://512
 ARGS=
@@ -11,7 +11,7 @@ e anal.hasnext=0
 e asm.arch=x86
 e asm.bits=64
 wx b8010000004839ca7f26b8ffffffff4839ca7c1c498b4838498b5138b8010000004839ca7f0ab8ffffffff4839ca7d025dc34883c7684883c6685dc3
-af
+a2f
 afl~?
 '
 EXPECT='1
@@ -19,7 +19,7 @@ EXPECT='1
 run_test
 
 
-NAME='af jmp after ret'
+NAME='a2f jmp after ret'
 BROKEN=
 FILE=malloc://512
 ARGS=
@@ -28,7 +28,7 @@ e anal.hasnext=0
 e asm.arch=x86
 e asm.bits=64
 wx b8010000004839ca7f26b8ffffffff4839ca7c1c498b4838498b5138b8010000004839ca7f0ab8ffffffff4839ca7d025dc34883c7684883c6685dc3
-af
+a2f
 afl~?
 afl~[2]
 '
@@ -38,7 +38,7 @@ EXPECT='1
 run_test
 
 
-NAME='af 8 bbs 4 ret and some jumps'
+NAME='a2f 8 bbs 4 ret and some jumps'
 BROKEN=
 FILE=malloc://512
 ARGS=
@@ -47,7 +47,7 @@ e anal.hasnext=0
 e asm.arch=x86
 e asm.bits=32
 wx 85c0740585c07405c385c0eb01c385c07401c3b8efbeaddec3
-af
+a2f
 afb
 '
 EXPECT='0x00000000 0x00000004 00:0000 4 j 0x00000009 f 0x00000004
@@ -62,7 +62,7 @@ EXPECT='0x00000000 0x00000004 00:0000 4 j 0x00000009 f 0x00000004
 run_test
 
 
-NAME='af 3bbs with entry in the middle of the function'
+NAME='a2f 3bbs with entry in the middle of the function'
 BROKEN=
 FILE=malloc://512
 ARGS=
@@ -72,7 +72,7 @@ e asm.arch=x86
 e asm.bits=32
 wx 31c031c983c10183c10285c975f231c931c040c3
 s 0xa
-af
+a2f
 afb
 '
 EXPECT='0x00000000 0x0000000a 00:0000 10 j 0x0000000a
@@ -83,7 +83,7 @@ EXPECT='0x00000000 0x0000000a 00:0000 10 j 0x0000000a
 run_test
 
 
-NAME='af 6 bbs with entry at the end of the function'
+NAME='a2f 6 bbs with entry at the end of the function'
 BROKEN=
 FILE=malloc://512
 ARGS=
@@ -93,7 +93,7 @@ e asm.arch=x86
 e asm.bits=32
 wx 31c083c00183e801750831c083e80183c00131c983c10183e90175e431d283ea0183c2017402ebd831c0c3
 s 0x26
-af
+a2f
 afb
 '
 EXPECT='0x00000000 0x0000000a 00:0000 10 j 0x00000012 f 0x0000000a

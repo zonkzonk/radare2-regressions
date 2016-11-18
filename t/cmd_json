@@ -12,3 +12,58 @@ EXPECT='[{"offset":0,"val":104,"esil":"104,rdi,+=,$o,of,=,$s,sf,=,$z,zf,=,$c63,c
 
 '
 run_test
+
+declare -a arr=("aa ; pdfj"
+                "izzj"
+                "ij"
+                "jej"
+                "izj"
+                "iIj"
+                "isj"
+                "iSj"
+                "irj"
+                "iRj"
+                "iSj"
+                "iSj sha1"
+                "aa ; aaij"
+                "aa ; afij"
+                "aa ; aerj"
+                "aa ; agj"
+                "aa ; aoj"
+                "aa ; aOj"
+                "aa ; arj"
+                "aa ; axj @ sym.main"
+                "aa ; axtj @ sym.main"
+                "aa ; axfj @ sym.main"
+                "drj"
+                "dbj"
+                "fj"
+                "fsj"
+                "p8j"
+                "pdfj"
+                "pDj"
+                "pdj"
+                "pfj"
+                "psj @ str.csapp"
+                "sj"
+                "Sj"
+                "pdj"
+                "Tj"
+                "ij"
+                )
+
+for i in "${arr[@]}"
+do
+  NAME="JSON: $i Well-formed"
+  CMDS="!r2 -qc $i ../bins/elf/bomb | jq . > /dev/null && echo \"1\""
+  EXPECT='1
+'
+  run_test
+done
+
+NAME="JSON: ej Well-formed"
+CMDS="!r2 -qc ej ../bins/elf/bomb | jq . > /dev/null && echo \"1\""
+BROKEN=1
+EXPECT='1
+'
+run_test

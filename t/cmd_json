@@ -41,9 +41,16 @@ declare -a arr=("aa ; pdfj"
                 "fsj"
                 "p8j"
                 "pdfj"
+                "iaj"
+                "pdrj"
+                "aa ; pdfj @ sym.main"
+                "aa ; pdj @@@ functions"
+                "aa ; aflqj"
+                "aa ; aarj"
+                "oj"
                 "pDj"
                 "pdj"
-                "pfj"
+                "pij"
                 "psj @ str.csapp"
                 "sj"
                 "Sj"
@@ -63,6 +70,13 @@ done
 
 NAME="JSON: ej Well-formed"
 CMDS="!r2 -qc ej ../bins/elf/bomb | jq . > /dev/null && echo \"1\""
+BROKEN=1
+EXPECT='1
+'
+run_test
+
+NAME="JSON: CCj Well-formed"
+CMDS="!r2 -qc CCj ../bins/elf/bomb | jq . > /dev/null && echo \"1\""
 BROKEN=1
 EXPECT='1
 '

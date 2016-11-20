@@ -60,6 +60,7 @@ if [ $TRAVIS_OS_NAME = "linux" ]; then
                   "Tj"
                   "ij"
                   "CCj"
+                  "ej"
                   )
 
   for i in "${arr[@]}"
@@ -71,10 +72,4 @@ if [ $TRAVIS_OS_NAME = "linux" ]; then
     run_test
   done
 
-  NAME="JSON: ej Well-formed"
-  CMDS="!r2 -qc ej ../bins/elf/bomb | jq . > /dev/null && echo \"1\""
-  BROKEN=1
-  EXPECT='1
-'
-  run_test
 fi

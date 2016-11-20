@@ -57,6 +57,7 @@ declare -a arr=("aa ; pdfj"
                 "pdj"
                 "Tj"
                 "ij"
+                "CCj"
                 )
 
 for i in "${arr[@]}"
@@ -70,13 +71,6 @@ done
 
 NAME="JSON: ej Well-formed"
 CMDS="!r2 -qc ej ../bins/elf/bomb | jq . > /dev/null && echo \"1\""
-BROKEN=1
-EXPECT='1
-'
-run_test
-
-NAME="JSON: CCj Well-formed"
-CMDS="!r2 -qc CCj ../bins/elf/bomb | jq . > /dev/null && echo \"1\""
 BROKEN=1
 EXPECT='1
 '

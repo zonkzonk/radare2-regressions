@@ -4,7 +4,7 @@
 
 NAME='dr= double 0x bug'
 FILE=-
-BROKEN=1
+BROKEN=
 ARGS="-a x86 -b 32"
 CMDS='dr=~?0x0x
 '

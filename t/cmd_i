@@ -275,6 +275,18 @@ binsz    1024
 FILTER='sed "s/^fd       [0-9][0-9]*/fd       42/"'
 run_test
 
+NAME='ic cpp classes'
+FILE=../bins/elf/libmagic.so
+ARGS=
+BROKEN=
+CMDS='ic~_JNIEnv
+ic~FindClass
+'
+EXPECT='0x00000000 class 0 _JNIEnv
+0x00006060 method 0 FindClass
+'
+run_test
+
 NAME='ie (file x86)'
 FILE=../bins/elf/analysis/x86-helloworld-gcc
 ARGS=

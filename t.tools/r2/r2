@@ -21,7 +21,7 @@ run_test
 
 NAME='r2 --'
 FILE=../../bins/elf/bomb
-BROKEN=1
+BROKEN=
 ARGS=
 CMDS='r2 -s main -qc "s" ../../bins/elf/bomb
 '

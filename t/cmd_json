@@ -61,6 +61,7 @@ if [ $TRAVIS_OS_NAME = "linux" ]; then
                   "ij"
                   "CCj"
                   "ej"
+                  "p-j"
                   )
 
   for i in "${arr[@]}"

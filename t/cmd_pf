@@ -2,6 +2,15 @@
 # GPL 3+ - Copyright (C) 2014-2016
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
+NAME='pf i foo @x:0x01'
+FILE=-
+BROKEN=1
+ARGS="-a x86 -b 32"
+CMDS='pf i foo @x:0x01'
+EXPECT=' foo : 0x00000000 = 1
+'
+run_test
+
 NAME='seteq'
 FILE=malloc://1024
 ARGS=

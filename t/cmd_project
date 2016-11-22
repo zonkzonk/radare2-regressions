@@ -53,7 +53,8 @@ Ps testexp > /dev/null
 cat /tmp/testexp/rc | grep base64
 rmdir -p /tmp/testexp
 '
-EXPECT='CCu base64:IlNvbWUgb3RoZXIgdGVzdCI= @ 0x00404890
+EXPECT='"e bin.debase64 = false"
+CCu base64:IlNvbWUgb3RoZXIgdGVzdCI= @ 0x00404890
 '
 run_test
 

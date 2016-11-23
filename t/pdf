@@ -184,5 +184,3 @@ EXPECT='            ;-- main:
 \           0x00400558      c3             ret
 '
 run_test
-exit 1
-exit 1

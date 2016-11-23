@@ -79,11 +79,11 @@ rjmp 0x106
 run_test
 
 NAME="avr rjmp - relative jump backward - at 0"
-BROKEN=
+BROKEN=1
 FILE=malloc://8192
 ARGS="-a avr"
 CMDS="
-e asm.cpu=ATmega640
+e asm.cpu=ATmega1280
 wx 00c8 01c8 7ec8 7fc8 80c8 81c8
 aoe 4
 pi 4

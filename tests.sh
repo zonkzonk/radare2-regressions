@@ -40,13 +40,14 @@ die() {
 }
 
 # Check for diff in system
+DIFF=diff
 diff --help 2>&1 | grep -q gnu
 if [ "$?" = 0 ]; then
-  DIFF="diff --strip-trailing-cr"
+  DIFF_ARG="--strip-trailing-cr"
 else
   gdiff --help 2>&1 | grep -q gnu
   if [ "$?" = 0 ]; then
-    DIFF="gdiff --strip-trailing-cr"
+    DIFF_ARG="--strip-trailing-cr"
   else
     type diff > /dev/null 2>&1
     if [ $? = 0 ]; then
@@ -257,7 +258,7 @@ __EOF__
   fi
 
   # Check if the output matched. (default to yes)
-  ${DIFF} -u "${TMP_EXP}" "${TMP_OUT}" > "${TMP_ODF}"
+  ${DIFF} ${DIFF_ARG} -u "${TMP_EXP}" "${TMP_OUT}" > "${TMP_ODF}"
   OUT_CODE=0
   [ -s "${TMP_ODF}" ] && OUT_CODE=1
   if [ "${NOT_EXPECT}" = 1 ]; then
@@ -270,7 +271,7 @@ __EOF__
   if [ "${IGNORE_ERR}" = 1 ]; then
     ERR_CODE=0
   else
-    ${DIFF} -u "${TMP_EXR}" "${TMP_ERR}" > "${TMP_EDF}"
+    ${DIFF} ${DIFF_ARG} -u "${TMP_EXR}" "${TMP_ERR}" > "${TMP_EDF}"
     ERR_CODE=0
     [ -s "${TMP_EDF}" ] && ERR_CODE=1
     if [ "${NOT_EXPECT}" = 1 ]; then
@@ -310,7 +311,7 @@ __EOF__
       if grep ^Binary "${TMP_ODF}"; then
         r2 -nqfcx "${TMP_EXP}" > "${TMP_DIR}/xhd"  # expected hexdump
         r2 -nqfcx "${TMP_OUT}" > "${TMP_DIR}/ohd"  # output hexdump
-        ${DIFF} -u "${TMP_DIR}/xhd" "${TMP_DIR}/ohd"
+        ${DIFF} ${DIFF_ARG} -u "${TMP_DIR}/xhd" "${TMP_DIR}/ohd"
       else
         cat "${TMP_ODF}"
       fi
@@ -323,7 +324,7 @@ __EOF__
       if grep ^Binary "${TMP_EDF}"; then
         r2 -nqfcx "${TMP_EXR}" > "${TMP_DIR}/xhr"  # expected err hexdump
         r2 -nqfcx "${TMP_ERR}" > "${TMP_DIR}/ehd"  # err output hexdump
-        ${DIFF} -u "${TMP_DIR}/xhr" "${TMP_DIR}/ehd"
+        ${DIFF} ${DIFF_ARG} -u "${TMP_DIR}/xhr" "${TMP_DIR}/ehd"
       else
         cat "${TMP_EDF}"
       fi

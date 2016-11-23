@@ -71,7 +71,7 @@ IFS=`printf "\t"`
 	for i in $arr ; do
 		c="`echo $i`"
 		NAME="JSON: $c Well-formed"
-		CMDS="!r2 -qc '$c' ../bins/elf/bomb | jq . > /dev/null && echo \"1\""
+		CMDS="!r2 -qc $c ../bins/elf/bomb | jq . > /dev/null && echo \"1\""
 		EXPECT='1
 '
 		run_test

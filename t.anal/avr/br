@@ -63,6 +63,7 @@ BROKEN=
 FILE=malloc://8192
 ARGS="-s 0x1000 -a avr"
 CMDS="
+e asm.cpu=ATmega1280
 wx 00c8 01c8 7ec8 7fc8 80c8 81c8
 aoe 4
 pi 4

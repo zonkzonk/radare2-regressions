@@ -64,12 +64,9 @@ s- ; s+
 s* ; ?v $$ ; ?e
 '
 EXPECT='No seeks.
--no seeks done-
 0x0
 
 But try undo/redo.
--no seeks done-
--no seeks done-
 
 First seeks.
 f undo_0 @ 0x0

@@ -21,7 +21,7 @@ bool test_r_base64_decode_invalid(void) {
 	ut8* hello = malloc (50);
 	int status = r_base64_decode (hello, "\x01\x02\x03\x04\x00", -1);
 	// Returns the length of the decoded string, 0 == invalid input.
-	mu_assert_eq(status, 0, "invalid base64 decoding");
+	mu_assert_eq(status, -1, "invalid base64 decoding");
 	free (hello);
 	mu_end;
 }

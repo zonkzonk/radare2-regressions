@@ -203,7 +203,7 @@ EXPECT='|           0x00003ca6      cmp eax, 2
 |    ||`--> 0x00003ce3      mov esi, 5
 |    || |   0x00003ce8      xor edi, edi
 |    || |   0x00003cea      mov dword [rip + 0x1d60c], 0               ; [0x21300:4]=-1
-|    || |   0x00003cf4      call sub.__stack_chk_fail_740
+|    || |   0x00003cf4      call fcn.00012740
 |    || |   ; JMP XREF from 0x00004602 (main)
 |    || |   ; JMP XREF from 0x00004c38 (main)
 |    || |   ; JMP XREF from 0x00003ce1 (main)
@@ -244,7 +244,7 @@ EXPECT='|           0x00003ca6      cmp eax, 2
 |  | `----> 0x00003ce3      mov esi, 5
 |  |   |    0x00003ce8      xor edi, edi
 |  |   |    0x00003cea      mov dword [rip + 0x1d60c], 0               ; [0x21300:4]=-1
-|  |   |    0x00003cf4      call sub.__stack_chk_fail_740
+|  |   |    0x00003cf4      call fcn.00012740
 |  |   |    ; JMP XREF from 0x00004602 (main)
 |  |   |    ; JMP XREF from 0x00004c38 (main)
 |  |   |    ; JMP XREF from 0x00003ce1 (main)
@@ -285,10 +285,48 @@ EXPECT='|           0x00003ca6      cmp eax, 2
 |  | `----> 0x00003ce3      mov esi, 5
 |  |   |    0x00003ce8      xor edi, edi
 |  |   |    0x00003cea      mov dword [rip + 0x1d60c], 0               ; [0x21300:4]=-1
-|  |   |    0x00003cf4      call sub.__stack_chk_fail_740
+|  |   |    0x00003cf4      call fcn.00012740
 |  |   |    ; JMP XREF from 0x00004602 (main)
 |  |   |    ; JMP XREF from 0x00004c38 (main)
 |  |   |    ; JMP XREF from 0x00003ce1 (main)
 | --------> 0x00003cf9      lea rdi, [rip + 0x14fb4]                   ; 0x18cb4 ; str.QUOTING_STYLE ; "QUOTING_STYLE" @ 0x18cb4
+'
+run_test
+
+NAME="reflines in noreturn"
+FILE=../../bins/elf/analysis/ls-alxchk
+BROKEN=
+CMDS='e asm.relsub=false
+e asm.bytes=false
+e asm.leahints=false
+e scr.utf8=false
+e scr.color=false
+e asm.lineswide=true
+e asm.comments=0
+aaa >/dev/null
+s 0x00012740
+pdf
+'
+EXPECT='/ (fcn) fcn.00012740 76
+|   fcn.00012740 ();
+|           ; var int local_8h @ rbp-0x8
+|           0x00012740      push rbp
+|           0x00012741      mov rbp, rsp
+|           0x00012744      sub rsp, 0x1030
+|           0x0001274b      or qword [rsp], 0
+|           0x00012750      add rsp, 0x1020
+|           0x00012757      mov rax, qword fs:[0x28]
+|           0x00012760      mov qword [rbp - local_8h], rax
+|           0x00012764      xor eax, eax
+|           0x00012766      lea rax, [rip + 0xf033]
+|           0x0001276d      test rdi, rdi
+|           0x00012770      cmovne rax, rdi
+|           0x00012774      mov dword [rax], esi
+|           0x00012776      mov rax, qword [rbp - local_8h]
+|           0x0001277a      xor rax, qword fs:[0x28]
+|      ,==< 0x00012783      jne 0x12787
+|      |    0x00012785      leave
+|      |    0x00012786      ret
+\      `--> 0x00012787      call sym.imp.__stack_chk_fail             void);
 '
 run_test

@@ -6,6 +6,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='AVR: aeso on call'
 # XXX this test is wrong because pc is not ffff...
+BROKEN=1
 FILE=malloc://1024
 ARGS=
 # Code compiled:

@@ -33,10 +33,10 @@ NAME='wa je 0x33'
 FILE=malloc://1024
 ARGS='-a x86 -b 32'
 CMDS='
-wa je 0x33
-pi 1
+wa je 0x33 @ 0x10
+pi 1 @ 0x10
 '
-EXPECT='je 0x33
+EXPECT='je 0x43
 '
 run_test
 

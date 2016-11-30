@@ -29,6 +29,17 @@ mov eax, 0x21
 '
 run_test
 
+NAME='wa je 0x33'
+FILE=malloc://1024
+ARGS='-a x86 -b 32'
+CMDS='
+wa je 0x33
+pi 1
+'
+EXPECT='je 0x33
+'
+run_test
+
 # wao : modify operation of current opcode
 NAME='wao nop (x86)'
 FILE=malloc://1024

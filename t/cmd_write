@@ -36,7 +36,7 @@ CMDS='
 wa je 0x33 @ 0x10
 pi 1 @ 0x10
 '
-EXPECT='je 0x43
+EXPECT='je 0x33
 '
 run_test
 

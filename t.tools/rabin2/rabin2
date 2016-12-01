@@ -95,6 +95,21 @@ EXPECT='36
 '
 run_test
 
+NAME='rabin2 -S and -rS file elf'
+BROKEN=
+FILE=../../bins/elf/analysis/x86-helloworld-gcc
+ARGS=
+CMDS='!rabin2 -S ${R2_FILE}|wc -l|awk "{print \$1}"
+!rabin2 -rS ${R2_FILE}|wc -l|awk "{print \$1}"
+!env RABIN2_PREFIX=prixfixe rabin2 -S ${R2_FILE} |grep prixfixe. |wc -l
+!env RABIN2_PREFIX=prixfixe rabin2 -rS ${R2_FILE} |grep prixfixe. |wc -l'
+EXPECT='42
+158
+39
+156
+'
+run_test
+
 NAME='rabin2 -z pe'
 BROKEN=
 FILE=../../bins/pe/a.exe

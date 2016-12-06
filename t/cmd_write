@@ -189,7 +189,6 @@ rm -f a_piece_of_ls_saved_to_PWD
 
 NAME='endian tests: wv'
 FILE=-
-BROKEN=1
 CMDS="e cfg.bigendian=false
 e asm.bits=32
 wv4 3

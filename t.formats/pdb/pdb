@@ -15,6 +15,7 @@ if type "cabextract" > /dev/null; then
 	run_test
 else
 	echo "[BR] Cannot find cabextract in PATH, not running pdb test"
+	test_reset
 fi
 
 

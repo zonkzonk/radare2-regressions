@@ -20,12 +20,12 @@ run_test
 
 NAME='PE: corkami nullEP.exe - Expect error Null entry'
 FILE=../../bins/pe/nullEP.exe
-IGNORE_ERR=1
-BROKEN=1
+BROKEN=
 ARGS=''
-CMDS=""
+CMDS=q
 EXPECT_ERR='Warning: Invalid import directory size: 0xffff is now 0x1d0
 Warning: read (tls_callback)
 Warning: NULL entrypoint
 '
+EXPECT=""
 run_test

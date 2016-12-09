@@ -11,11 +11,12 @@ EXPECT='PDB "user32.pdb" download success
 EXPECT_ERR=''
 IGNORE_ERR=0
 
-if ! type "cabextract" > /dev/null; then
-	BROKEN=1
+if type "cabextract" > /dev/null; then
+	run_test
+else
+	echo "[BR] Cannot find cabextract in PATH, not running pdb test"
 fi
 
-run_test
 
 NAME='find structure R2_TEST_STRUCT'
 BROKEN=

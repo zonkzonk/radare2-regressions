@@ -84,3 +84,14 @@ afb
 EXPECT='
 '
 run_test
+
+NAME='af fwd-jmp'
+BROKEN=
+FILE=../../bins/elf/license_1.out
+CMDS='
+af @ main
+afb @ main~?
+'
+EXPECT='9
+'
+run_test

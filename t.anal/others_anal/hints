@@ -1,0 +1,17 @@
+#!/bin/sh
+
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+NAME='ahe'
+BROKEN=
+FILE=malloc://512
+ARGS=
+CMDS='ao~?
+ahe test
+ao~?
+'
+EXPECT='12
+12
+'
+run_test
+

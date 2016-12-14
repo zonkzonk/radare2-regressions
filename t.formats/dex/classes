@@ -112,8 +112,8 @@ EXPECT='0x00000372 6 str._init_
 0x000000d9 0 sym.imp.Ljava_lang_StringBuilder.method._init___V
 0x000000e1 0 sym.imp.Ljava_lang_StringBuilder.method.append_Ljava_lang_String__Ljava_lang_StringBuilder_
 0x000000e9 0 sym.imp.Ljava_lang_StringBuilder.method.toString__Ljava_lang_String_
-0x000001e9 1 class.LHello
-0x000001ea 1 class.LWorld
+0x000001e8 1 class.LHello
+0x00000208 1 class.LWorld
 '
 run_test
 

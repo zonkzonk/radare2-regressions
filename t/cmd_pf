@@ -11,6 +11,20 @@ EXPECT=' foo : 0x00000000 = 1
 '
 run_test
 
+NAME='Cf main'
+FILE=-
+BROKEN=
+CMDS='Cf main;C*'
+EXPECT=''
+run_test
+
+NAME='Cf 1 main'
+FILE=-
+BROKEN=
+CMDS='Cf 1 main;C*'
+EXPECT=''
+run_test
+
 NAME='seteq'
 FILE=malloc://1024
 ARGS=

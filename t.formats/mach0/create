@@ -13,7 +13,7 @@ CMDS='rm /tmp/tiny64.mach0
 ls -l /tmp/tiny64.mach0~[3]
 rm /tmp/tiny64.mach0
 '
-EXPECT='369
+EXPECT='4097
 '
 run_test
 
@@ -26,7 +26,7 @@ CMDS='rm /tmp/tiny64.mach0
 ls -l /tmp/tiny64.mach0~[3]
 rm /tmp/tiny64.mach0
 '
-EXPECT='369
+EXPECT='4097
 '
 run_test
 

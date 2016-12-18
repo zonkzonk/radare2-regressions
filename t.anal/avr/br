@@ -80,7 +80,7 @@ rjmp 0x106
 run_test
 
 NAME="avr rjmp - relative jump backward - at 0"
-BROKEN=1
+BROKEN=
 FILE=malloc://8192
 ARGS="-a avr"
 CMDS="

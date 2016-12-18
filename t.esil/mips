@@ -1564,7 +1564,7 @@ run_test
 
 NAME="asm.emu with meta"
 FILE=../bins/elf/analysis/crackmips
-BROKEN=1
+BROKEN=
 CMDS='
 s 0x00400820
 af

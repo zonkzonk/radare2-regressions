@@ -28,7 +28,7 @@ bool test_r_tinyrange_in_two(void) {
 	r_tinyrange_add (bbr, 4200304, 4200575);
 	r_tinyrange_add (bbr, 4200576, 4200654);
 	r_tinyrange_add (bbr, 4200656, 4200812);
-	mu_assert_eq (true, r_tinyrange_in (bbr, 4200288), "Failed first");
+	mu_assert_eq (true, r_tinyrange_in (bbr, 4200288), "Failed two");
 	r_tinyrange_fini (bbr);
 	free (bbr);
 	mu_end;
@@ -58,7 +58,7 @@ bool test_r_tinyrange_in_r2(void) {
 	r_tinyrange_add (bbr, 0x50fb, 0x5107);
 	r_tinyrange_add (bbr, 0x5107, 0x510a);
 	r_tinyrange_add (bbr, 0x5110, 0x5112);
-	mu_assert_eq (true, r_tinyrange_in (bbr, 0x5110), "Failed first");
+	mu_assert_eq (true, r_tinyrange_in (bbr, 0x5110), "Failed inr2");
 	r_tinyrange_fini (bbr);
 	free (bbr);
 	mu_end;
@@ -71,11 +71,21 @@ bool test_r_tinyrange_in_three(void) {
 	r_tinyrange_add (bbr, 4294982988, 4294983738); //2,3 
 	r_tinyrange_add (bbr, 4294984100, 4294984477); 
 	r_tinyrange_add (bbr, 4294984485, 4294984703);
-	mu_assert_eq (false, r_tinyrange_in (bbr, 4294983738), "Failed first");
+	mu_assert_eq (false, r_tinyrange_in (bbr, 4294983738), "Failed three");
 	r_tinyrange_fini (bbr);
 	free (bbr);
 	mu_end;
 
+}
+
+bool test_r_tinyrange_in_four(void) {
+	RRangeTiny *bbr = r_tinyrange_new ();
+	r_tinyrange_add (bbr, 20704, 20746);
+	r_tinyrange_add (bbr, 20752, 20754); //2,3 
+	mu_assert_eq (true, r_tinyrange_in (bbr, 20752), "Failed four");
+	r_tinyrange_fini (bbr);
+	free (bbr);
+	mu_end;
 }
 
 
@@ -85,6 +95,7 @@ int all_tests() {
 	mu_run_test (test_r_tinyrange_in_r2);
 	mu_run_test (test_r_tinyrange_in_two);
 	mu_run_test (test_r_tinyrange_in_three);
+	mu_run_test (test_r_tinyrange_in_four);
 	return tests_passed != tests_run;
 }
 

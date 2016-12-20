@@ -4,8 +4,8 @@
 
 NAME='pD@x:90'
 FILE="../bins/mach0/bin_longstring"
-ARGS=""
+ARGS="-e asm.cmtright=false"
 CMDS='s 0x10000088a; pd 3~string~?'
-EXPECT='8
+EXPECT='7
 '
 run_test

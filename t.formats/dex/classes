@@ -152,3 +152,15 @@ vaddr=0x00000318 paddr=0x00000318 ord=008 fwd= sz=0 bind=GLOBAL type=METH name=L
 5 exports
 '
 run_test
+
+NAME='DEX HelloWorld.dex pi command'
+FILE=${HELLOWORLD}
+ARGS=''
+BROKEN=
+IGNORE_ERR=1
+CMDS="pi 1 @0x25c; pi 1 @0x026a; pi 1 @0x0294"
+EXPECT='sget-object v0, Ljava/lang/System;
+new-instance v0, LHello;
+new-instance v1, Ljava/lang/StringBuilder;
+'
+run_test

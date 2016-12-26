@@ -52,7 +52,7 @@ CMDS='
 wx 666f6f00
 /j foo\x00
 '
-EXPECT='[{"offset": 0,"id:":0,"data":"LmZvb1xcdTAwMDAu"}]
+EXPECT='[{"offset": 0,"id:":0,"data":"foo\\u0000"}]
 '
 run_test
 
@@ -127,22 +127,36 @@ CMDS='
 s 0
 e search.from = 0
 e search.to = 0x50
-/a xor al, 0x80
+# /a xor al, 0x80
+/x 3480
 '
 EXPECT='0x0000003c hit0_0 3480
 0x00000040 hit0_1 3480
 '
 run_test
 
+NAME='/a push esp'
+FILE='../bins/elf/ioli/crackme0x00'
+ARGS=
+CMDS='
+/a push esp
+'
+EXPECT='0x08048058 hit0_0 54
+0x0804805c hit0_1 54
+0x08048060 hit0_2 54
+0x08048369 hit0_3 54
+'
+run_test
+
 NAME='/a search from/to (seek beyond data)'
 FILE='../bins/elf/ioli/crackme0x00'
 ARGS=
-BROKEN=1
 CMDS='
 s 0x1000
 e search.from = 0
 e search.to = 0x00000050
-/a xor al, 0x80
+# /a xor al, 0x80
+/x 3480
 '
 EXPECT='0x0000003c hit0_0 3480
 0x00000040 hit0_1 3480

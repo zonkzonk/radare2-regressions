@@ -6,7 +6,7 @@ HELLOWORLD=../../bins/dex/HelloWorld.dex
 NAME='DEX HelloWorld.dex dexdump'
 FILE=${HELLOWORLD}
 ARGS=''
-BROKEN=1
+BROKEN=
 IGNORE_ERR=1
 CMDS="iHH"
 EXPECT="DEX file header:
@@ -150,5 +150,6 @@ Class #1            -
       locals        :
         0x0000 - 0x0022 reg=3 this LWorld;
   source_file_idx   : 17 (World.java)
+
 "
 run_test

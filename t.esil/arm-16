@@ -106,6 +106,57 @@ EXPECT='0x11223344
 '
 run_test
 
+# load/store multiple
+
+NAME="ldm r3!, {r1, r4, r5}"
+BROKEN=true
+FILE=malloc://0x200
+CMDS='
+e asm.arch=arm
+e asm.bits=16
+ar > /dev/null
+ar r3=4		# address
+ar r1=0		# init with dummy values
+ar r4=0
+ar r5=0
+wx 32cb
+wx 111111114444444455555555@4
+aes
+ar r1; ar r4; ar r5; ar r3
+'
+EXPECT='0x11111111
+0x44444444
+0x55555555
+0x00000010
+'
+run_test
+
+NAME="stm r2!, {r1, r4, r5}"
+BROKEN=true
+FILE=malloc://0x200
+CMDS='
+e asm.arch=arm
+e asm.bits=16
+ar > /dev/null
+ar r2=4		# address
+ar r1=0x11111111
+ar r4=0x44444444
+ar r5=0x55555555
+wx 32c2
+aes
+pfv x @ 4; pfv x @ 8; pfv x @ 12; ar r2
+'
+EXPECT='0x11111111
+0x44444444
+0x55555555
+0x00000010
+'
+run_test
+
+# TODO:
+# PATCH `stm r2!, {r1, r4, r5}` (@0x080001fc): `r1,r2,4,+,=[4],r4,r2,8,+,=[4],r5,r2,12,+,=[4],` ===> `r1,r2,0,+,=[4],r4,r2,4,+,=[4],r5,r2,8,+,=[4],12,r2,+=`
+
+
 # bit fields
 
 NAME="ubfx r2, r0, 8, 8"

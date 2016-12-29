@@ -31,16 +31,13 @@ blksz    0x0
 mode     -rwx
 block    0x100
 format   any
-[Imports]
-
-0 imports
 havecode false
 pic      false
 canary   false
 nx       false
 crypto   false
 va       false
-bits     ${BIT_SIZE}
+bits     64
 minopsz  1
 maxopsz  16
 pcalign  0
@@ -54,6 +51,9 @@ binsz    1025
 [Imports]
 
 0 imports
+[Exports]
+
+0 exports
 [Entrypoints]
 
 0 entrypoints

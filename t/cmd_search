@@ -127,6 +127,20 @@ CMDS='
 s 0
 e search.from = 0
 e search.to = 0x50
+/a xor al, 0x80
+'
+EXPECT='0x0000003c hit0_0 3480
+0x00000040 hit0_1 3480
+'
+run_test
+
+NAME='/a search from/to (seek 0)'
+FILE='../bins/elf/ioli/crackme0x00'
+ARGS=-n
+CMDS='
+s 0
+e search.from = 0
+e search.to = 0x50
 # /a xor al, 0x80
 /x 3480
 '
@@ -155,7 +169,20 @@ CMDS='
 s 0x1000
 e search.from = 0
 e search.to = 0x00000050
-# /a xor al, 0x80
+/a xor al, 0x80
+'
+EXPECT='0x0000003c hit0_0 3480
+0x00000040 hit0_1 3480
+'
+run_test
+
+NAME='/x search from/to (seek beyond data)'
+FILE='../bins/elf/ioli/crackme0x00'
+ARGS=
+CMDS='
+s 0x1000
+e search.from = 0
+e search.to = 0x00000050
 /x 3480
 '
 EXPECT='0x0000003c hit0_0 3480

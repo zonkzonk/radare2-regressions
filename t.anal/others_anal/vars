@@ -118,7 +118,7 @@ EXPECT='cdecl
 |           ; arg int arg_ch @ ebp+0xc
 |           ; arg int arg_10h @ ebp+0x10
 |           ; arg int arg_14h @ ebp+0x14
-|           ; CALL XREF from 0x080484db (sym.main)
+|              ; CALL XREF from 0x080484db (sym.main)
 |           0x08048456      55             push ebp
 |           0x08048457      89e5           mov ebp, esp
 |           0x08048459      83ec18         sub esp, 0x18

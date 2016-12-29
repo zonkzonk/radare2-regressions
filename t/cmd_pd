@@ -141,7 +141,7 @@ e scr.columns = 90
 aa
 pd 1 @ 0x0040050a
 '
-EXPECT='|           0x0040050a      bfc4054000     mov edi, str.Hello_World    ; "Hello World" @ 1x4005c4
+EXPECT='|           0x0040050a      bfc4054000     mov edi, str.Hello_World    ; "Hello World" @ 0x4005c4
 '
 run_test
 
@@ -155,7 +155,7 @@ e scr.columns = 90
 aa
 pd 1 @ 0x0040050a
 '
-EXPECT='|           0x0040050a      bfc4054000     mov edi, str.Hello_World    ; "Hello World" @ 1x4005c4
+EXPECT='|           0x0040050a      bfc4054000     mov edi, str.Hello_World    ; "Hello World" @ 0x4005c4
 '
 run_test
 
@@ -212,7 +212,7 @@ EXPECT='            ;-- main:
             ;-- main:
             0x00400506      55             push rbp
             0x00400507      4889e5         mov rbp, rsp
-            0x0040050a      bfc4054000     mov edi, str.Hello_World    ; "Hello World" @ 1x4005c4
+            0x0040050a      bfc4054000     mov edi, str.Hello_World    ; "Hello World" @ 0x4005c4
 '
 
 run_test
@@ -228,7 +228,7 @@ EXPECT='            ;-- main:
             ;-- main:
             0x00400506      55             push rbp
             0x00400507      4889e5         mov rbp, rsp
-            0x0040050a      bfc4054000     mov edi, str.Hello_World    ; "Hello World" @ 1x4005c4
+            0x0040050a      bfc4054000     mov edi, str.Hello_World    ; "Hello World" @ 0x4005c4
 '
 
 run_test

@@ -354,3 +354,20 @@ aoe
 EXPECT='0x0 6,pc,+=
 '
 run_test
+
+# LDR (register)
+NAME="ldr r2, [r3, r1]"
+BROKEN=true
+FILE=malloc://0x200
+CMDS='
+e asm.arch=arm
+e asm.bits=16
+ar r3=1
+ar r1=2
+wx 5a58aabbccddeeff
+aes
+ar r2
+'
+EXPECT='0xeeddccbb
+'
+run_test

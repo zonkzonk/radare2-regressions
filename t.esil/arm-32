@@ -1,0 +1,249 @@
+#!/bin/sh
+
+# GPL 3+ - Copyright (C) 2017  ninjahacker
+
+for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
+
+NAME='subs triggers zf'
+BROKEN=true
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aer r2=1
+aer cpsr=0
+wa subs r2, r2, 1
+aes
+aer?cpsr
+'
+EXPECT='0x40000000
+'
+run_test
+
+NAME='subs triggers zf off'
+BROKEN=true
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aer r2=2
+aer cpsr=0x40000000
+wa subs r2, r2, 1
+aes
+aer?cpsr
+'
+EXPECT='0x00000000
+'
+run_test
+
+
+NAME='cmp neq unchanged zf'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aei
+aeim
+aer sp=0x00108000
+.aer*
+wa cmp r1, 16
+aes
+aer?cpsr
+'
+EXPECT='0x00000000
+'
+run_test
+
+NAME='cmp neq changed zf'
+BROKEN=
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aei
+aeim
+aer sp=0x00108000
+aer cpsr=0xffffffff
+.aer*
+wa cmp r1, 16
+aes
+aer?cpsr
+'
+EXPECT='0xbfffffff
+'
+run_test
+
+NAME='cmp eq unchanged zf'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aei
+aeim
+aer sp=0x00108000
+aer r1=0x10
+aer cpsr=0x40000000
+.aer*
+wa cmp r1, 16
+aes
+aer?cpsr
+'
+EXPECT='0x40000000
+'
+run_test
+
+NAME='cmp eq changed zf'
+BROKEN=
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aei
+aeim
+aer sp=0x00108000
+aer r1=0x10
+aer cpsr=0x00000000
+.aer*
+wa cmp r1, 16
+aes
+aer?cpsr
+'
+EXPECT='0x40000000
+'
+run_test
+
+# load cases
+
+NAME="ldr r0, [r0, 7]"
+BROKEN=true
+FILE=malloc://0x200
+CMDS='
+e asm.arch=arm
+e asm.bits=32
+ar > /dev/null
+ar r0=0
+wx 070090e5
+wx aaaaaaaabbbbbbbb44332211@4
+aes
+ar r0
+'
+EXPECT='0x223344bb
+'
+run_test
+
+
+NAME="ldr r0, [r0, r1]"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=arm
+e asm.bits=32
+ar > /dev/null
+ar r0=4
+ar r1=2
+wx 010090e7
+wx aaaaaaaabbbbbbbb44332211@4
+aes
+ar r0
+'
+EXPECT='0xbbbbaaaa
+'
+run_test
+
+NAME="ldr r2, [r3, r1]"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=arm
+e asm.bits=32
+ar r3=4
+ar r1=2
+wx 012093e7aabbccddeeff
+aes
+ar r2
+'
+EXPECT='0xffeeddcc
+'
+run_test
+
+# STR immediate (p8 prints native endian)
+NAME="str r2, [r3, 4]"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=arm
+e asm.bits=32
+ar r2=0xdeadbeef
+ar r3=0
+wx 042083e5aabbccddeeff
+aes
+p8 4 @4
+'
+EXPECT='efbeadde
+'
+run_test
+
+# STR immediate (p8 prints native endian)
+NAME="str r2, [r3, 5]"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=arm
+e asm.bits=32
+ar r2=0xdeadbeef
+ar r3=0
+wx 052083e5aabbccddeeff
+aes
+p8 4 @5
+'
+EXPECT='efbeadde
+'
+run_test
+
+
+# STR (register) (p8 prints native endian)
+NAME="str r2, [r3, r1]"
+BROKEN=true
+FILE=malloc://0x200
+CMDS='
+e asm.arch=arm
+e asm.bits=32
+ar r2=0xdeadbeef
+ar r3=4
+ar r1=2
+wx 012083e7aabbccddeeff
+aes
+p8 4 @6
+'
+EXPECT='efbeadde
+'
+run_test
+# Note: shift did not happen! Works in LDR.
+
+# STR/LDR cycle
+NAME="str r2, [r3, r1]; ldr r2, [r3, r1]"
+BROKEN=true
+FILE=malloc://0x200
+CMDS='
+e asm.arch=arm
+e asm.bits=32
+ar r2=0xdeadbeef
+ar r3=8
+ar r1=4
+wx 012083e7012093e7aabbccddeeff11223344
+aes
+aes
+ar r2
+'
+EXPECT='0xdeadbeef
+'
+run_test
+# LDR shifts but STR does not

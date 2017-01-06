@@ -199,3 +199,39 @@ CMDS="pa b lr"
 EXPECT=''
 EXPECT_ERR='Invalid-instruction'
 run_test
+
+NAME="${PLUGIN}: ands r2, r2"
+BROKEN=true
+CMDS='
+e asm.arch='${PLUGIN}'
+e asm.bits=32
+wa ands r2, r2
+pi 1 @0
+'
+EXPECT='ands r2, r2, r2
+'
+run_test
+
+NAME="${PLUGIN}: orrs r2, r2"
+BROKEN=true
+CMDS='
+e asm.arch='${PLUGIN}'
+e asm.bits=32
+wa orrs r2, r2
+pi 1 @0
+'
+EXPECT='orrs r2, r2, r2
+'
+run_test
+
+NAME="${PLUGIN}: eors r2, r2"
+BROKEN=true
+CMDS='
+e asm.arch='${PLUGIN}'
+e asm.bits=32
+wa eors r2, r2
+pi 1 @0
+'
+EXPECT='eors r2, r2, r2
+'
+run_test

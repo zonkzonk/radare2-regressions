@@ -4,8 +4,396 @@
 
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
-NAME='subs triggers zf'
+NAME='ands (opcode) triggers zf'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aer r2=0
+aer cpsr=0
+wx 022012e0
+aes
+aer?cpsr
+'
+EXPECT='0x40000000
+'
+run_test
+
+NAME='ands (opcode) triggers zf off'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aer r2=5
+aer cpsr=0x40000000
+wx 022012e0
+aes
+aer?cpsr
+'
+EXPECT='0x00000000
+'
+run_test
+
+NAME='ands triggers zf'
 BROKEN=true
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aer r2=0
+aer cpsr=0
+wa ands r2, r2
+aes
+aer?cpsr
+'
+EXPECT='0x40000000
+'
+run_test
+
+NAME='ands triggers zf off'
+BROKEN=true
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aer r2=5
+aer cpsr=0x40000000
+wa ands r2, r2
+aes
+aer?cpsr
+'
+EXPECT='0x00000000
+'
+run_test
+
+NAME='and (no s flag) does not trigger zf'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aer r2=0
+aer cpsr=0x00000000
+wa and r2, r2
+aes
+aer?cpsr
+'
+EXPECT='0x00000000
+'
+run_test
+
+NAME='and (no s flag) does not trigger zf off'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aer r2=5
+aer cpsr=0x40000000
+wa ands r2, r2
+aes
+aer?cpsr
+'
+EXPECT='0x40000000
+'
+run_test
+
+NAME='orrs triggers zf'
+BROKEN=true
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aer r2=0
+aer cpsr=0
+wa orrs r2, r2
+aes
+aer?cpsr
+'
+EXPECT='0x40000000
+'
+run_test
+
+NAME='orrs triggers zf off'
+BROKEN=true
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aer r2=5
+aer cpsr=0x40000000
+wa orrs r2, r2
+aes
+aer?cpsr
+'
+EXPECT='0x00000000
+'
+run_test
+
+NAME='orrs (opcode) triggers zf'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aer r2=0
+aer cpsr=0
+wx 022092e1
+aes
+aer?cpsr
+'
+EXPECT='0x40000000
+'
+run_test
+
+NAME='orrs (opcode) triggers zf off'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aer r2=5
+aer cpsr=0x40000000
+wx 022092e1
+aes
+aer?cpsr
+'
+EXPECT='0x00000000
+'
+run_test
+
+NAME='orr (no s flag) does not trigger zf'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aer r2=0
+aer cpsr=0x00000000
+wa orr r2, r2
+aes
+aer?cpsr
+'
+EXPECT='0x00000000
+'
+run_test
+
+NAME='orr (no s flag) does not trigger zf off'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aer r2=5
+aer cpsr=0x40000000
+wa ands r2, r2
+aes
+aer?cpsr
+'
+EXPECT='0x40000000
+'
+run_test
+
+
+NAME='adds triggers zf'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aer r2=0
+aer cpsr=0
+wa adds r2, r2
+aes
+aer?cpsr
+'
+EXPECT='0x40000000
+'
+run_test
+
+NAME='adds triggers zf off'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aer r2=2
+aer r1=5
+aer cpsr=0x40000000
+wa adds r1,r2 
+aes
+aer?cpsr
+'
+EXPECT='0x00000000
+'
+run_test
+
+NAME='add (no s flag) does not trigger zf'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aer r2=0
+aer cpsr=0
+wa add r2, r2
+aes
+aer?cpsr
+'
+EXPECT='0x00000000
+'
+run_test
+
+NAME='add (no s flag) does not trigger zf off'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aer r2=2
+aer r1=5
+aer cpsr=0x40000000
+wa add r1, r2
+aes
+aer?cpsr
+'
+EXPECT='0x40000000
+'
+run_test
+
+
+NAME='eors (opcode) triggers zf'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aer r2=1
+aer cpsr=0
+wx 022032e0
+aes
+aer?cpsr
+'
+EXPECT='0x40000000
+'
+run_test
+
+NAME='eors (opcode) triggers zf off'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aer r2=2
+aer r1=5
+aer cpsr=0x40000000
+wx 021031e0
+aes
+aer?cpsr
+'
+EXPECT='0x00000000
+'
+run_test
+
+NAME='eors triggers zf'
+BROKEN=true
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aer r2=1
+aer cpsr=0
+wa eors r2, r2
+aes
+aer?cpsr
+'
+EXPECT='0x40000000
+'
+run_test
+
+NAME='eors triggers zf off'
+BROKEN=true
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aer r2=2
+aer r1=5
+aer cpsr=0x40000000
+wa eors r1,r2 
+aes
+aer?cpsr
+'
+EXPECT='0x00000000
+'
+run_test
+
+
+NAME='eor (no s flag) does not trigger zf'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aer r2=1
+aer cpsr=0
+wa eor r2, r2
+aes
+aer?cpsr
+'
+EXPECT='0x00000000
+'
+run_test
+
+NAME='eor (no s flag) does not trigger zf off'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aer r2=2
+aer r1=5
+aer cpsr=0x40000000
+wa eor r1, r2
+aes
+aer?cpsr
+'
+EXPECT='0x40000000
+'
+run_test
+
+
+NAME='subs triggers zf'
 FILE=-
 ARGS=
 CMDS='
@@ -23,7 +411,6 @@ EXPECT='0x40000000
 run_test
 
 NAME='subs triggers zf off'
-BROKEN=true
 FILE=-
 ARGS=
 CMDS='
@@ -37,6 +424,40 @@ aes
 aer?cpsr
 '
 EXPECT='0x00000000
+'
+run_test
+
+NAME='sub (no s flag) does not trigger zf'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aer r2=1
+aer cpsr=0
+wa sub r2, r2, 1
+aes
+aer?cpsr
+'
+EXPECT='0x00000000
+'
+run_test
+
+NAME='sub (no s flag) does not trigger zf off'
+FILE=-
+ARGS=
+CMDS='
+e esil.debug=true
+e asm.arch=arm
+e asm.bits=32
+aer r2=2
+aer cpsr=0x40000000
+wa sub r2, r2, 1
+aes
+aer?cpsr
+'
+EXPECT='0x40000000
 '
 run_test
 
@@ -126,8 +547,24 @@ run_test
 
 # load cases
 
+NAME="ldr r0, [r1, 7]"
+FILE=malloc://0x200
+CMDS='
+e asm.arch=arm
+e asm.bits=32
+ar > /dev/null
+ar r0=0
+ar r1=1
+wx 070091e5
+wx aaaaaaaabbbbbbbb44332211@4
+aes
+ar r0
+'
+EXPECT='0xbbbbbbbb
+'
+run_test
+
 NAME="ldr r0, [r0, 7]"
-BROKEN=true
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -139,7 +576,7 @@ wx aaaaaaaabbbbbbbb44332211@4
 aes
 ar r0
 '
-EXPECT='0x223344bb
+EXPECT='0xbbbbbbaa
 '
 run_test
 

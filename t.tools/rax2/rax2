@@ -79,7 +79,7 @@ run_test
 
 NAME='rax2 Ox12'
 CMDS='!rax2 Ox12'
-EXPECT='22
+EXPECT='022
 '
 run_test
 

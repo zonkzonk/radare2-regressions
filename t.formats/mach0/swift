@@ -24,8 +24,8 @@ CMDS='C*~Cd?
 aav
 C*~Cd?
 '
-EXPECT='67
-215
+EXPECT='114
+262
 '
 run_test
 

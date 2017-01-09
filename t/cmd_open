@@ -145,5 +145,38 @@ malloc://1024
 malloc://512
 malloc://1024
 '
+run_test
 
+NAME='ob select files binobj'
+FILE=../bins/elf/libmagic.so
+ARGS=
+CMDS='
+iiq~?
+e scr.null=true
+o malloc://1024
+e scr.null=false
+iiq~?
+'
+EXPECT='38
+0
+'
+run_test
+
+NAME='ob select files binobj'
+FILE=../bins/elf/libmagic.so
+ARGS=
+CMDS='
+isq~?
+e scr.null=true
+o ../bins/elf/true32
+e scr.null=false
+isq~?
+# raise back
+o `o~:0[2]`
+isq~?
+'
+EXPECT='408
+46
+408
+'
 run_test

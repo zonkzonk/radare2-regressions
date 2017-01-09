@@ -16,8 +16,8 @@ e asm.cmtcol=20
 e asm.lines=false
 pd 20~write,exit
 '
-EXPECT=' 0x00000014      int 0x804 = write (1, "Hello, world!.", 14)
- 0x0000001b      int 0x801 = exit (1)
+EXPECT=' 0x00000014      int 0x80; 4 = write (1, "Hello, world!.", 14)
+ 0x0000001b      int 0x80; 1 = exit (1)
 '
 run_test
 

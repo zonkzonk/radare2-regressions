@@ -6,6 +6,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='ands (opcode) triggers zf'
 FILE=-
+BROKEN=1
 ARGS=
 CMDS='
 e esil.debug=true
@@ -23,6 +24,7 @@ run_test
 
 NAME='ands (opcode) triggers zf off'
 FILE=-
+BROKEN=1
 ARGS=
 CMDS='
 e esil.debug=true
@@ -109,7 +111,7 @@ EXPECT='0x40000000
 run_test
 
 NAME='orrs triggers zf'
-BROKEN=true
+BROKEN=1
 FILE=-
 ARGS=
 CMDS='
@@ -127,7 +129,7 @@ EXPECT='0x40000000
 run_test
 
 NAME='orrs triggers zf off'
-BROKEN=true
+BROKEN=1
 FILE=-
 ARGS=
 CMDS='
@@ -145,6 +147,7 @@ EXPECT='0x00000000
 run_test
 
 NAME='orrs (opcode) triggers zf'
+BROKEN=1
 FILE=-
 ARGS=
 CMDS='
@@ -163,6 +166,7 @@ run_test
 
 NAME='orrs (opcode) triggers zf off'
 FILE=-
+BROKEN=1
 ARGS=
 CMDS='
 e esil.debug=true
@@ -214,6 +218,7 @@ run_test
 
 
 NAME='adds triggers zf'
+BROKEN=1
 FILE=-
 ARGS=
 CMDS='
@@ -231,6 +236,7 @@ EXPECT='0x40000000
 run_test
 
 NAME='adds triggers zf off'
+BROKEN=1
 FILE=-
 ARGS=
 CMDS='
@@ -285,6 +291,7 @@ run_test
 
 
 NAME='eors (opcode) triggers zf'
+BROKEN=1
 FILE=-
 ARGS=
 CMDS='
@@ -302,6 +309,7 @@ EXPECT='0x40000000
 run_test
 
 NAME='eors (opcode) triggers zf off'
+BROKEN=1
 FILE=-
 ARGS=
 CMDS='
@@ -320,7 +328,7 @@ EXPECT='0x00000000
 run_test
 
 NAME='eors triggers zf'
-BROKEN=true
+BROKEN=1
 FILE=-
 ARGS=
 CMDS='
@@ -394,6 +402,7 @@ run_test
 
 
 NAME='subs triggers zf'
+BROKEN=true
 FILE=-
 ARGS=
 CMDS='
@@ -411,6 +420,7 @@ EXPECT='0x40000000
 run_test
 
 NAME='subs triggers zf off'
+BROKEN=true
 FILE=-
 ARGS=
 CMDS='

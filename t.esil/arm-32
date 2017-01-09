@@ -94,6 +94,7 @@ EXPECT='0x00000000
 run_test
 
 NAME='and (no s flag) does not trigger zf off'
+BROKEN=1
 FILE=-
 ARGS=
 CMDS='
@@ -200,6 +201,7 @@ EXPECT='0x00000000
 run_test
 
 NAME='orr (no s flag) does not trigger zf off'
+BROKEN=1
 FILE=-
 ARGS=
 CMDS='

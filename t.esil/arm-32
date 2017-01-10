@@ -6,7 +6,7 @@ for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME='ands (opcode) triggers zf'
 FILE=-
-BROKEN=1
+BROKEN=
 ARGS=
 CMDS='
 e esil.debug=true
@@ -24,7 +24,7 @@ run_test
 
 NAME='ands (opcode) triggers zf off'
 FILE=-
-BROKEN=1
+BROKEN=
 ARGS=
 CMDS='
 e esil.debug=true
@@ -41,7 +41,7 @@ EXPECT='0x00000000
 run_test
 
 NAME='ands triggers zf'
-BROKEN=true
+BROKEN=
 FILE=-
 ARGS=
 CMDS='
@@ -59,7 +59,7 @@ EXPECT='0x40000000
 run_test
 
 NAME='ands triggers zf off'
-BROKEN=true
+BROKEN=
 FILE=-
 ARGS=
 CMDS='
@@ -94,7 +94,7 @@ EXPECT='0x00000000
 run_test
 
 NAME='and (no s flag) does not trigger zf off'
-BROKEN=1
+BROKEN=
 FILE=-
 ARGS=
 CMDS='
@@ -103,7 +103,7 @@ e asm.arch=arm
 e asm.bits=32
 aer r2=5
 aer cpsr=0x40000000
-wa ands r2, r2
+wa and r2, r2
 aes
 aer?cpsr
 '
@@ -112,7 +112,7 @@ EXPECT='0x40000000
 run_test
 
 NAME='orrs triggers zf'
-BROKEN=1
+BROKEN=
 FILE=-
 ARGS=
 CMDS='
@@ -130,7 +130,7 @@ EXPECT='0x40000000
 run_test
 
 NAME='orrs triggers zf off'
-BROKEN=1
+BROKEN=
 FILE=-
 ARGS=
 CMDS='
@@ -148,7 +148,7 @@ EXPECT='0x00000000
 run_test
 
 NAME='orrs (opcode) triggers zf'
-BROKEN=1
+BROKEN=
 FILE=-
 ARGS=
 CMDS='
@@ -167,7 +167,7 @@ run_test
 
 NAME='orrs (opcode) triggers zf off'
 FILE=-
-BROKEN=1
+BROKEN=
 ARGS=
 CMDS='
 e esil.debug=true
@@ -201,7 +201,7 @@ EXPECT='0x00000000
 run_test
 
 NAME='orr (no s flag) does not trigger zf off'
-BROKEN=1
+BROKEN=
 FILE=-
 ARGS=
 CMDS='
@@ -210,7 +210,7 @@ e asm.arch=arm
 e asm.bits=32
 aer r2=5
 aer cpsr=0x40000000
-wa ands r2, r2
+wa orr r2, r2
 aes
 aer?cpsr
 '
@@ -220,7 +220,7 @@ run_test
 
 
 NAME='adds triggers zf'
-BROKEN=1
+BROKEN=
 FILE=-
 ARGS=
 CMDS='
@@ -238,7 +238,7 @@ EXPECT='0x40000000
 run_test
 
 NAME='adds triggers zf off'
-BROKEN=1
+BROKEN=
 FILE=-
 ARGS=
 CMDS='
@@ -293,7 +293,7 @@ run_test
 
 
 NAME='eors (opcode) triggers zf'
-BROKEN=1
+BROKEN=
 FILE=-
 ARGS=
 CMDS='
@@ -311,7 +311,7 @@ EXPECT='0x40000000
 run_test
 
 NAME='eors (opcode) triggers zf off'
-BROKEN=1
+BROKEN=
 FILE=-
 ARGS=
 CMDS='
@@ -330,7 +330,7 @@ EXPECT='0x00000000
 run_test
 
 NAME='eors triggers zf'
-BROKEN=1
+BROKEN=
 FILE=-
 ARGS=
 CMDS='
@@ -348,7 +348,7 @@ EXPECT='0x40000000
 run_test
 
 NAME='eors triggers zf off'
-BROKEN=true
+BROKEN=
 FILE=-
 ARGS=
 CMDS='
@@ -404,7 +404,7 @@ run_test
 
 
 NAME='subs triggers zf'
-BROKEN=true
+BROKEN=
 FILE=-
 ARGS=
 CMDS='
@@ -422,7 +422,7 @@ EXPECT='0x40000000
 run_test
 
 NAME='subs triggers zf off'
-BROKEN=true
+BROKEN=
 FILE=-
 ARGS=
 CMDS='

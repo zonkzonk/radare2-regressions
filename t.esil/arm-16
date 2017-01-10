@@ -357,7 +357,6 @@ run_test
 
 # LDR (register)
 NAME="ldr r2, [r3, r1]"
-BROKEN=true
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -390,7 +389,6 @@ run_test
 
 # -8 == 0xfffffff8 (Two's complement on 32bit)
 NAME="asrs r4, r4, 2"
-BROKEN=true
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm

@@ -246,3 +246,19 @@ CMDS="!rasm2 -e -a arm -b 32 -d fff0a0e3"
 EXPECT='invalid
 '
 run_test
+
+NAME='Rasm2  SPP include directive'
+CMDS="!rasm2 -a x86 -b 32 -p -f ../../rasm2/include.asm"
+BROKEN=
+EXPECT='9083e803bb00000000cd80c3
+'
+run_test
+
+NAME='Rasm2  SPP nested conditionals'
+CMDS="!rasm2 -a x86 -b 32 -p -f ../../rasm2/nest.asm"
+BROKEN=
+EXPECT='83c10283e905b90200000090
+'
+EXPECT_ERR='WARNING: WARN (line=1)
+'
+run_test

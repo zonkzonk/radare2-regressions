@@ -21,7 +21,6 @@ run_test
 
 NAME='pd call sym bug'
 FILE=../bins/mach0/hello-objc-arm
-BROKEN=1
 ARGS=
 CMDS='
 e asm.lines=0
@@ -31,27 +30,59 @@ s sym.__Test_callMeNot_
 # s+2
 pi 2
 '
-EXPECT="mov r7, sp
-sub sp, 8
+EXPECT="push {r7, lr}
+mov r7, sp
 "
 run_test
 
-NAME='call fcn eip'
+NAME='call fcn eip 32bit'
 FILE=../bins/elf/analysis/ls-alxchk
-BROKEN=1
 ARGS=
 CMDS='
 s 0x5e50
+e asm.bits=32
 af; afn eip
 pd 1 @ 0x5f16~:0
 e asm.lines=0
 e asm.bytes=0
 e asm.comments=0
 '
-EXPECT="|           0x00005f16      e835ffffff     call fcn.eip
+EXPECT="            0x00005f16      e835ffffff     call fcn.eip
 "
 run_test
 
+NAME='call fcn eip 64bit'
+FILE=../bins/elf/analysis/ls-alxchk
+BROKEN=1
+ARGS=
+CMDS='
+s 0x5e50
+e asm.bits=64
+af; afn eip
+pd 1 @ 0x5f16~:0
+e asm.lines=0
+e asm.bytes=0
+e asm.comments=0
+'
+EXPECT="            0x00005f16      e835ffffff     call fcn.eip
+"
+run_test
+
+NAME='call fcn rip 64bit'
+FILE=../bins/elf/analysis/ls-alxchk
+ARGS=
+CMDS='
+s 0x5e50
+e asm.bits=64
+af; afn rip
+pd 1 @ 0x5f16~:0
+e asm.lines=0
+e asm.bytes=0
+e asm.comments=0
+'
+EXPECT="            0x00005f16      e835ffffff     call fcn.rip
+"
+run_test
 
 NAME='lea edx bug segfault for x86 32bit #5710@radare2'
 FILE=malloc://128

@@ -33,6 +33,7 @@ if [ "$TRAVIS_OS_NAME" = "linux" ]; then
 	"aa ; afij"
 	"aa ; aerj"
 	"aa ; agj"
+	"aa ; agcj @ sym.main"
 	"aa ; aoj"
 	"aa ; aOj"
 	"aa ; arj"

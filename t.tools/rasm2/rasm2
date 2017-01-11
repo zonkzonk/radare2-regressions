@@ -257,8 +257,9 @@ run_test
 NAME='Rasm2  SPP nested conditionals'
 CMDS="!rasm2 -a x86 -b 32 -p -f ../../rasm2/nest.asm"
 BROKEN=
-EXPECT='83c10283e905b90200000090
+EXPECT='83c10283e90583c301b90200000090
 '
 EXPECT_ERR='WARNING: WARN (line=1)
+ERROR: ERR (line=1)
 '
 run_test

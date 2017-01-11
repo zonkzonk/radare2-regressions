@@ -18,5 +18,10 @@
   sub ecx, 0x5
 .endif
 
+.set xxx add ebx, 1
+.get xxx
+
+.error ERR
+
 mov ecx, 2
 nop

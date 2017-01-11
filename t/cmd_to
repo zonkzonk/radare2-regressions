@@ -6,6 +6,23 @@ NAME='to'
 FILE=-
 ARGS=
 BROKEN=
+CMDS='to ../bins/headers/s1.h;t S1'
+EXPECT='pf ddd x y z
+'
+run_test
+
+NAME='to'
+FILE=-
+ARGS=
+BROKEN=
+CMDS='to ../bins/headers/s2.h; t S1'
+EXPECT='pf ddd x test z
+'
+run_test
+
+NAME='to'
+FILE=-
+ARGS=
 CMDS='to ../bins/headers/s1.h; to ../bins/headers/s2.h; t S1
 '
 EXPECT='pf ddd x test z

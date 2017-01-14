@@ -26,7 +26,7 @@ run_test
 
 NAME='anal main fcn'
 FILE=../../bins/mach0/ls-osx-x86_64
-BROKEN=1
+BROKEN=
 ARGS=
 CMDS='af
 afi~name

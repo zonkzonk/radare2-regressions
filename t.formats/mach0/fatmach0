@@ -148,7 +148,6 @@ run_test
 
 NAME='fatmach0 sections'
 BROKEN=
-# rabin2 -x fatmach0-3true ; r2 fatmach00-3true.fat/*.x86_64
 FILE=../../bins/mach0/fatmach0-3true
 ARGS="-a x86 -b 64"
 CMDS="S=~?"
@@ -159,7 +158,6 @@ run_test
 
 NAME='fatmach0 rebase'
 BROKEN=
-# rabin2 -x fatmach0-3true ; r2 fatmach00-3true.fat/*.x86_64
 FILE=../../bins/mach0/fatmach0-3true
 ARGS="-a x86 -b32 -B 0x90000000"
 CMDS="is"

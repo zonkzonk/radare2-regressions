@@ -85,12 +85,12 @@ ax
 Ps xrefs > /dev/null
 ax
 '
-EXPECT='types=code.jmp,code.call,data.mem,data.string
-ref.unk.0x0=0x1
+EXPECT='ref.unk.0x0=0x1
 xref.unk.0x1=0
 types=code.jmp,code.call,data.mem,data.string
 ref.unk.0x0=0x1
 xref.unk.0x1=0
+types=code.jmp,code.call,data.mem,data.string
 '
 run_test
 

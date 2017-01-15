@@ -32,17 +32,31 @@ run_test
 
 NAME='radiff2 -h~Usage?"'
 CMDS='!!radiff2 -h~Usage?'
-BROKEN=1
 EXPECT='1
 '
 run_test
 
 
 NAME='radiff2 string comparsion'
-BROKEN=
+BROKEN=1
 ARGS=
 CMDS="!!radiff2 -z ../../bins/elf/elf_one_symbol_shdr ../../bins/elf/elf_one_symbol_shdr1"
 EXPECT="0x000004b0 48656c6c => 01020304 0x000004b0
 "
+run_test
 
+NAME='radiff2 unified string comparsion'
+BROKEN=1
+ARGS=
+CMDS="!!radiff2 -uz ../../bins/elf/elf_one_symbol_shdr ../../bins/elf/elf_one_symbol_shdr1"
+EXPECT="0x000004b0 48656c6c => 01020304 0x000004b0
+"
+run_test
+
+NAME='radiff2 gnu unified string comparsion'
+BROKEN=1
+ARGS=
+CMDS="!!radiff2 -Uz ../../bins/elf/elf_one_symbol_shdr ../../bins/elf/elf_one_symbol_shdr1"
+EXPECT="0x000004b0 48656c6c => 01020304 0x000004b0
+"
 run_test

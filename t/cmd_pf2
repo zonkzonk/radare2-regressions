@@ -114,7 +114,7 @@ pf.gobelin.Buh.Boh.Bah.Bah.word=adde
 .pf.gobelin.Buh.Boh.Bah.Bah.word=adde
 pf.gobelin
 '
-EXPECT="wv4 42 @ 0x00000004
+EXPECT="wv4 42 @ 4
 wx adde @ 0x00000024
  blah : 0x00000000 = 0x1234
   meh : 0x00000002 = 0x6789

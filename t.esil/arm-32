@@ -661,7 +661,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="str r2, [r3, r1]"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -685,7 +685,7 @@ run_test
 
 # STR/LDR cycle
 NAME="str r2, [r3, r1]; ldr r2, [r3, r1]"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -707,7 +707,7 @@ EXPECT='0xdeadbeef
 run_test
 
 NAME="str r1, [r2, r3, lsl 1]"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -730,7 +730,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="str r1, [r2, r3, lsr 1]"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -753,7 +753,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="str r1, [r2, r3, asr 1]"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -776,7 +776,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="str r1, [r2, r3, ror 23]"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -799,7 +799,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="str r2, [r3], 5"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -819,7 +819,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="str r2, [r3], r1"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -842,7 +842,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="str r1, [r2], r3, lsl 1"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -865,7 +865,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="str r1, [r2], r3, lsr 1"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -888,7 +888,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="str r1, [r2], r3, asr 1"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -911,7 +911,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="str r1, [r2], r3, ror 23"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -934,7 +934,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="str r2, [r3, 5]!"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -954,7 +954,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="str r2, [r3, -5]!"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -974,7 +974,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="str r2, [r3, r1]!"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -997,7 +997,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="str r2, [r3, r1]! (negative r1)"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1020,7 +1020,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="str r1, [r2, r3, lsl 1]!"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1043,7 +1043,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="str r1, [r2, r3, lsr 1]!"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1066,7 +1066,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="str r1, [r2, r3, asr 1]!"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1089,7 +1089,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="str r1, [r2, r3, ror 23]!"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1115,7 +1115,7 @@ run_test
 # just hit them all to make sure they work.
 
 NAME="streq r5, [r6, 5]"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1136,7 +1136,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="streq r5, [r6, 5] zf==0"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1157,7 +1157,7 @@ EXPECT='ccddeeff
 run_test
 
 NAME="strne r5, [r6, 5]"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1178,7 +1178,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="strne r5, [r6, 5] zf==1"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1199,7 +1199,7 @@ EXPECT='ccddeeff
 run_test
 
 NAME="strhs r5, [r6, 5]"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1220,7 +1220,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="strhs r5, [r6, 5] cf==0"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1241,7 +1241,7 @@ EXPECT='ccddeeff
 run_test
 
 NAME="strlo r5, [r6, 5]"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1262,7 +1262,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="strlo r5, [r6, 5] cf==1"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1283,7 +1283,7 @@ EXPECT='ccddeeff
 run_test
 
 NAME="strmi r5, [r6, 5]"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1304,7 +1304,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="strmi r5, [r6, 5] nf==0"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1325,7 +1325,7 @@ EXPECT='ccddeeff
 run_test
 
 NAME="strpl r5, [r6, 5]"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1346,7 +1346,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="strpl r5, [r6, 5] nf==1"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1368,7 +1368,7 @@ run_test
 
 
 NAME="strvs r5, [r6, 5]"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1389,7 +1389,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="strvs r5, [r6, 5] vf==0"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1410,7 +1410,7 @@ EXPECT='ccddeeff
 run_test
 
 NAME="strvc r5, [r6, 5]"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1431,7 +1431,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="strvc r5, [r6, 5] vf==1"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1452,7 +1452,7 @@ EXPECT='ccddeeff
 run_test
 
 NAME="strhi r5, [r6, 5] cf==0, zf==0"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1474,7 +1474,7 @@ EXPECT='ccddeeff
 run_test
 
 NAME="strhi r5, [r6, 5] cf==0, zf==1"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1496,7 +1496,7 @@ EXPECT='ccddeeff
 run_test
 
 NAME="strhi r5, [r6, 5] cf==1, zf==1"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1518,7 +1518,7 @@ EXPECT='ccddeeff
 run_test
 
 NAME="strhi r5, [r6, 5] zf==0 cf==1"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1540,7 +1540,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="strls r5, [r6, 5] zf==1 cf==0"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1562,7 +1562,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="strls r5, [r6, 5] cf==0, zf==0"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1585,7 +1585,7 @@ run_test
 
 
 NAME="strls r5, [r6, 5] cf==1, zf==0"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1607,7 +1607,7 @@ EXPECT='ccddeeff
 run_test
 
 NAME="strls r5, [r6, 5] cf==1, zf==1"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1629,7 +1629,7 @@ EXPECT='ccddeeff
 run_test
 
 NAME="strge r5, [r6, 5] nf==1, vf==0"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1651,7 +1651,7 @@ EXPECT='ccddeeff
 run_test
 
 NAME="strge r5, [r6, 5] nf==0, vf==1"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1673,7 +1673,7 @@ EXPECT='ccddeeff
 run_test
 
 NAME="strge r5, [r6, 5] nf==1 vf==1"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1695,7 +1695,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="strge r5, [r6, 5] nf==0 vf==0"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1717,7 +1717,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="strlt r5, [r6, 5] nf==1 vf==0"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1739,7 +1739,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="strlt r5, [r6, 5] nf==0 vf==1"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1761,7 +1761,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="strlt r5, [r6, 5] nf==0, vf==0"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1783,7 +1783,7 @@ EXPECT='ccddeeff
 run_test
 
 NAME="strlt r5, [r6, 5] nf==1, vf==1"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1805,7 +1805,7 @@ EXPECT='ccddeeff
 run_test
 
 NAME="strgt r5, [r6, 5] zf==1 nf==1, vf==1"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1828,7 +1828,7 @@ EXPECT='ccddeeff
 run_test
 
 NAME="strgt r5, [r6, 5] zf==1 nf==0, vf==1"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1851,7 +1851,7 @@ EXPECT='ccddeeff
 run_test
 
 NAME="strgt r5, [r6, 5] zf==1 nf==0, vf==0"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1875,7 +1875,7 @@ run_test
 
 
 NAME="strgt r5, [r6, 5] zf==0 nf==0, vf==1"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1899,7 +1899,7 @@ run_test
 
 
 NAME="strgt r5, [r6, 5] zf==0 nf==1, vf==0"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1922,7 +1922,7 @@ EXPECT='ccddeeff
 run_test
 
 NAME="strgt r5, [r6, 5] zf==0 nf==0, vf==0"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1945,7 +1945,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="strgt r5, [r6, 5] zf==0 nf==1, vf==1"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1968,7 +1968,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="strle r5, [r6, 5] zf==1 nf==1, vf==1"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -1991,7 +1991,7 @@ EXPECT='ccddeeff
 run_test
 
 NAME="strle r5, [r6, 5] zf==1 nf==0, vf==0"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -2014,7 +2014,7 @@ EXPECT='ccddeeff
 run_test
 
 NAME="strle r5, [r6, 5] zf==0 nf==0, vf==0"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -2038,7 +2038,7 @@ run_test
 
 
 NAME="strle r5, [r6, 5] zf==0 nf==0, vf==1"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -2062,7 +2062,7 @@ run_test
 
 
 NAME="strle r5, [r6, 5] zf==0 nf==0, vf==1"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -2085,7 +2085,7 @@ EXPECT='ccddeeff
 run_test
 
 NAME="strle r5, [r6, 5] zf==1 nf==1, vf==0"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -2108,7 +2108,7 @@ EXPECT='efbeadde
 run_test
 
 NAME="strle r5, [r6, 5] zf==1 nf==0, vf==1"
-BROKEN=true
+BROKEN=
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm

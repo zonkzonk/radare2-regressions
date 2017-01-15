@@ -112,9 +112,9 @@ ax
 ax-10 20
 ax
 '
-EXPECT='types=code.jmp,code.call,data.mem,data.string
-ref.unk.0x14=0xa
+EXPECT='ref.unk.0x14=0xa
 xref.unk.0xa=0x14
+types=code.jmp,code.call,data.mem,data.string
 types=code.jmp,code.call,data.mem,data.string
 '
 run_test
@@ -130,9 +130,9 @@ ax
 ax-10
 ax
 '
-EXPECT='types=code.jmp,code.call,data.mem,data.string
-ref.unk.0x14=0xa
+EXPECT='ref.unk.0x14=0xa
 xref.unk.0xa=0x14
+types=code.jmp,code.call,data.mem,data.string
 types=code.jmp,code.call,data.mem,data.string
 '
 run_test
@@ -147,9 +147,9 @@ ax
 ax-*
 ax
 '
-EXPECT='types=code.jmp,code.call,data.mem,data.string
-ref.unk.0x0=0xa
+EXPECT='ref.unk.0x0=0xa
 xref.unk.0xa=0
+types=code.jmp,code.call,data.mem,data.string
 types=code.jmp,code.call,data.mem,data.string
 '
 

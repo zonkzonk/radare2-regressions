@@ -60,26 +60,26 @@ run_test
 NAME='t'
 FILE=-
 CMDS='t'
-EXPECT='unsigned int
-unsigned char
-unsigned short
-short
-int
-long
-long long
-void *
-char
+EXPECT='char
 char *
-uint8_t
-uint16_t
-uint32_t
-uint64_t
-int8_t
+int
 int16_t
 int32_t
 int64_t
-uid_t
+int8_t
+long
+long long
+short
 size_t
+uid_t
+uint16_t
+uint32_t
+uint64_t
+uint8_t
+unsigned char
+unsigned int
+unsigned short
+void *
 '
 run_test
 
@@ -274,28 +274,28 @@ t addr
 '
 EXPECT_ERR='../bins/other/error.h:1: warning: #error this should be treated as warning
 '
-EXPECT='unsigned int
-unsigned char
-unsigned short
-short
-int
-long
-long long
-void *
-char
+EXPECT='char
 char *
-uint8_t
-uint16_t
-uint32_t
-uint64_t
-int8_t
+int
 int16_t
 int32_t
 int64_t
-uid_t
+int8_t
+long
+long long
+short
 size_t
-name
+uid_t
+uint16_t
+uint32_t
+uint64_t
+uint8_t
+unsigned char
+unsigned int
+unsigned short
+void *
 date
+name
 addr
 dox
 pf [127]z[40]zi street city zip
@@ -310,28 +310,28 @@ t
 ts
 t addr
 '
-EXPECT='unsigned int
-unsigned char
-unsigned short
-short
-int
-long
-long long
-void *
-char
+EXPECT='char
 char *
-uint8_t
-uint16_t
-uint32_t
-uint64_t
-int8_t
+int
 int16_t
 int32_t
 int64_t
-uid_t
+int8_t
+long
+long long
+short
 size_t
-name
+uid_t
+uint16_t
+uint32_t
+uint64_t
+uint8_t
+unsigned char
+unsigned int
+unsigned short
+void *
 date
+name
 addr
 dox
 pf [127]z[40]zi street city zip

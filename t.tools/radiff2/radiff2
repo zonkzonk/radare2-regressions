@@ -37,3 +37,12 @@ EXPECT='1
 '
 run_test
 
+
+NAME='radiff2 string comparsion'
+BROKEN=
+ARGS=
+CMDS="!!radiff2 -z ../../bins/elf/elf_one_symbol_shdr ../../bins/elf/elf_one_symbol_shdr1"
+EXPECT="0x000004b0 48656c6c => 01020304 0x000004b0
+"
+
+run_test

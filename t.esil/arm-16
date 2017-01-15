@@ -90,6 +90,7 @@ run_test
 # load cases
 
 NAME="ldr.w r0, [r0, r1, lsl 2]"
+BROKEN=1
 FILE=malloc://0x200
 CMDS='
 e asm.arch=arm
@@ -303,7 +304,7 @@ e asm.bits=16
 wx a8bf
 aoe
 '
-EXPECT='0x0 nf,vf,==,!,?{,6,pc,+=,}
+EXPECT='0x0 nf,vf,==,?{,6,pc,+=,}
 '
 run_test
 
@@ -315,7 +316,7 @@ e asm.bits=16
 wx b8bf
 aoe
 '
-EXPECT='0x0 nf,vf,!=,!,?{,6,pc,+=,}
+EXPECT='0x0 nf,vf,==,!,?{,6,pc,+=,}
 '
 run_test
 
@@ -327,7 +328,7 @@ e asm.bits=16
 wx c8bf
 aoe
 '
-EXPECT='0x0 zf,!,?{,nf,vf,==?{,6,pc,+=,},}
+EXPECT='0x0 zf,!,?{,nf,vf,==,?{,6,pc,+=,},}
 '
 run_test
 
@@ -339,7 +340,7 @@ e asm.bits=16
 wx d8bf
 aoe
 '
-EXPECT='0x0 zf,?{,nf,vf,!=?{,6,pc,+=,},}
+EXPECT='0x0 zf,?{,nf,vf,==,!,?{,6,pc,+=,},}
 '
 run_test
 

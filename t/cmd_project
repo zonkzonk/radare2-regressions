@@ -71,8 +71,8 @@ Po project.r2
 cat /tmp/testset/rc | grep CC
 rmdir -p /tmp/testset
 '
-EXPECT='CCu base64:IkZpcnN0IGNvbW1lbnQi @ 0x00404890
-CCu base64:IlNlY29uZCBjb21tZW50Ig== @ 0x00404800
+EXPECT='CCu base64:IlNlY29uZCBjb21tZW50Ig== @ 0x00404800
+CCu base64:IkZpcnN0IGNvbW1lbnQi @ 0x00404890
 '
 run_test
 

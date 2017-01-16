@@ -199,8 +199,15 @@ BROKEN=
 CMDS='f blah 0x0000000a
 fl blah 0x00000003
 fl
+f-blah
+f test 12 @ 33
+f
+fl test 333
+f
 '
 EXPECT='0x00000003
+0x00000021 12 test
+0x00000021 333 test
 '
 run_test
 

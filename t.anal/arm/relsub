@@ -1,0 +1,19 @@
+#!/bin/sh
+# GPL 3+ - Copyright (C) 2017 maijin
+[ -e tests.sh ] && . ./tests.sh || . ../../tests.sh
+
+NAME='arm relsub'
+FILE=-
+ARGS=
+BROKEN=1
+CMDS='wx 0c009fe5
+e asm.arch=arm
+e asm.bits=32
+e asm.comments=false
+e asm.bytes=false
+e asm.offset=false
+f sym.callback=0x14
+pd 1'
+EXPECT='                 ldr r0, [sym.callback]
+'
+run_test

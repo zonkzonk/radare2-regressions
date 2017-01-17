@@ -162,6 +162,9 @@ m68k-extras:
 extras.mdmp:
 	@sh run_tests.sh t.extras/mdmp
 
+olly-extras:
+	@sh run_tests.sh t.extras/x86_olly
+
 broken:
 	grep BROKEN=1 t -r -l
 

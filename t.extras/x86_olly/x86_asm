@@ -1,7 +1,7 @@
 #!/bin/sh
 for a in . .. ../.. ../../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh; done
 
-#export RASM2_NOPLUGINS=1
+unset RASM2_NOPLUGINS
 test_vector() {
 NAME="${1} ${BITS}: [${2}]"
 if [ "${4}" = "br" ]; then

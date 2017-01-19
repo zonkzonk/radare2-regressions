@@ -125,7 +125,7 @@ run_test
 
 
 NAME="arm32 blx switches bits"
-BROKEN=true
+BROKEN=
 FILE=malloc://512
 CMDS="
 e asm.arch=arm
@@ -141,7 +141,7 @@ run_test
 
 
 NAME="arm32 bx switches bits on odd location"
-BROKEN=true
+BROKEN=
 FILE=malloc://512
 CMDS="
 e asm.arch=arm

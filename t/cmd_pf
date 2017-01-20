@@ -1,6 +1,30 @@
 #!/bin/sh
-# GPL 3+ - Copyright (C) 2014-2016
+# GPL 3+ - Copyright (C) 2014-2017
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
+
+NAME='pf.-x'
+FILE=-
+CMDS='
+pf.foo xxd
+pf.
+pf.-foo
+pf.
+'
+EXPECT='pf.foo xxd
+'
+run_test
+
+NAME='pf.-*'
+FILE=-
+CMDS='
+pf.foo xxd
+pf.
+pf.-*
+pf.
+'
+EXPECT='pf.foo xxd
+'
+run_test
 
 NAME='pf i foo @x:0x01'
 FILE=-

@@ -35,7 +35,7 @@ pfd.test
 '
 EXPECT='digraph g { graph [ rank=same; rankdir=LR; ];
 root [ rank=1; shape=record
-label="test|{0x0|i|var0|<var0>256}"];
+label="test|{0x0|i|var0|<var0>0x00000100}"];
 }
 '
 run_test

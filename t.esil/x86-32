@@ -1166,3 +1166,93 @@ ps @ ebp - 0x24
 EXPECT='TMCTF{datalosswontstopus}
 '
 run_test
+
+test_cmov() {
+NAME="${2} ${1}"
+if [ "${4}" = "br" ]; then
+    BROKEN=1
+fi
+ARGS="-a x86 -b 32"
+FILE=-
+CMDS='
+aer ecx=8
+'${1}'
+wa '${2}'
+aes
+aer eax
+'
+if [ "${IGNORE_ERR}" = 1 ]; then
+EXPECT="${3}
+"
+else
+EXPECT_ERR="${3}
+"
+fi
+run_test
+}
+
+test_cmov "" "cmova eax, ecx"  "0x00000008"
+test_cmov "aer zf=1" "cmova eax, ecx"  "0x00000000"
+test_cmov "aer cf=1" "cmova eax, ecx"  "0x00000000"
+test_cmov "" "cmovae eax, ecx" "0x00000008"
+test_cmov "aer cf=1" "cmovae eax, ecx" "0x00000000"
+test_cmov "aer zf=1" "cmovb eax, ecx"  "0x00000000"
+test_cmov "aer cf=1" "cmovb eax, ecx" "0x00000008"
+test_cmov "" "cmovbe eax, ecx"  "0x00000000"
+test_cmov "aer cf=1" "cmovbe eax, ecx" "0x00000008"
+test_cmov "" "cmovc eax, ecx" "0x00000000"
+test_cmov "aer cf=1" "cmovc eax, ecx" "0x00000008"
+test_cmov "" "cmove eax, ecx" "0x00000000"
+test_cmov "aer zf=1" "cmove eax, ecx" "0x00000008"
+test_cmov "" "cmovg eax, ecx" "0x00000008"
+test_cmov "aer sf=1" "cmovg eax, ecx" "0x00000000"
+test_cmov "" "cmovge eax, ecx" "0x00000008"
+test_cmov "aer sf=1" "cmovge eax, ecx" "0x00000000"
+test_cmov "aer sf=1" "cmovl eax, ecx" "0x00000008"
+test_cmov "" "cmovl eax, ecx" "0x00000000"
+test_cmov "aer zf=1" "cmovle eax, ecx" "0x00000008"
+test_cmov "aer sf=1" "cmovle eax, ecx" "0x00000008"
+test_cmov "" "cmovle eax, ecx" "0x00000000"
+test_cmov "aer cf=1" "cmovna eax, ecx" "0x00000008"
+test_cmov "aer zf=1" "cmovna eax, ecx" "0x00000008"
+test_cmov "" "cmovna eax, ecx" "0x00000000"
+test_cmov "aer cf=1" "cmovnae eax, ecx" "0x00000008"
+test_cmov "" "cmovnae eax, ecx" "0x00000000"
+test_cmov "" "cmovnb eax, ecx" "0x00000008"
+test_cmov "aer cf=1" "cmovnb eax, ecx" "0x00000000"
+test_cmov "aer cf=1" "cmovnbe eax, ecx" "0x00000000"
+test_cmov "aer zf=1" "cmovnbe eax, ecx" "0x00000000"
+test_cmov "" "cmovnbe eax, ecx" "0x00000008"
+test_cmov "aer cf=1" "cmovnc eax, ecx" "0x00000000"
+test_cmov "" "cmovnc eax, ecx" "0x00000008"
+test_cmov "aer zf=1" "cmovne eax, ecx" "0x00000000"
+test_cmov "" "cmovne eax, ecx" "0x00000008"
+test_cmov "aer zf=1" "cmovng eax, ecx" "0x00000008"
+test_cmov "aer sf=1" "cmovng eax, ecx" "0x00000008"
+test_cmov "" "cmovng eax, ecx" "0x00000000"
+test_cmov "aer sf=1" "cmovnge eax, ecx" "0x00000008"
+test_cmov "" "cmovnge eax, ecx" "0x00000000"
+test_cmov "aer sf=1" "cmovnl eax, ecx" "0x00000000"
+test_cmov "" "cmovnl eax, ecx" "0x00000008"
+test_cmov "" "cmovnle eax, ecx" "0x00000008"
+test_cmov "aer zf=1" "cmovnle eax, ecx" "0x00000000"
+test_cmov "aer of=1" "cmovno eax, ecx" "0x00000000"
+test_cmov "" "cmovno eax, ecx" "0x00000008"
+test_cmov "aer pf=1" "cmovnp eax, ecx" "0x00000000"
+test_cmov "" "cmovnp eax, ecx" "0x00000008"
+test_cmov "aer sf=1" "cmovns eax, ecx" "0x00000000"
+test_cmov "" "cmovns eax, ecx" "0x00000008"
+test_cmov "aer zf=1" "cmovnz eax, ecx" "0x00000000"
+test_cmov "" "cmovnz eax, ecx" "0x00000008"
+test_cmov "aer of=1" "cmovo eax, ecx" "0x00000008"
+test_cmov "" "cmovo eax, ecx" "0x00000000"
+test_cmov "aer pf=1" "cmovp eax, ecx" "0x00000008"
+test_cmov "" "cmovp eax, ecx" "0x00000000"
+test_cmov "aer pf=1" "cmovpe eax, ecx" "0x00000008"
+test_cmov "" "cmovpe eax, ecx" "0x00000000"
+test_cmov "aer pf=1" "cmovpo eax, ecx" "0x00000000"
+test_cmov "" "cmovpo eax, ecx" "0x00000008"
+test_cmov "aer sf=1" "cmovs eax, ecx" "0x00000008"
+test_cmov "" "cmovs eax, ecx" "0x00000000"
+test_cmov "aer zf=1" "cmovz eax, ecx" "0x00000008"
+test_cmov "" "cmovz eax, ecx" "0x00000000"

@@ -19,6 +19,30 @@ EXPECT="1
 "
 run_test
 
+NAME='pd arm cortex 0'
+FILE=-
+ARGS='-a arm -b 16'
+CMDS='wx 80f30988; pi 1'
+EXPECT="invalid
+"
+run_test
+
+NAME='pd arm cortex 1'
+FILE=-
+ARGS='-a arm -b 16 -e asm.cpu=cortex'
+CMDS='wx 80f30988;pi 1'
+EXPECT="msr psp, r0
+"
+run_test
+
+NAME='pd arm cortex 2'
+FILE=-
+ARGS='-a arm -b 16'
+CMDS='e asm.cpu=cortex;wx 80f30988;pi 1'
+EXPECT="msr psp, r0
+"
+run_test
+
 NAME='pd call sym bug'
 FILE=../bins/mach0/hello-objc-arm
 ARGS=

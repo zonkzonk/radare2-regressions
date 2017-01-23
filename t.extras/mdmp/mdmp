@@ -136,7 +136,7 @@ FILE=$F1
 ARGS=
 CMDS='ie~0x004014e0
 '
-EXPECT='vaddr=0x004014e0 paddr=0x000990b2 baddr=0x00000000 laddr=0x00000000 type=program
+EXPECT='vaddr=0x004014e0 paddr=0x000990b2 baddr=0x00000000 laddr=0x00000000 haddr=0x00097c7a type=program
 '
 run_test
 
@@ -285,12 +285,12 @@ EXPECT='5 entrypoints
 run_test
 
 
-NAME="${PLUGIN}: 64bit - entrypoints"
+NAME="${PLUGIN}: 64bit - entrypoints resolving"
 FILE=$F2
 ARGS=
 CMDS='ie~0x00401500
 '
-EXPECT='vaddr=0x00401500 paddr=0x0009418f baddr=0x00000000 laddr=0x00000000 type=program
+EXPECT='vaddr=0x00401500 paddr=0x0009418f baddr=0x00000000 laddr=0x00000000 haddr=0x00092d37 type=program
 '
 run_test
 

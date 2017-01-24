@@ -3,6 +3,17 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME="ELF ARM: function names"
+FILE=../../bins/elf/analysis/arm_32_flags0
+CMDS='
+s sym.call_weak_fn
+af
+afi~name
+'
+EXPECT=' name: sym.call_weak_fn
+'
+run_test
+
+NAME="ELF ARM: function names"
 BROKEN=
 FILE=../../bins/elf/analysis/arm_32_flags0
 CMDS='

@@ -42,7 +42,7 @@ e scr.color=false
 e scr.wheel = false
 aa
 axt @ str.Password:'
-EXPECT='data 0x804843c mov dword [esp], str.Password: in sym.main
+EXPECT='data 0x804843c mov dword [esp], str.Password: in main
 '
 run_test
 
@@ -98,7 +98,7 @@ e scr.color=false
 e scr.wheel = false
 aa
 axt @ str.Password:'
-EXPECT='data 0x804843c mov dword [esp], str.Password: in sym.main
+EXPECT='data 0x804843c mov dword [esp], str.Password: in main
 '
 run_test
 

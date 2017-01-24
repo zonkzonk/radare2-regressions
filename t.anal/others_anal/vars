@@ -58,7 +58,6 @@ run_test
 NAME='afva for fastcall with no esp vars'
 FILE=../../bins/elf/analysis/fast
 ARGS=
-BROKEN=true
 CMDS='aa
 s sym.fastcaslled
 afC fastcall
@@ -66,20 +65,19 @@ afC
 afva
 pdf
 '
-EXPECT='fastcall
+EXPECT="fastcall
 / (fcn) sym.fastcaslled 59
-|           ; arg int arg_ecx @ ecx
-|           ; arg int arg_edx @ edx
+|   sym.fastcaslled (int arg_8h, int arg_ch);
 |           ; var int local_20h @ ebp-0x20
 |           ; var int local_1ch @ ebp-0x1c
 |           ; var int local_10h @ ebp-0x10
 |           ; var int local_ch @ ebp-0xc
 |           ; arg int arg_8h @ ebp+0x8
 |           ; arg int arg_ch @ ebp+0xc
-|           ; CALL XREF from 0x080484c7 (sym.main)
+|              ; CALL XREF from 0x080484c7 (sym.main)
 |           0x0804841b      55             push ebp
 |           0x0804841c      89e5           mov ebp, esp
-|           0x0804841e      83ec28         sub esp, 0x28
+|           0x0804841e      83ec28         sub esp, 0x28               ; '('
 |           0x08048421      894de4         mov dword [ebp - local_1ch], ecx
 |           0x08048424      8955e0         mov dword [ebp - local_20h], edx
 |           0x08048427      8b55e4         mov edx, dword [ebp - local_1ch]
@@ -92,13 +90,13 @@ EXPECT='fastcall
 |           0x0804843b      ff7508         push dword [ebp + arg_8h]
 |           0x0804843e      ff75f0         push dword [ebp - local_10h]
 |           0x08048441      ff75f4         push dword [ebp - local_ch]
-|           0x08048444      6874850408     push str._i__i__i_n ; str._i__i__i_n ; "%i %i %i." @ 0x8048574
-|           0x08048449      e8a2feffff     call sym.imp.printf
+|           0x08048444      6874850408     push str._i__i__i_n ; str._i__i__i_n ; \"%i %i %i.\" @ 0x8048574
+|           0x08048449      e8a2feffff     call sym.imp.printf        ; int printf(const char *format)
 |           0x0804844e      83c410         add esp, 0x10
 |           0x08048451      90             nop
 |           0x08048452      c9             leave
 \           0x08048453      c20800         ret 8
-'
+"
 run_test
 NAME='afva for cdecl/stdcall with no esp vars'
 FILE=../../bins/elf/analysis/fast

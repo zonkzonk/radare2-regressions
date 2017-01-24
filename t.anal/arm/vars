@@ -84,7 +84,7 @@ s main
 af
 pd 1~local?
 '
-EXPECT='47
+EXPECT='48
 '
 run_test
 
@@ -97,7 +97,8 @@ wx f0b503af2de9000d95b0002001210222032340f2040940f2050c40f2060e07240825092614901
 aa
 pdf~var
 '
-EXPECT='|           ; var int local_4h @ r13+0x4
+EXPECT='|           ; var int local_0h @ r13+0x0
+|           ; var int local_4h @ r13+0x4
 |           ; var int local_8h @ r13+0x8
 |           ; var int local_ch @ r13+0xc
 |           ; var int local_10h @ r13+0x10

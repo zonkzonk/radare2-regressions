@@ -124,9 +124,9 @@ FILE=../bins/mach0/test-arm64
 CMDS='af
 e asm.emu=true
 e asm.emustr=true
-pdf~?string
+pdf~?str.string
 '
-EXPECT='7
+EXPECT='6
 '
 run_test
 

@@ -27,12 +27,29 @@ invalid"
 PLUGIN=arm
 BITS=16
 
+NAME="${PLUGIN}: arm-thumb-mclass (see below)"
+CMDS='e asm.arch=arm
+e asm.bits=16
+e asm.cpu=cortex
+wx eff31080
+# setting asm.arch ignores previous value of asm.cpu
+pi 1
+e asm.arch=arm
+pi 1
+e asm.arch=arm.gnu
+pi 1
+'
+EXPECT='mrs r0, primask
+mrs r0, primask
+mrs r0, PRIMASK
+'
+run_test
+
 NAME="${PLUGIN}: arm-thumb-mclass"
 CMDS='e asm.arch=arm
 e asm.bits=16
-e asm.features=mclass
+e asm.cpu=cortex
 wx eff31080
-e asm.arch=arm
 pi 1
 e asm.arch=arm.gnu
 pi 1

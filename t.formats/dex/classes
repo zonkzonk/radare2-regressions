@@ -158,31 +158,37 @@ FILE=${HELLOWORLD}
 ARGS=''
 BROKEN=
 IGNORE_ERR=1
-CMDS="pi 1 @0x25c; pi 1 @0x026a; pi 1 @0x0294"
+CMDS="pi 1 @0x25c
+pi 1 @0x026a
+pi 1 @0x0294"
 EXPECT='sget-object v0, Ljava/lang/System;
 new-instance v0, LHello;
 new-instance v1, Ljava/lang/StringBuilder;
 '
 run_test
 
-NAME='DEX HelloWorld.dex debug info'
+NAME='DEX HelloWorld.dex debug info pd command'
 FILE=${HELLOWORLD}
 ARGS=''
 BROKEN=
 IGNORE_ERR=1
-CMDS="pd 1 @0x00000290|grep Hello.java; pd 1 @0x000002f4|grep World.java; pd 1 @0x00000318|grep World.java;"
+CMDS="pd 1 @0x00000290~Hello.java
+pd 1 @0x000002f4~World.java
+pd 1 @0x00000318~World.java"
 EXPECT='            0x00000290      62000400       sget-object v0, Ljava/lang/System; ; Hello.java:9
             0x000002f4      701008000100   invoke-direct {v1}, Ljava/lang/Object.<init>()V ; 0x8 ; World.java:5
             0x00000318      62000400       sget-object v0, Ljava/lang/System; ; World.java:11
 '
 run_test
 
-NAME='DEX HelloWorld.dex debug info CL'
+NAME='DEX HelloWorld.dex debug info CL command'
 FILE=${HELLOWORLD}
 ARGS=''
 BROKEN=
 IGNORE_ERR=1
-CMDS="CL @0x00000290; CL @0x000002f4; CL @0x00000318;"
+CMDS="CL @0x00000290
+CL @0x000002f4
+CL @0x00000318"
 EXPECT='file Hello.java
 line 9
 file World.java

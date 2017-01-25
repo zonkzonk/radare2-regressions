@@ -20,7 +20,7 @@ CMDS='s 0x760
 af
 afi~name
 '
-EXPECT=' name: sym._r_bp_new
+EXPECT='name: sym._r_bp_new
 '
 run_test
 
@@ -31,6 +31,6 @@ ARGS=
 CMDS='af
 afi~name
 '
-EXPECT=' name: main
+EXPECT='name: main
 '
 run_test

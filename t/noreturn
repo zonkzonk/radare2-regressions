@@ -9,7 +9,7 @@ tn sym.imp.__libc_start_main
 af
 afi~size
 '
-EXPECT=' size: 33
+EXPECT='size: 33
 '
 EXITCODE=0
 run_test
@@ -22,7 +22,7 @@ tn 0x08048550
 af
 afi~size
 '
-EXPECT=' size: 33
+EXPECT='size: 33
 '
 EXITCODE=0
 run_test
@@ -34,7 +34,7 @@ CMDS='tn-*
 af
 afi~size
 '
-EXPECT=' size: 34
+EXPECT='size: 34
 '
 EXITCODE=0
 run_test
@@ -47,7 +47,7 @@ tn-*
 af
 afi~size
 '
-EXPECT=' size: 34
+EXPECT='size: 34
 '
 EXITCODE=0
 run_test

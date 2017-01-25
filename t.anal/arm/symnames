@@ -9,7 +9,7 @@ s sym.call_weak_fn
 af
 afi~name
 '
-EXPECT=' name: sym.call_weak_fn
+EXPECT='name: sym.call_weak_fn
 '
 run_test
 

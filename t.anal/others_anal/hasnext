@@ -9,7 +9,7 @@ CMDS="e anal.hasnext=true
 af@main
 afi@main~size
 "
-EXPECT=" size: 261
+EXPECT="size: 261
 "
 run_test
 
@@ -19,6 +19,6 @@ CMDS="e anal.hasnext=false
 af@main
 afi@main~size
 "
-EXPECT=" size: 261
+EXPECT="size: 261
 "
 run_test

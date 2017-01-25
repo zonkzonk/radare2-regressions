@@ -6,6 +6,6 @@ CMDS='aaa
 afi @ sub.msvcrt.dll_printf_b2d~name
 
 '
-EXPECT=' name: sub.msvcrt.dll_printf_b2d
+EXPECT='name: sub.msvcrt.dll_printf_b2d
 '
 run_test

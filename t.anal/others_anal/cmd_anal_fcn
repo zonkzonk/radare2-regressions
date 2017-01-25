@@ -172,7 +172,7 @@ s entry0
 afC stdcall
 afi~call-convention
 '
-EXPECT=' call-convention: stdcall
+EXPECT='call-convention: stdcall
 '
 run_test
 

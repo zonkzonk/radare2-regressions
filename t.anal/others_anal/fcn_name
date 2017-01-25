@@ -26,7 +26,7 @@ CMDS='s 0x0040042c
 af
 afi~name
 pd 1~sym.call_gmon_start:0'
-EXPECT=' name: sym.call_gmon_start
+EXPECT='name: sym.call_gmon_start
 / (fcn) sym.call_gmon_start 23
 '
 run_test
@@ -39,6 +39,6 @@ BROKEN=1
 CMDS='af
 afi~name
 '
-EXPECT=' name: entry0
+EXPECT='name: entry0
 '
 run_test

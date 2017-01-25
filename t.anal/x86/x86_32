@@ -56,7 +56,7 @@ wx 5589d8b900000000b885000000cd8089c35dc3
 af
 afi~size
 '
-EXPECT=' size: 19
+EXPECT='size: 19
 '
 run_test
 

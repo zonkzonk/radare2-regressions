@@ -177,14 +177,12 @@ type.uint64_t=q
 
 '
 NAME='typedef'
-BROKEN=1
 FILE=-
 CMDS='"td typedef int Abracadabra"
 t-Abracadabra
 t~?Abracadabra
 '
-EXPECT='
-TODO
+EXPECT='0
 '
 run_test
 

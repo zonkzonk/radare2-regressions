@@ -26,8 +26,6 @@ arch     m68k
 bits     16
 machine  Sega Megadrive
 os       smd
-minopsz  2
-maxopsz  10
 endian   little
 stripped false
 static   true
@@ -41,7 +39,7 @@ run_test
 NAME="sega megadrive rom symbols"
 FILE=../../bins/smd/LiquidSpaceDodgerV3.bin
 ARGS=''
-BROKEN=
+BROKEN=1
 CMDS="isq"
 EXPECT='0x00000000 0 rom_start
 0xf8720200 0 rom_end

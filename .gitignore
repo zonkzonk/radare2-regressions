@@ -4,7 +4,7 @@
 *.tmp
 .DS_Store
 
-/stats.csv
+stats.csv
 
 /t/io/.newfile
 /t/seek/.empty.tmp

@@ -104,7 +104,15 @@ anal.6502:
 esil:
 	@sh run_tests.sh t.esil
 
-formats: format.dex format.elf format.firmware format.java format.mach0 format.mangling format.msil format.omf format.others format.pdb format.pe format.xbe format.zimg
+formats: format.bflt format.coff format.smd format.vsf format.dex format.elf format.firmware format.java format.mach0 format.mangling format.msil format.omf format.others format.pdb format.pe format.xbe format.zimg format.nes format.gba
+format.vsf:
+	@sh run_tests.sh t.formats/vsf
+format.smd:
+	@sh run_tests.sh t.formats/smd
+format.coff:
+	@sh run_tests.sh t.formats/coff
+format.bflt:
+	@sh run_tests.sh t.formats/bflt
 format.dex:
 	@sh run_tests.sh t.formats/dex
 format.elf:
@@ -131,6 +139,11 @@ format.xbe:
 	@sh run_tests.sh t.formats/xbe
 format.zimg:
 	@sh run_tests.sh t.formats/zimg
+format.nes:
+	@sh run_tests.sh t.formats/nes
+format.gba:
+	@sh run_tests.sh t.formats/gba
+
 
 tools: rabin2 radiff2 ragg2 ragg2-cc rahash2 rasm2 rax2 r2
 rabin2:

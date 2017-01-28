@@ -177,6 +177,7 @@ EXPECT='  md5
   rot
   blowfish
   cps2
+  des-ecb
 '
 
 run_test
@@ -806,5 +807,36 @@ CMDS='!rahash2 -D cps2 -S "0x942a5702 0x05ac140e" -x d5642832bc24ac560000fe02000
 BROKEN=
 EXPECT='000000000000033244d31b9deba90ac1
 '
+
+run_test
+
+NAME='rahash2 -E des-ecb'
+CMDS='!rahash2 -E "des-ecb" -S "4545454545454545" -x "CC3368EE3DD10A86" | rax2 -S'
+BROKEN=
+EXPECT='4545454545454545
+'
+
+run_test
+
+NAME='rahash2 -D des-ecb'
+CMDS='!rahash2 -D "des-ecb" -S "0101010101010101" -x "41AD068548809D02994D4DC157B96C52" | rax2 -S'
+BROKEN=
+EXPECT='b01c29502b59ff4a0101010101010101
+'
+
+run_test
+
+NAME='rahash2 -E des-ecb STRING'
+CMDS='!rahash2 -E "des-ecb" -S s:"doom bin" -s "A password storms below a laid singer." | rax2 -S'
+BROKEN=
+EXPECT='8d244873a8e0de1287f65d712419cb937ff318a5352682e0c31d3e7a72c7e35f40c06d63fb5f2e5f
+'
+
+run_test
+
+NAME='rahash2 -D des-ecb STRING'
+CMDS='!rahash2 -D "des-ecb" -S s:"savethat" -x "c3868da6e3d787c88e5a61a7c333cd802e5cee17d7b09555572a35e120fb8e36dc9f0722976934b9453a3a4e741f27c8"'
+BROKEN=
+EXPECT='How does a passionate magic wipe a reactionary?.'
 
 run_test

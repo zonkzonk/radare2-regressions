@@ -2,10 +2,26 @@
 # GPL 3+ - Copyright (C) 2017 maijin
 [ -e tests.sh ] && . ./tests.sh || . ../../tests.sh
 
-NAME='arm relsub'
+NAME='arm relsub >256'
 FILE=-
 ARGS=
-BROKEN=1
+BROKEN=
+CMDS='wx 0d039fe5
+e asm.arch=arm
+e asm.bits=32
+e asm.comments=false
+e asm.bytes=false
+e asm.offset=false
+f sym.callback=0x315
+pd 1'
+EXPECT='                 ldr r0, [sym.callback]
+'
+run_test
+
+NAME='arm relsub <256'
+FILE=-
+ARGS=
+BROKEN=
 CMDS='wx 0c009fe5
 e asm.arch=arm
 e asm.bits=32
@@ -14,6 +30,6 @@ e asm.bytes=false
 e asm.offset=false
 f sym.callback=0x14
 pd 1'
-EXPECT='                 ldr r0, [sym.callback]
+EXPECT='                 ldr r0, [0x00000014]
 '
 run_test

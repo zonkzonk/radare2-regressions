@@ -121,3 +121,16 @@ pd@x:8d15d0830408
 EXPECT=" 0x00000000      8d15d0830408   lea edx, [0x80483d0]
 "
 run_test
+
+
+NAME='size of function in elf x64 stub'
+FILE=../bins/other/radiff2/hellocxx-osx-fat-intel_1
+ARGS=
+CMDS='
+s 0x100000dae
+af
+afi~^size[1]
+'
+EXPECT="6
+"
+run_test

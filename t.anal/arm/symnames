@@ -51,9 +51,11 @@ BROKEN=
 FILE=../../bins/elf/analysis/arm_32_flags0
 CMDS='
 aa
+f~sym?
 afl~?
 '
-EXPECT='15
+EXPECT='19
+13
 '
 run_test
 
@@ -62,8 +64,10 @@ BROKEN=
 FILE=../../bins/elf/analysis/arm_32_flags0
 CMDS='
 af @@ sym.*
+f~sym?
 afl~?
 '
-EXPECT='15
+EXPECT='19
+13
 '
 run_test

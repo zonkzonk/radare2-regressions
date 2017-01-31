@@ -55,7 +55,7 @@ f~sym?
 afl~?
 '
 EXPECT='19
-13
+15
 '
 run_test
 
@@ -68,6 +68,6 @@ f~sym?
 afl~?
 '
 EXPECT='19
-13
+15
 '
 run_test

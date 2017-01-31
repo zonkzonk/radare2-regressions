@@ -104,7 +104,7 @@ e asm.lines=0
 e asm.bytes=0
 e asm.comments=0
 '
-EXPECT="|           0x00005f16      e835ffffff     call fcn.rip
+EXPECT="            0x00005f16      e835ffffff     call fcn.rip
 "
 run_test
 

@@ -3,7 +3,7 @@
 [ -e tests.sh ] && . ./tests.sh || . ../../tests.sh
 
 NAME='arm relsub >256'
-FILE=-
+FILE=malloc://800
 ARGS=
 BROKEN=
 CMDS='wx 0d039fe5

@@ -72,3 +72,21 @@ qah*
 EXPECT='ahi 10 @ 0x400419
 '
 run_test
+
+NAME='V&q change bits'
+BROKEN=1
+FILE=../bins/elf/ioli/crackme0x00
+ARGS=
+CMDS='
+e scr.interactive=true
+V&q
+af
+pi 1
+V&q
+V&q
+pi 1
+'
+EXPECT='xor ebp, ebp
+xor bp, bp
+'
+run_test

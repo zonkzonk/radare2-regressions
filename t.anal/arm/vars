@@ -75,6 +75,47 @@ EXPECT='            ;-- $d_2:
 '
 run_test
 
+NAME="ELF ARM: af and aav"
+FILE=../../bins/elf/arm1.bin
+BROKEN=1
+CMDS='e asm.arch=arm
+e asm.bits=32
+e asm.comments=false
+e asm.bytes=false
+e asm.offset=false
+e asm.flags=false
+af @ sym.call_gmon_start
+af @ entry0
+aav
+pd 1 @ 0x000081e0
+pd 1 @ 0x0000817c
+pd 1 @ 0x00008180
+pd 1 @ 0x00008184
+'
+EXPECT='            .dword 0x00084758 ; obj.completed.6278
+            .dword 0x00008b00 ; sym.__libc_csu_fini
+            .dword 0x00008290 ; sym.main
+            .dword 0x00008b48 ; sym.__libc_csu_init
+'
+run_test
+
+NAME="ELF ARM: aav string"
+FILE=../../bins/elf/arm1.bin
+BROKEN=1
+CMDS='e asm.arch=arm
+e asm.bits=32
+e asm.comments=false
+e asm.bytes=false
+e asm.offset=false
+e asm.flags=false
+af @ sym.deregister_tm_clones
+aav
+pd 1 @ 0x0001037c
+'
+EXPECT='            .dword 0x0002061f ; str.:__Raspbian_4.9.2_10__4.9.2
+'
+run_test
+
 NAME="ELF ARM: vars"
 BROKEN=
 FILE=../../bins/elf/analysis/arm-ls

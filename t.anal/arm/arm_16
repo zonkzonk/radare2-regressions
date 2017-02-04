@@ -1,5 +1,15 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
+NAME="noreturn errno"
+FILE=malloc://32
+CMDS="s main
+af
+afi~^size
+"
+EXPECT='size: 32
+'
+run_test
+
 NAME="thumb ldr pc-rel analysis"
 FILE=malloc://32
 CMDS="

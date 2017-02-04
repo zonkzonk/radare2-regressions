@@ -177,14 +177,12 @@ type.uint64_t=q
 
 '
 NAME='typedef'
-BROKEN=1
 FILE=-
 CMDS='"td typedef int Abracadabra"
 t-Abracadabra
 t~?Abracadabra
 '
-EXPECT='
-TODO
+EXPECT='0
 '
 run_test
 
@@ -371,3 +369,19 @@ tu
 EXPECT='x
 '
 run_test
+NAME='Types not reloaded when arch is the same'
+FILE=-
+CMDS='e asm.archx86
+e anal.arch=x86
+e anal.bits=32
+t-*
+tk a=b
+e asm.arch=x68
+e anal.arch=x86
+e anal.bits=32
+tk a
+'
+EXPECT='b
+'
+run_test
+

@@ -2,10 +2,9 @@
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
 FILE=../bins/elf/analysis/test_hex_search_issues
-BROKEN=1
 IGNORE_ERR=1
 CMDS='/x 0100000000000000000000ff
 '
-EXPECT='0x000f862c hit0_0 "0100000000000000000000ff"
+EXPECT='0x000f862c hit0_0 0100000000000000000000ff
 '
 run_test

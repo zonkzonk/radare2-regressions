@@ -154,3 +154,16 @@ EXPECT="movs r1, 4
 movs r4, 9
 "
 run_test
+
+NAME="ELF ARM: thumb/arm switch"
+BROKEN=1
+FILE=../../bins/elf/analysis/libstagefright_soft_g711dec.so
+CMDS='
+af
+afi~size
+afi~size
+'
+EXPECT='size: 32
+size: 32
+'
+run_test

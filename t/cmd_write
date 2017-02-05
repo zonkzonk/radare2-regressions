@@ -216,3 +216,26 @@ EXPECT='3412
 78563412
 '
 run_test
+
+## "wci" - write commits
+NAME='wci should commit the changes to the file'
+FILE=malloc://1024
+BROKEN=1
+ARGS=
+FILTER="cut -d' '  -f3"
+EXPECT='differ:'
+TMPDIR=$PWD'/.tmp'
+cd $TMPDIR
+CMDS='
+e io.cache=true
+cp ../../bins/pe/b.exe .b.exe.orig
+cp ../../bins/pe/b.exe .b.exe.new
+o+ b.exe.new
+wx ff
+wci
+!cmp .b.exe.orig .b.exe.new
+
+rm .b.exe.orig
+rm .b.exe.new
+'
+run_test

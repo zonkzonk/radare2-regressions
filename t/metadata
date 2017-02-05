@@ -151,7 +151,15 @@ EXPECT='1
 '
 run_test
 
-NAME="formata memory metadata"
+NAME="Cf should be silent"
+FILE=-
+ARGS=
+CMDS='Cf 32 2xx
+'
+EXPECT=''
+run_test
+
+NAME="format memory metadata"
 FILE=-
 ARGS=
 CMDS='wx 41424344

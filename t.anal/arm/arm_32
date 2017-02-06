@@ -187,7 +187,7 @@ af
 afi~size
 afi~size
 '
-EXPECT='size: 32
-size: 32
+EXPECT='size: 28
+size: 28
 '
 run_test

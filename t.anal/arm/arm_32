@@ -2,7 +2,7 @@
 for a in . .. ../.. ; do [ -e $a/tests.sh ] && . $a/tests.sh ; done
 
 NAME="arm-or-thumb visual bug"
-BROKEN=1
+BROKEN=
 FILE=../../bins/mach0/arm-or-thumb
 CMDS="
 e scr.interactive=1

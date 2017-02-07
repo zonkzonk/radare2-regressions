@@ -180,7 +180,7 @@ movs r4, 9
 run_test
 
 NAME="ELF ARM: thumb/arm switch"
-BROKEN=1
+BROKEN=
 FILE=../../bins/elf/analysis/libstagefright_soft_g711dec.so
 CMDS='
 af

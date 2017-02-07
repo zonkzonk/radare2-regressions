@@ -67,6 +67,9 @@ test_vector "${PLUGIN}" "add eax, 3" 83c003
 test_vector "${PLUGIN}" "add eax, dword [eax]" 0300
 test_vector "${PLUGIN}" "add [eax], eax" 0100
 test_vector "${PLUGIN}" "add esi,-334" 81c6b2feffff
+test_vector "${PLUGIN}" "add byte [0x45342], al" 000542530400
+test_vector "${PLUGIN}" "add byte [0x45a42], 0x24" 8005425a040024
+test_vector "${PLUGIN}" "add byte [eax + eax], bl" 001c
 test_vector "${PLUGIN}" "addpd xmm0, xmmword [eax]" 660f5800 "br"
 test_vector "${PLUGIN}" "addps xmm0, xmmword [eax]" 0f5800 "br"
 test_vector "${PLUGIN}" "addsd xmm0, qword [eax]" F20F5800 "br"
@@ -423,6 +426,8 @@ test_vector "${PLUGIN}" "lea ebx, [eax+24]" 8d5818
 test_vector "${PLUGIN}" "lea ebx, [eax+4]" 8d5804
 test_vector "${PLUGIN}" "lea ebx, [ebp+324]" 8d9d44010000
 test_vector "${PLUGIN}" "lea ebx, [ebp]" 8d5d00
+test_vector "${PLUGIN}" "lea edx, [0x2c4b]" 8d154b2c0000
+test_vector "${PLUGIN}" "lea edx, [0x4422221d]" 8d151d222244
 test_vector "${PLUGIN}" "leave" c9
 test_vector "${PLUGIN}" "les eax, [eax]" c400
 test_vector "${PLUGIN}" "les eax, [eax+12]" c4400c
@@ -636,8 +641,10 @@ test_vector "${PLUGIN}" "movupd xmmword [eax], xmm0" 660f1100 "br"
 test_vector "${PLUGIN}" "movups xmm0, xmmword [eax]" 0f10 "br"
 test_vector "${PLUGIN}" "movups xmmword [eax], xmm0" 0f11 "br"
 test_vector "${PLUGIN}" "mov word [eax], es" 8c00
-test_vector "${PLUGIN}" "movzx eax, byte [eax]" 0fb600 "br"
-test_vector "${PLUGIN}" "movzx eax, word [eax]" 0fb700 "br"
+test_vector "${PLUGIN}" "movzx eax, byte [eax]" 0fb600
+test_vector "${PLUGIN}" "movzx ecx, byte [esp]" 0fb60c24
+test_vector "${PLUGIN}" "movzx eax, word [eax]" 0fb700
+test_vector "${PLUGIN}" "movzx edx, word [esp]" 0fb71424
 test_vector "${PLUGIN}" "mpsadbw xmm0, xmm0, 0" 660f3a42c000 "br"
 test_vector "${PLUGIN}" "mul byte [eax]" f620 "br"
 test_vector "${PLUGIN}" "mulpd xmm0, xmmword [eax]" 660f5900 "br"

@@ -176,3 +176,37 @@ EXPECT=" a : 0x00000000 = 1919252337
 "
 run_test
 
+
+NAME='pf only one size'
+FILE=malloc://1024
+BROKEN=
+CMDS='
+pf 16 16
+'
+EXPECT="Usage: pf [0|cnt][format-string]
+"
+run_test
+
+NAME='pf refuse space between size and format-string'
+FILE=malloc://1024
+BROKEN=
+CMDS='
+pf 16 16
+'
+EXPECT="Usage: pf [0|cnt][format-string]
+"
+run_test
+
+NAME='pf field name'
+FILE=malloc://1024
+BROKEN=
+CMDS='pf 2x x2
+'
+EXPECT="0x00000000 [0] {
+   x2 : 0x00000000 = 0x00000000
+}
+0x00000004 [1] {
+   x2 : 0x00000004 = 0x00000000
+}
+"
+run_test

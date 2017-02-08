@@ -2,11 +2,11 @@
 # GPL 3+ - Copyright (C) 2016 Maijin
 [ -e tests.sh ] && . ./tests.sh || . ../tests.sh
 
-NAME='debrujn little endian'
+NAME='debruijn little endian'
 FILE=-
 ARGS=
 BROKEN=
-CMDS='wopD 1K
+CMDS='
 e cfg.bigendian=false
 wopO 0x41574141
 '
@@ -14,11 +14,11 @@ EXPECT='64
 '
 run_test
 
-NAME='debrujn big endian'
+NAME='debruijn big endian'
 FILE=-
 ARGS=
 BROKEN=
-CMDS='wopD 1K
+CMDS='
 e cfg.bigendian=true
 wopO 0x41574141
 '
